@@ -1,0 +1,4 @@
+baseURL = 'https://testdocs.anchore.com/oss/'
+languageCode = 'en-us'
+title = 'Anchore OSS Documentation - Coming Soon'
+publishDir = "public/oss"
