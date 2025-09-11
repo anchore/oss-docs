@@ -2,3 +2,42 @@ baseURL = 'https://testdocs.anchore.com/oss/'
 languageCode = 'en-us'
 title = 'Anchore OSS Documentation - Coming Soon'
 publishDir = "public/oss"
+theme = "docsy"
+
+# ignoreLogs setting because we have some raw html
+# snippets, which cause warnings we don't need
+# https://discourse.gohugo.io/t/ignorelogs-warning-goldmark-raw-html/52469
+ignoreLogs = ['warning-goldmark-raw-html']
+
+[menu]
+  # Items on the top-right of the header
+  [[menu.main]]
+    name = "OSS Docs"
+    weight = -102
+    pre = "<i class='fas fa-book pr-2'></i>"
+    url = "/"
+  [[menu.main]]
+    name = "Enterprise Docs"
+    weight = -101
+    pre = "<i class='fas fa-book pr-2'></i>"
+    url = "https://docs.anchore.com/current/"
+  [[menu.main]]
+    name = "Events"
+    weight = -100
+    pre = "<i class='fas fa-calendar pr-2'></i>"
+    url = "/about/events/"
+  [[menu.main]]
+    name = "Blog"
+    weight = -99
+    pre = "<i class='fas fa-rss pr-2'></i>"
+    url = "https://anchore.com/blog/"
+  [[menu.main]]
+    name = "GitHub"
+    weight = -98
+    pre = "<i class='fab fa-github pr-2'></i>"
+    url = "https://github.com/anchore/"
+  [[menu.main]]
+    name = "Discourse"
+    weight = -97
+    pre = "<i class='fab fa-discourse pr-2'></i>"
+    url = "https://anchore.com/discourse"
