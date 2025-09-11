@@ -2,11 +2,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var prefix = 'fas';
 var iconName = 'right-long';
-var width = 576;
+var width = 512;
 var height = 512;
 var aliases = ["long-arrow-alt-right"];
 var unicode = 'f30b';
-var svgPathData = 'M566.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-128 128c-9.2 9.2-22.9 11.9-34.9 6.9S384 396.9 384 384l0-64-336 0c-26.5 0-48-21.5-48-48l0-32c0-26.5 21.5-48 48-48l336 0 0-64c0-12.9 7.8-24.6 19.8-29.6s25.7-2.2 34.9 6.9l128 128z';
+var svgPathData = 'M334.5 414c8.8 3.8 19 2 26-4.6l144-136c4.8-4.5 7.5-10.8 7.5-17.4s-2.7-12.9-7.5-17.4l-144-136c-7-6.6-17.2-8.4-26-4.6s-14.5 12.5-14.5 22l0 72L32 192c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l288 0 0 72c0 9.6 5.7 18.2 14.5 22z';
 
 exports.definition = {
   prefix: prefix,

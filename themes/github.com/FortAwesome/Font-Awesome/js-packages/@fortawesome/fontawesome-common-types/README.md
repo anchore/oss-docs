@@ -1,12 +1,12 @@
 # @fortawesome/fontawesome-common-types - SVG with JavaScript
 
-> "I came here to chew bubblegum and install Font Awesome 7 - and I'm all out of bubblegum"
+> "I came here to chew bubblegum and install Font Awesome 6 - and I'm all out of bubblegum"
 
 [![npm](https://img.shields.io/npm/v/@fortawesome/fontawesome-common-types.svg?style=flat-square)](https://www.npmjs.com/package/@fortawesome/fontawesome-common-types)
 
 ## What is this package?
 
-Font Awesome 7 JavaScript packages support TypeScript. This package abstracts out some of the common definitions that those packages use.
+Font Awesome 6 JavaScript packages support TypeScript. This package abstracts out some of the common definitions that those packages use.
 
 ## Here be dragons
 

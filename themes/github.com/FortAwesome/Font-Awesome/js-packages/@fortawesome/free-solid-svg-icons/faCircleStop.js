@@ -6,7 +6,7 @@ var width = 512;
 var height = 512;
 var aliases = [62094,"stop-circle"];
 var unicode = 'f28d';
-var svgPathData = 'M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM192 160l128 0c17.7 0 32 14.3 32 32l0 128c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32z';
+var svgPathData = 'M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM192 160l128 0c17.7 0 32 14.3 32 32l0 128c0 17.7-14.3 32-32 32l-128 0c-17.7 0-32-14.3-32-32l0-128c0-17.7 14.3-32 32-32z';
 
 exports.definition = {
   prefix: prefix,

@@ -2,7 +2,7 @@ import {IconDefinition, IconLookup, IconName, IconFamily, IconPrefix, CssStyleCl
 export {IconDefinition, IconLookup, IconName, IconFamily, IconPrefix, CssStyleClass, IconStyle, IconPathData, IconPack} from '@fortawesome/fontawesome-common-types';
 export const dom: DOM;
 export const library: Library;
-export const parse: { transform(transformString: string): Transform, icon(parseIconString: string | { prefix: IconPrefix, iconName: IconName } | [string | IconPrefix, string | IconName]): IconLookup };
+export const parse: { transform(transformString: string): Transform, icon(parseIconString: string): IconLookup };
 export const config: Config;
 export function noAuto():void;
 export function findIconDefinition(iconLookup: IconLookup): IconDefinition;
@@ -47,9 +47,8 @@ export interface Config {
   replacementClass: string;
   autoReplaceSvg: boolean | 'nest';
   autoAddCss: boolean;
+  autoA11y: boolean;
   searchPseudoElements: boolean;
-  searchPseudoElementsWarnings: boolean;
-  searchPseudoElementsFullScan: boolean;
   observeMutations: boolean;
   keepOriginalSource: boolean;
   measurePerformance: boolean;

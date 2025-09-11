@@ -2,11 +2,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var prefix = 'fas';
 var iconName = 'mound';
-var width = 512;
+var width = 576;
 var height = 512;
 var aliases = [];
 var unicode = 'e52d';
-var svgPathData = 'M112.4 179.2C142 127.7 196.8 96 256.2 96s114.2 31.7 143.9 83.2L508.7 368c12.3 21.3-3.1 48-27.7 48L31.5 416c-24.6 0-40-26.6-27.7-48L112.4 179.2z';
+var svgPathData = 'M144.1 179.2C173.8 127.7 228.6 96 288 96s114.2 31.7 143.9 83.2L540.4 368c12.3 21.3-3.1 48-27.7 48H63.3c-24.6 0-40-26.6-27.7-48L144.1 179.2z';
 
 exports.definition = {
   prefix: prefix,

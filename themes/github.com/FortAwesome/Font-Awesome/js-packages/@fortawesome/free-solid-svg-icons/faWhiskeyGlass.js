@@ -2,11 +2,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var prefix = 'fas';
 var iconName = 'whiskey-glass';
-var width = 448;
+var width = 512;
 var height = 512;
 var aliases = [129347,"glass-whiskey"];
 var unicode = 'f7a0';
-var svgPathData = 'M32 32C14.3 32 0 46.3 0 64L0 352c0 70.7 57.3 128 128 128l192 0c70.7 0 128-57.3 128-128l0-288c0-17.7-14.3-32-32-32L32 32zM64 256l0-160 320 0 0 160-320 0z';
+var svgPathData = 'M32 32c-9.3 0-18.1 4-24.2 11.1S-1 59.4 .3 68.6l50 342.9c5.7 39.3 39.4 68.5 79.2 68.5l253 0c39.7 0 73.4-29.1 79.2-68.5l50-342.9c1.3-9.2-1.4-18.5-7.5-25.5S489.3 32 480 32L32 32zM87.7 224L69 96l374 0L424.3 224 87.7 224z';
 
 exports.definition = {
   prefix: prefix,

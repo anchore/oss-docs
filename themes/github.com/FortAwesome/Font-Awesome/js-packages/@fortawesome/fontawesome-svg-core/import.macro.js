@@ -1,10 +1,6 @@
 const { createMacro, MacroError } = require('babel-plugin-macros')
 const { addNamed } = require('@babel/helper-module-imports')
-const {
-  FAFamilyIds,
-  FAFamilyClassicId,
-  FAFamilyDuotoneId
-} = require('@fortawesome-internal-tools/fontawesome-icons/canonical')
+const { FAFamilyIds, FAFamilyClassicId, FAFamilyDuotoneId } = require('@fortawesome-internal-tools/fontawesome-icons/canonical')
 const { FALegacyStyleIds } = require('@fortawesome-internal-tools/fontawesome-icons/legacy')
 
 module.exports = createMacro(importer, {
@@ -36,7 +32,7 @@ function importer({ references, state, babel, source, config }) {
   })
 }
 
-function replace({ macroName, license, references, state, babel }) {
+function replace({ macroName, license, references, state, babel, source }) {
   references.forEach((nodePath) => {
     const { iconName, style, family } = resolveReplacement({ nodePath, babel, state, macroName })
 
@@ -68,30 +64,21 @@ function resolveReplacement({ nodePath, babel, state, macroName }) {
 }
 
 // The macros corresonding to legacy style names: solid(), regular(), light(), thin(), duotone(), brands().
-function resolveReplacementLegacyStyle({ nodePath, babel, macroName }) {
+function resolveReplacementLegacyStyle({ nodePath, babel, state, macroName }) {
   const { types: t } = babel
   const { parentPath } = nodePath
 
   if (!styles.includes(macroName)) {
-    throw parentPath.buildCodeFrameError(
-      `${macroName} is not a valid macro name. Use one of ${macroNames.join(', ')}`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`${macroName} is not a valid macro name. Use one of ${macroNames.join(', ')}`, MacroError)
   }
 
   if (parentPath.node.arguments) {
     if (parentPath.node.arguments.length < 1) {
-      throw parentPath.buildCodeFrameError(
-        `Received an invalid number of arguments for ${macroName} macro: must be exactly 1`,
-        MacroError
-      )
+      throw parentPath.buildCodeFrameError(`Received an invalid number of arguments for ${macroName} macro: must be exactly 1`, MacroError)
     }
 
     if (parentPath.node.arguments.length > 1) {
-      throw parentPath.buildCodeFrameError(
-        `Received an invalid number of arguments for ${macroName} macro: must be exactly 1`,
-        MacroError
-      )
+      throw parentPath.buildCodeFrameError(`Received an invalid number of arguments for ${macroName} macro: must be exactly 1`, MacroError)
     }
 
     if (
@@ -99,20 +86,11 @@ function resolveReplacementLegacyStyle({ nodePath, babel, macroName }) {
       t.isStringLiteral(parentPath.node.arguments[0]) &&
       nodePath.parentPath.node.arguments[0].value.startsWith('fa-')
     ) {
-      throw parentPath.buildCodeFrameError(
-        `Don't begin the icon name with fa-, just use ${nodePath.parentPath.node.arguments[0].value.slice(3)}`,
-        MacroError
-      )
+      throw parentPath.buildCodeFrameError(`Don't begin the icon name with fa-, just use ${nodePath.parentPath.node.arguments[0].value.slice(3)}`, MacroError)
     }
 
-    if (
-      (parentPath.node.arguments.length === 1 || parentPath.node.arguments.length === 2) &&
-      !t.isStringLiteral(parentPath.node.arguments[0])
-    ) {
-      throw parentPath.buildCodeFrameError(
-        'Only string literals are supported when referencing icons (use a string here instead)',
-        MacroError
-      )
+    if ((parentPath.node.arguments.length === 1 || parentPath.node.arguments.length === 2) && !t.isStringLiteral(parentPath.node.arguments[0])) {
+      throw parentPath.buildCodeFrameError('Only string literals are supported when referencing icons (use a string here instead)', MacroError)
     }
   } else {
     throw parentPath.buildCodeFrameError('Pass the icon name you would like to import as an argument.', MacroError)
@@ -126,22 +104,16 @@ function resolveReplacementLegacyStyle({ nodePath, babel, macroName }) {
 }
 
 // The icon() macro.
-function resolveReplacementIcon({ nodePath, babel, macroName }) {
+function resolveReplacementIcon({ nodePath, babel, state, macroName }) {
   const { types: t } = babel
   const { parentPath } = nodePath
 
   if ('icon' !== macroName) {
-    throw parentPath.buildCodeFrameError(
-      `${macroName} is not a valid macro name. Use one of ${macroNames.join(', ')}`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`${macroName} is not a valid macro name. Use one of ${macroNames.join(', ')}`, MacroError)
   }
 
   if (parentPath.node.arguments.length !== 1) {
-    throw parentPath.buildCodeFrameError(
-      `Received an invalid number of arguments for ${macroName} macro: must be exactly 1`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`Received an invalid number of arguments for ${macroName} macro: must be exactly 1`, MacroError)
   }
 
   if (!t.isObjectExpression(parentPath.node.arguments[0])) {
@@ -155,58 +127,34 @@ function resolveReplacementIcon({ nodePath, babel, macroName }) {
 
   const namePropIndex = properties.findIndex((prop) => 'name' === prop.key.name)
 
-  const name =
-    namePropIndex >= 0
-      ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[namePropIndex])
-      : undefined
+  const name = namePropIndex >= 0 ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[namePropIndex]) : undefined
 
   if (!name) {
-    throw parentPath.buildCodeFrameError(
-      'The object argument to the icon() macro must have a name property',
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError('The object argument to the icon() macro must have a name property', MacroError)
   }
 
   const stylePropIndex = properties.findIndex((prop) => 'style' === prop.key.name)
 
-  let style =
-    stylePropIndex >= 0
-      ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[stylePropIndex])
-      : undefined
+  let style = stylePropIndex >= 0 ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[stylePropIndex]) : undefined
 
   if (style && !styles.includes(style)) {
-    throw parentPath.buildCodeFrameError(
-      `Invalid style name: ${style}. It must be one of the following: ${styles.join(', ')}`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`Invalid style name: ${style}. It must be one of the following: ${styles.join(', ')}`, MacroError)
   }
 
   const familyPropIndex = properties.findIndex((prop) => 'family' === prop.key.name)
 
-  let family =
-    familyPropIndex >= 0
-      ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[familyPropIndex])
-      : undefined
+  let family = familyPropIndex >= 0 ? getStringLiteralPropertyValue(t, parentPath, parentPath.node.arguments[0].properties[familyPropIndex]) : undefined
 
   if (family && !families.includes(family)) {
-    throw parentPath.buildCodeFrameError(
-      `Invalid family name: ${family}. It must be one of the following: ${families.join(', ')}`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`Invalid family name: ${family}. It must be one of the following: ${families.join(', ')}`, MacroError)
   }
 
   if (FAFamilyDuotoneId === style && family && FAFamilyClassicId !== family) {
-    throw parentPath.buildCodeFrameError(
-      `duotone cannot be used as a style name with any family other than classic`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`duotone cannot be used as a style name with any family other than classic`, MacroError)
   }
 
   if ('brands' === style && family && FAFamilyClassicId !== family) {
-    throw parentPath.buildCodeFrameError(
-      `brands cannot be used as a style name with any family other than classic`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`brands cannot be used as a style name with any family other than classic`, MacroError)
   }
 
   if (family && !style) {
@@ -252,10 +200,7 @@ function getStringLiteralPropertyValue(t, parentPath, property) {
   }
 
   if (!t.isStringLiteral(property.value)) {
-    throw parentPath.buildCodeFrameError(
-      `Only string literals are supported for the ${property.key.name} property (use a string here instead)`,
-      MacroError
-    )
+    throw parentPath.buildCodeFrameError(`Only string literals are supported for the ${property.key.name} property (use a string here instead)`, MacroError)
   }
 
   return property.value.value

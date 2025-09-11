@@ -1,21 +1,22 @@
 <h1><img src="https://img.fortawesome.com/349cfdf6/fa-free-logo.svg" alt="Font Awesome Free" width="50%"></h1>
 
-> Version 7
+> Version 6
 
 Font Awesome is the Internet's icon library and toolkit, used by millions of
 designers, developers, and content creators.
 
 ## Documentation
 
-Learn how to get started with Font Awesome and then dive deeper into other and advanced topics:
+Learn how to get started with Font Awesome and then dive deeper into other advanced topics:
 
-[Docs for version 7](https://fontawesome.com/docs)
+[Docs for version 6](https://fontawesome.com/docs)
 
-### Where did Font Awesome 6, 5, 4 (or 3) go?
+### Where did Font Awesome 5, 4 (or 3) go?
 
-Now that Font Awesome 7 has been released we are marking version 6 as Long Term
-Support (LTS). Version 6 will get critical bug fixes only. Version 3, 4, and 5 are
-now end-of-life and we don't plan on releasing any further versions of these.
+Now that Font Awesome 6 has been released we are marking version 5 as Long Term
+Support (LTS). Version 5 will get critical bug fixes only. Version 3 and 4 are
+now end-of-life and we don't plan on releasing any further versions of the 4.x
+or 3.x.
 
 You can see a complete list of versions on [our Versions
 page](https://fontawesome.com/versions).
@@ -30,8 +31,8 @@ Looking for older versions of Font Awesome? Check the [releases](https://github.
 
 From time-to-time we'll have special upgrading instructions from one version to the next.
 
-- [Web upgrading guide](https://docs.fontawesome.com/upgrade/upgrade-on-web)
-- [Desktop upgrading guide](https://docs.fontawesome.com/upgrade/upgrade-on-desktop)
+- [Web upgrading guide](https://fontawesome.com/docs/web/setup/upgrade/)
+- [Desktop upgrading guide](https://fontawesome.com/docs/desktop/setup/upgrade/)
 
 ## Code of conduct
 
@@ -52,7 +53,7 @@ with the following format:
 
 For more information on SemVer, please visit https://semver.org.
 
-**The major version "7" is part of an umbrella release.  It includes many different types of files and technologies. Therefore
+**The major version "6" is part of an umbrella release.  It includes many different types of files and technologies. Therefore
 we deviate from normal SemVer in the following ways:**
 
 * Any release may update the design, look-and-feel, or branding of an existing

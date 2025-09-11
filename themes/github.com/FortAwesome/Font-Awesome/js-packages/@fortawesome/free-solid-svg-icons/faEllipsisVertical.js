@@ -6,7 +6,7 @@ var width = 128;
 var height = 512;
 var aliases = ["ellipsis-v"];
 var unicode = 'f142';
-var svgPathData = 'M64 144a56 56 0 1 1 0-112 56 56 0 1 1 0 112zm0 224c30.9 0 56 25.1 56 56s-25.1 56-56 56-56-25.1-56-56 25.1-56 56-56zm56-112c0 30.9-25.1 56-56 56s-56-25.1-56-56 25.1-56 56-56 56 25.1 56 56z';
+var svgPathData = 'M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z';
 
 exports.definition = {
   prefix: prefix,

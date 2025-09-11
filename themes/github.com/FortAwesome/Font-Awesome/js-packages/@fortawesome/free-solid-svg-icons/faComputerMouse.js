@@ -6,7 +6,7 @@ var width = 384;
 var height = 512;
 var aliases = [128433,"mouse"];
 var unicode = 'f8cc';
-var svgPathData = 'M0 192l168 0 0-192-8 0C71.6 0 0 71.6 0 160l0 32zm0 48L0 352c0 88.4 71.6 160 160 160l64 0c88.4 0 160-71.6 160-160l0-112-384 0zm384-48l0-32C384 71.6 312.4 0 224 0l-8 0 0 192 168 0z';
+var svgPathData = 'M0 192l176 0L176 0 160 0C71.6 0 0 71.6 0 160l0 32zm0 32L0 352c0 88.4 71.6 160 160 160l64 0c88.4 0 160-71.6 160-160l0-128-192 0L0 224zm384-32l0-32C384 71.6 312.4 0 224 0L208 0l0 192 176 0z';
 
 exports.definition = {
   prefix: prefix,

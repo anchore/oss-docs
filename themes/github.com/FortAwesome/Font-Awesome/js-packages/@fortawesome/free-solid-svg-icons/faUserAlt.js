@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-var source = require('./faUser');
+var source = require('./faUserLarge');
 exports.definition = {
   prefix: source.prefix,
   iconName: source.iconName,

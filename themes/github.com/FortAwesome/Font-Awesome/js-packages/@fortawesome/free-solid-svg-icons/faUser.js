@@ -4,9 +4,9 @@ var prefix = 'fas';
 var iconName = 'user';
 var width = 448;
 var height = 512;
-var aliases = [128100,62144,62470,"user-alt","user-large"];
+var aliases = [128100,62144];
 var unicode = 'f007';
-var svgPathData = 'M224 248a120 120 0 1 0 0-240 120 120 0 1 0 0 240zm-29.7 56C95.8 304 16 383.8 16 482.3 16 498.7 29.3 512 45.7 512l356.6 0c16.4 0 29.7-13.3 29.7-29.7 0-98.5-79.8-178.3-178.3-178.3l-59.4 0z';
+var svgPathData = 'M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z';
 
 exports.definition = {
   prefix: prefix,

@@ -2,11 +2,11 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 var prefix = 'fas';
 var iconName = 'table';
-var width = 448;
+var width = 512;
 var height = 512;
 var aliases = [];
 var unicode = 'f0ce';
-var svgPathData = 'M256 160l0 96 128 0 0-96-128 0zm-64 0l-128 0 0 96 128 0 0-96zM0 320L0 96C0 60.7 28.7 32 64 32l320 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64l0-96zm384 0l-128 0 0 96 128 0 0-96zM192 416l0-96-128 0 0 96 128 0z';
+var svgPathData = 'M64 256l0-96 160 0 0 96L64 256zm0 64l160 0 0 96L64 416l0-96zm224 96l0-96 160 0 0 96-160 0zM448 256l-160 0 0-96 160 0 0 96zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32z';
 
 exports.definition = {
   prefix: prefix,

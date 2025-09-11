@@ -6,7 +6,7 @@ var width = 320;
 var height = 512;
 var aliases = [];
 var unicode = 'f42e';
-var svgPathData = 'M311.9 260.8L160 353.6 8 260.8 160 0 311.9 260.8zM160 383.4L8 290.6 160 512 312 290.6 160 383.4z';
+var svgPathData = 'M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z';
 
 exports.definition = {
   prefix: prefix,

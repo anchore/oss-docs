@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
-var source = require('./faHandshakeSlash');
+var source = require('./faHandshakeSimpleSlash');
 exports.definition = {
   prefix: source.prefix,
   iconName: source.iconName,
