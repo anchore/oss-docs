@@ -1,0 +1,101 @@
+// anchore brand colors
+$anchore-blue: #307fe2;
+$anchore-green: #00b388; // deep-sea
+$anchore-lite-gray: #d9e1e2; // geyser
+$anchore-dark-gray: #425563; // navy
+$anchore-lite-blue: #5bc2e7; // aquamarine
+$anchore-yellow: #eedc00; // turbo
+
+// syft-inspired colors (from logo)
+$syft-pink: #e879f9; // bright magenta from syft logo
+$syft-coral: #fb7185; // coral/pink from syft cheeks
+$syft-orange: #fb923c; // orange from syft glasses/details
+$syft-purple-blue: #6366f1; // purple-blue from syft hat/body
+$syft-deep-blue: #312e81; // deep blue from syft eyes
+
+// grype-inspired colors (from logo)
+$grype-light-blue: #60a5fa; // light blue from grype body
+$grype-medium-blue: #3b82f6; // medium blue from grype body
+$grype-deep-purple: #7c3aed; // purple from grype horns
+$grype-navy: #1e1b4b; // deep navy from grype details
+
+// primary pallet: anchore branding
+/* $primary: $anchore-blue;
+$secondary: $anchore-lite-blue;
+$success: $anchore-green;
+$info: $anchore-lite-blue;
+$warning: $anchore-yellow;
+$danger: #ed6a5a;
+$light: $anchore-lite-gray;
+$dark: $anchore-dark-gray; */
+
+/* // alternate pallet: Syft Pink Accent
+// Warm, friendly palette using Syft's pink as primary accent
+$primary: $syft-pink; // #e879f9 - bright, friendly pink
+$secondary: $syft-coral; // #fb7185 - softer coral pink
+$success: $anchore-green; // keep original green
+$info: $anchore-lite-blue; // keep original aquamarine
+$warning: $syft-orange; // #fb923c - warmer orange warning
+$danger: #ef4444; // modern red
+$light: $anchore-lite-gray; // keep original
+$dark: $syft-deep-blue; // #312e81 - deeper than navy */
+
+/* // alternate pallet: Grype Deep Blue
+// Professional, security-focused palette using Grype's deeper blues
+$primary: $grype-medium-blue; // #3b82f6 - professional blue
+$secondary: $grype-light-blue; // #60a5fa - lighter accent
+$success: $anchore-green; // keep original green
+$info: $anchore-lite-blue; // keep original aquamarine
+$warning: $anchore-yellow; // keep original yellow
+$danger: #ef4444; // modern red
+$light: $anchore-lite-gray; // keep original
+$dark: $grype-navy; // #1e1b4b - very deep navy */
+
+// alternate pallet: Purple-Pink Gradient Harmony
+// Creative blend using both Syft colors for a modern, vibrant feel
+$primary: $syft-purple-blue; // #6366f1 - purple-blue as main
+$secondary: $syft-pink; // #e879f9 - pink as accent
+$success: #10b981; // modern green
+$info: $syft-coral; // #fb7185 - coral for info
+$warning: $syft-orange; // #fb923c - orange warning
+$danger: #ef4444; // modern red
+$light: #f1f5f9; // slightly cooler light gray
+$dark: $syft-deep-blue; // #312e81 - deep blue
+
+/* // alternate pallet: Balanced Syft-Grype Fusion
+// Best of both worlds - Grype blues with Syft warmth
+$primary: $grype-medium-blue; // #3b82f6 - stable blue primary
+$secondary: $syft-pink; // #e879f9 - playful pink secondary
+$success: $anchore-green; // keep trusted green
+$info: $grype-light-blue; // #60a5fa - consistent blue family
+$warning: $syft-orange; // #fb923c - warm orange
+$danger: #ef4444; // modern red
+$light: $anchore-lite-gray; // keep original
+$dark: $grype-navy; // #1e1b4b - deepest option */
+
+// hard coded for reference...
+
+/* $primary: #307fe2; // Anchore Blue
+$secondary: #5bc2e7; // Aquamarine
+$success: #00b388; // Deep Sea
+$info: #5bc2e7; // Aquamarine
+$warning: #eedc00; // Turbo
+$danger: #ed6a5a; // Keep existing for errors
+$light: #d9e1e2; // Geyser
+$dark: #425563; // Navy */
+
+// typography
+$google_font_name: "Poppins";
+$google_font_display: "swap";
+$font-family-sans-serif:
+    "Poppins",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";

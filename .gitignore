@@ -1,16 +1,36 @@
-# Hugo
+# local development
+NOTES.md
+*.pdf
+brand/
+specs/
+CLAUDE.md
+
+# python
+.venv/
+
+# javascript
+node_modules/
+
+# hugo related
 /public/
 /resources/
 .hugo_build.lock
 
-# NPM
-/node_modules/
+# editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# Python
-.venv/
-
-# OS generated files
-.DS_Store
+# OS specific files
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
 *.bak
 *~
+
+# temporary or cache files
+*.log
+*.tmp
+*.bak

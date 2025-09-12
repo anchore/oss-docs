@@ -1,0 +1,114 @@
+// this is required with highlight configuration noClasses=false (which we're not using right now)
+/* // import dark mode code highlighting styles from "theme docsy" (aka internally "td")
+@import "td/code-dark";
+// this is generated with "hugo gen chromastyles --style=github > assets/scss/_syntax.scss"
+// to see all themes, visit https://xyproto.github.io/splash/docs/
+@import "syntax"; */
+
+// remove underlines from all links
+a {
+    text-decoration: none;
+}
+
+// buttons with subtle improvements
+.btn-primary {
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(48, 127, 226, 0.3);
+    }
+}
+
+// subtle underline-like wave accent for section dividers
+.td-content > h2::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, $primary, $secondary);
+    margin: 0.5rem 0 1.5rem 0;
+    border-radius: 2px;
+}
+
+// code blocks
+.highlight {
+    border-radius: 8px;
+    border-left: 4px solid $primary;
+}
+
+// sidebar links
+.td-sidebar-nav {
+    a {
+        [data-bs-theme="light"] & {
+            color: $dark;
+        }
+        [data-bs-theme="dark"] & {
+            color: $light;
+        }
+
+        font-weight: 400;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &.active {
+            color: $primary;
+            font-weight: 650;
+        }
+    }
+}
+
+// alert boxes with brand colors
+.alert {
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-weight: 400;
+
+    &.alert-primary {
+        border-left: 4px solid $primary;
+
+        [data-bs-theme="light"] & {
+            color: darken($primary, 20%);
+        }
+        [data-bs-theme="dark"] & {
+            color: lighten($primary, 20%);
+        }
+    }
+
+    &.alert-success {
+        border-left: 4px solid $success;
+
+        [data-bs-theme="light"] & {
+            color: darken($success, 20%);
+        }
+        [data-bs-theme="dark"] & {
+            color: lighten($success, 20%);
+        }
+    }
+
+    &.alert-warning {
+        border-left: 4px solid $warning;
+
+        [data-bs-theme="light"] & {
+            color: darken($warning, 20%);
+        }
+        [data-bs-theme="dark"] & {
+            color: lighten($warning, 20%);
+        }
+    }
+
+    &.alert-info {
+        border-left: 4px solid $info;
+
+        [data-bs-theme="light"] & {
+            color: darken($warning, 20%);
+        }
+        [data-bs-theme="dark"] & {
+            color: lighten($warning, 20%);
+        }
+    }
+}

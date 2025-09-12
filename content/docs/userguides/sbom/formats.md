@@ -27,6 +27,8 @@ Where the `formats` available are:
 - `spdx-json@2.2`: A JSON report conforming to the [SPDX 2.2 JSON Schema](https://github.com/spdx/spdx-spec/blob/v2.2/schemas/spdx-schema.json).
 - `github-json`: A JSON report conforming to GitHub's dependency snapshot format.
 - `syft-table`: A columnar summary (default).
+
+ <!-- TODO(alex): broken page reference, should reference separate templates.md? -->
 - `template`: Lets the user specify the output format. See ["Using templates"](#using-templates) below.
 
 ## Multiple Outputs
