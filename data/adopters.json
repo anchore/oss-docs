@@ -1,0 +1,32 @@
+[
+    {
+        "org": "Docker",
+        "img": "https://avatars.githubusercontent.com/u/5429470?s=400&v=4",
+        "url": "https://github.com/docker"
+    },
+    {
+        "org": "SAP", 
+        "img": "https://avatars.githubusercontent.com/u/2531208?s=400&v=4",
+        "url": "https://github.com/SAP"
+    },
+    {
+        "org": "Grafana",
+        "img": "https://avatars.githubusercontent.com/u/7195757?s=400&v=4", 
+        "url": "https://github.com/grafana"
+    },
+    { 
+        "org": "OpenTelemetry",
+        "img": "https://avatars.githubusercontent.com/u/49998002?s=400&v=4",
+        "url": "https://github.com/open-telemetry"
+    },
+    {
+        "org": "Wolfi",
+        "img": "https://avatars.githubusercontent.com/u/112963370?s=400&v=4",
+        "url": "https://github.com/wolfi-dev"
+    },
+    {
+        "org": "Kubescape",
+        "img": "https://avatars.githubusercontent.com/u/100554170?s=400&v=4",
+        "url": "https://github.com/kubescape"
+    }
+]

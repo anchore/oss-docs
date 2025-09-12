@@ -1,0 +1,21 @@
+{{ $adopters := .Site.Data.adopters }}
+{{ if $adopters }}
+  <div class="card-deck row">
+    {{ range first 8 $adopters }}
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h5 class="card-title">{{ .org }}</h5>
+          </div>
+          <div class="card-body text-center">
+            <a href="{{ .url }}" target="_blank" rel="noopener">
+              <img src="{{ .img }}" alt="{{ .org }}" class="img-fluid" style="max-height: 100px;" />
+            </a>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+{{ else }}
+  <p>No adopters data found. Check your data file.</p>
+{{ end }}
