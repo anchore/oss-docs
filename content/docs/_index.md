@@ -1,11 +1,9 @@
 +++
-title = "OSS"
-linkTitle = "OSS"
+title = "Welcome to Anchore Open Source"
+linkTitle = "Open Source"
 weight = 10
 url = "docs"
 +++
-
-## Welcome to Anchore Open Source
 
 Anchore Open Source Software (OSS) is a suite of tools for Software Bill of Materials (SBOM) Generation, Vulnerability Scanning, License Scanning, and Vulnerability Database management.
 
