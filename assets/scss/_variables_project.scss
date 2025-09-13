@@ -19,8 +19,8 @@ $grype-medium-blue: #3b82f6; // medium blue from grype body
 $grype-deep-purple: #7c3aed; // purple from grype horns
 $grype-navy: #1e1b4b; // deep navy from grype details
 
-// primary pallet: anchore branding
-/* $primary: $anchore-blue;
+/* // primary pallet: anchore branding
+$primary: $anchore-blue;
 $secondary: $anchore-lite-blue;
 $success: $anchore-green;
 $info: $anchore-lite-blue;
@@ -51,7 +51,7 @@ $danger: #ef4444; // modern red
 $light: $anchore-lite-gray; // keep original
 $dark: $grype-navy; // #1e1b4b - very deep navy */
 
-// alternate pallet: Purple-Pink Gradient Harmony
+/* // alternate pallet: Purple-Pink Gradient Harmony
 // Creative blend using both Syft colors for a modern, vibrant feel
 $primary: $syft-purple-blue; // #6366f1 - purple-blue as main
 $secondary: $syft-pink; // #e879f9 - pink as accent
@@ -60,9 +60,9 @@ $info: $syft-coral; // #fb7185 - coral for info
 $warning: $syft-orange; // #fb923c - orange warning
 $danger: #ef4444; // modern red
 $light: #f1f5f9; // slightly cooler light gray
-$dark: $syft-deep-blue; // #312e81 - deep blue
+$dark: $syft-deep-blue; // #312e81 - deep blue */
 
-/* // alternate pallet: Balanced Syft-Grype Fusion
+// alternate pallet: Balanced Syft-Grype Fusion
 // Best of both worlds - Grype blues with Syft warmth
 $primary: $grype-medium-blue; // #3b82f6 - stable blue primary
 $secondary: $syft-pink; // #e879f9 - playful pink secondary
@@ -71,7 +71,7 @@ $info: $grype-light-blue; // #60a5fa - consistent blue family
 $warning: $syft-orange; // #fb923c - warm orange
 $danger: #ef4444; // modern red
 $light: $anchore-lite-gray; // keep original
-$dark: $grype-navy; // #1e1b4b - deepest option */
+$dark: $grype-navy; // #1e1b4b - deepest option
 
 // hard coded for reference...
 

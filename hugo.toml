@@ -1,6 +1,6 @@
 baseURL = 'https://oss.anchore.com/'
 languageCode = 'en-us'
-title = 'Anchore OSS Documentation'
+title = 'OSS Documentation'
 publishDir = "public/"
 theme = "docsy"
 

@@ -34,6 +34,9 @@
     {{ $viewURL := printf "%s/tree/%s" $gh_repo $gh_repo_path -}}
     {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path -}}
     {{ $issuesURL := printf "%s/issues/new?title=%s" $gh_repo (safeURL $.Title ) -}}
+    {{ $newPageStub := resources.Get "stubs/new-page-template.md" -}}
+    {{ $newPageQS := querify "value" $newPageStub.Content "filename" "change-me.md" | safeURL -}}
+    {{ $newPageURL := printf "%s/new/%s?%s" $gh_repo (path.Dir $gh_repo_path) $newPageQS -}}
     
     <!-- Primary actions: Most commonly used -->
     <a href="{{ $editURL }}" class="td-page-action td-page-action--primary" target="_blank" rel="noopener" title="{{ T "post_edit_this" }}">
@@ -55,6 +58,11 @@
         <li>
           <a class="dropdown-item" href="{{ $viewURL }}" target="_blank" rel="noopener">
             <i class="fa-solid fa-file-lines fa-fw"></i> {{ T "post_view_this" }}
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="{{ $newPageURL }}" target="_blank" rel="noopener">
+            <i class="fa-solid fa-plus fa-fw"></i> {{ T "post_create_child_page" }}
           </a>
         </li>
         {{ with $gh_project_repo -}}

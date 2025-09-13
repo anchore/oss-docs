@@ -1,6 +1,6 @@
 +++
-title = "Anchore OSS Documentation"
-linkTitle = "Anchore OSS Documentation"
+title = "OSS"
+linkTitle = "OSS"
 weight = 10
 url = "docs"
 +++
@@ -9,7 +9,7 @@ url = "docs"
 
 Anchore Open Source Software (OSS) is a suite of tools for Software Bill of Materials (SBOM) Generation, Vulnerability Scanning, License Scanning, and Vulnerability Database management.
 
-Start by going to the [Overview]({{< relref "overview" >}}) of Anchore OSS to learn more about the basic concepts and functions.
+Start by going to the [project overview]({{< relref "projects" >}}) of Anchore OSS to learn more about the basic concepts and functions.
 
 For information about generating SBOMs:
 
@@ -17,7 +17,7 @@ For information about generating SBOMs:
 - [SBOM File Formats](/docs/userguides/sbom/formats/)
 - [Conversion of SBOM Formats](/docs/userguides/sbom/conversion/)
 
-Get started with vulnerability scanning 
+Get started with vulnerability scanning
 
 - [Scanning for Vulnerabilities](/docs/userguides/vuln/getstarted/)
 - [Vulnerability Feeds](/docs/userguides/vuln/feeds/)
