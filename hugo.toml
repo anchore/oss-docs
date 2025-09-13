@@ -60,6 +60,8 @@ enableGitInfo = true
   custom_css = ["css/custom.css"]
   github_repo = "https://github.com/anchore/oss-docs"
   github_project_repo = "https://github.com/anchore/oss-docs"
+  # Enable offline/local search functionality
+  offlineSearch = true
 
 [params.links]
     # Links which appear on the left of the footer
