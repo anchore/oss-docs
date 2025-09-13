@@ -1,0 +1,79 @@
+{{/* Compact Page Meta Links - Floating Action Buttons Style */}}
+{{/* Based on Docsy's page-meta-links.html but redesigned for bottom placement */}}
+
+{{ if .File -}}
+{{ $path := strings.TrimPrefix (add hugo.WorkingDir "/") $.File.Filename -}}
+{{ $gh_repo := $.Param "github_repo" -}}
+{{ $gh_url := $.Param "github_url" -}}
+{{ $gh_subdir := $.Param "github_subdir" | default "" -}}
+{{ $gh_project_repo := $.Param "github_project_repo" -}}
+{{ $gh_branch := $.Param "github_branch" | default "main" -}}
+
+<div class="td-page-meta-compact">
+  {{ if $gh_url -}}
+    {{ warnf "Warning: use of `github_url` is deprecated. For details, see https://www.docsy.dev/docs/adding-content/repository-links/#github_url-optional" -}}
+    <a href="{{ $gh_url }}" target="_blank" class="td-page-action" title="{{ T "post_edit_this" }}">
+      <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+  {{ else if $gh_repo -}}
+
+    {{/* Adjust $path based on path_base_for_github_subdir */ -}}
+    {{ $ghs_base := $.Param "path_base_for_github_subdir" -}}
+    {{ $ghs_rename := "" -}}
+    {{ if reflect.IsMap $ghs_base -}}
+      {{ $ghs_rename = $ghs_base.to -}}
+      {{ $ghs_base = $ghs_base.from -}}
+    {{ end -}}
+    {{ with $ghs_base -}}
+      {{ $path = replaceRE . $ghs_rename $path -}}
+    {{ end -}}
+
+    {{ $gh_repo_path := printf "%s/%s/%s" $gh_branch $gh_subdir $path -}}
+    {{ $gh_repo_path = replaceRE "//+" "/" $gh_repo_path -}}
+
+    {{ $viewURL := printf "%s/tree/%s" $gh_repo $gh_repo_path -}}
+    {{ $editURL := printf "%s/edit/%s" $gh_repo $gh_repo_path -}}
+    {{ $issuesURL := printf "%s/issues/new?title=%s" $gh_repo (safeURL $.Title ) -}}
+    
+    <!-- Primary actions: Most commonly used -->
+    <a href="{{ $editURL }}" class="td-page-action td-page-action--primary" target="_blank" rel="noopener" title="{{ T "post_edit_this" }}">
+      <i class="fa-solid fa-pen-to-square"></i>
+      <span class="td-page-action__label">Edit</span>
+    </a>
+    
+    <a href="{{ $issuesURL }}" class="td-page-action" target="_blank" rel="noopener" title="{{ T "post_create_issue" }}">
+      <i class="fa-solid fa-bug"></i>
+      <span class="td-page-action__label">Report Issue</span>
+    </a>
+
+    <!-- Secondary actions: Hidden behind dropdown menu -->
+    <div class="td-page-actions-dropdown">
+      <button class="td-page-action td-page-action--menu" title="More actions" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-ellipsis"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li>
+          <a class="dropdown-item" href="{{ $viewURL }}" target="_blank" rel="noopener">
+            <i class="fa-solid fa-file-lines fa-fw"></i> {{ T "post_view_this" }}
+          </a>
+        </li>
+        {{ with $gh_project_repo -}}
+          {{ $project_issueURL := printf "%s/issues/new" . -}}
+          <li>
+            <a class="dropdown-item" href="{{ $project_issueURL }}" target="_blank" rel="noopener">
+              <i class="fa-solid fa-list-check fa-fw"></i> {{ T "post_create_project_issue" }}
+            </a>
+          </li>
+        {{ end -}}
+        {{ with .CurrentSection.AlternativeOutputFormats.Get "print" -}}
+          <li>
+            <a class="dropdown-item" href="{{ .RelPermalink | safeURL }}">
+              <i class="fa-solid fa-print fa-fw"></i> {{ T "print_entire_section" }}
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </div>
+  {{ end -}}
+</div>
+{{ end -}}

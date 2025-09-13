@@ -112,3 +112,225 @@ a {
         }
     }
 }
+
+// compact page meta links - floating action buttons
+.td-page-meta-compact {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    border-top: 1px solid;
+
+    [data-bs-theme="light"] & {
+        border-color: rgba(0, 0, 0, 0.1);
+    }
+    [data-bs-theme="dark"] & {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.td-page-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+
+    [data-bs-theme="light"] & {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: $dark;
+
+        &:hover {
+            background-color: $primary;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+
+    [data-bs-theme="dark"] & {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: $light;
+
+        &:hover {
+            background-color: $primary;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    }
+
+    // primary action gets brand color
+    &--primary {
+        background-color: $primary;
+        color: white;
+
+        &:hover {
+            background-color: darken($primary, 10%);
+            color: white;
+        }
+    }
+
+    // menu button styling
+    &--menu {
+        padding: 0.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        justify-content: center;
+    }
+
+    // hide labels on small screens
+    @media (max-width: 768px) {
+        .td-page-action__label {
+            display: none;
+        }
+
+        padding: 0.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        justify-content: center;
+    }
+}
+
+// dropdown menu styling
+.td-page-actions-dropdown {
+    position: relative;
+
+    .dropdown-menu {
+        min-width: 200px;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        padding: 0.5rem;
+
+        [data-bs-theme="light"] & {
+            background-color: white;
+        }
+        [data-bs-theme="dark"] & {
+            background-color: lighten($dark, 5%);
+        }
+
+        .dropdown-item {
+            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            font-size: 0.875rem;
+
+            [data-bs-theme="light"] & {
+                color: $dark;
+
+                &:hover {
+                    background-color: rgba($primary, 0.1);
+                    color: $primary;
+                }
+            }
+            [data-bs-theme="dark"] & {
+                color: $light;
+
+                &:hover {
+                    background-color: rgba($primary, 0.2);
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+// layout improvements - wider main content when possible
+@media (min-width: 1200px) {
+    .td-main .row {
+        .col-xl-8 {
+            flex: 0 0 66.666667%; // slightly wider main content
+        }
+        .col-xl-2 {
+            flex: 0 0 16.666667%; // adjust sidebars accordingly
+        }
+    }
+}
+
+// improved content spacing
+.td-content {
+    > *:first-child {
+        margin-top: 0 !important;
+    }
+
+    > h1,
+    > h2,
+    > h3,
+    > h4,
+    > h5,
+    > h6 {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    > p {
+        margin-bottom: 1.25rem;
+        line-height: 1.6;
+    }
+}
+
+// improved sidebar spacing and typography
+.td-sidebar {
+    .td-sidebar-nav {
+        padding-right: 1rem;
+
+        .td-sidebar-link {
+            margin-bottom: 0.25rem;
+
+            a {
+                padding: 0.375rem 0.75rem;
+                border-radius: 4px;
+                display: block;
+
+                &:hover {
+                    [data-bs-theme="light"] & {
+                        background-color: rgba($primary, 0.1);
+                    }
+                    [data-bs-theme="dark"] & {
+                        background-color: rgba($primary, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// table of contents improvements
+.td-toc {
+    #TableOfContents {
+        ul {
+            /* padding-left: 1rem; */
+
+            li {
+                margin-bottom: 0.25rem;
+
+                a {
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 4px;
+                    display: block;
+                    font-size: 0.875rem;
+
+                    &:hover {
+                        [data-bs-theme="light"] & {
+                            background-color: rgba($primary, 0.1);
+                        }
+                        [data-bs-theme="dark"] & {
+                            background-color: rgba($primary, 0.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
