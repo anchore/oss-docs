@@ -1,6 +1,6 @@
 baseURL = 'https://oss.anchore.com/'
 languageCode = 'en-us'
-title = 'OSS Docs'
+title = ''
 publishDir = "public/"
 theme = "docsy"
 
@@ -16,11 +16,11 @@ enableGitInfo = true
 
 [menus]
   # Items on the top-right of the header
-  [[menus.main]]
-    name = "OSS Docs"
-    weight = -102
-    pre = "<i class='fas fa-book pr-2'></i>"
-    url = "/"
+  # [[menus.main]]
+  #   name = "OSS Docs"
+  #   weight = -102
+  #   pre = "<i class='fas fa-book pr-2'></i>"
+  #   url = "/"
   [[menus.main]]
     name = "Enterprise Docs"
     weight = -101

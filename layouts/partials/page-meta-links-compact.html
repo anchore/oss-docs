@@ -37,25 +37,35 @@
     {{ $newPageStub := resources.Get "stubs/new-page-template.md" -}}
     {{ $newPageQS := querify "value" $newPageStub.Content "filename" "change-me.md" | safeURL -}}
     {{ $newPageURL := printf "%s/new/%s?%s" $gh_repo (path.Dir $gh_repo_path) $newPageQS -}}
-    
+
     <!-- Primary actions: Most commonly used -->
-    <a href="{{ $editURL }}" class="td-page-action td-page-action--primary" target="_blank" rel="noopener" title="{{ T "post_edit_this" }}">
+    <!--<a href="{{ $editURL }}" class="td-page-action td-page-action--primary" target="_blank" rel="noopener" title="{{ T "post_edit_this" }}">
       <i class="fa-solid fa-pen-to-square"></i>
       <span class="td-page-action__label">Edit</span>
-    </a>
-    
-    <a href="{{ $issuesURL }}" class="td-page-action" target="_blank" rel="noopener" title="{{ T "post_create_issue" }}">
+    </a>-->
+
+    <!--<a href="{{ $issuesURL }}" class="td-page-action" target="_blank" rel="noopener" title="{{ T "post_create_issue" }}">
       <i class="fa-solid fa-bug"></i>
       <span class="td-page-action__label">Report Issue</span>
-    </a>
+    </a>-->
 
     <!-- Secondary actions: Hidden behind dropdown menu -->
     <div class="td-page-actions-dropdown">
       <button class="td-page-action td-page-action--menu" title="More actions" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="fa-solid fa-ellipsis"></i>
+        <i class="fa-solid fa-pen-to-square"></i>
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
-        <li>
+          <li>
+            <a class="dropdown-item" href="{{ $editURL }}" target="_blank" rel="noopener">
+              <i class="fa-solid fa-pen-to-square"></i> {{ T "post_edit_this" }}
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{{ $issuesURL }}" target="_blank" rel="noopener">
+              <i class="fa-solid fa-bug fa-fw"></i> {{ T "post_create_issue" }}
+            </a>
+          </li>
+          <li>
           <a class="dropdown-item" href="{{ $viewURL }}" target="_blank" rel="noopener">
             <i class="fa-solid fa-file-lines fa-fw"></i> {{ T "post_view_this" }}
           </a>
