@@ -23,12 +23,19 @@
           </aside>
           <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
             {{ partial "version-banner.html" . }}
-            {{ if not (.Param "ui.breadcrumb_disable") -}}
-              {{ partial "breadcrumb.html" . -}}
-            {{ end -}}
+            {{/* Content header with breadcrumbs and page actions */}}
+            <div class="td-content-header d-flex justify-content-between align-items-center mb-3">
+              {{ if not (.Param "ui.breadcrumb_disable") -}}
+                <div class="td-breadcrumb-wrapper flex-grow-1">
+                  {{ partial "breadcrumb.html" . -}}
+                </div>
+              {{ end -}}
+              {{/* Page meta links positioned inline at top right */}}
+              <div class="td-page-actions-wrapper">
+                {{ partial "page-meta-links-compact.html" . }}
+              </div>
+            </div>
             {{ block "main" . }}{{ end }}
-            {{/* Page meta links moved to bottom as compact floating buttons */}}
-            {{ partial "page-meta-links-compact.html" . }}
           </main>
         </div>
       </div>
