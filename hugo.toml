@@ -30,7 +30,7 @@ enableGitInfo = true
     name = "Events"
     weight = -100
     pre = "<i class='fas fa-calendar pr-2'></i>"
-    url = "/about/events/"
+    url = "/docs/about/events/"
   [[menus.main]]
     name = "Blog"
     weight = -99
