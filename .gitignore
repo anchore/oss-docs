@@ -1,0 +1,16 @@
+# Hugo
+/public/
+/resources/
+.hugo_build.lock
+
+# NPM
+/node_modules/
+
+# Python
+.venv/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.bak
+*~
