@@ -6,52 +6,213 @@ url = "/"
 src = "**syft-logo*.png"
 +++
 
-<!-- Hero section -->
-{{<blocks/cover title="Anchore Open Source Software Documentation"  image-anchor="top" height="med" color="light">}}
-<div class="mx-auto">
-    <a class="btn btn-lg btn-primary me-3 mt-3 mb-3" href="docs/">
-      Start Reading
-      <i class="fas fa-arrow-alt-circle-right ml-1"></i>
-    </a>
-    <a class="btn btn-lg btn-secondary me-3 mt-3 mb-3" href="docs/releases/">
-      Release Notes
-	</a>
-    <a class="btn btn-lg btn-secondary me-3 mt-3 mb-3" href="docs/contributing/">
-      Contribute
-      <i class="fas fa-pencil-alt ml-1"></i>
-    </a>
-</div>
-{{</blocks/cover>}}
-<!-- Projects and logos section -->
-{{< blocks/section color="dark" type="row" >}}
-<div class="row">
-  <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-    <div class="mb4 h1"><a href="/docs/userguides/sbom/"><img src="/images/logos/syft-logo.png" alt="Syft logo" class="m4-3 h1" style="max-height: 60px;"/></a></div>
-    <h3>Syft</h3>
-    <p>A CLI tool for generating a Software Bill of Materials (SBOM) from container images and filesystems.</p>
-  </div>
-  <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-    <div class="mb4 h1"><a href="/docs/userguides/vuln/"><img src="/images/logos/grype-logo.png" alt="Grype logo" class="m4-3 h1" style="max-height: 60px;"/></a></div>
-    <h3>Grype</h3>
-    <p>An easy-to-integrate open source vulnerability scanning tool for container images and filesystems.</p>
-  </div>
-  <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-    <div class="mb4 h1"><a href="/docs/userguides/license/"><img src="/images/logos/grant-logo.png" alt="Grant logo" class="m4-3 h1" style="max-height: 60px;"/></a></div>
-    <h3>Grant</h3>
-    <p>View licenses for containers, SBOM documents, filesystems, and apply rules that help you build a license compliance report.</p>
-  </div>
-</div>
-{{< /blocks/section >}}
+<div class="landing-page">
+    <!-- Hero section with title focus -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Open Source</h1>
+                <p>
+                    Developer-friendly tools for software supply chain security
+                </p>
+            </div>
+        </div>
+    </section>
 
-<!-- Get in contact section -->
-{{< blocks/section color="light" type="row" >}}
-{{% blocks/feature icon="fab fa-discourse" title="Talk to us!" %}}
-Join our <i class='fab fa-discourse'></i> <a href="https://anchore.com/discourse">Discourse</a> forum and chat with members of the Anchore Open Source community
-{{% /blocks/feature %}}
-{{% blocks/feature icon="fa-brands fa-github" title="Contributions welcome!" %}}
-We welcome code and documentation contributions via <i class="fa-solid fa-code-branch"></i> [pull request](/docs/contributing/) on <i class='fa-brands fa-github'></i> [GitHub](https://github.com/anchore). New contributors are always welcome!
-{{% /blocks/feature %}}
-{{% blocks/feature icon="fa-hashtag" title="Follow us on socials!" %}}
-For announcements of latest features on <i class='fab fa-mastodon pr-2'></i> Mastodon, follow [Syft](https://fosstodon.org/@syft) and [Grype](https://fosstodon.org/@grype), and on <i class='fab fa-bluesky pr-2'></i> BlueSky, [Syft](https://bsky.app/profile/syftproject.bsky.social) and [Grype](https://bsky.app/profile/grypeproject.bsky.social).
-{{% /blocks/feature %}}
-{{< /blocks/section >}}
+    <!-- Main project cards section - the primary focus -->
+    <section class="main-projects-section">
+        <div class="container">
+            <div class="row">
+                <div class="project-card" data-tool="syft">
+                    <div class="project-icon">
+                        <img
+                            src="/images/logos/syft-logo.png"
+                            alt="Syft logo"
+                        />
+                    </div>
+                    <h3>Syft</h3>
+                    <p>
+                        A CLI tool for generating a Software Bill of Materials
+                        (SBOM) from container images and filesystems.
+                    </p>
+
+                    <div class="project-actions">
+                        <a
+                            class="btn btn-primary"
+                            href="/docs/userguides/sbom/"
+                        >
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a
+                            class="btn btn-secondary"
+                            href="/docs/releases/syft/"
+                        >
+                            Releases
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tool="grype">
+                    <div class="project-icon">
+                        <img
+                            src="/images/logos/grype-logo.png"
+                            alt="Grype logo"
+                        />
+                    </div>
+                    <h3>Grype</h3>
+                    <p>
+                        An easy-to-integrate open source vulnerability scanning
+                        tool for container images and filesystems.
+                    </p>
+
+                    <div class="project-actions">
+                        <a
+                            class="btn btn-primary"
+                            href="/docs/userguides/vuln/"
+                        >
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a
+                            class="btn btn-secondary"
+                            href="/docs/releases/grype/"
+                        >
+                            Releases
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-tool="grant">
+                    <div class="project-icon">
+                        <img
+                            src="/images/logos/grant-logo.png"
+                            alt="Grant logo"
+                        />
+                    </div>
+                    <h3>Grant</h3>
+                    <p>
+                        View licenses for containers, SBOM documents,
+                        filesystems, and apply rules that help you build a
+                        license compliance report.
+                    </p>
+
+                    <div class="project-actions">
+                        <a
+                            class="btn btn-primary"
+                            href="/docs/userguides/license/"
+                        >
+                            Get Started
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a
+                            class="btn btn-secondary"
+                            href="/docs/releases/grant/"
+                        >
+                            Releases
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community and general actions section -->
+    <section class="community-section">
+        <div class="container">
+            <div class="row">
+                <div class="community-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h4>Documentation</h4>
+                    <p>
+                        Comprehensive guides, tutorials, and API documentation
+                        to help you get started and make the most of our tools.
+                    </p>
+                    <div class="community-actions">
+                        <a class="btn btn-primary" href="/docs/">
+                            Start Reading
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="feature-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <h4>Contribute</h4>
+                    <p>
+                        We welcome code and documentation contributions via pull
+                        request on GitHub. New contributors are always welcome!
+                    </p>
+                    <div class="community-actions">
+                        <a class="btn btn-primary" href="/docs/contributing/">
+                            Contributing Guide
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="community-card">
+                    <div class="feature-icon">
+                        <i class="fab fa-discourse"></i>
+                    </div>
+                    <h4>Community</h4>
+                    <p>
+                        Join our Discourse forum to chat with members of the
+                        Anchore Open Source community and get help from other
+                        users.
+                    </p>
+                    <div class="community-actions">
+                        <a
+                            class="btn btn-primary"
+                            href="https://anchore.com/discourse"
+                        >
+                            Join Discussion
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+// Landing page scroll animation for navbar logo
+document.addEventListener('DOMContentLoaded', function() {
+    // Only run on home page
+    if (!document.body.classList.contains('td-home')) {
+        return;
+    }
+
+    const navbar = document.querySelector('.td-navbar');
+    let isScrolled = false;
+
+    function handleScroll() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 50 && !isScrolled) {
+            navbar.classList.add('scrolled');
+            isScrolled = true;
+        } else if (scrollTop <= 50 && isScrolled) {
+            navbar.classList.remove('scrolled');
+            isScrolled = false;
+        }
+    }
+
+    // Throttle scroll events for performance
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(handleScroll);
+            ticking = true;
+            setTimeout(() => { ticking = false; }, 16); // ~60fps
+        }
+    }
+
+    window.addEventListener('scroll', requestTick, { passive: true });
+});
+</script>
