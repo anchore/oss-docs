@@ -1,0 +1,99 @@
+// Landing page project cards section
+@import "landing-mixins";
+
+.landing-page .main-projects-section {
+    @include theme-colors(
+        linear-gradient(180deg, $landing-dark-bg 0%, $landing-dark-secondary 100%),
+        linear-gradient(180deg, $landing-light-secondary 0%, $landing-light-tertiary 100%)
+    );
+    padding: var(--landing-space-4xl) 0;
+    position: relative;
+
+    .container {
+        @include landing-container;
+    }
+
+    .row {
+        @include responsive-grid(320px);
+    }
+
+    // project card styling using shared mixin
+    .project-card {
+        @include landing-card(420px);
+
+        // individual project colors for hover effects
+        &:nth-child(1) {
+            &:hover::before {
+                background: linear-gradient(
+                    135deg,
+                    rgba(236, 121, 249, 0.6) 0%,
+                    rgba(251, 113, 133, 0.6) 100%
+                );
+            }
+            &:hover h3 {
+                color: $syft-pink;
+            }
+        }
+
+        &:nth-child(2) {
+            &:hover::before {
+                background: linear-gradient(
+                    135deg,
+                    rgba(96, 165, 250, 0.6) 0%,
+                    rgba(59, 130, 246, 0.6) 100%
+                );
+            }
+            &:hover h3 {
+                color: $grype-light-blue;
+            }
+        }
+
+        &:nth-child(3) {
+            &:hover::before {
+                background: linear-gradient(
+                    135deg,
+                    rgba(34, 197, 94, 0.6) 0%,
+                    rgba(16, 185, 129, 0.6) 100%
+                );
+            }
+            &:hover h3 {
+                color: $anchore-green;
+            }
+        }
+
+        // project actions (buttons within cards)
+        .project-actions {
+            margin-top: var(--landing-space-xl);
+            display: flex;
+            gap: var(--landing-space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .btn {
+                transform-style: preserve-3d;
+
+                &.btn-primary {
+                    @include button-primary;
+                }
+
+                &.btn-secondary {
+                    @include button-secondary;
+                }
+
+                &:hover {
+                    transform: translateY(-2px) translateZ(5px);
+                }
+            }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: var(--landing-space-xs);
+
+                .btn {
+                    width: 100%;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

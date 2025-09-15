@@ -1,0 +1,67 @@
+// Landing page community section
+@import "landing-mixins";
+
+.landing-page .general-action-section {
+    @include theme-colors(
+        linear-gradient(
+            180deg,
+            $landing-dark-secondary 0%,
+            $landing-dark-bg 100%
+        ),
+        linear-gradient(180deg, $landing-light-bg 0%, $landing-white 100%)
+    );
+    padding: var(--landing-space-4xl) 0;
+
+    .container {
+        @include landing-container;
+    }
+
+    .row {
+        @include responsive-grid(300px);
+    }
+
+    .community-card {
+        @include landing-card(380px);
+
+        p {
+            a {
+                @include theme-colors(
+                    null,
+                    null,
+                    $grype-light-blue,
+                    $grype-medium-blue
+                );
+                text-decoration: none;
+                transition: color 0.3s ease;
+                border-bottom: 1px solid transparent;
+
+                &:hover {
+                    color: $grype-medium-blue;
+                    border-bottom-color: $grype-medium-blue;
+
+                    [data-bs-theme="light"] & {
+                        color: $grype-darker-blue;
+                        border-bottom-color: $grype-darker-blue;
+                    }
+                }
+            }
+        }
+
+        // community actions (similar to project actions)
+        .community-actions {
+            margin-top: var(--landing-space-lg);
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                &.btn-primary {
+                    @include button-primary;
+                }
+
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}

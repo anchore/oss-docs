@@ -1,0 +1,123 @@
+// Landing page base styles and layout
+@import "landing-mixins";
+
+// base page background and layout fixes
+.td-home {
+    // fix vertical bars on edges by setting all container backgrounds
+    &,
+    .td-outer,
+    .td-main,
+    main,
+    #main-content {
+        @include theme-colors($landing-dark-bg, $landing-light-bg);
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    // ensure full width for landing page and remove any constraints
+    .landing-page {
+        @include full-width-override;
+    }
+
+    // override any docsy container max-widths
+    .container-fluid,
+    .container {
+        max-width: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    // restore proper padding for landing page content containers
+    .landing-page .container {
+        @include landing-container;
+    }
+
+    // footer styling to match page background
+    footer,
+    .td-footer {
+        @include theme-colors($landing-dark-bg, $landing-light-bg);
+        border-top: none;
+
+        .container {
+            background: transparent;
+        }
+    }
+}
+
+// navbar overrides for landing page
+.td-home .td-navbar {
+    background: $landing-dark-secondary;
+    min-height: 100px;
+    transition: min-height 0.3s ease;
+
+    .container-fluid {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        transition: padding 0.3s ease;
+    }
+
+    // shrink navbar when scrolled
+    &.scrolled {
+        min-height: 70px;
+
+        .container-fluid {
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    }
+}
+
+.td-home .navbar-bg-onscroll {
+    background: $landing-dark-secondary;
+}
+
+// navbar brand (logo) styling
+.td-home .navbar-brand {
+    opacity: 1;
+    pointer-events: auto;
+
+    img {
+        height: 70px;
+        margin-left: 1em;
+        max-width: 180px;
+        transition: height 0.3s ease, max-width 0.3s ease;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+
+        @media (max-width: 768px) {
+            height: 50px;
+            max-width: 130px;
+        }
+    }
+}
+
+// shrink logo when scrolled
+.td-home .td-navbar.scrolled .navbar-brand img {
+    height: 35px;
+    max-width: 110px;
+
+    @media (max-width: 768px) {
+        height: 32px;
+        max-width: 100px;
+    }
+}
+
+// smooth scroll behavior
+html {
+    scroll-behavior: smooth;
+}
+
+// ensure proper stacking context
+.landing-page {
+    position: relative;
+    z-index: 0;
+}
+
+// responsive adjustments
+@media (max-width: 768px) {
+    :root {
+        --landing-space-4xl: var(--landing-space-2xl);
+        --landing-space-5xl: var(--landing-space-3xl);
+    }
+}
