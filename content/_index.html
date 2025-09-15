@@ -133,7 +133,7 @@ src = "**syft-logo*.png"
                     <div class="community-actions">
                         <a class="btn btn-primary" href="/docs/">
                             Start Reading
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-book-open"></i>
                         </a>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ src = "**syft-logo*.png"
                     <div class="community-actions">
                         <a class="btn btn-primary" href="/docs/contributing/">
                             Contributing Guide
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-hands-helping"></i>
                         </a>
                     </div>
                 </div>
@@ -171,7 +171,7 @@ src = "**syft-logo*.png"
                             href="https://anchore.com/discourse"
                         >
                             Join Discussion
-                            <i class="fas fa-external-link-alt"></i>
+                            <i class="fas fa-comments"></i>
                         </a>
                     </div>
                 </div>
@@ -181,38 +181,41 @@ src = "**syft-logo*.png"
 </div>
 
 <script>
-// Landing page scroll animation for navbar logo
-document.addEventListener('DOMContentLoaded', function() {
-    // Only run on home page
-    if (!document.body.classList.contains('td-home')) {
-        return;
-    }
-
-    const navbar = document.querySelector('.td-navbar');
-    let isScrolled = false;
-
-    function handleScroll() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scrollTop > 50 && !isScrolled) {
-            navbar.classList.add('scrolled');
-            isScrolled = true;
-        } else if (scrollTop <= 50 && isScrolled) {
-            navbar.classList.remove('scrolled');
-            isScrolled = false;
+    // Landing page scroll animation for navbar logo
+    document.addEventListener("DOMContentLoaded", function () {
+        // Only run on home page
+        if (!document.body.classList.contains("td-home")) {
+            return;
         }
-    }
 
-    // Throttle scroll events for performance
-    let ticking = false;
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(handleScroll);
-            ticking = true;
-            setTimeout(() => { ticking = false; }, 16); // ~60fps
+        const navbar = document.querySelector(".td-navbar");
+        let isScrolled = false;
+
+        function handleScroll() {
+            const scrollTop =
+                window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > 50 && !isScrolled) {
+                navbar.classList.add("scrolled");
+                isScrolled = true;
+            } else if (scrollTop <= 50 && isScrolled) {
+                navbar.classList.remove("scrolled");
+                isScrolled = false;
+            }
         }
-    }
 
-    window.addEventListener('scroll', requestTick, { passive: true });
-});
+        // Throttle scroll events for performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(handleScroll);
+                ticking = true;
+                setTimeout(() => {
+                    ticking = false;
+                }, 16); // ~60fps
+            }
+        }
+
+        window.addEventListener("scroll", requestTick, { passive: true });
+    });
 </script>
