@@ -3,8 +3,16 @@
 
 .landing-page .main-projects-section {
     @include theme-colors(
-        linear-gradient(180deg, $landing-dark-bg 0%, $landing-dark-secondary 100%),
-        linear-gradient(180deg, $landing-light-secondary 0%, $landing-light-tertiary 100%)
+        linear-gradient(
+            180deg,
+            $landing-dark-bg 0%,
+            $landing-dark-secondary 100%
+        ),
+        linear-gradient(
+            180deg,
+            $landing-light-secondary 0%,
+            $landing-light-tertiary 100%
+        )
     );
     padding: var(--landing-space-4xl) 0;
     position: relative;
@@ -30,9 +38,8 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 120px;
-            overflow: hidden;
-            z-index: 1;
+            width: 200px; // wider to allow overflow into content
+            z-index: 1; // behind text content
 
             .mascot-image {
                 position: absolute;
@@ -45,12 +52,40 @@
                 object-position: right center;
                 transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
                 filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+                transform-origin: center center;
             }
         }
 
         // hide the original project-icon when mascot-peek is present
         .project-icon {
             display: none;
+        }
+
+        // text content styling with shadows for contrast over mascot
+        h3,
+        p {
+            position: relative;
+            z-index: 2; // above mascot
+        }
+
+        h3 {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+            [data-bs-theme="light"] & {
+                text-shadow:
+                    0 2px 4px rgba(0, 0, 0, 0.1),
+                    0 1px 2px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        p {
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+            [data-bs-theme="light"] & {
+                text-shadow:
+                    0 1px 3px rgba(0, 0, 0, 0.1),
+                    0 1px 1px rgba(255, 255, 255, 0.6);
+            }
         }
 
         // individual project colors for hover effects
@@ -95,42 +130,49 @@
 
         // mascot hover effects
         &:hover .mascot-peek .mascot-image {
-            transform: translateY(-50%) translateX(-25%) rotateY(-15deg) scale(1.05);
+            transform: translateY(-50%) translateX(-25%) rotateY(-15deg)
+                rotateZ(12deg) scale(1.05);
             filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.4));
         }
 
         // responsive behavior for mascot peek
         @media (max-width: 768px) {
-            padding-left: var(--landing-space-xl); // reduce left padding on mobile
+            padding-left: var(
+                --landing-space-xl
+            ); // reduce left padding on mobile
 
             .mascot-peek {
-                width: 80px; // smaller mascot container on mobile
+                width: 120px; // smaller but still allows overlap
 
                 .mascot-image {
                     height: 70%; // smaller mascot on mobile
-                    transform: translateY(-50%) translateX(-60%); // show less of mascot
+                    transform: translateY(-50%) translateX(-60%) rotateZ(-3deg); // show less, reduced tilt
                 }
             }
 
             &:hover .mascot-peek .mascot-image {
-                transform: translateY(-50%) translateX(-35%) rotateY(-10deg) scale(1.02); // reduced hover effect
+                transform: translateY(-50%) translateX(-35%) rotateY(-10deg)
+                    rotateZ(-8deg) scale(1.02); // reduced hover effect
             }
         }
 
         @media (max-width: 480px) {
-            padding-left: var(--landing-space-lg); // even less padding on very small screens
+            padding-left: var(
+                --landing-space-lg
+            ); // even less padding on very small screens
 
             .mascot-peek {
-                width: 60px;
+                width: 100px;
 
                 .mascot-image {
                     height: 60%;
-                    transform: translateY(-50%) translateX(-70%); // show even less on small screens
+                    transform: translateY(-50%) translateX(-70%) rotateZ(-2deg); // show even less, minimal tilt
                 }
             }
 
             &:hover .mascot-peek .mascot-image {
-                transform: translateY(-50%) translateX(-45%) rotateY(-8deg) scale(1.01); // minimal hover effect
+                transform: translateY(-50%) translateX(-45%) rotateY(-6deg)
+                    rotateZ(-6deg) scale(1.01); // minimal hover effect
             }
         }
 
@@ -141,6 +183,8 @@
             gap: var(--landing-space-sm);
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 3; // above text and mascot
 
             .btn {
                 transform-style: preserve-3d;
