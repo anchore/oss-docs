@@ -3,5 +3,28 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1"
+  },
+  "devDependencies": {
+    "cspell": "^8.14.2",
+    "markdownlint-cli2": "^0.13.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.6.2",
+    "prettier-plugin-toml": "^2.0.6"
+  },
+  "scripts": {
+    "build": ".tool/hugo --gc --minify",
+    "build:dev": ".tool/hugo --buildDrafts --buildFuture",
+    "serve": ".tool/hugo server --buildDrafts --buildFuture",
+    "dev": "npm run serve",
+    "lint": "npm-run-all lint:*",
+    "lint:prettier": "prettier --check \"content/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"assets/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"*.{json,yaml,yml,md,scss,css,html,toml}\"",
+    "lint:markdown": "markdownlint-cli2 \"content/**/*.md\" \"archetypes/**/*.md\"",
+    "lint:spell": "cspell --show-suggestions --color \"content/**/*.md\"",
+    "lint:hugo": ".tool/hugo --printI18nWarnings --printPathWarnings --printUnusedTemplates --gc --minify --quiet",
+    "lint-fix": "npm-run-all lint-fix:*",
+    "lint-fix:prettier": "prettier --write \"content/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"assets/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"*.{json,yaml,yml,md,scss,css,html,toml}\"",
+    "lint-fix:markdown": "markdownlint-cli2 --fix \"content/**/*.md\" \"archetypes/**/*.md\" \"*.md\"",
+    "validate": "npm run build && npm run lint",
+    "clean": "rm -rf public resources/_gen"
   }
 }

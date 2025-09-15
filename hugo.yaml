@@ -1,0 +1,126 @@
+baseURL: https://oss.anchore.com/
+languageCode: en-us
+title: ''
+publishDir: public/
+theme: docsy
+ignoreLogs:
+  - warning-goldmark-raw-html
+enableGitInfo: true
+
+menus:
+  main:
+    - name: Enterprise Docs
+      weight: -101
+      pre: <i class='fas fa-book pr-2'></i>
+      url: https://docs.anchore.com/current/
+    - name: Events
+      weight: -100
+      pre: <i class='fas fa-calendar pr-2'></i>
+      url: /docs/about/events/
+    - name: Blog
+      weight: -99
+      pre: <i class='fas fa-rss pr-2'></i>
+      url: https://anchore.com/blog/
+    - name: GitHub
+      weight: -98
+      pre: <i class='fab fa-github pr-2'></i>
+      url: https://github.com/anchore/
+    - name: Discourse
+      weight: -97
+      pre: <i class='fab fa-discourse pr-2'></i>
+      url: https://anchore.com/discourse
+
+sitemap:
+  changeFreq: ''
+  filename: sitemap.xml
+  priority: -1
+
+params:
+  description: Anchore Open Source Documentation for SBOM creation and
+    vulnerability detection
+  copyright: Anchore Inc
+  privacy_policy: https://anchore.com/privacy
+  environment: development
+  custom_css:
+    - css/custom.css
+  github_repo: https://github.com/anchore/oss-docs
+  github_project_repo: https://github.com/anchore/oss-docs
+  offlineSearch: true
+  links:
+    user:
+      - name: OSS Docs home
+        url: https://oss.anchore.com/
+        icon: fas fa-home
+        desc: Anchore OSS Docs Site
+      - name: Anchore, Inc.
+        url: https://anchore.com
+        icon: fas fa-university
+        desc: Anchore Company Site
+    developer:
+      - name: Twitter/X
+        url: https://x.com/anchore
+        icon: fab fa-x-twitter
+        desc: Follow Anchore on Twitter/X
+      - name: Mastodon
+        url: https://mstdn.business/@anchore
+        icon: fab fa-mastodon pr-2
+        desc: Follow Anchore on Mastodon
+      - name: BlueSky
+        url: https://bsky.app/profile/anchore.com
+        icon: fab fa-bluesky pr-2
+        desc: Follow Anchore on BlueSky
+      - name: Discourse
+        url: https://anchore.com/discourse
+        icon: fab fa-discourse
+        desc: Discuss with developers on our Discourse
+      - name: GitHub
+        url: https://github.com/anchore
+        icon: fab fa-square-github
+        desc: Browse and contribute on GitHub!
+  ui:
+    sidebar_menu_compact: true
+    breadcrumb_disable: false
+    sidebar_search_disable: false
+    navbar_translucent_over_cover_disable: true
+    navbar_logo: true
+    preload_fonts:
+      - Poppins:400,500,600
+    showLightDarkModeMenu: true
+    sidebar_menu_truncate: 10
+    feedback:
+      yes: Glad to hear it! Please <a
+        href="https://github.com/anchore/oss-docs-preview/issues/new">tell us
+        how we can improve</a>.
+      no: Sorry to hear that. Please <a
+        href="https://github.com/anchore/oss-docs-preview/issues/new">tell us
+        how we can improve</a>.
+  print:
+    disable_toc: true
+
+outputs:
+  home:
+    - HTML
+  page:
+    - HTML
+  section:
+    - HTML
+    - RSS
+    - print
+
+markup:
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    hl_Lines: ''
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    tabWidth: 4
+    noClasses: true
+    style: dracula
+  goldmark:
+    renderer:
+      unsafe: true
+    parser:
+      attribute:
+        block: true

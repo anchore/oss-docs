@@ -15,10 +15,10 @@ Grype is an easy-to-integrate open source vulnerability scanning tool for contai
 Grype is provided as a single compiled executable. Issue the command for your platform to download the latest release of Grype. The full list of official and community maintained packages can be found on the [installation](/docs/installation/grype) page.
 
 {{< tabpane lang="bash">}}
-  {{% tab header="Platform:" disabled=true /%}}
-  {{% tab header="Linux (and macOS)" %}}curl -sSfL https://get.anchore.io/grype | sudo sh -s -- -b /usr/local/bin{{% /tab %}}
-  {{% tab header="macOS"%}}brew install grype{{% /tab %}}
-  {{% tab header="Windows"%}}nuget install Anchore.Grype{{% /tab %}}
+{{% tab header="Platform:" disabled=true /%}}
+{{% tab header="Linux (and macOS)" %}}curl -sSfL <https://get.anchore.io/grype> | sudo sh -s -- -b /usr/local/bin{{% /tab %}}
+{{% tab header="macOS"%}}brew install grype{{% /tab %}}
+{{% tab header="Windows"%}}nuget install Anchore.Grype{{% /tab %}}
 {{< /tabpane >}}
 
 Once installed, ensure the `grype` binary is in the `PATH` for your system.
@@ -97,14 +97,11 @@ Example:
    └── by status:   0 fixed, 6 not-fixed, 0 ignored
 ```
 
-
 ### Create an HTML Vulnerability Report
 
-
-
-
 {{% alert title="Next steps" color="primary" %}}
-* Try searching for vulnerabilities in an older container!
-* Find out more about [TODO](/docs/userguides/vuln/todo/) and [)TODO(/docs/userguides/vuln/todo/)
-* Learn about [SBOM Generation](/docs/userguides/sbom/getstarted/) and [License Scaanning](/docs/userguides/license/getstarted/) your SBOMs.
-{{% /alert %}}
+
+- Try searching for vulnerabilities in an older container!
+- Find out more about [TODO](/docs/userguides/vuln/todo/) and [)TODO(/docs/userguides/vuln/todo/)
+- Learn about [SBOM Generation](/docs/userguides/sbom/getstarted/) and [License Scanning](/docs/userguides/license/getstarted/) your SBOMs.
+  {{% /alert %}}

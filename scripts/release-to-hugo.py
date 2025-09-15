@@ -56,10 +56,10 @@ def generate_hugo_content(release, repo_name):
     # Format release date
     release_date = datetime.strptime(release['published_at'], "%Y-%m-%dT%H:%M:%SZ")
     formatted_date = release_date.strftime("%Y-%m-%dT%H:%M:%SZ")
-    
+
     # Extract version number
     version = release['tag_name']
-    
+
     # Create the Hugo front matter
     content = f"""+++
 tags = ['{repo_name}']
@@ -70,24 +70,37 @@ url = "docs/releases/{repo_name}/{version}/"
 description = "Release notes for {repo_name} {version}"
 +++
 
-## Release Notes:
+## Release Notes
+
 Version [{version}]({release['html_url']})
 
 """
-    
+
     # Add the release body with minimal processing
     body = release['body'] if release['body'] else ""
-    
+
     # Clean up the body text
     # Remove any ref to 'Release Notes:' or '# Release Notes:' since we add that ourselves
     body = re.sub(r'^#+\s*Release Notes:.*?\n', '', body, flags=re.IGNORECASE | re.MULTILINE)
-    
+
+    # Remove duplicate version headings (h1) since version is already in front matter title
+    body = re.sub(r'^#+\s*' + re.escape(version) + r'\s*\n', '', body, flags=re.MULTILINE)
+
+    # Remove "Changelog" headings (any level) with following newlines
+    body = re.sub(r'^#+\s*Changelog\s*\n+', '', body, flags=re.IGNORECASE | re.MULTILINE)
+
+    # Remove auto-generated changelog footers
+    body = re.sub(r'\n*\\\?\*\s*\*?This\s+Changelog.*generated.*\*.*$', '', body, flags=re.IGNORECASE | re.MULTILINE)
+
+    # Convert h3 headings to h2 to fix heading increment issues (h1 in title -> h2 next)
+    body = re.sub(r'^### ', '## ', body, flags=re.MULTILINE)
+
     # Link GitHub usernames
     body = link_github_users(body)
-    
+
     # Add the cleaned body
     content += body.strip() + "\n"
-    
+
     return content
 
 def main():

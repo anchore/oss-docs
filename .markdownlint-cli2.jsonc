@@ -1,0 +1,7 @@
+{
+  "config": ".markdownlint.jsonc",
+  "ignores": [
+    // TODO(alex): the generator needs some work, in the meantime we'll ignore the generated files
+    "content/docs/releases/**/*.md"
+  ]
+}

@@ -1,330 +1,325 @@
 // Landing page mixins and utilities
-@import "variables_project";
+@import 'variables_project';
 
 // spacing scale using consistent values
 :root {
-    --landing-space-xs: 0.5rem;   // 8px
-    --landing-space-sm: 0.75rem;  // 12px
-    --landing-space-md: 1rem;     // 16px
-    --landing-space-lg: 1.5rem;   // 24px
-    --landing-space-xl: 2rem;     // 32px
-    --landing-space-2xl: 3rem;    // 48px
-    --landing-space-3xl: 4rem;    // 64px
-    --landing-space-4xl: 6rem;    // 96px
-    --landing-space-5xl: 9rem;    // 144px
+  --landing-space-xs: 0.5rem; // 8px
+  --landing-space-sm: 0.75rem; // 12px
+  --landing-space-md: 1rem; // 16px
+  --landing-space-lg: 1.5rem; // 24px
+  --landing-space-xl: 2rem; // 32px
+  --landing-space-2xl: 3rem; // 48px
+  --landing-space-3xl: 4rem; // 64px
+  --landing-space-4xl: 6rem; // 96px
+  --landing-space-5xl: 9rem; // 144px
 }
 
 // theme switching mixin
 @mixin theme-colors($dark-bg, $light-bg, $dark-text: null, $light-text: null) {
-    background: $dark-bg;
+  background: $dark-bg;
 
-    @if $dark-text {
-        color: $dark-text;
+  @if $dark-text {
+    color: $dark-text;
+  }
+
+  [data-bs-theme='light'] & {
+    background: $light-bg;
+
+    @if $light-text {
+      color: $light-text;
     }
-
-    [data-bs-theme="light"] & {
-        background: $light-bg;
-
-        @if $light-text {
-            color: $light-text;
-        }
-    }
+  }
 }
 
 // card base styles mixin
 @mixin card-base($padding: var(--landing-space-2xl), $border-radius: 1.5rem) {
-    border-radius: $border-radius;
-    padding: $padding;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-    display: flex;
-    flex-direction: column;
+  border-radius: $border-radius;
+  padding: $padding;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
 
-    @include theme-colors(
-        rgba(255, 255, 255, 0.05),
-        rgba(255, 255, 255, 0.95)
-    );
+  @include theme-colors(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.95));
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
-    [data-bs-theme="light"] & {
-        border: 1px solid rgba(0, 0, 0, 0.15);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
+  [data-bs-theme='light'] & {
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
 }
 
 // 3d hover effect mixin - simplified
 @mixin hover-3d($lift: 12px, $scale: 1.02) {
-    &:hover {
-        transform: translateY(-#{$lift}) scale(#{$scale});
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  &:hover {
+    transform: translateY(-#{$lift}) scale(#{$scale});
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
 
-        [data-bs-theme="light"] & {
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        }
+    [data-bs-theme='light'] & {
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
     }
+  }
 }
 
 // gradient border effect mixin
 @mixin gradient-border($colors...) {
-    &::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        padding: 2px;
-        background: linear-gradient(135deg, $colors);
-        border-radius: inherit;
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, $colors);
+    border-radius: inherit;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
 
-    &:hover::before {
-        opacity: 1;
-    }
+  &:hover::before {
+    opacity: 1;
+  }
 }
 
 // button styles mixin
 @mixin button-primary {
-    padding: var(--landing-space-sm) var(--landing-space-lg);
-    font-weight: 600;
-    font-size: 0.9rem;
-    border-radius: 0.6rem;
-    border: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--landing-space-xs);
-    white-space: nowrap;
+  padding: var(--landing-space-sm) var(--landing-space-lg);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--landing-space-xs);
+  white-space: nowrap;
 
-    background: linear-gradient(135deg, $grype-medium-blue 0%, $grype-darker-blue 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  background: linear-gradient(135deg, $grype-medium-blue 0%, $grype-darker-blue 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        background: linear-gradient(135deg, $grype-darker-blue 0%, $grype-darkest-blue 100%);
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, $grype-darker-blue 0%, $grype-darkest-blue 100%);
+  }
 
-    i {
-        font-size: 0.85em;
-        transition: transform 0.3s ease;
-    }
+  i {
+    font-size: 0.85em;
+    transition: transform 0.3s ease;
+  }
 
-    &:hover i {
-        transform: translateX(2px);
-    }
+  &:hover i {
+    transform: translateX(2px);
+  }
 }
 
 @mixin button-secondary {
-    @include button-primary;
+  @include button-primary;
 
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 
-    [data-bs-theme="light"] & {
-        background: $landing-gray-600;
-        color: white;
-        border: 1px solid $landing-gray-600;
+  [data-bs-theme='light'] & {
+    background: $landing-gray-600;
+    color: white;
+    border: 1px solid $landing-gray-600;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+
+    [data-bs-theme='light'] & {
+      background: $landing-gray-800;
+      border-color: $landing-gray-800;
     }
-
-    &:hover {
-        background: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
-        color: white;
-
-        [data-bs-theme="light"] & {
-            background: $landing-gray-800;
-            border-color: $landing-gray-800;
-        }
-    }
+  }
 }
 
 @mixin button-syft-pink {
-    @include button-primary;
+  @include button-primary;
 
-    background: linear-gradient(135deg, $syft-pink 0%, $syft-coral 100%);
-    color: white;
-    box-shadow: 0 4px 12px rgba(232, 121, 249, 0.3);
+  background: linear-gradient(135deg, $syft-pink 0%, $syft-coral 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(232, 121, 249, 0.3);
 
-    &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(232, 121, 249, 0.4);
-        background: linear-gradient(135deg, darken($syft-pink, 8%) 0%, darken($syft-coral, 8%) 100%);
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(232, 121, 249, 0.4);
+    background: linear-gradient(135deg, darken($syft-pink, 8%) 0%, darken($syft-coral, 8%) 100%);
+  }
 }
 
 // responsive grid mixin
 @mixin responsive-grid($min-width: 320px, $gap: var(--landing-space-xl)) {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
-    gap: $gap;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+  gap: $gap;
+  align-items: stretch;
 
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-        gap: var(--landing-space-lg);
-    }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--landing-space-lg);
+  }
 }
 
 // container mixin
 @mixin landing-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--landing-space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--landing-space-xl);
 }
 
 // full-width override for landing pages
 @mixin full-width-override {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    background: inherit;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: inherit;
 }
 
 // shared landing card style - consistent across all card types
 @mixin landing-card($min-height: 400px) {
-    @include card-base(var(--landing-space-2xl) var(--landing-space-xl) 2.5rem var(--landing-space-xl));
-    @include hover-3d(12px, 1.02);
-    @include gradient-border(
-        rgba(59, 130, 246, 0.5) 0%,
-        rgba(139, 92, 246, 0.5) 50%,
-        rgba(236, 72, 153, 0.5) 100%
-    );
+  @include card-base(var(--landing-space-2xl) var(--landing-space-xl) 2.5rem var(--landing-space-xl));
+  @include hover-3d(12px, 1.02);
+  @include gradient-border(rgba(59, 130, 246, 0.5) 0%, rgba(139, 92, 246, 0.5) 50%, rgba(236, 72, 153, 0.5) 100%);
 
-    justify-content: space-between;
-    min-height: $min-height;
-    text-align: center;
-    transform-style: preserve-3d;
-    perspective: 1000px;
+  justify-content: space-between;
+  min-height: $min-height;
+  text-align: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 
-    // ensure buttons are not affected by 3D transforms and remain clickable
-    .project-actions,
-    .community-actions {
-        transform-style: flat;
-        position: relative;
-        z-index: 10;
+  // ensure buttons are not affected by 3D transforms and remain clickable
+  .project-actions,
+  .community-actions {
+    transform-style: flat;
+    position: relative;
+    z-index: 10;
 
-        .btn {
-            pointer-events: auto;
-            position: relative;
-            z-index: 1;
-        }
+    .btn {
+      pointer-events: auto;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 25px 50px rgba(0, 0, 0, 0.4),
+      0 0 100px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    [data-bs-theme='light'] & {
+      background: $landing-white;
+      border-color: rgba(0, 0, 0, 0.2);
+      box-shadow:
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 0 100px rgba(59, 130, 246, 0.1),
+        inset 0 1px 0 $landing-white;
     }
 
-    &:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow:
-            0 25px 50px rgba(0, 0, 0, 0.4),
-            0 0 100px rgba(59, 130, 246, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.1);
-
-        [data-bs-theme="light"] & {
-            background: $landing-white;
-            border-color: rgba(0, 0, 0, 0.2);
-            box-shadow:
-                0 25px 50px rgba(0, 0, 0, 0.2),
-                0 0 100px rgba(59, 130, 246, 0.1),
-                inset 0 1px 0 $landing-white;
-        }
-
-        // shared transform effects for icons and text
-        .project-icon,
-        .feature-icon {
-            transform: scale(1.1) translateZ(20px) rotateY(5deg);
-
-            // fontawesome icons get different hover effects
-            i {
-                transform: scale(1.15);
-                color: $grype-medium-blue;
-
-                [data-bs-theme="light"] & {
-                    color: $grype-darker-blue;
-                }
-            }
-        }
-
-        h3,
-        h4 {
-            color: $grype-light-blue;
-            transform: translateZ(10px);
-        }
-
-        p {
-            transform: translateZ(5px);
-        }
-    }
-
-    // shared icon styling
+    // shared transform effects for icons and text
     .project-icon,
     .feature-icon {
-        margin-bottom: var(--landing-space-lg);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        transform-style: preserve-3d;
+      transform: scale(1.1) translateZ(20px) rotateY(5deg);
 
-        // image icons (project cards)
-        img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-            transition: filter 0.4s ease;
-        }
+      // fontawesome icons get different hover effects
+      i {
+        transform: scale(1.15);
+        color: $grype-medium-blue;
 
-        // fontawesome icons (community cards)
-        i {
-            font-size: 3rem;
-            @include theme-colors(null, null, $grype-light-blue, $grype-medium-blue);
-            transition: all 0.3s ease;
+        [data-bs-theme='light'] & {
+          color: $grype-darker-blue;
         }
+      }
     }
 
-    // shared heading styling
     h3,
     h4 {
-        @include theme-colors(null, null, $landing-white, $landing-dark-bg);
-        font-size: 1.75rem;
-        font-weight: 700;
-        margin-bottom: var(--landing-space-md);
-        transition: all 0.3s ease;
-        transform-style: preserve-3d;
+      color: $grype-light-blue;
+      transform: translateZ(10px);
     }
 
-    // community cards have smaller headings
-    h4 {
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-
-    // shared paragraph styling
     p {
-        @include theme-colors(null, null, $landing-text-dark, $landing-text-light);
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin: 0;
-        transition: all 0.3s ease;
-        transform-style: preserve-3d;
+      transform: translateZ(5px);
+    }
+  }
+
+  // shared icon styling
+  .project-icon,
+  .feature-icon {
+    margin-bottom: var(--landing-space-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+
+    // image icons (project cards)
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+      transition: filter 0.4s ease;
     }
 
-    @media (max-width: 768px) {
-        padding: var(--landing-space-xl) var(--landing-space-lg);
-        min-height: #{$min-height - 40px};
-
-        // reduce 3D effects on mobile for better performance
-        &:hover {
-            transform: translateY(-8px) scale(1.02);
-        }
+    // fontawesome icons (community cards)
+    i {
+      font-size: 3rem;
+      @include theme-colors(null, null, $grype-light-blue, $grype-medium-blue);
+      transition: all 0.3s ease;
     }
+  }
+
+  // shared heading styling
+  h3,
+  h4 {
+    @include theme-colors(null, null, $landing-white, $landing-dark-bg);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: var(--landing-space-md);
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  // community cards have smaller headings
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  // shared paragraph styling
+  p {
+    @include theme-colors(null, null, $landing-text-dark, $landing-text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--landing-space-xl) var(--landing-space-lg);
+    min-height: #{$min-height - 40px};
+
+    // reduce 3D effects on mobile for better performance
+    &:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
 }

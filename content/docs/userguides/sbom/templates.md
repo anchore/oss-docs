@@ -21,6 +21,7 @@ Syft lets you define custom output formats, using [Go templates](https://pkg.go.
 **Example:** You could make Syft output data in CSV format by writing a Go template that renders CSV data and then running `syft <image> -o template -t ~/path/to/csv.tmpl`.
 
 Here's what the `csv.tmpl` file might look like:
+
 ```gotemplate
 "Package","Version Installed", "Found by"
 {{- range .artifacts}}
@@ -29,6 +30,7 @@ Here's what the `csv.tmpl` file might look like:
 ```
 
 Which would produce output like:
+
 ```text
 "Package","Version Installed","Found by"
 "alpine-baselayout","3.2.0-r20","apkdb-cataloger"

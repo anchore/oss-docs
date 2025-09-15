@@ -1,0 +1,32 @@
+# Build outputs
+public/
+resources/
+.hugo_build.lock
+
+# Dependencies
+node_modules/
+themes/
+
+# Generated files
+*.min.js
+*.min.css
+package-lock.json
+yarn.lock
+
+# Git
+.git/
+
+# Release notes (auto-generated)
+content/docs/releases/*/v*.md
+
+# Binary files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.woff
+*.woff2
+*.ttf
+*.eot

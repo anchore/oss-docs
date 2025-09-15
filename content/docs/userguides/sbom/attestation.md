@@ -8,7 +8,6 @@ url = "docs/userguides/sbom/attestation"
 
 +++
 
-
 ## Attestation (experimental)
 
 ### Keyless support
@@ -22,6 +21,7 @@ To use this feature with a format like CycloneDX json simply run:
 ```
 syft attest --output cyclonedx-json <IMAGE WITH OCI WRITE ACCESS>
 ```
+
 This command will open a web browser and allow the user to authenticate their OIDC identity as the root of trust for the attestation (Github, Google, Microsoft).
 
 After authenticating, Syft will upload the attestation to the OCI registry specified by the image that the user has write access to.
@@ -52,7 +52,6 @@ syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
 
 The above output is in the form of the [DSSE envelope](https://github.com/secure-systems-lab/dsse/blob/master/envelope.md#dsse-envelope).
 The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate. For details on workflows using this command see [here](#adding-an-sbom-to-an-image-as-an-attestation-using-syft).
-
 
 ### Adding an SBOM to an image as an attestation using Syft
 

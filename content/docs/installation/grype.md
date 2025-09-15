@@ -32,7 +32,6 @@ Grype checks for new versions on launch. It will print a message at the end of t
 A newer version of grype is available for download: 0.92.0 (installed version is 0.91.2)
 ```
 
-
 ### Docker container
 
 ```
@@ -77,4 +76,3 @@ nuget install Anchore.Grype
 ```
 snap install grype
 ```
-

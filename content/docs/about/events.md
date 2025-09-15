@@ -16,7 +16,7 @@ The streams are recorded and archived in our [Live stream playlist](https://www.
 
 ## Community Meetings
 
-We hold open meetings with the community, on alternate Thursdays. These are on [Zoom](https://anchore.zoom.us/j/81381667101?pwd=MlBVQVk2SVR2enU2YkppamNLK3RWQT09), and are *not* recorded or streamed. There is an optional [agenda](https://docs.google.com/document/d/1ZtSAa6fj2a6KRWviTn3WoJm09edvrNUp4Iz_dOjjyY8/edit) which can be filled in. Everyone is welcome. A webcam is not required.
+We hold open meetings with the community, on alternate Thursdays. These are on [Zoom](https://anchore.zoom.us/j/81381667101?pwd=MlBVQVk2SVR2enU2YkppamNLK3RWQT09), and are _not_ recorded or streamed. There is an optional [agenda](https://docs.google.com/document/d/1ZtSAa6fj2a6KRWviTn3WoJm09edvrNUp4Iz_dOjjyY8/edit) which can be filled in. Everyone is welcome. A webcam is not required.
 
 ## Anchore Events
 

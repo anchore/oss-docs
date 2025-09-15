@@ -7,215 +7,215 @@
 
 // remove underlines from all links
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 // navbar improvements
 .td-navbar {
-    // improve logo and site title alignment
-    .navbar-brand {
+  // improve logo and site title alignment
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // add space between logo and text
+
+    .navbar-brand__logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    .navbar-brand__name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+
+      // add subtle brand color accent
+      /* background: linear-gradient(45deg, white, lighten($primary, 20%)); */
+      background: white;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      // fallback for non-webkit browsers
+      @supports not (-webkit-background-clip: text) {
+        color: white;
+      }
+    }
+  }
+
+  // enhance top navigation menu
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
         display: flex;
         align-items: center;
-        gap: 0.75rem; // add space between logo and text
+        /* gap: 0.5rem; */
+        padding: 0.75rem 0.75rem !important;
+        border-radius: 6px;
+        /* margin: 0 0.25rem; */
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
 
-        .navbar-brand__logo {
-            display: flex;
-            align-items: center;
+        // improve text contrast
+        color: rgba(255, 255, 255, 0.9) !important;
 
-            img {
-                vertical-align: middle;
-            }
+        // icon styling
+        i {
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          opacity: 0.8;
         }
 
-        .navbar-brand__name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: white;
-            margin: 0;
-            padding: 0;
-            line-height: 1.2;
+        &:hover {
+          color: white !important;
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
-            // add subtle brand color accent
-            /* background: linear-gradient(45deg, white, lighten($primary, 20%)); */
-            background: white;
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+          i {
+            opacity: 1;
+            transform: scale(1.1);
 
-            // fallback for non-webkit browsers
-            @supports not (-webkit-background-clip: text) {
-                color: white;
+            // add color to specific icons on hover
+            &.fa-book {
+              color: $warning;
             }
+            &.fa-calendar {
+              color: $warning;
+            }
+            &.fa-rss {
+              color: $warning;
+            }
+            &.fa-github {
+              color: $warning;
+            }
+            &.fa-discourse {
+              color: $warning;
+            }
+          }
         }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.15);
+          color: white !important;
+
+          i {
+            opacity: 1;
+          }
+        }
+      }
     }
-
-    // enhance top navigation menu
-    .navbar-nav {
-        .nav-item {
-            .nav-link {
-                display: flex;
-                align-items: center;
-                /* gap: 0.5rem; */
-                padding: 0.75rem 0.75rem !important;
-                border-radius: 6px;
-                /* margin: 0 0.25rem; */
-                font-weight: 500;
-                transition: all 0.3s ease;
-                position: relative;
-
-                // improve text contrast
-                color: rgba(255, 255, 255, 0.9) !important;
-
-                // icon styling
-                i {
-                    font-size: 1rem;
-                    transition: all 0.3s ease;
-                    opacity: 0.8;
-                }
-
-                &:hover {
-                    color: white !important;
-                    background-color: rgba(255, 255, 255, 0.1);
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-                    i {
-                        opacity: 1;
-                        transform: scale(1.1);
-
-                        // add color to specific icons on hover
-                        &.fa-book {
-                            color: $warning;
-                        }
-                        &.fa-calendar {
-                            color: $warning;
-                        }
-                        &.fa-rss {
-                            color: $warning;
-                        }
-                        &.fa-github {
-                            color: $warning;
-                        }
-                        &.fa-discourse {
-                            color: $warning;
-                        }
-                    }
-                }
-
-                &.active {
-                    background-color: rgba(255, 255, 255, 0.15);
-                    color: white !important;
-
-                    i {
-                        opacity: 1;
-                    }
-                }
-            }
-        }
-    }
+  }
 }
 
 // buttons with subtle improvements
 .btn-primary {
-    border-radius: 6px;
-    font-weight: 500;
-    transition: all 0.2s ease;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 
-    &:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(48, 127, 226, 0.3);
-    }
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(48, 127, 226, 0.3);
+  }
 }
 
 // subtle underline-like wave accent for section dividers
 .td-content > h2::after {
-    content: "";
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, $primary, $secondary);
-    margin: 0.5rem 0 1.5rem 0;
-    border-radius: 2px;
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, $primary, $secondary);
+  margin: 0.5rem 0 1.5rem 0;
+  border-radius: 2px;
 }
 
 // code blocks
 .highlight {
-    border-radius: 8px;
-    border-left: 4px solid $primary;
+  border-radius: 8px;
+  border-left: 4px solid $primary;
 }
 
 // sidebar links
 .td-sidebar-nav {
-    a {
-        [data-bs-theme="light"] & {
-            color: $dark;
-        }
-        [data-bs-theme="dark"] & {
-            color: $light;
-        }
-
-        font-weight: 400;
-        transition: all 0.2s ease;
-
-        &:hover,
-        &.active {
-            color: $primary;
-            font-weight: 500;
-        }
+  a {
+    [data-bs-theme='light'] & {
+      color: $dark;
     }
+    [data-bs-theme='dark'] & {
+      color: $light;
+    }
+
+    font-weight: 400;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: $primary;
+      font-weight: 500;
+    }
+  }
 }
 
 // alert boxes with brand colors
 .alert {
-    border: none;
-    border-radius: 8px;
-    padding: 1rem 1.25rem;
-    margin: 1.5rem 0;
-    font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-weight: 400;
 
-    &.alert-primary {
-        border-left: 4px solid $primary;
+  &.alert-primary {
+    border-left: 4px solid $primary;
 
-        [data-bs-theme="light"] & {
-            color: darken($primary, 20%);
-        }
-        [data-bs-theme="dark"] & {
-            color: lighten($primary, 20%);
-        }
+    [data-bs-theme='light'] & {
+      color: darken($primary, 20%);
     }
-
-    &.alert-success {
-        border-left: 4px solid $success;
-
-        [data-bs-theme="light"] & {
-            color: darken($success, 20%);
-        }
-        [data-bs-theme="dark"] & {
-            color: lighten($success, 20%);
-        }
+    [data-bs-theme='dark'] & {
+      color: lighten($primary, 20%);
     }
+  }
 
-    &.alert-warning {
-        border-left: 4px solid $warning;
+  &.alert-success {
+    border-left: 4px solid $success;
 
-        [data-bs-theme="light"] & {
-            color: darken($warning, 20%);
-        }
-        [data-bs-theme="dark"] & {
-            color: lighten($warning, 20%);
-        }
+    [data-bs-theme='light'] & {
+      color: darken($success, 20%);
     }
-
-    &.alert-info {
-        border-left: 4px solid $info;
-
-        [data-bs-theme="light"] & {
-            color: darken($warning, 20%);
-        }
-        [data-bs-theme="dark"] & {
-            color: lighten($warning, 20%);
-        }
+    [data-bs-theme='dark'] & {
+      color: lighten($success, 20%);
     }
+  }
+
+  &.alert-warning {
+    border-left: 4px solid $warning;
+
+    [data-bs-theme='light'] & {
+      color: darken($warning, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($warning, 20%);
+    }
+  }
+
+  &.alert-info {
+    border-left: 4px solid $info;
+
+    [data-bs-theme='light'] & {
+      color: darken($warning, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($warning, 20%);
+    }
+  }
 }
 
 /* // content header with breadcrumbs and page actions
@@ -244,222 +244,210 @@ a {
 } */
 
 .td-page-action {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 
-    [data-bs-theme="light"] & {
-        background-color: rgba(0, 0, 0, 0.05);
-        color: $dark;
+  [data-bs-theme='light'] & {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: $dark;
 
-        &:hover {
-            background-color: $primary;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-        }
+    &:hover {
+      background-color: $primary;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
+  }
 
-    [data-bs-theme="dark"] & {
-        background-color: rgba(255, 255, 255, 0.05);
-        color: $light;
+  [data-bs-theme='dark'] & {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: $light;
 
-        &:hover {
-            background-color: $primary;
-            color: white;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-        }
+    &:hover {
+      background-color: $primary;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
+  }
 
-    // primary action gets brand color
-    &--primary {
-        background-color: $primary;
-        color: white;
-        padding: 0.5rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        &:hover {
-            background-color: darken($primary, 10%);
-            color: white;
-        }
+  // primary action gets brand color
+  &--primary {
+    background-color: $primary;
+    color: white;
+    padding: 0.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    &:hover {
+      background-color: darken($primary, 10%);
+      color: white;
     }
+  }
 
-    // menu button styling
-    &--menu {
-        padding: 0.5rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        justify-content: center;
+  // menu button styling
+  &--menu {
+    padding: 0.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    justify-content: center;
+  }
+
+  // more compact sizing when in header position
+  .td-content-header & {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.8125rem;
+
+    @media (max-width: 992px) {
+      .td-page-action__label {
+        display: none; // hide labels earlier on medium screens
+      }
+      padding: 0.375rem;
+      width: 2rem;
+      height: 2rem;
+      justify-content: center;
     }
-
-    // more compact sizing when in header position
-    .td-content-header & {
-        padding: 0.375rem 0.625rem;
-        font-size: 0.8125rem;
-
-        @media (max-width: 992px) {
-            .td-page-action__label {
-                display: none; // hide labels earlier on medium screens
-            }
-            padding: 0.375rem;
-            width: 2rem;
-            height: 2rem;
-            justify-content: center;
-        }
-    }
-
-    // hide labels on small screens
-    @media (max-width: 768px) {
-        .td-page-action__label {
-            display: none;
-        }
-
-        padding: 0.5rem;
-        width: 2.25rem;
-        height: 2.25rem;
-        justify-content: center;
-    }
+  }
 }
 
 // dropdown menu styling
 .td-page-actions-dropdown {
-    position: relative;
+  position: relative;
 
-    .dropdown-menu {
-        min-width: 200px;
-        border-radius: 8px;
-        border: none;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        padding: 0.5rem;
+  .dropdown-menu {
+    min-width: 200px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem;
 
-        [data-bs-theme="light"] & {
-            background-color: white;
-        }
-        [data-bs-theme="dark"] & {
-            background-color: lighten($dark, 5%);
-        }
-
-        .dropdown-item {
-            border-radius: 4px;
-            padding: 0.5rem 0.75rem;
-            font-size: 0.875rem;
-
-            [data-bs-theme="light"] & {
-                color: $dark;
-
-                &:hover {
-                    background-color: rgba($primary, 0.1);
-                    color: $primary;
-                }
-            }
-            [data-bs-theme="dark"] & {
-                color: $light;
-
-                &:hover {
-                    background-color: rgba($primary, 0.2);
-                    color: white;
-                }
-            }
-        }
+    [data-bs-theme='light'] & {
+      background-color: white;
     }
+    [data-bs-theme='dark'] & {
+      background-color: lighten($dark, 5%);
+    }
+
+    .dropdown-item {
+      border-radius: 4px;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+
+      [data-bs-theme='light'] & {
+        color: $dark;
+
+        &:hover {
+          background-color: rgba($primary, 0.1);
+          color: $primary;
+        }
+      }
+      [data-bs-theme='dark'] & {
+        color: $light;
+
+        &:hover {
+          background-color: rgba($primary, 0.2);
+          color: white;
+        }
+      }
+    }
+  }
 }
 
 // improved content spacing
 .td-content {
-    > *:first-child {
-        margin-top: 0 !important;
-    }
+  > *:first-child {
+    margin-top: 0 !important;
+  }
 
-    > h1,
-    > h2,
-    > h3,
-    > h4,
-    > h5,
-    > h6 {
-        margin-top: 2.5rem;
-        margin-bottom: 1rem;
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
 
-        &:first-child {
-            margin-top: 0;
-        }
+    &:first-child {
+      margin-top: 0;
     }
+  }
 
-    > p {
-        margin-bottom: 1.25rem;
-        line-height: 1.6;
-    }
+  > p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
 }
 
 // improved sidebar spacing and typography
 .td-sidebar {
-    .td-sidebar-nav {
-        /* padding-right: 1rem; */
+  .td-sidebar-nav {
+    /* padding-right: 1rem; */
 
-        .td-sidebar-link {
-            /* margin-bottom: 0.25rem; */
+    .td-sidebar-link {
+      /* margin-bottom: 0.25rem; */
 
-            a {
-                padding: 0.375rem 0.75rem;
-                border-radius: 4px;
-                display: block;
+      a {
+        padding: 0.375rem 0.75rem;
+        border-radius: 4px;
+        display: block;
 
-                &:hover {
-                    [data-bs-theme="light"] & {
-                        background-color: rgba($primary, 0.1);
-                    }
-                    [data-bs-theme="dark"] & {
-                        background-color: rgba($primary, 0.2);
-                    }
-                }
-            }
+        &:hover {
+          [data-bs-theme='light'] & {
+            background-color: rgba($primary, 0.1);
+          }
+          [data-bs-theme='dark'] & {
+            background-color: rgba($primary, 0.2);
+          }
         }
-
-        // improve nested list spacing
-        ul.foldable {
-            /* padding-left: 1rem; */
-            margin-top: 0.25rem;
-            border-left: 1px solid rgba($primary, 0.4);
-            /* margin-left: 0.5rem; */
-        }
+      }
     }
+
+    // improve nested list spacing
+    ul.foldable {
+      /* padding-left: 1rem; */
+      margin-top: 0.25rem;
+      border-left: 1px solid rgba($primary, 0.4);
+      /* margin-left: 0.5rem; */
+    }
+  }
 }
 
 // table of contents improvements
 .td-toc {
-    #TableOfContents {
-        ul {
-            /* padding-left: 1rem; */
+  #TableOfContents {
+    ul {
+      /* padding-left: 1rem; */
 
-            li {
-                margin-bottom: 0.25rem;
+      li {
+        margin-bottom: 0.25rem;
 
-                a {
-                    padding: 0.25rem 0.5rem;
-                    border-radius: 4px;
-                    display: block;
-                    font-size: 0.875rem;
+        a {
+          padding: 0.25rem 0.5rem;
+          border-radius: 4px;
+          display: block;
+          font-size: 0.875rem;
 
-                    &:hover {
-                        [data-bs-theme="light"] & {
-                            background-color: rgba($primary, 0.1);
-                        }
-                        [data-bs-theme="dark"] & {
-                            background-color: rgba($primary, 0.2);
-                        }
-                    }
-                }
+          &:hover {
+            [data-bs-theme='light'] & {
+              background-color: rgba($primary, 0.1);
             }
+            [data-bs-theme='dark'] & {
+              background-color: rgba($primary, 0.2);
+            }
+          }
         }
+      }
     }
+  }
 }
 
 // Import landing page styles
-@import "landing";
+@import 'landing';

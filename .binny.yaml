@@ -1,0 +1,41 @@
+tools:
+  # we want to use a pinned version of binny to manage the toolchain (so binny manages itself!)
+  - name: binny
+    version:
+      want: v0.10.0
+    method: github-release
+    with:
+      repo: anchore/binny
+
+  # used for showing the changelog at release
+  - name: glow
+    version:
+      want: v2.1.1
+    method: github-release
+    with:
+      repo: charmbracelet/glow
+
+  # used at release to generate the changelog
+  - name: chronicle
+    version:
+      want: v0.8.0
+    method: github-release
+    with:
+      repo: anchore/chronicle
+
+  # used for running all local and CI tasks
+  - name: task
+    version:
+      want: v3.45.3
+    method: github-release
+    with:
+      repo: go-task/task
+
+  # static site generator
+  - name: hugo
+    version:
+      want: v0.150.0
+    method: github-release
+    with:
+      repo: gohugoio/hugo
+      assets: '^hugo_extended_withdeploy'

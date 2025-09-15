@@ -63,7 +63,7 @@ drwxr-xr-x  3 alfredo  staff    96B Jul 31 09:27 ..
 Next, open the `vulnerability.db` with `sqlite3`:
 
 ```
-$ sqlite3 /Users/alfredo/Library/Caches/grype/db/vulnerability.db
+sqlite3 /Users/alfredo/Library/Caches/grype/db/vulnerability.db
 ```
 
 To make the reporting from Sqlite3 easier to read, enable the following:

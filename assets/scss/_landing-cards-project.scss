@@ -1,294 +1,256 @@
 // Landing page project cards section
-@import "landing-mixins";
+@import 'landing-mixins';
 
 .landing-page .main-projects-section {
-    @include theme-colors(
-        linear-gradient(
-            180deg,
-            $landing-dark-bg 0%,
-            $landing-dark-secondary 100%
-        ),
-        linear-gradient(
-            180deg,
-            $landing-light-secondary 0%,
-            $landing-light-tertiary 100%
-        )
-    );
-    padding: var(--landing-space-4xl) 0;
+  @include theme-colors(
+    linear-gradient(180deg, $landing-dark-bg 0%, $landing-dark-secondary 100%),
+    linear-gradient(180deg, $landing-light-secondary 0%, $landing-light-tertiary 100%)
+  );
+  padding: var(--landing-space-4xl) 0;
+  position: relative;
+
+  .container {
+    @include landing-container;
+  }
+
+  .row {
+    @include responsive-grid(320px);
+  }
+
+  // project card styling using shared mixin
+  .project-card {
+    @include landing-card(420px);
     position: relative;
+    overflow: hidden;
+    padding: var(--landing-space-2xl) var(--landing-space-xl) 2.5rem var(--landing-space-xl); // reset to original padding
 
-    .container {
-        @include landing-container;
+    // mascot peek container
+    .mascot-peek {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 200px; // wider to allow overflow into content
+      z-index: 1; // behind text content
+
+      .mascot-image {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%) translateX(-55%) scale(0.9);
+        height: 90%;
+        width: auto;
+        object-fit: cover;
+        object-position: right center;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+        transform-origin: center center;
+      }
     }
 
-    .row {
-        @include responsive-grid(320px);
+    // hide the original project-icon when mascot-peek is present
+    .project-icon {
+      display: none;
     }
 
-    // project card styling using shared mixin
-    .project-card {
-        @include landing-card(420px);
+    // simple content wrapper with better positioning
+    .card-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      text-align: center;
+    }
+
+    // enhanced text styling with thick gaussian blur background for contrast
+    .card-content {
+      h3 {
+        @include theme-colors(null, null, $landing-white, $landing-dark-bg);
+        font-size: 1.75rem;
+        font-weight: 700;
+        margin-bottom: var(--landing-space-md);
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
         position: relative;
-        overflow: hidden;
-        padding: var(--landing-space-2xl) var(--landing-space-xl) 2.5rem
-            var(--landing-space-xl); // reset to original padding
+        z-index: 2;
 
-        // mascot peek container
-        .mascot-peek {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 200px; // wider to allow overflow into content
-            z-index: 1; // behind text content
-
-            .mascot-image {
-                position: absolute;
-                left: 0;
-                top: 50%;
-                transform: translateY(-50%) translateX(-55%) scale(0.9);
-                height: 90%;
-                width: auto;
-                object-fit: cover;
-                object-position: right center;
-                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-                filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
-                transform-origin: center center;
-            }
+        // Create subtle wide gaussian blur background
+        &::before {
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: -30px;
+          right: -30px;
+          bottom: -20px;
+          background: rgba(0, 0, 0, 0.2);
+          filter: blur(25px);
+          z-index: -1;
+          border-radius: 20px;
         }
 
-        // hide the original project-icon when mascot-peek is present
-        .project-icon {
-            display: none;
+        text-shadow:
+          0 0 30px rgba(0, 0, 0, 0.4),
+          0 2px 6px rgba(0, 0, 0, 0.3),
+          0 1px 3px rgba(0, 0, 0, 0.5);
+
+        [data-bs-theme='light'] & {
+          &::before {
+            background: rgba(255, 255, 255, 0.6);
+          }
+          text-shadow:
+            0 0 30px rgba(255, 255, 255, 0.7),
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+      }
+
+      p {
+        @include theme-colors(null, null, $landing-text-dark, $landing-text-light);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin: 0 0 var(--landing-space-xl) 0;
+        transition: all 0.3s ease;
+        transform-style: preserve-3d;
+        position: relative;
+        z-index: 2;
+
+        // Create subtle wide gaussian blur background
+        &::before {
+          content: '';
+          position: absolute;
+          top: -12px;
+          left: -20px;
+          right: -20px;
+          bottom: -12px;
+          background: rgba(0, 0, 0, 0.25);
+          filter: blur(20px);
+          z-index: -1;
+          border-radius: 15px;
         }
 
-        // simple content wrapper with better positioning
-        .card-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            text-align: center;
+        text-shadow:
+          0 0 20px rgba(0, 0, 0, 0.4),
+          0 1px 4px rgba(0, 0, 0, 0.3),
+          0 2px 8px rgba(0, 0, 0, 0.3);
+
+        [data-bs-theme='light'] & {
+          &::before {
+            background: rgba(255, 255, 255, 0.5);
+          }
+          text-shadow:
+            0 0 20px rgba(255, 255, 255, 0.6),
+            0 1px 2px rgba(0, 0, 0, 0.2),
+            0 1px 1px rgba(255, 255, 255, 0.7);
         }
-
-        // enhanced text styling with thick gaussian blur background for contrast
-        .card-content {
-            h3 {
-                @include theme-colors(
-                    null,
-                    null,
-                    $landing-white,
-                    $landing-dark-bg
-                );
-                font-size: 1.75rem;
-                font-weight: 700;
-                margin-bottom: var(--landing-space-md);
-                transition: all 0.3s ease;
-                transform-style: preserve-3d;
-                position: relative;
-                z-index: 2;
-
-                // Create subtle wide gaussian blur background
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: -20px;
-                    left: -30px;
-                    right: -30px;
-                    bottom: -20px;
-                    background: rgba(0, 0, 0, 0.2);
-                    filter: blur(25px);
-                    z-index: -1;
-                    border-radius: 20px;
-                }
-
-                text-shadow:
-                    0 0 30px rgba(0, 0, 0, 0.4),
-                    0 2px 6px rgba(0, 0, 0, 0.3),
-                    0 1px 3px rgba(0, 0, 0, 0.5);
-
-                [data-bs-theme="light"] & {
-                    &::before {
-                        background: rgba(255, 255, 255, 0.6);
-                    }
-                    text-shadow:
-                        0 0 30px rgba(255, 255, 255, 0.7),
-                        0 2px 4px rgba(0, 0, 0, 0.2),
-                        0 1px 2px rgba(255, 255, 255, 0.8);
-                }
-            }
-
-            p {
-                @include theme-colors(
-                    null,
-                    null,
-                    $landing-text-dark,
-                    $landing-text-light
-                );
-                font-size: 1.1rem;
-                line-height: 1.6;
-                margin: 0 0 var(--landing-space-xl) 0;
-                transition: all 0.3s ease;
-                transform-style: preserve-3d;
-                position: relative;
-                z-index: 2;
-
-                // Create subtle wide gaussian blur background
-                &::before {
-                    content: "";
-                    position: absolute;
-                    top: -12px;
-                    left: -20px;
-                    right: -20px;
-                    bottom: -12px;
-                    background: rgba(0, 0, 0, 0.25);
-                    filter: blur(20px);
-                    z-index: -1;
-                    border-radius: 15px;
-                }
-
-                text-shadow:
-                    0 0 20px rgba(0, 0, 0, 0.4),
-                    0 1px 4px rgba(0, 0, 0, 0.3),
-                    0 2px 8px rgba(0, 0, 0, 0.3);
-
-                [data-bs-theme="light"] & {
-                    &::before {
-                        background: rgba(255, 255, 255, 0.5);
-                    }
-                    text-shadow:
-                        0 0 20px rgba(255, 255, 255, 0.6),
-                        0 1px 2px rgba(0, 0, 0, 0.2),
-                        0 1px 1px rgba(255, 255, 255, 0.7);
-                }
-            }
-        }
-
-        // individual project colors for hover effects
-        &:nth-child(1) {
-            &:hover::before {
-                background: linear-gradient(
-                    135deg,
-                    rgba(236, 121, 249, 0.6) 0%,
-                    rgba(251, 113, 133, 0.6) 100%
-                );
-            }
-            &:hover h3 {
-                color: $syft-pink;
-            }
-        }
-
-        &:nth-child(2) {
-            &:hover::before {
-                background: linear-gradient(
-                    135deg,
-                    rgba(96, 165, 250, 0.6) 0%,
-                    rgba(59, 130, 246, 0.6) 100%
-                );
-            }
-            &:hover h3 {
-                color: $grype-light-blue;
-            }
-        }
-
-        &:nth-child(3) {
-            &:hover::before {
-                background: linear-gradient(
-                    135deg,
-                    rgba(34, 197, 94, 0.6) 0%,
-                    rgba(16, 185, 129, 0.6) 100%
-                );
-            }
-            &:hover h3 {
-                color: $anchore-green;
-            }
-        }
-
-        // mascot hover effects
-        &:hover .mascot-peek .mascot-image {
-            transform: translateY(-50%) translateX(-20%) rotateY(-15deg)
-                rotateZ(12deg);
-            filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.4));
-        }
-
-        // project actions (buttons within cards) - now inside card-content
-        .card-content .project-actions {
-            margin-top: auto; // push to bottom of flex container
-            display: flex;
-            gap: var(--landing-space-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 4; // highest layer
-
-            .btn {
-                transform-style: preserve-3d;
-
-                &.btn-primary {
-                    @include button-primary;
-                }
-
-                &.btn-secondary {
-                    @include button-secondary;
-                }
-
-                &:hover {
-                    transform: translateY(-2px) translateZ(5px);
-                }
-            }
-
-            @media (max-width: 768px) {
-                flex-direction: column;
-                gap: var(--landing-space-xs);
-
-                .btn {
-                    width: 100%;
-                    justify-content: center;
-                }
-            }
-        }
-
-        // responsive behavior for mascot peek
-        @media (max-width: 768px) {
-            padding-left: var(
-                --landing-space-xl
-            ); // reduce left padding on mobile
-
-            .mascot-peek {
-                width: 120px; // smaller but still allows overlap
-
-                .mascot-image {
-                    height: 70%; // smaller mascot on mobile
-                    transform: translateY(-50%) translateX(-60%) rotateZ(-3deg); // show less, reduced tilt
-                }
-            }
-
-            &:hover .mascot-peek .mascot-image {
-                transform: translateY(-50%) translateX(-35%) rotateY(-10deg)
-                    rotateZ(-8deg); // reduced hover effect
-            }
-        }
-
-        @media (max-width: 480px) {
-            padding-left: var(
-                --landing-space-lg
-            ); // even less padding on very small screens
-
-            .mascot-peek {
-                width: 100px;
-
-                .mascot-image {
-                    height: 60%;
-                    transform: translateY(-50%) translateX(-70%) rotateZ(-2deg); // show even less, minimal tilt
-                }
-            }
-
-            &:hover .mascot-peek .mascot-image {
-                transform: translateY(-50%) translateX(-45%) rotateY(-6deg)
-                    rotateZ(-6deg); // minimal hover effect
-            }
-        }
+      }
     }
+
+    // individual project colors for hover effects
+    &:nth-child(1) {
+      &:hover::before {
+        background: linear-gradient(135deg, rgba(236, 121, 249, 0.6) 0%, rgba(251, 113, 133, 0.6) 100%);
+      }
+      &:hover h3 {
+        color: $syft-pink;
+      }
+    }
+
+    &:nth-child(2) {
+      &:hover::before {
+        background: linear-gradient(135deg, rgba(96, 165, 250, 0.6) 0%, rgba(59, 130, 246, 0.6) 100%);
+      }
+      &:hover h3 {
+        color: $grype-light-blue;
+      }
+    }
+
+    &:nth-child(3) {
+      &:hover::before {
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.6) 0%, rgba(16, 185, 129, 0.6) 100%);
+      }
+      &:hover h3 {
+        color: $anchore-green;
+      }
+    }
+
+    // mascot hover effects
+    &:hover .mascot-peek .mascot-image {
+      transform: translateY(-50%) translateX(-20%) rotateY(-15deg) rotateZ(12deg);
+      filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.4));
+    }
+
+    // project actions (buttons within cards) - now inside card-content
+    .card-content .project-actions {
+      margin-top: auto; // push to bottom of flex container
+      display: flex;
+      gap: var(--landing-space-sm);
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 4; // highest layer
+
+      .btn {
+        transform-style: preserve-3d;
+
+        &.btn-primary {
+          @include button-primary;
+        }
+
+        &.btn-secondary {
+          @include button-secondary;
+        }
+
+        &:hover {
+          transform: translateY(-2px) translateZ(5px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: var(--landing-space-xs);
+
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+
+    // responsive behavior for mascot peek
+    @media (max-width: 768px) {
+      padding-left: var(--landing-space-xl); // reduce left padding on mobile
+
+      .mascot-peek {
+        width: 120px; // smaller but still allows overlap
+
+        .mascot-image {
+          height: 70%; // smaller mascot on mobile
+          transform: translateY(-50%) translateX(-60%) rotateZ(-3deg); // show less, reduced tilt
+        }
+      }
+
+      &:hover .mascot-peek .mascot-image {
+        transform: translateY(-50%) translateX(-35%) rotateY(-10deg) rotateZ(-8deg); // reduced hover effect
+      }
+    }
+
+    @media (max-width: 480px) {
+      padding-left: var(--landing-space-lg); // even less padding on very small screens
+
+      .mascot-peek {
+        width: 100px;
+
+        .mascot-image {
+          height: 60%;
+          transform: translateY(-50%) translateX(-70%) rotateZ(-2deg); // show even less, minimal tilt
+        }
+      }
+
+      &:hover .mascot-peek .mascot-image {
+        transform: translateY(-50%) translateX(-45%) rotateY(-6deg) rotateZ(-6deg); // minimal hover effect
+      }
+    }
+  }
 }
