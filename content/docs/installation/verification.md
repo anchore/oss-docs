@@ -14,14 +14,14 @@ Checksums are applied to all artifacts, and the resulting checksum file is signe
 You need the following tool to verify signature:
 
 * [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/)
-  
+
 Verification steps are as follow:
 
 1. Download the files you want, and the checksums.txt, checksums.txt.pem and checksums.txt.sig files from the appropriate GitHub:
 
-* [Syft](https://github.com/anchore/syft/releases) 
-* [Grype](https://github.com/anchore/grype/releases) 
-* [Grant](https://github.com/anchore/grant/releases) 
+* [Syft](https://github.com/anchore/syft/releases)
+* [Grype](https://github.com/anchore/grype/releases)
+* [Grant](https://github.com/anchore/grant/releases)
 
 2. Verify the signature:
 
@@ -35,7 +35,7 @@ cosign verify-blob <path to checksum.txt> \
 --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
 
-Here's an example of verifying the macOS arm64 Syft v1.23.1 tarball in the current directory: 
+Here's an example of verifying the macOS arm64 Syft v1.23.1 tarball in the current directory:
 
 First, we download the Syft tarball directly from the [GitHub releases](https://github.com/anchore/syft/releases/tag/v1.23.1) page for Syft v1.23.1:
 
@@ -81,6 +81,6 @@ sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
 
 If successful, we will get this output:
 
-```text
+```
 syft_1.23.1_darwin_arm64.tar.gz: OK
 ```

@@ -1,0 +1,46 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage"
+    {{- with .Site.Language.LanguageDirection }} dir="{{ . }}" {{- end -}}
+    {{ with .Site.Language.Lang }} lang="{{ . }}" {{- end }} {{/**/ -}}
+    class="no-js">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body class="td-{{ .Kind }}{{ with .Page.Params.body_class }} {{ . }}{{ end }}">
+    <header>
+      {{ partial "navbar.html" . }}
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            {{ partial "sidebar.html" . }}
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            {{/* Removed page-meta-links from here - moved to bottom of content */}}
+            {{ partial "toc.html" . }}
+            {{ partial "taxonomy_terms_clouds.html" . }}
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            {{ partial "version-banner.html" . }}
+            {{/* Content header with breadcrumbs and page actions */}}
+            <div class="td-content-header d-flex justify-content-between align-items-center mb-3">
+              {{ if not (.Param "ui.breadcrumb_disable") -}}
+                <div class="td-breadcrumb-wrapper flex-grow-1">
+                  {{ partial "breadcrumb.html" . -}}
+                </div>
+              {{ end -}}
+              {{/* Page meta links positioned inline at top right */}}
+              <div class="td-page-actions-wrapper">
+                {{ partial "page-meta-links-compact.html" . }}
+              </div>
+            </div>
+            {{ block "main" . }}{{ end }}
+          </main>
+        </div>
+      </div>
+      {{ partial "footer.html" . }}
+    </div>
+    {{ partial "scripts.html" . }}
+  </body>
+</html>

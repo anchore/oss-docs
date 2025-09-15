@@ -1,0 +1,98 @@
+// Landing page hero section
+@import "landing-mixins";
+
+.landing-page .hero-section {
+    background: $landing-dark-secondary;
+    padding: var(--landing-space-5xl) 0 var(--landing-space-3xl) 0;
+    text-align: center;
+    position: relative;
+
+    // light mode keeps same background for blending
+    [data-bs-theme="light"] & {
+        background: $landing-dark-secondary;
+    }
+
+    .container {
+        @include landing-container;
+    }
+
+    .hero-content {
+        h1 {
+            color: $landing-white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: var(--landing-space-md);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+
+            @media (max-width: 768px) {
+                font-size: 2.5rem;
+            }
+        }
+
+        p {
+            color: $landing-text-dark;
+            font-size: 1.4rem;
+            margin: 0;
+            font-weight: 400;
+            line-height: 1.4;
+
+            @media (max-width: 768px) {
+                font-size: 1.2rem;
+            }
+        }
+
+        .hero-actions {
+            margin-top: var(--landing-space-2xl);
+            display: flex;
+            gap: var(--landing-space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .btn {
+                transform-style: preserve-3d;
+
+                &.btn-primary {
+                    @include button-primary;
+                    font-size: 1.2rem;
+                }
+
+                &.btn-syft-pink {
+                    @include button-syft-pink;
+                    font-size: 1.2rem;
+                }
+
+                &:hover {
+                    transform: translateY(-2px) translateZ(5px);
+                }
+            }
+
+            @media (max-width: 768px) {
+                margin-top: var(--landing-space-xl);
+                flex-direction: column;
+                gap: var(--landing-space-sm);
+                align-items: center;
+
+                .btn {
+                    width: 200px;
+                    justify-content: center;
+                }
+            }
+        }
+
+        // keep white text on dark banner in light mode too
+        [data-bs-theme="light"] & {
+            h1 {
+                color: $landing-white;
+            }
+
+            p {
+                color: $landing-text-dark;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding: 7rem 0 3rem 0;
+    }
+}

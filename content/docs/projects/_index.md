@@ -1,9 +1,9 @@
 +++
-title = "Overview"
+title = "Projects"
 description = "Overview of Anchore Open Source tools."
 weight = 10
 tags = ["syft", "grype", "grant"]
-url = "docs/overview"
+url = "docs/projects"
 +++
 
 ### Anchore Open Source Tools
@@ -12,7 +12,7 @@ We maintain three popular command-line tools, some libraries, and supporting uti
 
 #### <img src="/images/logos/syft/apple-touch-icon-60x60.png" alt="Syft logo" class="m4-3 h1" style="max-height: 50px;"/> Syft
 {{< card  title="SBOM Generator and library" footer="<a href=https://github.com/anchore/syft>Syft GitHub Repo</a> | <a href=/docs/userguides/sbom/getstarted>SBOM Generation Guide</a>" >}}
-<b>Syft</b> (pronounced like <i>sift</i>) is an open-source command-line tool and Go library. Its primary function is to scan container images, file systems, and archives to automatically generate a Software Bill of Materials, making it easier to understand the composition of software.   
+<b>Syft</b> (pronounced like <i>sift</i>) is an open-source command-line tool and Go library. Its primary function is to scan container images, file systems, and archives to automatically generate a Software Bill of Materials, making it easier to understand the composition of software.  
 {{< /card >}}
 #### <img src="/images/logos/grype/apple-touch-icon-60x60.png" alt="Grype logo" class="m4-3 h1" style="max-height: 50px;"/> Grype
 {{< card title="Vulnerability Scanner" footer="<a href=https://github.com/anchore/grype>Grype GitHub Repo</a> | <a href=/docs/userguides/vuln/getstarted>Vulnerability Scanning Guide</a>" >}}

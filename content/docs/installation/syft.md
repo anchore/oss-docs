@@ -107,7 +107,7 @@ scoop install syft
 
 ### WinGet
 
-```shell
+```
 nuget install Anchore.syft
 ```
 

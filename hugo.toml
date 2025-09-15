@@ -1,6 +1,6 @@
 baseURL = 'https://oss.anchore.com/'
 languageCode = 'en-us'
-title = 'Anchore OSS Documentation'
+title = ''
 publishDir = "public/"
 theme = "docsy"
 
@@ -9,18 +9,18 @@ theme = "docsy"
 # https://discourse.gohugo.io/t/ignorelogs-warning-goldmark-raw-html/52469
 ignoreLogs = ['warning-goldmark-raw-html']
 
-# enableGitInfo Enables bar on right of screen, 
-# for fast access to GitHub docs repo for easier 
+# enableGitInfo Enables bar on right of screen,
+# for fast access to GitHub docs repo for easier
 # contributions
 enableGitInfo = true
 
 [menus]
   # Items on the top-right of the header
-  [[menus.main]]
-    name = "OSS Docs"
-    weight = -102
-    pre = "<i class='fas fa-book pr-2'></i>"
-    url = "https://oss.anchore.com/"
+  # [[menus.main]]
+  #   name = "OSS Docs"
+  #   weight = -102
+  #   pre = "<i class='fas fa-book pr-2'></i>"
+  #   url = "/"
   [[menus.main]]
     name = "Enterprise Docs"
     weight = -101
@@ -60,6 +60,8 @@ enableGitInfo = true
   custom_css = ["css/custom.css"]
   github_repo = "https://github.com/anchore/oss-docs"
   github_project_repo = "https://github.com/anchore/oss-docs"
+  # Enable offline/local search functionality
+  offlineSearch = true
 
 [params.links]
     # Links which appear on the left of the footer
@@ -109,6 +111,12 @@ enableGitInfo = true
   sidebar_search_disable = false
   navbar_translucent_over_cover_disable = true
 
+  # Custom logo configuration
+  navbar_logo = true
+
+  # Optimize font loading
+  preload_fonts = ["Poppins:400,500,600"]
+
   # Commented this out, because some of the styling in dark mode
   # needs fixing.
   showLightDarkModeMenu = true
@@ -139,13 +147,29 @@ disable_toc = true
 [markup]
   [markup.highlight]
     codeFences = true
-    guessSyntax = false
+    guessSyntax = true
     hl_Lines = ""
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
-    noClasses = true
-    style = "tango"
     tabWidth = 4
+
+    # see https://gohugo.io/content-management/syntax-highlighting/
+    # we generate these with "hugo gen chromastyles --style=github > assets/scss/_chroma-github.scss"
+
+     # this will honor the "style" configuration (which does not respond to light/dark mode)
+    noClasses = true
+
+    # this will IGNORE the style configuration, has an import in _styles_project.scss, but honors the light/dark mode
+    # note: there seems to be a problem with the default font on light mode though, so we'll stick with noClasses = true for now
+    # noClasses = false
+
+    style = "dracula"
+
   [markup.goldmark.renderer]
     unsafe = true
+
+
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
