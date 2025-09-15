@@ -46,7 +46,7 @@
                 position: absolute;
                 left: 0;
                 top: 50%;
-                transform: translateY(-50%) translateX(-60%) scale(0.9);
+                transform: translateY(-50%) translateX(-55%) scale(0.9);
                 height: 90%;
                 width: auto;
                 object-fit: cover;
@@ -267,7 +267,7 @@
 
             &:hover .mascot-peek .mascot-image {
                 transform: translateY(-50%) translateX(-35%) rotateY(-10deg)
-                    rotateZ(-8deg) scale(1.02); // reduced hover effect
+                    rotateZ(-8deg); // reduced hover effect
             }
         }
 
@@ -287,7 +287,7 @@
 
             &:hover .mascot-peek .mascot-image {
                 transform: translateY(-50%) translateX(-45%) rotateY(-6deg)
-                    rotateZ(-6deg) scale(1.01); // minimal hover effect
+                    rotateZ(-6deg); // minimal hover effect
             }
         }
     }
