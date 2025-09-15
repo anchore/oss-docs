@@ -4,6 +4,7 @@ NOTES.md
 brand/
 specs/
 CLAUDE.md
+.playwright-mcp/
 
 # python
 .venv/

@@ -79,27 +79,31 @@
     pointer-events: auto;
 
     img {
-        height: 70px;
+        height: 90px;
+        width: auto !important;
         margin-left: 1em;
-        max-width: 180px;
-        transition: height 0.3s ease, max-width 0.3s ease;
+        max-width: none !important;
+        object-fit: contain;
+        transition:
+            height 0.3s ease,
+            max-width 0.3s ease;
         filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
 
         @media (max-width: 768px) {
-            height: 50px;
-            max-width: 130px;
+            height: 65px;
+            max-width: none;
         }
     }
 }
 
 // shrink logo when scrolled
 .td-home .td-navbar.scrolled .navbar-brand img {
-    height: 35px;
-    max-width: 110px;
+    height: 50px;
+    max-width: none;
 
     @media (max-width: 768px) {
-        height: 32px;
-        max-width: 100px;
+        height: 45px;
+        max-width: none;
     }
 }
 
