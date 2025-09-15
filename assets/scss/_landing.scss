@@ -1,6 +1,8 @@
 // Landing page specific styles
 // Inspired by GitHub and Vercel landing pages with modern design
 
+@import "variables_project";
+
 // fix vertical bars on edges by setting all container backgrounds on home page
 html:has(.td-home),
 body.td-home,
@@ -10,14 +12,14 @@ body.td-home,
 .td-home main,
 .td-home #main-content {
     // dark mode background (default)
-    background: #0f172a !important;
+    background: $landing-dark-bg !important;
     margin: 0;
     padding: 0;
     width: 100%;
 
     // Light mode background
     &[data-bs-theme="light"] {
-        background: #f8fafc !important;
+        background: $landing-light-bg !important;
     }
 }
 
@@ -52,12 +54,12 @@ body.td-home,
 .td-home footer,
 .td-home .td-footer {
     // dark mode background (default)
-    background: #0f172a !important;
+    background: $landing-dark-bg !important;
     border-top: none !important;
 
     // light mode background
     &[data-bs-theme="light"] {
-        background: #f8fafc !important;
+        background: $landing-light-bg !important;
     }
 }
 
@@ -69,7 +71,7 @@ body.td-home,
 
 // override navbar color and sizing on the landing page (home page)
 .td-home .td-navbar {
-    background: #1e293b !important;
+    background: $landing-dark-secondary !important;
     min-height: 100px; // accommodate larger logo
     transition: min-height 0.3s ease;
 
@@ -91,7 +93,7 @@ body.td-home,
 }
 
 .td-home .navbar-bg-onscroll {
-    background: #1e293b !important;
+    background: $landing-dark-secondary !important;
 }
 
 // Ssow large logo in navbar on home page with scroll animation
@@ -133,7 +135,7 @@ body.td-home,
     // minimal hero section
     .hero-section {
         // dark mode styles (default)
-        background: #1e293b;
+        background: $landing-dark-secondary;
         padding: 9rem 0 4rem 0; // Extra padding for larger navbar
         text-align: center;
         position: relative;
@@ -155,7 +157,7 @@ body.td-home,
             }
 
             p {
-                color: rgba(255, 255, 255, 0.8);
+                color: $landing-text-dark;
                 font-size: 1.4rem; // Bigger subtitle
                 margin: 0;
                 font-weight: 400;
@@ -177,7 +179,7 @@ body.td-home,
 
         // light mode styles - keep same background as banner for blending
         [data-bs-theme="light"] & {
-            background: #1e293b;
+            background: $landing-dark-secondary;
 
             .hero-content {
                 h1 {
@@ -185,12 +187,7 @@ body.td-home,
                 }
 
                 p {
-                    color: rgba(
-                        255,
-                        255,
-                        255,
-                        0.8
-                    ); // keep white text on dark banner
+                    color: $landing-text-dark; // keep white text on dark banner
                 }
             }
         }
@@ -199,13 +196,13 @@ body.td-home,
     // main project cards section - the primary focus
     .main-projects-section {
         // dark mode styles (default)
-        background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+        background: linear-gradient(180deg, $landing-dark-bg 0%, $landing-dark-secondary 100%);
         padding: 6rem 0;
         position: relative;
 
         // light mode styles
         [data-bs-theme="light"] & {
-            background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+            background: linear-gradient(180deg, $landing-light-secondary 0%, $landing-light-tertiary 100%);
         }
 
         .container {
@@ -289,7 +286,7 @@ body.td-home,
                 }
 
                 h3 {
-                    color: #60a5fa;
+                    color: $grype-light-blue;
                     transform: translateZ(10px);
                 }
 
@@ -323,7 +320,7 @@ body.td-home,
             }
 
             h3 {
-                color: white;
+                color: $landing-white;
                 font-size: 1.75rem;
                 font-weight: 700;
                 margin-bottom: 1rem;
@@ -332,12 +329,12 @@ body.td-home,
 
                 // light mode styles
                 [data-bs-theme="light"] & {
-                    color: #0f172a;
+                    color: $landing-dark-bg;
                 }
             }
 
             p {
-                color: rgba(255, 255, 255, 0.7);
+                color: $landing-text-dark;
                 font-size: 1.1rem;
                 line-height: 1.6;
                 margin: 0;
@@ -360,7 +357,7 @@ body.td-home,
                     );
                 }
                 &:hover h3 {
-                    color: #e879f9;
+                    color: $syft-pink;
                 }
             }
 
@@ -373,7 +370,7 @@ body.td-home,
                     );
                 }
                 &:hover h3 {
-                    color: #60a5fa;
+                    color: $grype-light-blue;
                 }
             }
 
@@ -386,7 +383,7 @@ body.td-home,
                     );
                 }
                 &:hover h3 {
-                    color: #22c55e;
+                    color: $anchore-green;
                 }
             }
 
@@ -415,8 +412,8 @@ body.td-home,
                     &.btn-primary {
                         background: linear-gradient(
                             135deg,
-                            #3b82f6 0%,
-                            #2563eb 100%
+                            $grype-medium-blue 0%,
+                            $grype-darker-blue 100%
                         );
                         color: white;
                         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
@@ -426,8 +423,8 @@ body.td-home,
                             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
                             background: linear-gradient(
                                 135deg,
-                                #2563eb 0%,
-                                #1d4ed8 100%
+                                $grype-darker-blue 0%,
+                                $grype-darkest-blue 100%
                             );
                         }
                     }
@@ -439,9 +436,9 @@ body.td-home,
 
                         // light mode secondary button (dark grey)
                         [data-bs-theme="light"] & {
-                            background: #374151;
+                            background: $landing-gray-600;
                             color: white;
-                            border: 1px solid #374151;
+                            border: 1px solid $landing-gray-600;
                         }
 
                         &:hover {
@@ -452,8 +449,8 @@ body.td-home,
 
                             // light mode secondary button hover
                             [data-bs-theme="light"] & {
-                                background: #1f2937;
-                                border-color: #1f2937;
+                                background: $landing-gray-800;
+                                border-color: $landing-gray-800;
                                 color: white;
                             }
                         }
@@ -485,12 +482,12 @@ body.td-home,
     // community section styling
     .community-section {
         // dark mode styles (default)
-        background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+        background: linear-gradient(180deg, $landing-dark-secondary 0%, $landing-dark-bg 100%);
         padding: 6rem 0;
 
         // light mode styles - light grey/white background
         [data-bs-theme="light"] & {
-            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            background: linear-gradient(180deg, $landing-light-bg 0%, $landing-white 100%);
         }
 
         .container {
@@ -539,22 +536,22 @@ body.td-home,
             .feature-icon {
                 font-size: 3rem;
                 margin-bottom: 1.5rem;
-                color: #60a5fa;
+                color: $grype-light-blue;
                 transition: all 0.3s ease;
 
                 // light mode styles
                 [data-bs-theme="light"] & {
-                    color: #3b82f6;
+                    color: $grype-medium-blue;
                 }
             }
 
             &:hover .feature-icon {
                 transform: scale(1.15);
-                color: #3b82f6;
+                color: $grype-medium-blue;
 
                 // light mode hover styles
                 [data-bs-theme="light"] & {
-                    color: #2563eb;
+                    color: $grype-darker-blue;
                 }
             }
 
@@ -566,12 +563,12 @@ body.td-home,
 
                 // light mode styles
                 [data-bs-theme="light"] & {
-                    color: #0f172a;
+                    color: $landing-dark-bg;
                 }
             }
 
             p {
-                color: rgba(255, 255, 255, 0.7);
+                color: $landing-text-dark;
                 line-height: 1.6;
                 margin: 0;
 
@@ -581,24 +578,24 @@ body.td-home,
                 }
 
                 a {
-                    color: #60a5fa;
+                    color: $grype-light-blue;
                     text-decoration: none;
                     transition: color 0.3s ease;
                     border-bottom: 1px solid transparent;
 
                     // light mode link styles
                     [data-bs-theme="light"] & {
-                        color: #3b82f6;
+                        color: $grype-medium-blue;
                     }
 
                     &:hover {
-                        color: #3b82f6;
-                        border-bottom-color: #3b82f6;
+                        color: $grype-medium-blue;
+                        border-bottom-color: $grype-medium-blue;
 
                         // light mode link hover styles
                         [data-bs-theme="light"] & {
-                            color: #2563eb;
-                            border-bottom-color: #2563eb;
+                            color: $grype-darker-blue;
+                            border-bottom-color: $grype-darker-blue;
                         }
                     }
                 }
@@ -626,8 +623,8 @@ body.td-home,
                     &.btn-primary {
                         background: linear-gradient(
                             135deg,
-                            #3b82f6 0%,
-                            #2563eb 100%
+                            $grype-medium-blue 0%,
+                            $grype-darker-blue 100%
                         );
                         color: white;
                         box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
@@ -637,8 +634,8 @@ body.td-home,
                             box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
                             background: linear-gradient(
                                 135deg,
-                                #2563eb 0%,
-                                #1d4ed8 100%
+                                $grype-darker-blue 0%,
+                                $grype-darkest-blue 100%
                             );
                         }
                     }
