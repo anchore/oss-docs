@@ -20,6 +20,38 @@
     // project card styling using shared mixin
     .project-card {
         @include landing-card(420px);
+        position: relative;
+        overflow: hidden;
+        padding-left: 140px; // make room for mascot peek
+
+        // mascot peek container
+        .mascot-peek {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            overflow: hidden;
+            z-index: 1;
+
+            .mascot-image {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%) translateX(-50%);
+                height: 90%;
+                width: auto;
+                object-fit: cover;
+                object-position: right center;
+                transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+            }
+        }
+
+        // hide the original project-icon when mascot-peek is present
+        .project-icon {
+            display: none;
+        }
 
         // individual project colors for hover effects
         &:nth-child(1) {
@@ -58,6 +90,47 @@
             }
             &:hover h3 {
                 color: $anchore-green;
+            }
+        }
+
+        // mascot hover effects
+        &:hover .mascot-peek .mascot-image {
+            transform: translateY(-50%) translateX(-25%) rotateY(-15deg) scale(1.05);
+            filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.4));
+        }
+
+        // responsive behavior for mascot peek
+        @media (max-width: 768px) {
+            padding-left: var(--landing-space-xl); // reduce left padding on mobile
+
+            .mascot-peek {
+                width: 80px; // smaller mascot container on mobile
+
+                .mascot-image {
+                    height: 70%; // smaller mascot on mobile
+                    transform: translateY(-50%) translateX(-60%); // show less of mascot
+                }
+            }
+
+            &:hover .mascot-peek .mascot-image {
+                transform: translateY(-50%) translateX(-35%) rotateY(-10deg) scale(1.02); // reduced hover effect
+            }
+        }
+
+        @media (max-width: 480px) {
+            padding-left: var(--landing-space-lg); // even less padding on very small screens
+
+            .mascot-peek {
+                width: 60px;
+
+                .mascot-image {
+                    height: 60%;
+                    transform: translateY(-50%) translateX(-70%); // show even less on small screens
+                }
+            }
+
+            &:hover .mascot-peek .mascot-image {
+                transform: translateY(-50%) translateX(-45%) rotateY(-8deg) scale(1.01); // minimal hover effect
             }
         }
 
