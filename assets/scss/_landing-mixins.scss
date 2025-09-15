@@ -148,6 +148,20 @@
     }
 }
 
+@mixin button-syft-pink {
+    @include button-primary;
+
+    background: linear-gradient(135deg, $syft-pink 0%, $syft-coral 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(232, 121, 249, 0.3);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(232, 121, 249, 0.4);
+        background: linear-gradient(135deg, darken($syft-pink, 8%) 0%, darken($syft-coral, 8%) 100%);
+    }
+}
+
 // responsive grid mixin
 @mixin responsive-grid($min-width: 320px, $gap: var(--landing-space-xl)) {
     display: grid;
@@ -194,6 +208,20 @@
     text-align: center;
     transform-style: preserve-3d;
     perspective: 1000px;
+
+    // ensure buttons are not affected by 3D transforms and remain clickable
+    .project-actions,
+    .community-actions {
+        transform-style: flat;
+        position: relative;
+        z-index: 10;
+
+        .btn {
+            pointer-events: auto;
+            position: relative;
+            z-index: 1;
+        }
+    }
 
     &:hover {
         background: rgba(255, 255, 255, 0.08);

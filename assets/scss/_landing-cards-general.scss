@@ -57,10 +57,6 @@
                 &.btn-primary {
                     @include button-primary;
                 }
-
-                &:hover {
-                    transform: translateY(-2px);
-                }
             }
         }
     }

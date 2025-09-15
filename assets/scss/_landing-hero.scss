@@ -42,6 +42,44 @@
             }
         }
 
+        .hero-actions {
+            margin-top: var(--landing-space-2xl);
+            display: flex;
+            gap: var(--landing-space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .btn {
+                transform-style: preserve-3d;
+
+                &.btn-primary {
+                    @include button-primary;
+                    font-size: 1.2rem;
+                }
+
+                &.btn-syft-pink {
+                    @include button-syft-pink;
+                    font-size: 1.2rem;
+                }
+
+                &:hover {
+                    transform: translateY(-2px) translateZ(5px);
+                }
+            }
+
+            @media (max-width: 768px) {
+                margin-top: var(--landing-space-xl);
+                flex-direction: column;
+                gap: var(--landing-space-sm);
+                align-items: center;
+
+                .btn {
+                    width: 200px;
+                    justify-content: center;
+                }
+            }
+        }
+
         // keep white text on dark banner in light mode too
         [data-bs-theme="light"] & {
             h1 {
