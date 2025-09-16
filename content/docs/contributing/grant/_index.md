@@ -13,6 +13,7 @@ We welcome contributions to the project! There are a few useful things to know b
 Do also take note of the [General Guidelines](/docs/contributing/#general-guidelines) that apply accross all Anchore Open Source projects.
 
 ### Getting Started
+
 After pulling the repository, you can get started by running the following command to install the necessary dependencies and build `grant` from source
 
 ```
@@ -20,6 +21,7 @@ make
 ```
 
 After building the project, you can run the following command to run the newly built binary
+
 ```
 ./snapshot/<os>-build_<>os_<arch>/grant
 ```
@@ -33,6 +35,7 @@ go run cmd/grant/main.go
 ```
 
 ### Testing
+
 You can run the tests for the project by running the following command:
 
 ```
@@ -40,6 +43,7 @@ make test
 ```
 
 ### Linting
+
 You can run the linter for the project by running the following command:
 
 ```
@@ -47,7 +51,8 @@ make static-analysis
 ```
 
 ### Making a PR
+
 Just fork the repository, make your changes on a branch, and submit a PR. We will review your changes and merge them if they are good to go.
 
-When making a PR, please make sure to include a description of the changes you have made and the reasoning behind them. 
+When making a PR, please make sure to include a description of the changes you have made and the reasoning behind them.
 If you are adding a new feature, please include tests for the new feature. If you are fixing a bug, please include a test that reproduces the bug and ensure that the test passes after your changes.

@@ -52,8 +52,8 @@ docker pull anchore/syft
 apk add syft
 ```
 
-* [Alpine Linux Syft Page](https://pkgs.alpinelinux.org/packages?name=syft)
-* [Alpine Linux packaging for Syft]()
+- [Alpine Linux Syft Page](https://pkgs.alpinelinux.org/packages?name=syft)
+- [Alpine Linux packaging for Syft](https://git.alpinelinux.org/aports/tree/community/syft)
 
 Thanks to [Michał Polański](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Micha%C5%82%20Pola%C5%84ski) for maintaining this package.
 
@@ -70,7 +70,7 @@ brew tap anchore/syft
 brew install syft
 ```
 
-* [HomeBrew packaging for Syft](https://github.com/anchore/homebrew-syft)
+- [HomeBrew packaging for Syft](https://github.com/anchore/homebrew-syft)
 
 Thanks to the [Syft community](https://github.com/anchore/homebrew-syft/graphs/contributors) for maintaining this package.
 
@@ -80,8 +80,8 @@ Thanks to the [Syft community](https://github.com/anchore/homebrew-syft/graphs/c
 sudo apt install syft
 ```
 
-* [Kali Linux Syft page](https://www.kali.org/tools/syft/)
-* [Kali Linux packaging for Syft](https://gitlab.com/kalilinux/packages/syft)
+- [Kali Linux Syft page](https://www.kali.org/tools/syft/)
+- [Kali Linux packaging for Syft](https://gitlab.com/kalilinux/packages/syft)
 
 Thanks to [Sophie Brun](https://gitlab.com/sophiebrun) for maintaining this package.
 
@@ -111,7 +111,7 @@ scoop install syft
 nuget install Anchore.syft
 ```
 
-* [WinGet packaging for Syft](https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/Anchore/Syft)
+- [WinGet packaging for Syft](https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/Anchore/Syft)
 
 Thanks to [Alan Pope](https://github.com/popey) for maintaining this package.
 
@@ -121,7 +121,7 @@ Thanks to [Alan Pope](https://github.com/popey) for maintaining this package.
 snap install syft
 ```
 
-* [Snapcraft Syft page](https://snapcraft.io/syft)
-* [Snapcraft packaging for Syft](https://github.com/popey/syft-snap)
+- [Snapcraft Syft page](https://snapcraft.io/syft)
+- [Snapcraft packaging for Syft](https://github.com/popey/syft-snap)
 
 Thanks to [Alan Pope](https://github.com/popey) for maintaining this package.

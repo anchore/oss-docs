@@ -11,12 +11,12 @@ type = "docs"
 
 Learn a bit about the team, how to get in touch with us, and getting involved.
 
-* [Meet the OSS Team](team) - See the people behind our tools.
-* [Discuss the tools](discuss) - Where to discuss our tools with us.
-* [Upcoming Events](events) - Find out when and where you can see or meet us online.
-* [OSS Adopters](adopters) - Projects using our tools.
-* [Get involved](../contributing) - How to get started developing with us.
+- [Meet the OSS Team](team) - See the people behind our tools.
+- [Discuss the tools](discuss) - Where to discuss our tools with us.
+- [Upcoming Events](events) - Find out when and where you can see or meet us online.
+- [OSS Adopters](adopters) - Projects using our tools.
+- [Get involved](../contributing) - How to get started developing with us.
 
 ### Project Pages
 
-* [Docs Style Guide](style-guide.md) - Our house style guide for this documentation.
+- [Docs Style Guide](style-guide.md) - Our house style guide for this documentation.

@@ -23,17 +23,19 @@ This default set of catalogers being dynamic is critical as this allows Syft to 
 Overriding the set of default catalogers is not recommended for most purposes, however, is possible if needed.
 
 Catalogers can be referenced in two different ways:
-- *by name*: the exact cataloger name (e.g. `java-pom-cataloger` or `java-archive-cataloger`)
-- *by tag*: a tag that is associated with a cataloger (e.g. `java`)
+
+- _by name_: the exact cataloger name (e.g. `java-pom-cataloger` or `java-archive-cataloger`)
+- _by tag_: a tag that is associated with a cataloger (e.g. `java`)
 
 Syft can take lists of references on the CLI or in the application configuration to define which catalogers to use.
 
 You can **set** the list of catalogers explicitly to use with the `--override-default-catalogers` CLI flag, accepting a comma-separated list of cataloger names or tags.
 
 You can also **add** to, **remove** from, or **sub-select** catalogers to use within the default set of catalogers by using the `--select-catalogers` CLI flag.
-  - To **sub-select** catalogers simply provide a tag (e.g. `--select-catalogers TAG`). Catalogers will always be selected from the default set of catalogers (e.g. `--select-catalogers java,go` will select all the `java` catalogers in the default set and all the `go` catalogers in the default set).
-  - To **add** a cataloger prefix the cataloger name with `+` (e.g. `--select-catalogers +NAME`). Added catalogers will _always be added_ regardless of removals, filtering, or other defaults.
-  - To **remove** a cataloger prefix the cataloger name or tag with `-` (e.g. `--select-catalogers -NAME_OR_TAG`). Catalogers are removed from the set of default catalogers after processing any sub-selections.
+
+- To **sub-select** catalogers simply provide a tag (e.g. `--select-catalogers TAG`). Catalogers will always be selected from the default set of catalogers (e.g. `--select-catalogers java,go` will select all the `java` catalogers in the default set and all the `go` catalogers in the default set).
+- To **add** a cataloger prefix the cataloger name with `+` (e.g. `--select-catalogers +NAME`). Added catalogers will _always be added_ regardless of removals, filtering, or other defaults.
+- To **remove** a cataloger prefix the cataloger name or tag with `-` (e.g. `--select-catalogers -NAME_OR_TAG`). Catalogers are removed from the set of default catalogers after processing any sub-selections.
 
 These rules and the dynamic default cataloger sets approximates to the following logic:
 
@@ -83,6 +85,7 @@ syft ... --select-catalogers "-rpm"
 ```
 
 Only scan with catalogers that:
+
 - are tagged with "go"
 - always use the sbom-cataloger
 - are appropriate for the source type (image or directory)

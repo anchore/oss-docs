@@ -28,7 +28,7 @@ Reference information
 
 - [Syft command-line options](/docs/reference/commands/syft/)
 - [Grype command-line options](/docs/reference/commands/grype/)
-- [Organisations/Projects using Anchore OSS](/docs/about/adopters/)
+- [Organizations/Projects using Anchore OSS](/docs/about/adopters/)
 
 OSS release notes:
 

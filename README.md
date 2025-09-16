@@ -26,11 +26,11 @@ When you submit a pull request, Cloudflare will automatically deploy a preview o
 
 The repository is structured as follows:
 
-*   `content/`: This directory contains the content of the website, which is written in Markdown.
-*   `themes/docsy/`: This directory contains the Docsy theme, which is used to style the website.
-*   `static/`: This directory contains static assets, such as images and CSS files.
-*   `hugo.toml`: This file contains the configuration for the website.
-*   `scripts`: Helper scripts to generate/update some content such as the "OSS Adopters" and "Releases" pages.
+- `content/`: This directory contains the content of the website, which is written in Markdown.
+- `themes/docsy/`: This directory contains the Docsy theme, which is used to style the website.
+- `static/`: This directory contains static assets, such as images and CSS files.
+- `hugo.toml`: This file contains the configuration for the website.
+- `scripts`: Helper scripts to generate/update some content such as the "OSS Adopters" and "Releases" pages.
 
 ## License
 

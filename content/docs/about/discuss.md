@@ -27,8 +27,8 @@ We post OSS and Anchore Enterprise related content on our YouTube channel.
 
 Find and engage with us on various social media platforms.
 
-| |Mastodon|BlueSky|X|
-|-|:-:|:-:|:-:|
-|Syft|[@syft@fosstodon.org](https://fosstodon.org/@syft)|[@syftproject.bsky.social](https://bsky.app/profile/syftproject.bsky.social)|[@syftproject](https://x.com/syftproject)|
-|Grype|[@grype@fosstodon.org](https://fosstodon.org/@grype)|[@grypeproject.bsky.social](https://bsky.app/profile/grypeproject.bsky.social)|[@grypeproject](https://x.com/grypeproject)|
-|Anchore|[@anchore@mstdn.business](https://mstdn.business/@anchore)|[@anchore.com](https://bsky.app/profile/anchore.com)|[@anchore](https://x.com/anchore)|
+|         |                          Mastodon                          |                                    BlueSky                                     |                      X                      |
+| ------- | :--------------------------------------------------------: | :----------------------------------------------------------------------------: | :-----------------------------------------: |
+| Syft    |     [@syft@fosstodon.org](https://fosstodon.org/@syft)     |  [@syftproject.bsky.social](https://bsky.app/profile/syftproject.bsky.social)  |  [@syftproject](https://x.com/syftproject)  |
+| Grype   |    [@grype@fosstodon.org](https://fosstodon.org/@grype)    | [@grypeproject.bsky.social](https://bsky.app/profile/grypeproject.bsky.social) | [@grypeproject](https://x.com/grypeproject) |
+| Anchore | [@anchore@mstdn.business](https://mstdn.business/@anchore) |              [@anchore.com](https://bsky.app/profile/anchore.com)              |      [@anchore](https://x.com/anchore)      |

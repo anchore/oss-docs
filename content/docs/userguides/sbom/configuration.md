@@ -7,7 +7,6 @@ url = "docs/userguides/sbom/configuration"
 
 +++
 
-
 ## Configuration
 
 ### Ways to specify values
@@ -29,7 +28,7 @@ Use `syft --help` for a list of command line arguments. Use `syft config` to pri
 
 The environment variable checked is determined by the nesting path in the configuration file. For example, Syft lets you specify whether JSON output should be pretty (include indents and line breaks) via the following config file snippet:
 
-``` yaml
+```yaml
 format:
   json:
     pretty: true
@@ -59,7 +58,7 @@ Configuration options (example values are the default):
 #   - "syft-json=<syft-json-output-file>"
 #   - "spdx-json=<spdx-json-output-file>"
 # SYFT_OUTPUT env var / -o, --output flags
-output: 
+output:
   - "syft-table"
 
 # suppress all output (except for the SBOM report)
@@ -67,7 +66,7 @@ output:
 quiet: false
 
 # enable/disable checking for application updates on startup
-# SYFT_CHECK_FOR_APP_UPDATE env var 
+# SYFT_CHECK_FOR_APP_UPDATE env var
 check-for-app-update: true
 
 # maximum number of workers used to process the list of package catalogers in parallel
@@ -105,19 +104,17 @@ select-catalogers: []
 
 # all format configuration
 format:
- 
   # default value for all formats that support the "pretty" option (default is unset)
   # SYFT_FORMAT_PRETTY env var
-  pretty: 
+  pretty:
 
   # all syft-json format options
   json:
-
     # include space indention and newlines (inherits default value from 'format.pretty' or 'false' if parent is unset)
     # note: inherits default value from 'format.pretty' or 'false' if parent is unset
     # SYFT_FORMAT_JSON_PRETTY env var
     pretty: false
-    
+
     # transform any syft-json output to conform to an approximation of the v11.0.1 schema. This includes:
     # - using the package metadata type names from before v12 of the JSON schema (changed in https://github.com/anchore/syft/pull/1983)
     #
@@ -131,12 +128,12 @@ format:
 
   # all template format options
   template:
-    # path to the template file to use when rendering the output with the `template` output format. 
+    # path to the template file to use when rendering the output with the `template` output format.
     # Note that all template paths are based on the current syft-json schema.
-    # SYFT_FORMAT_TEMPLATE_PATH env var / -t flag 
+    # SYFT_FORMAT_TEMPLATE_PATH env var / -t flag
     path: ""
-    
-    # if true, uses the go structs for the syft-json format for templating. 
+
+    # if true, uses the go structs for the syft-json format for templating.
     # if false, uses the syft-json output for templating (which follows the syft JSON schema exactly).
     #
     # Note: long term support for this option is not guaranteed (it may change or break at any time).
@@ -145,7 +142,6 @@ format:
 
   # all spdx-json format options
   spdx-json:
-
     # include space indention and newlines
     # note: inherits default value from 'format.pretty' or 'false' if parent is unset
     # SYFT_FORMAT_SPDX_JSON_PRETTY env var
@@ -153,52 +149,46 @@ format:
 
   # all cyclonedx-json format options
   cyclonedx-json:
-
-     # include space indention and newlines
-     # note: inherits default value from 'format.pretty' or 'false' if parent is unset
-     # SYFT_FORMAT_CYCLONEDX_JSON_PRETTY env var
-     pretty: false
+    # include space indention and newlines
+    # note: inherits default value from 'format.pretty' or 'false' if parent is unset
+    # SYFT_FORMAT_CYCLONEDX_JSON_PRETTY env var
+    pretty: false
 
   # all cyclonedx-xml format options
   cyclonedx-xml:
-
-     # include space indention
-     # note: inherits default value from 'format.pretty' or 'false' if parent is unset
-     # SYFT_FORMAT_CYCLONEDX_XML_PRETTY env var
-     pretty: false
-
+    # include space indention
+    # note: inherits default value from 'format.pretty' or 'false' if parent is unset
+    # SYFT_FORMAT_CYCLONEDX_XML_PRETTY env var
+    pretty: false
 
 file:
+  metadata:
+    # select which files should be captured by the file-metadata cataloger and included in the SBOM.
+    # Options include:
+    #  - "all": capture all files from the search space
+    #  - "owned-by-package": capture only files owned by packages
+    #  - "none", "": do not capture any files
+    # SYFT_FILE_METADATA_SELECTION env var
+    selection: "owned-by-package"
 
-   metadata: 
-      # select which files should be captured by the file-metadata cataloger and included in the SBOM. 
-      # Options include:
-      #  - "all": capture all files from the search space
-      #  - "owned-by-package": capture only files owned by packages
-      #  - "none", "": do not capture any files
-      # SYFT_FILE_METADATA_SELECTION env var
-      selection: "owned-by-package"
-
-      # the file digest algorithms to use when cataloging files (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512")
-      # SYFT_FILE_METADATA_DIGESTS env var
-      digests:
+    # the file digest algorithms to use when cataloging files (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512")
+    # SYFT_FILE_METADATA_DIGESTS env var
+    digests:
       - "sha256"
       - "sha1"
 
-   # capture the contents of select files in the SBOM
-   content:
-      # skip searching a file entirely if it is above the given size (default = 1MB; unit = bytes)
-      # SYFT_FILE_CONTENT_SKIP_FILES_ABOVE_SIZE env var
-      skip-files-above-size: 1048576
-   
-      # file globs for the cataloger to match on
-      # SYFT_FILE_CONTENT_GLOBS env var
-      globs: []
+  # capture the contents of select files in the SBOM
+  content:
+    # skip searching a file entirely if it is above the given size (default = 1MB; unit = bytes)
+    # SYFT_FILE_CONTENT_SKIP_FILES_ABOVE_SIZE env var
+    skip-files-above-size: 1048576
 
+    # file globs for the cataloger to match on
+    # SYFT_FILE_CONTENT_GLOBS env var
+    globs: []
 
 # cataloging packages is exposed through the packages and power-user subcommands
 package:
-   
   # search within archives that do contain a file index to search against (zip)
   # note: for now this only applies to the java package cataloger
   # SYFT_PACKAGE_SEARCH_INDEXED_ARCHIVES env var
@@ -215,105 +205,101 @@ package:
   # SYFT_PACKAGE_EXCLUDE_BINARY_OVERLAP_BY_OWNERSHIP env var
   exclude-binary-overlap-by-ownership: true
 
-
 golang:
-   # search for go package licences in the GOPATH of the system running Syft, note that this is outside the
-   # container filesystem and potentially outside the root of a local directory scan
-   # SYFT_GOLANG_SEARCH_LOCAL_MOD_CACHE_LICENSES env var
-   search-local-mod-cache-licenses: false
-   
-   # specify an explicit go mod cache directory, if unset this defaults to $GOPATH/pkg/mod or $HOME/go/pkg/mod
-   # SYFT_GOLANG_LOCAL_MOD_CACHE_DIR env var
-   local-mod-cache-dir: ""
+  # search for go package licences in the GOPATH of the system running Syft, note that this is outside the
+  # container filesystem and potentially outside the root of a local directory scan
+  # SYFT_GOLANG_SEARCH_LOCAL_MOD_CACHE_LICENSES env var
+  search-local-mod-cache-licenses: false
 
-   # search for go package licences by retrieving the package from a network proxy
-   # SYFT_GOLANG_SEARCH_REMOTE_LICENSES env var
-   search-remote-licenses: false
+  # specify an explicit go mod cache directory, if unset this defaults to $GOPATH/pkg/mod or $HOME/go/pkg/mod
+  # SYFT_GOLANG_LOCAL_MOD_CACHE_DIR env var
+  local-mod-cache-dir: ""
 
-   # remote proxy to use when retrieving go packages from the network,
-   # if unset this defaults to $GOPROXY followed by https://proxy.golang.org
-   # SYFT_GOLANG_PROXY env var
-   proxy: ""
+  # search for go package licences by retrieving the package from a network proxy
+  # SYFT_GOLANG_SEARCH_REMOTE_LICENSES env var
+  search-remote-licenses: false
 
-   # specifies packages which should not be fetched by proxy
-   # if unset this defaults to $GONOPROXY
-   # SYFT_GOLANG_NOPROXY env var
-   no-proxy: ""
-  
-   # the go main module version discovered from binaries built with the go compiler will
-   # always show (devel) as the version. Use these options to control heuristics to guess
-   # a more accurate version from the binary.
-   main-module-version:
-      
-      # look for LD flags that appear to be setting a version (e.g. -X main.version=1.0.0)
-      # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_LD_FLAGS env var
-      from-ld-flags: true
-      
-      # use the build settings (e.g. vcs.version & vcs.time) to craft a v0 pseudo version 
-      # (e.g. v0.0.0-20220308212642-53e6d0aaf6fb) when a more accurate version cannot be found otherwise.
-      # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_BUILD_SETTINGS env var
-      from-build-settings: true
-      
-      # search for semver-like strings in the binary contents.
-      # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_CONTENTS env var
-      from-contents: true
-  
+  # remote proxy to use when retrieving go packages from the network,
+  # if unset this defaults to $GOPROXY followed by https://proxy.golang.org
+  # SYFT_GOLANG_PROXY env var
+  proxy: ""
+
+  # specifies packages which should not be fetched by proxy
+  # if unset this defaults to $GONOPROXY
+  # SYFT_GOLANG_NOPROXY env var
+  no-proxy: ""
+
+  # the go main module version discovered from binaries built with the go compiler will
+  # always show (devel) as the version. Use these options to control heuristics to guess
+  # a more accurate version from the binary.
+  main-module-version:
+    # look for LD flags that appear to be setting a version (e.g. -X main.version=1.0.0)
+    # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_LD_FLAGS env var
+    from-ld-flags: true
+
+    # use the build settings (e.g. vcs.version & vcs.time) to craft a v0 pseudo version
+    # (e.g. v0.0.0-20220308212642-53e6d0aaf6fb) when a more accurate version cannot be found otherwise.
+    # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_BUILD_SETTINGS env var
+    from-build-settings: true
+
+    # search for semver-like strings in the binary contents.
+    # SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_CONTENTS env var
+    from-contents: true
+
 java:
-   maven-url: "https://repo1.maven.org/maven2"
-   max-parent-recursive-depth: 5
-   # enables Syft to use the network to fill in more detailed information about artifacts
-   # currently this enables searching maven-url for license data
-   # when running across pom.xml files that could have more information, syft will
-   # explicitly search maven for license information by querying the online pom when this is true
-   # this option is helpful for when the parent pom has more data,
-   # that is not accessible from within the final built artifact
-   use-network: false
+  maven-url: "https://repo1.maven.org/maven2"
+  max-parent-recursive-depth: 5
+  # enables Syft to use the network to fill in more detailed information about artifacts
+  # currently this enables searching maven-url for license data
+  # when running across pom.xml files that could have more information, syft will
+  # explicitly search maven for license information by querying the online pom when this is true
+  # this option is helpful for when the parent pom has more data,
+  # that is not accessible from within the final built artifact
+  use-network: false
 
 linux-kernel:
-   # whether to catalog linux kernel modules found within lib/modules/** directories
-   # SYFT_LINUX_KERNEL_CATALOG_MODULES env var
-   catalog-modules: true
+  # whether to catalog linux kernel modules found within lib/modules/** directories
+  # SYFT_LINUX_KERNEL_CATALOG_MODULES env var
+  catalog-modules: true
 
 python:
-   # when running across entries in requirements.txt that do not specify a specific version 
-   # (e.g. "sqlalchemy >= 1.0.0, <= 2.0.0, != 3.0.0, <= 3.0.0"), attempt to guess what the version could
-   # be based on the version requirements specified (e.g. "1.0.0"). When enabled the lowest expressible version 
-   # when given an arbitrary constraint will be used (even if that version may not be available/published).
-   guess-unpinned-requirements: false
+  # when running across entries in requirements.txt that do not specify a specific version
+  # (e.g. "sqlalchemy >= 1.0.0, <= 2.0.0, != 3.0.0, <= 3.0.0"), attempt to guess what the version could
+  # be based on the version requirements specified (e.g. "1.0.0"). When enabled the lowest expressible version
+  # when given an arbitrary constraint will be used (even if that version may not be available/published).
+  guess-unpinned-requirements: false
 
 javascript:
   search-remote-licenses: false
   npm-base-url: "https://registry.npmjs.org"
-
 
 # configuration for the source that the SBOM is generated from (e.g. a file, directory, or container image)
 source:
   # alias name for the source
   # SYFT_SOURCE_NAME env var / --source-name flag
   name: ""
-   
+
   # alias version for the source
   # SYFT_SOURCE_VERSION env var / --source-version flag
   version: ""
 
-  # base directory for scanning, no links will be followed above this directory, and all paths will be 
+  # base directory for scanning, no links will be followed above this directory, and all paths will be
   # reported relative to this directory
   # SYFT_SOURCE_BASE_PATH env var
-  base-path: ''
+  base-path:
+    ""
 
-   # options affecting the file source type
+    # options affecting the file source type
   file:
     # the file digest algorithms to use on the scanned file (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512")
-    digests: 
-     - "sha256"
+    digests:
+      - "sha256"
 
   image:
-     
     # allows users to specify which image source should be used to generate the sbom
     # valid values are: registry, docker, podman
     # SYFT_SOURCE_IMAGE_DEFAULT_PULL_SOURCE env var
     default-pull-source: ""
-
 
 # options when pulling directly from a registry via the "registry:" or "containerd:" scheme
 registry:
@@ -331,8 +317,8 @@ registry:
 
   # credentials for specific registries
   auth:
-      # the URL to the registry (e.g. "docker.io", "localhost:5000", etc.)
-      # SYFT_REGISTRY_AUTH_AUTHORITY env var
+    # the URL to the registry (e.g. "docker.io", "localhost:5000", etc.)
+    # SYFT_REGISTRY_AUTH_AUTHORITY env var
     - authority: ""
 
       # SYFT_REGISTRY_AUTH_USERNAME env var
@@ -352,7 +338,7 @@ registry:
       # filepath to the client key used for TLS authentication to the registry
       # SYFT_REGISTRY_AUTH_TLS_KEY env var
       tls-key: ""
-    
+
     # - ... # note, more credentials can be provided via config file only (not env vars)
 
 # generate an attested SBOM

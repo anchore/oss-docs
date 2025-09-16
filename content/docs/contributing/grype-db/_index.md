@@ -7,7 +7,6 @@ tags = ["grype-db", "vunnel"]
 url = "docs/contributing/grype-db"
 +++
 
-
 We welcome contributions to the project! There are a few useful things to know before diving into the codebase.
 
 Do also take note of the [General Guidelines](/docs/contributing/#general-guidelines) that apply accross all Anchore Open Source projects.
@@ -17,16 +16,16 @@ Do also take note of the [General Guidelines](/docs/contributing/#general-guidel
 This codebase is primarily Go, however, there are also Python scripts critical to the daily DB publishing process as
 well as acceptance testing. You will require the following:
 
-- Python 3.8+ installed on your system. Consider using [pyenv](https://github.com/pyenv/pyenv) if you do not have a 
+- Python 3.8+ installed on your system. Consider using [pyenv](https://github.com/pyenv/pyenv) if you do not have a
   preference for managing python interpreter installations.
 - `zstd` binary utility if you are packaging v6+ DB schemas
 - _(optional)_ `xz` binary utility if you have specifically overridden the package command options
 
 - [Poetry](https://python-poetry.org/) installed for dependency and virtualenv management for python dependencies, to install:
 
-   ```
-   curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
-   ```
+  ```
+  curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python -
+  ```
 
 To download go tooling used for static analysis and dependent go modules run the following:
 
@@ -63,7 +62,6 @@ The main make tasks for common static analysis functions are `lint`, `format`, `
 
 See `make help` for all the current make tasks.
 
-
 ## Create a new DB schema
 
 1. Create a new `v#` schema package in the `grype` repo (within `pkg/db`)
@@ -72,7 +70,6 @@ See `make help` for all the current make tasks.
 4. Update all references in `grype` to use the new schema
 5. Use the [Staging DB Publisher](https://github.com/anchore/grype-db/actions/workflows/staging-db-publisher.yaml) workflow to test your DB changes with grype in a flow similar to the daily DB publisher workflow
 
-
 ## Making a staging DB
 
 While developing a new schema version it may be useful to get a DB built for you by the [Staging DB Publisher](https://github.com/anchore/grype-db/actions/workflows/staging-db-publisher.yaml) GitHub Actions workflow.
@@ -80,7 +77,7 @@ This code exercises the same code as the Daily DB Publisher, with the exception 
 When these DBs are published you can point grype at the proper listing file like so:
 
 ```
-$ GRYPE_DB_UPDATE_URL=https://toolbox-data.anchore.io/grype/staging-databases/listing.json grype centos:8 ...
+GRYPE_DB_UPDATE_URL=https://toolbox-data.anchore.io/grype/staging-databases/listing.json grype centos:8 ...
 ```
 
 ## Architecture
@@ -98,7 +95,7 @@ transforms it into smaller records targeted for grype consumption, and loads the
 ```
 
 What makes `grype-db` a little more unique than a typical ETL job is the extra responsibility of needing to
-transform the most recent vulnerability data shape (defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability)) to all supported DB schema versions. 
+transform the most recent vulnerability data shape (defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability)) to all supported DB schema versions.
 From the perspective of the Daily DB Publisher workflow, (abridged) execution looks something like this:
 
 ```
@@ -116,27 +113,21 @@ From the perspective of the Daily DB Publisher workflow, (abridged) execution lo
 
 In order to support multiple DB schemas easily from a code-organization perspective the following abstractions exist:
 
-
 - **Provider**: responsible for providing raw vulnerability data files that are cached locally for later processing.
-
 
 - **Processor**: responsible for unmarshalling any entries given by the `Provider`, passing them into `Transformers`, and
   returning any resulting entries. Note: the object definition is schema-agnostic but instances are schema-specific
   since Transformers are dependency-injected into this object.
 
-
 - **Transformer**: Takes raw data entries of a specific [vunnel-defined schema](https://github.com/anchore/vunnel/tree/main/schema/vulnerability)
-  and transforms the data into schema-specific entries to later be written to the database. Note: the object definition 
+  and transforms the data into schema-specific entries to later be written to the database. Note: the object definition
   is schema-specific, encapsulating `grypeDB/v#` specific objects within schema-agnostic `Entry` objects.
 
-
-- **Entry**: Encapsulates schema-specific database records produced by `Processors`/`Transformers` (from the provider data) 
+- **Entry**: Encapsulates schema-specific database records produced by `Processors`/`Transformers` (from the provider data)
   and accepted by `Writers`.
 
-
 - **Writer**: Takes `Entry` objects and writes them to a backing store (today a SQLite database). Note: the object
- definition is schema-specific and typically references `grypeDB/v#` schema-specific writers.
-
+  definition is schema-specific and typically references `grypeDB/v#` schema-specific writers.
 
 All the above abstractions are defined in the `pkg/data` Go package and are used together commonly in the following flow:
 
@@ -149,8 +140,8 @@ All the above abstractions are defined in the `pkg/data` Go package and are used
                        └───────────────────────────────────────────-┘
 ```
 
-Where there is a `data.Provider` for each upstream data source (e.g. canonical, redhat, github, NIST, etc.), 
-a `data.Processor` for every vunnel-defined data shape (github, os, msrc, nvd, etc... defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability)), 
+Where there is a `data.Provider` for each upstream data source (e.g. canonical, redhat, github, NIST, etc.),
+a `data.Processor` for every vunnel-defined data shape (github, os, msrc, nvd, etc... defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability)),
 a `data.Transformer` for every processor and DB schema version pairing, and a `data.Writer` for every DB schema version.
 
 From a Go package organization perspective, the above abstractions are organized as follows:
@@ -175,7 +166,6 @@ grype-db/
 
 ```
 
-
 ### DB structure and definitions
 
 The definitions of what goes into the database and how to access it (both reads and writes) live in the public `grype`
@@ -189,27 +179,25 @@ repo under the `db` package. Responsibilities of `grype` (not `grype-db`) includ
 - The name of the SQLite DB file within an archive
 - The definition of a listing file and listing file entries
 
-The purpose of `grype-db` is to use the definitions from `grype.db` and the upstream vulnerability data to 
+The purpose of `grype-db` is to use the definitions from `grype.db` and the upstream vulnerability data to
 create DB archives and make them publicly available for consumption via grype.
-
 
 ### DB listing file
 
-The listing file contains URLs to grype DB archives that are available for download, organized by schema version, and 
+The listing file contains URLs to grype DB archives that are available for download, organized by schema version, and
 ordered by latest-date-first.
 The definition of the listing file resides in `grype`, however, it is the responsibility of the grype-db repo
 to generate DBs and re-create the listing file daily.
 As long as grype has been configured to point to the correct listing file, the DBs can be stored separately from the
-listing file, be replaced with a running service returning the listing file contents, or can be mirrored for systems 
+listing file, be replaced with a running service returning the listing file contents, or can be mirrored for systems
 behind an air gap.
-
 
 ### Getting a grype DB out to OSS users (daily)
 
 There are two workflows that drive getting a new grype DB out to OSS users:
+
 1. The daily data sync workflow, which uses [vunnel](https://github.com/anchore/vunnel) to pull upstream vulnerability data.
 2. The daily DB publisher workflow, which uses builds and publishes a grype DB from the data obtained in the daily data sync workflow.
-
 
 #### Daily data sync workflow
 
@@ -239,13 +227,12 @@ Once all providers have been updated a single vulnerability cache OCI repo is up
 
 The in-repo `.grype-db.yaml` and `.vunnel.yaml` configurations are used to define the upstream data sources, how to obtain them, and where to put the results locally.
 
-
 #### Daily DB publishing workflow
 
 **This workflow takes the latest vulnerability data cache, builds a grype DB, and publishes it for general consumption.**
 
 The `manager/` directory contains all code responsible for driving the Daily DB Publisher workflow, generating DBs
-for all supported schema versions and making them available to the public. The publishing process is made of three steps 
+for all supported schema versions and making them available to the public. The publishing process is made of three steps
 (depicted and described below):
 
 ```
@@ -264,13 +251,13 @@ for all supported schema versions and making them available to the public. The p
 **Note: Running these steps locally may result in publishing a locally generated DB to production, which should never be done.**
 
 1. **pull**: Download the latest vulnerability data from various upstream data sources into a local directory.
+
    ```
    # from the repo root
    make download-all-provider-cache
    ```
 
    The destination for the provider data is in the `data/vunnel` directory.
-
 
 2. **generate**: Build databases for all supported schema versions based on the latest vulnerability data and upload them to S3.
 
@@ -288,7 +275,6 @@ for all supported schema versions and making them available to the public. The p
    Only DBs that pass validation are uploaded to S3. At this step the DBs can be downloaded from S3 but are NOT yet
    discoverable via `grype db download` yet (this is what the listing file update will do).
 
-
 3. **update-listing**: Generate and upload a new listing file to S3 based on the existing listing file and newly
    discovered DB archives already uploaded to S3.
 
@@ -297,7 +283,7 @@ for all supported schema versions and making them available to the public. The p
    # must be in a poetry shell
    grype-db-manager listing update
    ```
-   
+
    During this step the locally crafted listing file is tested against installations of grype. The correctness of the
    reports are NOT verified (since this was done in a previous step), however, in order to pass the scan must have
    a non-zero count of matches found.

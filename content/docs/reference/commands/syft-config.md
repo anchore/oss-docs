@@ -287,12 +287,12 @@ registry:
   insecure-use-http: false
 
   # Authentication credentials for specific registries. Each entry describes authentication for a specific authority:
-  # -	authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
-  # 	username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
-  # 	password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
-  # 	token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
-  # 	tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
-  # 	tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
+  # - authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
+  #  username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
+  #  password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
+  #  token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
+  #  tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
+  #  tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
   auth: []
 
   # filepath to a CA certificate (or directory containing *.crt, *.cert, *.pem) used to generate the client certificate (env: SYFT_REGISTRY_CA_CERT)

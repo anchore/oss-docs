@@ -6,24 +6,23 @@ weight = 50
 url = "docs/installation/verification"
 +++
 
-
 ## Verifying the artifacts
 
 Checksums are applied to all artifacts, and the resulting checksum file is signed using cosign.
 
 You need the following tool to verify signature:
 
-* [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/)
+- [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/)
 
 Verification steps are as follow:
 
 1. Download the files you want, and the checksums.txt, checksums.txt.pem and checksums.txt.sig files from the appropriate GitHub:
 
-* [Syft](https://github.com/anchore/syft/releases)
-* [Grype](https://github.com/anchore/grype/releases)
-* [Grant](https://github.com/anchore/grant/releases)
+- [Syft](https://github.com/anchore/syft/releases)
+- [Grype](https://github.com/anchore/grype/releases)
+- [Grant](https://github.com/anchore/grant/releases)
 
-2. Verify the signature:
+1. Verify the signature:
 
 Use `cosign` to verify.
 
@@ -67,7 +66,7 @@ The resulting output, if successful, looks like this:
 Verified OK
 ```
 
-3. Once the signature is confirmed as valid, you can proceed to validate that the SHA256 sums align with the downloaded artifact:
+1. Once the signature is confirmed as valid, you can proceed to validate that the SHA256 sums align with the downloaded artifact:
 
 ```
 sha256sum --ignore-missing -c checksums.txt

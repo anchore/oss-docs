@@ -14,20 +14,20 @@ Each tool has their own slightly different guide, linked below. However, some of
 
 ### User facing tools
 
-* [Syft](/docs/contributing/syft) - SBOM generation tool and library
-* [Grype](/docs/contributing/grype) - Vulnerability scanner
-* [Grant](/docs/contributing/grant) - License search
+- [Syft](/docs/contributing/syft) - SBOM generation tool and library
+- [Grype](/docs/contributing/grype) - Vulnerability scanner
+- [Grant](/docs/contributing/grant) - License search
 
 ### Automation tools
 
-* [SBOM-Action](/docs/contributing/sbom-action) - SBOM generating GitHub Action
-* [Scan-Action](/docs/contributing/scan-action) - Vulnerability scanning GitHub Action
+- [SBOM-Action](/docs/contributing/sbom-action) - SBOM generating GitHub Action
+- [Scan-Action](/docs/contributing/scan-action) - Vulnerability scanning GitHub Action
 
 ### Backend tools & libraries
 
-* [Grype-DB](/docs/contributing/grype-db) - Vulnerability database creation
-* [Vunnel](/docs/contributing/vunnel) - Collect vulnerability data from sources
-* [Stereoscope](/docs/contributing/stereoscope) - Container image processing library
+- [Grype-DB](/docs/contributing/grype-db) - Vulnerability database creation
+- [Vunnel](/docs/contributing/vunnel) - Collect vulnerability data from sources
+- [Stereoscope](/docs/contributing/stereoscope) - Container image processing library
 
 ## General Guidelines
 
@@ -78,7 +78,7 @@ Signed-off-by: John Doe <john.doe@example.com>
 Creating a signed-off commit is then possible with `-s` or `--signoff`:
 
 ```text
-$ git commit -s -m "this is a commit message"
+git commit -s -m "this is a commit message"
 ```
 
 To double-check that the commit was signed-off, look at the log output:
@@ -94,20 +94,19 @@ Date:   Mon Aug 1 11:27:13 2020 -0400
     Signed-off-by: John Doe <john.doe@example.com>
 ```
 
-
 ### Test your changes
 
 This project has a `Makefile` which includes many helpers running both unit and integration tests. You can run `make help` to see all the options. Although PRs will have automatic checks for these, it is useful to run them locally, ensuring they pass before submitting changes. Ensure you've bootstrapped once before running tests:
 
 ```text
-$ make bootstrap
+make bootstrap
 ```
 
 You only need to bootstrap once. After the bootstrap process, you can run the tests as many times as needed:
 
 ```text
-$ make unit
-$ make integration
+make unit
+make integration
 ```
 
 You can also run `make all` to run a more extensive test suite, but there is additional configuration that will be needed for those tests to run correctly. We will not cover the extra steps here.

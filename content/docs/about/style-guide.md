@@ -7,7 +7,7 @@ url = "docs/about/style-guide"
 +++
 
 This style guide is for the [Anchore OSS documentation](/docs/).
-The style guide helps contributors to write documentation that readers can understand quickly and correctly. 
+The style guide helps contributors to write documentation that readers can understand quickly and correctly.
 
 The Anchore OSS docs aim for:
 
@@ -28,15 +28,15 @@ Refer to [Merriam-Webster's Collegiate Dictionary, Eleventh Edition](https://www
 Some hints:
 
 - Capitalize only the first letter of each heading within the page. (That is, use sentence case.)
-- Capitalize (almost) every word in page titles. (That is, use title case.) 
+- Capitalize (almost) every word in page titles. (That is, use title case.)
   The little words like "and", "in", etc, don't get a capital letter.
-- In page content, use capitals only for brand names, like Syft, Anchore, and so on. 
+- In page content, use capitals only for brand names, like Syft, Anchore, and so on.
   See more about brand names [below](#use-full-correct-brand-names).
 - Don't use capital letters to emphasize words.
 
 ## Spell out abbreviations and acronyms on first use
 
-Always spell out the full term for every abbreviation or acronym the first time you use it on the page. 
+Always spell out the full term for every abbreviation or acronym the first time you use it on the page.
 Don't assume people know what an abbreviation or acronym means, even if it seems like common knowledge.
 
 Example: "To run Grype locally in a virtual machine (VM)"
@@ -49,8 +49,8 @@ For example, it's fine to write "it's" instead of "it is".
 
 ## Use full, correct brand names
 
-When referring to a product or brand, use the full name. 
-Capitalize the name as the product owners do in the product documentation. 
+When referring to a product or brand, use the full name.
+Capitalize the name as the product owners do in the product documentation.
 Do not use abbreviations even if they're in common use, unless the product owner has sanctioned the abbreviation.
 
 <div class="table-responsive">
@@ -72,7 +72,7 @@ Do not use abbreviations even if they're in common use, unless the product owner
       </tr>
       <tr>
         <td>GitHub</td>
-        <td>gtihub</td>
+        <td>github</td>
       </tr>
     </tbody>
   </table>
@@ -80,7 +80,7 @@ Do not use abbreviations even if they're in common use, unless the product owner
 
 ## Be consistent with punctuation
 
-Use punctuation consistently within a page. 
+Use punctuation consistently within a page.
 For example, if you use a period (full stop) after every item in list, then use a period on all other lists on the page.
 
 Check the other pages if you're unsure about a particular convention.
@@ -88,7 +88,7 @@ Check the other pages if you're unsure about a particular convention.
 Examples:
 
 - Most pages in the Anchore OSS docs use a period at the end of every list item.
-- There is no period at the end of the page subtitle and the subtitle need not be a full sentence. 
+- There is no period at the end of the page subtitle and the subtitle need not be a full sentence.
   (The subtitle comes from the `description` in the front matter of each page.)
 
 ## Use active voice rather than passive voice
@@ -147,15 +147,15 @@ Avoid future tense ("will") and complex syntax such as conjunctive mood ("would"
 
 ## Address the audience directly
 
-Using "we" in a sentence can be confusing, because the reader may not know whether they're part of the "we" you're describing. 
+Using "we" in a sentence can be confusing, because the reader may not know whether they're part of the "we" you're describing.
 
 For example, compare the following two statements:
 
 - "In this release we've added many new features."
 - "In this tutorial we build a flying saucer."
 
-The words "the developer" or "the user" can be ambiguous. 
-For example, if the reader is building a product that also has users, 
+The words "the developer" or "the user" can be ambiguous.
+For example, if the reader is building a product that also has users,
 then the reader does not know whether you're referring to the reader or the users of their product.
 
 <div class="table-responsive">
@@ -182,7 +182,7 @@ then the reader does not know whether you're referring to the reader or the user
 
 ## Use short, simple sentences
 
-Keep sentences short. Short sentences are easier to read than long ones. 
+Keep sentences short. Short sentences are easier to read than long ones.
 Below are some tips for writing short sentences.
 
 <div class="table-responsive">
@@ -224,7 +224,7 @@ Below are some tips for writing short sentences.
       <tr>
         <td>You do not need a running GKE cluster. The deployment process
           creates a cluster for you</td>
-        <td>You do not need a running GKE cluster, because the deployment 
+        <td>You do not need a running GKE cluster, because the deployment
           process creates a cluster for you</td>
       </tr>
     </tbody>
@@ -252,7 +252,7 @@ Below are some tips for writing short sentences.
             <li>Run Grype with the container name as a parameter.</li>
           </ol>
         </td>
-        <td>To scan a container, you must package the software in an OCI conatiner, 
+        <td>To scan a container, you must package the software in an OCI container,
           upload the container to an online registry, and run Grype with the container
           name as a parameter.</td>
       </tr>
@@ -270,7 +270,7 @@ Use `code style` for:
 - inline code and commands
 - object field names
 
-Avoid using bold text or capital letters for emphasis. 
+Avoid using bold text or capital letters for emphasis.
 If a page has too much textual highlighting it becomes confusing and even annoying.
 
 ## Use angle brackets for placeholders
@@ -282,21 +282,16 @@ For example:
 
 ## Style your images
 
-The Anchore OSS docs recognise Bootstrap classes to style images and other content.
+The Anchore OSS docs recognize Bootstrap classes to style images and other content.
 
 The following code snippet shows the typical styling that makes an image show up nicely on the page:
 
 ```html
 <!-- for wide images -->
-<img src="/images/my-image.png"
-     alt="My image"
-     class="mt-3 mb-3 border rounded">
+<img src="/images/my-image.png" alt="My image" class="mt-3 mb-3 border rounded" />
 
 <!-- for tall images -->
-<img src="/images/my-image.png"
-     alt="My image"
-     class="mt-3 mb-3 border rounded"
-     style="width: 100%; max-width: 30em">
+<img src="/images/my-image.png" alt="My image" class="mt-3 mb-3 border rounded" style="width: 100%; max-width: 30em" />
 ```
 
 To see some examples of styled images, take a look at the [Kubeflow OAuth setup page](https://googlecloudplatform.github.io/kubeflow-gke-docs/docs/deploy/oauth-setup/).

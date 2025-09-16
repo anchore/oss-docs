@@ -5,6 +5,9 @@ brand/
 specs/
 CLAUDE.md
 .playwright-mcp/
+.task
+.tool
+tmp/
 
 # python
 .venv/
@@ -16,6 +19,7 @@ node_modules/
 /public/
 /resources/
 .hugo_build.lock
+hugo.pid
 
 # editors
 .vscode/

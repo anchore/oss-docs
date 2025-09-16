@@ -6,7 +6,7 @@ tags = ["syft", "grant", "licenses"]
 url = "docs/userguides/license"
 +++
 
-License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project. 
+License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project.
 
 This is important because most software relies on third-party and open-source components, each with its own licensing terms that dictate how the software can be used, modified, and distributed, and failing to comply can lead to legal issues.
 

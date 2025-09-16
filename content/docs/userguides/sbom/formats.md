@@ -17,6 +17,7 @@ syft <image> -o <format>
 ```
 
 Where the `formats` available are:
+
 - `syft-json`: Use this to get as much information out of Syft as possible!
 - `syft-text`: A row-oriented, human-and-machine-friendly output.
 - `cyclonedx-xml`: A XML report conforming to the [CycloneDX 1.6 specification](https://cyclonedx.org/specification/overview/).
@@ -29,7 +30,8 @@ Where the `formats` available are:
 - `syft-table`: A columnar summary (default).
 
  <!-- TODO(alex): broken page reference, should reference separate templates.md? -->
-- `template`: Lets the user specify the output format. See ["Using templates"](#using-templates) below.
+
+- `template`: Lets the user specify the output format.
 
 ## Multiple Outputs
 

@@ -15,10 +15,10 @@ Syft is our CLI tool for generating a Software Bill of Materials (SBOM) from con
 Syft is provided as a single compiled executable. Issue the command for your platform to download the latest release of Syft. The full list of official and community maintained packages can be found on the [installation](/docs/installation/syft) page.
 
 {{< tabpane lang="bash">}}
-  {{% tab header="Platform:" disabled=true /%}}
-  {{% tab header="Linux (and macOS)" %}}curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin{{% /tab %}}
-  {{% tab header="macOS"%}}brew install syft{{% /tab %}}
-  {{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}
+{{% tab header="Platform:" disabled=true /%}}
+{{% tab header="Linux (and macOS)" %}}curl -sSfL <https://get.anchore.io/syft> | sudo sh -s -- -b /usr/local/bin{{% /tab %}}
+{{% tab header="macOS"%}}brew install syft{{% /tab %}}
+{{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}
 {{< /tabpane >}}
 
 Once installed, ensure the `syft` binary is in the `PATH` for your system.
@@ -74,7 +74,7 @@ zlib                    1.3.1-r2     apk
 
 ### Create an SPDX formatted SBOM
 
-The next command will display the human-readable table, *and* write an SBOM in an industry-standard format, SPDX.
+The next command will display the human-readable table, _and_ write an SBOM in an industry-standard format, SPDX.
 
 ```
 syft alpine:latest -o table -o spdx-json=alpine_latest-spdx.json
@@ -126,7 +126,8 @@ syft <image> --scope all-layers
 ```
 
 {{% alert title="Next steps" color="primary" %}}
-* Try running Syft against other containers, or an application directory on your workstation.
-* Find out more about [Supported Sources](/docs/userguides/sbom/sources/) and [Output Formats](/docs/userguides/sbom/formats/).
-* Learn about [Vulnerability Scanning](/docs/userguides/vuln/getstarted/) and [License Scaanning](/docs/userguides/license/getstarted/) your SBOMs.
-{{% /alert %}}
+
+- Try running Syft against other containers, or an application directory on your workstation.
+- Find out more about [Supported Sources](/docs/userguides/sbom/sources/) and [Output Formats](/docs/userguides/sbom/formats/).
+- Learn about [Vulnerability Scanning](/docs/userguides/vuln/getstarted/) and [License Scanning](/docs/userguides/license/getstarted/) your SBOMs.
+  {{% /alert %}}

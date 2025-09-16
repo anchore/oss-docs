@@ -1,0 +1,104 @@
+version: '3'
+
+vars:
+  TOOL_DIR: .tool
+
+tasks:
+  ## Bootstrap tasks #################################
+
+  binny:
+    internal: true
+    generates:
+      - '{{ .TOOL_DIR }}/binny'
+    status:
+      - 'test -f {{ .TOOL_DIR }}/binny'
+    cmd: 'curl -sSfL https://get.anchore.io/binny | sh -s -- -b .tool'
+    silent: true
+
+  tools:
+    desc: Install all tools needed for CI and local development
+    deps: [binny]
+    aliases:
+      - bootstrap
+    generates:
+      - '.binny.yaml'
+      - '{{ .TOOL_DIR }}/*'
+    status:
+      - '{{ .TOOL_DIR }}/binny check -v'
+    cmd: '{{ .TOOL_DIR }}/binny install -v'
+    silent: true
+
+  update-tools:
+    desc: Update pinned versions of all tools to their latest available versions
+    deps: [binny]
+    generates:
+      - '.binny.yaml'
+      - '{{ .TOOL_DIR }}/*'
+    cmd: '{{ .TOOL_DIR }}/binny update -v'
+    silent: true
+
+  list-tools:
+    desc: List all tools needed for CI and local development
+    deps: [binny]
+    cmd: '{{ .TOOL_DIR }}/binny list'
+    silent: true
+
+  list-tool-updates:
+    desc: List all tools that are not up to date relative to the binny config
+    deps: [binny]
+    cmd: '{{ .TOOL_DIR }}/binny list --updates'
+    silent: true
+
+  install:
+    desc: Install all development dependencies
+    cmds:
+      - npm install
+
+  # High-level tasks
+  build:
+    desc: Build Hugo site
+    cmds:
+      - npm run build
+
+  dev:
+    desc: Start development environment with live reload
+    cmds:
+      - npm run dev
+
+  lint:
+    desc: Run all linters
+    cmds:
+      - npm run lint
+
+  lint-fix:
+    desc: Auto-fix linting issues where possible
+    cmds:
+      - npm run lint-fix
+
+  validate:
+    desc: Build and run all validations
+    cmds:
+      - npm run validate
+
+  check:
+    desc: Quick check before committing
+    cmds:
+      - npm run check
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - npm run clean
+
+  # Content management
+  update-release-notes:
+    desc: Generate release notes for all projects
+    dir: scripts
+    cmds:
+      - ./generate-release-notes.sh
+
+  update-adopters:
+    desc: Update adopters information
+    dir: scripts
+    cmds:
+      - ./generate-adopters-info.sh

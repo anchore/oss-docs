@@ -14,6 +14,7 @@ Do also take note of the [General Guidelines](/docs/contributing/#general-guidel
 ## Getting Started
 
 This project requires:
+
 - python (>= 3.7)
 - pip (>= 22.2)
 - uv
@@ -184,7 +185,7 @@ To update snapshots, run the following pytest command. (Note that this example
 is for the debian provider, and the test name and path will be different for
 other providers):
 
-``` sh
+```sh
 pytest ./tests/unit/providers/debian/test_debian.py -k test_provider_via_snapshot --snapshot-update
 ```
 
@@ -194,13 +195,13 @@ Vunnel is a CLI tool that downloads and processes vulnerability data from variou
 
 <!-- repo path: docs/vunnel-run-workflow.drawio -->
 <!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456403838 -->
-<img src="https://user-images.githubusercontent.com/590471/223163266-e73d2595-f320-4607-a016-f1b22aad45c7.svg" width="600" />
+<img src="https://user-images.githubusercontent.com/590471/223163266-e73d2595-f320-4607-a016-f1b22aad45c7.svg" width="600" alt="Vunnel run workflow diagram" />
 
 Conceptually, one or more invocations of Vunnel will produce a single data directory which Grype-DB uses to create a Grype database:
 
 <!-- repo path: docs/vunnel+grype-db-workflow.drawio -->
 <!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456408327 -->
-<img src="https://user-images.githubusercontent.com/590471/223167464-aca39d4b-699a-47da-b852-fea904ba9824.svg" width="600" />
+<img src="https://user-images.githubusercontent.com/590471/223167464-aca39d4b-699a-47da-b852-fea904ba9824.svg" width="600" alt="Vunnel and Grype-DB workflow diagram" />
 
 Additionally, the Vunnel CLI tool is optimized to run
 a single provider at a time, not orchestrating multiple providers at once. [Grype-db](github.com/anchore/grype-db) is the
@@ -209,10 +210,9 @@ orchestrating multiple Vunnel calls to prepare the input data:
 
 <!-- repo path: docs/grype-db-actions.drawio -->
 <!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456415533 -->
-<img src="https://user-images.githubusercontent.com/590471/223165191-8b06b696-f7b5-4a92-912a-c7110c1cd324.svg" width="600" />
+<img src="https://user-images.githubusercontent.com/590471/223165191-8b06b696-f7b5-4a92-912a-c7110c1cd324.svg" width="600" alt="Grype-DB actions workflow diagram" />
 
 For more information about how Grype-DB uses Vunnel see [the Grype-DB documentation](../grype-db/#architecture).
-
 
 ### Vunnel Providers
 
@@ -220,6 +220,7 @@ A "Provider" is the core abstraction for Vunnel and represents a single source o
 around multiple vulnerability data providers.
 
 All provider implementations should...
+
 - live under `src/vunnel/providers` in their own directory (e.g. the NVD provider code is under `src/vunnel/providers/nvd/...`)
 - have a class that implements the [`Provider` interface](https://github.com/anchore/vunnel/blob/1285a3be0f24fd6472c1f469dd327541ff1fc01e/src/vunnel/provider.py#L73)
 - be centrally registered with a unique name under [`src/vunnel/providers/__init__.py`](https://github.com/anchore/vunnel/blob/1285a3be0f24fd6472c1f469dd327541ff1fc01e/src/vunnel/providers/__init__.py)
@@ -238,25 +239,26 @@ data/                       # the "vunnel root" directory
 ```
 
 The `metadata.json` and `checksums` are written out after all results are written to `results/`. An example `metadata.json`:
+
 ```json
 {
-    "provider": "amazon",
-    "urls": [
-        "https://alas.aws.amazon.com/AL2022/alas.rss"
-    ],
-    "listing": {
-        "digest": "dd3bb0f6c21f3936",
-        "path": "checksums",
-        "algorithm": "xxh64"
-    },
-    "timestamp": "2023-01-01T21:20:57.504194+00:00",
-    "schema": {
-        "version": "1.0.0",
-        "url": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/provider-workspace-state/schema-1.0.0.json"
-    }
+  "provider": "amazon",
+  "urls": ["https://alas.aws.amazon.com/AL2022/alas.rss"],
+  "listing": {
+    "digest": "dd3bb0f6c21f3936",
+    "path": "checksums",
+    "algorithm": "xxh64"
+  },
+  "timestamp": "2023-01-01T21:20:57.504194+00:00",
+  "schema": {
+    "version": "1.0.0",
+    "url": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/provider-workspace-state/schema-1.0.0.json"
+  }
 }
 ```
+
 Where:
+
 - `provider`: the name of the provider that generated the results
 - `urls`: the URLs that were referenced to generate the results
 - `listing`: the path to the `checksums` listing file that lists all of the results, the checksum of that file, and the algorithm used to checksum the file (and the same algorithm used for all contained checksums)
@@ -268,33 +270,35 @@ by the application configuration (e.g. JSON flat files or SQLite database). The 
 self-describing via an envelope with a schema reference. For example:
 
 For example:
+
 ```json
 {
-    "schema": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/vulnerability/os/schema-1.0.0.json",
-    "identifier": "3.3/cve-2015-8366",
-    "item": {
-        "Vulnerability": {
-            "Severity": "Unknown",
-            "NamespaceName": "alpine:3.3",
-            "FixedIn": [
-                {
-                    "VersionFormat": "apk",
-                    "NamespaceName": "alpine:3.3",
-                    "Name": "libraw",
-                    "Version": "0.17.1-r0"
-                }
-            ],
-            "Link": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8366",
-            "Description": "",
-            "Metadata": {},
-            "Name": "CVE-2015-8366",
-            "CVSS": []
+  "schema": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/vulnerability/os/schema-1.0.0.json",
+  "identifier": "3.3/cve-2015-8366",
+  "item": {
+    "Vulnerability": {
+      "Severity": "Unknown",
+      "NamespaceName": "alpine:3.3",
+      "FixedIn": [
+        {
+          "VersionFormat": "apk",
+          "NamespaceName": "alpine:3.3",
+          "Name": "libraw",
+          "Version": "0.17.1-r0"
         }
+      ],
+      "Link": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8366",
+      "Description": "",
+      "Metadata": {},
+      "Name": "CVE-2015-8366",
+      "CVSS": []
     }
+  }
 }
 ```
 
 Where:
+
 - the `schema` field is a URL to the schema that describes the data shape of the `item` field
 - the `identifier` field should have a unique identifier within the context of the provider results
 - the `item` field is the actual vulnerability data, and the shape of this field is defined by the schema
@@ -305,6 +309,7 @@ Note that the identifier is `3.3/cve-2015-8366` and not just `cve-2015-8366` in 
 Currently only JSON payloads are supported at this time.
 
 Possible vulnerability schemas supported within the vunnel repo are:
+
 - [Generic OS Vulnerability](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/os)
 - [GitHub Security Advisories](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/github-security-advisory)
 - [NVD Vulnerability](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/nvd)
@@ -314,7 +319,6 @@ If at any point a breaking change needs to be made to a provider (and say the sc
 can set the `__version__` attribute on the provider class to a new integer value (incrementing from `1` onwards). This
 is a way to indicate that the cached input/results are not compatible with the output of the current version of the
 provider, in which case the next invocation of the provider will delete the previous input and results before running.
-
 
 ### Provider configurations
 
@@ -339,6 +343,7 @@ class Config:
 ```
 
 Every provider configuration must:
+
 - be a `dataclass`
 - have a `runtime` field that is a `provider.RuntimeConfig` field
 
@@ -366,7 +371,6 @@ The `runtime` field is used to configure common behaviors of the provider that a
 
 Any provider-specific config options can be added to the configuration object as needed (such as `request_timeout`, which is a common field).
 
-
 ## Adding a new provider
 
 "Vulnerability matching" is the process of taking a list of vulnerabilities and matching them against a list of packages.
@@ -374,17 +378,20 @@ A provider in this repo is responsible for the "vulnerability" side of this proc
 [Syft](github.com/anchore/syft). A prerequisite for adding a new provider is that Syft can catalog the package types that
 the provider is feeding vulnerability data for, so [Grype](github.com/anchore/grype) can perform the matching from these two sources.
 
-To add a new provider, you will need to create a new provider class  under `/src/vunnel/providers/<name>` that inherits from `provider.Provider` and implements:
+To add a new provider, you will need to create a new provider class under `/src/vunnel/providers/<name>` that inherits from `provider.Provider` and implements:
+
 - `name()`: a unique and semantically-useful name for the provider (same as the name of the directory)
 - `update()`: downloads and processes the raw data, writing all results with `self.results_writer()`
 
 All results must conform to a [particular schema](https://github.com/anchore/vunnel/tree/main/schema), today there are a few kinds:
+
 - `os`: a generic operating system vulnerability (e.g redhat, debian, ubuntu, alpine, wolfi, etc.)
 - `nvd`: tailored to describe vulnerabilities from the NVD
 - `github-security-advisory`: tailored to describe vulnerabilities from GitHub
 - `osv`: tailored to describe vulnerabilities from the [aggregated OSV vulnerability database](https://osv.dev/list)
 
 Once the provider is implemented, you will need to wire it up into the application in a couple places:
+
 - add a new entry under the dispatch table in `src/vunnel/providers/__init__.py` mapping your provider name to the class
 - add the provider configuration to the application configuration under `src/vunnel/cli/config.py` (specifically the `Providers` dataclass)
 
@@ -395,7 +402,6 @@ adding a new vulnerability source but is ultimately using an existing schema to 
 If you are adding a new schema, then the downstream data pipeline will need to be altered to support reading data in the new schema.
 
 **_Please feel free to reach out to a maintainer on an incomplete draft PR and we can help you get it over the finish line!_**
-
 
 ### ...for an existing schema
 
@@ -420,42 +426,39 @@ While developing the provider consider using the `make dev provider="<your-provi
 
 _**At this point you can optionally open a Vunnel PR with your new provider and a Maintainer can help with the next steps.**_ Or if you'd like to get PR changes merged faster you can continue with the next steps.
 
-
 #### **2. Fork Grype and map distro type to a specific namespace.**
 
 This step might not be needed depending on the provider.
 
 Common reasons for needing Grype changes include:
+
 - Grype does not support the distro type and it needs to be added. See the [grype/distro/types.go](https://github.com/anchore/grype/blob/main/grype/distro/type.go) file to add the new distro.
 - Grype supports the distro already, but matching is disabled. See the [grype/distro/distro.go](https://github.com/anchore/grype/blob/main/grype/distro/distro.go) file to enable the distro explicitly.
-- There is a non-standard mapping of distro to namespaces (e.g. redhat and centos map to `rhel`). See the grype db schema namespace index for possible changes: https://github.com/anchore/grype/blob/main/grype/db/v5/namespace/index.go .
+- There is a non-standard mapping of distro to namespaces (e.g. redhat and centos map to `rhel`). See the grype db schema namespace index for possible changes: <https://github.com/anchore/grype/blob/main/grype/db/v5/namespace/index.go> .
 
 If you're using the developer shell (`make dev ...`) then you can run `make build-grype` to get a build of grype with your changes.
-
 
 #### **3. In Vunnel: add a new test case to `tests/quality/config.yaml` for the new provider.**
 
 The configuration maps a provider to test to specific images to test with, for example:
+
 ```yaml
-...
-  - provider: amazon
-    images:
-      - docker.io/amazonlinux:2@sha256:1301cc9f889f21dc45733df9e58034ac1c318202b4b0f0a08d88b3fdc03004de
-      - docker.io/anchore/test_images:vulnerabilities-amazonlinux-2-5c26ce9@sha256:cf742eca189b02902a0a7926ac3fbb423e799937bf4358b0d2acc6cc36ab82aa
-...
+---
+- provider: amazon
+  images:
+    - docker.io/amazonlinux:2@sha256:1301cc9f889f21dc45733df9e58034ac1c318202b4b0f0a08d88b3fdc03004de
+    - docker.io/anchore/test_images:vulnerabilities-amazonlinux-2-5c26ce9@sha256:cf742eca189b02902a0a7926ac3fbb423e799937bf4358b0d2acc6cc36ab82aa
 ```
 
 These images are used to test the provider on PRs and nightly builds to verify the specific provider is working.
 Always use both the image tag and digest for all container image entries.
 Pick an image that has a good representation of the package types that your new provider is adding vulnerability data for.
 
-
 #### **4. In Vunnel: swap the tools to your Grype branch in `tests/quality/config.yaml`.**
 
 If you wanted to see PR quality gate checks pass with your specific Grype changes (if you have any) then you can update the
 `yardstick.tools[*]` entries for grype to use the a version that points to your fork (w.g. `your-fork-username/grype@main`).
 If you don't have any grype changes needed then you can skip this step.
-
 
 #### **5. In Vunnel: add new "vulnerability match labels" to annotate True and False positive findings with Grype.**
 
@@ -490,7 +493,6 @@ $ uv run yardstick label explore 75d1fe75-0890-4d89-a497-b1050826d9f6
 Later we'll open a PR in the [vulnerability-match-labels repo](github.com/anchore/vulnerability-match-labels) to persist these labels.
 For the meantime we can iterate locally with the labels we've added.
 
-
 #### **6. In Vunnel: run the quality gate.**
 
 ```
@@ -506,7 +508,6 @@ make validate
 This uses the latest Grype-DB release to build a DB and the specified Grype version with a DB containing only data from the new provider.
 
 You are looking for a passing run before continuing further.
-
 
 #### **7. Open a [vulnerability-match-labels repo](github.com/anchore/vulnerability-match-labels) PR to persist the new labels.**
 
@@ -537,18 +538,16 @@ _Note: you will not be able to open a Vunnel PR that passes PR checks until the 
 Once the PR is merged in the vulnerability-match-labels repo you can update the submodule in Vunnel to point to the latest commit in the vulnerability-match-labels repo.
 
 ```
-$ cd tests/quality
+cd tests/quality
 
-$ git submodule update --remote vulnerability-match-labels
+git submodule update --remote vulnerability-match-labels
 ```
-
 
 #### **8. In Vunnel: open a PR with your new provider.**
 
 The PR will also run all of the same quality gate checks that you ran locally.
 
 If you have Grype changes, you should also create a PR for that as well. The Vunnel PR will not pass PR checks until the Grype PR is merged and the `test/quality/config.yaml` file is updated to point back to the `latest` Grype version.
-
 
 ### ...for a new schema
 
@@ -558,7 +557,6 @@ This is the same process as listed above with a few additional steps:
 2. Grype-DB will need to be updated to support the new schema in the `pkg/provider/unmarshal` and `pkg/process/v*` directories.
 3. The Vunnel `tests/quality/config.yaml` file will need to be updated to use development `grype-db.version`, pointing to your fork.
 4. The final Vunnel PR will not be able to be merged until the Grype-DB PR is merged and the `tests/quality/config.yaml` file is updated to point back to the `latest` Grype-DB version.
-
 
 ## What might need refactoring?
 
@@ -589,6 +587,7 @@ src/vunnel/providers/amazon/parser.py
 The output of radon indicates the type (M=method, C=class, F=function), the path/name, and a A-F grade. Anything that's not an `A` is worth taking a look at.
 
 Another approach is to use [`wily`](https://github.com/tonybaloney/wily):
+
 ```
 $ wily build
 ...
@@ -618,8 +617,7 @@ $ wily rank
 
 Ideally we should try to get `wily diff` output into the CI pipeline and post on a sticky PR comment to show regressions (and potentially fail the CI run).
 
-
-## Not everything has types...
+## Not everything has types
 
 This codebase has been ported from another repo that did not have any type hints. This is OK, though ideally over time this should
 be corrected as new features are added and bug fixes made.
