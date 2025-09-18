@@ -4,7 +4,7 @@ linkTitle = "Grype CLI"
 weight = 20
 tags = ['grype']
 categories = ['reference']
-url = "reference/commands/grype"
+url = "docs/reference/commands/grype"
 +++
 
 ### `grype version`

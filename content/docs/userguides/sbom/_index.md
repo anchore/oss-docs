@@ -15,7 +15,7 @@ For a consumer or organization using the software, an SBOM provides transparency
 Syft is an open-source command-line tool and Go library. Its primary function is to scan container images, file systems, and archives to automatically generate a Software Bill of Materials, making it easier to understand the composition of software.
 
 - [Get Started](/docs/userguides/sbom/getstarted) - Install Syft, create an SBOM and examine the contents.
-- [Supported Sources](/docs/userguides/sbom/sources) - The variety of sources supported by our tools.
+- [Supported Data Sources](/docs/userguides/sbom/sources) - The variety of sources supported by our tools.
 - [File Selection](/docs/userguides/sbom/fileselection) - Specify which files will be cataloged.
 - [Output Formats](/docs/userguides/sbom/formats) - The industry-standard supported SBOM formats.
 - [Configuration](/docs/userguides/sbom/configuration) - Configuring Syft for your environment and requirements.

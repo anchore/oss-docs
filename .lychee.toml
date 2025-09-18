@@ -1,0 +1,17 @@
+# note: run with
+#  lychee -c lychee.toml --root-dir "$(pwd)/public"  ./public
+
+# this only caches external URLs
+cache = true
+#max_cache_age = '1d'
+
+exclude = [
+  "https://github.com/*",
+  "https://git.alpinelinux.org/aports/tree/community/syft", # returns 403 but works in browser
+
+  # just for a little bit... add me back in
+  "https://oss.anchore.com/",
+]
+exclude_path = ["/_print/*"]
+timeout = 10
+#no_progress = true

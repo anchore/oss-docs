@@ -3,6 +3,8 @@ version: '3'
 vars:
   TOOL_DIR: .tool
 
+  LYCHEE: '{{ .TOOL_DIR }}/lychee'
+
 tasks:
   ## Bootstrap tasks #################################
 
@@ -79,11 +81,12 @@ tasks:
     desc: Build and run all validations
     cmds:
       - npm run validate
+      - task: links
 
-  check:
-    desc: Quick check before committing
+  links:
+    desc: Check for broken links in the site
     cmds:
-      - npm run check
+      - '{{ .LYCHEE }} -c .lychee.toml --root-dir "{{ .USER_WORKING_DIR }}/public" ./public --offline'
 
   clean:
     desc: Clean build artifacts

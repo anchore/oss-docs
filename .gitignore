@@ -9,6 +9,9 @@ CLAUDE.md
 .tool
 tmp/
 
+# testing
+.lycheecache
+
 # python
 .venv/
 

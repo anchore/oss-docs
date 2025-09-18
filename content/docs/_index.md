@@ -18,7 +18,7 @@ For information about generating SBOMs:
 Get started with vulnerability scanning
 
 - [Scanning for Vulnerabilities](/docs/userguides/vuln/getstarted/)
-- [Vulnerability Feeds](/docs/userguides/vuln/feeds/)
+- [Vulnerability Data Sources](/docs/userguides/vuln/data-sources/)
 
 Scan SBOMs or containers for licenses used:
 
@@ -27,7 +27,7 @@ Scan SBOMs or containers for licenses used:
 Reference information
 
 - [Syft command-line options](/docs/reference/commands/syft/)
-- [Grype command-line options](/docs/reference/commands/grype/)
+- [Grype command-line options](/docs/reference/commands/grype)
 - [Organizations/Projects using Anchore OSS](/docs/about/adopters/)
 
 OSS release notes:

@@ -25,5 +25,11 @@ jobs:
       - name: Bootstrap environment
         uses: ./.github/actions/bootstrap
 
+      - name: Restore link check cache
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: cache-lychee
+
       - name: Run validations
         run: .tool/task validate
