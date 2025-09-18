@@ -102,6 +102,5 @@ Example:
 {{% alert title="Next steps" color="primary" %}}
 
 - Try searching for vulnerabilities in an older container!
-- Find out more about [TODO](/docs/userguides/vuln/todo/) and [)TODO(/docs/userguides/vuln/todo/)
 - Learn about [SBOM Generation](/docs/userguides/sbom/getstarted/) and [License Scanning](/docs/userguides/license/getstarted/) your SBOMs.
   {{% /alert %}}

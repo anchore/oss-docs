@@ -87,7 +87,7 @@ Thanks to [Sophie Brun](https://gitlab.com/sophiebrun) for maintaining this pack
 
 ### Nix
 
-Syft is available in the [stable channel](https://wiki.nixos.org/wiki/Nix_channels#The_official_channels) since NixOS 22.05.
+Syft is available in the [stable channel](https://search.nixos.org/packages?channel=25.05&show=syft&query=syft) since NixOS 22.05.
 
 ```
 nix-env -i syft

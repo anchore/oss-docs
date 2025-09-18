@@ -4,7 +4,7 @@ linkTitle = "Syft Default Config"
 weight = 15
 tags = ['syft']
 categories = ['reference']
-url = "reference/commands/syft-config"
+url = "docs/reference/commands/syft-config"
 +++
 
 ### Syft default configuration

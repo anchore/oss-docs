@@ -4,7 +4,7 @@ linkTitle = "Grype Default Config"
 weight = 25
 tags = ['grype']
 categories = ['reference']
-url = "reference/commands/grype-config"
+url = "docs/reference/commands/grype-config"
 +++
 
 ### Grype Default Configuration

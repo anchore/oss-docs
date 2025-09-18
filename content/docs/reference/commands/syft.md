@@ -4,7 +4,7 @@ linkTitle = "Syft CLI"
 weight = 10
 tags = ['syft']
 categories = ['reference']
-url = "reference/commands/syft"
+url = "docs/reference/commands/syft"
 +++
 
 ### `syft version`

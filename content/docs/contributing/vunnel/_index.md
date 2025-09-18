@@ -204,7 +204,7 @@ Conceptually, one or more invocations of Vunnel will produce a single data direc
 <img src="https://user-images.githubusercontent.com/590471/223167464-aca39d4b-699a-47da-b852-fea904ba9824.svg" width="600" alt="Vunnel and Grype-DB workflow diagram" />
 
 Additionally, the Vunnel CLI tool is optimized to run
-a single provider at a time, not orchestrating multiple providers at once. [Grype-db](github.com/anchore/grype-db) is the
+a single provider at a time, not orchestrating multiple providers at once. [Grype-db](https://github.com/anchore/grype-db) is the
 tool that collates output from multiple providers and produces a single database, and is ultimately responsible for
 orchestrating multiple Vunnel calls to prepare the input data:
 
@@ -375,8 +375,8 @@ Any provider-specific config options can be added to the configuration object as
 
 "Vulnerability matching" is the process of taking a list of vulnerabilities and matching them against a list of packages.
 A provider in this repo is responsible for the "vulnerability" side of this process. The "package" side is handled by
-[Syft](github.com/anchore/syft). A prerequisite for adding a new provider is that Syft can catalog the package types that
-the provider is feeding vulnerability data for, so [Grype](github.com/anchore/grype) can perform the matching from these two sources.
+[Syft](https://github.com/anchore/syft). A prerequisite for adding a new provider is that Syft can catalog the package types that
+the provider is feeding vulnerability data for, so [Grype](https://github.com/anchore/grype) can perform the matching from these two sources.
 
 To add a new provider, you will need to create a new provider class under `/src/vunnel/providers/<name>` that inherits from `provider.Provider` and implements:
 
@@ -395,7 +395,7 @@ Once the provider is implemented, you will need to wire it up into the applicati
 - add a new entry under the dispatch table in `src/vunnel/providers/__init__.py` mapping your provider name to the class
 - add the provider configuration to the application configuration under `src/vunnel/cli/config.py` (specifically the `Providers` dataclass)
 
-For a more detailed example on the implementation details of a provider see the ["example" provider](example/README.md).
+For a more detailed example on the implementation details of a provider see the ["example" provider](https://github.com/anchore/vunnel/blob/main/example/README.md).
 
 Validating this provider has different implications depending on what is being added. For example, if the provider is
 adding a new vulnerability source but is ultimately using an existing schema to express results then there may be very little to do!
@@ -416,7 +416,7 @@ cp -a example/awesome src/vunnel/providers/YOURPROVIDERNAME
 
 ```
 
-See the ["example" provider README](example/README.md) as well as the code comments for steps and considerations to take when implementing a new provider.
+See the ["example" provider README](https://github.com/anchore/vunnel/blob/main/example/README.md) as well as the code comments for steps and considerations to take when implementing a new provider.
 
 Once implemented, you should be able to see the new provider in the `vunnel list` command and run it with `vunnel run <name>`.
 The entries written should write out to a specific `namespace` in the DB downstream, as indicated in the record.
@@ -464,7 +464,7 @@ If you don't have any grype changes needed then you can skip this step.
 
 In order to evaluate the quality of the new provider, we need to know what the expected results are. This is done by
 annotating Grype results with "True Positive" labels (good results) and "False Positive" labels (bad results). We'll use
-[Yardstick](github.com/anchore/yardstick) to do this:
+[Yardstick](https://github.com/anchore/yardstick) to do this:
 
 ```
 $ cd tests/quality
@@ -490,7 +490,7 @@ $ uv run yardstick label explore 75d1fe75-0890-4d89-a497-b1050826d9f6
 
 ```
 
-Later we'll open a PR in the [vulnerability-match-labels repo](github.com/anchore/vulnerability-match-labels) to persist these labels.
+Later we'll open a PR in the [vulnerability-match-labels repo](https://github.com/anchore/vulnerability-match-labels) to persist these labels.
 For the meantime we can iterate locally with the labels we've added.
 
 #### **6. In Vunnel: run the quality gate.**
@@ -509,7 +509,7 @@ This uses the latest Grype-DB release to build a DB and the specified Grype vers
 
 You are looking for a passing run before continuing further.
 
-#### **7. Open a [vulnerability-match-labels repo](github.com/anchore/vulnerability-match-labels) PR to persist the new labels.**
+#### **7. Open a [vulnerability-match-labels repo](https://github.com/anchore/vulnerability-match-labels) PR to persist the new labels.**
 
 Vunnel uses the labels in the vulnerability-Match-Labels repo via a git submodule. We've already added labels locally
 within this submodule in an earlier step. To persist these labels we need to push them to a fork and open a PR:
@@ -531,7 +531,7 @@ $ git commit -m 'add labels for <your-provider-name>'
 $ git push fork add-labels-for-<your-provider-name>
 ```
 
-At this point you can open a PR against in the [vulnerability-match-labels repo](github.com/anchore/vulnerability-match-labels).
+At this point you can open a PR against in the [vulnerability-match-labels repo](https://github.com/anchore/vulnerability-match-labels).
 
 _Note: you will not be able to open a Vunnel PR that passes PR checks until the labels are merged into the vulnerability-match-labels repo._
 

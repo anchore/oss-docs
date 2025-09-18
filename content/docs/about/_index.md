@@ -19,4 +19,4 @@ Learn a bit about the team, how to get in touch with us, and getting involved.
 
 ### Project Pages
 
-- [Docs Style Guide](style-guide.md) - Our house style guide for this documentation.
+- [Docs Style Guide](style-guide) - Our house style guide for this documentation.

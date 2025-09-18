@@ -9,10 +9,10 @@ The pages below contain detailed reference documents. These may be useful for pe
 
 Command line options:
 
-- [Syft](/docs/commands/syft/)
-- [Grype](/docs/commands/grype/)
+- [Syft](/docs/reference/commands/syft/)
+- [Grype](/docs/reference/commands/grype/)
 
 Configuration defaults:
 
-- [Syft configuration](/docs/commands/syft-config)
-- [Grype configuration](/docs/commands/grype-config)
+- [Syft configuration](/docs/reference/commands/syft-config)
+- [Grype configuration](/docs/reference/commands/grype-config)

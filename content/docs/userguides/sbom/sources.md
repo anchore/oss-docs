@@ -42,4 +42,4 @@ the Docker, Podman, and Containerd daemons followed by direct registry access, i
 
 <!-- TODO(alex): broken link locally -->
 
-This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](configuration) for more details).
+This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](/docs/userguides/sbom/configuration) for more details).

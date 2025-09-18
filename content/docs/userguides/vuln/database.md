@@ -11,7 +11,7 @@ url = "docs/userguides/vuln/database"
 Grype uses a locally cached database of known vulnerabilities when searching a container, directory, or SBOM for security vulnerabilities. Anchore collates vulnerability data from common feeds, and publishes that data online, at no cost to users.
 
 {{% alert title="Learn more" color="primary" %}}
-Find out more about the vulnerability feeds at [Vulnerability Feeds](/docs/userguides/feeds/).
+Find out more about the vulnerability data sources at [Vulnerability Data Sources](/docs/userguides/vuln/data-sources/).
 {{% /alert %}}
 
 ### Updating the local database
@@ -58,6 +58,6 @@ Vulnerability database updated to latest version!
 
 {{% alert title="Next steps" color="primary" %}}
 
-- Learn how the vuln DB is [created](/docs/userguides/database/sources/) and [published](/docs/userguides/database/published/).
+- Learn how the vulnerability DB is [created](/docs/userguides/vuln/database/) and [published](/docs/userguides/vuln/publish/).
 - Learn about [SBOM Generation](/docs/userguides/sbom/getstarted/) and [License Scanning](/docs/userguides/license/getstarted/) your SBOMs.
   {{% /alert %}}
