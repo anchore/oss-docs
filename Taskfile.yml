@@ -86,7 +86,7 @@ tasks:
   links:
     desc: Check for broken links in the site
     cmds:
-      - '{{ .LYCHEE }} -c .lychee.toml --root-dir "{{ .USER_WORKING_DIR }}/public" ./public'
+      - '{{ .LYCHEE }} -c .lychee.toml --root-dir "{{ .USER_WORKING_DIR }}/public" ./public --offline'
 
   clean:
     desc: Clean build artifacts
