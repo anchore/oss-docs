@@ -20,6 +20,14 @@ inputs:
   bootstrap-apt-packages:
     description: "Space delimited list of tools to install via apt"
     default: ""
+  python:
+    description: "Whether to install Python"
+    required: false
+    default: "false"
+  python-version:
+    description: "Python version to install"
+    required: false
+    default: "3.11"
 
 runs:
   using: "composite"
@@ -30,6 +38,13 @@ runs:
       with:
         node-version: ${{ inputs.node-version }}
         cache: 'npm'
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      if: inputs.python == 'true'
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: 'pip'
 
     - name: Restore tool cache
       if: inputs.tools == 'true'

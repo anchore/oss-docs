@@ -1,0 +1,64 @@
+version: '3'
+
+tasks:
+  # Syft tasks
+  syft:cli:
+    desc: Generate Syft command line reference documentation
+    dir: scripts
+    cmds:
+      - python3 generate-reference-cli-docs.py anchore/syft:latest --output ../content/docs/reference/commands/syft.md --tool-name syft
+
+  syft:config:
+    desc: Generate Syft configuration reference documentation
+    dir: scripts
+    cmds:
+      - python3 generate-reference-config-docs.py anchore/syft:latest --output ../content/docs/reference/commands/syft-config.md --tool-name syft
+
+  syft:
+    desc: Generate all Syft documentation (CLI + config)
+    deps:
+      - syft:cli
+      - syft:config
+
+  # Grype tasks
+  grype:cli:
+    desc: Generate Grype command line reference documentation
+    dir: scripts
+    cmds:
+      - python3 generate-reference-cli-docs.py anchore/grype:latest --output ../content/docs/reference/commands/grype.md --tool-name grype
+
+  grype:config:
+    desc: Generate Grype configuration reference documentation
+    dir: scripts
+    cmds:
+      - python3 generate-reference-config-docs.py anchore/grype:latest --output ../content/docs/reference/commands/grype-config.md --tool-name grype
+
+  grype:
+    desc: Generate all Grype documentation (CLI + config)
+    deps:
+      - grype:cli
+      - grype:config
+
+  # Master task to generate all reference documentation
+  reference:
+    desc: Generate all reference documentation (Syft + Grype, CLI + config)
+    deps:
+      - syft
+      - grype
+
+  # Trigger GitHub Actions workflow to generate docs and create PR
+  reference:pr:
+    desc: Trigger GitHub Actions workflow to generate reference docs and create PR
+    cmds:
+      - |
+        echo "🚀 Triggering GitHub Actions workflow to generate reference docs..."
+        if gh workflow run update-reference-docs.yaml; then
+          echo "✅ Workflow triggered successfully!"
+          echo "📍 Check progress: gh run list --workflow=update-reference-docs.yaml"
+          echo "📍 Or visit: https://github.com/$(gh repo view --json owner,name -q '.owner.login + \"/\" + .name')/actions"
+        else
+          echo "❌ Failed to trigger workflow. Make sure:"
+          echo "   1. The workflow file is committed and pushed to the default branch"
+          echo "   2. You're authenticated with GitHub CLI (gh auth login)"
+          echo "   3. You have workflow dispatch permissions on this repository"
+        fi

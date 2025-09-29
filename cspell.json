@@ -276,7 +276,8 @@
     "Kubeflow",
     "Michał",
     "Polański",
-    "Brun"
+    "Brun",
+    "repackager"
   ],
   "ignorePaths": [
     "themes/**",
@@ -287,7 +288,8 @@
     "*.min.js",
     "*.min.css",
     "content/docs/releases/**",
-    "content/docs/about/adopters.md"
+    "content/docs/about/adopters.md",
+    "content/docs/reference/**"
   ],
   "ignoreRegExpList": ["/\\b[A-Fa-f0-9]{7,}\\b/g", "/\\bv\\d+\\.\\d+\\.\\d+/g", "/https?:\\/\\/[^\\s]+/g"],
   "allowCompoundWords": true,
