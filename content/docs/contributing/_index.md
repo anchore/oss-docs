@@ -1,8 +1,8 @@
-+++ 
-title = "Contributing" 
++++
+title = "Contributing"
 tags = ["syft", "grype", "grant", "grype-db", "vunnel", "stereoscope"]
-description = "Guidelines for developing & contributing to Anchore Open Source projects" 
-weight = 20 
+description = "Guidelines for developing & contributing to Anchore Open Source projects"
+weight = 20
 url = "docs/contributing"
 +++
 

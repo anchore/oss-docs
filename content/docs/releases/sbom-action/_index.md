@@ -1,7 +1,7 @@
 +++
 tags = ['sbom-action']
 categories = ['release']
-title = "Sbom-action Release Notes" 
+title = "Sbom-action Release Notes"
 linkTitle = "Sbom-action"
 url = "docs/releases/sbom-action"
 description = "Anchore Sbom-action Release Notes"

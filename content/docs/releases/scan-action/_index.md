@@ -1,7 +1,7 @@
 +++
 tags = ['scan-action']
 categories = ['release']
-title = "Scan-action Release Notes" 
+title = "Scan-action Release Notes"
 linkTitle = "Scan-action"
 url = "docs/releases/scan-action"
 description = "Anchore Scan-action Release Notes"

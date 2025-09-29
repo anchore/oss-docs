@@ -1,0 +1,4 @@
+display the version
+
+Usage:
+  tool version [flags]

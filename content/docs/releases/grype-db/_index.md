@@ -1,7 +1,7 @@
 +++
 tags = ['grype-db']
 categories = ['release']
-title = "Grype-db Release Notes" 
+title = "Grype-db Release Notes"
 linkTitle = "Grype-db"
 url = "docs/releases/grype-db"
 description = "Anchore Grype-db Release Notes"

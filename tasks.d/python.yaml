@@ -1,0 +1,55 @@
+
+version: "3"
+
+env:
+  MAKEFLAGS: "--no-print-directory"
+  FORCE_COLOR: true
+
+tasks:
+
+  default:
+    cmds:
+      - task: validate
+
+  validate:
+    desc: Run all validation tasks
+    cmds:
+      - task: test
+      - task: lint
+      - task: check-types
+
+  install:
+    desc: Install all development dependencies
+    cmds:
+      - uv sync --all-extras --dev
+
+  format:
+    desc: Format the code
+    cmds:
+      - uv run ruff format
+
+  lint:
+    desc: Run code linters
+    cmds:
+      - uv run ruff check scripts tests
+
+  lint-fix:
+    desc: Run code lint fixers
+    cmds:
+      - uv run ruff check scripts tests --fix
+      - uv run pyrefly infer scripts
+
+  test:
+    desc: Run all tests
+    cmds:
+      - task: unit
+
+  unit:
+    desc: Run unit tests
+    cmds:
+      - uv run pytest ./tests -vv --color=yes
+
+  check-types:
+    desc: Run ty type checking
+    cmds:
+      - uv run ty check scripts

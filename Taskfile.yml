@@ -2,6 +2,12 @@ version: '3'
 
 includes:
   generate: ./tasks.d/generate.yaml
+  hugo: ./tasks.d/hugo.yaml
+  python: ./tasks.d/python.yaml
+
+env:
+  MAKEFLAGS: '--no-print-directory'
+  TASK_TEMP_DIR: .cache/task
 
 vars:
   TOOL_DIR: .tool
@@ -54,57 +60,51 @@ tasks:
     cmd: '{{ .TOOL_DIR }}/binny list --updates'
     silent: true
 
+  # high level tasks
+
   install:
     desc: Install all development dependencies
     cmds:
-      - npm install
+      - task: hugo:install
+      - task: python:install
 
-  # High-level tasks
-  build:
-    desc: Build Hugo site
+  default:
+    desc: Default task (validate)
     cmds:
-      - npm run build
-
-  dev:
-    desc: Start development environment with live reload
-    cmds:
-      - npm run dev
+      - task: validate
 
   lint:
     desc: Run all linters
     cmds:
-      - npm run lint
+      - task: python:lint
+      - task: hugo:lint
 
   lint-fix:
     desc: Auto-fix linting issues where possible
     cmds:
-      - npm run lint-fix
+      - task: python:lint-fix
+      - task: hugo:lint-fix
+
+  format:
+    desc: Format all code
+    cmds:
+      - task: python:format
+
+  test:
+    desc: Run all tests
+    cmds:
+      - task: python:test
+
+  unit:
+    desc: Run all unit tests
+    cmds:
+      - task: python:unit
 
   validate:
-    desc: Build and run all validations
+    desc: Run all validation tasks
     cmds:
-      - npm run validate
-      - task: links
-
-  links:
-    desc: Check for broken links in the site
-    cmds:
-      - '{{ .LYCHEE }} -c .lychee.toml --root-dir "{{ .USER_WORKING_DIR }}/public" ./public --offline'
-
-  clean:
-    desc: Clean build artifacts
-    cmds:
-      - npm run clean
-
-  # Content management
-  update-release-notes:
-    desc: Generate release notes for all projects
-    dir: scripts
-    cmds:
-      - ./generate-release-notes.sh
-
-  update-adopters:
-    desc: Update adopters information
-    dir: scripts
-    cmds:
-      - ./generate-adopters-info.sh
+      # run linters for high and low level concerns across stacks
+      - uv run pre-commit run -a --hook-stage push
+      # per-stack tests
+      - task: python:test
+      - task: hugo:test

@@ -8,12 +8,17 @@ CLAUDE.md
 .task
 .tool
 tmp/
+TODO.md
 
-# testing
-.lycheecache
+# cache directories
+.cache/
 
 # python
+/venv
 .venv/
+**/__pycache__/
+*.pyc
+.coverage
 
 # javascript
 node_modules/

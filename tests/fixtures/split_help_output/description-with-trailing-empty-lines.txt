@@ -1,0 +1,5 @@
+Tool description
+
+
+Usage:
+  tool command [flags]

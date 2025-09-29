@@ -1,7 +1,7 @@
 +++
 tags = ['syft']
 categories = ['release']
-title = "Syft Release Notes" 
+title = "Syft Release Notes"
 linkTitle = "Syft"
 url = "docs/releases/syft"
 description = "Anchore Syft Release Notes"

@@ -1,0 +1,2 @@
+Some help text without a Usage: line
+More help text

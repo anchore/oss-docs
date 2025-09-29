@@ -1,5 +1,5 @@
 # note: run with
-#  lychee -c lychee.toml --root-dir "$(pwd)/public"  ./public
+#  lychee -c .lychee.toml --root-dir "$(pwd)/public"  ./public
 
 # this only caches external URLs
 cache = true

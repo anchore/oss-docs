@@ -1,0 +1,8 @@
+Usage:
+  grype [IMAGE] [flags]
+
+Flags:
+  -h, --help   help for grype
+
+Global Flags:
+  -v, --verbose   verbose output

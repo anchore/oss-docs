@@ -1,7 +1,7 @@
 +++
 tags = ['vunnel']
 categories = ['release']
-title = "Vunnel Release Notes" 
+title = "Vunnel Release Notes"
 linkTitle = "Vunnel"
 url = "docs/releases/vunnel"
 description = "Anchore Vunnel Release Notes"

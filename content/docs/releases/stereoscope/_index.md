@@ -1,7 +1,7 @@
 +++
 tags = ['stereoscope']
 categories = ['release']
-title = "Stereoscope Release Notes" 
+title = "Stereoscope Release Notes"
 linkTitle = "Stereoscope"
 url = "docs/releases/stereoscope"
 description = "Anchore Stereoscope Release Notes"

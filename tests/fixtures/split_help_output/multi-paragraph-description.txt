@@ -1,0 +1,9 @@
+First paragraph of description
+
+Second paragraph with more details
+
+Usage:
+  tool command [flags]
+
+Flags:
+  -h, --help   help

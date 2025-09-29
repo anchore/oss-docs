@@ -9,7 +9,7 @@ on:
     branches:
       - main
     paths:
-      - 'scripts/generate-reference-*'
+      - 'scripts/generate_reference_*'
       - 'tasks.d/generate.yaml'
 
 permissions:
@@ -31,8 +31,6 @@ jobs:
 
       - name: Bootstrap environment
         uses: ./.github/actions/bootstrap
-        with:
-          python: true
 
       - name: Generate reference documentation
         run: |

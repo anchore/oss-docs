@@ -1,45 +1,8 @@
 version: '3'
 
 tasks:
-  # Syft tasks
-  syft:cli:
-    desc: Generate Syft command line reference documentation
-    dir: scripts
-    cmds:
-      - python3 generate-reference-cli-docs.py anchore/syft:latest --output ../content/docs/reference/commands/syft.md --tool-name syft
 
-  syft:config:
-    desc: Generate Syft configuration reference documentation
-    dir: scripts
-    cmds:
-      - python3 generate-reference-config-docs.py anchore/syft:latest --output ../content/docs/reference/commands/syft-config.md --tool-name syft
-
-  syft:
-    desc: Generate all Syft documentation (CLI + config)
-    deps:
-      - syft:cli
-      - syft:config
-
-  # Grype tasks
-  grype:cli:
-    desc: Generate Grype command line reference documentation
-    dir: scripts
-    cmds:
-      - python3 generate-reference-cli-docs.py anchore/grype:latest --output ../content/docs/reference/commands/grype.md --tool-name grype
-
-  grype:config:
-    desc: Generate Grype configuration reference documentation
-    dir: scripts
-    cmds:
-      - python3 generate-reference-config-docs.py anchore/grype:latest --output ../content/docs/reference/commands/grype-config.md --tool-name grype
-
-  grype:
-    desc: Generate all Grype documentation (CLI + config)
-    deps:
-      - grype:cli
-      - grype:config
-
-  # Master task to generate all reference documentation
+  # Orchestration task to generate all reference documentation
   reference:
     desc: Generate all reference documentation (Syft + Grype, CLI + config)
     deps:
@@ -62,3 +25,51 @@ tasks:
           echo "   2. You're authenticated with GitHub CLI (gh auth login)"
           echo "   3. You have workflow dispatch permissions on this repository"
         fi
+
+  # release notes...
+  update-release-notes:
+    desc: Generate release notes for all projects
+    dir: scripts
+    cmds:
+      - ./generate-release-notes.sh
+
+  # adopters pages...
+  update-adopters:
+    desc: Update adopters information
+    dir: scripts
+    cmds:
+      - ./generate-adopters-info.sh
+
+  # Syft tasks
+  syft:cli:
+    desc: Generate Syft command line reference documentation
+    cmds:
+      - uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/commands/syft.md --tool-name syft
+
+  syft:config:
+    desc: Generate Syft configuration reference documentation
+    cmds:
+      - uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/commands/syft-config.md --tool-name syft
+
+  syft:
+    desc: Generate all Syft documentation (CLI + config)
+    deps:
+      - syft:cli
+      - syft:config
+
+  # Grype tasks
+  grype:cli:
+    desc: Generate Grype command line reference documentation
+    cmds:
+      - uv run ./scripts/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/commands/grype.md --tool-name grype
+
+  grype:config:
+    desc: Generate Grype configuration reference documentation
+    cmds:
+      - uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/commands/grype-config.md --tool-name grype
+
+  grype:
+    desc: Generate all Grype documentation (CLI + config)
+    deps:
+      - grype:cli
+      - grype:config

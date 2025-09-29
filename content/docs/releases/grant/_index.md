@@ -1,7 +1,7 @@
 +++
 tags = ['grant']
 categories = ['release']
-title = "Grant Release Notes" 
+title = "Grant Release Notes"
 linkTitle = "Grant"
 url = "docs/releases/grant"
 description = "Anchore Grant Release Notes"

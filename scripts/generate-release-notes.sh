@@ -20,22 +20,22 @@ BASE_OUTPUT_DIR="content/docs/releases"
 for repo_info in "${REPOS[@]}"; do
     # Split the repo_info string by colon
     IFS=':' read -r repo_name weight output_subdir <<< "$repo_info"
-    
+
     # Construct the output directory
     output_dir="${BASE_OUTPUT_DIR}/${output_subdir}"
-    
+
     echo "Processing ${repo_name} with weight ${weight}..."
-    
+
     # Call the Python script with the appropriate arguments
     python scripts/release-to-hugo.py --repo "$repo_name" --output-dir "$output_dir" --weight "$weight"
-    
+
     # Check if the previous command was successful
     if [ $? -eq 0 ]; then
         echo "✅ Successfully generated release notes for ${repo_name}"
     else
         echo "❌ Failed to generate release notes for ${repo_name}"
     fi
-    
+
     echo "-----------------------------------"
 done
 

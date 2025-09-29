@@ -1,0 +1,10 @@
+Description text
+
+Usage:
+  tool command [flags]
+
+Flags:
+  --local   local flag
+
+Global Flags:
+  --global   global flag

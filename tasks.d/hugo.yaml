@@ -1,0 +1,75 @@
+version: '3'
+vars:
+  TOOL_DIR: .tool
+  CACHE_DIR: .cache
+
+  LYCHEE: '{{ .TOOL_DIR }}/lychee'
+
+env:
+  MAKEFLAGS: "--no-print-directory"
+  FORCE_COLOR: true
+
+tasks:
+
+  default:
+    cmds:
+      - task: validate
+
+  validate:
+    desc: Build and run all validations
+    cmds:
+      - task: build
+      - npm run validate
+      - task: test
+
+  install:
+    desc: Install all development dependencies
+    cmds:
+      - npm install
+      - if [ "$CI" = "true" ]; then npm ci; fi
+
+  build:
+    desc: Build Hugo site
+    sources:
+      - static/**
+      - content/**
+      - package.json
+      - package-lock.json
+    generates:
+      - public/**
+      - resources/**
+    cmds:
+      - npm run build
+
+  dev:
+    desc: Start development environment with live reload
+    cmds:
+      - npm run dev
+
+  lint:
+    desc: Run all linters
+    cmds:
+      - npm run lint
+
+  lint-fix:
+    desc: Auto-fix linting issues where possible
+    cmds:
+      - npm run lint-fix
+
+  test:
+    desc: Run all tests
+    cmds:
+      - task: links
+
+  links:
+    desc: Check for broken links in the site
+    dir: '{{ .CACHE_DIR }}'
+    deps:
+      - build
+    cmds:
+      - '../{{ .LYCHEE }} -c ../.lychee.toml --root-dir "{{ .USER_WORKING_DIR }}/public" ../public --offline'
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - npm run clean

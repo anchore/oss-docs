@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script generates a markdown file in content/community/adopters.md 
+# This script generates a markdown file in content/community/adopters.md
 # with the list of GitHub orgs/repositories that consume on a given OSS project.
 # It uses the `github-dependents-info` python tool to gather this information.
 
@@ -28,7 +28,7 @@ if [ ! -d ".venv" ]; then
 fi
 
 # Activate the virtual environment
-if ! source .venv/bin/activate; then 
+if ! source .venv/bin/activate; then
     echo "Failed to activate the virtual environment. Exiting."
     exit 1
 fi
@@ -78,7 +78,7 @@ cat << EOF >> "$tmpadoptersfile"
 
 More organisations below are all adopters of our tools, in public GitHub repositories.
 
-{{% cardpane %}} 
+{{% cardpane %}}
 {{% card  title="Syft" %}}
 
 EOF
@@ -97,7 +97,7 @@ cat << EOF >> "$tmpadoptersfile"
 {{% /card %}}
 {{% /cardpane %}}
 
-{{% cardpane %}} 
+{{% cardpane %}}
 {{% card  title="SBOM Action" %}}
 
 EOF
@@ -130,7 +130,7 @@ mv "$tmpadoptersfile" content/about/adopters.md
 # fi
 
 # # Commit the changes
-# if ! git commit -m "Update adopters page with latest data"; then 
+# if ! git commit -m "Update adopters page with latest data"; then
 #     echo "Failed to commit changes. Exiting."
 #     exit 1
 # fi

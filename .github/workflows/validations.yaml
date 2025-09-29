@@ -28,7 +28,7 @@ jobs:
       - name: Restore link check cache
         uses: actions/cache@v4
         with:
-          path: .lycheecache
+          path: .cache/lychee
           key: cache-lychee
 
       - name: Run validations

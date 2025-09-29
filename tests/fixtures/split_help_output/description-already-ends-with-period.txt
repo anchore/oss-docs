@@ -1,0 +1,4 @@
+This description already ends with a period.
+
+Usage:
+  tool command [flags]
