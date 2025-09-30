@@ -4,6 +4,8 @@ title: ''
 publishDir: public/
 ignoreLogs:
   - warning-goldmark-raw-html
+ignoreFiles:
+  - content/docs/user-guides/sbom/snippets/.*\.md$
 enableGitInfo: true
 
 module:

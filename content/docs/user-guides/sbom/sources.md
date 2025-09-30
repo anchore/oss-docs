@@ -6,25 +6,30 @@ tags = ["syft", "sbom"]
 url = "docs/user-guides/sbom/sources"
 +++
 
-Syft can generate an SBOM from a variety of sources including images, files, directories, and archives. Syft will attempt to
-determine the type of source based on provided input.:
+Syft can generate an SBOM from a variety of sources including container images, directories, files, and archives. In most cases, you can simply point Syft at what you want to analyze and it will automatically detect the source type.
 
-Catalog a container image archive (from the result of `docker image save ...`, `podman save ...`, or `skopeo copy` commands):
+Catalog a container image from your local daemon or a remote registry:
 
+```bash
+syft alpine:latest
 ```
-syft path/to/image.tar
+
+Catalog a directory (useful for analyzing source code or installed applications):
+
+```bash
+syft /path/to/project
+```
+
+Catalog a container image archive:
+
+```bash
+syft image.tar
 ```
 
 Catalog a Singularity Image Format (SIF) container:
 
-```
-syft path/to/image.sif
-```
-
-Catalog a directory:
-
-```
-syft path/to/dir
+```bash
+syft container.sif
 ```
 
 To explicitly specify the source behavior, use the `--from` flag. Allowable options are:
@@ -40,113 +45,175 @@ To explicitly specify the source behavior, use the `--from` flag. Allowable opti
 - `file`: read directly from a path on disk (any single file)
 - `registry`: pull image directly from a registry (no container runtime required)
 
-If a source is not provided and Syft identifies the input as a potential image reference, Syft will attempt to resolve it using the Docker, Podman, and Containerd daemons followed by direct registry access, in that order.
+## Source-Specific Behaviors
 
-This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](/docs/user-guides/sbom/configuration) for more details).
+### Container Image References
+
+When working with container images, Syft applies the following defaults and behaviors:
+
+- **Registry**: If no registry is specified in the image reference (e.g. `alpine:latest` instead of `docker.io/alpine:latest`), Syft assumes `docker.io`
+- **Platform**: For unspecific image references (tags) or multi-arch images pointing to a manifest index, Syft analyzes the `linux/amd64` manifest by default. Use the `--platform` flag to target a different platform.
+
+When you provide an image reference without specifying a source type (no `--from` flag), Syft attempts to resolve the image using the following sources in order:
+
+1. Docker daemon
+2. Podman daemon
+3. Containerd daemon
+4. Direct registry access
+
+For example, when you run `syft alpine:latest`, Syft will first check your local Docker daemon for the image. If Docker isn't available, it tries Podman, then Containerd, and finally attempts to pull directly from the registry.
+
+You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific source. See [Configuration](/docs/user-guides/sbom/configuration) for more details.
+
+### Filesystems
+
+Syft works best (fastest) when cataloging a pre-indexed filesystem. The first step for almost any input is to index the filesystem to enable the efficient search for packages and other artifacts.
+
+#### Directories
+
+When you point Syft at a directory (especially system directories like `/`), it automatically skips certain filesystem types to improve scan performance and avoid indexing areas that don't contain installed software packages.
+
+**Filesystems always skipped:**
+
+- `proc` / `procfs` - Virtual filesystem for process information
+- `sysfs` - Virtual filesystem for kernel and device information
+- `devfs` / `devtmpfs` / `udev` - Device filesystems
+
+**Filesystems conditionally skipped:**
+
+`tmpfs` filesystems are only skipped when mounted at these specific locations:
+
+- `/dev` - Device files
+- `/sys` - System information
+- `/run` and `/var/run` - Runtime data and process IDs
+- `/var/lock` - Lock files
+
+These paths are excluded because they contain virtual or temporary runtime data rather than installed software packages. Skipping them significantly improves scan performance and enables you to catalog entire system root directories without getting stuck scanning thousands of irrelevant entries.
+
+Syft identifies these filesystems by reading your system's mount table (`/proc/self/mountinfo` on Linux). When a directory matches one of these criteria, the entire directory tree under that mount point is skipped.
+
+**File types excluded:**
+
+These file types are never indexed during directory scans:
+
+- Character devices
+- Block devices
+- Sockets
+- FIFOs (named pipes)
+- Irregular files
+
+Regular files, directories, and symbolic links are always processed.
 
 
-## caveats, assumptions, and behaviors
+#### Archive Detection
 
-### container image references
-- if no registry is provided in the image reference, we will assume docker.io
-- for image references that are unspecific (a tag) or point to an index of multiple manifests (e.g. multi-arch images), we will analyze the linux:amd64 manifest by default. This can be changed / overridden with the `--platform` flag.
+Syft automatically detects and unpacks common archive formats, then catalogs their contents. If an archive is a container image archive (from `docker save` or `skopeo copy`), Syft treats it as a container image.
 
-### files
-- if the archive is a container image archive (e.g. from `docker save` or `skopeo copy`), we will treat it as a container image (see the cataloger selection)
+**Supported archive formats:**
 
-#### archives
-- we will attempt to unpack common archive formats (tar, zip, gzip, etc) and then catalog the contents (TODO enumerate all supported formats)
-
-
-Supported archive formats:
-- .zip
-- .tar (uncompressed)
-- .rar (read-only extraction)
+Standard archives:
+- `.zip`
+- `.tar` (uncompressed)
+- `.rar` (read-only extraction)
 
 Compressed tar variants:
-- .tar.gz / .tgz
-- .tar.bz2 / .tbz2
-- .tar.br / .tbr (brotli)
-- .tar.lz4 / .tlz4
-- .tar.sz / .tsz (snappy)
-- .tar.xz / .txz
-- .tar.zst / .tzst (zstandard)
+- `.tar.gz` / `.tgz`
+- `.tar.bz2` / `.tbz2`
+- `.tar.br` / `.tbr` (brotli)
+- `.tar.lz4` / `.tlz4`
+- `.tar.sz` / `.tsz` (snappy)
+- `.tar.xz` / `.txz`
+- `.tar.zst` / `.tzst` (zstandard)
 
 Standalone compression formats (extracted if containing tar):
-- .gz (gzip)
-- .bz2 (bzip2)
-- .br (brotli)
-- .lz4
-- .sz (snappy)
-- .xz
-- .zst / .zstd (zstandard)
+- `.gz` (gzip)
+- `.bz2` (bzip2)
+- `.br` (brotli)
+- `.lz4`
+- `.sz` (snappy)
+- `.xz`
+- `.zst` / `.zstd` (zstandard)
 
+#### OCI Archives and Layouts
 
-#### local container archive and directory sources
-- we will attempt to detect the type of archive or directory structure (e.g. OCI layout, SIF, etc) and catalog accordingly
-- OCI archives and layouts are useful in the sense that you can craete them at build time without pushing to a registry, allowing to catalog images / vuln scan them / any other check without requiring publishing. This is a powerful pattern for gating in CI.
-- you can create an OCI archive from an image with: `skopeo copy docker://alpine:latest oci-archive:alpine_latest:latest`
-- you can create an OCI layout directory from an image with: `skopeo copy docker://alpine:latest oci:alpine_oci:latest`
-- you can create a container image archive from an image with: `docker save -o alpine_latest.tar alpine:latest`
+Syft automatically detects OCI archive and directory structures (including OCI layouts and SIF files) and catalogs them accordingly.
 
-### container daemons
+OCI archives and layouts are particularly useful for CI/CD pipelines, as they allow you to catalog images, scan for vulnerabilities, or perform other checks without publishing to a registry. This provides a powerful pattern for build-time gating.
 
-- if the image does not exist locally in the daemon, we will attempt to pull it from the registry
-- if the image is private, you must be logged in to the registry via the daemon (e.g. `docker login ...`) or have credentials configured for direct registry access (See [Authentication](/docs/user-guides/sbom/authentication) for more details).
+**Create OCI sources without a registry:**
 
-- In terms of environment variables, syft respects the following variables for each container runtime:
-  Docker 
+OCI archive from an image:
+```bash
+skopeo copy docker://alpine@sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f oci-archive:alpine.tar
+```
 
-   - DOCKER_HOST - Docker daemon socket/host address (supports ssh:// for remote connections)
-   - DOCKER_TLS_VERIFY - Enable TLS verification (auto-sets DOCKER_CERT_PATH if not set)
-   - DOCKER_CERT_PATH - Path to TLS certificates (defaults to ~/.docker if DOCKER_TLS_VERIFY is set)
-   - DOCKER_CONFIG - Override default Docker config directory (mentioned at daemon_provider.go:191, used by Docker's
-     config.Load())
+OCI layout directory from an image:
+```bash
+skopeo copy docker://alpine@sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f oci:alpine 
+```
 
-  Podman
+Container image archive from an image:
+```bash
+docker save -o alpine.tar alpine:latest
+```
 
-   - CONTAINER_HOST - Podman socket/host address (e.g., unix:///run/podman/podman.sock or ssh://user@host/path/to/socket)
-   - CONTAINER_SSHKEY - SSH identity file path for remote Podman connections
-   - CONTAINER_PASSPHRASE - Passphrase for the SSH key
+## Container Daemon Configuration
 
-  Containerd
+### Image Availability and Authentication
 
-   - CONTAINERD_ADDRESS - Containerd socket address (overrides default /run/containerd/containerd.sock)
-   - CONTAINERD_NAMESPACE - Containerd namespace (defaults to default)
+When using container daemon sources (Docker, Podman, or Containerd):
 
-  Summary by Source
+- **Missing images**: If an image doesn't exist locally in the daemon, Syft attempts to pull it from the registry
+- **Private images**: You must be logged in to the registry via the daemon (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication](/docs/user-guides/sbom/authentication) for more details.
 
-  | Source     | Environment Variables                                           |
-    |------------|-----------------------------------------------------------------|
-  | Docker     | DOCKER_HOST, DOCKER_TLS_VERIFY, DOCKER_CERT_PATH, DOCKER_CONFIG |
-  | Podman     | CONTAINER_HOST, CONTAINER_SSHKEY, CONTAINER_PASSPHRASE          |
-  | Containerd | CONTAINERD_ADDRESS, CONTAINERD_NAMESPACE                        |
+### Environment Variables
 
-#### podman
+Syft respects the following environment variables for each container runtime:
 
-Daemon/Service Requirements
+| Source | Environment Variables | Description |
+|--------|----------------------|-------------|
+| **Docker** | `DOCKER_HOST` | Docker daemon socket/host address (supports `ssh://` for remote connections) |
+| | `DOCKER_TLS_VERIFY` | Enable TLS verification (auto-sets `DOCKER_CERT_PATH` if not set) |
+| | `DOCKER_CERT_PATH` | Path to TLS certificates (defaults to `~/.docker` if `DOCKER_TLS_VERIFY` is set) |
+| | `DOCKER_CONFIG` | Override default Docker config directory |
+| **Podman** | `CONTAINER_HOST` | Podman socket/host address (e.g., `unix:///run/podman/podman.sock` or `ssh://user@host/path/to/socket`) |
+| | `CONTAINER_SSHKEY` | SSH identity file path for remote Podman connections |
+| | `CONTAINER_PASSPHRASE` | Passphrase for the SSH key |
+| **Containerd** | `CONTAINERD_ADDRESS` | Containerd socket address (overrides default `/run/containerd/containerd.sock`) |
+| | `CONTAINERD_NAMESPACE` | Containerd namespace (defaults to `default`) |
 
-Yes, a Podman service/daemon needs to be running - unlike Docker Desktop which typically auto-starts, Podman users
-must explicitly start the service:
-- Rootless: podman system service --time=0 (runs as user, socket at $XDG_RUNTIME_DIR/podman/podman.sock)
-- Rootful: Socket at /run/podman/podman.sock (typically root access required)
+### Podman Daemon Requirements
 
-Connection Methods
+Unlike Docker Desktop, which typically auto-starts, Podman requires explicitly starting the service:
 
-The library tries two approaches (in order):
+**Rootless mode:**
+```bash
+podman system service --time=0
+```
+Socket location: `$XDG_RUNTIME_DIR/podman/podman.sock`
 
-1. Unix Socket (primary) 
-   - Checks CONTAINER_HOST env var first
+**Rootful mode:**
+Socket location: `/run/podman/podman.sock` (typically requires root access)
+
+**Connection methods:**
+
+Syft attempts to connect to Podman using the following methods in order:
+
+1. **Unix Socket** (primary)
+   - Checks `CONTAINER_HOST` environment variable first
    - Falls back to Podman config files
    - Finally tries default socket locations
-2. SSH (fallback) 
-   - Configured via CONTAINER_HOST, CONTAINER_SSHKEY, CONTAINER_PASSPHRASE env vars
-   - For remote Podman instances
 
+2. **SSH** (fallback)
+   - Configured via `CONTAINER_HOST`, `CONTAINER_SSHKEY`, and `CONTAINER_PASSPHRASE` environment variables
+   - Used for remote Podman instances
 
+## Direct Registry Access
 
-### direct registry access
+The `registry` source bypasses container runtimes entirely and pulls images directly from the registry.
 
-- this bypasses any container runtime and pulls the image directly from the registry
-- we attempt to use default docker credentials (e.g. `~/.docker/config.json`) if they exist
-- otherwise, you can provide credentials via environment variables (See [Authentication](/docs/user-guides/sbom/authentication) for more details).
+**Credential resolution:**
+
+- Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
+- If default credentials are not available, you can provide credentials via environment variables. See [Authentication](/docs/user-guides/sbom/authentication) for more details.
+

@@ -1,6 +1,6 @@
 +++
 title = "SBOM Generation"
-description = "Learn how to generate Software Bill of Materials (SBOMs) for container images, filesystems, and archives using Syft, covering configuration, output formats, and cataloging options."
+description = "Learn how to create a Software Bill of Materials (SBOMs) for container images, filesystems, and archives using Syft."
 weight = 21
 tags = ["syft", "sbom"]
 url = "docs/user-guides/sbom"

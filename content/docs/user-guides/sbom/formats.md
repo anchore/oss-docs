@@ -7,34 +7,122 @@ url = "docs/user-guides/sbom/formats"
 
 +++
 
-The output format for Syft is configurable as well using the
-`-o` (or `--output`) option:
+Syft supports multiple output formats to fit different workflows and requirements. Configure the output format using the `-o` (or `--output`) option:
 
-```
+```bash
 syft <image> -o <format>
 ```
 
-Where the `formats` available are:
+## Available formats
 
-- `syft-json`: Use this to get as much information out of Syft as possible!
-- `syft-text`: A row-oriented, human-and-machine-friendly output.
-- `cyclonedx-xml`: A XML report conforming to the [CycloneDX 1.6 specification](https://cyclonedx.org/specification/overview/).
-- `cyclonedx-json`: A JSON report conforming to the [CycloneDX 1.6 specification](https://cyclonedx.org/specification/overview/).
-- `spdx-tag-value`: A tag-value formatted report conforming to the [SPDX 2.3 specification](https://spdx.github.io/spdx-spec/v2.3/).
-- `spdx-tag-value@2.2`: A tag-value formatted report conforming to the [SPDX 2.2 specification](https://spdx.github.io/spdx-spec/v2.2.2/).
-- `spdx-json`: A JSON report conforming to the [SPDX 2.3 JSON Schema](https://github.com/spdx/spdx-spec/blob/v2.3/schemas/spdx-schema.json).
-- `spdx-json@2.2`: A JSON report conforming to the [SPDX 2.2 JSON Schema](https://github.com/spdx/spdx-spec/blob/v2.2/schemas/spdx-schema.json).
+### Syft-native formats
+
+- `table`: A columnar summary (default).
+- `json`: Use this to get as much information out of Syft as possible!
+- `purls`: A line-separated list of [Package URLs (PURLs)](https://github.com/package-url/purl-spec) for all discovered packages.
 - `github-json`: A JSON report conforming to GitHub's dependency snapshot format.
-- `syft-table`: A columnar summary (default).
+- `template`: Lets the user specify a custom output format via go templates (see [Templates](/docs/user-guides/sbom/templates/) for more detail).
+- `text`: A row-oriented, human-and-machine-friendly output.
 
- <!-- TODO(alex): broken page reference, should reference separate templates.md? -->
+### CycloneDX
 
-- `template`: Lets the user specify the output format.
+CycloneDX is an OWASP-maintained industry standard SBOM format.
 
-## Multiple Outputs
+- `cyclonedx-json`: A JSON report conforming to the [CycloneDX specification](https://cyclonedx.org/specification/overview/).
+- `cyclonedx-xml`: A XML report conforming to the [CycloneDX specification](https://cyclonedx.org/specification/overview/).
 
-Syft can also output multiple files in differing formats by appending `=<file>` to the option, for example to output Syft JSON and SPDX JSON:
+### SPDX
 
+SPDX (Software Package Data Exchange) is an ISO/IEC 5962:2021 industry standard SBOM format.
+
+- `spdx-json`: A JSON report conforming to the [SPDX JSON Schema](https://github.com/spdx/spdx-spec/blob/v2.3/schemas/spdx-schema.json).
+- `spdx-tag-value`: A tag-value formatted report conforming to the [SPDX specification](https://spdx.github.io/spdx-spec/v2.3/).
+
+
+## Format versions
+
+Some output formats support multiple schema versions. Specify a version by appending `@<version>` to the format name:
+
+```bash
+syft <source> -o <format>@<version>
 ```
-syft <image> -o syft-json=sbom.syft.json -o spdx-json=sbom.spdx.json
+
+**Examples:**
+
+```bash
+# Use CycloneDX JSON version 1.4
+syft <source> -o cyclonedx-json@1.4
+
+# Use SPDX JSON version 2.2
+syft <source> -o spdx-json@2.2
+
+# Default to latest version if not specified
+syft <source> -o cyclonedx-json
 ```
+
+Formats with version support:
+
+{{% readfile "snippets/format/versions.md" %}}
+
+
+When no version is specified, Syft uses the latest supported version of the format.
+
+## Format examples
+
+{{< file-tabs
+  path="content/docs/user-guides/sbom/snippets/format/examples"
+  title="syft busybox:latest -o "
+  tabs="table|table.md,json|json.md,cyclonedx-json|cyclonedx-json.md,cyclonedx-xml|cyclonedx-xml.md,spdx-json|spdx-json.md,spdx-tag-value|spdx-tag-value.md,github-json|github-json.md"
+>}}
+
+
+## Writing output to files
+
+Direct Syft output to a file instead of stdout by appending `=<file>` to the format option:
+
+```bash
+# Write JSON to a file
+syft <source> -o json=sbom.json
+
+# Write to stdout (default behavior)
+syft <source> -o json
+```
+
+## Multiple outputs
+
+Generate multiple SBOM formats in a single run by specifying multiple `-o` flags:
+
+```bash
+syft <source> -o json=sbom.json -o spdx-json=sbom.spdx.json
+```
+
+**Examples:**
+
+Generate multiple formats:
+```bash
+syft <source> \
+  -o cyclonedx-json=sbom.cdx.json \
+  -o spdx-json=sbom.spdx.json
+```
+
+Display to terminal and write to file:
+```bash
+syft <source> \
+  -o table \
+  -o json=sbom.json
+```
+
+Organize by directory:
+```bash
+syft <source> \
+  -o cyclonedx-json=security/sbom.cdx.json \
+  -o spdx-json=compliance/sbom.spdx.json \
+  -o json=automation/sbom.json
+```
+
+
+## Next steps
+
+- Learn about [customizing output with templates](/docs/user-guides/sbom/templates) for specialized formats
+- Explore [supported sources](/docs/user-guides/sbom/sources) to understand what Syft can analyze
+- See [configuration options](/docs/user-guides/sbom/configuration) for advanced format settings

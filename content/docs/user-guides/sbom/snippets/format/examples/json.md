@@ -1,0 +1,294 @@
+```json
+{
+ "artifacts": [
+  {
+   "id": "74d9294c42941b37",
+   "name": "busybox",
+   "version": "1.37.0",
+   "type": "binary",
+   "foundBy": "binary-classifier-cataloger",
+   "locations": [
+    {
+     "path": "/bin/[",
+     "layerID": "sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19",
+     "accessPath": "/bin/busybox",
+     "annotations": {
+      "evidence": "primary"
+     }
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+     "source": "nvd-cpe-dictionary"
+    }
+   ],
+   "purl": "pkg:generic/busybox@1.37.0",
+   "metadataType": "binary-signature",
+   "metadata": {
+    "matches": [
+     {
+      "classifier": "busybox-binary",
+      "location": {
+       "path": "/bin/[",
+       "layerID": "sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19",
+       "accessPath": "/bin/busybox",
+       "annotations": {
+        "evidence": "primary"
+       }
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "artifactRelationships": [
+  {
+   "parent": "74d9294c42941b37",
+   "child": "de0bf36b25443562",
+   "type": "evident-by",
+   "metadata": {
+    "kind": "primary"
+   }
+  },
+  {
+   "parent": "cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3",
+   "child": "74d9294c42941b37",
+   "type": "contains"
+  }
+ ],
+ "files": [
+  {
+   "id": "de0bf36b25443562",
+   "location": {
+    "path": "/bin/[",
+    "layerID": "sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19"
+   }
+  }
+ ],
+ "source": {
+  "id": "cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3",
+  "name": "busybox",
+  "version": "sha256:cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3",
+  "type": "image",
+  "metadata": {
+   "userInput": "busybox:latest",
+   "imageID": "sha256:e8291c1a323abf610ebeb32699b8df3e8046823b5dfbf795d888c9c6a73aeff8",
+   "manifestDigest": "sha256:cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3",
+   "mediaType": "application/vnd.oci.image.manifest.v1+json",
+   "tags": [],
+   "imageSize": 4170750,
+   "layers": [
+    {
+     "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+     "digest": "sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19",
+     "size": 4170750
+    }
+   ],
+   "manifest": "ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmU4MjkxYzFhMzIzYWJmNjEwZWJlYjMyNjk5YjhkZjNlODA0NjgyM2I1ZGZiZjc5NWQ4ODhjOWM2YTczYWVmZjgiLAoJCSJzaXplIjogNDc3Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjQ5OWJjZjNjOGVhZDhlZjI1NzBmN2VlOGU0YWI1YTQ0ODk2NDdkNjdkZDFjMWI0MjVmZGJkNGE3NGY0YjQzODYiLAoJCQkic2l6ZSI6IDE5MDI3NjYKCQl9CgldLAoJImFubm90YXRpb25zIjogewoJCSJvcmcub3BlbmNvbnRhaW5lcnMuaW1hZ2UudXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9kb2NrZXItbGlicmFyeS9idXN5Ym94IiwKCQkib3JnLm9wZW5jb250YWluZXJzLmltYWdlLnZlcnNpb24iOiAiMS4zNy4wLWdsaWJjIgoJfQp9Cg==",
+   "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjQtMDktMjZUMjE6MzE6NDJaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNC0wOS0yNlQyMTozMTo0MloiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzcuMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6NmFiYTVlMGQzMmQ5MWUzZTkyMzg1NGRjYjMwNTg4ZGM0MTEyYmZhMWRhZTgyYjg5NTM1YWQzMWQzMjJhN2IxOSIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhcm02NCIsCgkib3MiOiAibGludXgiLAoJInZhcmlhbnQiOiAidjgiCn0K",
+   "repoDigests": [
+    "index.docker.io/library/busybox@sha256:d82f458899c9696cb26a7c02d5568f81c8c8223f8661bb2a7988b269c8b9051e"
+   ],
+   "architecture": "arm64",
+   "os": "linux"
+  }
+ },
+ "distro": {
+  "prettyName": "BusyBox v1.37.0",
+  "name": "busybox",
+  "id": "busybox",
+  "idLike": [
+   "busybox"
+  ],
+  "version": "1.37.0",
+  "versionID": "1.37.0"
+ },
+ "descriptor": {
+  "name": "syft",
+  "version": "1.33.0",
+  "configuration": {
+   "catalogers": {
+    "requested": {
+     "default": [
+      "image",
+      "file"
+     ]
+    },
+    "used": [
+     "alpm-db-cataloger",
+     "apk-db-cataloger",
+     "binary-classifier-cataloger",
+     "bitnami-cataloger",
+     "cargo-auditable-binary-cataloger",
+     "conan-info-cataloger",
+     "dotnet-deps-binary-cataloger",
+     "dotnet-packages-lock-cataloger",
+     "dpkg-db-cataloger",
+     "elf-binary-package-cataloger",
+     "file-content-cataloger",
+     "file-digest-cataloger",
+     "file-executable-cataloger",
+     "file-metadata-cataloger",
+     "go-module-binary-cataloger",
+     "graalvm-native-image-cataloger",
+     "homebrew-cataloger",
+     "java-archive-cataloger",
+     "java-jvm-cataloger",
+     "javascript-package-cataloger",
+     "linux-kernel-cataloger",
+     "lua-rock-cataloger",
+     "nix-cataloger",
+     "pe-binary-package-cataloger",
+     "php-composer-installed-cataloger",
+     "php-interpreter-cataloger",
+     "php-pear-serialized-cataloger",
+     "portage-cataloger",
+     "python-installed-package-cataloger",
+     "r-package-cataloger",
+     "rpm-db-cataloger",
+     "ruby-installed-gemspec-cataloger",
+     "wordpress-plugins-cataloger"
+    ]
+   },
+   "data-generation": {
+    "generate-cpes": true
+   },
+   "files": {
+    "content": {
+     "globs": null,
+     "skip-files-above-size": 0
+    },
+    "hashers": [
+     "sha-1",
+     "sha-256"
+    ],
+    "selection": "none"
+   },
+   "licenses": {
+    "coverage": 75,
+    "include-content": "none"
+   },
+   "packages": {
+    "binary": [
+     "python-binary",
+     "python-binary-lib",
+     "pypy-binary-lib",
+     "go-binary",
+     "julia-binary",
+     "helm",
+     "redis-binary",
+     "nodejs-binary",
+     "go-binary-hint",
+     "busybox-binary",
+     "util-linux-binary",
+     "haproxy-binary",
+     "perl-binary",
+     "php-composer-binary",
+     "httpd-binary",
+     "memcached-binary",
+     "traefik-binary",
+     "arangodb-binary",
+     "postgresql-binary",
+     "mysql-binary",
+     "mysql-binary",
+     "mysql-binary",
+     "xtrabackup-binary",
+     "mariadb-binary",
+     "rust-standard-library-linux",
+     "rust-standard-library-macos",
+     "ruby-binary",
+     "erlang-binary",
+     "erlang-alpine-binary",
+     "erlang-library",
+     "swipl-binary",
+     "dart-binary",
+     "haskell-ghc-binary",
+     "haskell-cabal-binary",
+     "haskell-stack-binary",
+     "consul-binary",
+     "hashicorp-vault-binary",
+     "nginx-binary",
+     "bash-binary",
+     "openssl-binary",
+     "gcc-binary",
+     "fluent-bit-binary",
+     "wordpress-cli-binary",
+     "curl-binary",
+     "lighttpd-binary",
+     "proftpd-binary",
+     "zstd-binary",
+     "xz-binary",
+     "gzip-binary",
+     "sqlcipher-binary",
+     "jq-binary",
+     "chrome-binary",
+     "ffmpeg-binary",
+     "java-binary",
+     "java-jdb-binary"
+    ],
+    "dotnet": {
+     "dep-packages-must-claim-dll": true,
+     "dep-packages-must-have-dll": false,
+     "propagate-dll-claims-to-parents": true,
+     "relax-dll-claims-when-bundling-detected": true
+    },
+    "golang": {
+     "local-mod-cache-dir": "/go/pkg/mod",
+     "local-vendor-dir": "",
+     "main-module-version": {
+      "from-build-settings": true,
+      "from-contents": false,
+      "from-ld-flags": true
+     },
+     "proxies": [
+      "https://proxy.golang.org",
+      "direct"
+     ],
+     "search-local-mod-cache-licenses": false,
+     "search-local-vendor-licenses": false,
+     "search-remote-licenses": false
+    },
+    "java-archive": {
+     "include-indexed-archives": true,
+     "include-unindexed-archives": false,
+     "maven-base-url": "https://repo1.maven.org/maven2",
+     "maven-localrepository-dir": "/.m2/repository",
+     "max-parent-recursive-depth": 0,
+     "resolve-transitive-dependencies": false,
+     "use-maven-localrepository": false,
+     "use-network": false
+    },
+    "javascript": {
+     "include-dev-dependencies": false,
+     "npm-base-url": "https://registry.npmjs.org",
+     "search-remote-licenses": false
+    },
+    "linux-kernel": {
+     "catalog-modules": true
+    },
+    "nix": {
+     "capture-owned-files": false
+    },
+    "python": {
+     "guess-unpinned-requirements": false
+    }
+   },
+   "relationships": {
+    "exclude-binary-packages-with-file-ownership-overlap": true,
+    "package-file-ownership": true,
+    "package-file-ownership-overlap": true
+   },
+   "search": {
+    "scope": "squashed"
+   }
+  }
+ },
+ "schema": {
+  "version": "16.0.39",
+  "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.0.39.json"
+ }
+}
+```

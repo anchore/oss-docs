@@ -6,86 +6,188 @@ weight = 50
 url = "docs/installation/verification"
 +++
 
+## Why verify downloads?
+
+Verifying your downloads ensures that:
+- The files haven't been tampered with during transit
+- You're installing authentic Anchore software
+- Your supply chain is secure from the start
+
 All release artifacts include checksums, and the checksum file itself is cryptographically signed using cosign for verification.
 
 {{< alert color="info" title="Note" >}}
 Installation scripts support automatic verification using the `-v` flag if you have cosign installed. This performs the same verification steps outlined below.
 {{< /alert >}}
 
-### Requirements
+## Prerequisites
 
-You need the following tool to verify signature:
+Before verifying downloads, you need:
 
-- [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/)
+- The binary you want to verify (see [Installation](/docs/installation/))
+- [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/) installed (for signature verification)
 
-### Manual Verification Steps
+**Note**: Checksum verification doesn't require additional tools beyond your operating system's built-in utilities.
 
-Verification steps are as follows:
 
-1. Download the files you want, and the `checksums.txt`, `checksums.txt.pem` and `checksums.txt.sig` files from the appropriate GitHub:
+## Cosign signature verification
 
-- [Syft](https://github.com/anchore/syft/releases)
-- [Grype](https://github.com/anchore/grype/releases)
-- [Grant](https://github.com/anchore/grant/releases)
+This method verifies that your download is both authentic (from Anchore) and hasn't been tampered with.
 
-1. Verify the signature:
+### Step 1: Download the files
 
-Use `cosign` to verify.
+Download your tool binary and the verification files from the appropriate GitHub releases page:
 
+- [Syft releases](https://github.com/anchore/syft/releases)
+- [Grype releases](https://github.com/anchore/grype/releases)
+- [Grant releases](https://github.com/anchore/grant/releases)
+
+You'll need:
+- The binary file (e.g., `syft_1.23.1_darwin_arm64.tar.gz`)
+- `checksums.txt`
+- `checksums.txt.pem`
+- `checksums.txt.sig`
+
+### Step 2: Verify the signature
+
+Use cosign to verify the checksum file's signature:
+
+```bash
+cosign verify-blob <path to checksums.txt> \
+  --certificate <path to checksums.txt.pem> \
+  --signature <path to checksums.txt.sig> \
+  --certificate-identity-regexp 'https://github\.com/anchore/<tool-name>/\.github/workflows/.+' \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
-cosign verify-blob <path to checksum.txt> \
---certificate <path to checksums.txt.pem> \
---signature <path to checksums.txt.sig> \
---certificate-identity-regexp 'https://github\.com/anchore/<name of tool>/\.github/workflows/.+' \
---certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+
+Replace `<tool-name>` with `syft`, `grype`, or `grant` depending on which tool you're verifying.
+
+**Expected output on success:**
+```
+Verified OK
 ```
 
-Here's an example of verifying the macOS arm64 Syft v1.23.1 tarball in the current directory:
+### Step 3: Verify the checksum
 
-First, we download the Syft tarball directly from the [GitHub releases](https://github.com/anchore/syft/releases/tag/v1.23.1) page for Syft v1.23.1:
+Once the signature is confirmed as valid, verify that the SHA256 checksum matches your downloaded file:
 
+```bash
+sha256sum --ignore-missing -c checksums.txt
 ```
+
+**Expected output on success:**
+```
+<your-binary-file>: OK
+```
+
+### Complete example
+
+Here's a complete example verifying Syft v1.23.1 for macOS ARM64:
+
+**Download the files:**
+
+```bash
+# Download the binary
 wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_darwin_arm64.tar.gz
-```
 
-Then we grab the files required to verify the download:
-
-```
+# Download verification files
 wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt
 wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt.pem
 wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt.sig
 ```
 
-The `cosign` command will look a bit like this:
+**Verify the signature:**
 
-```
+```bash
 cosign verify-blob ./syft_1.23.1_checksums.txt \
---certificate ./syft_1.23.1_checksums.txt.pem \
---signature ./syft_1.23.1_checksums.txt.sig \
---certificate-identity-regexp 'https://github\.com/anchore/syft/\.github/workflows/.+' \
---certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+  --certificate ./syft_1.23.1_checksums.txt.pem \
+  --signature ./syft_1.23.1_checksums.txt.sig \
+  --certificate-identity-regexp 'https://github\.com/anchore/syft/\.github/workflows/.+' \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
 
-The resulting output, if successful, looks like this:
-
+**Output:**
 ```
 Verified OK
 ```
 
-1. Once the signature is confirmed as valid, you can proceed to validate that the SHA256 sums align with the downloaded artifact:
+**Verify the checksum:**
 
-```
-sha256sum --ignore-missing -c checksums.txt
-```
-
-In our example above, that command looks like this:
-
-```
+```bash
 sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
 ```
 
-If successful, we will get this output:
-
+**Output:**
 ```
 syft_1.23.1_darwin_arm64.tar.gz: OK
 ```
+
+## Checksum verification
+
+If you can't use cosign, you can verify checksums manually. This verifies file integrity but not authenticity.
+
+{{< alert color="warning" title="Security Note" >}}
+Checksum verification only confirms the file hasn't been corrupted. It doesn't verify that the file is authentic. Use cosign verification when possible for better security.
+{{< /alert >}}
+
+### Step 1: Download the files
+
+Download your tool binary and the checksums file:
+
+```bash
+# Example for Syft v1.23.1
+wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_darwin_arm64.tar.gz
+wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt
+```
+
+### Step 2: Verify the checksum
+
+```bash
+sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
+```
+
+**Expected output:**
+```
+syft_1.23.1_darwin_arm64.tar.gz: OK
+```
+
+## Troubleshooting
+
+### Verification failed
+
+If cosign verification fails, check these common issues:
+
+- **Mismatched certificate identity**: Ensure you're using the correct tool name (`syft`, `grype`, or `grant`) in the certificate identity pattern
+- **Outdated cosign**: Update to the latest version of cosign
+- **Network connectivity**: Cosign requires internet access to verify against transparency logs
+- **Corrupted download**: Try downloading the verification files again
+
+### Checksum doesn't match
+
+If the checksum verification fails:
+
+- **Download again**: The file may have been corrupted during download
+- **Check the filename**: Ensure you're comparing the checksum for the correct file (right version, architecture, and tool)
+- **Do not proceed**: A mismatched checksum indicates a potential security issue or corruption
+
+{{< alert color="danger" title="Security Warning" >}}
+If verification fails repeatedly with newly downloaded files, do not use the binary. Report the issue on the appropriate GitHub repository.
+{{< /alert >}}
+
+### Platform-specific issues
+
+**macOS:**
+- If you get a "command not found" error for `sha256sum`, use `shasum -a 256` instead
+- Example: `shasum -a 256 syft_1.23.1_darwin_arm64.tar.gz`
+
+**Windows:**
+- Use PowerShell's `Get-FileHash` command:
+  ```powershell
+  Get-FileHash .\syft_1.23.1_windows_amd64.zip -Algorithm SHA256
+  ```
+
+### Need help?
+
+If you're still having issues:
+- Check the [GitHub Discussions](https://github.com/anchore/syft/discussions) for your tool
+- Review the [Cosign documentation](https://docs.sigstore.dev/cosign/overview/)
+- Open an issue on the appropriate repository

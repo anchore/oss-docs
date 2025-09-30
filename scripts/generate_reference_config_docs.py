@@ -94,6 +94,9 @@ This documentation was generated from {tool_display} version `{app_version}`.
 
 """
 
+    # Add configuration search locations section
+    content += get_config_locations_section(app_name, tool_display)
+
     # Get configuration output
     config_output = get_config_output(image)
 
@@ -105,6 +108,21 @@ This documentation was generated from {tool_display} version `{app_version}`.
         )
 
     return content
+
+
+def get_config_locations_section(app_name, tool_display) -> str:
+    """Generate markdown section describing configuration file search locations."""
+    return f"""
+{tool_display} searches for configuration files in the following locations, in order:
+
+1. `./.{app_name}.yaml` - current working directory
+2. `./.{app_name}/config.yaml` - app subdirectory in current working directory
+3. `~/.{app_name}.yaml` - home directory
+4. `$XDG_CONFIG_HOME/{app_name}/config.yaml` - [XDG config directory](https://github.com/adrg/xdg?tab=readme-ov-file#default-locations)
+
+The configuration file can use either `.yaml` or `.yml` extensions. The first configuration file found will be used.
+
+"""
 
 
 def get_app_version(image) -> str | None:

@@ -1,6 +1,6 @@
 +++
 title = "License Scanning"
-description = "Learn how to scan container images and filesystems for software licenses. This guide covers license detection, compliance checking, and managing open source license obligations across your dependencies."
+description = "Learn how to scan container images and filesystems for software licenses covering detection, compliance checking, and managing license obligations."
 weight = 41
 tags = ["syft", "grant", "licenses"]
 url = "docs/user-guides/license"

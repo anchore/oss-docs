@@ -1,33 +1,96 @@
 +++
 title = "File Selection"
-description = "Control which files and directories Syft includes or excludes when generating SBOMs. Configure file selection rules, path filters, and glob patterns to customize your catalog scope."
+description = "Control which files and directories Syft includes or excludes when generating SBOMs."
 weight = 30
 tags = ["syft", "sbom"]
 url = "docs/user-guides/sbom/file-selection"
 
 +++
 
-By default, Syft will catalog file details and digests for files that are owned by discovered packages. You can change this behavior by using the `SYFT_FILE_METADATA_SELECTION` environment variable or the `file.metadata.selection` configuration option. The options are:
+By default, Syft catalogs file details and digests for files owned by discovered packages. You can change this behavior using the `SYFT_FILE_METADATA_SELECTION` environment variable or the `file.metadata.selection` configuration option.
+
+**Available options:**
 
 - `all`: capture all files from the search space
-- `owned-by-package`: capture only files owned by packages (default)
-- `none`: disable capturing any file information
+- `owned-by-package`: capture only files owned by packages _(default)_
+- `none`: disable file information capture
 
 ## Excluding file paths
 
-Syft can exclude files and paths from being scanned within a source by using glob expressions
-with one or more `--exclude` parameters:
+You can exclude specific files and paths from scanning using glob patterns with the `--exclude` parameter. Use multiple `--exclude` flags to specify multiple patterns.
 
-```
-syft <source> --exclude './out/**/*.json' --exclude /etc
+### Quick examples
+
+```bash
+# Exclude a specific directory
+syft <source> --exclude /etc
+
+# Exclude files by pattern
+syft <source> --exclude './out/**/*.json'
+
+# Combine multiple exclusions
+syft <source> --exclude './out/**/*.json' --exclude /etc --exclude '**/*.log'
 ```
 
-**Note:** in the case of _image scanning_, since the entire filesystem is scanned it is
-possible to use absolute paths like `/etc` or `/usr/**/*.txt` whereas _directory scans_
-exclude files _relative to the specified directory_. For example: scanning `/usr/foo` with
-`--exclude ./package.json` would exclude `/usr/foo/package.json` and `--exclude '**/package.json'`
-would exclude all `package.json` files under `/usr/foo`. For _directory scans_,
-it is required to begin path expressions with `./`, `*/`, or `**/`, all of which
-will be resolved _relative to the specified scan directory_. Keep in mind, your shell
-may attempt to expand wildcards, so put those parameters in single quotes, like:
-`'**/*.json'`.
+{{< alert title="Tip" >}}
+Always wrap glob patterns in single quotes to prevent your shell from expanding wildcards:
+```bash
+syft <source> --exclude '**/*.json'  # Correct
+syft <source> --exclude **/*.json    # May not work as expected
+```
+{{< /alert >}}
+
+### Exclusion behavior by source type
+
+How Syft interprets exclusion patterns depends on whether you're scanning an image or a directory.
+
+#### Image scanning
+
+When scanning container images, Syft scans the entire filesystem. Use absolute paths for exclusions:
+
+```bash
+# Exclude system directories
+syft alpine:latest --exclude /etc --exclude /var
+
+# Exclude files by pattern across entire filesystem
+syft alpine:latest --exclude '/usr/**/*.txt'
+```
+
+#### Directory scanning
+
+When scanning directories, Syft resolves exclusion patterns relative to the specified directory. All exclusion patterns must begin with `./`, `*/`, or `**/`.
+
+```bash
+# Scanning /usr/foo
+syft /usr/foo --exclude ./package.json        # Excludes /usr/foo/package.json
+syft /usr/foo --exclude '**/package.json'     # Excludes all package.json files under /usr/foo
+syft /usr/foo --exclude './out/**'            # Excludes everything under /usr/foo/out
+```
+
+**Path prefix requirements for directory scans:**
+
+| Pattern | Meaning | Example |
+|---------|---------|---------|
+| `./` | Relative to scan directory root | `./config.json` |
+| `*/` | One level of directories | `*/temp` |
+| `**/` | Any depth of directories | `**/node_modules` |
+
+{{< alert title="Note" color="warning" >}}
+When scanning directories, you cannot use absolute paths like `/etc` or `/usr/**/*.txt`. The pattern must begin with `./`, `*/`, or `**/` to be resolved relative to your specified scan directory.
+{{< /alert >}}
+
+### Common exclusion patterns
+
+```bash
+# Exclude all JSON files
+syft <source> --exclude '**/*.json'
+
+# Exclude build output directories
+syft <source> --exclude '**/dist/**' --exclude '**/build/**'
+
+# Exclude dependency directories
+syft <source> --exclude '**/node_modules/**' --exclude '**/vendor/**'
+
+# Exclude test files
+syft <source> --exclude '**/*_test.go' --exclude '**/test/**'
+```
