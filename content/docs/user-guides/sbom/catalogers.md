@@ -10,12 +10,13 @@ url = "docs/user-guides/sbom/catalogers"
 ## Quick Start
 
 {{% alert title="TL;DR" color="primary" %}}
+
 - **Syft automatically picks the right catalogers for you** (recommended for most users)
 - **Scanning a container image?** Finds installed packages (like Python packages in `site-packages`)
 - **Scanning a directory?** Finds both installed packages and declared dependencies (like `requirements.txt`)
 - **Want to customize?** Use `--select-catalogers` to filter, add, or remove catalogers
 - **Need complete control?** Use `--override-default-catalogers` to replace all defaults
-{{% /alert %}}
+  {{% /alert %}}
 
 ## Overview
 
@@ -27,12 +28,12 @@ Syft includes dozens of catalogers covering languages like Python, Java, Go, Jav
 
 Syft uses different cataloger sets depending on what you're scanning:
 
-| Scan Type | Default Catalogers | What They Find | Example                                                |
-|-----------|-------------------|----------------|--------------------------------------------------------|
-| **Container Image** | Image-specific catalogers | Installed packages only | Python packages in `site-packages`                     |
-| **Directory** | Directory-specific catalogers | Installed packages + declared dependencies | Python packages in `site-packages` AND `requirements.txt` |
+| Scan Type           | Default Catalogers            | What They Find                             | Example                                                   |
+| ------------------- | ----------------------------- | ------------------------------------------ | --------------------------------------------------------- |
+| **Container Image** | Image-specific catalogers     | Installed packages only                    | Python packages in `site-packages`                        |
+| **Directory**       | Directory-specific catalogers | Installed packages + declared dependencies | Python packages in `site-packages` AND `requirements.txt` |
 
-This behavior ensures accurate results across different contexts. When you scan an image, Syft assumes installation steps have completed --this way you are getting results for software that is positively present. 
+This behavior ensures accurate results across different contexts. When you scan an image, Syft assumes installation steps have completed --this way you are getting results for software that is positively present.
 When you scan a directory (like a source code repository), Syft looks for both what's installed and what's declared as a dependency --this way you are getting results for not only what's installed but also what you intend to install.
 
 ### Why use different catalogers for different sources?
@@ -42,6 +43,7 @@ Most of the time, files that hint at the intent to install software do not have 
 ### Example: Python Package Detection
 
 Scanning an image:
+
 ```bash
 $ syft <container-image> --select-catalogers python
 # Uses: python-installed-package-cataloger
@@ -49,6 +51,7 @@ $ syft <container-image> --select-catalogers python
 ```
 
 Scanning a directory:
+
 ```bash
 $ syft <source-directory> --select-catalogers python
 # Uses: python-installed-package-cataloger, python-package-cataloger
@@ -60,10 +63,11 @@ $ syft <source-directory> --select-catalogers python
 The most reliable way to see which catalogers Syft used is to check the SBOM itself. Every SBOM captures both the catalogers that were requested and those that actually ran:
 
 ```bash
-$ syft busybox:latest -o json | jq '.descriptor.configuration.catalogers'
+syft busybox:latest -o json | jq '.descriptor.configuration.catalogers'
 ```
 
 Output:
+
 ```json
 {
   "requested": {
@@ -99,7 +103,7 @@ Use the `syft cataloger list` command to see all available catalogers, their tag
 ### List all catalogers
 
 ```bash
-$ syft cataloger list
+syft cataloger list
 ```
 
 Output shows file and package catalogers with their tags:
@@ -165,6 +169,7 @@ You can refer to catalogers in two ways:
 - **By tag**: A group label for related catalogers (e.g., `java`, `python`, `image`, `directory`)
 
 Common tags include:
+
 - **Language tags**: `python`, `java`, `go`, `javascript`, `ruby`, `rust`, etc.
 - **Scan type tags**: `image`, `directory`
 - **Installation state tags**: `installed`, `declared`
@@ -180,12 +185,12 @@ Use this flag to adjust the default cataloger set. This is the recommended appro
 
 **Syntax:**
 
-| Operation | Syntax | Example | Description |
-|-----------|--------|---------|-------------|
-| **Filter** | `<tag>` | `--select-catalogers java` | Use only Java catalogers from the defaults |
-| **Add** | `+<name>` | `--select-catalogers +sbom-cataloger` | Add a specific cataloger to defaults |
-| **Remove** | `-<name-or-tag>` | `--select-catalogers -rpm` | Remove catalogers by name or tag |
-| **Combine** | `<tag>,+<name>,-<tag>` | `--select-catalogers java,+sbom-cataloger,-maven` | Multiple operations together |
+| Operation   | Syntax                 | Example                                           | Description                                |
+| ----------- | ---------------------- | ------------------------------------------------- | ------------------------------------------ |
+| **Filter**  | `<tag>`                | `--select-catalogers java`                        | Use only Java catalogers from the defaults |
+| **Add**     | `+<name>`              | `--select-catalogers +sbom-cataloger`             | Add a specific cataloger to defaults       |
+| **Remove**  | `-<name-or-tag>`       | `--select-catalogers -rpm`                        | Remove catalogers by name or tag           |
+| **Combine** | `<tag>,+<name>,-<tag>` | `--select-catalogers java,+sbom-cataloger,-maven` | Multiple operations together               |
 
 **Selection Logic:**
 
@@ -209,6 +214,7 @@ Use this flag to completely replace Syft's default cataloger selection. This byp
 ```
 
 **When to use:**
+
 - You need catalogers from both image and directory sets
 - You want to use catalogers that aren't in the default set
 - You need precise control regardless of scan type
@@ -224,13 +230,13 @@ Overriding defaults can lead to incomplete or inaccurate results if you don't in
 Scan for only Python packages using defaults for your scan type:
 
 ```bash
-$ syft <target> --select-catalogers python
+syft <target> --select-catalogers python
 ```
 
 Scan for only Java and Go packages:
 
 ```bash
-$ syft <target> --select-catalogers java,go
+syft <target> --select-catalogers java,go
 ```
 
 ### Adding Catalogers
@@ -238,13 +244,13 @@ $ syft <target> --select-catalogers java,go
 Use defaults and also include the SBOM cataloger (which finds embedded SBOMs):
 
 ```bash
-$ syft <target> --select-catalogers +sbom-cataloger
+syft <target> --select-catalogers +sbom-cataloger
 ```
 
 Scan with defaults plus both SBOM and binary catalogers:
 
 ```bash
-$ syft <target> --select-catalogers +sbom-cataloger,+binary-cataloger
+syft <target> --select-catalogers +sbom-cataloger,+binary-cataloger
 ```
 
 ### Removing Catalogers
@@ -252,13 +258,13 @@ $ syft <target> --select-catalogers +sbom-cataloger,+binary-cataloger
 Use defaults but exclude all RPM-related catalogers:
 
 ```bash
-$ syft <target> --select-catalogers -rpm
+syft <target> --select-catalogers -rpm
 ```
 
 Scan with defaults but remove Java JAR cataloger specifically:
 
 ```bash
-$ syft <target> --select-catalogers -java-archive-cataloger
+syft <target> --select-catalogers -java-archive-cataloger
 ```
 
 ### Combining Operations
@@ -274,7 +280,7 @@ $ syft <container-image> --select-catalogers go,+sbom-cataloger,-binary
 Filter to Java, add POM cataloger, remove Gradle:
 
 ```bash
-$ syft <directory> --select-catalogers java,+java-pom-cataloger,-gradle
+syft <directory> --select-catalogers java,+java-pom-cataloger,-gradle
 ```
 
 ### Complete Override Examples
@@ -290,13 +296,13 @@ $ syft <target> --override-default-catalogers binary
 Use exactly two specific catalogers:
 
 ```bash
-$ syft <target> --override-default-catalogers go-module-binary-cataloger,go-module-file-cataloger
+syft <target> --override-default-catalogers go-module-binary-cataloger,go-module-file-cataloger
 ```
 
 Use all directory catalogers even when scanning an image:
 
 ```bash
-$ syft <container-image> --override-default-catalogers directory
+syft <container-image> --override-default-catalogers directory
 ```
 
 ## Troubleshooting
@@ -317,11 +323,13 @@ $ syft <target> -o json | jq '.artifacts[] | select(.foundBy == "python-package-
 ```
 
 If your expected cataloger isn't in the `used` list:
+
 1. **Verify the cataloger exists for your scan type**: Use `syft cataloger list --select-catalogers <tag>` to preview
 2. **Check your selection expressions**: You may have excluded it with `-` or not included it in your filter
 3. **Check file locations**: Some catalogers look for specific paths (e.g., `site-packages` for Python)
 
 If the cataloger ran but found nothing, check that:
+
 - Package files exist in the scanned source
 - Files are properly formatted
 - Files are in the expected locations for that cataloger
@@ -331,10 +339,11 @@ If the cataloger ran but found nothing, check that:
 Check the SBOM's cataloger configuration:
 
 ```bash
-$ syft <target> -o json | jq '.descriptor.configuration.catalogers.requested'
+syft <target> -o json | jq '.descriptor.configuration.catalogers.requested'
 ```
 
 This shows the selection strategy used:
+
 - `"default": ["image", "file"]` indicates image defaults
 - `"default": ["directory", "file"]` indicates directory defaults
 

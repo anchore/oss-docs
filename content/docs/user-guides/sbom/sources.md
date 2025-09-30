@@ -104,7 +104,6 @@ These file types are never indexed during directory scans:
 
 Regular files, directories, and symbolic links are always processed.
 
-
 #### Archive Detection
 
 Syft automatically detects and unpacks common archive formats, then catalogs their contents. If an archive is a container image archive (from `docker save` or `skopeo copy`), Syft treats it as a container image.
@@ -112,11 +111,13 @@ Syft automatically detects and unpacks common archive formats, then catalogs the
 **Supported archive formats:**
 
 Standard archives:
+
 - `.zip`
 - `.tar` (uncompressed)
 - `.rar` (read-only extraction)
 
 Compressed tar variants:
+
 - `.tar.gz` / `.tgz`
 - `.tar.bz2` / `.tbz2`
 - `.tar.br` / `.tbr` (brotli)
@@ -126,6 +127,7 @@ Compressed tar variants:
 - `.tar.zst` / `.tzst` (zstandard)
 
 Standalone compression formats (extracted if containing tar):
+
 - `.gz` (gzip)
 - `.bz2` (bzip2)
 - `.br` (brotli)
@@ -143,16 +145,19 @@ OCI archives and layouts are particularly useful for CI/CD pipelines, as they al
 **Create OCI sources without a registry:**
 
 OCI archive from an image:
+
 ```bash
 skopeo copy docker://alpine@sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f oci-archive:alpine.tar
 ```
 
 OCI layout directory from an image:
+
 ```bash
-skopeo copy docker://alpine@sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f oci:alpine 
+skopeo copy docker://alpine@sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f oci:alpine
 ```
 
 Container image archive from an image:
+
 ```bash
 docker save -o alpine.tar alpine:latest
 ```
@@ -170,26 +175,28 @@ When using container daemon sources (Docker, Podman, or Containerd):
 
 Syft respects the following environment variables for each container runtime:
 
-| Source | Environment Variables | Description |
-|--------|----------------------|-------------|
-| **Docker** | `DOCKER_HOST` | Docker daemon socket/host address (supports `ssh://` for remote connections) |
-| | `DOCKER_TLS_VERIFY` | Enable TLS verification (auto-sets `DOCKER_CERT_PATH` if not set) |
-| | `DOCKER_CERT_PATH` | Path to TLS certificates (defaults to `~/.docker` if `DOCKER_TLS_VERIFY` is set) |
-| | `DOCKER_CONFIG` | Override default Docker config directory |
-| **Podman** | `CONTAINER_HOST` | Podman socket/host address (e.g., `unix:///run/podman/podman.sock` or `ssh://user@host/path/to/socket`) |
-| | `CONTAINER_SSHKEY` | SSH identity file path for remote Podman connections |
-| | `CONTAINER_PASSPHRASE` | Passphrase for the SSH key |
-| **Containerd** | `CONTAINERD_ADDRESS` | Containerd socket address (overrides default `/run/containerd/containerd.sock`) |
-| | `CONTAINERD_NAMESPACE` | Containerd namespace (defaults to `default`) |
+| Source         | Environment Variables  | Description                                                                                             |
+| -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Docker**     | `DOCKER_HOST`          | Docker daemon socket/host address (supports `ssh://` for remote connections)                            |
+|                | `DOCKER_TLS_VERIFY`    | Enable TLS verification (auto-sets `DOCKER_CERT_PATH` if not set)                                       |
+|                | `DOCKER_CERT_PATH`     | Path to TLS certificates (defaults to `~/.docker` if `DOCKER_TLS_VERIFY` is set)                        |
+|                | `DOCKER_CONFIG`        | Override default Docker config directory                                                                |
+| **Podman**     | `CONTAINER_HOST`       | Podman socket/host address (e.g., `unix:///run/podman/podman.sock` or `ssh://user@host/path/to/socket`) |
+|                | `CONTAINER_SSHKEY`     | SSH identity file path for remote Podman connections                                                    |
+|                | `CONTAINER_PASSPHRASE` | Passphrase for the SSH key                                                                              |
+| **Containerd** | `CONTAINERD_ADDRESS`   | Containerd socket address (overrides default `/run/containerd/containerd.sock`)                         |
+|                | `CONTAINERD_NAMESPACE` | Containerd namespace (defaults to `default`)                                                            |
 
 ### Podman Daemon Requirements
 
 Unlike Docker Desktop, which typically auto-starts, Podman requires explicitly starting the service:
 
 **Rootless mode:**
+
 ```bash
 podman system service --time=0
 ```
+
 Socket location: `$XDG_RUNTIME_DIR/podman/podman.sock`
 
 **Rootful mode:**
@@ -216,4 +223,3 @@ The `registry` source bypasses container runtimes entirely and pulls images dire
 
 - Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
 - If default credentials are not available, you can provide credentials via environment variables. See [Authentication](/docs/user-guides/sbom/authentication) for more details.
-

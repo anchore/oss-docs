@@ -160,7 +160,7 @@ Flags:
 
 ### `syft convert`
 
-[Experimental] Convert SBOM files to, and from, SPDX, CycloneDX and Syft's format. For more info about data loss between formats see https://github.com/anchore/syft/wiki/format-conversion.
+[Experimental] Convert SBOM files to, and from, SPDX, CycloneDX and Syft's format. For more info about data loss between formats see <https://github.com/anchore/syft/wiki/format-conversion>.
 
 ```
 Usage:
@@ -269,4 +269,3 @@ Flags:
   -o, --output string   the format to show the results (allowable: [text json]) (default "text")
 
 ```
-

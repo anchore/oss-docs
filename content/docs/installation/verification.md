@@ -9,6 +9,7 @@ url = "docs/installation/verification"
 ## Why verify downloads?
 
 Verifying your downloads ensures that:
+
 - The files haven't been tampered with during transit
 - You're installing authentic Anchore software
 - Your supply chain is secure from the start
@@ -28,7 +29,6 @@ Before verifying downloads, you need:
 
 **Note**: Checksum verification doesn't require additional tools beyond your operating system's built-in utilities.
 
-
 ## Cosign signature verification
 
 This method verifies that your download is both authentic (from Anchore) and hasn't been tampered with.
@@ -42,6 +42,7 @@ Download your tool binary and the verification files from the appropriate GitHub
 - [Grant releases](https://github.com/anchore/grant/releases)
 
 You'll need:
+
 - The binary file (e.g., `syft_1.23.1_darwin_arm64.tar.gz`)
 - `checksums.txt`
 - `checksums.txt.pem`
@@ -62,6 +63,7 @@ cosign verify-blob <path to checksums.txt> \
 Replace `<tool-name>` with `syft`, `grype`, or `grant` depending on which tool you're verifying.
 
 **Expected output on success:**
+
 ```
 Verified OK
 ```
@@ -75,6 +77,7 @@ sha256sum --ignore-missing -c checksums.txt
 ```
 
 **Expected output on success:**
+
 ```
 <your-binary-file>: OK
 ```
@@ -106,6 +109,7 @@ cosign verify-blob ./syft_1.23.1_checksums.txt \
 ```
 
 **Output:**
+
 ```
 Verified OK
 ```
@@ -117,6 +121,7 @@ sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
 ```
 
 **Output:**
+
 ```
 syft_1.23.1_darwin_arm64.tar.gz: OK
 ```
@@ -146,6 +151,7 @@ sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
 ```
 
 **Expected output:**
+
 ```
 syft_1.23.1_darwin_arm64.tar.gz: OK
 ```
@@ -176,11 +182,14 @@ If verification fails repeatedly with newly downloaded files, do not use the bin
 ### Platform-specific issues
 
 **macOS:**
+
 - If you get a "command not found" error for `sha256sum`, use `shasum -a 256` instead
 - Example: `shasum -a 256 syft_1.23.1_darwin_arm64.tar.gz`
 
 **Windows:**
+
 - Use PowerShell's `Get-FileHash` command:
+
   ```powershell
   Get-FileHash .\syft_1.23.1_windows_amd64.zip -Algorithm SHA256
   ```
@@ -188,6 +197,7 @@ If verification fails repeatedly with newly downloaded files, do not use the bin
 ### Need help?
 
 If you're still having issues:
+
 - Check the [GitHub Discussions](https://github.com/anchore/syft/discussions) for your tool
 - Review the [Cosign documentation](https://docs.sigstore.dev/cosign/overview/)
 - Open an issue on the appropriate repository

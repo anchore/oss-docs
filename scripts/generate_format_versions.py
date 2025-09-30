@@ -64,7 +64,7 @@ def extract_format_versions():
         sys.exit(1)
 
 
-def save_json_data(formats, output_path):
+def save_json_data(formats, output_path: Path) -> None:
     """save format versions to JSON file"""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -74,7 +74,7 @@ def save_json_data(formats, output_path):
     print(f"Generated {output_path}")
 
 
-def generate_markdown_snippet(formats, output_path):
+def generate_markdown_snippet(formats, output_path: Path) -> None:
     """
     generate markdown snippet showing formats with multiple versions
 
@@ -105,10 +105,10 @@ def generate_markdown_snippet(formats, output_path):
     print(f"Generated {output_path}")
 
 
-def load_existing_formats(json_path):
+def load_existing_formats(json_path: Path):
     """load existing format data from JSON file"""
     try:
-        with open(json_path, 'r') as f:
+        with open(json_path) as f:
             return json.load(f)
     except FileNotFoundError:
         return None
@@ -117,7 +117,7 @@ def load_existing_formats(json_path):
         return None
 
 
-def main():
+def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate format version information from Syft output"
     )

@@ -38,7 +38,6 @@ SPDX (Software Package Data Exchange) is an ISO/IEC 5962:2021 industry standard 
 - `spdx-json`: A JSON report conforming to the [SPDX JSON Schema](https://github.com/spdx/spdx-spec/blob/v2.3/schemas/spdx-schema.json).
 - `spdx-tag-value`: A tag-value formatted report conforming to the [SPDX specification](https://spdx.github.io/spdx-spec/v2.3/).
 
-
 ## Format versions
 
 Some output formats support multiple schema versions. Specify a version by appending `@<version>` to the format name:
@@ -64,17 +63,14 @@ Formats with version support:
 
 {{% readfile "snippets/format/versions.md" %}}
 
-
 When no version is specified, Syft uses the latest supported version of the format.
 
 ## Format examples
 
 {{< file-tabs
-  path="content/docs/user-guides/sbom/snippets/format/examples"
-  title="syft busybox:latest -o "
-  tabs="table|table.md,json|json.md,cyclonedx-json|cyclonedx-json.md,cyclonedx-xml|cyclonedx-xml.md,spdx-json|spdx-json.md,spdx-tag-value|spdx-tag-value.md,github-json|github-json.md"
->}}
-
+path="content/docs/user-guides/sbom/snippets/format/examples"
+title="syft busybox:latest -o "
+tabs="table|table.md,json|json.md,cyclonedx-json|cyclonedx-json.md,cyclonedx-xml|cyclonedx-xml.md,spdx-json|spdx-json.md,spdx-tag-value|spdx-tag-value.md,github-json|github-json.md" >}}
 
 ## Writing output to files
 
@@ -99,6 +95,7 @@ syft <source> -o json=sbom.json -o spdx-json=sbom.spdx.json
 **Examples:**
 
 Generate multiple formats:
+
 ```bash
 syft <source> \
   -o cyclonedx-json=sbom.cdx.json \
@@ -106,6 +103,7 @@ syft <source> \
 ```
 
 Display to terminal and write to file:
+
 ```bash
 syft <source> \
   -o table \
@@ -113,13 +111,13 @@ syft <source> \
 ```
 
 Organize by directory:
+
 ```bash
 syft <source> \
   -o cyclonedx-json=security/sbom.cdx.json \
   -o spdx-json=compliance/sbom.spdx.json \
   -o json=automation/sbom.json
 ```
-
 
 ## Next steps
 

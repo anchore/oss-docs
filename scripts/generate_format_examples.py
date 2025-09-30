@@ -5,11 +5,9 @@ Creates markdown files with code fences for each format.
 """
 
 import argparse
-import os
 import subprocess
 import sys
 from pathlib import Path
-
 
 # Format definitions: (format_name, file_extension, code_fence_language)
 FORMATS = [
@@ -54,7 +52,7 @@ def main() -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate examples for each format
-    for format_name, file_ext, fence_lang in FORMATS:
+    for format_name, _, fence_lang in FORMATS:
         print(f"Generating {format_name} example...")
         try:
             generate_format_example(
