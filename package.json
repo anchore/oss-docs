@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "cspell": "^9.2.1",
-    "markdownlint-cli2": "^0.13.0",
+    "markdownlint-cli2": "^0.18.1",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.6.2",
     "prettier-plugin-toml": "^2.0.6"
