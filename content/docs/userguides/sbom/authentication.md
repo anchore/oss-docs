@@ -36,7 +36,7 @@ docker run -v ./config.json:/config/config.json -e "DOCKER_CONFIG=/config" ancho
 
 Here's a simple workflow to mount this config file as a secret into a container on Kubernetes.
 
-1. Create a secret. The value of `config.json` is important. It refers to the specification detailed [here](https://github.com/google/go-containerregistry/tree/main/pkg/authn#the-config-file). Below this section is the `secret.yaml` file that the pod configuration will consume as a volume. The key `config.json` is important. It will end up being the name of the file when mounted into the pod.
+1. Create a secret. The value of `config.json` is important (see the [GGCR config docs](https://github.com/google/go-containerregistry/tree/main/pkg/authn#the-config-file) for more details). Below this section is the `secret.yaml` file that the pod configuration will consume as a volume. The key `config.json` is important. It will end up being the name of the file when mounted into the pod.
 
    ```yaml
    # secret.yaml

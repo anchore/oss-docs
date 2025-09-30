@@ -51,11 +51,13 @@ syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
 ```
 
 The above output is in the form of the [DSSE envelope](https://github.com/secure-systems-lab/dsse/blob/master/envelope.md#dsse-envelope).
-The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate. For details on workflows using this command see [here](#adding-an-sbom-to-an-image-as-an-attestation-using-syft).
+The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate.
 
 ### Adding an SBOM to an image as an attestation using Syft
 
-`syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]`
+```
+syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
+```
 
 SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/anchore/grype), a vulnerability scanner CLI tool from Anchore, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Syft-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `syft attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
 
