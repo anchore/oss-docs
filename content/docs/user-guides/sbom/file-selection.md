@@ -1,13 +1,11 @@
 +++
 title = "File Selection"
-description = "SBOM Generation File Selection"
+description = "Control which files and directories Syft includes or excludes when generating SBOMs. Configure file selection rules, path filters, and glob patterns to customize your catalog scope."
 weight = 30
 tags = ["syft", "sbom"]
-url = "docs/userguides/sbom/fileselection"
+url = "docs/user-guides/sbom/file-selection"
 
 +++
-
-## File selection
 
 By default, Syft will catalog file details and digests for files that are owned by discovered packages. You can change this behavior by using the `SYFT_FILE_METADATA_SELECTION` environment variable or the `file.metadata.selection` configuration option. The options are:
 

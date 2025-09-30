@@ -82,6 +82,18 @@ url = "docs/reference/commands/{tool_name.lower()}-config"
 
 """
 
+    # Get version information
+    app_version = get_app_version(image)
+    if not app_version:
+        app_version = "unknown"
+
+    # Add version header
+    content += f"""{{{{< alert title="Note" >}}}}
+This documentation was generated from {tool_display} version `{app_version}`.
+{{{{< /alert >}}}}
+
+"""
+
     # Get configuration output
     config_output = get_config_output(image)
 
@@ -93,6 +105,16 @@ url = "docs/reference/commands/{tool_name.lower()}-config"
         )
 
     return content
+
+
+def get_app_version(image) -> str | None:
+    """Get the application version from the image."""
+    stdout, stderr, returncode = run_docker_command(image, ["version"])
+    if returncode == 0:
+        for line in stdout.splitlines():
+            if line.startswith("Version:"):
+                return line.split(":", 1)[1].strip()
+    return None
 
 
 def get_config_output(image) -> str | None:

@@ -1,12 +1,10 @@
 +++
 title = "Supported Sources"
-description = "SBOM Generation Supported Sources"
+description = "Explore the different sources Syft can analyze including container images, OCI registries, directories, files, and archives with syntax and options for each type."
 weight = 20
 tags = ["syft", "sbom"]
-url = "docs/userguides/sbom/sources"
+url = "docs/user-guides/sbom/sources"
 +++
-
-## Supported sources
 
 Syft can generate an SBOM from a variety of sources including images, files, directories, and archives. Syft will attempt to
 determine the type of source based on provided input, for example:
@@ -42,4 +40,4 @@ the Docker, Podman, and Containerd daemons followed by direct registry access, i
 
 <!-- TODO(alex): broken link locally -->
 
-This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](/docs/userguides/sbom/configuration) for more details).
+This default behavior can be overridden with the `default-image-pull-source` configuration option (See [Configuration](/docs/user-guides/sbom/configuration) for more details).

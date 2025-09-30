@@ -1,7 +1,7 @@
 +++
 title = "Welcome to Anchore Open Source"
 linkTitle = "Open Source"
-weight = 10
+weight = 30
 url = "docs"
 +++
 
@@ -11,18 +11,18 @@ Start by going to the [project overview]({{< relref "projects" >}}) of Anchore O
 
 For information about generating SBOMs:
 
-- [Generating an SBOM](/docs/userguides/sbom/getstarted/)
-- [SBOM File Formats](/docs/userguides/sbom/formats/)
-- [Conversion of SBOM Formats](/docs/userguides/sbom/conversion/)
+- [Generating an SBOM](/docs/user-guides/sbom/getting-started/)
+- [SBOM File Formats](/docs/user-guides/sbom/formats/)
+- [Conversion of SBOM Formats](/docs/user-guides/sbom/conversion/)
 
 Get started with vulnerability scanning
 
-- [Scanning for Vulnerabilities](/docs/userguides/vuln/getstarted/)
-- [Vulnerability Data Sources](/docs/userguides/vuln/data-sources/)
+- [Scanning for Vulnerabilities](/docs/user-guides/vulnerability/getting-started/)
+- [Vulnerability Data Sources](/docs/user-guides/vulnerability/data-sources/)
 
 Scan SBOMs or containers for licenses used:
 
-- [Scanning for Licenses Used](/docs/userguides/license/)
+- [Scanning for Licenses Used](/docs/user-guides/license/)
 
 Reference information
 
@@ -44,7 +44,7 @@ The tools are available in many common distribution channels. The full list of o
 
 ### Using the Tools
 
-We have "Getting Started" user guides for [SBOM Generation](/docs/userguides/sbom/getstarted) with Syft, [Vulnerability Scanning](/docs/userguides/sbom/getstarted) with Grype, and [License Scanning](/docs/userguides/license/getstarted).
+We have "Getting Started" user guides for [SBOM Generation](/docs/user-guides/sbom/getting-started) with Syft, [Vulnerability Scanning](/docs/user-guides/sbom/getting-started) with Grype, and [License Scanning](/docs/user-guides/license/getting-started).
 
 ### Developing
 

@@ -6,17 +6,23 @@ weight = 50
 url = "docs/installation/verification"
 +++
 
-## Verifying the artifacts
+All release artifacts include checksums, and the checksum file itself is cryptographically signed using cosign for verification.
 
-Checksums are applied to all artifacts, and the resulting checksum file is signed using cosign.
+{{< alert color="info" title="Note" >}}
+Installation scripts support automatic verification using the `-v` flag if you have cosign installed. This performs the same verification steps outlined below.
+{{< /alert >}}
+
+### Requirements
 
 You need the following tool to verify signature:
 
 - [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/)
 
-Verification steps are as follow:
+### Manual Verification Steps
 
-1. Download the files you want, and the checksums.txt, checksums.txt.pem and checksums.txt.sig files from the appropriate GitHub:
+Verification steps are as follows:
+
+1. Download the files you want, and the `checksums.txt`, `checksums.txt.pem` and `checksums.txt.sig` files from the appropriate GitHub:
 
 - [Syft](https://github.com/anchore/syft/releases)
 - [Grype](https://github.com/anchore/grype/releases)

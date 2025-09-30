@@ -9,6 +9,7 @@ CLAUDE.md
 .tool
 tmp/
 TODO.md
+SUMMARY.md
 
 # cache directories
 .cache/
@@ -34,6 +35,7 @@ hugo.pid
 .idea/
 *.sublime-project
 *.sublime-workspace
+.ropeproject
 
 # OS specific files
 Thumbs.db

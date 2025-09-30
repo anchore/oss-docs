@@ -1,13 +1,11 @@
 +++
 title = "Output Formats"
-description = "SBOM Generation Output Formats"
+description = "Choose from multiple SBOM output formats including SPDX, CycloneDX, and Syft's native JSON format with format capabilities and version support for different use cases."
 weight = 40
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx"]
-url = "docs/userguides/sbom/formats"
+url = "docs/user-guides/sbom/formats"
 
 +++
-
-## Output formats
 
 The output format for Syft is configurable as well using the
 `-o` (or `--output`) option:

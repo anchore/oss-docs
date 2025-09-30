@@ -1,12 +1,10 @@
 +++
 title = "Using Templates"
-description = "SBOM Generation Using Templates"
+description = "Create custom SBOM output formats using Go templates with available data fields to build tailored reports for specific tooling or compliance requirements."
 weight = 60
 tags = ["syft", "sbom", "templates"]
-url = "docs/userguides/sbom/templates"
+url = "docs/user-guides/sbom/templates"
 +++
-
-## Using templates
 
 Syft lets you define custom output formats, using [Go templates](https://pkg.go.dev/text/template) relative to the Syft JSON output. Here's how it works:
 

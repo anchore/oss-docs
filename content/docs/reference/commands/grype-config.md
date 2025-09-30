@@ -7,6 +7,10 @@ categories = ['reference']
 url = "docs/reference/commands/grype-config"
 +++
 
+{{< alert title="Note" >}}
+This documentation was generated from Grype version `0.100.0`.
+{{< /alert >}}
+
 ```yaml
 log:
   # suppress all logging output (env: GRYPE_LOG_QUIET)

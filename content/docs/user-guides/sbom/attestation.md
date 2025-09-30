@@ -1,14 +1,16 @@
 +++
-title = "Attestation (experimental)"
+title = "Attestation"
 linkTitle = "Attestation"
-description = "SBOM Generation Attestation (experimental)"
+description = "Generate cryptographically signed SBOM attestations using in-toto and Sigstore to create, verify, and attach attestations to container images for supply chain security."
 weight = 90
 tags = ["syft", "sbom", "attestation"]
-url = "docs/userguides/sbom/attestation"
+url = "docs/user-guides/sbom/attestation"
 
 +++
 
-## Attestation (experimental)
+{{< alert color="warning" title="Experimental Feature" >}}
+This feature is experimental and subject to change.
+{{< /alert >}}
 
 ### Keyless support
 

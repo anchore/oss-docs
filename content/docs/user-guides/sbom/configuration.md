@@ -1,13 +1,11 @@
 +++
 title = "Configuration"
-description = "SBOM Generation Configuration"
+description = "Configure Syft using configuration files, environment variables, and command-line flags to customize SBOM generation behavior, output settings, and scanning preferences."
 weight = 100
 tags = ["syft", "sbom"]
-url = "docs/userguides/sbom/configuration"
+url = "docs/user-guides/sbom/configuration"
 
 +++
-
-## Configuration
 
 ### Ways to specify values
 

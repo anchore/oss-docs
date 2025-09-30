@@ -7,6 +7,10 @@ categories = ['reference']
 url = "docs/reference/commands/syft-config"
 +++
 
+{{< alert title="Note" >}}
+This documentation was generated from Syft version `1.33.0`.
+{{< /alert >}}
+
 ```yaml
 log:
   # suppress all logging output (env: SYFT_LOG_QUIET)

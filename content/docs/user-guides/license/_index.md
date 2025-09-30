@@ -1,9 +1,9 @@
 +++
 title = "License Scanning"
-description = "License Scanning User Guide."
+description = "Learn how to scan container images and filesystems for software licenses. This guide covers license detection, compliance checking, and managing open source license obligations across your dependencies."
 weight = 41
 tags = ["syft", "grant", "licenses"]
-url = "docs/userguides/license"
+url = "docs/user-guides/license"
 +++
 
 License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project.
@@ -12,4 +12,4 @@ This is important because most software relies on third-party and open-source co
 
 Grant is an open-source command-line tool designed to discover and report on the software licenses present in container images, SBOM documents, or filesystems. It helps users understand the licenses of their software dependencies and can check them against user-defined policies to ensure compliance.
 
-- [Get Started](/docs/userguides/license/getstarted) - Install Grant and scan a container for compliant licenses.
+- [Get Started](/docs/user-guides/license/getting-started) - Install Grant and scan a container for compliant licenses.

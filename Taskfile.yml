@@ -68,6 +68,11 @@ tasks:
       - task: hugo:install
       - task: python:install
 
+  dev:
+    desc: Start development environment with live reload
+    cmds:
+      - task: hugo:dev
+
   default:
     desc: Default task (validate)
     cmds:

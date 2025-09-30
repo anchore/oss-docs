@@ -1,9 +1,9 @@
 +++
 title = "Getting Started"
-description = "SBOM Generation Getting Started"
+description = "Get started with Syft to generate your first SBOM from container images, directories, or archives with basic usage and quick commands."
 weight = 10
 tags = ["syft", "sbom"]
-url = "docs/userguides/sbom/getstarted"
+url = "docs/user-guides/sbom/getting-started"
 +++
 
 ### Introduction
@@ -36,7 +36,7 @@ syft <image>
 Run `syft` with default options against a small container, which will be pulled from DockerHub. The output will be a simple human-readable table.
 
 {{% alert title="Learn more" color="primary" %}}
-Syft supports more than just containers, find out more about [Supported Sources](/docs/userguides/sbom/sources/)
+Syft supports more than just containers, find out more about [Supported Sources](/docs/user-guides/sbom/sources/)
 {{% /alert %}}
 
 ```
@@ -83,7 +83,7 @@ syft alpine:latest -o table -o spdx-json=alpine_latest-spdx.json
 The same table will be displayed, but there will also be an SBOM in the current directory.
 
 {{% alert title="Learn more" color="primary" %}}
-Syft supports multiple SBOM output formats, find out more about [Output Formats](/docs/userguides/sbom/formats/).
+Syft supports multiple SBOM output formats, find out more about [Output Formats](/docs/user-guides/sbom/formats/).
 {{% /alert %}}
 
 ### Examine the SPDX file contents
@@ -128,6 +128,6 @@ syft <image> --scope all-layers
 {{% alert title="Next steps" color="primary" %}}
 
 - Try running Syft against other containers, or an application directory on your workstation.
-- Find out more about [Supported Sources](/docs/userguides/sbom/sources/) and [Output Formats](/docs/userguides/sbom/formats/).
-- Learn about [Vulnerability Scanning](/docs/userguides/vuln/getstarted/) and [License Scanning](/docs/userguides/license/getstarted/) your SBOMs.
+- Find out more about [Supported Sources](/docs/user-guides/sbom/sources/) and [Output Formats](/docs/user-guides/sbom/formats/).
+- Learn about [Vulnerability Scanning](/docs/user-guides/vulnerability/getting-started/) and [License Scanning](/docs/user-guides/license/getting-started/) your SBOMs.
   {{% /alert %}}

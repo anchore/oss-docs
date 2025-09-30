@@ -1,13 +1,11 @@
 +++
 title = "Private Registry Authentication"
-description = "SBOM Generation Private Registry Authentication"
+description = "Configure authentication for scanning container images from private registries using credentials, registry tokens, and authentication helpers for Docker and cloud providers."
 weight = 80
 tags = ["syft", "sbom", "docker", "container", "authentication"]
-url = "docs/userguides/sbom/authentication"
+url = "docs/user-guides/sbom/authentication"
 
 +++
-
-## Private Registry Authentication
 
 ### Local Docker Credentials
 

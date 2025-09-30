@@ -1,13 +1,11 @@
 +++
 title = "Package Catalogers"
-description = "SBOM Generation Package Catalogers"
+description = "Configure which package catalogers Syft uses to discover software components including language-specific and file-based catalogers."
 weight = 50
 tags = ["syft", "sbom", "catalogers"]
-url = "docs/userguides/sbom/catalogers"
+url = "docs/user-guides/sbom/catalogers"
 
 +++
-
-## Package cataloger selection
 
 ### Concepts
 
