@@ -2,10 +2,12 @@ baseURL: https://oss.anchore.com/
 languageCode: en-us
 title: ''
 publishDir: public/
+timeout: 180s
 ignoreLogs:
   - warning-goldmark-raw-html
 ignoreFiles:
   - content/docs/user-guides/sbom/snippets/.*\.md$
+  - data/
 enableGitInfo: true
 
 module:

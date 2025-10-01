@@ -1,0 +1,17 @@
+```gotemplate
+# SBOM Report: {{.source.metadata.userInput}}
+
+Scanned: {{.source.name}}:{{.source.version}} ({{.source.type}})
+{{- if .distro}}
+Distribution: {{.distro.prettyName}}
+{{- end}}
+
+## Packages ({{len .artifacts}})
+
+| Package | Version | Type |
+|---------|---------|------|
+{{- range .artifacts}}
+| {{.name}} | {{.version}} | {{.type}} |
+{{- end}}
+
+```

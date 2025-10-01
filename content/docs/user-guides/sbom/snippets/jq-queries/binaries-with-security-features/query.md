@@ -1,0 +1,11 @@
+```python
+.files[] |
+  select(.executable != null and .executable.format == "elf") |  # ELF binaries only
+  {
+    path: .location.path,
+    pie: .executable.elfSecurityFeatures.pie,  # Position Independent Executable
+    stackCanary: .executable.elfSecurityFeatures.stackCanary,  # Stack protection
+    nx: .executable.elfSecurityFeatures.nx  # No-Execute bit
+  }
+
+```

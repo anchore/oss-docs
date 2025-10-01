@@ -1,0 +1,13 @@
+image: httpd:2.4.65
+config: configs/all-files.syft.yaml
+query: |
+  . as $root |
+    [.files[] | select(.executable != null) | .id] as $binaries |  # All binary IDs
+    [.artifactRelationships[] | select(.type == "contains") | .child] as $owned |  # Package-owned files
+    ($binaries - $owned) as $unowned |  # Set subtraction to find unowned binaries
+    $root.files[] |
+    select(.id as $id | $unowned | index($id)) |  # Filter to unowned binaries
+    {
+      path: .location.path,
+      sha256: .digests[] | select(.algorithm == "sha256") | .value  # For integrity verification
+    }

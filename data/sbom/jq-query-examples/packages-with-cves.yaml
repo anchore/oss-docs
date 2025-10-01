@@ -1,0 +1,11 @@
+image: alpine:3.9.2
+config: null
+query: |
+  .artifacts[] |
+    select(.cpes != null and (.cpes | length) > 0) |  # Packages with CPE identifiers
+    {
+      name,
+      version,
+      type,
+      cpeCount: (.cpes | length)  # Number of CPE matches
+    }

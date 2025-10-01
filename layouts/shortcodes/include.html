@@ -1,3 +1,0 @@
-{{ $file := .Get 0 }}
-{{ $content := readFile $file }}
-{{ $content | $.Page.RenderString }}

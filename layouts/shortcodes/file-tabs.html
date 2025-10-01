@@ -1,10 +1,8 @@
 <div class="tab-content">
+  {{ $uniqueId := printf "tabs-%d" .Ordinal }}
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
       {{ $title := .Get "title" }}
-      {{ if not $title }}
-        {{ $title = "Format:" }}
-      {{ end }}
       <button class="nav-link disabled" disabled>{{ $title }}</button>
     </li>
     {{ $tabsString := .Get "tabs" }}
@@ -13,8 +11,9 @@
     {{ range $index, $tab := $tabs }}
       {{ $parts := split $tab "|" }}
       {{ $name := trim (index $parts 0) " " }}
+      {{ $tabId := printf "%s-%s" $uniqueId $name }}
       <li class="nav-item">
-        <button class="nav-link{{ if eq $index 0 }} active{{ end }}" id="{{ $name }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $name }}" type="button" role="tab">{{ $name }}</button>
+        <button class="nav-link{{ if eq $index 0 }} active{{ end }}" id="{{ $tabId }}-tab" data-bs-toggle="tab" data-bs-target="#{{ $tabId }}" type="button" role="tab">{{ $name }}</button>
       </li>
     {{ end }}
   </ul>
@@ -22,6 +21,7 @@
     {{ range $index, $tab := $tabs }}
       {{ $parts := split $tab "|" }}
       {{ $name := trim (index $parts 0) " " }}
+      {{ $tabId := printf "%s-%s" $uniqueId $name }}
       {{ $filepath := "" }}
       {{ if gt (len $parts) 1 }}
         {{ $filename := trim (index $parts 1) " " }}
@@ -31,7 +31,7 @@
           {{ $filepath = $filename }}
         {{ end }}
       {{ end }}
-      <div class="tab-pane fade{{ if eq $index 0 }} show active{{ end }}" id="{{ $name }}" role="tabpanel">
+      <div class="tab-pane fade{{ if eq $index 0 }} show active{{ end }}" id="{{ $tabId }}" role="tabpanel">
         {{ if $filepath }}
           {{ $content := readFile $filepath }}
           {{ $content | $.Page.RenderString }}

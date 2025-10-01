@@ -169,7 +169,7 @@ docker save -o alpine.tar alpine:latest
 When using container daemon sources (Docker, Podman, or Containerd):
 
 - **Missing images**: If an image doesn't exist locally in the daemon, Syft attempts to pull it from the registry
-- **Private images**: You must be logged in to the registry via the daemon (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication](/docs/user-guides/sbom/authentication) for more details.
+- **Private images**: You must be logged in to the registry via the daemon (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries](/docs/user-guides/private-registries) for more details.
 
 ### Environment Variables
 
@@ -222,4 +222,4 @@ The `registry` source bypasses container runtimes entirely and pulls images dire
 **Credential resolution:**
 
 - Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
-- If default credentials are not available, you can provide credentials via environment variables. See [Authentication](/docs/user-guides/sbom/authentication) for more details.
+- If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries](/docs/user-guides/private-registries) for more details.

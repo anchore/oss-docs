@@ -19,8 +19,6 @@ By default, Syft catalogs file details and digests for files owned by discovered
 
 You can exclude specific files and paths from scanning using glob patterns with the `--exclude` parameter. Use multiple `--exclude` flags to specify multiple patterns.
 
-### Quick examples
-
 ```bash
 # Exclude a specific directory
 syft <source> --exclude /etc

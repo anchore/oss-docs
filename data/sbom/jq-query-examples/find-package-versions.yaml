@@ -1,0 +1,10 @@
+image: alpine:3.9.2
+config: null
+query: |
+  .artifacts[] |
+    select(.name | test("^(openssl|ssl|crypto)")) |  # Regex pattern match on package name
+    {
+      name,
+      version,
+      type  # Package type (apk, deb, rpm, etc.)
+    }

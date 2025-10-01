@@ -1,0 +1,10 @@
+image: alpine:3.9.2
+config: null
+query: |
+  .artifacts[] |
+    {
+      name,
+      version,
+      type,
+      locations: [.locations[] | .path]  # All filesystem locations
+    }

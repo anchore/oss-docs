@@ -1,0 +1,10 @@
+image: alpine:3.9.2
+config: null
+query: |
+  .artifacts[] |
+    select(.purl != null and .purl != "") |  # Filter packages with PURLs
+    {
+      name,
+      version,
+      purl  # Package URL for cross-tool compatibility
+    }

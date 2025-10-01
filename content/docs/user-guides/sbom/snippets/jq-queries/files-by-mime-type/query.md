@@ -1,0 +1,10 @@
+```python
+.files[] |
+  select(.metadata.mimeType == "application/x-sharedlib") |  # Filter by MIME type
+  {
+    path: .location.path,
+    mimeType: .metadata.mimeType,
+    size: .metadata.size  # File size in bytes
+  }
+
+```

@@ -6,41 +6,139 @@ tags = ["syft", "sbom", "templates"]
 url = "docs/user-guides/sbom/templates"
 +++
 
-Syft lets you define custom output formats, using [Go templates](https://pkg.go.dev/text/template) relative to the Syft JSON output. Here's how it works:
+Syft lets you define custom output formats using [Go templates](https://pkg.go.dev/text/template). This is useful for generating custom reports, integrating with specific tools, or extracting only the data you need.
 
-- Define your format as a Go template, and save this template as a file.
+## How to use templates
 
-- Set the output format to "template" (`-o template`).
+Set the output format to `template` and specify the template file path:
 
-- Specify the path to the template file (`-t ./path/to/custom.template`).
-
-- Syft's template processing uses the same data models as the `syft-json` output format — so if you're wondering what data is available as you author a template, you can use the output from `syft <image> -o syft-json` as a reference.
-
-**Example:** You could make Syft output data in CSV format by writing a Go template that renders CSV data and then running `syft <image> -o template -t ~/path/to/csv.tmpl`.
-
-Here's what the `csv.tmpl` file might look like:
-
-```gotemplate
-"Package","Version Installed", "Found by"
-{{- range .artifacts}}
-"{{.name}}","{{.version}}","{{.foundBy}}"
-{{- end}}
+```bash
+syft <image> -o template -t ./path/to/custom.tmpl
 ```
 
-Which would produce output like:
+You can also configure the template path in your [configuration file](/docs/reference/commands/syft-config/):
 
-```text
-"Package","Version Installed","Found by"
-"alpine-baselayout","3.2.0-r20","apkdb-cataloger"
-"alpine-baselayout-data","3.2.0-r20","apkdb-cataloger"
-"alpine-keys","2.4-r1","apkdb-cataloger"
-...
+```yaml
+#.syft.yaml
+format:
+  template:
+    path: "/path/to/template.tmpl"
 ```
 
-Syft also includes a vast array of utility templating functions from [sprig](http://masterminds.github.io/sprig/) apart from the default Golang [text/template](https://pkg.go.dev/text/template#hdr-Functions) to allow users to customize the output format.
+## Available fields
 
-Lastly, Syft has custom templating functions defined in `./syft/format/template/encoder.go` to help parse the passed-in JSON structs.
+Templates receive the same data structure as the `syft-json` output format. The [Syft JSON schema](https://github.com/anchore/syft/blob/main/schema/json/schema-latest.json) is the source of truth for all available fields and their structure.
+
+To see what data is available:
+
+```bash
+# View the full JSON structure
+syft <image> -o json
+
+# Explore specific fields
+syft <image> -o json | jq '.artifacts[0]'
+```
+
+Key fields commonly used in templates:
+
+- `.artifacts` - Array of discovered packages
+- `.files` - Array of discovered files
+- `.source` - Information about what was scanned
+- `.distro` - Detected Linux distribution (if applicable)
+- `.descriptor` - Syft version and configuration
+
+Common package (artifact) fields:
+
+- `.name`, `.version`, `.type` - Basic package info
+- `.licenses` - License information (array)
+- `.purl` - Package URL
+- `.cpes` - Common Platform Enumerations
+- `.locations` - Where the package was found
+
+## Template functions
+
+Syft templates support:
+
+- **Go template built-ins** - See the [Go template documentation](https://pkg.go.dev/text/template#hdr-Functions)
+- **Sprig functions** - Additional helpers from [Sprig](http://masterminds.github.io/sprig/)
+- **Syft-specific functions:**
+
+| Function       | Arguments      | Description                                                                      |
+| -------------- | -------------- | -------------------------------------------------------------------------------- |
+| `getLastIndex` | `collection`   | Returns the last index of a slice (length - 1), useful for comma-separated lists |
+| `hasField`     | `obj`, `field` | Checks if a field exists on an object, returns boolean                           |
+
+## Examples
+
+The following examples show template source code and the rendered output when run against `alpine:3.9.2`:
+
+### CSV output
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/csv"
+tabs="template|template.md,output|output.md" >}}
+
+### Filter by package type
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/filter-package-type"
+tabs="template|template.md,output|output.md" >}}
+
+### Markdown report
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/markdown-report"
+tabs="template|template.md,output|output.md" >}}
+
+### License compliance
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/license-compliance"
+tabs="template|template.md,output|output.md" >}}
+
+### Custom JSON subset
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/json-subset"
+tabs="template|template.md,output|output.md" >}}
+
+### Executable file digests
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/executable-digests"
+tabs="template|template.md,output|output.md" >}}
+
+### Find binaries importing a library
+
+{{< file-tabs
+title=""
+path="content/docs/user-guides/sbom/snippets/templates/libcrypto-imports"
+tabs="template|template.md,output|output.md" >}}
+
+## Troubleshooting
+
+**"can't evaluate field" errors:** The field doesn't exist or is misspelled. Check field names with `syft <image> -o json | jq`.
+
+**Empty output:** Verify your field paths are correct. Use `syft <image> -o json` to see the actual data structure.
+
+**Template syntax errors:** Refer to the [Go template documentation](https://pkg.go.dev/text/template) for syntax help.
+
 
 {{% alert title="Note" color="primary" %}}
-If you have templates being used before Syft v0.102.0 that are no longer working. This is because templating keys were relative to the internal go structs before this version whereas now the keys are relative to the Syft JSON output. To get the legacy behavior back you can set the `format.template.legacy` option to `true` in your configuration.
+If you have templates from before Syft v0.102.0 that no longer work, set `format.template.legacy: true` in your configuration. This uses internal Go structs instead of the JSON output schema.
+
+Long-term support for this legacy option is not guaranteed.
 {{% /alert %}}
+
+## Additional resources
+
+- [Go template documentation](https://pkg.go.dev/text/template) - Template syntax reference
+- [Sprig function documentation](http://masterminds.github.io/sprig/) - Helper functions
+- [Output formats](/docs/user-guides/sbom/formats/) - Other output format options
+- [Configuration options](/docs/user-guides/sbom/configuration/) - Advanced settings

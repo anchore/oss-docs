@@ -1,0 +1,12 @@
+image: node:18-alpine
+config: null
+query: |
+  . as $root |
+    .artifactRelationships[] |
+    select(.type == "dependency-of") |  # Filter for dependency relationships
+    .parent as $parent |
+    .child as $child |
+    {
+      parent: ($root.artifacts[] | select(.id == $parent).name),  # Parent package name
+      child: ($root.artifacts[] | select(.id == $child).name)  # Dependency name
+    }
