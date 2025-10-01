@@ -28,7 +28,7 @@ def extract_format_versions():
             ["syft", "busybox:latest", "-o", "fake"],
             capture_output=True,
             text=True,
-            timeout=60
+            timeout=60,
         )
 
         # the format list will be in stderr
@@ -36,7 +36,9 @@ def extract_format_versions():
 
         # parse the format list
         # looking for lines like: "   - cyclonedx-json @ 1.2, 1.3, 1.4, 1.5, 1.6"
-        format_pattern = re.compile(r'^\s*-\s+([a-z0-9-]+)(?:\s+@\s+([\d.,\s]+))?$', re.MULTILINE)
+        format_pattern = re.compile(
+            r"^\s*-\s+([a-z0-9-]+)(?:\s+@\s+([\d.,\s]+))?$", re.MULTILINE
+        )
 
         formats = {}
         for match in format_pattern.finditer(output):
@@ -45,7 +47,7 @@ def extract_format_versions():
 
             if versions_str:
                 # parse versions
-                versions = [v.strip() for v in versions_str.split(',')]
+                versions = [v.strip() for v in versions_str.split(",")]
                 formats[format_name] = versions
             else:
                 # no versions specified, format has no version variants
@@ -60,7 +62,10 @@ def extract_format_versions():
         print(f"Error running Syft: {e}", file=sys.stderr)
         sys.exit(1)
     except FileNotFoundError:
-        print("Error: Syft command not found. Please ensure Syft is installed.", file=sys.stderr)
+        print(
+            "Error: Syft command not found. Please ensure Syft is installed.",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
 
@@ -68,7 +73,7 @@ def save_json_data(formats, output_path: Path) -> None:
     """save format versions to JSON file"""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         json.dump(formats, f, indent=2)
 
     print(f"Generated {output_path}")
@@ -98,9 +103,9 @@ def generate_markdown_snippet(formats, output_path: Path) -> None:
         versions_str = ", ".join([f"`{v}`" for v in versions])
         lines.append(f"- **{format_name}**: {versions_str}")
 
-    with open(output_path, 'w') as f:
-        f.write('\n'.join(lines))
-        f.write('\n')
+    with open(output_path, "w") as f:
+        f.write("\n".join(lines))
+        f.write("\n")
 
     print(f"Generated {output_path}")
 
@@ -124,7 +129,7 @@ def main() -> None:
     parser.add_argument(
         "--update",
         action="store_true",
-        help="Update the JSON file even if it already exists"
+        help="Update the JSON file even if it already exists",
     )
     args = parser.parse_args()
 
@@ -134,7 +139,16 @@ def main() -> None:
 
     # define output paths
     json_output = project_root / "data" / "format-versions.json"
-    md_output = project_root / "content" / "docs" / "user-guides" / "sbom" / "snippets" / "format" / "versions.md"
+    md_output = (
+        project_root
+        / "content"
+        / "docs"
+        / "user-guides"
+        / "sbom"
+        / "snippets"
+        / "format"
+        / "versions.md"
+    )
 
     # check if JSON file already exists
     if json_output.exists() and not args.update:

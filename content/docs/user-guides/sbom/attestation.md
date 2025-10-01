@@ -51,6 +51,7 @@ syft attest --output cyclonedx-json <IMAGE>
 Replace `<IMAGE>` with your image reference (e.g., `docker.io/myorg/myimage:latest`). You must have write access to this image.
 
 **What happens:**
+
 1. Syft opens your browser to authenticate via OIDC (GitHub, Google, or Microsoft)
 2. After authentication, Syft generates the SBOM
 3. Sigstore signs the SBOM using your identity
@@ -65,6 +66,7 @@ COSIGN_EXPERIMENTAL=1 cosign verify-attestation <IMAGE>
 ```
 
 **Successful output shows:**
+
 - Attestation claims are validated
 - Claims exist in the Sigstore transparency log
 - Certificates verified against Fulcio (Sigstore's certificate authority)
@@ -143,19 +145,23 @@ This ensures you're scanning a verified, trusted SBOM.
 
 ## Troubleshooting
 
-**Authentication failures**
+### Authentication failures
+
 - Ensure you're logged into the registry: `docker login <registry>`
 - Verify you have write access to the image repository
 
-**Cosign version errors**
+### Cosign version errors
+
 - Update to cosign ≥ v1.12.0: `cosign version`
 
-**Verification failures**
+### Verification failures
+
 - For keyless: ensure `COSIGN_EXPERIMENTAL=1` is set
 - For key-based: verify you're using the correct public key
 - Check the attestation type matches (`--type spdxjson` or `--type cyclonedx-json`)
 
-**Permission denied uploading attestations**
+### Permission denied uploading attestations
+
 - Verify write access to the registry
 - Check authentication credentials are current
 - Ensure the image exists in the registry before attaching attestations

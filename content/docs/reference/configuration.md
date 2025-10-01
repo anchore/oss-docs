@@ -52,6 +52,7 @@ export SYFT_FORMAT_JSON_PRETTY=true
 ```
 
 The pattern is: `<TOOL>_<PATH>_<TO>_<SETTING>` where:
+
 - `<TOOL>` is the uppercase tool name (`SYFT`, `GRYPE`, `GRANT`)
 - Path segments are joined with underscores
 - All letters are uppercase

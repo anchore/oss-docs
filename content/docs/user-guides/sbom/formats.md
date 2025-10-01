@@ -123,4 +123,4 @@ syft <source> \
 
 - Learn about [customizing output with templates](/docs/user-guides/sbom/templates) for specialized formats
 - Explore [supported sources](/docs/user-guides/sbom/sources) to understand what Syft can analyze
-- See [configuration options](/docs/user-guides/sbom/configuration) for advanced format settings
+- See [configuration options](/docs/reference/commands/syft-config) for advanced format settings

@@ -126,9 +126,7 @@ def run_syft(target_image: str, syft_image: str, format_name: str) -> str | None
     ]
 
     try:
-        result = subprocess.run(
-            docker_cmd, capture_output=True, text=True, timeout=60
-        )
+        result = subprocess.run(docker_cmd, capture_output=True, text=True, timeout=60)
         if result.returncode == 0:
             return result.stdout.strip()
         else:

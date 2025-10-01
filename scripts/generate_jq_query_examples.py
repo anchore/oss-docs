@@ -129,7 +129,9 @@ def generate_example(
     # Generate example.md - full copy-pastable command using piped input
     # Strip comments from query for the example command
     query_no_comments = strip_comments(query)
-    example_md = f"```bash\nsyft {image} -o json | \\\n  jq '{query_no_comments}'\n```\n"
+    example_md = (
+        f"```bash\nsyft {image} -o json | \\\n  jq '{query_no_comments}'\n```\n"
+    )
     (example_dir / "example.md").write_text(example_md)
 
     # Generate config.md if a config is specified
@@ -185,7 +187,13 @@ def get_or_generate_sbom(
     return sbom_json
 
 
-def run_syft(image: str, config: str | None, syft_image: str, examples_dir: Path, timeout: int = 120) -> str:
+def run_syft(
+    image: str,
+    config: str | None,
+    syft_image: str,
+    examples_dir: Path,
+    timeout: int = 120,
+) -> str:
     """Run Syft to generate an SBOM in JSON format."""
     docker_cmd = ["docker", "run", "--rm"]
 
@@ -210,16 +218,14 @@ def run_syft(image: str, config: str | None, syft_image: str, examples_dir: Path
         )
 
         if result.returncode != 0:
-            raise RuntimeError(
-                f"Syft command failed: {result.stderr or result.stdout}"
-            )
+            raise RuntimeError(f"Syft command failed: {result.stderr or result.stdout}")
 
         return result.stdout.strip()
 
-    except subprocess.TimeoutExpired:
-        raise RuntimeError(f"Syft command timed out after {timeout} seconds")
+    except subprocess.TimeoutExpired as e:
+        raise RuntimeError(f"Syft command timed out after {timeout} seconds") from e
     except Exception as e:
-        raise RuntimeError(f"Failed to run Syft: {e}")
+        raise RuntimeError(f"Failed to run Syft: {e}") from e
 
 
 def run_jq_query(sbom_json: str, query: str) -> str:
@@ -250,12 +256,12 @@ def run_jq_query(sbom_json: str, query: str) -> str:
 
         return output
 
-    except subprocess.TimeoutExpired:
-        raise RuntimeError("jq command timed out after 30 seconds")
-    except FileNotFoundError:
-        raise RuntimeError("jq not found. Please install jq to run this script.")
+    except subprocess.TimeoutExpired as e:
+        raise RuntimeError("jq command timed out after 30 seconds") from e
+    except FileNotFoundError as e:
+        raise RuntimeError("jq not found. Please install jq to run this script.") from e
     except Exception as e:
-        raise RuntimeError(f"Failed to run jq: {e}")
+        raise RuntimeError(f"Failed to run jq: {e}") from e
 
 
 def strip_comments(query: str) -> str:

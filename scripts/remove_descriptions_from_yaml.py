@@ -17,7 +17,9 @@ for yaml_file in yaml_dir.glob("*.yaml"):
 
     # Write back
     with open(yaml_file, "w") as f:
-        yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+        yaml.dump(
+            data, f, default_flow_style=False, sort_keys=False, allow_unicode=True
+        )
 
     print(f"✓ Removed description from {yaml_file.name}")
 

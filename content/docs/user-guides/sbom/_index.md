@@ -18,4 +18,4 @@ Syft is an open-source command-line tool and Go library. Its primary function is
 - [Supported Data Sources](/docs/user-guides/sbom/sources) - The variety of sources supported by our tools.
 - [File Selection](/docs/user-guides/sbom/file-selection) - Specify which files will be cataloged.
 - [Output Formats](/docs/user-guides/sbom/formats) - The industry-standard supported SBOM formats.
-- [Configuration](/docs/user-guides/sbom/configuration) - Configuring Syft for your environment and requirements.
+- [Configuration](/docs/reference/commands/syft-config) - Configuring Syft for your environment and requirements.

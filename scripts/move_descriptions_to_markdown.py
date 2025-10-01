@@ -11,13 +11,15 @@ content = md_path.read_text()
 # Pattern to match: **Title:**\n\n{{< file-tabs\ntitle="description"\npath=...
 pattern = r'\*\*([^*]+):\*\*\n\n{{< file-tabs\ntitle="([^"]+)"\npath="([^"]+)"\ntabs="([^"]+)" >}}'
 
-def replace_shortcode(match):
+
+def replace_shortcode(match) -> str:
     title = match.group(1)
     description = match.group(2)
     path = match.group(3)
     tabs = match.group(4)
 
     return f'**{title}:**\n\n{description}\n\n{{{{< file-tabs\ntitle=""\npath="{path}"\ntabs="{tabs}" >}}}}'
+
 
 # Replace all occurrences
 new_content = re.sub(pattern, replace_shortcode, content)

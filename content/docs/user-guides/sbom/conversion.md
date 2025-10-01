@@ -11,7 +11,6 @@ url = "docs/user-guides/sbom/conversion"
 This feature is experimental and may change in future releases.
 {{< /alert >}}
 
-
 The ability to convert existing SBOMs means you can create SBOMs in different formats quickly, without the need to regenerate the SBOM from scratch, which may take significantly more time.
 
 ```

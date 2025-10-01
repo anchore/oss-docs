@@ -11,6 +11,7 @@ content = md_path.read_text()
 # Pattern to match file-tabs shortcodes
 pattern = r'{{< file-tabs\s+title=""\s+path="([^"]+)"\s+tabs="([^"]+)" >}}'
 
+
 def replace_shortcode(match):
     path = match.group(1)
     tabs = match.group(2)
@@ -25,6 +26,7 @@ def replace_shortcode(match):
     else:
         print(f"Warning: No description found at {desc_path}")
         return match.group(0)
+
 
 # Replace all occurrences
 new_content = re.sub(pattern, replace_shortcode, content)

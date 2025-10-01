@@ -151,16 +151,14 @@ def run_syft_with_template(
         )
 
         if result.returncode != 0:
-            raise RuntimeError(
-                f"Syft command failed: {result.stderr or result.stdout}"
-            )
+            raise RuntimeError(f"Syft command failed: {result.stderr or result.stdout}")
 
         return result.stdout.strip()
 
-    except subprocess.TimeoutExpired:
-        raise RuntimeError(f"Syft command timed out after {timeout} seconds")
+    except subprocess.TimeoutExpired as e:
+        raise RuntimeError(f"Syft command timed out after {timeout} seconds") from e
     except Exception as e:
-        raise RuntimeError(f"Failed to run Syft: {e}")
+        raise RuntimeError(f"Failed to run Syft: {e}") from e
 
 
 if __name__ == "__main__":

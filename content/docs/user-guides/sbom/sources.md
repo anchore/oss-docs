@@ -63,7 +63,7 @@ When you provide an image reference without specifying a source type (no `--from
 
 For example, when you run `syft alpine:latest`, Syft will first check your local Docker daemon for the image. If Docker isn't available, it tries Podman, then Containerd, and finally attempts to pull directly from the registry.
 
-You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific source. See [Configuration](/docs/user-guides/sbom/configuration) for more details.
+You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific source. See [Configuration](/docs/reference/commands/syft-config) for more details.
 
 ### Filesystems
 

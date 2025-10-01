@@ -15,7 +15,7 @@ Syft is provided as a single compiled executable. Run the command for your platf
 {{< tabpane lang="bash">}}
 {{% tab header="Platform:" disabled=true /%}}
 {{< tab header="Linux (and macOS)" >}}
-curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
+curl -sSfL <https://get.anchore.io/syft> | sudo sh -s -- -b /usr/local/bin
 {{< /tab >}}
 {{% tab header="macOS"%}}brew install syft{{% /tab %}}
 {{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}

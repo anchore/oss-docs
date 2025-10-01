@@ -6,7 +6,7 @@ tags = ["syft", "grype", "docker", "container", "authentication", "ecr", "gcr", 
 url = "docs/user-guides/private-registries"
 +++
 
-The Anchore OSS tools analyze container images from private registries using multiple authentication methods. 
+The Anchore OSS tools analyze container images from private registries using multiple authentication methods.
 When a container runtime isn't available, the tools use the [go-containerregistry](https://github.com/google/go-containerregistry/tree/main/pkg/authn) library to handle authentication directly with registries.
 
 When using a container runtime explicitly (for instance, with the `--from docker` flag) the tools defer to the runtime's authentication mechanisms.
@@ -31,6 +31,7 @@ The tools read credentials from `~/.docker/config.json`, the same file Docker us
 Here are examples of what the config looks like if you are crafting it manually:
 
 **Basic authentication example:**
+
 ```json
 {
   "auths": {
@@ -43,6 +44,7 @@ Here are examples of what the config looks like if you are crafting it manually:
 ```
 
 **Token authentication example:**
+
 ```json
 // token auth, where credentials are base64-encoded
 {
@@ -75,7 +77,7 @@ docker run -v ./config.json:/auth/config.json -e "DOCKER_CONFIG=/auth" anchore/s
 
 Docker credential helpers are specialized programs that securely store and retrieve registry credentials. They're particularly useful for cloud provider registries that use dynamic, short-lived tokens.
 
-Instead of storing passwords as plaintext in `config.json`, you configure helpers that generate credentials on-demand. This is facilitated by the [google/go-containerregistry library](https://github.com/google/go-containerregistry/tree/main/pkg/authn#the-config-file). 
+Instead of storing passwords as plaintext in `config.json`, you configure helpers that generate credentials on-demand. This is facilitated by the [google/go-containerregistry library](https://github.com/google/go-containerregistry/tree/main/pkg/authn#the-config-file).
 
 ### Configuring credential helpers
 
@@ -87,10 +89,10 @@ Add credential helpers to your `config.json`:
     // using the docker-credential-gcr for Google Container Registry and Artifact Registry
     "gcr.io": "gcr",
     "us-docker.pkg.dev": "gcloud",
-    
+
     // using the amazon-ecr-credential-helper for AWS Elastic Container Registry
     "123456789012.dkr.ecr.us-west-2.amazonaws.com": "ecr-login",
-    
+
     // using the docker-credential-acr for Azure Container Registry
     "myregistry.azurecr.io": "acr"
   }
@@ -104,10 +106,10 @@ If both `credHelpers` and `auths` are configured for the same registry, `credHel
 {{< /alert >}}
 
 For more information about Docker credential helpers for various cloud providers:
+
 - [ECR authentication documentation](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry_auth.html).
 - [Artifact Registry authentication documentation](https://cloud.google.com/artifact-registry/docs/docker/authentication).
 - [ACR authentication documentation](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-authentication).
-
 
 ## Within Kubernetes
 
@@ -178,4 +180,3 @@ Apply and check logs:
 kubectl apply -f pod.yaml
 kubectl logs syft-private-registry-demo
 ```
-
