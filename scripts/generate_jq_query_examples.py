@@ -5,7 +5,6 @@ Runs Syft to generate SBOMs, then executes jq queries and creates markdown files
 """
 
 import argparse
-import json
 import shutil
 import subprocess
 import sys

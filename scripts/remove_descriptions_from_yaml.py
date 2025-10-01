@@ -2,6 +2,7 @@
 """Remove description field from all YAML files."""
 
 from pathlib import Path
+
 import yaml
 
 yaml_dir = Path("data/sbom/jq-query-examples")

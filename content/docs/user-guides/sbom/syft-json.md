@@ -19,13 +19,185 @@ A Syft JSON output contains these main sections:
 
 ```json
 {
-  "artifacts": [], // All discovered package nodes (names, versions, licenses, purls, cpes, etc.)
-  "files": [], // All discovered file nodes (locations, digests, mime types, etc.)
-  "relationships": [], // Qualified edges between packages, files, and the source nodes
-  "source": {}, // Information about what was scanned (e.g. container image details)
-  "distro": {}, // OS distribution details (if applicable)
-  "descriptor": {}, // Syft version and configuration
-  "schema": {} // Schema version information
+  "artifacts": [],       // Package nodes
+  "artifactRelationships": [], // Edges between packages and files
+  "files": [],           // File nodes
+  "source": {},          // What was scanned
+  "distro": {},          // Linux distribution
+  "descriptor": {},      // Syft version
+  "schema": {}           // Schema version
+}
+```
+
+### Package (artifacts)
+
+A software package discovered by Syft (library, application, OS package, etc.).
+
+```json
+{
+  "id": "abc123",
+  "name": "openssl",
+  "version": "1.1.1k",
+  "type": "apk",               // Package ecosystem (apk, deb, npm, etc.)
+  "foundBy": "apk-cataloger",
+  "locations": [              // Paths used to populate information on this package object
+    {
+      "path": "/lib/apk/db/installed",
+      "layerID": "sha256:...",
+      "accessPath": "/lib/apk/db/installed",
+      "annotations": {
+        "evidence": "primary"  // Qualifies the kind of evidence extracted from this location (primary, supporting)
+      }
+    }
+  ],
+  "licenses": [
+    {
+      "value": "Apache-2.0",       // the raw value discovered
+      "spdxExpression": "Apache-2.0", // the normalized SPDX expression of the discovered value
+      "type": "declared",      // declared, concluded, or observed
+      "urls": ["https://..."],
+      "locations": []          // Where license was found
+    }
+  ],
+  "language": "c",
+  "cpes": [
+    {
+      "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
+      "source": "nvd"          // Where CPE came from
+    }
+  ],
+  "purl": "pkg:apk/alpine/openssl@1.1.1k",
+  "metadata": {}               // Ecosystem-specific fields (varies by type)
+}
+```
+
+The `cpes` array includes a `source` field indicating where the CPE came from. 
+CPEs with `source: "nvd-dictionary"` provide better accuracy for downstream vulnerability matching, while `source: "syft-generated"` are heuristically generated.
+
+### File
+
+A file found on disk or referenced in package manager metadata.
+
+```json
+{
+  "id": "def456",
+  "location": {
+    "path": "/usr/bin/example",
+    "layerID": "sha256:..."     // For container images
+  },
+  "metadata": {
+    "mode": 493,                // File permissions
+    "type": "RegularFile",
+    "mimeType": "application/x-executable",
+    "size": 12345
+  },
+  "digests": [
+    {
+      "algorithm": "sha256",
+      "value": "abc123..."
+    }
+  ],
+  "licenses": [
+    {
+      "value": "Apache-2.0",
+      "spdxExpression": "Apache-2.0",
+      "type": "observed",        // detected, observed, or declared
+      "evidence": {
+        "confidence": 100,
+        "offset": 1234,          // Byte offset in file
+        "extent": 567            // Length of match
+      }
+    }
+  ],
+  "executable": {
+    "format": "elf",             // elf, pe, macho
+    "hasExports": true,
+    "hasEntrypoint": true,
+    "importedLibraries": [       // Shared library dependencies
+      "libc.so.6",
+      "libssl.so.1.1"
+    ],
+    "elfSecurityFeatures": {     // ELF binaries only
+      "symbolTableStripped": false,
+      "stackCanary": true,       // Stack protection
+      "nx": true,                // No-Execute bit
+      "relRO": "full",           // Relocation Read-Only
+      "pie": true                // Position Independent Executable
+    }
+  }
+}
+```
+
+### Relationship
+
+Connects any two nodes (package, file, or source) with a typed relationship.
+
+```json
+{
+  "parent": "package-id",       // Package or file ID
+  "child": "file-id",
+  "type": "contains"            // contains, dependency-of, etc.
+}
+```
+
+### Source
+
+Information about what was scanned (container image, directory, file, etc.).
+
+```json
+{
+  "id": "sha256:...",
+  "name": "alpine:3.9.2",       // User input
+  "version": "sha256:...",
+  "type": "image",              // image, directory, file
+  "metadata": {
+    "imageID": "sha256:...",
+    "manifestDigest": "sha256:...",
+    "mediaType": "application/vnd.docker...",
+    "tags": ["alpine:3.9.2"],
+    "repoDigests": []
+  }
+}
+```
+
+### Distribution
+
+Linux distribution details from `/etc/os-release` or similar sources.
+
+```json
+{
+  "name": "alpine",
+  "version": "3.9.2",
+  "idLike": ["alpine"]          // Related distributions
+}
+```
+
+### Location
+
+Describes where a package or file was found.
+
+```json
+{
+  "path": "/lib/apk/db/installed",
+  "layerID": "sha256:...",
+  "accessPath": "/var/lib/apk/installed",
+  "annotations": {
+    "evidence": "primary"
+  }
+}
+```
+
+The `path` field always contains the real path after resolving symlinks, while `accessPath` shows how Syft accessed the file (which may be through a symlink). The `evidence` annotation indicates whether this location was used to discover the package (`primary`) or contains only auxiliary information (`supporting`).
+
+### Descriptor
+
+Syft version and configuration used to generate this SBOM.
+
+```json
+{
+  "name": "syft",
+  "version": "1.0.0",
+  "configuration": {}           // Syft configuration used
 }
 ```
 
@@ -203,26 +375,6 @@ title=""
 path="content/docs/user-guides/sbom/snippets/jq-queries/packages-with-cves"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-## Example workflow
-
-Here's a complete example of generating and querying a Syft JSON SBOM:
-
-```bash
-# Generate Syft JSON
-syft alpine:latest -o json=alpine.json
-
-# Prettify the output for readability
-jq '.' alpine.json > alpine-pretty.json
-
-# List all packages
-jq -r '.artifacts[] | "\(.name) \(.version)"' alpine.json
-
-# Find security-related packages
-jq '.artifacts[] | select(.name | contains("ssl") or contains("crypto"))' alpine.json
-
-# Export to CSV
-jq -r '.artifacts[] | [.name, .version, .type] | @csv' alpine.json > packages.csv
-```
 
 ## Next steps
 
