@@ -1,0 +1,16 @@
+```text
+alpine-baselayout@3.1.0-r3
+alpine-keys@2.1-r1
+apk-tools@2.10.3-r1
+busybox@1.29.3-r10
+ca-certificates-cacert@20190108-r0
+libc-utils@0.7.1-r0
+libcrypto1.1@1.1.1a-r1
+libssl1.1@1.1.1a-r1
+libtls-standalone@2.7.4-r6
+musl@1.1.20-r3
+musl-utils@1.1.20-r3
+scanelf@1.2.3-r0
+ssl_client@1.29.3-r10
+zlib@1.2.11-r1
+```

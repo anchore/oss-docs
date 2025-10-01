@@ -277,7 +277,9 @@
     "Michał",
     "Polański",
     "Brun",
-    "repackager"
+    "repackager",
+    "println",
+    "gotemplate"
   ],
   "ignorePaths": [
     "themes/**",

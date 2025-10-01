@@ -9,90 +9,153 @@ url = "docs/user-guides/sbom/attestation"
 +++
 
 {{< alert color="warning" title="Experimental Feature" >}}
-This feature is experimental and subject to change.
+This feature is experimental and may change in future releases.
 {{< /alert >}}
 
-### Keyless support
+## Overview
 
-Syft supports generating attestations using cosign's [keyless](https://github.com/sigstore/cosign/blob/main/KEYLESS.md) signatures.
+An attestation is cryptographic proof that you created a specific SBOM for a container image. When you publish an image, consumers need to trust that the SBOM accurately describes the image contents. Attestations solve this by letting you sign SBOMs and attach them to images, enabling consumers to verify authenticity.
 
-Note: users need to have >= v1.12.0 of cosign installed for this command to function
+Syft supports two approaches:
 
-To use this feature with a format like CycloneDX json simply run:
+- **Keyless attestation**: Uses your identity (GitHub, Google, Microsoft) as trust root via Sigstore. Best for CI/CD and teams.
+- **Local key attestation**: Uses cryptographic key pairs you manage. Best for air-gapped environments or specific security requirements.
 
+## Prerequisites
+
+Before creating attestations, ensure you have:
+
+- **Syft** installed
+- **Cosign** ≥ v1.12.0 installed ([installation guide](https://docs.sigstore.dev/cosign/installation/))
+- **Write access** to the OCI registry where you'll publish attestations
+- **Registry authentication** configured (e.g., `docker login` for Docker Hub)
+
+For local key attestations, you'll also need a key pair. Generate one with:
+
+```bash
+cosign generate-key-pair
 ```
-syft attest --output cyclonedx-json <IMAGE WITH OCI WRITE ACCESS>
+
+This creates `cosign.key` (private key) and `cosign.pub` (public key). Keep the private key secure.
+
+## Keyless attestation
+
+Keyless attestation uses Sigstore to tie your OIDC identity (GitHub, Google, or Microsoft account) to the attestation. This eliminates key management overhead.
+
+### Create a keyless attestation
+
+```bash
+syft attest --output cyclonedx-json <IMAGE>
 ```
 
-This command will open a web browser and allow the user to authenticate their OIDC identity as the root of trust for the attestation (Github, Google, Microsoft).
+Replace `<IMAGE>` with your image reference (e.g., `docker.io/myorg/myimage:latest`). You must have write access to this image.
 
-After authenticating, Syft will upload the attestation to the OCI registry specified by the image that the user has write access to.
+**What happens:**
+1. Syft opens your browser to authenticate via OIDC (GitHub, Google, or Microsoft)
+2. After authentication, Syft generates the SBOM
+3. Sigstore signs the SBOM using your identity
+4. The attestation is uploaded to the OCI registry alongside your image
 
-You will need to make sure your credentials are configured for the OCI registry you are uploading to so that the attestation can write successfully.
+### Verify a keyless attestation
 
-Users can then verify the attestation(or any image with attestations) by running:
+Anyone can verify the attestation using cosign:
 
+```bash
+COSIGN_EXPERIMENTAL=1 cosign verify-attestation <IMAGE>
 ```
-COSIGN_EXPERIMENTAL=1 cosign verify-attestation <IMAGE_WITH_ATTESTATIONS>
-```
 
-Users should see that the uploaded attestation claims are validated, the claims exist within the transparency log, and certificates on the attestations were verified against [fulcio](https://github.com/SigStore/fulcio).
-There will also be a printout of the certificates subject `<user identity>` and the certificate issuer URL: `<provider of user identity (Github, Google, Microsoft)>`:
+**Successful output shows:**
+- Attestation claims are validated
+- Claims exist in the Sigstore transparency log
+- Certificates verified against Fulcio (Sigstore's certificate authority)
+- Certificate subject (your identity email)
+- Certificate issuer (identity provider URL)
+
+Example:
 
 ```text
-Certificate subject:  test.email@testdomain.com
+Certificate subject:  user@example.com
 Certificate issuer URL:  https://accounts.google.com
 ```
 
-### Local private key support
+This proves the attestation was created by the specified identity.
 
-To generate an SBOM attestation for a container image using a local private key:
+## Local key attestation
 
-```
-syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
-```
+Local key attestation uses cryptographic key pairs you manage. You sign attestations with your private key, and consumers verify with your public key.
 
-The above output is in the form of the [DSSE envelope](https://github.com/secure-systems-lab/dsse/blob/master/envelope.md#dsse-envelope).
-The payload is a base64 encoded `in-toto` statement with the generated SBOM as the predicate.
+### Create a key-based attestation
 
-### Adding an SBOM to an image as an attestation using Syft
+Generate the attestation and save it locally:
 
-```
-syft attest --output [FORMAT] --key [KEY] [SOURCE] [flags]
+```bash
+syft attest --output spdx-json --key cosign.key docker.io/myorg/myimage:latest > attestation.json
 ```
 
-SBOMs themselves can serve as input to different analysis tools. [Grype](https://github.com/anchore/grype), a vulnerability scanner CLI tool from Anchore, is one such tool. Publishers of container images can use attestations to enable their consumers to trust Syft-generated SBOM descriptions of those container images. To create and provide these attestations, image publishers can run `syft attest` in conjunction with the [cosign](https://github.com/sigstore/cosign) tool to attach SBOM attestations to their images.
+The output is a [DSSE envelope](https://github.com/secure-systems-lab/dsse/blob/master/envelope.md#dsse-envelope) containing an in-toto statement with your SBOM as the predicate.
 
-### Example attestation
+### Attach the attestation to your image
 
-Note for the following example replace `docker.io/image:latest` with an image you own. You should also have push access to
-its remote reference. Replace `$MY_PRIVATE_KEY` with a private key you own or have generated with cosign.
+Use cosign to attach the attestation:
 
-```
-syft attest --key $MY_PRIVATE_KEY -o spdx-json docker.io/image:latest > image_latest_sbom_attestation.json
-cosign attach attestation --attestation image_latest_sbom_attestation.json docker.io/image:latest
+```bash
+cosign attach attestation --attestation attestation.json docker.io/myorg/myimage:latest
 ```
 
-Verify the new attestation exists on your image.
+You need write access to the image registry for this to succeed.
 
-```
-cosign verify-attestation --key $MY_PUBLIC_KEY --type spdxjson docker.io/image:latest | jq '.payload | @base64d | .payload | fromjson | .predicate'
+### Verify a key-based attestation
+
+Consumers verify using your public key:
+
+```bash
+cosign verify-attestation --key cosign.pub --type spdxjson docker.io/myorg/myimage:latest
 ```
 
-You should see this output along with the attached SBOM:
+**Successful output shows:**
 
 ```text
-Verification for docker.io/image:latest --
+Verification for docker.io/myorg/myimage:latest --
 The following checks were performed on each of these signatures:
   - The cosign claims were validated
   - The signatures were verified against the specified public key
   - Any certificates were verified against the Fulcio roots.
 ```
 
-Consumers of your image can now trust that the SBOM associated with your image is correct and from a trusted source.
+To extract and view the SBOM:
 
-The SBOM can be piped to Grype:
+```bash
+cosign verify-attestation --key cosign.pub --type spdxjson docker.io/myorg/myimage:latest | \
+  jq '.payload | @base64d | .payload | fromjson | .predicate'
+```
 
+### Use with vulnerability scanning
+
+Pipe the verified SBOM directly to Grype for vulnerability analysis:
+
+```bash
+cosign verify-attestation --key cosign.pub --type spdxjson docker.io/myorg/myimage:latest | \
+  jq '.payload | @base64d | .payload | fromjson | .predicate' | \
+  grype
 ```
-cosign verify-attestation --key $MY_PUBLIC_KEY --type spdxjson docker.io/image:latest | jq '.payload | @base64d | .payload | fromjson | .predicate' | grype
-```
+
+This ensures you're scanning a verified, trusted SBOM.
+
+## Troubleshooting
+
+**Authentication failures**
+- Ensure you're logged into the registry: `docker login <registry>`
+- Verify you have write access to the image repository
+
+**Cosign version errors**
+- Update to cosign ≥ v1.12.0: `cosign version`
+
+**Verification failures**
+- For keyless: ensure `COSIGN_EXPERIMENTAL=1` is set
+- For key-based: verify you're using the correct public key
+- Check the attestation type matches (`--type spdxjson` or `--type cyclonedx-json`)
+
+**Permission denied uploading attestations**
+- Verify write access to the registry
+- Check authentication credentials are current
+- Ensure the image exists in the registry before attaching attestations

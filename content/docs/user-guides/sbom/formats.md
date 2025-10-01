@@ -18,7 +18,7 @@ syft <image> -o <format>
 ### Syft-native formats
 
 - `table`: A columnar summary (default).
-- `json`: Use this to get as much information out of Syft as possible!
+- `json`: Native output for syft --use this to get as much information out of Syft as possible! (see the [JSON schema](https://github.com/anchore/syft/blob/main/schema/json/schema-latest.json))
 - `purls`: A line-separated list of [Package URLs (PURLs)](https://github.com/package-url/purl-spec) for all discovered packages.
 - `github-json`: A JSON report conforming to GitHub's dependency snapshot format.
 - `template`: Lets the user specify a custom output format via go templates (see [Templates](/docs/user-guides/sbom/templates/) for more detail).

@@ -1,0 +1,17 @@
+```csv
+"Package","Version","Type","Found by"
+"alpine-baselayout","3.1.0-r3","apk","apk-db-cataloger"
+"alpine-keys","2.1-r1","apk","apk-db-cataloger"
+"apk-tools","2.10.3-r1","apk","apk-db-cataloger"
+"busybox","1.29.3-r10","apk","apk-db-cataloger"
+"ca-certificates-cacert","20190108-r0","apk","apk-db-cataloger"
+"libc-utils","0.7.1-r0","apk","apk-db-cataloger"
+"libcrypto1.1","1.1.1a-r1","apk","apk-db-cataloger"
+"libssl1.1","1.1.1a-r1","apk","apk-db-cataloger"
+"libtls-standalone","2.7.4-r6","apk","apk-db-cataloger"
+"musl","1.1.20-r3","apk","apk-db-cataloger"
+"musl-utils","1.1.20-r3","apk","apk-db-cataloger"
+"scanelf","1.2.3-r0","apk","apk-db-cataloger"
+"ssl_client","1.29.3-r10","apk","apk-db-cataloger"
+"zlib","1.2.11-r1","apk","apk-db-cataloger"
+```
