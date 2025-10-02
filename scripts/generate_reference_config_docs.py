@@ -4,68 +4,75 @@ Generate configuration documentation from container images.
 Supports tools that have a 'config' subcommand (like Syft and Grype).
 """
 
-import argparse
 import os
-import subprocess
 import sys
 
+import click
+from utils.syft import run_syft
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate configuration reference documentation"
-    )
-    parser.add_argument("image", help="Container image (e.g., anchore/syft:latest)")
-    parser.add_argument(
-        "--output", "-o", required=True, help="Output markdown file path"
-    )
-    parser.add_argument(
-        "--tool-name",
-        help="Tool name for documentation (auto-detected if not provided)",
-    )
-    parser.add_argument(
-        "--app-name", help="App binary name (auto-detected if not provided)"
-    )
 
-    args = parser.parse_args()
+@click.command()
+@click.argument("image")
+@click.option(
+    "--output",
+    "-o",
+    required=True,
+    help="Output markdown file path",
+)
+@click.option(
+    "--tool-name",
+    help="Tool name for documentation (auto-detected if not provided)",
+)
+@click.option(
+    "--app-name",
+    help="App binary name (auto-detected if not provided)",
+)
+def main(
+    image: str,
+    output: str,
+    tool_name: str | None,
+    app_name: str | None,
+) -> None:
+    """Generate configuration reference documentation.
 
+    IMAGE: Container image (e.g., anchore/syft:latest)
+    """
     # Auto-detect tool and app names if not provided
-    if not args.tool_name:
+    if not tool_name:
         # Extract tool name from image name (e.g., anchore/syft:latest -> syft)
-        image_parts = args.image.split("/")
+        image_parts = image.split("/")
         if len(image_parts) > 1:
             tool_part = image_parts[-1].split(":")[0]
         else:
-            tool_part = args.image.split(":")[0]
-        args.tool_name = tool_part
+            tool_part = image.split(":")[0]
+        tool_name = tool_part
 
-    if not args.app_name:
-        args.app_name = args.tool_name
+    if not app_name:
+        app_name = tool_name
 
-    print(
-        f"Generating configuration docs for {args.tool_name} using image {args.image}..."
-    )
+    print(f"Generating configuration docs for {tool_name} using image {image}...")
 
     # Create output directory if it doesn't exist
-    output_dir = os.path.dirname(args.output)
+    output_dir = os.path.dirname(output)
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
     # Generate markdown content
     try:
-        content = generate_markdown_content(args.image, args.app_name, args.tool_name)
+        content = generate_markdown_content(image, app_name, tool_name)
 
         # Write to file
-        with open(args.output, "w", encoding="utf-8") as f:
+        with open(output, "w", encoding="utf-8") as f:
             f.write(content)
 
-        print(f"Configuration docs generated successfully: {args.output}")
+        print(f"Configuration docs generated successfully: {output}")
 
     except Exception as e:
         print(f"Error generating configuration documentation: {e}", file=sys.stderr)
         sys.exit(1)
 
 
-def generate_markdown_content(image, app_name, tool_name) -> str:
+def generate_markdown_content(image: str, app_name: str, tool_name: str) -> str:
     """Generate the complete markdown content for config documentation."""
     # Prepare tool name for display
     tool_display = tool_name.title()
@@ -110,7 +117,7 @@ This documentation was generated from {tool_display} version `{app_version}`.
     return content
 
 
-def get_config_locations_section(app_name, tool_display) -> str:
+def get_config_locations_section(app_name: str, tool_display: str) -> str:
     """Generate markdown section describing configuration file search locations."""
     return f"""
 {tool_display} searches for configuration files in the following locations, in order:
@@ -125,9 +132,12 @@ The configuration file can use either `.yaml` or `.yml` extensions. The first co
 """
 
 
-def get_app_version(image) -> str | None:
+def get_app_version(image: str) -> str | None:
     """Get the application version from the image."""
-    stdout, stderr, returncode = run_docker_command(image, ["version"])
+    stdout, stderr, returncode = run_syft(
+        syft_image=image,
+        args=["version"],
+    )
     if returncode == 0:
         for line in stdout.splitlines():
             if line.startswith("Version:"):
@@ -135,26 +145,15 @@ def get_app_version(image) -> str | None:
     return None
 
 
-def get_config_output(image) -> str | None:
+def get_config_output(image: str) -> str | None:
     """Get configuration output from the app."""
-    stdout, stderr, returncode = run_docker_command(image, ["config"])
+    stdout, stderr, returncode = run_syft(
+        syft_image=image,
+        args=["config"],
+    )
     if returncode == 0:
         return stdout.strip()
     return None
-
-
-def run_docker_command(image, cmd_parts: list[str], timeout=10) -> tuple[str, str, int]:
-    """Run a command inside a Docker container."""
-    docker_cmd = ["docker", "run", "--rm", image] + cmd_parts
-    try:
-        result = subprocess.run(
-            docker_cmd, capture_output=True, text=True, timeout=timeout
-        )
-        return result.stdout, result.stderr, result.returncode
-    except subprocess.TimeoutExpired:
-        return "", "Command timed out", 1
-    except Exception as e:
-        return "", str(e), 1
 
 
 if __name__ == "__main__":

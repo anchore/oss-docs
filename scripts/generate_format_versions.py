@@ -8,12 +8,14 @@ formats and their supported versions, then generates:
 2. A markdown snippet showing formats with multiple versions
 """
 
-import argparse
 import json
 import re
 import subprocess
 import sys
 from pathlib import Path
+
+import click
+from utils.config import docker_images, paths, timeouts
 
 
 def extract_format_versions():
@@ -25,10 +27,10 @@ def extract_format_versions():
     try:
         # run syft with an invalid format to trigger the error message
         result = subprocess.run(
-            ["syft", "busybox:latest", "-o", "fake"],
+            ["syft", docker_images.busybox_test, "-o", "fake"],
             capture_output=True,
             text=True,
-            timeout=60,
+            timeout=timeouts.syft_format_version_check,
         )
 
         # the format list will be in stderr
@@ -122,36 +124,20 @@ def load_existing_formats(json_path: Path):
         return None
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate format version information from Syft output"
-    )
-    parser.add_argument(
-        "--update",
-        action="store_true",
-        help="Update the JSON file even if it already exists",
-    )
-    args = parser.parse_args()
-
-    # determine project root
-    script_dir = Path(__file__).parent
-    project_root = script_dir.parent
-
-    # define output paths
-    json_output = project_root / "data" / "format-versions.json"
-    md_output = (
-        project_root
-        / "content"
-        / "docs"
-        / "user-guides"
-        / "sbom"
-        / "snippets"
-        / "format"
-        / "versions.md"
-    )
+@click.command()
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the JSON file even if it already exists",
+)
+def main(update: bool) -> None:
+    """Generate format version information from Syft output."""
+    # define output paths from config
+    json_output = paths.format_versions_json
+    md_output = paths.format_versions_snippet
 
     # check if JSON file already exists
-    if json_output.exists() and not args.update:
+    if json_output.exists() and not update:
         print(f"Using existing {json_output}")
         formats = load_existing_formats(json_output)
         if formats is None:

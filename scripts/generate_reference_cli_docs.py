@@ -4,76 +4,87 @@ Generate command reference documentation from container images.
 Supports Cobra-based CLIs (like Syft and Grype).
 """
 
-import argparse
 import os
-import subprocess
 import sys
 from collections import deque
 
+import click
+from utils.syft import run_syft
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate command reference documentation"
-    )
-    parser.add_argument("image", help="Container image (e.g., anchore/syft:latest)")
-    parser.add_argument(
-        "--output", "-o", required=True, help="Output markdown file path"
-    )
-    parser.add_argument(
-        "--tool-name",
-        help="Tool name for documentation (auto-detected if not provided)",
-    )
-    parser.add_argument(
-        "--app-name", help="App binary name (auto-detected if not provided)"
-    )
-    parser.add_argument(
-        "--include-all-cmds",
-        action="store_true",
-        help="Include all commands including parent commands that have subcommands (default: only leaf commands)",
-    )
-    parser.add_argument(
-        "--include-cmd",
-        action="append",
-        help="Include specific commands even if they are parent commands (can be used multiple times)",
-    )
 
-    args = parser.parse_args()
+@click.command()
+@click.argument("image")
+@click.option(
+    "--output",
+    "-o",
+    required=True,
+    help="Output markdown file path",
+)
+@click.option(
+    "--tool-name",
+    help="Tool name for documentation (auto-detected if not provided)",
+)
+@click.option(
+    "--app-name",
+    help="App binary name (auto-detected if not provided)",
+)
+@click.option(
+    "--include-all-cmds",
+    is_flag=True,
+    help="Include all commands including parent commands that have subcommands (default: only leaf commands)",
+)
+@click.option(
+    "--include-cmd",
+    multiple=True,
+    help="Include specific commands even if they are parent commands (can be used multiple times)",
+)
+def main(
+    image: str,
+    output: str,
+    tool_name: str | None,
+    app_name: str | None,
+    include_all_cmds: bool,
+    include_cmd: tuple[str, ...],
+) -> None:
+    """Generate command reference documentation.
 
+    IMAGE: Container image (e.g., anchore/syft:latest)
+    """
     # Auto-detect tool and app names if not provided
-    if not args.tool_name:
+    if not tool_name:
         # Extract tool name from image name (e.g., anchore/syft:latest -> syft)
-        image_parts = args.image.split("/")
+        image_parts = image.split("/")
         if len(image_parts) > 1:
             tool_part = image_parts[-1].split(":")[0]
         else:
-            tool_part = args.image.split(":")[0]
-        args.tool_name = tool_part
+            tool_part = image.split(":")[0]
+        tool_name = tool_part
 
-    if not args.app_name:
-        args.app_name = args.tool_name
+    if not app_name:
+        app_name = tool_name
 
-    print(f"Generating CLI docs for {args.tool_name} using image {args.image}...")
+    print(f"Generating CLI docs for {tool_name} using image {image}...")
 
     # Create output directory if it doesn't exist
-    output_dir = os.path.dirname(args.output)
+    output_dir = os.path.dirname(output)
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
 
     # Generate markdown content
     try:
         content = generate_markdown_content(
-            args.image,
-            args.app_name,
-            args.tool_name,
-            args.include_all_cmds,
-            args.include_cmd,
+            image,
+            app_name,
+            tool_name,
+            include_all_cmds,
+            list(include_cmd) if include_cmd else None,
         )
 
         # Write to file
-        with open(args.output, "w", encoding="utf-8") as f:
+        with open(output, "w", encoding="utf-8") as f:
             f.write(content)
 
-        print(f"CLI docs generated successfully: {args.output}")
+        print(f"CLI docs generated successfully: {output}")
 
     except Exception as e:
         print(f"Error generating documentation: {e}", file=sys.stderr)
@@ -81,11 +92,11 @@ def main() -> None:
 
 
 def generate_markdown_content(
-    image,
-    app_name,
-    tool_name,
+    image: str,
+    app_name: str,
+    tool_name: str,
     include_all_cmds: bool = False,
-    include_specific_cmds=None,
+    include_specific_cmds: list[str] | None = None,
 ) -> str:
     """Generate the complete markdown content."""
     # Prepare tool name for display
@@ -174,7 +185,7 @@ This documentation was generated from {tool_display} version `{app_version}`.
     return content
 
 
-def discover_all_commands(image, app_name):
+def discover_all_commands(image: str, app_name: str):
     """Discover all commands recursively.
 
     Returns a tuple of (all_commands, leaf_commands) where:
@@ -215,9 +226,12 @@ def discover_all_commands(image, app_name):
     return all_commands, leaf_commands
 
 
-def get_subcommands(image, cmd_parts):
+def get_subcommands(image: str, cmd_parts):
     """Extract subcommands from help output."""
-    stdout, stderr, returncode = run_docker_command(image, cmd_parts + ["help"])
+    stdout, stderr, returncode = run_syft(
+        syft_image=image,
+        args=cmd_parts + ["help"],
+    )
 
     if returncode != 0:
         return []
@@ -241,15 +255,18 @@ def get_subcommands(image, cmd_parts):
     return commands
 
 
-def get_version_info(image, app_name) -> str:
+def get_version_info(image: str, app_name: str) -> str:
     """Get version information from the app."""
-    stdout, stderr, returncode = run_docker_command(image, ["version"])
+    stdout, stderr, returncode = run_syft(
+        syft_image=image,
+        args=["version"],
+    )
     if returncode == 0:
         return stdout.strip()
     raise RuntimeError(f"Failed to retrieve version info from the image '{image}'.")
 
 
-def get_command_help(image, cmd_parts) -> str:
+def get_command_help(image: str, cmd_parts) -> str:
     """Get help output for a specific command."""
     print(
         "   ...Getting help output for command:",
@@ -262,7 +279,10 @@ def get_command_help(image, cmd_parts) -> str:
         else:
             full_cmd = cmd_parts + [help_flag]
 
-        stdout, stderr, returncode = run_docker_command(image, full_cmd)
+        stdout, stderr, returncode = run_syft(
+            syft_image=image,
+            args=full_cmd,
+        )
         if returncode == 0 and stdout.strip():
             return stdout.strip()
 
@@ -337,20 +357,6 @@ def split_help_output(help_output: str, is_main_help=False) -> tuple[str, str]:
     command_details = "\n".join(command_details_lines)
 
     return description, command_details
-
-
-def run_docker_command(image, cmd_parts: list[str], timeout=10) -> tuple[str, str, int]:
-    """Run a command inside a Docker container."""
-    docker_cmd = ["docker", "run", "--rm", image] + cmd_parts
-    try:
-        result = subprocess.run(
-            docker_cmd, capture_output=True, text=True, timeout=timeout
-        )
-        return result.stdout, result.stderr, result.returncode
-    except subprocess.TimeoutExpired:
-        return "", "Command timed out", 1
-    except Exception as e:
-        return "", str(e), 1
 
 
 if __name__ == "__main__":

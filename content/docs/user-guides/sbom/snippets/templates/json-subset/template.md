@@ -1,4 +1,4 @@
-```gotemplate
+```go-text-template
 {
   "scanned": "{{.source.metadata.userInput}}",
   "packages": [

@@ -45,9 +45,9 @@ busybox-binsh           1.37.0-r12   apk
 ...
 ```
 
-{{% alert title="Learn more" color="primary" %}}
+{{< alert title="Learn more" color="primary" >}}
 Syft supports more than just containers. Learn more about [Supported Sources](/docs/user-guides/sbom/sources/)
-{{% /alert %}}
+{{< /alert >}}
 
 ## Create an industry-standard SBOM
 
@@ -59,9 +59,9 @@ syft alpine:latest -o table -o spdx-json=alpine.spdx.json -o cyclonedx-json=alpi
 
 The same table will be displayed, and two SBOM files will be created in the current directory.
 
-{{% alert title="Learn more" color="primary" %}}
+{{< alert title="Learn more" color="primary" >}}
 Syft supports multiple SBOM output formats, find out more about [Output Formats](/docs/user-guides/sbom/formats/).
-{{% /alert %}}
+{{< /alert >}}
 
 ### Examine the SBOM file contents
 

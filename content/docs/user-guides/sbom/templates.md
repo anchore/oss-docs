@@ -129,11 +129,11 @@ tabs="template|template.md,output|output.md" >}}
 
 **Template syntax errors:** Refer to the [Go template documentation](https://pkg.go.dev/text/template) for syntax help.
 
-{{% alert title="Note" color="primary" %}}
+{{< alert title="Note" color="info" >}}
 If you have templates from before Syft v0.102.0 that no longer work, set `format.template.legacy: true` in your configuration. This uses internal Go structs instead of the JSON output schema.
 
 Long-term support for this legacy option is not guaranteed.
-{{% /alert %}}
+{{< /alert >}}
 
 ## Additional resources
 

@@ -2,15 +2,33 @@ version: '3'
 
 tasks:
 
-  # Orchestration task to generate all reference documentation
-  reference:
+  # Default task to generate all documentation
+  default:
+    desc: Generate all documentation (reference docs and user guides)
+    cmds:
+      - task: references
+      - task: user-guides
+
+  # Generate all reference documentation
+  references:
     desc: Generate all reference documentation (Syft + Grype, CLI + config)
-    deps:
-      - syft
-      - grype
+    cmds:
+      - task: syft:cli
+      - task: syft:config
+      - task: grype:cli
+      - task: grype:config
+
+  # Generate all user guide examples and documentation
+  user-guides:
+    desc: Generate all user guide documentation (formats, jq queries, templates)
+    cmds:
+      - task: sbom:format:examples
+      - task: sbom:format:versions
+      - task: sbom:jq:examples
+      - task: sbom:template:examples
 
   # Trigger GitHub Actions workflow to generate docs and create PR
-  reference:pr:
+  references:pr:
     desc: Trigger GitHub Actions workflow to generate reference docs and create PR
     cmds:
       - |
@@ -51,12 +69,6 @@ tasks:
     cmds:
       - uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/commands/syft-config.md --tool-name syft
 
-  syft:
-    desc: Generate all Syft documentation (CLI + config)
-    deps:
-      - syft:cli
-      - syft:config
-
   # Grype tasks
   grype:cli:
     desc: Generate Grype command line reference documentation
@@ -68,8 +80,25 @@ tasks:
     cmds:
       - uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/commands/grype-config.md --tool-name grype
 
-  grype:
-    desc: Generate all Grype documentation (CLI + config)
-    deps:
-      - grype:cli
-      - grype:config
+  # Format tasks
+  sbom:format:examples:
+    desc: Generate SBOM format examples
+    cmds:
+      - uv run ./scripts/generate_format_examples.py
+
+  sbom:format:versions:
+    desc: Generate format version information
+    cmds:
+      - uv run ./scripts/generate_format_versions.py
+
+  # jq query tasks
+  sbom:jq:examples:
+    desc: Generate jq query example documentation
+    cmds:
+      - uv run ./scripts/generate_jq_query_examples.py
+
+  # Template tasks
+  sbom:template:examples:
+    desc: Generate template example documentation
+    cmds:
+      - uv run ./scripts/generate_template_examples.py

@@ -1,4 +1,4 @@
-```gotemplate
+```go-text-template
 # SBOM Report: {{.source.metadata.userInput}}
 
 Scanned: {{.source.name}}:{{.source.version}} ({{.source.type}})

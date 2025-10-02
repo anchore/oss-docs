@@ -30,7 +30,7 @@ syft <source> --exclude './out/**/*.json'
 syft <source> --exclude './out/**/*.json' --exclude /etc --exclude '**/*.log'
 ```
 
-{{< alert title="Tip" >}}
+{{< alert title="Tip" color="primary" >}}
 Always wrap glob patterns in single quotes to prevent your shell from expanding wildcards:
 
 ```bash
@@ -75,7 +75,7 @@ syft /usr/foo --exclude './out/**'            # Excludes everything under /usr/f
 | `*/`    | One level of directories        | `*/temp`          |
 | `**/`   | Any depth of directories        | `**/node_modules` |
 
-{{< alert title="Note" color="warning" >}}
+{{< alert title="Note" color="info" >}}
 When scanning directories, you cannot use absolute paths like `/etc` or `/usr/**/*.txt`. The pattern must begin with `./`, `*/`, or `**/` to be resolved relative to your specified scan directory.
 {{< /alert >}}
 

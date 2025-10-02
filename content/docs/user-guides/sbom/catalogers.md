@@ -7,20 +7,19 @@ url = "docs/user-guides/sbom/catalogers"
 
 +++
 
-## Quick Start
-
-{{% alert title="TL;DR" color="primary" %}}
+{{< alert title="TL;DR" color="primary" >}}
 
 - **Syft automatically picks the right catalogers for you** (recommended for most users)
 - **Scanning a container image?** Finds installed packages (like Python packages in `site-packages`)
 - **Scanning a directory?** Finds both installed packages and declared dependencies (like `requirements.txt`)
 - **Want to customize?** Use `--select-catalogers` to filter, add, or remove catalogers
 - **Need complete control?** Use `--override-default-catalogers` to replace all defaults
-  {{% /alert %}}
 
-## Overview
+{{< /alert >}}
 
-Catalogers are Syft's detection modules that identify software packages in your projects. Each cataloger specializes in finding specific types of packages—for example, `python-package-cataloger` finds Python dependencies declared in `requirements.txt`, while `python-installed-package-cataloger` finds Python packages that have already been installed.
+Catalogers are Syft's detection modules that identify software packages in your projects.
+Each cataloger specializes in finding specific types of packages—for example, `python-package-cataloger` finds Python dependencies declared in `requirements.txt`,
+while `python-installed-package-cataloger` finds Python packages that have already been installed.
 
 Syft includes dozens of catalogers covering languages like Python, Java, Go, JavaScript, Ruby, Rust, and more, as well as OS packages (APK, RPM, DEB) and binary formats.
 
@@ -33,12 +32,16 @@ Syft uses different cataloger sets depending on what you're scanning:
 | **Container Image** | Image-specific catalogers     | Installed packages only                    | Python packages in `site-packages`                        |
 | **Directory**       | Directory-specific catalogers | Installed packages + declared dependencies | Python packages in `site-packages` AND `requirements.txt` |
 
-This behavior ensures accurate results across different contexts. When you scan an image, Syft assumes installation steps have completed --this way you are getting results for software that is positively present.
-When you scan a directory (like a source code repository), Syft looks for both what's installed and what's declared as a dependency --this way you are getting results for not only what's installed but also what you intend to install.
+This behavior ensures accurate results across different contexts. When you scan an image, Syft assumes installation steps
+have completed --this way you are getting results for software that is positively present.
+When you scan a directory (like a source code repository), Syft looks for both what's installed and what's declared as
+a dependency --this way you are getting results for not only what's installed but also what you intend to install.
 
 ### Why use different catalogers for different sources?
 
-Most of the time, files that hint at the intent to install software do not have enough information in them to determine the exact version of the package that would be installed. For example, a `requirements.txt` file might specify a package without a version, or with a version range. By looking at installed packages in an image, after any build tooling has been invoked, Syft can provide more accurate version information.
+Most of the time, files that hint at the intent to install software do not have enough information in them to determine the exact version of the package that would be installed.
+For example, a `requirements.txt` file might specify a package without a version, or with a version range.
+By looking at installed packages in an image, after any build tooling has been invoked, Syft can provide more accurate version information.
 
 ### Example: Python Package Detection
 
@@ -199,9 +202,9 @@ Use this flag to adjust the default cataloger set. This is the recommended appro
 3. Remove any catalogers matching `-<name-or-tag>`
 4. Add any catalogers specified with `+<name>`
 
-{{% alert title="Note" color="info" %}}
+{{< alert title="Note" color="info" >}}
 Added catalogers (prefixed with `+`) are always included, regardless of other filters or removals.
-{{% /alert %}}
+{{< /alert >}}
 
 ### `--override-default-catalogers`: Replace Defaults
 
@@ -219,9 +222,9 @@ Use this flag to completely replace Syft's default cataloger selection. This byp
 - You want to use catalogers that aren't in the default set
 - You need precise control regardless of scan type
 
-{{% alert title="Warning" color="warning" %}}
+{{< alert title="Warning" color="warning" >}}
 Overriding defaults can lead to incomplete or inaccurate results if you don't include all necessary catalogers. Use `--select-catalogers` for most cases.
-{{% /alert %}}
+{{< /alert >}}
 
 ## Examples by Use Case
 

@@ -3,16 +3,99 @@ SPDXVersion: SPDX-2.3
 DataLicense: CC0-1.0
 SPDXID: SPDXRef-DOCUMENT
 DocumentName: busybox
-DocumentNamespace: https://anchore.com/syft/image/busybox-b39723f8-5c34-49d7-b928-aeac1021603c
+DocumentNamespace: https://anchore.com/syft/image/busybox-d8470b50-f15a-49ec-8202-aea511969a31
 LicenseListVersion: 3.27
 Creator: Organization: Anchore, Inc
 Creator: Tool: syft-1.33.0
-Created: 2025-10-02T01:46:51Z
+Created: 2025-10-02T20:50:39Z
 
 ##### Unpackaged files
 
 FileName: bin/[
 SPDXID: SPDXRef-File-bin---de0bf36b25443562
+FileType: APPLICATION
+FileType: BINARY
+FileChecksum: SHA1: 99f9c7cb06f6f8f074b5c16245f295e33844855a
+FileChecksum: SHA256: 8a4212147744cedcf7f679c81921942c81eb3b8d356bbb2b08b51336b2fe8add
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: bin/getconf
+SPDXID: SPDXRef-File-bin-getconf-b240ee11665506ce
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/ld-linux-aarch64.so.1
+SPDXID: SPDXRef-File-lib-ld-linux-aarch64.so.1-48a6e9fa63c5f6cc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libc.so.6
+SPDXID: SPDXRef-File-lib-libc.so.6-a2dc8cb35e1e0485
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libm.so.6
+SPDXID: SPDXRef-File-lib-libm.so.6-8746a5a87ab9e597
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libnss_compat.so.2
+SPDXID: SPDXRef-File-lib-libnss-compat.so.2-75835d9334e3cd14
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libnss_dns.so.2
+SPDXID: SPDXRef-File-lib-libnss-dns.so.2-a75d014485c88e79
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libnss_files.so.2
+SPDXID: SPDXRef-File-lib-libnss-files.so.2-b5abc725c65d58cf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libnss_hesiod.so.2
+SPDXID: SPDXRef-File-lib-libnss-hesiod.so.2-8570ef9dff59aa56
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libpthread.so.0
+SPDXID: SPDXRef-File-lib-libpthread.so.0-585855f0b92c8232
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+
+FileName: lib/libresolv.so.2
+SPDXID: SPDXRef-File-lib-libresolv.so.2-ee8c205846a71e54
 FileChecksum: SHA1: 0000000000000000000000000000000000000000
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION

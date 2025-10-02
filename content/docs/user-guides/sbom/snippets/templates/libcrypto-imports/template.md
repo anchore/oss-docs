@@ -1,4 +1,4 @@
-```gotemplate
+```go-text-template
 {{range .files -}}
 {{- if .executable}}
 {{- $path := .location.path}}

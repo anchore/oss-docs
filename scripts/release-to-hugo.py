@@ -7,11 +7,11 @@ to Hugo markdown files with minimal processing, preserving the original format
 and converting GitHub usernames to links.
 """
 
-import argparse
 import os
 import re
 from datetime import datetime
 
+import click
 import requests
 
 # GitHub API configuration
@@ -54,7 +54,7 @@ def link_github_users(text: str) -> str:
     return re.sub(r"(?<!\[)@(\w+)", r"[@\1](https://github.com/\1)", text)
 
 
-def generate_hugo_content(release, repo_name) -> str:
+def generate_hugo_content(release, repo_name: str) -> str:
     """Generate Hugo markdown content for a release with minimal processing"""
     # Format release date
     release_date = datetime.strptime(release["published_at"], "%Y-%m-%dT%H:%M:%SZ")
@@ -118,39 +118,48 @@ Version [{version}]({release["html_url"]})
     return content
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate Hugo markdown files from GitHub releases with minimal processing"
-    )
-    parser.add_argument(
-        "--repo",
-        required=True,
-        help="Repository name (e.g., syft, grype). Always uses anchore/<repo>",
-    )
-    parser.add_argument("--token", help="GitHub API token for authentication")
-    parser.add_argument(
-        "--output-dir", required=True, help="Directory to save the Hugo markdown files"
-    )
-    parser.add_argument(
-        "--limit", type=int, help="Limit the number of releases to process"
-    )
-    parser.add_argument(
-        "--weight",
-        type=int,
-        default=10,
-        help="Weight for the _index.md front matter (default: 10)",
-    )
-    args = parser.parse_args()
-
-    repo_name = args.repo
-    repo_full = f"anchore/{repo_name}"
+@click.command()
+@click.option(
+    "--repo",
+    required=True,
+    help="Repository name (e.g., syft, grype). Always uses anchore/<repo>",
+)
+@click.option(
+    "--token",
+    help="GitHub API token for authentication",
+)
+@click.option(
+    "--output-dir",
+    required=True,
+    help="Directory to save the Hugo markdown files",
+)
+@click.option(
+    "--limit",
+    type=int,
+    help="Limit the number of releases to process",
+)
+@click.option(
+    "--weight",
+    type=int,
+    default=10,
+    help="Weight for the _index.md front matter (default: 10)",
+)
+def main(
+    repo: str,
+    token: str | None,
+    output_dir: str,
+    limit: int | None,
+    weight: int,
+) -> None:
+    """Generate Hugo markdown files from GitHub releases with minimal processing."""
+    repo_full = f"anchore/{repo}"
 
     # Create output directory if it doesn't exist
-    os.makedirs(args.output_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=True)
 
     # Fetch releases
     print(f"Fetching releases from {repo_full} on GitHub...")
-    releases = fetch_releases(repo_full, token=args.token, limit=args.limit)
+    releases = fetch_releases(repo_full, token=token, limit=limit)
     print(f"Found {len(releases)} releases")
 
     # Process each release
@@ -161,7 +170,7 @@ def main() -> None:
 
         # Create filename
         filename = f"{release['tag_name']}.md"
-        filepath = os.path.join(args.output_dir, filename)
+        filepath = os.path.join(output_dir, filename)
 
         if os.path.exists(filepath):
             print(f"Skipping existing release: {release['tag_name']} (already exists)")
@@ -170,7 +179,7 @@ def main() -> None:
         print(f"Processing release: {release['tag_name']}")
 
         # Generate Hugo content
-        content = generate_hugo_content(release, repo_name)
+        content = generate_hugo_content(release, repo)
 
         # Write the file
         with open(filepath, "w") as f:
@@ -190,7 +199,7 @@ def main() -> None:
         release_tags = [
             tag
             for tag in release_tags
-            if os.path.exists(os.path.join(args.output_dir, f"{tag}.md"))
+            if os.path.exists(os.path.join(output_dir, f"{tag}.md"))
         ]
         # Sort tags by semantic version (if possible), otherwise by string
         release_tags_sorted = sorted(
@@ -199,22 +208,22 @@ def main() -> None:
         latest_10 = release_tags_sorted[:10]
 
         # Compose _index.md front matter and list
-        repo_tag = repo_name
-        repo_title = repo_name.capitalize()
+        repo_tag = repo
+        repo_title = repo.capitalize()
         index_md = f"""+++
 tags = ['{repo_tag}']
 categories = ['release']
 title = \"{repo_title} Release Notes\"
 linkTitle = \"{repo_title}\"
-url = \"docs/releases/{repo_name}\"
+url = \"docs/releases/{repo}\"
 description = \"Anchore {repo_title} Release Notes\"
-weight = {args.weight}
+weight = {weight}
 +++
 \n"""
         for tag in latest_10:
             index_md += f"- [{tag}](./{tag}/)\n"
         # Write _index.md
-        with open(os.path.join(args.output_dir, "_index.md"), "w") as f:
+        with open(os.path.join(output_dir, "_index.md"), "w") as f:
             f.write(index_md)
     except ImportError:
         print(
