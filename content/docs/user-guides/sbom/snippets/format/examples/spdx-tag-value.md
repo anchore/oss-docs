@@ -3,11 +3,11 @@ SPDXVersion: SPDX-2.3
 DataLicense: CC0-1.0
 SPDXID: SPDXRef-DOCUMENT
 DocumentName: busybox
-DocumentNamespace: https://anchore.com/syft/image/busybox-c127c4c1-1367-410f-939b-515829cbc5f3
+DocumentNamespace: https://anchore.com/syft/image/busybox-b39723f8-5c34-49d7-b928-aeac1021603c
 LicenseListVersion: 3.27
 Creator: Organization: Anchore, Inc
 Creator: Tool: syft-1.33.0
-Created: 2025-09-30T21:08:59Z
+Created: 2025-10-02T01:46:51Z
 
 ##### Unpackaged files
 

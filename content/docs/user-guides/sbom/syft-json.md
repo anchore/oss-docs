@@ -6,25 +6,23 @@ tags = ["syft", "sbom", "json", "jq"]
 url = "docs/user-guides/sbom/syft-json"
 +++
 
-Syft's native JSON format contains the most complete information extracted when discovering software components.
-This format captures all package metadata, file details, relationships, and source information that Syft discovers.
+Syft's native JSON format provides the most comprehensive view of discovered software components, capturing all package metadata, file details, relationships, and source information.
 
-Since Syft can [convert from its native JSON format to other SBOM formats](/docs/user-guides/sbom/conversion/), it's
-often a good idea to at least capture your SBOM in the native Syft JSON format, allowing you to generate any other
-SBOM format for your compliance needs.
+Since Syft can [convert from its native JSON format to standard SBOM formats](/docs/user-guides/sbom/conversion/),
+capturing your SBOM in Syft JSON format lets you generate any SBOM format as needed for compliance requirements.
 
-## Basic structure
+## Data Shapes
 
 A Syft JSON output contains these main sections:
 
 ```json
 {
-  "artifacts": [], // Package nodes
+  "artifacts": [], // Package nodes discovered
   "artifactRelationships": [], // Edges between packages and files
-  "files": [], // File nodes
-  "source": {}, // What was scanned
-  "distro": {}, // Linux distribution
-  "descriptor": {}, // Syft version
+  "files": [], // File nodes discovered
+  "source": {}, // What was scanned (the image, directory, etc.)
+  "distro": {}, // Linux distribution discovered
+  "descriptor": {}, // Syft version and configuration that captured this SBOM
   "schema": {} // Schema version
 }
 ```
@@ -35,7 +33,7 @@ A software package discovered by Syft (library, application, OS package, etc.).
 
 ```json
 {
-  "id": "abc123",
+  "id": "74d9294c42941b37", // Unique identifier for this package that is content addressable
   "name": "openssl",
   "version": "1.1.1k",
   "type": "apk", // Package ecosystem (apk, deb, npm, etc.)
@@ -43,9 +41,9 @@ A software package discovered by Syft (library, application, OS package, etc.).
   "locations": [
     // Paths used to populate information on this package object
     {
-      "path": "/lib/apk/db/installed",
+      "path": "/lib/apk/db/installed", // Always the real-path
       "layerID": "sha256:...",
-      "accessPath": "/lib/apk/db/installed",
+      "accessPath": "/lib/apk/db/installed", // How Syft accessed the file (may be a symlink)
       "annotations": {
         "evidence": "primary" // Qualifies the kind of evidence extracted from this location (primary, supporting)
       }
@@ -53,9 +51,9 @@ A software package discovered by Syft (library, application, OS package, etc.).
   ],
   "licenses": [
     {
-      "value": "Apache-2.0", // the raw value discovered
-      "spdxExpression": "Apache-2.0", // the normalized SPDX expression of the discovered value
-      "type": "declared", // declared, concluded, or observed
+      "value": "Apache-2.0", // Raw value discovered
+      "spdxExpression": "Apache-2.0", // Normalized SPDX expression of the discovered value
+      "type": "declared", // "declared", "concluded", or "observed"
       "urls": ["https://..."],
       "locations": [] // Where license was found
     }
@@ -64,16 +62,13 @@ A software package discovered by Syft (library, application, OS package, etc.).
   "cpes": [
     {
       "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
-      "source": "nvd" // Where CPE came from
+      "source": "nvd-dictionary" // Where the CPE was derived from (nvd-dictionary or syft-generated)
     }
   ],
   "purl": "pkg:apk/alpine/openssl@1.1.1k",
   "metadata": {} // Ecosystem-specific fields (varies by type)
 }
 ```
-
-The `cpes` array includes a `source` field indicating where the CPE came from.
-CPEs with `source: "nvd-dictionary"` provide better accuracy for downstream vulnerability matching, while `source: "syft-generated"` are heuristically generated.
 
 ### File
 
@@ -87,10 +82,10 @@ A file found on disk or referenced in package manager metadata.
     "layerID": "sha256:..." // For container images
   },
   "metadata": {
-    "mode": 493, // File permissions
+    "mode": 493, // File permissions in octal
     "type": "RegularFile",
     "mimeType": "application/x-executable",
-    "size": 12345
+    "size": 12345 // Size in bytes
   },
   "digests": [
     {
@@ -100,9 +95,9 @@ A file found on disk or referenced in package manager metadata.
   ],
   "licenses": [
     {
-      "value": "Apache-2.0",
-      "spdxExpression": "Apache-2.0",
-      "type": "observed", // detected, observed, or declared
+      "value": "Apache-2.0", // Raw value discovered
+      "spdxExpression": "Apache-2.0", // Normalized SPDX expression of the discovered value
+      "type": "declared", // "declared", "concluded", or "observed"
       "evidence": {
         "confidence": 100,
         "offset": 1234, // Byte offset in file
@@ -111,7 +106,7 @@ A file found on disk or referenced in package manager metadata.
     }
   ],
   "executable": {
-    "format": "elf", // elf, pe, macho
+    "format": "elf", // "elf", "pe", or "macho"
     "hasExports": true,
     "hasEntrypoint": true,
     "importedLibraries": [
@@ -137,7 +132,7 @@ Connects any two nodes (package, file, or source) with a typed relationship.
 
 ```json
 {
-  "parent": "package-id", // Package or file ID
+  "parent": "package-id", // Package, file, or source ID
   "child": "file-id",
   "type": "contains" // contains, dependency-of, etc.
 }
@@ -190,7 +185,9 @@ Describes where a package or file was found.
 }
 ```
 
-The `path` field always contains the real path after resolving symlinks, while `accessPath` shows how Syft accessed the file (which may be through a symlink). The `evidence` annotation indicates whether this location was used to discover the package (`primary`) or contains only auxiliary information (`supporting`).
+The `path` field always contains the real path after resolving symlinks, while `accessPath` shows how Syft accessed the file (which may be through a symlink).
+
+The `evidence` annotation indicates whether this location was used to discover the package (`primary`) or contains only auxiliary information (`supporting`).
 
 ### Descriptor
 
@@ -213,8 +210,6 @@ The Syft JSON schema is versioned and available in the Syft repository:
 
 [jq](https://jqlang.org/) is a command-line tool for querying and manipulating JSON.
 The following examples demonstrate practical queries for working with Syft JSON output.
-
-Each example includes the jq query and its output when run against a real SBOM.
 
 **Find packages by name pattern:**
 

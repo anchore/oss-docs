@@ -1,6 +1,6 @@
 +++
 title = "Getting Started"
-description = "Get started with Syft to generate your first SBOM from container images, directories, or archives with basic usage and quick commands."
+description = "Use Syft to generate your first SBOM from container images, directories, or archives."
 weight = 10
 tags = ["syft", "sbom"]
 url = "docs/user-guides/sbom/getting-started"
@@ -49,33 +49,39 @@ busybox-binsh           1.37.0-r12   apk
 Syft supports more than just containers. Learn more about [Supported Sources](/docs/user-guides/sbom/sources/)
 {{% /alert %}}
 
-## Create an SPDX formatted SBOM
+## Create an industry-standard SBOM
 
-This command will display the human-readable table _and_ write an SBOM in SPDX format, an industry standard.
+This command will display the human-readable table _and_ write SBOMs in both SPDX and CycloneDX formats, the two primary industry standards.
 
+```bash
+syft alpine:latest -o table -o spdx-json=alpine.spdx.json -o cyclonedx-json=alpine.cdx.json
 ```
-syft alpine:latest -o table -o spdx-json=alpine_latest-spdx.json
-```
 
-The same table will be displayed, and an SBOM file will be created in the current directory.
+The same table will be displayed, and two SBOM files will be created in the current directory.
 
 {{% alert title="Learn more" color="primary" %}}
 Syft supports multiple SBOM output formats, find out more about [Output Formats](/docs/user-guides/sbom/formats/).
 {{% /alert %}}
 
-### Examine the SPDX file contents
+### Examine the SBOM file contents
 
-The JSON output by Syft is long, but compressed down to one line. We can use `jq` to prettify it, and extract some package data.
+We can use [`jq`](https://jqlang.org/) to extract specific package data from the SBOM files (note: by default Syft outputs JSON on a single line,
+but you can enable pretty-printing with the `SYFT_FORMAT_PRETTY=true` environment variable).
+Both formats structure package information differently:
 
-{{% alert title="Note" color="primary" %}}
-jq is a third-party command-line utility for manipulating JSON documents. Learn more about jq on the <i class="fa-solid fa-arrow-up-right-from-square"></i> [jqlang](https://jqlang.org/) website.
-{{% /alert %}}
+**SPDX format:**
 
+```bash
+jq '.packages[].name' alpine.spdx.json
 ```
-jq '.packages[].name' < alpine_latest-spdx.json
+
+**CycloneDX format:**
+
+```bash
+jq '.components[].name' alpine.cdx.json
 ```
 
-This shows the packages that Syft found in the container image.
+Both commands show the packages that Syft found in the container image:
 
 ```text
 "alpine-baselayout"
@@ -88,9 +94,10 @@ This shows the packages that Syft found in the container image.
 ...
 ```
 
-By default, Syft shows only software visible in the final container image (the squashed representation). To include software from all image layers, regardless of its presence in the final image, use `--scope all-layers`:
+By default, Syft shows only software visible in the final container image (the "squashed" representation).
+To include software from all image layers, regardless of its presence in the final image, use `--scope all-layers`:
 
-```
+```bash
 syft <image> --scope all-layers
 ```
 
@@ -98,11 +105,11 @@ syft <image> --scope all-layers
 
 **Does Syft need internet access?**
 
-Only for downloading container images. Scanning local directories works offline.
+Only for downloading container images. By default, scanning works offline.
 
 **What about private container registries?**
 
-Syft supports authentication for private registries. See [Authentication](/docs/user-guides/private-registries/).
+Syft supports authentication for private registries. See [Private Registries](/docs/user-guides/private-registries/).
 
 **Can I use Syft in CI/CD pipelines?**
 

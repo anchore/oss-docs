@@ -13,6 +13,7 @@ from pathlib import Path
 FORMATS = [
     ("table", "txt", ""),
     ("json", "json", "json"),
+    ("purls", "txt", ""),
     ("cyclonedx-json", "json", "json"),
     ("cyclonedx-xml", "xml", "xml"),
     ("spdx-json", "json", "json"),
@@ -39,8 +40,8 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         "-o",
-        default="content/docs/user-guides/sbom/format-examples",
-        help="Output directory for format examples (default: content/docs/user-guides/sbom/format-examples)",
+        default="content/docs/user-guides/sbom/snippets/format/examples",
+        help="Output directory for format examples (default: content/docs/user-guides/sbom/snippets/format/examples)",
     )
 
     args = parser.parse_args()
