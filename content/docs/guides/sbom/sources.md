@@ -3,7 +3,7 @@ title = "Supported Sources"
 description = "Explore the different sources Syft can analyze including container images, OCI registries, directories, files, and archives."
 weight = 20
 tags = ["syft", "sbom"]
-url = "docs/user-guides/sbom/sources"
+url = "docs/guides/sbom/sources"
 +++
 
 Syft can generate an SBOM from a variety of sources including container images, directories, files, and archives.
@@ -175,7 +175,7 @@ docker save -o alpine.tar alpine:latest
 When using container runtime sources (Docker, Podman, or Containerd):
 
 - **Missing images**: If an image doesn't exist locally in the container runtime, Syft attempts to pull it from the registry via the runtime
-- **Private images**: You must be logged in to the registry via the container runtime (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries](/docs/user-guides/private-registries) for more details.
+- **Private images**: You must be logged in to the registry via the container runtime (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries](/docs/guides/private-registries) for more details.
 
 ### Environment Variables
 
@@ -215,4 +215,4 @@ The `registry` source bypasses container runtimes entirely and pulls images dire
 Credentials are resolved in the following order:
 
 - Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
-- If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries](/docs/user-guides/private-registries) for more details.
+- If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries](/docs/guides/private-registries) for more details.

@@ -3,7 +3,7 @@ title = "File Selection"
 description = "Control which files and directories Syft includes or excludes when generating SBOMs."
 weight = 55
 tags = ["syft", "sbom"]
-url = "docs/user-guides/sbom/file-selection"
+url = "docs/guides/sbom/file-selection"
 
 +++
 

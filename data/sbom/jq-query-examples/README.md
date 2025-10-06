@@ -25,7 +25,7 @@ This script will:
 1. Generate SBOMs for each unique image using Syft (running in Docker)
 2. Cache SBOMs in `.cache/sboms/` for reuse
 3. Execute each jq query against the appropriate SBOM
-4. Generate markdown files in `content/docs/user-guides/sbom/snippets/jq-queries/`
+4. Generate markdown files in `content/docs/guides/sbom/snippets/jq-queries/`
 
 Each example creates a subdirectory with:
 - `description.md` - Human-readable explanation (if provided)
@@ -37,7 +37,7 @@ Each example creates a subdirectory with:
 1. Create a new `.yaml` file in this directory
 2. Fill in the required fields (`image` and `query` are required)
 3. Run the generation script
-4. Add a reference to the new example in `content/docs/user-guides/sbom/syft-json.md` using the `file-tabs` shortcode
+4. Add a reference to the new example in `content/docs/guides/sbom/syft-json.md` using the `file-tabs` shortcode
 
 Example:
 
@@ -46,7 +46,7 @@ Example:
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/jq-queries/my-new-query"
+path="content/docs/guides/sbom/snippets/jq-queries/my-new-query"
 tabs="query|query.md,output|output.md" >}}
 ```
 

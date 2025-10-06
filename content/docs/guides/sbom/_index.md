@@ -3,7 +3,7 @@ title = "SBOM Generation"
 description = "Learn how to create a Software Bill of Materials (SBOMs) for container images, filesystems, and archives using Syft."
 weight = 21
 tags = ["syft", "sbom"]
-url = "docs/user-guides/sbom"
+url = "docs/guides/sbom"
 +++
 
 An SBOM, or Software Bill of Materials, is a detailed list of all the components, libraries, and modules that make up a piece of software.

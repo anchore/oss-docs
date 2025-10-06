@@ -3,7 +3,7 @@ title = "Using Templates"
 description = "Create custom SBOM output formats using Go templates with available data fields to build tailored reports for specific tooling or compliance requirements."
 weight = 60
 tags = ["syft", "sbom", "templates"]
-url = "docs/user-guides/sbom/templates"
+url = "docs/guides/sbom/templates"
 +++
 
 Syft lets you define custom output formats using [Go templates](https://pkg.go.dev/text/template). This is useful for generating custom reports, integrating with specific tools, or extracting only the data you need.
@@ -76,49 +76,49 @@ The following examples show template source code and the rendered output when ru
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/csv"
+path="content/docs/guides/sbom/snippets/templates/csv"
 tabs="template|template.md,output|output.md" >}}
 
 ### Filter by package type
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/filter-package-type"
+path="content/docs/guides/sbom/snippets/templates/filter-package-type"
 tabs="template|template.md,output|output.md" >}}
 
 ### Markdown report
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/markdown-report"
+path="content/docs/guides/sbom/snippets/templates/markdown-report"
 tabs="template|template.md,output|output.md" >}}
 
 ### License compliance
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/license-compliance"
+path="content/docs/guides/sbom/snippets/templates/license-compliance"
 tabs="template|template.md,output|output.md" >}}
 
 ### Custom JSON subset
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/json-subset"
+path="content/docs/guides/sbom/snippets/templates/json-subset"
 tabs="template|template.md,output|output.md" >}}
 
 ### Executable file digests
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/executable-digests"
+path="content/docs/guides/sbom/snippets/templates/executable-digests"
 tabs="template|template.md,output|output.md" >}}
 
 ### Find binaries importing a library
 
 {{< file-tabs
 title=""
-path="content/docs/user-guides/sbom/snippets/templates/libcrypto-imports"
+path="content/docs/guides/sbom/snippets/templates/libcrypto-imports"
 tabs="template|template.md,output|output.md" >}}
 
 ## Troubleshooting
@@ -139,5 +139,5 @@ Long-term support for this legacy option is not guaranteed.
 
 - [Go template documentation](https://pkg.go.dev/text/template) - Template syntax reference
 - [Sprig function documentation](http://masterminds.github.io/sprig/) - Helper functions
-- [Output formats](/docs/user-guides/sbom/formats/) - Other output format options
+- [Output formats](/docs/guides/sbom/formats/) - Other output format options
 - [Configuration options](/docs/reference/commands/syft-config/) - Advanced settings

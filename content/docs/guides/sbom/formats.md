@@ -3,7 +3,7 @@ title = "Output Formats"
 description = "Choose from multiple SBOM output formats including SPDX, CycloneDX, and Syft's native JSON format."
 weight = 40
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx", "json"]
-url = "docs/user-guides/sbom/formats"
+url = "docs/guides/sbom/formats"
 
 +++
 
@@ -23,7 +23,7 @@ syft <image> -o <format>
 | `json`        | Native output for Syft—use this to get as much information out of Syft as possible! (see the [JSON schema](https://github.com/anchore/syft/blob/main/schema/json/schema-latest.json)) |
 | `purls`       | A line-separated list of [Package URLs (PURLs)](https://github.com/package-url/purl-spec) for all discovered packages                                                                 |
 | `github-json` | A JSON report conforming to GitHub's dependency snapshot format                                                                                                                       |
-| `template`    | Lets you specify a custom output format via Go templates (see [Templates](/docs/user-guides/sbom/templates/) for more detail)                                                         |
+| `template`    | Lets you specify a custom output format via Go templates (see [Templates](/docs/guides/sbom/templates/) for more detail)                                                              |
 | `text`        | A row-oriented, human-and-machine-friendly output                                                                                                                                     |
 
 ### CycloneDX
@@ -74,7 +74,7 @@ When no version is specified, Syft uses the latest supported version of the form
 ## Format examples
 
 {{< file-tabs
-path="content/docs/user-guides/sbom/snippets/format/examples"
+path="content/docs/guides/sbom/snippets/format/examples"
 title="syft busybox:latest -o "
 tabs="table|table.md,json|json.md,purls|purls.md,cyclonedx-json|cyclonedx-json.md,cyclonedx-xml|cyclonedx-xml.md,spdx-json|spdx-json.md,spdx-tag-value|spdx-tag-value.md,github-json|github-json.md" >}}
 
@@ -110,6 +110,6 @@ syft <source> \
 
 ## Next steps
 
-- Learn about [customizing output with templates](/docs/user-guides/sbom/templates) for specialized formats
-- Explore [supported sources](/docs/user-guides/sbom/sources) to understand what Syft can analyze
+- Learn about [customizing output with templates](/docs/guides/sbom/templates) for specialized formats
+- Explore [supported sources](/docs/guides/sbom/sources) to understand what Syft can analyze
 - See [configuration options](/docs/reference/commands/syft-config) for advanced format settings

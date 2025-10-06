@@ -3,13 +3,14 @@ NOTES.md
 *.pdf
 brand/
 specs/
-CLAUDE.md
 .playwright-mcp/
 .task
 .tool
 tmp/
 TODO.md
 SUMMARY.md
+drafts/
+draft/
 
 # cache directories
 .cache/

@@ -3,7 +3,7 @@ title = "License Scanning"
 description = "Learn how to scan container images and filesystems for software licenses covering detection, compliance checking, and managing license obligations."
 weight = 41
 tags = ["syft", "grant", "licenses"]
-url = "docs/user-guides/license"
+url = "docs/guides/license"
 +++
 
 License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project.

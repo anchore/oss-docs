@@ -4,7 +4,7 @@ linkTitle = "Attestation"
 description = "Generate cryptographically signed SBOM attestations using in-toto and Sigstore to create, verify, and attach attestations to container images for supply chain security."
 weight = 90
 tags = ["syft", "sbom", "attestation"]
-url = "docs/user-guides/sbom/attestation"
+url = "docs/guides/sbom/attestation"
 
 +++
 

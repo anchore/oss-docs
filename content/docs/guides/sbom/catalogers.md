@@ -3,7 +3,7 @@ title = "Package Catalogers"
 description = "Configure which package catalogers Syft uses to discover software components including language-specific and file-based catalogers."
 weight = 50
 tags = ["syft", "sbom", "catalogers"]
-url = "docs/user-guides/sbom/catalogers"
+url = "docs/guides/sbom/catalogers"
 
 +++
 

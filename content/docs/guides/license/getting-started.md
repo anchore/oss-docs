@@ -3,7 +3,7 @@ title = "Getting Started"
 description = "License Scanning Getting Started"
 weight = 10
 tags = ["grant", "licenses"]
-url = "docs/user-guides/license/getting-started"
+url = "docs/guides/license/getting-started"
 +++
 
 ### Introduction
@@ -56,11 +56,11 @@ The image used here is quite large (over 3GB) so may take a while to download an
 grant check pytorch/pytorch:latest --osi-approved
 ```
 
-Read more in our [License Auditing User Guide](/docs/user-guides/license).
+Read more in our [License Auditing User Guide](/docs/guides/license).
 
 {{% alert title="Next steps" color="primary" %}}
 
 - Try running Syft against other containers, or an application directory on your workstation.
-- Find out more about [Supported Sources](/docs/user-guides/sbom/sources/) and [Output Formats](/docs/user-guides/sbom/formats/).
-- Learn about [Vulnerability Scanning](/docs/user-guides/vulnerability/getting-started/) and [License Scanning](/docs/user-guides/license/getting-started/) your SBOMs.
+- Find out more about [Supported Sources](/docs/guides/sbom/sources/) and [Output Formats](/docs/guides/sbom/formats/).
+- Learn about [Vulnerability Scanning](/docs/guides/vulnerability/getting-started/) and [License Scanning](/docs/guides/license/getting-started/) your SBOMs.
   {{% /alert %}}

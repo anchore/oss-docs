@@ -480,5 +480,19 @@ a {
   }
 }
 
+// Heading anchor links - hidden by default, visible on hover
+.heading-anchor {
+  visibility: hidden !important;
+  text-decoration: none !important;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+  visibility: visible !important;
+}
+
 // Import landing page styles
 @import 'landing';

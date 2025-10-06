@@ -4,7 +4,7 @@ linkTitle = "Format Conversion"
 description = "Convert existing SBOMs between different formats including SPDX and CycloneDX using Syft's experimental conversion capabilities."
 weight = 70
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx"]
-url = "docs/user-guides/sbom/conversion"
+url = "docs/guides/sbom/conversion"
 +++
 
 {{< alert color="warning" title="Experimental Feature" >}}
@@ -50,7 +50,7 @@ syft convert sbom.json -o cyclonedx-json=sbom.cdx.json
 Converting between non-Syft formats loses data. Syft JSON contains all information Syft extracted, while other formats use different schemas that can't represent the same fields.
 
 {{< alert title="Learn more" color="primary" >}}
-Learn more about working with Syft's native format in the [Working with Syft JSON](/docs/user-guides/sbom/syft-json/) guide.
+Learn more about working with Syft's native format in the [Working with Syft JSON](/docs/guides/sbom/syft-json/) guide.
 {{< /alert >}}
 
 ### What gets preserved

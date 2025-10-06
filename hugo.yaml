@@ -6,7 +6,7 @@ timeout: 180s
 ignoreLogs:
   - warning-goldmark-raw-html
 ignoreFiles:
-  - content/docs/user-guides/sbom/snippets/.*\.md$
+  - content/docs/guides/sbom/snippets/.*\.md$
   - data/
 enableGitInfo: true
 
@@ -131,3 +131,5 @@ markup:
     parser:
       attribute:
         block: true
+      autoHeadingIDType: github
+      autoHeadingAnchor: true
