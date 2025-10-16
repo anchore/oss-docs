@@ -1,0 +1,491 @@
+[
+  {
+    "name": "alpine",
+    "versions": [
+      {
+        "value": "3.10"
+      },
+      {
+        "value": "3.11"
+      },
+      {
+        "value": "3.12"
+      },
+      {
+        "value": "3.13"
+      },
+      {
+        "value": "3.14"
+      },
+      {
+        "value": "3.15"
+      },
+      {
+        "value": "3.16"
+      },
+      {
+        "value": "3.17"
+      },
+      {
+        "value": "3.18"
+      },
+      {
+        "value": "3.19"
+      },
+      {
+        "value": "3.2"
+      },
+      {
+        "value": "3.20"
+      },
+      {
+        "value": "3.21"
+      },
+      {
+        "value": "3.22"
+      },
+      {
+        "value": "3.3"
+      },
+      {
+        "value": "3.4"
+      },
+      {
+        "value": "3.5"
+      },
+      {
+        "value": "3.6"
+      },
+      {
+        "value": "3.7"
+      },
+      {
+        "value": "3.8"
+      },
+      {
+        "value": "3.9"
+      },
+      {
+        "value": "edge"
+      }
+    ],
+    "releaseId": "alpine",
+    "provider": "alpine"
+  },
+  {
+    "name": "amazonlinux",
+    "versions": [
+      {
+        "value": "2"
+      },
+      {
+        "value": "2022"
+      },
+      {
+        "value": "2023"
+      }
+    ],
+    "releaseId": "amzn",
+    "provider": "amazon"
+  },
+  {
+    "name": "azurelinux",
+    "versions": [
+      {
+        "value": "3.0"
+      }
+    ],
+    "releaseId": "azurelinux",
+    "provider": "mariner"
+  },
+  {
+    "name": "chainguard",
+    "versions": [
+      {
+        "value": "rolling"
+      }
+    ],
+    "releaseId": "chainguard",
+    "provider": "chainguard"
+  },
+  {
+    "name": "debian",
+    "versions": [
+      {
+        "value": "10",
+        "codename": "buster"
+      },
+      {
+        "value": "11",
+        "codename": "bullseye"
+      },
+      {
+        "value": "12",
+        "codename": "bookworm"
+      },
+      {
+        "value": "13",
+        "codename": "trixie"
+      },
+      {
+        "value": "14"
+      },
+      {
+        "value": "7",
+        "codename": "wheezy"
+      },
+      {
+        "value": "8",
+        "codename": "jessie"
+      },
+      {
+        "value": "9",
+        "codename": "stretch"
+      },
+      {
+        "value": "unstable"
+      }
+    ],
+    "releaseId": "debian",
+    "provider": "debian"
+  },
+  {
+    "name": "echo",
+    "versions": [
+      {
+        "value": "rolling"
+      }
+    ],
+    "releaseId": "echo",
+    "provider": "echo"
+  },
+  {
+    "name": "mariner",
+    "versions": [
+      {
+        "value": "1.0"
+      },
+      {
+        "value": "2.0"
+      }
+    ],
+    "releaseId": "mariner",
+    "provider": "mariner"
+  },
+  {
+    "name": "minimos",
+    "versions": [
+      {
+        "value": "rolling"
+      }
+    ],
+    "releaseId": "minimos",
+    "provider": "minimos"
+  },
+  {
+    "name": "oraclelinux",
+    "versions": [
+      {
+        "value": "10"
+      },
+      {
+        "value": "5"
+      },
+      {
+        "value": "6"
+      },
+      {
+        "value": "7"
+      },
+      {
+        "value": "8"
+      },
+      {
+        "value": "9"
+      }
+    ],
+    "releaseId": "ol",
+    "provider": "oracle"
+  },
+  {
+    "name": "redhat",
+    "versions": [
+      {
+        "value": "10"
+      },
+      {
+        "value": "5"
+      },
+      {
+        "value": "6"
+      },
+      {
+        "value": "7"
+      },
+      {
+        "value": "8"
+      },
+      {
+        "value": "9"
+      }
+    ],
+    "releaseId": "rhel",
+    "provider": "rhel"
+  },
+  {
+    "name": "redhat",
+    "versions": [
+      {
+        "value": "5.9"
+      },
+      {
+        "value": "6.4"
+      },
+      {
+        "value": "6.5"
+      },
+      {
+        "value": "6.6"
+      },
+      {
+        "value": "6.7"
+      },
+      {
+        "value": "7.1"
+      },
+      {
+        "value": "7.2"
+      },
+      {
+        "value": "7.3"
+      },
+      {
+        "value": "7.4"
+      },
+      {
+        "value": "7.5"
+      },
+      {
+        "value": "7.6"
+      },
+      {
+        "value": "7.7"
+      },
+      {
+        "value": "8.1"
+      },
+      {
+        "value": "8.2"
+      },
+      {
+        "value": "8.4"
+      },
+      {
+        "value": "8.6"
+      },
+      {
+        "value": "8.8"
+      },
+      {
+        "value": "9.0"
+      },
+      {
+        "value": "9.2"
+      },
+      {
+        "value": "9.4"
+      }
+    ],
+    "releaseId": "rhel",
+    "channel": "eus",
+    "provider": "rhel"
+  },
+  {
+    "name": "sles",
+    "versions": [
+      {
+        "value": "11.1"
+      },
+      {
+        "value": "11.2"
+      },
+      {
+        "value": "11.3"
+      },
+      {
+        "value": "11.4"
+      },
+      {
+        "value": "11"
+      },
+      {
+        "value": "12.1"
+      },
+      {
+        "value": "12.2"
+      },
+      {
+        "value": "12.3"
+      },
+      {
+        "value": "12.4"
+      },
+      {
+        "value": "12.5"
+      },
+      {
+        "value": "12"
+      },
+      {
+        "value": "15.1"
+      },
+      {
+        "value": "15.2"
+      },
+      {
+        "value": "15.3"
+      },
+      {
+        "value": "15.4"
+      },
+      {
+        "value": "15.5"
+      },
+      {
+        "value": "15.6"
+      },
+      {
+        "value": "15.7"
+      },
+      {
+        "value": "15"
+      }
+    ],
+    "releaseId": "sles",
+    "provider": "sles"
+  },
+  {
+    "name": "ubuntu",
+    "versions": [
+      {
+        "value": "12.04",
+        "codename": "precise"
+      },
+      {
+        "value": "12.10",
+        "codename": "quantal"
+      },
+      {
+        "value": "13.04",
+        "codename": "raring"
+      },
+      {
+        "value": "14.04",
+        "codename": "trusty"
+      },
+      {
+        "value": "14.10",
+        "codename": "utopic"
+      },
+      {
+        "value": "15.04",
+        "codename": "vivid"
+      },
+      {
+        "value": "15.10",
+        "codename": "wily"
+      },
+      {
+        "value": "16.04",
+        "codename": "xenial"
+      },
+      {
+        "value": "16.10",
+        "codename": "yakkety"
+      },
+      {
+        "value": "17.04",
+        "codename": "zesty"
+      },
+      {
+        "value": "17.10",
+        "codename": "artful"
+      },
+      {
+        "value": "18.04",
+        "codename": "bionic"
+      },
+      {
+        "value": "18.10",
+        "codename": "cosmic"
+      },
+      {
+        "value": "19.04",
+        "codename": "disco"
+      },
+      {
+        "value": "19.10",
+        "codename": "eoan"
+      },
+      {
+        "value": "20.04",
+        "codename": "focal"
+      },
+      {
+        "value": "20.10",
+        "codename": "groovy"
+      },
+      {
+        "value": "21.04",
+        "codename": "hirsute"
+      },
+      {
+        "value": "21.10",
+        "codename": "impish"
+      },
+      {
+        "value": "22.04",
+        "codename": "jammy"
+      },
+      {
+        "value": "22.10",
+        "codename": "kinetic"
+      },
+      {
+        "value": "23.04",
+        "codename": "lunar"
+      },
+      {
+        "value": "23.10",
+        "codename": "mantic"
+      },
+      {
+        "value": "24.04",
+        "codename": "noble"
+      },
+      {
+        "value": "24.10",
+        "codename": "oracular"
+      },
+      {
+        "value": "25.04",
+        "codename": "plucky"
+      },
+      {
+        "value": "25.10"
+      }
+    ],
+    "releaseId": "ubuntu",
+    "provider": "ubuntu"
+  },
+  {
+    "name": "wolfi",
+    "versions": [
+      {
+        "value": "rolling"
+      }
+    ],
+    "releaseId": "wolfi",
+    "provider": "wolfi"
+  }
+]

@@ -1,0 +1,27 @@
++++
+title = "APK"
+description = "APK package format analysis and vulnerability scanning capabilities"
+weight = 50
+type = "docs"
++++
+
+### Operating systems
+
+{{< readfile file="/content/docs/capabilities/snippets/apk/os.md" >}}
+
+## Package analysis
+
+{{< readfile file="/content/docs/capabilities/snippets/apk/package.md" >}}
+
+## Vulnerability scanning
+
+[//]: # ({{< readfile file="/content/docs/capabilities/snippets/apk/vulnerability.md" >}})
+
+
+## Next steps
+
+- [Syft package analysis]({{< ref "/docs/guides/sbom" >}})
+- [Grype vulnerability scanning]({{< ref "/docs/guides/vulnerability" >}})
+- [Alpine Linux](https://alpinelinux.org/)
+- [Wolfi](https://wolfi.dev/)
+- [Chainguard Images](https://www.chainguard.dev/chainguard-images)

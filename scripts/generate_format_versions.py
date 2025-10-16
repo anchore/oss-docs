@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 import click
-from utils.config import docker_images, paths, timeouts
+from utils.config import docker_images, get_generated_comment, paths, timeouts
 
 
 def extract_format_versions():
@@ -75,8 +75,12 @@ def save_json_data(formats, output_path: Path) -> None:
     """save format versions to JSON file"""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # add auto-generated comment as a special field
+    comment = get_generated_comment("scripts/generate_format_versions.py", "json")
+    data = {"_comment": comment, **formats}
+
     with open(output_path, "w") as f:
-        json.dump(formats, f, indent=2)
+        json.dump(data, f, indent=2)
 
     print(f"Generated {output_path}")
 
@@ -96,6 +100,9 @@ def generate_markdown_snippet(formats, output_path: Path) -> None:
         print("No formats with multiple versions found", file=sys.stderr)
         return
 
+    # add auto-generated comment
+    comment = get_generated_comment("scripts/generate_format_versions.py", "html")
+
     # generate markdown list only
     lines = []
 
@@ -106,6 +113,7 @@ def generate_markdown_snippet(formats, output_path: Path) -> None:
         lines.append(f"- **{format_name}**: {versions_str}")
 
     with open(output_path, "w") as f:
+        f.write(comment)
         f.write("\n".join(lines))
         f.write("\n")
 
@@ -116,7 +124,9 @@ def load_existing_formats(json_path: Path):
     """load existing format data from JSON file"""
     try:
         with open(json_path) as f:
-            return json.load(f)
+            data = json.load(f)
+            # filter out the _comment field if present
+            return {k: v for k, v in data.items() if k != "_comment"}
     except FileNotFoundError:
         return None
     except json.JSONDecodeError as e:

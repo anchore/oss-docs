@@ -1,0 +1,317 @@
+/* Capability Tables - Modern, Minimal Styling */
+
+/* Base table styles */
+.capability-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Header styles */
+.capability-table thead {
+  background: linear-gradient(to bottom, #2563eb, #1d4ed8);
+  border-bottom: 3px solid #1e40af;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.3);
+}
+
+.capability-table thead th {
+  padding: 0.625rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* Body styles */
+.capability-table tbody tr {
+  border-bottom: 1px solid #f3f4f6;
+  transition: background-color 0.15s ease;
+}
+
+.capability-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.capability-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.capability-table tbody td {
+  padding: 0.5rem 0.5rem;
+  color: #4b5563;
+  vertical-align: top;
+  font-size: 0.875rem;
+}
+
+/* Code elements within tables */
+.capability-table code {
+  background-color: #f3f4f6;
+  padding: 0.0625rem 0.25rem;
+  border-radius: 3px;
+  font-size: 0.8125rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+/* Column-specific widths - Overview table */
+.capability-table-overview .col-ecosystem {
+  width: 15%;
+  font-weight: 500;
+}
+
+.capability-table-overview .col-cataloger {
+  width: 25%;
+  min-width: 200px;
+}
+
+.capability-table-overview .col-evidence {
+  width: 30%;
+  min-width: 250px;
+}
+
+.capability-table-overview .col-license,
+.capability-table-overview .col-dependency,
+.capability-table-overview .col-files {
+  width: 10%;
+  text-align: center;
+}
+
+/* Column-specific widths - Ecosystem table */
+.capability-table-ecosystem .col-cataloger {
+  width: 22%;
+  min-width: 180px;
+}
+
+.capability-table-ecosystem .col-evidence {
+  width: 28%;
+  min-width: 240px;
+}
+
+.capability-table-ecosystem .col-license,
+.capability-table-ecosystem .col-depth,
+.capability-table-ecosystem .col-edges,
+.capability-table-ecosystem .col-kinds,
+.capability-table-ecosystem .col-files,
+.capability-table-ecosystem .col-digests,
+.capability-table-ecosystem .col-integrity-hash {
+  width: 7%;
+  text-align: center;
+}
+
+/* OS tables - use auto layout for flexible column sizing */
+.capability-table-os,
+.capability-table-os-overview {
+  table-layout: auto;
+}
+
+/* Column-specific widths - OS Overview table */
+.capability-table-os-overview .col-os-name {
+  min-width: 120px;
+  font-weight: 500;
+}
+
+.capability-table-os-overview .col-versions {
+  min-width: 100px;
+}
+
+.capability-table-os-overview .col-provider {
+  min-width: 100px;
+}
+
+.capability-table-os-overview .col-data-source {
+  width: auto;
+}
+
+/* Column-specific widths - OS table (package format specific) */
+.capability-table-os .col-os-name {
+  min-width: 120px;
+  font-weight: 500;
+}
+
+.capability-table-os .col-versions {
+  min-width: 100px;
+}
+
+.capability-table-os .col-provider {
+  min-width: 100px;
+}
+
+.capability-table-os .col-data-source {
+  width: auto;
+}
+
+/* Column-specific widths - Vulnerability table */
+.capability-table-vulnerability .col-data-source {
+  width: 60%;
+  min-width: 300px;
+}
+
+.capability-table-vulnerability .col-provider {
+  width: 40%;
+  min-width: 150px;
+}
+
+/* Evidence column - allow wrapping for long lists */
+.capability-table .col-evidence {
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.capability-table .col-evidence code {
+  display: inline-block;
+  margin: 0.125rem 0.25rem 0.125rem 0;
+}
+
+/* SVG Icon styles */
+.capability-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Indicator cell - centered SVG icons */
+.capability-table td.indicator {
+  text-align: center;
+  padding: 0.5rem 0.375rem;
+}
+
+.capability-table td.indicator .capability-icon {
+  color: #6b7280;
+}
+
+/* Icon colors */
+.capability-table td.indicator svg use[href="#icon-check"] {
+  color: #059669;
+}
+
+.capability-table td.indicator svg use[href="#icon-gear"] {
+  color: #d97706;
+}
+
+.capability-table td.indicator svg use[href="#icon-dash"] {
+  color: #9ca3af;
+}
+
+/* Value cells - left aligned */
+.capability-table td.value {
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .capability-table {
+    font-size: 0.875rem;
+  }
+
+  .capability-table thead th {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+
+  .capability-table tbody td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .capability-table-overview .col-cataloger,
+  .capability-table-ecosystem .col-cataloger {
+    min-width: 150px;
+  }
+
+  .capability-table-overview .col-evidence,
+  .capability-table-ecosystem .col-evidence {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .capability-table {
+    font-size: 0.8125rem;
+    margin: 1.5rem 0;
+  }
+
+  .capability-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .capability-table {
+    border-color: #374151;
+    background-color: #1f2937;
+  }
+
+  .capability-table thead {
+    background: linear-gradient(to bottom, #1d4ed8, #1e3a8a);
+    border-bottom: 3px solid #2563eb;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.5);
+  }
+
+  .capability-table thead th {
+    color: #dbeafe;
+  }
+
+  .capability-table tbody tr {
+    border-bottom-color: #374151;
+  }
+
+  .capability-table tbody tr:hover {
+    background-color: #2d3748;
+  }
+
+  .capability-table tbody td {
+    color: #d1d5db;
+  }
+
+  .capability-table code {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+
+  .capability-table td.indicator .capability-icon {
+    color: #9ca3af;
+  }
+
+  .capability-table td.indicator svg use[href="#icon-check"] {
+    color: #10b981;
+  }
+
+  .capability-table td.indicator svg use[href="#icon-gear"] {
+    color: #f59e0b;
+  }
+
+  .capability-table td.indicator svg use[href="#icon-dash"] {
+    color: #6b7280;
+  }
+}
+
+/* Print styles */
+@media print {
+  .capability-table {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+
+  .capability-table tbody tr:hover {
+    background-color: transparent;
+  }
+
+  .capability-icon {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}

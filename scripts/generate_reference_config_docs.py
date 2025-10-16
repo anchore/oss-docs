@@ -8,6 +8,7 @@ import os
 import sys
 
 import click
+from utils.config import get_generated_comment
 from utils.syft import run_syft
 
 
@@ -88,6 +89,9 @@ url = "docs/reference/{tool_name.lower()}/configuration"
 +++
 
 """
+
+    # Add auto-generated comment
+    content += get_generated_comment("scripts/generate_reference_config_docs.py", "html")
 
     # Get version information
     app_version = get_app_version(image)

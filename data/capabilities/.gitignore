@@ -1,0 +1,4 @@
+# in the future these should soly be cached, not persisted in the repo. However, the commands don't exist yet to do that
+# in syft/grype/et. al., so the draft files are checked in for now.
+# syft-package-catalogers.json
+# grype-operating-systems.json

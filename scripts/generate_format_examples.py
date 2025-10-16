@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import click
-from utils.config import docker_images, paths, timeouts
+from utils.config import docker_images, get_generated_comment, paths, timeouts
 from utils.syft import run_syft_convert_format, run_syft_scan
 
 # Format definitions: (format_name, file_extension, code_fence_language)
@@ -109,13 +109,16 @@ def generate_format_example(
 
 def create_markdown_content(fence_lang: str, output: str) -> str:
     """Create markdown content with code fence."""
+    # Add auto-generated comment
+    comment = get_generated_comment("scripts/generate_format_examples.py", "html")
+
     # Build the code fence opening
     if fence_lang:
         fence_start = f"```{fence_lang}"
     else:
         fence_start = "```"
 
-    content = f"""{fence_start}
+    content = f"""{comment}{fence_start}
 {output}
 ```
 """

@@ -1,0 +1,979 @@
+#!/usr/bin/env python3
+"""
+Generate package capability tables from Syft cataloger information.
+
+This script generates complete HTML tables showing which package analysis
+capabilities (license detection, dependency tracking, file listings, etc.)
+are supported across different ecosystems and catalogers.
+
+Outputs:
+1. Overview table: content/docs/capabilities/snippets/overview/package.md
+   - 6 columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+   - All capabilities shown as ✅/-/⚙️ indicators
+2. Individual ecosystem tables: content/docs/capabilities/snippets/{ecosystem}/package.md
+   - 9 columns: Cataloger, Evidence, License, Depth, Edges, Kinds, Files, Digests, Integrity Hash
+   - Depth/Edges/Kinds show actual values, others show ✅/-/⚙️ indicators
+
+NOTE: This script generates HTML tables that use SVG icon symbols (icon-check,
+icon-gear, icon-dash). The SVG sprite definitions are in the file
+layouts/partials/hooks/body-end.html and are automatically included on every
+page by the Docsy theme.
+"""
+
+import json
+import sys
+from collections import defaultdict
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import click
+import yaml
+from utils.config import get_generated_comment, paths, timeouts
+from utils.syft import run_syft
+
+
+@dataclass
+class CapabilitySupport:
+    """represents support level for a capability."""
+
+    supported: bool  # true if capability is supported (default=true or non-empty)
+    conditional: bool  # true if support depends on configuration
+    default_value: Any  # the actual default value from the cataloger
+
+
+@dataclass
+class CatalogerRow:
+    """represents a single row in the capability table."""
+
+    ecosystem: str
+    cataloger_name: str
+    # evidence aggregated across all patterns for this cataloger
+    globs: list[str]  # glob patterns
+    paths: list[str]  # path patterns
+    mimetypes: list[str]  # mimetype patterns
+    # capabilities for this specific pattern/row
+    capabilities: dict[str, CapabilitySupport]
+
+
+# capability names in the order they should appear in the table
+CAPABILITY_ORDER = [
+    "license",
+    "dependency.depth",
+    "dependency.edges",
+    "dependency.kinds",
+    "package_manager.files.listing",
+    "package_manager.files.digests",
+    "package_manager.package_integrity_hash",
+]
+
+# human-readable capability names for headers
+CAPABILITY_DISPLAY_NAMES = {
+    "license": "License",
+    "dependency.depth": "Depth",
+    "dependency.edges": "Edges",
+    "dependency.kinds": "Kinds",
+    "package_manager.files.listing": "Files",
+    "package_manager.files.digests": "Digests",
+    "package_manager.package_integrity_hash": "Integrity Hash",
+}
+
+
+def load_ecosystem_aliases() -> dict[str, str]:
+    """
+    load ecosystem aliases from YAML file.
+
+    Returns:
+        dict mapping source ecosystem names to target ecosystem names
+    """
+    aliases_file = paths.ecosystem_aliases_file
+
+    if not aliases_file.exists():
+        print(f"Warning: Ecosystem aliases file not found: {aliases_file}", file=sys.stderr)
+        return {}
+
+    try:
+        with open(aliases_file) as f:
+            data = yaml.safe_load(f)
+            return data.get("alias", {})
+    except Exception as e:
+        print(f"Warning: Failed to load ecosystem aliases: {e}", file=sys.stderr)
+        return {}
+
+
+def load_or_generate_cataloger_data(update: bool = False) -> dict:
+    """
+    load cataloger data from cache or generate it from syft.
+
+    Args:
+        update: if true, regenerate data even if cache exists
+
+    Returns:
+        dict with cataloger information
+    """
+    cache_file = paths.cataloger_cache_file
+
+    # check if cache exists and we're not forcing update
+    if cache_file.exists() and not update:
+        print(f"Using existing {cache_file}")
+        try:
+            with open(cache_file) as f:
+                data = json.load(f)
+                # filter out the _comment field if present
+                return {k: v for k, v in data.items() if k != "_comment"}
+        except json.JSONDecodeError as e:
+            print(f"Warning: Invalid JSON in {cache_file}: {e}", file=sys.stderr)
+            print("Regenerating cataloger data...", file=sys.stderr)
+
+    # generate cataloger data from syft
+    print("Extracting cataloger information from Syft...")
+    try:
+        stdout, stderr, returncode = run_syft(
+            args=["cataloger", "info", "-o", "json"],
+            timeout=timeouts.cataloger_info,
+        )
+
+        if returncode != 0:
+            print(f"Error running Syft: {stderr or stdout}", file=sys.stderr)
+            sys.exit(1)
+
+        data = json.loads(stdout)
+
+        # save to cache
+        cache_file.parent.mkdir(parents=True, exist_ok=True)
+        comment = get_generated_comment("scripts/generate_capability_tables.py", "json")
+        cache_data = {"_comment": comment, **data}
+
+        with open(cache_file, "w") as f:
+            json.dump(cache_data, f, indent=2)
+
+        print(f"Generated {cache_file}")
+        return data
+
+    except Exception as e:
+        print(f"Error generating cataloger data: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def determine_capability_support(capability: dict) -> CapabilitySupport:
+    """
+    determine the support level for a capability based on its default value and conditions.
+
+    Args:
+        capability: dict with 'name', 'default', and optionally 'conditions' fields
+
+    Returns:
+        CapabilitySupport object
+    """
+    default_value = capability.get("default")
+    has_conditions = "conditions" in capability
+
+    # determine if capability is supported based on default value
+    if isinstance(default_value, bool):
+        supported = default_value
+    elif isinstance(default_value, (list, str)):
+        supported = bool(default_value)  # non-empty list/string means supported
+    else:
+        supported = False
+
+    return CapabilitySupport(
+        supported=supported,
+        conditional=has_conditions,
+        default_value=default_value,
+    )
+
+
+def parse_catalogers(cataloger_data: dict, ecosystem_aliases: dict[str, str]) -> list[CatalogerRow]:
+    """
+    parse cataloger data into table rows.
+
+    Args:
+        cataloger_data: dict from syft cataloger info
+        ecosystem_aliases: dict mapping source to target ecosystem names
+
+    Returns:
+        list of CatalogerRow objects
+    """
+    rows = []
+    catalogers = cataloger_data.get("catalogers", [])
+
+    for cataloger in catalogers:
+        raw_ecosystem = cataloger.get("ecosystem", "unknown")
+        # apply ecosystem aliasing
+        ecosystem = ecosystem_aliases.get(raw_ecosystem, raw_ecosystem)
+        cataloger_name = cataloger.get("name", "unknown")
+
+        # aggregate evidence across all patterns for this cataloger
+        patterns = cataloger.get("patterns", [])
+        globs = []
+        paths = []
+        mimetypes = []
+
+        for pattern in patterns:
+            method = pattern.get("method", "")
+            criteria = pattern.get("criteria", [])
+
+            if method == "glob":
+                globs.extend(criteria)
+            elif method == "path":
+                paths.extend(criteria)
+            elif method == "mimetype":
+                mimetypes.extend(criteria)
+
+        # cataloger-level capabilities (fallback if pattern doesn't define them)
+        cataloger_level_caps = cataloger.get("capabilities", [])
+
+        if not patterns:
+            # no patterns, use cataloger-level capabilities
+            capabilities = _parse_capabilities(cataloger_level_caps)
+            rows.append(
+                CatalogerRow(
+                    ecosystem=ecosystem,
+                    cataloger_name=cataloger_name,
+                    globs=globs,
+                    paths=paths,
+                    mimetypes=mimetypes,
+                    capabilities=capabilities,
+                )
+            )
+        else:
+            # process each pattern - create one row per unique capability combination
+            for pattern in patterns:
+                # prefer pattern-level capabilities, fall back to cataloger-level
+                pattern_caps = pattern.get("capabilities", cataloger_level_caps)
+                capabilities = _parse_capabilities(pattern_caps)
+
+                rows.append(
+                    CatalogerRow(
+                        ecosystem=ecosystem,
+                        cataloger_name=cataloger_name,
+                        globs=globs,
+                        paths=paths,
+                        mimetypes=mimetypes,
+                        capabilities=capabilities,
+                    )
+                )
+
+    return rows
+
+
+def _parse_capabilities(capabilities_list: list[dict]) -> dict[str, CapabilitySupport]:
+    """
+    parse a list of capabilities into a dict keyed by capability name.
+
+    Args:
+        capabilities_list: list of capability dicts
+
+    Returns:
+        dict mapping capability name to CapabilitySupport
+    """
+    result = {}
+
+    for cap in capabilities_list:
+        cap_name = cap.get("name")
+        if cap_name:
+            result[cap_name] = determine_capability_support(cap)
+
+    return result
+
+
+def _calculate_rowspans_for_overview(rows: list[CatalogerRow]) -> dict[str, list[int]]:
+    """
+    calculate rowspan values for overview table (ecosystem and cataloger merging).
+
+    Args:
+        rows: sorted list of CatalogerRow objects
+
+    Returns:
+        dict with 'ecosystem' and 'cataloger' keys, each containing list of rowspan values
+    """
+    n = len(rows)
+    rowspans = {
+        "ecosystem": [0] * n,
+        "cataloger": [0] * n,
+    }
+
+    if not rows:
+        return rowspans
+
+    # calculate ecosystem rowspans
+    i = 0
+    while i < n:
+        current_ecosystem = rows[i].ecosystem
+        count = 1
+        j = i + 1
+        while j < n and rows[j].ecosystem == current_ecosystem:
+            count += 1
+            j += 1
+
+        rowspans["ecosystem"][i] = count
+        i = j
+
+    # calculate cataloger rowspans (within same ecosystem)
+    i = 0
+    while i < n:
+        current_ecosystem = rows[i].ecosystem
+        current_cataloger = rows[i].cataloger_name
+        count = 1
+        j = i + 1
+        while j < n and rows[j].ecosystem == current_ecosystem and rows[j].cataloger_name == current_cataloger:
+            count += 1
+            j += 1
+
+        rowspans["cataloger"][i] = count
+        i = j
+
+    return rowspans
+
+
+def _calculate_rowspans_for_ecosystem(rows: list[CatalogerRow]) -> list[int]:
+    """
+    calculate rowspan values for ecosystem table (cataloger merging only, no ecosystem column).
+
+    Args:
+        rows: sorted list of CatalogerRow objects (all same ecosystem)
+
+    Returns:
+        list of rowspan values for cataloger column
+    """
+    n = len(rows)
+    rowspans = [0] * n
+
+    if not rows:
+        return rowspans
+
+    # calculate cataloger rowspans
+    i = 0
+    while i < n:
+        current_cataloger = rows[i].cataloger_name
+        count = 1
+        j = i + 1
+        while j < n and rows[j].cataloger_name == current_cataloger:
+            count += 1
+            j += 1
+
+        rowspans[i] = count
+        i = j
+
+    return rowspans
+
+
+def get_capability_indicator(cap_support: CapabilitySupport | None) -> str:
+    """
+    get the HTML indicator for a capability support level.
+
+    Args:
+        cap_support: CapabilitySupport object or None
+
+    Returns:
+        HTML string for the indicator
+    """
+    if cap_support is None:
+        return "-"
+    elif cap_support.conditional:
+        # show conditional indicator even if default is false (user can enable it)
+        return "⚙️"  # gear emoji for conditional support
+    elif cap_support.supported:
+        return "✅"  # checkmark for default support
+    else:
+        return "-"
+
+
+def format_evidence(globs: list[str], paths: list[str], mimetypes: list[str]) -> str:
+    """
+    format evidence patterns for display in a table cell.
+
+    Shows globs and paths (cleaned), and if mimetypes exist, shows them with "(mimetype)" suffix.
+
+    Args:
+        globs: list of glob patterns
+        paths: list of path patterns
+        mimetypes: list of mimetype patterns
+
+    Returns:
+        formatted HTML string for evidence cell
+    """
+    # collect all patterns to display
+    patterns = []
+
+    # add cleaned globs and paths (strip **/ prefix)
+    patterns.extend(clean_glob_pattern(g) for g in globs)
+    patterns.extend(clean_glob_pattern(p) for p in paths)
+
+    # if no patterns at all, return dash
+    if not patterns and not mimetypes:
+        return "-"
+
+    # format the cell content
+    if patterns:
+        # show patterns as comma-separated list wrapped in <code>
+        content = ", ".join(f"<code>{p}</code>" for p in patterns)
+    else:
+        content = ""
+
+    # append actual mimetype values if mimetypes exist
+    if mimetypes:
+        if content:
+            content += ", "
+        # show actual mimetype values with (mimetype) suffix
+        content += ", ".join(f"<code>{m}</code>" for m in mimetypes) + " (mimetype)"
+
+    return content
+
+
+def format_depth_value(cap_support: CapabilitySupport | None) -> str:
+    """
+    format dependency depth value for ecosystem-specific tables.
+
+    Converts ["direct", "indirect"] to "transitive", ["direct"] to "direct".
+
+    Args:
+        cap_support: CapabilitySupport object or None
+
+    Returns:
+        formatted string: "direct", "transitive", or "-"
+    """
+    if cap_support is None or not cap_support.supported:
+        return "-"
+
+    # get the default value (should be a list)
+    value = cap_support.default_value
+    if not isinstance(value, list) or not value:
+        return "-"
+
+    # if it contains both direct and indirect, show "transitive"
+    if "direct" in value and "indirect" in value:
+        return "transitive"
+    elif "direct" in value:
+        return "direct"
+    elif "indirect" in value:
+        return "transitive"
+    else:
+        return "-"
+
+
+def format_edges_value(cap_support: CapabilitySupport | None) -> str:
+    """
+    format dependency edges value for ecosystem-specific tables.
+
+    Shows the raw value from JSON.
+
+    Args:
+        cap_support: CapabilitySupport object or None
+
+    Returns:
+        formatted string or "-"
+    """
+    if cap_support is None or not cap_support.supported:
+        return "-"
+
+    value = cap_support.default_value
+    if isinstance(value, bool):
+        return "✅" if value else "-"
+    elif isinstance(value, str):
+        return value if value else "-"
+    elif isinstance(value, list):
+        return ", ".join(str(v) for v in value) if value else "-"
+    else:
+        return str(value) if value else "-"
+
+
+def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
+    """
+    format dependency kinds value for ecosystem-specific tables.
+
+    Shows comma-separated list of kinds.
+
+    Args:
+        cap_support: CapabilitySupport object or None
+
+    Returns:
+        formatted string or "-"
+    """
+    if cap_support is None or not cap_support.supported:
+        return "-"
+
+    value = cap_support.default_value
+    if isinstance(value, list) and value:
+        return ", ".join(str(v) for v in value)
+    elif isinstance(value, str) and value:
+        return value
+    else:
+        return "-"
+
+
+def collect_app_configs_by_ecosystem(cataloger_data: dict, ecosystem_aliases: dict[str, str]) -> dict[str, list[dict]]:
+    """
+    collect all app-level configuration options grouped by ecosystem.
+
+    Args:
+        cataloger_data: dict from syft cataloger info
+        ecosystem_aliases: dict mapping source to target ecosystem names
+
+    Returns:
+        dict mapping ecosystem name to list of unique config field dicts
+    """
+    ecosystem_configs = defaultdict(lambda: {})  # ecosystem -> {app_key -> field_dict}
+    catalogers = cataloger_data.get("catalogers", [])
+
+    for cataloger in catalogers:
+        raw_ecosystem = cataloger.get("ecosystem", "unknown")
+        # apply ecosystem aliasing
+        ecosystem = ecosystem_aliases.get(raw_ecosystem, raw_ecosystem)
+
+        # check if this cataloger has config
+        config = cataloger.get("config")
+        if not config:
+            continue
+
+        # extract config fields
+        fields = config.get("fields", [])
+        for field in fields:
+            app_key = field.get("app_key")
+            if not app_key:
+                continue
+
+            # deduplicate by app_key (catalogers may share config)
+            if app_key not in ecosystem_configs[ecosystem]:
+                ecosystem_configs[ecosystem][app_key] = {
+                    "app_key": app_key,
+                    "key": field.get("key", ""),
+                    "description": field.get("description", ""),
+                }
+
+    # convert to sorted lists
+    result = {}
+    for ecosystem, configs_dict in ecosystem_configs.items():
+        # sort by app_key for consistent output
+        result[ecosystem] = sorted(configs_dict.values(), key=lambda x: x["app_key"])
+
+    return result
+
+
+def strip_field_name_from_description(description: str, field_key: str) -> str:
+    """
+    strip redundant field name prefix from godoc-style description.
+
+    godoc strings typically start with the field name, e.g.:
+    "GuessUnpinnedRequirements attempts to infer..."
+
+    this function removes that prefix and capitalizes the remaining text.
+
+    Args:
+        description: the description string
+        field_key: the field name (e.g., "GuessUnpinnedRequirements")
+
+    Returns:
+        cleaned description with field name prefix removed
+    """
+    if not description or not field_key:
+        return description
+
+    # check if description starts with field name followed by space
+    prefix = field_key + " "
+    if description.startswith(prefix):
+        # remove the prefix
+        cleaned = description[len(prefix):]
+        # capitalize first letter
+        if cleaned:
+            cleaned = cleaned[0].upper() + cleaned[1:]
+        return cleaned
+
+    return description
+
+
+def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], output_dir: Path) -> None:
+    """
+    generate app configuration snippet for an ecosystem.
+
+    Args:
+        ecosystem: ecosystem name
+        config_fields: list of config field dicts with app_key and description
+        output_dir: output directory for snippets
+    """
+    if not config_fields:
+        return
+
+    ecosystem_dir = output_dir / ecosystem
+    ecosystem_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = ecosystem_dir / "syft-app-config.md"
+
+    # generate comment
+    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+
+    # build HTML lines
+    html_lines = []
+
+    # table header
+    html_lines.append('<table class="config-table">')
+    html_lines.append('  <thead>')
+    html_lines.append('    <tr>')
+    html_lines.append('      <th class="col-config-key">Configuration Key</th>')
+    html_lines.append('      <th class="col-description">Description</th>')
+    html_lines.append('    </tr>')
+    html_lines.append('  </thead>')
+    html_lines.append('  <tbody>')
+
+    # table body
+    for field in config_fields:
+        app_key = field.get("app_key", "")
+        key = field.get("key", "")
+        description = field.get("description", "")
+
+        # strip redundant field name prefix from godoc-style descriptions
+        cleaned_description = strip_field_name_from_description(description, key)
+
+        html_lines.append('    <tr>')
+        html_lines.append(f'      <td class="col-config-key"><code>{app_key}</code></td>')
+        html_lines.append(f'      <td class="col-description">{cleaned_description}</td>')
+        html_lines.append('    </tr>')
+
+    # close table
+    html_lines.append('  </tbody>')
+    html_lines.append('</table>')
+
+    # write file
+    with open(output_file, "w") as f:
+        f.write(comment)
+        for line in html_lines:
+            f.write(line + "\n")
+
+    print(f"Generated {output_file}")
+
+
+def clean_cataloger_name(name: str) -> str:
+    """
+    clean cataloger name by removing -cataloger suffix.
+
+    Args:
+        name: cataloger name
+
+    Returns:
+        cleaned name without -cataloger suffix
+    """
+    return name.removesuffix("-cataloger")
+
+
+def clean_glob_pattern(pattern: str) -> str:
+    """
+    clean glob pattern by removing **/ prefix.
+
+    Args:
+        pattern: glob pattern
+
+    Returns:
+        cleaned pattern without **/ prefix
+    """
+    return pattern.removeprefix("**/")
+
+
+def get_svg_icon(icon_type: str) -> str:
+    """
+    get SVG icon HTML for a capability indicator.
+
+    Args:
+        icon_type: 'check', 'gear', or 'dash'
+
+    Returns:
+        HTML string with SVG icon
+    """
+    if icon_type not in ['check', 'gear', 'dash']:
+        icon_type = 'dash'
+    return f'<svg class="capability-icon"><use href="#icon-{icon_type}"/></svg>'
+
+
+def get_capability_indicator_svg(cap_support: CapabilitySupport | None) -> str:
+    """
+    get the SVG icon for a capability support level.
+
+    Args:
+        cap_support: CapabilitySupport object or None
+
+    Returns:
+        HTML string with SVG icon
+    """
+    if cap_support is None:
+        return get_svg_icon('dash')
+    elif cap_support.conditional:
+        return get_svg_icon('gear')
+    elif cap_support.supported:
+        return get_svg_icon('check')
+    else:
+        return get_svg_icon('dash')
+
+
+def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
+    """
+    generate complete overview table with 6 columns (all capabilities as SVG indicators).
+
+    Columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+    All capabilities show only SVG check/gear/dash indicators.
+
+    Args:
+        rows: list of all CatalogerRow objects
+        output_dir: output directory for snippets
+    """
+    overview_dir = output_dir / "overview"
+    overview_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = overview_dir / "package.md"
+
+    # sort rows for hierarchical grouping
+    sorted_rows = sorted(rows, key=lambda r: (r.ecosystem, r.cataloger_name))
+
+    # calculate rowspans
+    rowspans = _calculate_rowspans_for_overview(sorted_rows)
+
+    # generate comment
+    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+
+    # build HTML lines
+    html_lines = []
+
+    # table header with CSS classes
+    html_lines.append('<table class="capability-table capability-table-overview">')
+    html_lines.append('  <thead>')
+    html_lines.append('    <tr>')
+    html_lines.append('      <th class="col-ecosystem">Ecosystem</th>')
+    html_lines.append('      <th class="col-cataloger">Cataloger</th>')
+    html_lines.append('      <th class="col-evidence">Evidence</th>')
+    html_lines.append('      <th class="col-license">License</th>')
+    html_lines.append('      <th class="col-dependency">Dependency</th>')
+    html_lines.append('      <th class="col-files">Files</th>')
+    html_lines.append('    </tr>')
+    html_lines.append('  </thead>')
+    html_lines.append('  <tbody>')
+
+    # table body
+    for i, row in enumerate(sorted_rows):
+        html_lines.append('    <tr>')
+
+        # ecosystem column (with rowspan)
+        if rowspans["ecosystem"][i] > 0:
+            rowspan_attr = f' rowspan="{rowspans["ecosystem"][i]}"' if rowspans["ecosystem"][i] > 1 else ""
+            html_lines.append(f'      <td class="col-ecosystem"{rowspan_attr}>{row.ecosystem}</td>')
+
+        # cataloger column (with rowspan, cleaned name)
+        if rowspans["cataloger"][i] > 0:
+            rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
+            clean_name = clean_cataloger_name(row.cataloger_name)
+            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{clean_name}</code></td>')
+
+        # evidence column (with rowspan matching cataloger)
+        if rowspans["cataloger"][i] > 0:
+            rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
+            evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
+            html_lines.append(f'      <td class="col-evidence"{rowspan_attr}>{evidence_content}</td>')
+
+        # license column (SVG indicator)
+        license_cap = row.capabilities.get("license")
+        html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
+
+        # dependency column (combined - show SVG icon if any dependency capability is supported)
+        depth_cap = row.capabilities.get("dependency.depth")
+        edges_cap = row.capabilities.get("dependency.edges")
+        kinds_cap = row.capabilities.get("dependency.kinds")
+
+        # determine dependency support level
+        has_dep_support = any(
+            cap and cap.supported
+            for cap in [depth_cap, edges_cap, kinds_cap]
+        )
+        has_dep_conditional = any(
+            cap and cap.conditional
+            for cap in [depth_cap, edges_cap, kinds_cap]
+        )
+
+        if has_dep_conditional:
+            dep_indicator = get_svg_icon('gear')
+        elif has_dep_support:
+            dep_indicator = get_svg_icon('check')
+        else:
+            dep_indicator = get_svg_icon('dash')
+
+        html_lines.append(f'      <td class="col-dependency indicator">{dep_indicator}</td>')
+
+        # files column (SVG indicator for listing capability)
+        files_cap = row.capabilities.get("package_manager.files.listing")
+        html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
+
+        html_lines.append('    </tr>')
+
+    # close table
+    html_lines.append('  </tbody>')
+    html_lines.append('</table>')
+
+    # write file
+    with open(output_file, "w") as f:
+        f.write(comment)
+        for line in html_lines:
+            f.write(line + "\n")
+
+    print(f"Generated {output_file}")
+
+
+def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_dir: Path) -> None:
+    """
+    generate complete ecosystem-specific table with 9 columns (actual values for some capabilities).
+
+    Columns: Cataloger, Evidence, License, Depth, Edges, Kinds, Files, Digests, Integrity Hash
+    License/Files/Digests/Integrity show SVG indicators.
+    Depth/Edges/Kinds show actual values from JSON.
+
+    Args:
+        ecosystem: ecosystem name
+        rows: list of all CatalogerRow objects
+        output_dir: output directory for snippets
+    """
+    ecosystem_dir = output_dir / ecosystem
+    ecosystem_dir.mkdir(parents=True, exist_ok=True)
+
+    output_file = ecosystem_dir / "package.md"
+
+    # filter rows for this ecosystem
+    ecosystem_rows = [r for r in rows if r.ecosystem == ecosystem]
+
+    if not ecosystem_rows:
+        return
+
+    # sort rows for hierarchical grouping
+    sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
+
+    # calculate rowspans (cataloger only, no ecosystem column)
+    rowspans = _calculate_rowspans_for_ecosystem(sorted_rows)
+
+    # generate comment
+    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+
+    # build HTML lines
+    html_lines = []
+
+    # table header with CSS classes
+    html_lines.append('<table class="capability-table capability-table-ecosystem">')
+    html_lines.append('  <thead>')
+    html_lines.append('    <tr>')
+    html_lines.append('      <th class="col-cataloger">Cataloger</th>')
+    html_lines.append('      <th class="col-evidence">Evidence</th>')
+    html_lines.append('      <th class="col-license">License</th>')
+    html_lines.append('      <th class="col-depth">Depth</th>')
+    html_lines.append('      <th class="col-edges">Edges</th>')
+    html_lines.append('      <th class="col-kinds">Kinds</th>')
+    html_lines.append('      <th class="col-files">Files</th>')
+    html_lines.append('      <th class="col-digests">Digests</th>')
+    html_lines.append('      <th class="col-integrity-hash">Integrity Hash</th>')
+    html_lines.append('    </tr>')
+    html_lines.append('  </thead>')
+    html_lines.append('  <tbody>')
+
+    # table body
+    for i, row in enumerate(sorted_rows):
+        html_lines.append('    <tr>')
+
+        # cataloger column (with rowspan, cleaned name)
+        if rowspans[i] > 0:
+            rowspan_attr = f' rowspan="{rowspans[i]}"' if rowspans[i] > 1 else ""
+            clean_name = clean_cataloger_name(row.cataloger_name)
+            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{clean_name}</code></td>')
+
+        # evidence column (with rowspan matching cataloger)
+        if rowspans[i] > 0:
+            rowspan_attr = f' rowspan="{rowspans[i]}"' if rowspans[i] > 1 else ""
+            evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
+            html_lines.append(f'      <td class="col-evidence"{rowspan_attr}>{evidence_content}</td>')
+
+        # license column (SVG indicator)
+        license_cap = row.capabilities.get("license")
+        html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
+
+        # depth column (actual value: "direct" or "transitive")
+        depth_cap = row.capabilities.get("dependency.depth")
+        html_lines.append(f'      <td class="col-depth value">{format_depth_value(depth_cap)}</td>')
+
+        # edges column (raw value from JSON)
+        edges_cap = row.capabilities.get("dependency.edges")
+        html_lines.append(f'      <td class="col-edges value">{format_edges_value(edges_cap)}</td>')
+
+        # kinds column (comma-separated list)
+        kinds_cap = row.capabilities.get("dependency.kinds")
+        html_lines.append(f'      <td class="col-kinds value">{format_kinds_value(kinds_cap)}</td>')
+
+        # files column (SVG indicator)
+        files_cap = row.capabilities.get("package_manager.files.listing")
+        html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
+
+        # digests column (SVG indicator)
+        digests_cap = row.capabilities.get("package_manager.files.digests")
+        html_lines.append(f'      <td class="col-digests indicator">{get_capability_indicator_svg(digests_cap)}</td>')
+
+        # integrity hash column (SVG indicator)
+        integrity_cap = row.capabilities.get("package_manager.package_integrity_hash")
+        html_lines.append(f'      <td class="col-integrity-hash indicator">{get_capability_indicator_svg(integrity_cap)}</td>')
+
+        html_lines.append('    </tr>')
+
+    # close table
+    html_lines.append('  </tbody>')
+    html_lines.append('</table>')
+
+    # write file
+    with open(output_file, "w") as f:
+        f.write(comment)
+        for line in html_lines:
+            f.write(line + "\n")
+
+    print(f"Generated {output_file}")
+
+
+@click.command()
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the cataloger data cache even if it already exists",
+)
+def main(update: bool) -> None:
+    """Generate package capability table snippets from Syft cataloger information."""
+    # load ecosystem aliases
+    print("Loading ecosystem aliases...")
+    ecosystem_aliases = load_ecosystem_aliases()
+    if ecosystem_aliases:
+        print(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
+
+    # load or generate cataloger data
+    cataloger_data = load_or_generate_cataloger_data(update=update)
+
+    # parse catalogers into rows
+    print("Parsing cataloger capabilities...")
+    rows = parse_catalogers(cataloger_data, ecosystem_aliases)
+
+    if not rows:
+        print("Error: No catalogers found", file=sys.stderr)
+        sys.exit(1)
+
+    print(f"Found {len(rows)} cataloger patterns across {len(set(r.ecosystem for r in rows))} ecosystems")
+
+    # generate tables
+    print("Generating tables...")
+
+    # generate overview table
+    generate_overview_table(rows, paths.capabilities_snippet_dir)
+
+    # generate individual ecosystem tables
+    ecosystems = set(r.ecosystem for r in rows)
+    for ecosystem in sorted(ecosystems):
+        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir)
+
+    # collect and generate app config snippets
+    print("Generating app config snippets...")
+    app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
+    for ecosystem, config_fields in app_configs.items():
+        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir)
+
+    print("\nGeneration complete!")
+
+
+if __name__ == "__main__":
+    main()

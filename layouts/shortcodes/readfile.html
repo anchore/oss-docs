@@ -1,0 +1,27 @@
+{{- /*
+  readfile shortcode - reads a file and outputs it as safe HTML
+  Usage:
+    {{< readfile file="/path/to/file.md" >}}
+    {{< readfile "/path/to/file.md" >}}
+    {{% readfile "path/to/file.md" %}}
+*/ -}}
+{{- $file := "" -}}
+{{- if .Get "file" -}}
+  {{- $file = .Get "file" -}}
+{{- else -}}
+  {{- $file = .Get 0 -}}
+{{- end -}}
+
+{{- /* Strip leading slash if present, as readFile expects relative paths */ -}}
+{{- $file = strings.TrimPrefix "/" $file -}}
+
+{{- /* If path doesn't start with "content/", prepend it */ -}}
+{{- if not (hasPrefix $file "content/") -}}
+  {{- /* Resolve relative path from calling file's directory */ -}}
+  {{- $callingFile := .Page.File.Path -}}
+  {{- $callingDir := path.Dir $callingFile -}}
+  {{- $file = path.Join "content" $callingDir $file -}}
+{{- end -}}
+
+{{- $content := readFile $file -}}
+{{- $content | safeHTML -}}

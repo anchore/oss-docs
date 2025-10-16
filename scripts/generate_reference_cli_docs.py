@@ -9,6 +9,7 @@ import sys
 from collections import deque
 
 import click
+from utils.config import get_generated_comment
 from utils.syft import run_syft
 
 
@@ -113,6 +114,9 @@ url = "docs/reference/{tool_name.lower()}/cli"
 +++
 
 """
+
+    # Add auto-generated comment
+    content += get_generated_comment("scripts/generate_reference_cli_docs.py", "html")
 
     # Add version info block at the top
     version_info = get_version_info(image, app_name)

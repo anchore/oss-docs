@@ -7,6 +7,7 @@ ignoreLogs:
   - warning-goldmark-raw-html
 ignoreFiles:
   - content/docs/guides/sbom/snippets/.*\.md$
+  - content/docs/capabilities/snippets/.*\.md$
   - data/
 enableGitInfo: true
 
@@ -48,8 +49,6 @@ params:
   copyright: Anchore Inc
   privacy_policy: https://anchore.com/privacy
   environment: development
-  custom_css:
-    - css/custom.css
   github_repo: https://github.com/anchore/oss-docs
   github_project_repo: https://github.com/anchore/oss-docs
   offlineSearch: true
@@ -127,6 +126,7 @@ markup:
     style: dracula
   goldmark:
     renderer:
+      # used to allow raw HTML in markdown files
       unsafe: true
     parser:
       attribute:
