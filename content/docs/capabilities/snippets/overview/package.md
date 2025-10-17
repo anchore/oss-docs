@@ -15,17 +15,17 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-ecosystem">apk</td>
-      <td class="col-cataloger"><code>apk-db</code></td>
-      <td class="col-evidence"><code>lib/apk/db/installed</code></td>
+      <td class="col-ecosystem">alpm</td>
+      <td class="col-cataloger"><code>alpm-db</code></td>
+      <td class="col-evidence"><code>var/lib/pacman/local/**/desc</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">arch</td>
-      <td class="col-cataloger"><code>alpm-db</code></td>
-      <td class="col-evidence"><code>var/lib/pacman/local/**/desc</code></td>
+      <td class="col-ecosystem">apk</td>
+      <td class="col-cataloger"><code>apk-db</code></td>
+      <td class="col-evidence"><code>lib/apk/db/installed</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -169,14 +169,6 @@
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">gentoo</td>
-      <td class="col-cataloger"><code>portage</code></td>
-      <td class="col-evidence"><code>var/db/pkg/*/*/CONTENTS</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
       <td class="col-ecosystem" rowspan="3">github-actions</td>
@@ -384,6 +376,14 @@
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">portage</td>
+      <td class="col-cataloger"><code>portage</code></td>
+      <td class="col-evidence"><code>var/db/pkg/*/*/CONTENTS</code></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
       <td class="col-ecosystem">prolog</td>

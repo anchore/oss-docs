@@ -14,6 +14,16 @@
       "operating_systems": ["alpine", "wolfi", "chainguard"],
       "display_name": "APK Package Format",
       "description": "Alpine Package Keeper format used by Alpine-based Linux distributions"
+    },
+    "alpm": {
+      "operating_systems": ["archlinux"],
+      "display_name": "ALPM Package Format",
+      "description": "Arch Linux Package Manager format used by Arch Linux"
+    },
+    "portage": {
+      "operating_systems": ["gentoo"],
+      "display_name": "Portage Package Format",
+      "description": "Portage package format used by Gentoo Linux"
     }
   },
   "operating_systems": {
@@ -86,6 +96,16 @@
       "package_format": "apk",
       "display_name": "Chainguard",
       "short_name": "Chainguard"
+    },
+    "archlinux": {
+      "package_format": "alpm",
+      "display_name": "Arch Linux",
+      "short_name": "Arch Linux"
+    },
+    "gentoo": {
+      "package_format": "portage",
+      "display_name": "Gentoo Linux",
+      "short_name": "Gentoo"
     }
   }
 }

@@ -13,10 +13,22 @@
   </thead>
   <tbody>
     <tr>
+      <td class="col-os-name">AlmaLinux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
       <td class="col-os-name">Alpine Linux</td>
       <td class="col-versions">3.2+, edge</td>
       <td class="col-provider">alpine</td>
       <td class="col-data-source"><a href="https://secdb.alpinelinux.org">Alpine SecDB</a></td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Amazon Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">Amazonlinux</td>
@@ -25,10 +37,22 @@
       <td class="col-data-source"><a href="https://alas.aws.amazon.com/">Amazon Linux Security Center</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Arch Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
       <td class="col-os-name">Azurelinux</td>
       <td class="col-versions">3.0</td>
       <td class="col-provider">mariner</td>
       <td class="col-data-source">Microsoft CBL-Mariner OVAL</td>
+    </tr>
+    <tr>
+      <td class="col-os-name">CentOS</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">Chainguard</td>
@@ -49,6 +73,18 @@
       <td class="col-data-source"><a href="https://advisory.echohq.com/data.json">ECHO Security</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Fedora</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Gentoo Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
       <td class="col-os-name">CBL-Mariner</td>
       <td class="col-versions">1.0, 2.0</td>
       <td class="col-provider">mariner</td>
@@ -61,6 +97,12 @@
       <td class="col-data-source"><a href="https://packages.mini.dev/advisories/secdb/security.json">MINIMOS Security</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Oracle Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
       <td class="col-os-name">Oraclelinux</td>
       <td class="col-versions">5, 6, 7, 8, 9, 10</td>
       <td class="col-provider">oracle</td>
@@ -71,6 +113,18 @@
       <td class="col-versions">5, 6, 7, 8, 9, 10<br>EUS: 5.9, 6.4+, 7, 8.1, 8.2, 8.4, 8.6, 8.8, 9</td>
       <td class="col-provider">rhel</td>
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Red Hat Enterprise Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Rocky Linux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">SUSE Linux Enterprise Server</td>

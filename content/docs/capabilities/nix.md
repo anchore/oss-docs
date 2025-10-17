@@ -1,0 +1,21 @@
++++
+title = "Nix"
+description = "Nix package analysis and vulnerability scanning capabilities"
+weight = 200
+type = "docs"
++++
+
+## Package analysis
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/package.md" >}}
+
+## Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/syft-app-config.md" >}}
+
+
+
+## Next steps
+
+- [Syft package analysis]({{< ref "/docs/guides/sbom" >}})
+- [Grype vulnerability scanning]({{< ref "/docs/guides/vulnerability" >}})

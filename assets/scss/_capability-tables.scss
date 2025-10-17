@@ -15,13 +15,9 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* Header styles */
-.capability-table thead {
-  background: linear-gradient(to bottom, #2563eb, #1d4ed8);
-  box-shadow: 0 3px 6px rgba(29, 78, 216, 0.4);
-}
 
 .capability-table thead th {
+  box-shadow: 0 3px 6px rgba(29, 78, 216, 0.4);
   padding: 0.625rem 0.5rem;
   text-align: left;
   font-weight: 600;
@@ -34,19 +30,6 @@
 }
 
 /* Body styles */
-.capability-table tbody tr {
-  border-bottom: 1px solid #f3f4f6;
-  transition: background-color 0.15s ease;
-}
-
-.capability-table tbody tr:last-child {
-  border-bottom: none;
-}
-
-.capability-table tbody tr:hover {
-  background-color: #f9fafb;
-}
-
 .capability-table tbody td {
   padding: 0.5rem 0.5rem;
   color: #4b5563;
@@ -67,24 +50,12 @@
 
 /* Column-specific widths - Overview table */
 .capability-table-overview .col-ecosystem {
-  width: 15%;
   font-weight: 500;
-}
-
-.capability-table-overview .col-cataloger {
-  width: 25%;
-  min-width: 200px;
-}
-
-.capability-table-overview .col-evidence {
-  width: 30%;
-  min-width: 250px;
 }
 
 .capability-table-overview .col-license,
 .capability-table-overview .col-dependency,
 .capability-table-overview .col-files {
-  width: 10%;
   text-align: center;
 }
 
@@ -99,57 +70,15 @@
   min-width: 240px;
 }
 
-.capability-table-ecosystem .col-license,
-.capability-table-ecosystem .col-depth,
-.capability-table-ecosystem .col-edges,
-.capability-table-ecosystem .col-kinds,
-.capability-table-ecosystem .col-files,
-.capability-table-ecosystem .col-digests,
-.capability-table-ecosystem .col-integrity-hash {
-  width: 7%;
-  text-align: center;
-}
-
-/* OS tables - use auto layout for flexible column sizing */
-.capability-table-os,
-.capability-table-os-overview {
-  table-layout: auto;
-}
-
 /* Column-specific widths - OS Overview table */
 .capability-table-os-overview .col-os-name {
-  min-width: 120px;
   font-weight: 500;
 }
 
-.capability-table-os-overview .col-versions {
-  min-width: 100px;
-}
-
-.capability-table-os-overview .col-provider {
-  min-width: 100px;
-}
-
-.capability-table-os-overview .col-data-source {
-  width: auto;
-}
 
 /* Column-specific widths - OS table (package format specific) */
 .capability-table-os .col-os-name {
-  min-width: 120px;
   font-weight: 500;
-}
-
-.capability-table-os .col-versions {
-  min-width: 100px;
-}
-
-.capability-table-os .col-provider {
-  min-width: 100px;
-}
-
-.capability-table-os .col-data-source {
-  width: auto;
 }
 
 /* Column-specific widths - Vulnerability table */
@@ -174,40 +103,8 @@
   margin: 0.125rem 0.25rem 0.125rem 0;
 }
 
-/* Column group separators - subtle vertical borders between major sections */
-/* Use border-left only to avoid double-thickness issues */
-
-/* Separator before LICENSE column */
-.capability-table thead th.col-license,
-.capability-table tbody td.col-license {
-  border-left: 1px solid rgba(209, 213, 219, 0.6);
-}
-
-/* Separator before DEPENDENCY columns (overview table) */
-.capability-table-overview thead th.col-dependency,
-.capability-table-overview tbody td.col-dependency {
-  border-left: 1px solid rgba(209, 213, 219, 0.6);
-}
-
-/* Separator before DEPENDENCY columns (ecosystem table) */
-.capability-table-ecosystem thead th.col-depth,
-.capability-table-ecosystem tbody td.col-depth {
-  border-left: 1px solid rgba(209, 213, 219, 0.6);
-}
-
-/* Separator before PACKAGE MANAGER columns */
-.capability-table thead th.col-files,
-.capability-table tbody td.col-files {
-  border-left: 1px solid rgba(209, 213, 219, 0.6);
-}
-
-/* Multi-row header support: target colspan headers using nth-child */
-/* For ecosystem tables with 2-row headers: Evidence(1), License(2), Dependency(3), Package Manager(4) */
-.capability-table-ecosystem thead tr:first-child th:nth-child(3) {
-  border-left: 1px solid rgba(209, 213, 219, 0.6);
-}
-
-.capability-table-ecosystem thead tr:first-child th:nth-child(4) {
+/* all capability tables need soft vertical separation, throughout headers and content */
+.capability-table th, .capability-table td {
   border-left: 1px solid rgba(209, 213, 219, 0.6);
 }
 
@@ -262,15 +159,6 @@
     padding: 0.75rem 0.5rem;
   }
 
-  .capability-table-overview .col-cataloger,
-  .capability-table-ecosystem .col-cataloger {
-    min-width: 150px;
-  }
-
-  .capability-table-overview .col-evidence,
-  .capability-table-ecosystem .col-evidence {
-    min-width: 200px;
-  }
 }
 
 @media (max-width: 768px) {
@@ -285,68 +173,11 @@
   }
 }
 
-/* Dark mode support */
+// /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-  .capability-table {
-    border-color: #374151;
-    background-color: #1f2937;
-  }
-
-  .capability-table thead {
-    background: linear-gradient(to bottom, #1d4ed8, #1e3a8a);
-    box-shadow: 0 3px 6px rgba(37, 99, 235, 0.5);
-  }
-
-  .capability-table thead th {
-    color: #dbeafe;
-  }
 
   .capability-table tbody tr {
     border-bottom-color: #374151;
-  }
-
-  .capability-table tbody tr:hover {
-    background-color: #2d3748;
-  }
-
-  .capability-table tbody td {
-    color: #d1d5db;
-  }
-
-  .capability-table code {
-    background-color: #374151;
-    color: #e5e7eb;
-  }
-
-  /* Column group separators - darker borders for dark mode */
-  .capability-table thead th.col-license,
-  .capability-table tbody td.col-license {
-    border-left-color: rgba(75, 85, 99, 0.6);
-  }
-
-  .capability-table-overview thead th.col-dependency,
-  .capability-table-overview tbody td.col-dependency {
-    border-left-color: rgba(75, 85, 99, 0.6);
-  }
-
-  .capability-table-ecosystem thead th.col-depth,
-  .capability-table-ecosystem tbody td.col-depth {
-    border-left-color: rgba(75, 85, 99, 0.6);
-  }
-
-  .capability-table thead th.col-files,
-  .capability-table tbody td.col-files {
-    border-left-color: rgba(75, 85, 99, 0.6);
-  }
-
-  /* Multi-row header support in dark mode */
-  .capability-table-ecosystem thead tr:first-child th:nth-child(3),
-  .capability-table-ecosystem thead tr:first-child th:nth-child(4) {
-    border-left-color: rgba(75, 85, 99, 0.6);
-  }
-
-  .capability-table td.indicator .capability-icon {
-    color: #9ca3af;
   }
 
   .capability-table td.indicator svg use[href="#icon-check"] {
@@ -361,20 +192,20 @@
     color: #6b7280;
   }
 }
-
-/* Print styles */
-@media print {
-  .capability-table {
-    border: 1px solid #000;
-    box-shadow: none;
-  }
-
-  .capability-table tbody tr:hover {
-    background-color: transparent;
-  }
-
-  .capability-icon {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-}
+//
+// /* Print styles */
+// @media print {
+//   .capability-table {
+//     border: 1px solid #000;
+//     box-shadow: none;
+//   }
+//
+//   .capability-table tbody tr:hover {
+//     background-color: transparent;
+//   }
+//
+//   .capability-icon {
+//     print-color-adjust: exact;
+//     -webkit-print-color-adjust: exact;
+//   }
+// }

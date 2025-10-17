@@ -1,22 +1,22 @@
 +++
 title = "APK"
 description = "APK package format analysis and vulnerability scanning capabilities"
-weight = 50
+weight = 20
 type = "docs"
 +++
 
 
 ## Package analysis
 
-{{< readfile file="/content/docs/capabilities/snippets/apk/package.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/package.md" >}}
 
 ## Vulnerability scanning
 
-{{< readfile file="/content/docs/capabilities/snippets/apk/vulnerability.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/vulnerability.md" >}}
 
 ### Operating systems
 
-{{< readfile file="/content/docs/capabilities/snippets/apk/os.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/os.md" >}}
 
 
 ## Next steps

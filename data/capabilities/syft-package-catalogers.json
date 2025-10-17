@@ -1,7 +1,7 @@
 {
   "catalogers": [
     {
-      "ecosystem": "arch",
+      "ecosystem": "alpm",
       "name": "alpm-db-cataloger",
       "type": "generic",
       "patterns": [
@@ -2924,7 +2924,7 @@
       ]
     },
     {
-      "ecosystem": "gentoo",
+      "ecosystem": "portage",
       "name": "portage-cataloger",
       "type": "generic",
       "patterns": [

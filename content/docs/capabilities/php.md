@@ -1,0 +1,20 @@
++++
+title = "PHP"
+description = "PHP package analysis and vulnerability scanning capabilities"
+weight = 220
+type = "docs"
++++
+
+## Package analysis
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/php/package.md" >}}
+
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/php/vulnerability.md" >}}
+
+
+## Next steps
+
+- [Syft package analysis]({{< ref "/docs/guides/sbom" >}})
+- [Grype vulnerability scanning]({{< ref "/docs/guides/vulnerability" >}})

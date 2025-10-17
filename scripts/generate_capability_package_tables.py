@@ -864,10 +864,9 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
         rows: list of all CatalogerRow objects
         output_dir: output directory for snippets
     """
-    overview_dir = output_dir / "overview"
-    overview_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    output_file = overview_dir / "package.md"
+    output_file = output_dir / "package.md"
 
     # sort rows by ecosystem and cataloger
     sorted_rows = sorted(rows, key=lambda r: (r.ecosystem, r.cataloger_name))
@@ -1081,18 +1080,18 @@ def main(update: bool) -> None:
     print("Generating tables...")
 
     # generate overview table
-    generate_overview_table(rows, paths.capabilities_snippet_dir)
+    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview")
 
     # generate individual ecosystem tables
     ecosystems = set(r.ecosystem for r in rows)
     for ecosystem in sorted(ecosystems):
-        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir)
+        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem")
 
     # collect and generate app config snippets
     print("Generating app config snippets...")
     app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
     for ecosystem, config_fields in app_configs.items():
-        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir)
+        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir / "ecosystem")
 
     print("\nGeneration complete!")
 

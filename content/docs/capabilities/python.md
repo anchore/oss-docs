@@ -1,22 +1,22 @@
 +++
 title = "Python"
 description = "Python package analysis and vulnerability scanning capabilities"
-weight = 20
+weight = 250
 type = "docs"
 +++
 
 ## Package analysis
 
-{{< readfile file="/content/docs/capabilities/snippets/python/package.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/package.md" >}}
 
 ## Configuration
 
-{{< readfile file="/content/docs/capabilities/snippets/python/syft-app-config.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/syft-app-config.md" >}}
 
 
 ## Vulnerability scanning
 
-{{< readfile file="/content/docs/capabilities/snippets/python/vulnerability.md" >}}
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/vulnerability.md" >}}
 
 
 ## Next steps
