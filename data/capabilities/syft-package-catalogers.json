@@ -843,7 +843,7 @@
       ]
     },
     {
-      "ecosystem": "debian",
+      "ecosystem": "dpkg",
       "name": "dpkg-db-cataloger",
       "type": "generic",
       "patterns": [
@@ -900,7 +900,7 @@
       ]
     },
     {
-      "ecosystem": "debian",
+      "ecosystem": "dpkg",
       "name": "deb-archive-cataloger",
       "type": "generic",
       "patterns": [

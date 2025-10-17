@@ -5,7 +5,7 @@
       "display_name": "RPM Package Format",
       "description": "Red Hat Package Manager format used by Red Hat-based Linux distributions"
     },
-    "deb": {
+    "dpkg": {
       "operating_systems": ["ubuntu", "debian"],
       "display_name": "DEB Package Format",
       "description": "Debian package format used by Debian-based Linux distributions"
@@ -73,12 +73,12 @@
       "short_name": "CentOS"
     },
     "ubuntu": {
-      "package_format": "deb",
+      "package_format": "dpkg",
       "display_name": "Ubuntu",
       "short_name": "Ubuntu"
     },
     "debian": {
-      "package_format": "deb",
+      "package_format": "dpkg",
       "display_name": "Debian",
       "short_name": "Debian"
     },
