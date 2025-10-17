@@ -13,6 +13,10 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/swift/vulnerability.md" >}}
 
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/swift/grype-app-config.md" >}}
+
 
 ## Next steps
 

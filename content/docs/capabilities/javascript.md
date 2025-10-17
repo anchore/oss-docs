@@ -9,7 +9,7 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/package.md" >}}
 
-## Configuration
+### Syft Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/syft-app-config.md" >}}
 
@@ -17,6 +17,10 @@ type = "docs"
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/grype-app-config.md" >}}
 
 
 ## Next steps

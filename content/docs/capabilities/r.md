@@ -9,6 +9,14 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/r/package.md" >}}
 
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/r/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/r/grype-app-config.md" >}}
+
 
 ## Next steps
 

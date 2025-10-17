@@ -9,6 +9,14 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/elixir/package.md" >}}
 
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/elixir/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/elixir/grype-app-config.md" >}}
+
 
 ## Next steps
 

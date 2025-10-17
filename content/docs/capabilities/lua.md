@@ -9,6 +9,14 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/lua/package.md" >}}
 
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/lua/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/lua/grype-app-config.md" >}}
+
 
 ## Next steps
 

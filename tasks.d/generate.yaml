@@ -1,122 +1,54 @@
 version: '3'
 
+vars:
+  SYFT_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
+  SYFT_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft"
+  GRYPE_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/grype/cli.md --tool-name grype"
+  GRYPE_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/grype/config.md --tool-name grype"
+  FORMAT_EXAMPLES_CMD: "uv run ./scripts/generate_format_examples.py"
+  FORMAT_VERSIONS_CMD: "uv run ./scripts/generate_format_versions.py"
+  JQ_EXAMPLES_CMD: "uv run ./scripts/generate_jq_query_examples.py"
+  TEMPLATE_EXAMPLES_CMD: "uv run ./scripts/generate_template_examples.py"
+  PACKAGE_CAPABILITIES_CMD: "uv run ./scripts/generate_capability_package_tables.py"
+  VULNERABILITY_CAPABILITIES_CMD: "uv run ./scripts/generate_capability_vulnerability_tables.py"
+
 tasks:
-
-  # Default task to generate all documentation
   default:
-    desc: Generate all documentation (reference docs and user guides)
+    desc: Generate all documentation using existing caches
     cmds:
-      - task: references
-      - task: guides
+      - "{{.SYFT_CLI_CMD}}"
+      - "{{.SYFT_CONFIG_CMD}}"
+      - "{{.GRYPE_CLI_CMD}}"
+      - "{{.GRYPE_CONFIG_CMD}}"
+      - "{{.FORMAT_EXAMPLES_CMD}}"
+      - "{{.FORMAT_VERSIONS_CMD}}"
+      - "{{.JQ_EXAMPLES_CMD}}"
+      - "{{.TEMPLATE_EXAMPLES_CMD}}"
+      - "{{.PACKAGE_CAPABILITIES_CMD}}"
+      - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
 
-  # Generate all reference documentation
-  references:
-    desc: Generate all reference documentation (Syft + Grype, CLI + config)
+  update:
+    desc: Deletes all data caches and generate all documentation
     cmds:
-      - task: syft:cli
-      - task: syft:config
-      - task: grype:cli
-      - task: grype:config
+      - "{{.SYFT_CLI_CMD}} --update"
+      - "{{.SYFT_CONFIG_CMD}} --update"
+      - "{{.GRYPE_CLI_CMD}} --update"
+      - "{{.GRYPE_CONFIG_CMD}} --update"
+      - "{{.FORMAT_EXAMPLES_CMD}} --update"
+      - "{{.FORMAT_VERSIONS_CMD}} --update"
+      - "{{.JQ_EXAMPLES_CMD}} --update"
+      - "{{.TEMPLATE_EXAMPLES_CMD}} --update"
+      - "{{.PACKAGE_CAPABILITIES_CMD}} --update"
+      - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
 
-  # Generate all user guide examples and documentation
-  guides:
-    desc: Generate all user guide documentation (formats, jq queries, templates, capabilities)
-    cmds:
-      - task: sbom:format:examples
-      - task: sbom:format:versions
-      - task: sbom:jq:examples
-      - task: sbom:template:examples
-      - task: capabilities
-
-  # Capability tables
-  capabilities:
-    desc: Generate all capability tables (package + vulnerability)
-    cmds:
-      - task: capabilities:package
-      - task: capabilities:vulnerability
-
-  capabilities:package:
-    desc: Generate package capability tables from Syft cataloger information
-    cmds:
-      - uv run ./scripts/generate_capability_package_tables.py
-
-  capabilities:vulnerability:
-    desc: Generate vulnerability data source and OS support tables
-    cmds:
-      - uv run ./scripts/generate_capability_vulnerability_tables.py
-
-  # Trigger GitHub Actions workflow to generate docs and create PR
-  references:pr:
-    desc: Trigger GitHub Actions workflow to generate reference docs and create PR
-    cmds:
-      - |
-        echo "🚀 Triggering GitHub Actions workflow to generate reference docs..."
-        if gh workflow run update-reference-docs.yaml; then
-          echo "✅ Workflow triggered successfully!"
-          echo "📍 Check progress: gh run list --workflow=update-reference-docs.yaml"
-          echo "📍 Or visit: https://github.com/$(gh repo view --json owner,name -q '.owner.login + \"/\" + .name')/actions"
-        else
-          echo "❌ Failed to trigger workflow. Make sure:"
-          echo "   1. The workflow file is committed and pushed to the default branch"
-          echo "   2. You're authenticated with GitHub CLI (gh auth login)"
-          echo "   3. You have workflow dispatch permissions on this repository"
-        fi
-
-  # release notes...
   update-release-notes:
     desc: Generate release notes for all projects
     dir: scripts
     cmds:
       - ./generate-release-notes.sh
 
-  # adopters pages...
   update-adopters:
     desc: Update adopters information
     dir: scripts
     cmds:
       - ./generate-adopters-info.sh
-
-  # Syft tasks
-  syft:cli:
-    desc: Generate Syft command line reference documentation
-    cmds:
-      - uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft
-
-  syft:config:
-    desc: Generate Syft configuration reference documentation
-    cmds:
-      - uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft
-
-  # Grype tasks
-  grype:cli:
-    desc: Generate Grype command line reference documentation
-    cmds:
-      - uv run ./scripts/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/grype/cli.md --tool-name grype
-
-  grype:config:
-    desc: Generate Grype configuration reference documentation
-    cmds:
-      - uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/grype/config.md --tool-name grype
-
-  # Format tasks
-  sbom:format:examples:
-    desc: Generate SBOM format examples
-    cmds:
-      - uv run ./scripts/generate_format_examples.py
-
-  sbom:format:versions:
-    desc: Generate format version information
-    cmds:
-      - uv run ./scripts/generate_format_versions.py
-
-  # jq query tasks
-  sbom:jq:examples:
-    desc: Generate jq query example documentation
-    cmds:
-      - uv run ./scripts/generate_jq_query_examples.py
-
-  # Template tasks
-  sbom:template:examples:
-    desc: Generate template example documentation
-    cmds:
-      - uv run ./scripts/generate_template_examples.py

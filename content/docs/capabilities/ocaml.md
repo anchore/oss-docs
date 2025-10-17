@@ -9,6 +9,14 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/ocaml/package.md" >}}
 
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/ocaml/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/ocaml/grype-app-config.md" >}}
+
 
 ## Next steps
 

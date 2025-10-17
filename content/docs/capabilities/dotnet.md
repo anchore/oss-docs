@@ -9,7 +9,7 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/package.md" >}}
 
-## Configuration
+### Syft Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/syft-app-config.md" >}}
 
@@ -17,6 +17,10 @@ type = "docs"
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/grype-app-config.md" >}}
 
 
 ## Next steps

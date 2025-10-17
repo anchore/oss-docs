@@ -9,7 +9,7 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/package.md" >}}
 
-## Configuration
+### Syft Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/syft-app-config.md" >}}
 
@@ -17,6 +17,10 @@ type = "docs"
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/grype-app-config.md" >}}
 
 
 ## Next steps

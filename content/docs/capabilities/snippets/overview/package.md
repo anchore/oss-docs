@@ -104,21 +104,6 @@
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">debian</td>
-      <td class="col-cataloger"><code>deb-archive</code></td>
-      <td class="col-evidence"><code>*.deb</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><code>dpkg-db</code></td>
-      <td class="col-evidence"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-    </tr>
-    <tr>
       <td class="col-ecosystem" rowspan="4">dotnet</td>
       <td class="col-cataloger"><code>dotnet-deps-binary</code></td>
       <td class="col-evidence"><code>*.deps.json</code>, <code>*.dll</code>, <code>*.exe</code></td>
@@ -146,6 +131,21 @@
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="2">dpkg</td>
+      <td class="col-cataloger"><code>deb-archive</code></td>
+      <td class="col-evidence"><code>*.deb</code></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><code>dpkg-db</code></td>
+      <td class="col-evidence"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
       <td class="col-ecosystem">elixir</td>

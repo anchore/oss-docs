@@ -13,6 +13,10 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/ruby/vulnerability.md" >}}
 
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/ruby/grype-app-config.md" >}}
+
 
 ## Next steps
 

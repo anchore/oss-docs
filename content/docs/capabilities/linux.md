@@ -9,10 +9,18 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/linux/package.md" >}}
 
-## Configuration
+### Syft Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/linux/syft-app-config.md" >}}
 
+
+## Vulnerability scanning
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/linux/vulnerability.md" >}}
+
+### Grype Configuration
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/linux/grype-app-config.md" >}}
 
 
 ## Next steps

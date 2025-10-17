@@ -19,10 +19,16 @@
       <td class="col-data-source"><a href="https://secdb.alpinelinux.org">Alpine SecDB</a></td>
     </tr>
     <tr>
-      <td class="col-os-name">Chainguard</td>
+      <td class="col-os-name">Chainguard OS</td>
       <td class="col-versions">rolling</td>
       <td class="col-provider">chainguard</td>
       <td class="col-data-source"><a href="https://packages.cgr.dev/chainguard/security.json">Chainguard Security</a></td>
+    </tr>
+    <tr>
+      <td class="col-os-name">MinimOS</td>
+      <td class="col-versions">rolling</td>
+      <td class="col-provider">minimos</td>
+      <td class="col-data-source"><a href="https://packages.mini.dev/advisories/secdb/security.json">MINIMOS Security</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Wolfi</td>
