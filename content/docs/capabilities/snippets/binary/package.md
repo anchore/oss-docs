@@ -5,9 +5,12 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-cataloger">Cataloger</th>
-      <th class="col-evidence">Evidence</th>
-      <th class="col-license">License</th>
+      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-license" rowspan="2">License</th>
+      <th colspan="3">Dependency</th>
+      <th colspan="3">Package Manager</th>
+    </tr>
+    <tr>
       <th class="col-depth">Depth</th>
       <th class="col-edges">Edges</th>
       <th class="col-kinds">Kinds</th>
@@ -18,7 +21,6 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><code>binary-classifier</code></td>
       <td class="col-evidence"><code>VERSION*</code>, <code>arangosh</code>, <code>bash</code>, <code>beam.smp</code>, <code>busybox</code>, <code>cabal</code>, <code>chrome</code>, <code>composer*</code>, <code>consul</code>, <code>curl</code>, <code>dart</code>, <code>erlexec</code>, <code>ffmpeg</code>, <code>fluent-bit</code>, <code>gcc</code>, <code>getopt</code>, <code>ghc*</code>, <code>go</code>, <code>gzip</code>, <code>haproxy</code>, <code>helm</code>, <code>httpd</code>, <code>java</code>, <code>jdb</code>, <code>jq</code>, <code>libav*</code>, <code>liberts_internal.a</code>, <code>libjulia-internal.so</code>, <code>libpypy*.so*</code>, <code>libpython*.so*</code>, <code>libstd-????????????????.dylib</code>, <code>libstd-????????????????.so</code>, <code>libswresample*</code>, <code>lighttpd</code>, <code>memcached</code>, <code>mysql</code>, <code>nginx</code>, <code>node</code>, <code>openssl</code>, <code>perl</code>, <code>postgres</code>, <code>proftpd</code>, <code>python*</code>, <code>redis-server</code>, <code>ruby</code>, <code>sqlcipher</code>, <code>stack</code>, <code>swipl</code>, <code>traefik</code>, <code>vault</code>, <code>wp</code>, <code>xtrabackup</code>, <code>xz</code>, <code>zstd</code>, <code>{mariadb,mysql}</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">-</td>
@@ -29,7 +31,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>elf-binary-package</code></td>
       <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">-</td>
@@ -40,7 +41,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>pe-binary-package</code></td>
       <td class="col-evidence"><code>*.dll</code>, <code>*.exe</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">-</td>

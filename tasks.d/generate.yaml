@@ -20,12 +20,30 @@ tasks:
 
   # Generate all user guide examples and documentation
   guides:
-    desc: Generate all user guide documentation (formats, jq queries, templates)
+    desc: Generate all user guide documentation (formats, jq queries, templates, capabilities)
     cmds:
       - task: sbom:format:examples
       - task: sbom:format:versions
       - task: sbom:jq:examples
       - task: sbom:template:examples
+      - task: capabilities
+
+  # Capability tables
+  capabilities:
+    desc: Generate all capability tables (package + vulnerability)
+    cmds:
+      - task: capabilities:package
+      - task: capabilities:vulnerability
+
+  capabilities:package:
+    desc: Generate package capability tables from Syft cataloger information
+    cmds:
+      - uv run ./scripts/generate_capability_package_tables.py
+
+  capabilities:vulnerability:
+    desc: Generate vulnerability data source and OS support tables
+    cmds:
+      - uv run ./scripts/generate_capability_vulnerability_tables.py
 
   # Trigger GitHub Actions workflow to generate docs and create PR
   references:pr:

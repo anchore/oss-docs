@@ -8,10 +8,14 @@ are supported across different ecosystems and catalogers.
 
 Outputs:
 1. Overview table: content/docs/capabilities/snippets/overview/package.md
-   - 6 columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+   - Single-row header with 6 columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+   - Dependency aggregates depth/edges/kinds into single indicator
    - All capabilities shown as ✅/-/⚙️ indicators
+
 2. Individual ecosystem tables: content/docs/capabilities/snippets/{ecosystem}/package.md
-   - 9 columns: Cataloger, Evidence, License, Depth, Edges, Kinds, Files, Digests, Integrity Hash
+   - Two-row grouped header with 8 columns:
+     Row 1: Evidence, License, Dependency (colspan=3), Package Manager (colspan=3)
+     Row 2: (under Dependency) Depth, Edges, Kinds; (under Package Manager) Files, Digests, Integrity Hash
    - Depth/Edges/Kinds show actual values, others show ✅/-/⚙️ indicators
 
 NOTE: This script generates HTML tables that use SVG icon symbols (icon-check,
@@ -76,6 +80,115 @@ CAPABILITY_DISPLAY_NAMES = {
     "package_manager.files.listing": "Files",
     "package_manager.files.digests": "Digests",
     "package_manager.package_integrity_hash": "Integrity Hash",
+}
+
+# overview table configuration - simple single-row header with aggregated indicators
+OVERVIEW_CONFIG = {
+    "columns": [
+        {
+            "key": "ecosystem",
+            "label": "Ecosystem",
+            "class": "col-ecosystem",
+            "type": "text",
+        },
+        {
+            "key": "cataloger",
+            "label": "Cataloger",
+            "class": "col-cataloger",
+            "type": "text",
+            "formatter": "clean_cataloger_name",
+        },
+        {
+            "key": "evidence",
+            "label": "Evidence",
+            "class": "col-evidence",
+            "type": "evidence",
+        },
+        {
+            "key": "license",
+            "label": "License",
+            "class": "col-license",
+            "type": "indicator",
+        },
+        {
+            "key": "dependency",
+            "label": "Dependency",
+            "class": "col-dependency",
+            "type": "indicator",
+            # aggregates: dependency.depth, dependency.edges, dependency.kinds
+        },
+        {
+            "key": "package_manager.files.listing",
+            "label": "Files",
+            "class": "col-files",
+            "type": "indicator",
+        },
+    ],
+}
+
+# ecosystem table configuration - two-row grouped header with detailed capabilities
+ECOSYSTEM_CONFIG = {
+    "groups": [
+        {
+            "name": "dependency",
+            "label": "Dependency",
+            "capabilities": [
+                {
+                    "key": "dependency.depth",
+                    "label": "Depth",
+                    "class": "col-depth",
+                    "type": "value",  # shows actual value, not indicator
+                    "formatter": "format_depth_value",
+                },
+                {
+                    "key": "dependency.edges",
+                    "label": "Edges",
+                    "class": "col-edges",
+                    "type": "value",
+                    "formatter": "format_edges_value",
+                },
+                {
+                    "key": "dependency.kinds",
+                    "label": "Kinds",
+                    "class": "col-kinds",
+                    "type": "value",
+                    "formatter": "format_kinds_value",
+                },
+            ],
+        },
+        {
+            "name": "package_manager",
+            "label": "Package Manager",
+            "capabilities": [
+                {
+                    "key": "package_manager.files.listing",
+                    "label": "Files",
+                    "class": "col-files",
+                    "type": "indicator",  # shows SVG indicator
+                },
+                {
+                    "key": "package_manager.files.digests",
+                    "label": "Digests",
+                    "class": "col-digests",
+                    "type": "indicator",
+                },
+                {
+                    "key": "package_manager.package_integrity_hash",
+                    "label": "Integrity Hash",
+                    "class": "col-integrity-hash",
+                    "type": "indicator",
+                },
+            ],
+        },
+    ],
+    "standalone": [
+        {
+            "key": "license",
+            "label": "License",
+            "class": "col-license",
+            "type": "indicator",
+        },
+    ],
 }
 
 
@@ -280,6 +393,8 @@ def _parse_capabilities(capabilities_list: list[dict]) -> dict[str, CapabilitySu
 def _calculate_rowspans_for_overview(rows: list[CatalogerRow]) -> dict[str, list[int]]:
     """
     calculate rowspan values for overview table (ecosystem and cataloger merging).
+
+    Note: cataloger rowspans are used for evidence column even though cataloger column is not displayed.
 
     Args:
         rows: sorted list of CatalogerRow objects
@@ -704,12 +819,46 @@ def get_capability_indicator_svg(cap_support: CapabilitySupport | None) -> str:
         return get_svg_icon('dash')
 
 
+def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> CapabilitySupport | None:
+    """
+    check if any dependency capability is supported (for aggregated indicator).
+
+    Args:
+        capabilities: dict of capability name to CapabilitySupport
+
+    Returns:
+        CapabilitySupport representing aggregated dependency support, or None
+    """
+    # check depth, edges, kinds
+    dependency_keys = ["dependency.depth", "dependency.edges", "dependency.kinds"]
+
+    has_support = False
+    has_conditional = False
+
+    for key in dependency_keys:
+        cap = capabilities.get(key)
+        if cap and cap.supported:
+            has_support = True
+        if cap and cap.conditional:
+            has_conditional = True
+
+    if has_support or has_conditional:
+        return CapabilitySupport(
+            supported=has_support,
+            conditional=has_conditional,
+            default_value=None,
+        )
+
+    return None
+
+
 def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
     """
-    generate complete overview table with 6 columns (all capabilities as SVG indicators).
+    generate overview table with simple single-row header.
 
     Columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
-    All capabilities show only SVG check/gear/dash indicators.
+    - Dependency aggregates depth/edges/kinds into single indicator
+    - Files shows package_manager.files.listing indicator
 
     Args:
         rows: list of all CatalogerRow objects
@@ -720,10 +869,10 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
 
     output_file = overview_dir / "package.md"
 
-    # sort rows for hierarchical grouping
+    # sort rows by ecosystem and cataloger
     sorted_rows = sorted(rows, key=lambda r: (r.ecosystem, r.cataloger_name))
 
-    # calculate rowspans
+    # calculate rowspans for ecosystem and cataloger columns
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
 
     # generate comment
@@ -733,7 +882,7 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
     # build HTML lines
     html_lines = []
 
-    # table header with CSS classes
+    # table header - single row with simple columns
     html_lines.append('<table class="capability-table capability-table-overview">')
     html_lines.append('  <thead>')
     html_lines.append('    <tr>')
@@ -756,13 +905,13 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
             rowspan_attr = f' rowspan="{rowspans["ecosystem"][i]}"' if rowspans["ecosystem"][i] > 1 else ""
             html_lines.append(f'      <td class="col-ecosystem"{rowspan_attr}>{row.ecosystem}</td>')
 
-        # cataloger column (with rowspan, cleaned name)
+        # cataloger column (with rowspan)
         if rowspans["cataloger"][i] > 0:
             rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
-            clean_name = clean_cataloger_name(row.cataloger_name)
-            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{clean_name}</code></td>')
+            cataloger_display = clean_cataloger_name(row.cataloger_name)
+            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{cataloger_display}</code></td>')
 
-        # evidence column (with rowspan matching cataloger)
+        # evidence column (with cataloger rowspan - evidence is per cataloger)
         if rowspans["cataloger"][i] > 0:
             rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
             evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
@@ -772,31 +921,11 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
         license_cap = row.capabilities.get("license")
         html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
 
-        # dependency column (combined - show SVG icon if any dependency capability is supported)
-        depth_cap = row.capabilities.get("dependency.depth")
-        edges_cap = row.capabilities.get("dependency.edges")
-        kinds_cap = row.capabilities.get("dependency.kinds")
+        # dependency column (aggregated SVG indicator)
+        dependency_cap = has_any_dependency_support(row.capabilities)
+        html_lines.append(f'      <td class="col-dependency indicator">{get_capability_indicator_svg(dependency_cap)}</td>')
 
-        # determine dependency support level
-        has_dep_support = any(
-            cap and cap.supported
-            for cap in [depth_cap, edges_cap, kinds_cap]
-        )
-        has_dep_conditional = any(
-            cap and cap.conditional
-            for cap in [depth_cap, edges_cap, kinds_cap]
-        )
-
-        if has_dep_conditional:
-            dep_indicator = get_svg_icon('gear')
-        elif has_dep_support:
-            dep_indicator = get_svg_icon('check')
-        else:
-            dep_indicator = get_svg_icon('dash')
-
-        html_lines.append(f'      <td class="col-dependency indicator">{dep_indicator}</td>')
-
-        # files column (SVG indicator for listing capability)
+        # files column (SVG indicator)
         files_cap = row.capabilities.get("package_manager.files.listing")
         html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
 
@@ -817,11 +946,11 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
 
 def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_dir: Path) -> None:
     """
-    generate complete ecosystem-specific table with 9 columns (actual values for some capabilities).
+    generate complete ecosystem-specific table with grouped capability columns.
 
-    Columns: Cataloger, Evidence, License, Depth, Edges, Kinds, Files, Digests, Integrity Hash
-    License/Files/Digests/Integrity show SVG indicators.
-    Depth/Edges/Kinds show actual values from JSON.
+    Two-row header structure:
+    Row 1: Evidence, License, Dependency (colspan=3), Package Manager (colspan=3)
+    Row 2: (under Dependency) Depth, Edges, Kinds; (under Package Manager) Files, Digests, Integrity Hash
 
     Args:
         ecosystem: ecosystem name
@@ -839,10 +968,10 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     if not ecosystem_rows:
         return
 
-    # sort rows for hierarchical grouping
+    # sort rows by cataloger (grouping needed for evidence rowspans)
     sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
 
-    # calculate rowspans (cataloger only, no ecosystem column)
+    # calculate rowspans for evidence column (evidence is per cataloger)
     rowspans = _calculate_rowspans_for_ecosystem(sorted_rows)
 
     # generate comment
@@ -852,13 +981,16 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     # build HTML lines
     html_lines = []
 
-    # table header with CSS classes
+    # table header with two-row grouped structure
     html_lines.append('<table class="capability-table capability-table-ecosystem">')
     html_lines.append('  <thead>')
     html_lines.append('    <tr>')
-    html_lines.append('      <th class="col-cataloger">Cataloger</th>')
-    html_lines.append('      <th class="col-evidence">Evidence</th>')
-    html_lines.append('      <th class="col-license">License</th>')
+    html_lines.append('      <th class="col-evidence" rowspan="2">Evidence</th>')
+    html_lines.append('      <th class="col-license" rowspan="2">License</th>')
+    html_lines.append('      <th colspan="3">Dependency</th>')
+    html_lines.append('      <th colspan="3">Package Manager</th>')
+    html_lines.append('    </tr>')
+    html_lines.append('    <tr>')
     html_lines.append('      <th class="col-depth">Depth</th>')
     html_lines.append('      <th class="col-edges">Edges</th>')
     html_lines.append('      <th class="col-kinds">Kinds</th>')
@@ -869,17 +1001,11 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     html_lines.append('  </thead>')
     html_lines.append('  <tbody>')
 
-    # table body
+    # table body (multiple capability rows per cataloger, evidence uses rowspan)
     for i, row in enumerate(sorted_rows):
         html_lines.append('    <tr>')
 
-        # cataloger column (with rowspan, cleaned name)
-        if rowspans[i] > 0:
-            rowspan_attr = f' rowspan="{rowspans[i]}"' if rowspans[i] > 1 else ""
-            clean_name = clean_cataloger_name(row.cataloger_name)
-            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{clean_name}</code></td>')
-
-        # evidence column (with rowspan matching cataloger)
+        # evidence column (with rowspan - evidence is per cataloger)
         if rowspans[i] > 0:
             rowspan_attr = f' rowspan="{rowspans[i]}"' if rowspans[i] > 1 else ""
             evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
@@ -889,27 +1015,23 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
         license_cap = row.capabilities.get("license")
         html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
 
-        # depth column (actual value: "direct" or "transitive")
+        # dependency columns (individual values)
         depth_cap = row.capabilities.get("dependency.depth")
         html_lines.append(f'      <td class="col-depth value">{format_depth_value(depth_cap)}</td>')
 
-        # edges column (raw value from JSON)
         edges_cap = row.capabilities.get("dependency.edges")
         html_lines.append(f'      <td class="col-edges value">{format_edges_value(edges_cap)}</td>')
 
-        # kinds column (comma-separated list)
         kinds_cap = row.capabilities.get("dependency.kinds")
         html_lines.append(f'      <td class="col-kinds value">{format_kinds_value(kinds_cap)}</td>')
 
-        # files column (SVG indicator)
+        # package manager columns (SVG indicators)
         files_cap = row.capabilities.get("package_manager.files.listing")
         html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
 
-        # digests column (SVG indicator)
         digests_cap = row.capabilities.get("package_manager.files.digests")
         html_lines.append(f'      <td class="col-digests indicator">{get_capability_indicator_svg(digests_cap)}</td>')
 
-        # integrity hash column (SVG indicator)
         integrity_cap = row.capabilities.get("package_manager.package_integrity_hash")
         html_lines.append(f'      <td class="col-integrity-hash indicator">{get_capability_indicator_svg(integrity_cap)}</td>')
 

@@ -5,9 +5,12 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-cataloger">Cataloger</th>
-      <th class="col-evidence">Evidence</th>
-      <th class="col-license">License</th>
+      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-license" rowspan="2">License</th>
+      <th colspan="3">Dependency</th>
+      <th colspan="3">Package Manager</th>
+    </tr>
+    <tr>
       <th class="col-depth">Depth</th>
       <th class="col-edges">Edges</th>
       <th class="col-kinds">Kinds</th>
@@ -18,7 +21,6 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><code>graalvm-native-image</code></td>
       <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -29,7 +31,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger" rowspan="3"><code>java-archive</code></td>
       <td class="col-evidence" rowspan="3"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code>, <code>*.zip</code>, <code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -58,7 +59,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-gradle-lockfile</code></td>
       <td class="col-evidence"><code>gradle.lockfile*</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -69,7 +69,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-jvm</code></td>
       <td class="col-evidence"><code>release</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -80,7 +79,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-pom</code></td>
       <td class="col-evidence"><code>*pom.xml</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>

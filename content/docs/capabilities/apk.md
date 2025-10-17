@@ -5,9 +5,6 @@ weight = 50
 type = "docs"
 +++
 
-### Operating systems
-
-{{< readfile file="/content/docs/capabilities/snippets/apk/os.md" >}}
 
 ## Package analysis
 
@@ -15,7 +12,11 @@ type = "docs"
 
 ## Vulnerability scanning
 
-[//]: # ({{< readfile file="/content/docs/capabilities/snippets/apk/vulnerability.md" >}})
+{{< readfile file="/content/docs/capabilities/snippets/apk/vulnerability.md" >}}
+
+### Operating systems
+
+{{< readfile file="/content/docs/capabilities/snippets/apk/os.md" >}}
 
 
 ## Next steps

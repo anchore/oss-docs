@@ -1,0 +1,14 @@
+Show detailed capabilities of catalogers
+
+Usage:
+  syft cataloger info [OPTIONS] [CATALOGER_NAMES...] [flags]
+
+Flags:
+  -h, --help            help for info
+  -o, --output string   format to output the cataloger info (available: table, json)
+
+Global Flags:
+  -c, --config stringArray    syft configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

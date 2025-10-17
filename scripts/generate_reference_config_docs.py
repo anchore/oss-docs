@@ -6,9 +6,10 @@ Supports tools that have a 'config' subcommand (like Syft and Grype).
 
 import os
 import sys
+from pathlib import Path
 
 import click
-from utils.config import get_generated_comment
+from utils.config import get_generated_comment, paths
 from utils.syft import run_syft
 
 
@@ -28,11 +29,17 @@ from utils.syft import run_syft
     "--app-name",
     help="App binary name (auto-detected if not provided)",
 )
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the cache even if it already exists",
+)
 def main(
     image: str,
     output: str,
     tool_name: str | None,
     app_name: str | None,
+    update: bool,
 ) -> None:
     """Generate configuration reference documentation.
 
@@ -60,7 +67,7 @@ def main(
 
     # Generate markdown content
     try:
-        content = generate_markdown_content(image, app_name, tool_name)
+        content = generate_markdown_content(image, app_name, tool_name, update)
 
         # Write to file
         with open(output, "w", encoding="utf-8") as f:
@@ -73,7 +80,7 @@ def main(
         sys.exit(1)
 
 
-def generate_markdown_content(image: str, app_name: str, tool_name: str) -> str:
+def generate_markdown_content(image: str, app_name: str, tool_name: str, update: bool = False) -> str:
     """Generate the complete markdown content for config documentation."""
     # Prepare tool name for display
     tool_display = tool_name.title()
@@ -94,7 +101,7 @@ url = "docs/reference/{tool_name.lower()}/configuration"
     content += get_generated_comment("scripts/generate_reference_config_docs.py", "html")
 
     # Get version information
-    app_version = get_app_version(image)
+    app_version = get_app_version(image, tool_name, update)
     if not app_version:
         app_version = "unknown"
 
@@ -109,7 +116,7 @@ This documentation was generated from {tool_display} version `{app_version}`.
     content += get_config_locations_section(app_name, tool_display)
 
     # Get configuration output
-    config_output = get_config_output(image)
+    config_output = get_config_output(image, tool_name, update)
 
     if config_output:
         content += f"```yaml\n{config_output}\n```\n\n"
@@ -119,6 +126,59 @@ This documentation was generated from {tool_display} version `{app_version}`.
         )
 
     return content
+
+
+def get_cache_path(tool_name: str, command_type: str) -> Path:
+    """
+    get cache file path for a command output.
+
+    Args:
+        tool_name: tool name (e.g., "syft", "grype")
+        command_type: type of command ("version" or "config")
+
+    Returns:
+        Path to cache file
+    """
+    cache_dir = paths.reference_cache_dir / tool_name / command_type
+    return cache_dir / "output.txt"
+
+
+def get_cached_output(cache_path: Path, update: bool) -> str | None:
+    """
+    get cached output if available and not updating.
+
+    Args:
+        cache_path: path to cache file
+        update: if true, ignore cache and return None
+
+    Returns:
+        cached output string or None if not available/updating
+    """
+    # if updating, delete existing cache
+    if update and cache_path.exists():
+        cache_path.unlink()
+        return None
+
+    # check if cache exists
+    if cache_path.exists():
+        print(f"Using cached output from {cache_path}")
+        return cache_path.read_text()
+
+    return None
+
+
+def save_to_cache(cache_path: Path, content: str) -> None:
+    """
+    save content to cache file.
+
+    Args:
+        cache_path: path to cache file
+        content: content to save
+    """
+    # create directory if it doesn't exist
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(content)
+    print(f"Cached output to {cache_path}")
 
 
 def get_config_locations_section(app_name: str, tool_display: str) -> str:
@@ -136,26 +196,54 @@ The configuration file can use either `.yaml` or `.yml` extensions. The first co
 """
 
 
-def get_app_version(image: str) -> str | None:
+def get_app_version(image: str, tool_name: str, update: bool = False) -> str | None:
     """Get the application version from the image."""
+    # check cache first
+    cache_path = get_cache_path(tool_name, "version")
+    cached = get_cached_output(cache_path, update)
+
+    if cached is not None:
+        # parse cached output
+        for line in cached.splitlines():
+            if line.startswith("Version:"):
+                return line.split(":", 1)[1].strip()
+        return None
+
+    # run command
     stdout, stderr, returncode = run_syft(
         syft_image=image,
         args=["version"],
     )
+
     if returncode == 0:
+        # save to cache
+        save_to_cache(cache_path, stdout)
+
+        # parse output
         for line in stdout.splitlines():
             if line.startswith("Version:"):
                 return line.split(":", 1)[1].strip()
     return None
 
 
-def get_config_output(image: str) -> str | None:
+def get_config_output(image: str, tool_name: str, update: bool = False) -> str | None:
     """Get configuration output from the app."""
+    # check cache first
+    cache_path = get_cache_path(tool_name, "config")
+    cached = get_cached_output(cache_path, update)
+
+    if cached is not None:
+        return cached.strip()
+
+    # run command
     stdout, stderr, returncode = run_syft(
         syft_image=image,
         args=["config"],
     )
+
     if returncode == 0:
+        # save to cache
+        save_to_cache(cache_path, stdout)
         return stdout.strip()
     return None
 

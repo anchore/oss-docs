@@ -46,7 +46,7 @@
       <td class="col-os-name">Echo</td>
       <td class="col-versions">rolling</td>
       <td class="col-provider">echo</td>
-      <td class="col-data-source">echo</td>
+      <td class="col-data-source"><a href="https://advisory.echohq.com/data.json">ECHO Security</a></td>
     </tr>
     <tr>
       <td class="col-os-name">CBL-Mariner</td>
@@ -58,7 +58,7 @@
       <td class="col-os-name">Minimos</td>
       <td class="col-versions">rolling</td>
       <td class="col-provider">minimos</td>
-      <td class="col-data-source">minimos</td>
+      <td class="col-data-source"><a href="https://packages.mini.dev/advisories/secdb/security.json">MINIMOS Security</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Oraclelinux</td>

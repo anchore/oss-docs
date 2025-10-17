@@ -1,0 +1,14 @@
+List all DBs available according to the listing URL
+
+Usage:
+  grype db list [flags]
+
+Flags:
+  -h, --help            help for list
+  -o, --output string   format to display results (available=[text, raw, json]) (default "text")
+
+Global Flags:
+  -c, --config stringArray    grype configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

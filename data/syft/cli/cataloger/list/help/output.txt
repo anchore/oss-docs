@@ -1,0 +1,76 @@
+Default selections: 1
+  • 'all'
+Selection expressions: 0
+┌───────────────────────────┬───────────────────────┐
+│ FILE CATALOGER            │ TAGS                  │
+├───────────────────────────┼───────────────────────┤
+│ file-content-cataloger    │ content, file         │
+│ file-digest-cataloger     │ digest, file          │
+│ file-executable-cataloger │ binary-metadata, file │
+│ file-metadata-cataloger   │ file, file-metadata   │
+└───────────────────────────┴───────────────────────┘
+┌────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────┐
+│ PACKAGE CATALOGER                      │ TAGS                                                                             │
+├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┤
+│ alpm-db-cataloger                      │ alpm, archlinux, directory, image, installed, linux, os, package                 │
+│ apk-db-cataloger                       │ alpine, apk, directory, image, installed, linux, os, package                     │
+│ binary-classifier-cataloger            │ binary, declared, directory, image, installed, package                           │
+│ bitnami-cataloger                      │ bitnami, image, installed, package                                               │
+│ cargo-auditable-binary-cataloger       │ binary, directory, image, installed, language, package, rust                     │
+│ cocoapods-cataloger                    │ cocoapods, declared, directory, language, package, swift                         │
+│ conan-cataloger                        │ conan, cpp, declared, directory, language, package                               │
+│ conan-info-cataloger                   │ conan, cpp, image, installed, language, package                                  │
+│ conda-meta-cataloger                   │ conda, directory, installed, package                                             │
+│ dart-pubspec-cataloger                 │ dart, declared, directory, language, package                                     │
+│ dart-pubspec-lock-cataloger            │ dart, declared, directory, language, package                                     │
+│ deb-archive-cataloger                  │ deb, debian, declared, directory, linux, os, package                             │
+│ dotnet-deps-binary-cataloger           │ c#, directory, dotnet, image, installed, language, package                       │
+│ dotnet-deps-cataloger                  │ deprecated, package                                                              │
+│ dotnet-packages-lock-cataloger         │ c#, declared, directory, dotnet, image, language, package                        │
+│ dotnet-portable-executable-cataloger   │ deprecated, package                                                              │
+│ dpkg-db-cataloger                      │ debian, directory, dpkg, image, installed, linux, os, package                    │
+│ elf-binary-package-cataloger           │ binary, declared, directory, elf, elf-package, image, installed, package         │
+│ elixir-mix-lock-cataloger              │ declared, directory, elixir, language, package                                   │
+│ erlang-otp-application-cataloger       │ declared, directory, erlang, language, otp, package                              │
+│ erlang-rebar-lock-cataloger            │ declared, directory, erlang, language, package                                   │
+│ github-action-workflow-usage-cataloger │ declared, directory, github, github-actions, package                             │
+│ github-actions-usage-cataloger         │ declared, directory, github, github-actions, package                             │
+│ go-module-binary-cataloger             │ binary, directory, go, golang, gomod, image, installed, language, package        │
+│ go-module-file-cataloger               │ declared, directory, go, golang, gomod, language, package                        │
+│ graalvm-native-image-cataloger         │ directory, image, installed, java, language, package                             │
+│ haskell-cataloger                      │ cabal, declared, directory, hackage, haskell, language, package                  │
+│ homebrew-cataloger                     │ directory, homebrew, image, installed, package                                   │
+│ java-archive-cataloger                 │ directory, image, installed, java, language, maven, package                      │
+│ java-gradle-lockfile-cataloger         │ declared, directory, gradle, java, language, package                             │
+│ java-jvm-cataloger                     │ declared, directory, image, installed, java, jdk, jre, jvm, package              │
+│ java-pom-cataloger                     │ declared, directory, java, language, maven, package                              │
+│ javascript-lock-cataloger              │ declared, directory, javascript, language, node, npm, package                    │
+│ javascript-package-cataloger           │ image, installed, javascript, language, node, package                            │
+│ linux-kernel-cataloger                 │ declared, directory, image, installed, kernel, linux, package                    │
+│ lua-rock-cataloger                     │ directory, image, installed, language, lua, package                              │
+│ nix-cataloger                          │ directory, image, installed, language, nix, package                              │
+│ nix-store-cataloger                    │ deprecated, package                                                              │
+│ opam-cataloger                         │ declared, directory, language, ocaml, opam, package                              │
+│ pe-binary-package-cataloger            │ binary, declared, directory, dll, exe, image, installed, package, pe, pe-package │
+│ php-composer-installed-cataloger       │ composer, image, installed, language, package, php                               │
+│ php-composer-lock-cataloger            │ composer, declared, directory, language, package, php                            │
+│ php-interpreter-cataloger              │ binary, declared, directory, image, installed, package, php                      │
+│ php-pear-serialized-cataloger          │ declared, directory, image, language, package, pear, php                         │
+│ php-pecl-serialized-cataloger          │ deprecated, package                                                              │
+│ portage-cataloger                      │ directory, gentoo, image, installed, linux, os, package, portage                 │
+│ python-installed-package-cataloger     │ directory, image, installed, language, package, python                           │
+│ python-package-cataloger               │ declared, directory, language, package, python                                   │
+│ r-package-cataloger                    │ directory, image, installed, language, package, r                                │
+│ rpm-archive-cataloger                  │ declared, directory, linux, os, package, redhat, rpm                             │
+│ rpm-db-cataloger                       │ directory, image, installed, linux, os, package, redhat, rpm                     │
+│ ruby-gemfile-cataloger                 │ declared, directory, gem, language, package, ruby                                │
+│ ruby-gemspec-cataloger                 │ declared, directory, gem, gemspec, language, package, ruby                       │
+│ ruby-installed-gemspec-cataloger       │ gem, gemspec, image, installed, language, package, ruby                          │
+│ rust-cargo-lock-cataloger              │ cargo, declared, directory, language, package, rust                              │
+│ sbom-cataloger                         │ package, sbom                                                                    │
+│ snap-cataloger                         │ directory, image, installed, package, snap                                       │
+│ swift-package-manager-cataloger        │ declared, directory, language, package, spm, swift                               │
+│ swipl-pack-cataloger                   │ declared, directory, language, pack, package, swipl                              │
+│ terraform-lock-cataloger               │ declared, directory, package, terraform                                          │
+│ wordpress-plugins-cataloger            │ directory, image, package, wordpress                                             │
+└────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────┘

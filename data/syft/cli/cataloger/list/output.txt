@@ -1,0 +1,17 @@
+List available catalogers
+
+Usage:
+  syft cataloger list [OPTIONS] [flags]
+
+Flags:
+  -h, --help                                      help for list
+  -o, --output string                             format to output the cataloger list (available: table, json)
+      --override-default-catalogers stringArray   override the default catalogers with an expression (default [all])
+      --select-catalogers stringArray             select catalogers with an expression
+  -s, --show-hidden                               show catalogers that have been de-selected
+
+Global Flags:
+  -c, --config stringArray    syft configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

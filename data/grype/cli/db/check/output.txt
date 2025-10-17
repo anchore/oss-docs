@@ -1,0 +1,14 @@
+Check to see if there is a database update available
+
+Usage:
+  grype db check [flags]
+
+Flags:
+  -h, --help            help for check
+  -o, --output string   format to display results (available=[text, json]) (default "text")
+
+Global Flags:
+  -c, --config stringArray    grype configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

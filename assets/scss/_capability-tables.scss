@@ -18,8 +18,7 @@
 /* Header styles */
 .capability-table thead {
   background: linear-gradient(to bottom, #2563eb, #1d4ed8);
-  border-bottom: 3px solid #1e40af;
-  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.3);
+  box-shadow: 0 3px 6px rgba(29, 78, 216, 0.4);
 }
 
 .capability-table thead th {
@@ -31,6 +30,7 @@
   letter-spacing: 0.05em;
   color: #ffffff;
   white-space: nowrap;
+  vertical-align: top;
 }
 
 /* Body styles */
@@ -174,6 +174,43 @@
   margin: 0.125rem 0.25rem 0.125rem 0;
 }
 
+/* Column group separators - subtle vertical borders between major sections */
+/* Use border-left only to avoid double-thickness issues */
+
+/* Separator before LICENSE column */
+.capability-table thead th.col-license,
+.capability-table tbody td.col-license {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+/* Separator before DEPENDENCY columns (overview table) */
+.capability-table-overview thead th.col-dependency,
+.capability-table-overview tbody td.col-dependency {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+/* Separator before DEPENDENCY columns (ecosystem table) */
+.capability-table-ecosystem thead th.col-depth,
+.capability-table-ecosystem tbody td.col-depth {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+/* Separator before PACKAGE MANAGER columns */
+.capability-table thead th.col-files,
+.capability-table tbody td.col-files {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+/* Multi-row header support: target colspan headers using nth-child */
+/* For ecosystem tables with 2-row headers: Evidence(1), License(2), Dependency(3), Package Manager(4) */
+.capability-table-ecosystem thead tr:first-child th:nth-child(3) {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+.capability-table-ecosystem thead tr:first-child th:nth-child(4) {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
 /* SVG Icon styles */
 .capability-icon {
   width: 14px;
@@ -257,8 +294,7 @@
 
   .capability-table thead {
     background: linear-gradient(to bottom, #1d4ed8, #1e3a8a);
-    border-bottom: 3px solid #2563eb;
-    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 3px 6px rgba(37, 99, 235, 0.5);
   }
 
   .capability-table thead th {
@@ -280,6 +316,33 @@
   .capability-table code {
     background-color: #374151;
     color: #e5e7eb;
+  }
+
+  /* Column group separators - darker borders for dark mode */
+  .capability-table thead th.col-license,
+  .capability-table tbody td.col-license {
+    border-left-color: rgba(75, 85, 99, 0.6);
+  }
+
+  .capability-table-overview thead th.col-dependency,
+  .capability-table-overview tbody td.col-dependency {
+    border-left-color: rgba(75, 85, 99, 0.6);
+  }
+
+  .capability-table-ecosystem thead th.col-depth,
+  .capability-table-ecosystem tbody td.col-depth {
+    border-left-color: rgba(75, 85, 99, 0.6);
+  }
+
+  .capability-table thead th.col-files,
+  .capability-table tbody td.col-files {
+    border-left-color: rgba(75, 85, 99, 0.6);
+  }
+
+  /* Multi-row header support in dark mode */
+  .capability-table-ecosystem thead tr:first-child th:nth-child(3),
+  .capability-table-ecosystem thead tr:first-child th:nth-child(4) {
+    border-left-color: rgba(75, 85, 99, 0.6);
   }
 
   .capability-table td.indicator .capability-icon {

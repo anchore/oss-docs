@@ -5,9 +5,12 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-cataloger">Cataloger</th>
-      <th class="col-evidence">Evidence</th>
-      <th class="col-license">License</th>
+      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-license" rowspan="2">License</th>
+      <th colspan="3">Dependency</th>
+      <th colspan="3">Package Manager</th>
+    </tr>
+    <tr>
       <th class="col-depth">Depth</th>
       <th class="col-edges">Edges</th>
       <th class="col-kinds">Kinds</th>
@@ -18,7 +21,6 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><code>php-composer-installed</code></td>
       <td class="col-evidence"><code>installed.json</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -29,7 +31,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-composer-lock</code></td>
       <td class="col-evidence"><code>composer.lock</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -40,7 +41,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-interpreter</code></td>
       <td class="col-evidence"><code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">direct</td>
@@ -51,7 +51,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-pear-serialized</code></td>
       <td class="col-evidence"><code>php/.registry/**/*.reg</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
@@ -62,7 +61,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-pecl-serialized</code></td>
       <td class="col-evidence"><code>php/.registry/.channel.*/*.reg</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>

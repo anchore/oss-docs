@@ -42,7 +42,12 @@ FORMATS = [
     default=str(paths.format_examples_snippet_dir),
     help=f"Output directory for format examples (default: {paths.format_examples_snippet_dir})",
 )
-def main(image: str, syft_image: str, output_dir: str) -> None:
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the SBOM cache even if it already exists",
+)
+def main(image: str, syft_image: str, output_dir: str, update: bool) -> None:
     """Generate SBOM format examples using Syft."""
     print(f"Generating format examples for {image} using {syft_image}...")
 
@@ -60,6 +65,7 @@ def main(image: str, syft_image: str, output_dir: str) -> None:
         image=image,
         cache_dir=cache_dir,
         syft_image=syft_image,
+        update=update,
     )
 
     # Generate examples for each format
@@ -129,11 +135,17 @@ def get_or_generate_sbom(
     image: str,
     cache_dir: Path,
     syft_image: str,
+    update: bool = False,
 ) -> Path:
     """Get SBOM from cache or generate it using Syft."""
     # create cache key from image name
     cache_key = image.replace(":", "_").replace("/", "_")
     cache_file = cache_dir / f"{cache_key}.json"
+
+    # if updating, delete existing cache
+    if update and cache_file.exists():
+        cache_file.unlink()
+        print(f"  Deleted cached SBOM: {cache_file}")
 
     # check cache
     if cache_file.exists():

@@ -31,10 +31,16 @@ from utils.syft import run_syft_with_config
     default=docker_images.syft,
     help=f"Syft Docker image to use (default: {docker_images.syft})",
 )
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the SBOM cache even if it already exists",
+)
 def main(
     examples_dir: str,
     output_dir: str,
     syft_image: str,
+    update: bool,
 ) -> None:
     """Generate jq query example documentation."""
     examples_path = Path(examples_dir)
@@ -77,6 +83,7 @@ def main(
                 output_dir=output_path,
                 cache_dir=cache_dir,
                 syft_image=syft_image,
+                update=update,
             )
             print(f"  ✓ Generated {example_name}")
         except Exception as e:
@@ -92,6 +99,7 @@ def generate_example(
     output_dir: Path,
     cache_dir: Path,
     syft_image: str,
+    update: bool = False,
 ) -> None:
     """Generate markdown files for a single jq query example."""
     # Load example definition
@@ -118,6 +126,7 @@ def generate_example(
         cache_dir=cache_dir,
         syft_image=syft_image,
         examples_dir=example_file.parent,
+        update=update,
     )
 
     # Generate query.md - just the jq expression
@@ -162,6 +171,7 @@ def get_or_generate_sbom(
     cache_dir: Path,
     syft_image: str,
     examples_dir: Path | None = None,
+    update: bool = False,
 ) -> str:
     """Get SBOM from cache or generate it using Syft."""
     if examples_dir is None:
@@ -172,6 +182,11 @@ def get_or_generate_sbom(
     if config:
         cache_key += f"_{Path(config).stem}"
     cache_file = cache_dir / f"{cache_key}.json"
+
+    # if updating, delete existing cache
+    if update and cache_file.exists():
+        cache_file.unlink()
+        print(f"  Deleted cached SBOM: {cache_file}")
 
     # check cache
     if cache_file.exists():

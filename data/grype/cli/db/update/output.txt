@@ -1,0 +1,13 @@
+Download and install the latest vulnerability database
+
+Usage:
+  grype db update [flags]
+
+Flags:
+  -h, --help   help for update
+
+Global Flags:
+  -c, --config stringArray    grype configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

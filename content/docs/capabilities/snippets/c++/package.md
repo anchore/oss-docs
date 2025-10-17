@@ -5,9 +5,12 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-cataloger">Cataloger</th>
-      <th class="col-evidence">Evidence</th>
-      <th class="col-license">License</th>
+      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-license" rowspan="2">License</th>
+      <th colspan="3">Dependency</th>
+      <th colspan="3">Package Manager</th>
+    </tr>
+    <tr>
       <th class="col-depth">Depth</th>
       <th class="col-edges">Edges</th>
       <th class="col-kinds">Kinds</th>
@@ -18,7 +21,6 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger" rowspan="2"><code>conan</code></td>
       <td class="col-evidence" rowspan="2"><code>conan.lock</code>, <code>conanfile.txt</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">transitive</td>
@@ -38,7 +40,6 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>conan-info</code></td>
       <td class="col-evidence"><code>conaninfo.txt</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-depth value">direct</td>

@@ -28,6 +28,7 @@ class Paths:
     template_examples_dir: Path = sbom_data_dir / "template-examples"
     jq_query_examples_dir: Path = sbom_data_dir / "jq-query-examples"
     capabilities_data_dir: Path = data_dir / "capabilities"
+    reference_cache_dir: Path = data_dir  # cache for reference doc generation
 
     # data files
     format_versions_json: Path = sbom_data_dir / "format-versions.json"

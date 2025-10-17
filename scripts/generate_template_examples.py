@@ -33,11 +33,17 @@ from utils.syft import run_syft_convert, run_syft_scan
     default=docker_images.syft,
     help=f"Syft Docker image to use (default: {docker_images.syft})",
 )
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the SBOM cache even if it already exists",
+)
 def main(
     template_dir: str,
     output_dir: str,
     image: str,
     syft_image: str,
+    update: bool,
 ) -> None:
     """Generate template example documentation."""
     template_path = Path(template_dir)
@@ -77,6 +83,7 @@ def main(
                 cache_dir=cache_dir,
                 image=image,
                 syft_image=syft_image,
+                update=update,
             )
             print(f"  ✓ Generated {example_name}")
         except Exception as e:
@@ -93,6 +100,7 @@ def generate_example(
     cache_dir: Path,
     image: str,
     syft_image: str,
+    update: bool = False,
 ) -> None:
     """Generate markdown files for a single template example."""
     # Create example directory
@@ -112,6 +120,7 @@ def generate_example(
         image=image,
         cache_dir=cache_dir,
         syft_image=syft_image,
+        update=update,
     )
 
     # Use syft convert to apply template to cached SBOM
@@ -140,11 +149,17 @@ def get_or_generate_sbom(
     image: str,
     cache_dir: Path,
     syft_image: str,
+    update: bool = False,
 ) -> Path:
     """Get SBOM from cache or generate it using Syft."""
     # create cache key from image name
     cache_key = image.replace(":", "_").replace("/", "_")
     cache_file = cache_dir / f"{cache_key}.json"
+
+    # if updating, delete existing cache
+    if update and cache_file.exists():
+        cache_file.unlink()
+        print(f"  Deleted cached SBOM: {cache_file}")
 
     # check cache
     if cache_file.exists():
