@@ -92,7 +92,8 @@ params:
     preload_fonts:
       - Poppins:400,500,600
     showLightDarkModeMenu: true
-    sidebar_menu_truncate: 10
+    # this is critical, we have a lot of sub-sections for ecosystems. We should not truncate these!
+    sidebar_menu_truncate: 80
     feedback:
       yes: Glad to hear it! Please <a
         href="https://github.com/anchore/oss-docs-preview/issues/new">tell us
