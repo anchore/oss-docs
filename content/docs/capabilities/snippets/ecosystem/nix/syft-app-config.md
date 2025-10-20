@@ -2,7 +2,8 @@
 
 
 <!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->
-<table class="config-table">
+<div class="config-table-header">Syft Configuration</div>
+<table class="config-table syft-config-table">
   <thead>
     <tr>
       <th class="col-config-key">Configuration Key</th>

@@ -9,7 +9,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/package.md" >}}
 
-### Syft Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/syft-app-config.md" >}}
 
@@ -17,8 +16,6 @@ type = "docs"
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/vulnerability.md" >}}
-
-### Grype Configuration
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/nix/grype-app-config.md" >}}
 

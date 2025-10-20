@@ -13,8 +13,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/homebrew/vulnerability.md" >}}
 
-### Grype Configuration
-
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/homebrew/grype-app-config.md" >}}
 
 

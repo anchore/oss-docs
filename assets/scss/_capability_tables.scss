@@ -32,20 +32,33 @@
 /* Body styles */
 .capability-table tbody td {
   padding: 0.5rem 0.5rem;
-  color: #4b5563;
   vertical-align: top;
   font-size: 0.875rem;
+
+  [data-bs-theme='light'] & {
+    color: #4b5563;
+  }
+  [data-bs-theme='dark'] & {
+    color: #d1d5db;
+  }
 }
 
 /* Code elements within tables */
 .capability-table code {
-  background-color: #f3f4f6;
   padding: 0.0625rem 0.25rem;
   border-radius: 3px;
   font-size: 0.8125rem;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-  color: #1f2937;
   white-space: nowrap;
+
+  [data-bs-theme='light'] & {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+  [data-bs-theme='dark'] & {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
 }
 
 /* Column-specific widths - Overview table */
@@ -197,22 +210,93 @@
   }
 }
 
-// /* Dark mode support */
-@media (prefers-color-scheme: dark) {
 
-  .capability-table tbody tr {
-    border-bottom-color: #374151;
+/* Config Tables - Grype and Syft Configuration */
+
+/* Config table header - bold text above the table */
+.config-table-header {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+
+  [data-bs-theme='light'] & {
+    color: #1f2937;
   }
-
-  .capability-table td.indicator svg use[href="#icon-check"] {
-    color: #10b981;
-  }
-
-  .capability-table td.indicator svg use[href="#icon-gear"] {
-    color: #f59e0b;
-  }
-
-  .capability-table td.indicator svg use[href="#icon-dash"] {
-    color: #6b7280;
+  [data-bs-theme='dark'] & {
+    color: #f3f4f6;
   }
 }
+
+/* Base config table styles - similar to capability tables */
+.config-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 0 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.config-table thead th {
+  box-shadow: 0 3px 6px rgba(29, 78, 216, 0.4);
+  padding: 0.625rem 0.5rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.config-table tbody td {
+  padding: 0.5rem 0.5rem;
+  vertical-align: top;
+  font-size: 0.875rem;
+
+  [data-bs-theme='light'] & {
+    color: #4b5563;
+  }
+  [data-bs-theme='dark'] & {
+    color: #d1d5db;
+  }
+}
+
+.config-table code {
+  padding: 0.0625rem 0.25rem;
+  border-radius: 3px;
+  font-size: 0.8125rem;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  white-space: nowrap;
+
+  [data-bs-theme='light'] & {
+    background-color: #f3f4f6;
+    color: #1f2937;
+  }
+  [data-bs-theme='dark'] & {
+    background-color: #374151;
+    color: #e5e7eb;
+  }
+}
+
+/* Soft vertical separation */
+.config-table th, .config-table td {
+  border-left: 1px solid rgba(209, 213, 219, 0.6);
+}
+
+/* Column-specific widths */
+.config-table .col-config-key {
+  width: 40%;
+  min-width: 200px;
+}
+
+.config-table .col-description {
+  width: 60%;
+}
+

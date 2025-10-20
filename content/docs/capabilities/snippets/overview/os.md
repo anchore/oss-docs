@@ -7,7 +7,7 @@
     <tr>
       <th class="col-os-name">Operating System</th>
       <th class="col-versions">Supported Versions</th>
-      <th class="col-provider">Provider</th>
+      <th class="col-provider">Vunnel Provider</th>
       <th class="col-data-source">Data Source</th>
     </tr>
   </thead>

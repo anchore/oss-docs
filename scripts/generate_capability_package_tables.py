@@ -99,7 +99,7 @@ OVERVIEW_CONFIG = {
         },
         {
             "key": "cataloger",
-            "label": "Cataloger",
+            "label": "Cataloger + Evidence",
             "class": "col-cataloger",
             "type": "cataloger_with_evidence",
             # combines cataloger name + evidence patterns
@@ -650,8 +650,11 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
     # build HTML lines
     html_lines = []
 
+    # table header text
+    html_lines.append('<div class="config-table-header">Syft Configuration</div>')
+
     # table header
-    html_lines.append('<table class="config-table">')
+    html_lines.append('<table class="config-table syft-config-table">')
     html_lines.append('  <thead>')
     html_lines.append('    <tr>')
     html_lines.append('      <th class="col-config-key">Configuration Key</th>')

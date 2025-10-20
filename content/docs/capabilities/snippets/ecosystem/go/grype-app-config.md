@@ -2,7 +2,8 @@
 
 
 <!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->
-<table class="config-table">
+<div class="config-table-header">Grype Configuration</div>
+<table class="config-table grype-config-table">
   <thead>
     <tr>
       <th class="col-config-key">Configuration Key</th>
@@ -11,15 +12,15 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-config-key"><code>golang.using-cpes</code></td>
+      <td class="col-config-key"><code>match.golang.using-cpes</code></td>
       <td class="col-description">Use CPE package identifiers to find vulnerabilities</td>
     </tr>
     <tr>
-      <td class="col-config-key"><code>golang.always-use-cpe-for-stdlib</code></td>
+      <td class="col-config-key"><code>match.golang.always-use-cpe-for-stdlib</code></td>
       <td class="col-description">use CPE matching to find vulnerabilities for the Go standard library</td>
     </tr>
     <tr>
-      <td class="col-config-key"><code>golang.allow-main-module-pseudo-version-comparison</code></td>
+      <td class="col-config-key"><code>match.golang.allow-main-module-pseudo-version-comparison</code></td>
       <td class="col-description">allow comparison between main module pseudo-versions (e.g. v0.0.0-20240413-2b432cf643...)</td>
     </tr>
   </tbody>

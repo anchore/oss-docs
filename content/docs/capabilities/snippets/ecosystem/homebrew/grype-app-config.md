@@ -2,7 +2,8 @@
 
 
 <!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->
-<table class="config-table">
+<div class="config-table-header">Grype Configuration</div>
+<table class="config-table grype-config-table">
   <thead>
     <tr>
       <th class="col-config-key">Configuration Key</th>
@@ -11,7 +12,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-config-key"><code>stock.using-cpes</code></td>
+      <td class="col-config-key"><code>match.stock.using-cpes</code></td>
       <td class="col-description">Use CPE package identifiers to find vulnerabilities</td>
     </tr>
   </tbody>

@@ -13,8 +13,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/sbom/vulnerability.md" >}}
 
-### Grype Configuration
-
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/sbom/grype-app-config.md" >}}
 
 
