@@ -14,15 +14,15 @@
   <tbody>
     <tr>
       <td class="col-os-name">Amazon Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">2, 2022, 2023</td>
+      <td class="col-provider">amazon</td>
+      <td class="col-data-source"><a href="https://alas.aws.amazon.com/">Amazon Linux Security Center</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Azure Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">3.0</td>
+      <td class="col-provider">mariner</td>
+      <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/cbl-mariner-2.0-oval.xml">Microsoft CBL-Mariner OVAL</a></td>
     </tr>
     <tr>
       <td class="col-os-name">CentOS</td>
@@ -44,9 +44,9 @@
     </tr>
     <tr>
       <td class="col-os-name">Oracle Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">5, 6, 7, 8, 9, 10</td>
+      <td class="col-provider">oracle</td>
+      <td class="col-data-source"><a href="https://linux.oracle.com/security/">Oracle Linux Security</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>

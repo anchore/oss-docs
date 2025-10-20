@@ -13,12 +13,6 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-os-name">AlmaLinux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
       <td class="col-os-name">Alpine Linux</td>
       <td class="col-versions">3.2+, edge</td>
       <td class="col-provider">alpine</td>
@@ -26,33 +20,15 @@
     </tr>
     <tr>
       <td class="col-os-name">Amazon Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Amazonlinux</td>
       <td class="col-versions">2, 2022, 2023</td>
       <td class="col-provider">amazon</td>
       <td class="col-data-source"><a href="https://alas.aws.amazon.com/">Amazon Linux Security Center</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Azure Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Azurelinux</td>
       <td class="col-versions">3.0</td>
       <td class="col-provider">mariner</td>
       <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/cbl-mariner-2.0-oval.xml">Microsoft CBL-Mariner OVAL</a></td>
-    </tr>
-    <tr>
-      <td class="col-os-name">CentOS</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">Chainguard OS</td>
@@ -73,12 +49,6 @@
       <td class="col-data-source"><a href="https://advisory.echohq.com/data.json">ECHO Security</a></td>
     </tr>
     <tr>
-      <td class="col-os-name">Gentoo Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
       <td class="col-os-name">CBL-Mariner</td>
       <td class="col-versions">1.0, 2.0</td>
       <td class="col-provider">mariner</td>
@@ -92,33 +62,15 @@
     </tr>
     <tr>
       <td class="col-os-name">Oracle Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Oraclelinux</td>
       <td class="col-versions">5, 6, 7, 8, 9, 10</td>
       <td class="col-provider">oracle</td>
       <td class="col-data-source"><a href="https://linux.oracle.com/security/">Oracle Linux Security</a></td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Raspberry Pi OS</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>
       <td class="col-versions">5, 6, 7, 8, 9, 10<br>EUS: 5.9, 6.4+, 7, 8.1, 8.2, 8.4, 8.6, 8.8, 9</td>
       <td class="col-provider">rhel</td>
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Rocky Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
     </tr>
     <tr>
       <td class="col-os-name">SUSE Linux Enterprise Server</td>
