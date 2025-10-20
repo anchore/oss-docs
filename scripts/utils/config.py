@@ -36,7 +36,6 @@ class Paths:
     ecosystem_aliases_file: Path = capabilities_data_dir / "ecosystem.yaml"
     os_data_file: Path = capabilities_data_dir / "grype-operating-systems.json"
     vulnerability_data_file: Path = capabilities_data_dir / "vulnerability-data.yaml"
-    package_format_mapping_file: Path = capabilities_data_dir / "os-package-format-mapping.json"
 
     # content directories (output)
     content_dir: Path = project_root / "content"
