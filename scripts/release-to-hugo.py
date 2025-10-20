@@ -183,7 +183,9 @@ def main(
         filepath = os.path.join(output_dir, filename)
 
         if os.path.exists(filepath):
-            logger.debug(f"Skipping existing release: {release['tag_name']} (already exists)")
+            logger.debug(
+                f"Skipping existing release: {release['tag_name']} (already exists)"
+            )
             continue
 
         logger.debug(f"Processing release: {release['tag_name']}")

@@ -34,7 +34,7 @@ def version_to_number(version: str) -> float:
         float representation for comparison
     """
     try:
-        parts = version.split('.')
+        parts = version.split(".")
         if len(parts) == 1:
             return float(parts[0])
         elif len(parts) == 2:
@@ -65,19 +65,19 @@ def parse_version_constraint(constraint: str) -> tuple[str, float]:
     constraint = constraint.strip()
 
     # try two-character operators first
-    for op in ['>=', '<=', '==']:
+    for op in [">=", "<=", "=="]:
         if constraint.startswith(op):
             version_str = constraint[2:].strip()
             return (op, version_to_number(version_str))
 
     # try single-character operators
-    for op in ['>', '<']:
+    for op in [">", "<"]:
         if constraint.startswith(op):
             version_str = constraint[1:].strip()
             return (op, version_to_number(version_str))
 
     # no operator found, assume equals
-    return ('==', version_to_number(constraint))
+    return ("==", version_to_number(constraint))
 
 
 def matches_constraint(version: str, constraint_tuple: tuple[str, float]) -> bool:
@@ -94,15 +94,15 @@ def matches_constraint(version: str, constraint_tuple: tuple[str, float]) -> boo
     version_num = version_to_number(version)
     operator, constraint_num = constraint_tuple
 
-    if operator == '>=':
+    if operator == ">=":
         return version_num >= constraint_num
-    elif operator == '<=':
+    elif operator == "<=":
         return version_num <= constraint_num
-    elif operator == '>':
+    elif operator == ">":
         return version_num > constraint_num
-    elif operator == '<':
+    elif operator == "<":
         return version_num < constraint_num
-    elif operator == '==':
+    elif operator == "==":
         return abs(version_num - constraint_num) < 0.001
     else:
         logger.warning(f"Unknown operator '{operator}', returning False")
@@ -123,9 +123,7 @@ def load_ecosystem_aliases() -> dict[str, str]:
     aliases_file = paths.ecosystem_aliases_file
 
     if not aliases_file.exists():
-        logger.warning(
-            f"Ecosystem aliases file not found: {aliases_file}"
-        )
+        logger.warning(f"Ecosystem aliases file not found: {aliases_file}")
         return {}
 
     try:
@@ -154,9 +152,7 @@ def load_ecosystem_display_names() -> dict[str, str]:
     aliases_file = paths.ecosystem_aliases_file
 
     if not aliases_file.exists():
-        logger.warning(
-            f"Ecosystem aliases file not found: {aliases_file}"
-        )
+        logger.warning(f"Ecosystem aliases file not found: {aliases_file}")
         return {}
 
     try:
@@ -270,17 +266,22 @@ def load_os_data() -> list[dict]:
 
             # find parent OS entries (filter to main channel only)
             parent_entries = [
-                entry for entry in os_data
+                entry
+                for entry in os_data
                 if entry.get("name") == like_os and entry.get("channel") is None
             ]
 
             if not parent_entries:
-                logger.warning(f"No main channel entries found for parent OS '{like_os}'")
+                logger.warning(
+                    f"No main channel entries found for parent OS '{like_os}'"
+                )
                 continue
 
             # get version constraints if specified
             version_constraints = os_def.get("versions", [])
-            constraint_tuples = [parse_version_constraint(c) for c in version_constraints]
+            constraint_tuples = [
+                parse_version_constraint(c) for c in version_constraints
+            ]
 
             # process each parent entry (typically just one for main channel)
             for parent_entry in parent_entries:
@@ -297,7 +298,9 @@ def load_os_data() -> list[dict]:
                         continue
 
                     # check if version matches all constraints
-                    if all(matches_constraint(version_str, ct) for ct in constraint_tuples):
+                    if all(
+                        matches_constraint(version_str, ct) for ct in constraint_tuples
+                    ):
                         filtered_versions.append(version_obj)
 
                 if not filtered_versions:
@@ -345,9 +348,7 @@ def load_vulnerability_data() -> dict:
     vuln_file = paths.vulnerability_data_file
 
     if not vuln_file.exists():
-        logger.error(
-            f"Vulnerability data file not found: {vuln_file}"
-        )
+        logger.error(f"Vulnerability data file not found: {vuln_file}")
         sys.exit(1)
 
     try:

@@ -163,11 +163,15 @@ This documentation was generated from {tool_display} version `{app_version}`.
 """
 
     # Add main help at the top without header (entire output in code block)
-    main_help = get_command_help(image, [], tool_name, update)  # Empty cmd_parts for main help
+    main_help = get_command_help(
+        image, [], tool_name, update
+    )  # Empty cmd_parts for main help
     content += f"```\n{main_help}\n```\n\n"
 
     # Discover and add all subcommands
-    all_commands, leaf_commands = discover_all_commands(image, app_name, tool_name, update)
+    all_commands, leaf_commands = discover_all_commands(
+        image, app_name, tool_name, update
+    )
 
     # Choose which commands to include based on flags
     if include_all_cmds:
@@ -230,7 +234,9 @@ def get_cache_path_for_cli(tool_name: str, cmd_parts: list[str]) -> Path:
     return cache_dir / "output.txt"
 
 
-def discover_all_commands(image: str, app_name: str, tool_name: str, update: bool = False):
+def discover_all_commands(
+    image: str, app_name: str, tool_name: str, update: bool = False
+):
     """Discover all commands recursively.
 
     Returns a tuple of (all_commands, leaf_commands) where:
@@ -310,7 +316,9 @@ def get_subcommands(image: str, cmd_parts, tool_name: str, update: bool = False)
     return commands
 
 
-def get_version_info(image: str, app_name: str, tool_name: str, update: bool = False) -> str:
+def get_version_info(
+    image: str, app_name: str, tool_name: str, update: bool = False
+) -> str:
     """Get version information from the app."""
     # check cache first
     cache_path = get_cache_path_for_cli(tool_name, ["version"])
@@ -333,9 +341,12 @@ def get_version_info(image: str, app_name: str, tool_name: str, update: bool = F
     raise RuntimeError(f"Failed to retrieve version info from the image '{image}'.")
 
 
-def get_command_help(image: str, cmd_parts, tool_name: str, update: bool = False) -> str:
+def get_command_help(
+    image: str, cmd_parts, tool_name: str, update: bool = False
+) -> str:
     """Get help output for a specific command."""
     import logging
+
     logger = logging.getLogger(__name__)
 
     # check cache first

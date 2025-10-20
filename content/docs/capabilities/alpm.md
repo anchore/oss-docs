@@ -11,7 +11,6 @@ sidebar_badge = "arch+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/alpm/package.md" >}}
 
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})

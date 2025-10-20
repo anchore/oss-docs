@@ -9,16 +9,13 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/package.md" >}}
 
-
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/syft-app-config.md" >}}
-
 
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/vulnerability.md" >}}
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dotnet/grype-app-config.md" >}}
-
 
 ## Next steps
 

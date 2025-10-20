@@ -11,14 +11,11 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/syft-app-config.md" >}}
 
-
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/vulnerability.md" >}}
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/python/grype-app-config.md" >}}
-
-
 
 ## Next steps
 

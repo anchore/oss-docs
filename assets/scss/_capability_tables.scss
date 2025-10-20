@@ -15,7 +15,6 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-
 .capability-table thead th {
   box-shadow: 0 3px 6px rgba(29, 78, 216, 0.4);
   padding: 0.625rem 0.5rem;
@@ -88,7 +87,6 @@
   font-weight: 500;
 }
 
-
 /* Column-specific widths - OS table (package format specific) */
 .capability-table-os .col-os-name {
   font-weight: 500;
@@ -141,7 +139,8 @@
 }
 
 /* all capability tables need soft vertical separation, throughout headers and content */
-.capability-table th, .capability-table td {
+.capability-table th,
+.capability-table td {
   border-left: 1px solid rgba(209, 213, 219, 0.6);
 }
 
@@ -164,15 +163,15 @@
 }
 
 /* Icon colors */
-svg use[href="#icon-check"] {
+svg use[href='#icon-check'] {
   color: #059669;
 }
 
-svg use[href="#icon-gear"] {
+svg use[href='#icon-gear'] {
   color: #d97706;
 }
 
-svg use[href="#icon-dash"] {
+svg use[href='#icon-dash'] {
   color: #9ca3af;
 }
 
@@ -195,7 +194,6 @@ svg use[href="#icon-dash"] {
   .capability-table tbody td {
     padding: 0.75rem 0.5rem;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -209,7 +207,6 @@ svg use[href="#icon-dash"] {
     height: 18px;
   }
 }
-
 
 /* Config Tables - Grype and Syft Configuration */
 
@@ -286,7 +283,8 @@ svg use[href="#icon-dash"] {
 }
 
 /* Soft vertical separation */
-.config-table th, .config-table td {
+.config-table th,
+.config-table td {
   border-left: 1px solid rgba(209, 213, 219, 0.6);
 }
 
@@ -299,4 +297,3 @@ svg use[href="#icon-dash"] {
 .config-table .col-description {
   width: 60%;
 }
-

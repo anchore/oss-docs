@@ -6,6 +6,7 @@ Creates markdown files with code fences for each format.
 
 import sys
 from pathlib import Path
+from typing import cast
 
 import click
 from utils.config import docker_images, get_generated_comment, paths
@@ -55,7 +56,9 @@ FORMATS = [
     count=True,
     help="Increase verbosity (use -v for info, -vv for debug)",
 )
-def main(image: str, syft_image: str, output_dir: str, update: bool, verbose: int) -> None:
+def main(
+    image: str, syft_image: str, output_dir: str, update: bool, verbose: int
+) -> None:
     """Generate SBOM format examples using Syft."""
     logger = setup_logging(verbose, __file__)
 
@@ -71,11 +74,14 @@ def main(image: str, syft_image: str, output_dir: str, update: bool, verbose: in
     cache_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate or retrieve SBOM from cache
-    sbom_file = get_or_generate_sbom(
-        image=image,
-        cache_dir=cache_dir,
-        syft_image=syft_image,
-        update=update,
+    sbom_file = cast(
+        Path,
+        get_or_generate_sbom(
+            image=image,
+            cache_dir=cache_dir,
+            syft_image=syft_image,
+            update=update,
+        ),
     )
 
     # Generate examples for each format
@@ -94,7 +100,9 @@ def main(image: str, syft_image: str, output_dir: str, update: bool, verbose: in
             logger.error(f"  ✗ Error generating {format_name}: {e}")
             sys.exit(1)
 
-    logger.info(f"Successfully generated {len(FORMATS)} format examples in {output_path}")
+    logger.info(
+        f"Successfully generated {len(FORMATS)} format examples in {output_path}"
+    )
 
 
 def generate_format_example(

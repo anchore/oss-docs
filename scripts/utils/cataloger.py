@@ -157,9 +157,7 @@ def get_catalogers_by_ecosystem(data: dict, ecosystem: str) -> list[dict]:
     """
     catalogers = data.get("catalogers", [])
     return [
-        cataloger
-        for cataloger in catalogers
-        if cataloger.get("ecosystem") == ecosystem
+        cataloger for cataloger in catalogers if cataloger.get("ecosystem") == ecosystem
     ]
 
 

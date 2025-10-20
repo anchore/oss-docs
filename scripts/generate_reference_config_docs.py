@@ -91,7 +91,9 @@ def main(
         sys.exit(1)
 
 
-def generate_markdown_content(image: str, app_name: str, tool_name: str, update: bool = False) -> str:
+def generate_markdown_content(
+    image: str, app_name: str, tool_name: str, update: bool = False
+) -> str:
     """Generate the complete markdown content for config documentation."""
     # Prepare tool name for display
     tool_display = tool_name.title()
@@ -109,7 +111,9 @@ url = "docs/reference/{tool_name.lower()}/configuration"
 """
 
     # Add auto-generated comment
-    content += get_generated_comment("scripts/generate_reference_config_docs.py", "html")
+    content += get_generated_comment(
+        "scripts/generate_reference_config_docs.py", "html"
+    )
 
     # Get version information
     app_version = get_app_version(image, tool_name, update)

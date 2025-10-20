@@ -19,7 +19,6 @@ sidebar_badge = "redhat+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/rpm/os.md" >}}
 
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})

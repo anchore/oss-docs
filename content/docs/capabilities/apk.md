@@ -7,7 +7,6 @@ type = "docs"
 sidebar_badge = "alpine+"
 +++
 
-
 ## Package analysis
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/package.md" >}}
@@ -19,7 +18,6 @@ sidebar_badge = "alpine+"
 ### Operating systems
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/os.md" >}}
-
 
 ## Next steps
 

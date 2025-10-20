@@ -13,7 +13,6 @@ url = "docs/reference/grype/configuration"
 This documentation was generated from Grype version `0.100.0`.
 {{< /alert >}}
 
-
 Grype searches for configuration files in the following locations, in order:
 
 1. `./.grype.yaml` - current working directory
@@ -29,14 +28,14 @@ log:
   quiet: false
 
   # explicitly set the logging level (available: [error warn info debug trace]) (env: GRYPE_LOG_LEVEL)
-  level: 'warn'
+  level: "warn"
 
   # file path to write logs to (env: GRYPE_LOG_FILE)
-  file: ''
+  file: ""
 
 dev:
   # capture resource profiling data (available: [cpu, mem]) (env: GRYPE_DEV_PROFILE)
-  profile: ''
+  profile: ""
 
   db:
     # (env: GRYPE_DEV_DB_DEBUG)
@@ -52,19 +51,19 @@ output: []
 # output-template-file: .grype/html.tmpl
 #
 # write output report to a file (default is to write to stdout) (env: GRYPE_FILE)
-file: ''
+file: ""
 
 # pretty-print output (env: GRYPE_PRETTY)
 pretty: false
 
 # distro to match against in the format: <distro>:<version> (env: GRYPE_DISTRO)
-distro: ''
+distro: ""
 
 # generate CPEs for packages with no CPE data (env: GRYPE_ADD_CPES_IF_NONE)
 add-cpes-if-none: false
 
 # specify the path to a Go template file (requires 'template' output to be selected) (env: GRYPE_OUTPUT_TEMPLATE_FILE)
-output-template-file: ''
+output-template-file: ""
 
 # enable/disable checking for application updates on startup (env: GRYPE_CHECK_FOR_APP_UPDATE)
 check-for-app-update: true
@@ -76,14 +75,14 @@ only-fixed: false
 only-notfixed: false
 
 # ignore matches for vulnerabilities with specified comma separated fix states, options=[fixed not-fixed unknown wont-fix] (env: GRYPE_IGNORE_WONTFIX)
-ignore-wontfix: ''
+ignore-wontfix: ""
 
 # an optional platform specifier for container image sources (e.g. 'linux/arm64', 'linux/arm64/v8', 'arm64', 'linux') (env: GRYPE_PLATFORM)
-platform: ''
+platform: ""
 
 search:
   # selection of layers to analyze, options=[squashed all-layers deep-squashed] (env: GRYPE_SEARCH_SCOPE)
-  scope: 'squashed'
+  scope: "squashed"
 
   # search within archives that do not contain a file index to search against (tar, tar.gz, tar.bz2, etc)
   # note: enabling this may result in a performance impact since all discovered compressed tars will be decompressed
@@ -124,7 +123,7 @@ external-sources:
     search-maven-upstream: true
 
     # base URL of the Maven repository to search (env: GRYPE_EXTERNAL_SOURCES_MAVEN_BASE_URL)
-    base-url: 'https://search.maven.org/solrsearch/select'
+    base-url: "https://search.maven.org/solrsearch/select"
 
     # (env: GRYPE_EXTERNAL_SOURCES_MAVEN_RATE_LIMIT)
     rate-limit: 300ms
@@ -174,7 +173,7 @@ match:
 
 # upon scanning, if a severity is found at or above the given severity then the return code will be 1
 # default is unset which will skip this validation (options: negligible, low, medium, high, critical) (env: GRYPE_FAIL_ON_SEVERITY)
-fail-on-severity: ''
+fail-on-severity: ""
 
 registry:
   # skip TLS verification when communicating with the registry (env: GRYPE_REGISTRY_INSECURE_SKIP_TLS_VERIFY)
@@ -184,16 +183,16 @@ registry:
   insecure-use-http: false
 
   # Authentication credentials for specific registries. Each entry describes authentication for a specific authority:
-  # -	authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
-  # 	username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
-  # 	password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
-  # 	token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
-  # 	tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
-  # 	tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
+  # - authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
+  #  username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
+  #  password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
+  #  token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
+  #  tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
+  #  tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
   auth: []
 
   # filepath to a CA certificate (or directory containing *.crt, *.cert, *.pem) used to generate the client certificate (env: GRYPE_REGISTRY_CA_CERT)
-  ca-cert: ''
+  ca-cert: ""
 
 # show suppressed/ignored vulnerabilities in the output (only supported with table output format) (env: GRYPE_SHOW_SUPPRESSED)
 show-suppressed: false
@@ -202,14 +201,14 @@ show-suppressed: false
 by-cve: false
 
 # sort the match results with the given strategy, options=[package severity epss risk kev vulnerability] (env: GRYPE_SORT_BY)
-sort-by: 'risk'
+sort-by: "risk"
 
 # same as --name; set the name of the target being analyzed (env: GRYPE_NAME)
-name: ''
+name: ""
 
 # allows users to specify which image source should be used to generate the sbom
 # valid values are: registry, docker, podman (env: GRYPE_DEFAULT_IMAGE_PULL_SOURCE)
-default-image-pull-source: ''
+default-image-pull-source: ""
 
 # a list of VEX documents to consider when producing scanning results (env: GRYPE_VEX_DOCUMENTS)
 vex-documents: []
@@ -223,23 +222,23 @@ match-upstream-kernel-headers: false
 fix-channel:
   redhat-eus:
     # whether fixes from this channel should be considered, options are "never", "always", or "auto" (conditionally applied based on SBOM data) (env: GRYPE_FIX_CHANNEL_REDHAT_EUS_APPLY)
-    apply: 'auto'
+    apply: "auto"
 
     # (env: GRYPE_FIX_CHANNEL_REDHAT_EUS_VERSIONS)
-    versions: '>= 8.0'
+    versions: ">= 8.0"
 
 # (env: GRYPE_TIMESTAMP)
 timestamp: true
 
 db:
   # location to write the vulnerability database cache (env: GRYPE_DB_CACHE_DIR)
-  cache-dir: '~.cache~grype~db'
+  cache-dir: "~.cache~grype~db"
 
   # URL of the vulnerability database (env: GRYPE_DB_UPDATE_URL)
-  update-url: 'https://grype.anchore.io/databases'
+  update-url: "https://grype.anchore.io/databases"
 
   # certificate to trust download the database and listing file (env: GRYPE_DB_CA_CERT)
-  ca-cert: ''
+  ca-cert: ""
 
   # check for database updates on execution (env: GRYPE_DB_AUTO_UPDATE)
   auto-update: true
@@ -271,4 +270,3 @@ db:
 
 exp:
 ```
-

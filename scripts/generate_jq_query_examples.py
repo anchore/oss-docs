@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from typing import cast
 
 import click
 import yaml
@@ -131,13 +132,16 @@ def generate_example(
 
     # Generate or retrieve SBOM
     config_file = example_file.parent / config if config else None
-    sbom_json = get_or_generate_sbom(
-        image=image,
-        cache_dir=cache_dir,
-        syft_image=syft_image,
-        update=update,
-        config_file=config_file,
-        return_content=True,
+    sbom_json = cast(
+        str,
+        get_or_generate_sbom(
+            image=image,
+            cache_dir=cache_dir,
+            syft_image=syft_image,
+            update=update,
+            config_file=config_file,
+            return_content=True,
+        ),
     )
 
     # Generate query.md - just the jq expression

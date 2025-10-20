@@ -60,16 +60,19 @@ def extract_format_versions():
 
     except subprocess.TimeoutExpired:
         import logging
+
         logger = logging.getLogger(__name__)
         logger.error("Syft command timed out")
         sys.exit(1)
     except subprocess.CalledProcessError as e:
         import logging
+
         logger = logging.getLogger(__name__)
         logger.error(f"Error running Syft: {e}")
         sys.exit(1)
     except FileNotFoundError:
         import logging
+
         logger = logging.getLogger(__name__)
         logger.error("Syft command not found. Please ensure Syft is installed.")
         sys.exit(1)
@@ -135,6 +138,7 @@ def load_existing_formats(json_path: Path):
         return None
     except json.JSONDecodeError as e:
         import logging
+
         logger = logging.getLogger(__name__)
         logger.warning(f"Invalid JSON in {json_path}: {e}")
         return None

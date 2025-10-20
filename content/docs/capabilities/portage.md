@@ -11,7 +11,6 @@ sidebar_badge = "gentoo"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/portage/package.md" >}}
 
-
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/portage/vulnerability.md" >}}
@@ -19,7 +18,6 @@ sidebar_badge = "gentoo"
 ### Operating systems
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/portage/os.md" >}}
-
 
 ## Next steps
 

@@ -9,13 +9,11 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/package.md" >}}
 
-
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/syft-app-config.md" >}}
-
 
 ### Version detection for binaries
 
-When Syft scans a Go binary, the main module often has version `(devel)` because Go doesn't embed version information by default. 
+When Syft scans a Go binary, the main module often has version `(devel)` because Go doesn't embed version information by default.
 Syft attempts to detect the actual version using three strategies (configurable via `golang.main-module-version.*`):
 
 1. **From ldflags** (enabled by default): Looks for version strings passed during build like `-ldflags="-X main.version=v1.2.3"`. Supports common patterns: `*.version=`, `*.gitTag=`, `*.release=`, etc.
@@ -27,6 +25,7 @@ Syft attempts to detect the actual version using three strategies (configurable 
 **Best practice**: Use `-ldflags` when building to embed your version explicitly.
 
 **Example:**
+
 ```bash
 go build -ldflags="-X main.version=v1.2.3"
 ```
@@ -35,20 +34,17 @@ This ensures Syft (and Grype) can accurately identify your application version f
 
 ### Standard library
 
-Syft automatically creates a `stdlib` package for each Go binary, representing the Go standard library version used to compile it. 
-The version is extracted from the binary's build metadata (e.g., `go1.22.2`). 
+Syft automatically creates a `stdlib` package for each Go binary, representing the Go standard library version used to compile it.
+The version is extracted from the binary's build metadata (e.g., `go1.22.2`).
 This enables Grype to check for vulnerabilities reported against the go standard library.
 
-
 **Why this matters:** Vulnerabilities in the Go compiler (like CVEs affecting the crypto library or net/http) can affect your application even if your code doesn't directly use those packages.
-
 
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/vulnerability.md" >}}
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/go/grype-app-config.md" >}}
-
 
 ### Main module filtering
 
@@ -88,7 +84,6 @@ This may produce false positives. Use properly versioned builds when possible.
 - **Missing CPEs:** Verify Syft generates CPEs with `generate-cpes: true` in `.syft.yaml`
 - **CPE matching disabled:** Ensure `always-use-cpe-for-stdlib: true` in Grype config (default)
 - **Incorrect version format:** Stdlib version should be `go1.18.3`, not `v1.18.3` (file a Syft bug if incorrect)
-
 
 ## Next steps
 

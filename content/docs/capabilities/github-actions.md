@@ -13,7 +13,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/github-actions/vulnerability.md" >}}
 
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})

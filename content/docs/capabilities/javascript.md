@@ -9,16 +9,13 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/package.md" >}}
 
-
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/syft-app-config.md" >}}
-
 
 ## Vulnerability scanning
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/vulnerability.md" >}}
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/javascript/grype-app-config.md" >}}
-
 
 ## Next steps
 

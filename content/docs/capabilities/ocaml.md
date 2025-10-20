@@ -15,7 +15,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/ocaml/grype-app-config.md" >}}
 
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})

@@ -6,6 +6,7 @@ Runs Syft templates against a test image and creates markdown files.
 
 import sys
 from pathlib import Path
+from typing import cast
 
 import click
 from utils.config import docker_images, paths
@@ -127,11 +128,14 @@ def generate_example(
     (example_dir / "template.md").write_text(template_md)
 
     # Generate or retrieve SBOM from cache
-    sbom_file = get_or_generate_sbom(
-        image=image,
-        cache_dir=cache_dir,
-        syft_image=syft_image,
-        update=update,
+    sbom_file = cast(
+        Path,
+        get_or_generate_sbom(
+            image=image,
+            cache_dir=cache_dir,
+            syft_image=syft_image,
+            update=update,
+        ),
     )
 
     # Use syft convert to apply template to cached SBOM

@@ -220,7 +220,9 @@ def determine_capability_support(capability: dict) -> CapabilitySupport:
     )
 
 
-def parse_catalogers(cataloger_data: dict, ecosystem_aliases: dict[str, str]) -> list[CatalogerRow]:
+def parse_catalogers(
+    cataloger_data: dict, ecosystem_aliases: dict[str, str]
+) -> list[CatalogerRow]:
     """
     parse cataloger data into table rows.
 
@@ -435,7 +437,9 @@ def format_evidence(globs: list[str], paths: list[str], mimetypes: list[str]) ->
     return content
 
 
-def format_cataloger_with_evidence(cataloger_name: str, globs: list[str], paths: list[str], mimetypes: list[str]) -> str:
+def format_cataloger_with_evidence(
+    cataloger_name: str, globs: list[str], paths: list[str], mimetypes: list[str]
+) -> str:
     """
     format cataloger name with evidence patterns for display in a combined table cell.
 
@@ -545,7 +549,9 @@ def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
         return ""
 
 
-def collect_app_configs_by_ecosystem(cataloger_data: dict, ecosystem_aliases: dict[str, str]) -> dict[str, list[dict]]:
+def collect_app_configs_by_ecosystem(
+    cataloger_data: dict, ecosystem_aliases: dict[str, str]
+) -> dict[str, list[dict]]:
     """
     collect all app-level configuration options grouped by ecosystem.
 
@@ -616,7 +622,7 @@ def strip_field_name_from_description(description: str, field_key: str) -> str:
     prefix = field_key + " "
     if description.startswith(prefix):
         # remove the prefix
-        cleaned = description[len(prefix):]
+        cleaned = description[len(prefix) :]
         # capitalize first letter
         if cleaned:
             cleaned = cleaned[0].upper() + cleaned[1:]
@@ -625,7 +631,9 @@ def strip_field_name_from_description(description: str, field_key: str) -> str:
     return description
 
 
-def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], output_dir: Path, logger) -> None:
+def generate_app_config_snippet(
+    ecosystem: str, config_fields: list[dict], output_dir: Path, logger
+) -> None:
     """
     generate app configuration snippet for an ecosystem.
 
@@ -646,6 +654,7 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
     # generate comment
     comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n"
 
     # build HTML lines
     html_lines = []
@@ -655,13 +664,13 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
 
     # table header
     html_lines.append('<table class="config-table syft-config-table">')
-    html_lines.append('  <thead>')
-    html_lines.append('    <tr>')
+    html_lines.append("  <thead>")
+    html_lines.append("    <tr>")
     html_lines.append('      <th class="col-config-key">Configuration Key</th>')
     html_lines.append('      <th class="col-description">Description</th>')
-    html_lines.append('    </tr>')
-    html_lines.append('  </thead>')
-    html_lines.append('  <tbody>')
+    html_lines.append("    </tr>")
+    html_lines.append("  </thead>")
+    html_lines.append("  <tbody>")
 
     # table body
     for field in config_fields:
@@ -672,14 +681,18 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
         # strip redundant field name prefix from godoc-style descriptions
         cleaned_description = strip_field_name_from_description(description, key)
 
-        html_lines.append('    <tr>')
-        html_lines.append(f'      <td class="col-config-key"><code>{app_key}</code></td>')
-        html_lines.append(f'      <td class="col-description">{cleaned_description}</td>')
-        html_lines.append('    </tr>')
+        html_lines.append("    <tr>")
+        html_lines.append(
+            f'      <td class="col-config-key"><code>{app_key}</code></td>'
+        )
+        html_lines.append(
+            f'      <td class="col-description">{cleaned_description}</td>'
+        )
+        html_lines.append("    </tr>")
 
     # close table
-    html_lines.append('  </tbody>')
-    html_lines.append('</table>')
+    html_lines.append("  </tbody>")
+    html_lines.append("</table>")
 
     # write file
     with open(output_file, "w") as f:
@@ -749,7 +762,7 @@ def get_ecosystem_sort_key(ecosystem: str, display_names: dict[str, str]) -> str
     """
     display_name = get_ecosystem_display_name(ecosystem, display_names)
     # strip leading non-alphabetic characters and convert to lowercase for case-insensitive sorting
-    cleaned = re.sub(r'^[^a-zA-Z]+', '', display_name)
+    cleaned = re.sub(r"^[^a-zA-Z]+", "", display_name)
     return cleaned.lower()
 
 
@@ -776,8 +789,8 @@ def get_svg_icon(icon_type: str) -> str:
     Returns:
         HTML string with SVG icon
     """
-    if icon_type not in ['check', 'gear', 'dash']:
-        icon_type = 'dash'
+    if icon_type not in ["check", "gear", "dash"]:
+        icon_type = "dash"
     return f'<svg class="capability-icon"><use href="#icon-{icon_type}"/></svg>'
 
 
@@ -794,14 +807,16 @@ def get_capability_indicator_svg(cap_support: CapabilitySupport | None) -> str:
     if cap_support is None:
         return ""
     elif cap_support.conditional:
-        return get_svg_icon('gear')
+        return get_svg_icon("gear")
     elif cap_support.supported:
-        return get_svg_icon('check')
+        return get_svg_icon("check")
     else:
         return ""
 
 
-def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> CapabilitySupport | None:
+def has_any_dependency_support(
+    capabilities: dict[str, CapabilitySupport],
+) -> CapabilitySupport | None:
     """
     check if any dependency capability is supported (for aggregated indicator).
 
@@ -834,7 +849,9 @@ def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> Ca
     return None
 
 
-def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, display_names: dict[str, str], logger) -> None:
+def generate_overview_table(
+    rows: list[CatalogerRow], output_dir: Path, display_names: dict[str, str], logger
+) -> None:
     """
     generate overview table with simple single-row header.
 
@@ -854,7 +871,13 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, display_
     output_file = output_dir / "package.md"
 
     # sort rows by ecosystem and cataloger (using display name for ecosystem sorting)
-    sorted_rows = sorted(rows, key=lambda r: (get_ecosystem_sort_key(r.ecosystem, display_names), r.cataloger_name))
+    sorted_rows = sorted(
+        rows,
+        key=lambda r: (
+            get_ecosystem_sort_key(r.ecosystem, display_names),
+            r.cataloger_name,
+        ),
+    )
 
     # calculate rowspans for ecosystem and cataloger columns
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
@@ -862,54 +885,69 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, display_
     # generate comment
     comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n"
 
     # build HTML lines
     html_lines = []
 
     # table header - single row with simple columns (5 columns total)
     html_lines.append('<table class="capability-table capability-table-overview">')
-    html_lines.append('  <thead>')
-    html_lines.append('    <tr>')
+    html_lines.append("  <thead>")
+    html_lines.append("    <tr>")
     html_lines.append('      <th class="col-ecosystem">Ecosystem</th>')
     html_lines.append('      <th class="col-cataloger">Cataloger</th>')
     html_lines.append('      <th class="col-license">License</th>')
     html_lines.append('      <th class="col-dependency">Dependency</th>')
     html_lines.append('      <th class="col-files">Files</th>')
-    html_lines.append('    </tr>')
-    html_lines.append('  </thead>')
-    html_lines.append('  <tbody>')
+    html_lines.append("    </tr>")
+    html_lines.append("  </thead>")
+    html_lines.append("  <tbody>")
 
     # table body
     for i, row in enumerate(sorted_rows):
-        html_lines.append('    <tr>')
+        html_lines.append("    <tr>")
 
         # ecosystem column (with rowspan) - use display name
         if rowspans["ecosystem"][i] > 0:
-            rowspan_attr = f' rowspan="{rowspans["ecosystem"][i]}"' if rowspans["ecosystem"][i] > 1 else ""
+            rowspan_attr = (
+                f' rowspan="{rowspans["ecosystem"][i]}"'
+                if rowspans["ecosystem"][i] > 1
+                else ""
+            )
             ecosystem_display = get_ecosystem_display_name(row.ecosystem, display_names)
-            html_lines.append(f'      <td class="col-ecosystem"{rowspan_attr}>{ecosystem_display}</td>')
+            html_lines.append(
+                f'      <td class="col-ecosystem"{rowspan_attr}>{ecosystem_display}</td>'
+            )
 
         # cataloger column with evidence (no rowspan - each row shows its own)
-        cataloger_content = format_cataloger_with_evidence(row.cataloger_name, row.globs, row.paths, row.mimetypes)
+        cataloger_content = format_cataloger_with_evidence(
+            row.cataloger_name, row.globs, row.paths, row.mimetypes
+        )
         html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
-        html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>'
+        )
 
         # dependency column (aggregated SVG indicator)
         dependency_cap = has_any_dependency_support(row.capabilities)
-        html_lines.append(f'      <td class="col-dependency indicator">{get_capability_indicator_svg(dependency_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-dependency indicator">{get_capability_indicator_svg(dependency_cap)}</td>'
+        )
 
         # files column (SVG indicator)
         files_cap = row.capabilities.get("package_manager.files.listing")
-        html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>'
+        )
 
-        html_lines.append('    </tr>')
+        html_lines.append("    </tr>")
 
     # close table
-    html_lines.append('  </tbody>')
-    html_lines.append('</table>')
+    html_lines.append("  </tbody>")
+    html_lines.append("</table>")
 
     # write file
     with open(output_file, "w") as f:
@@ -920,7 +958,9 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, display_
     logger.debug(f"Generated {output_file}")
 
 
-def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_dir: Path, logger) -> None:
+def generate_ecosystem_table(
+    ecosystem: str, rows: list[CatalogerRow], output_dir: Path, logger
+) -> None:
     """
     generate complete ecosystem-specific table with grouped capability columns.
 
@@ -950,73 +990,87 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     # sort rows by cataloger (grouping needed for evidence rowspans)
     sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
 
-    # calculate rowspans for evidence column (evidence is per cataloger)
-    rowspans = _calculate_rowspans_for_ecosystem(sorted_rows)
-
     # generate comment
     comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n"
 
     # build HTML lines
     html_lines = []
 
     # table header with two-row grouped structure
     html_lines.append('<table class="capability-table capability-table-ecosystem">')
-    html_lines.append('  <thead>')
-    html_lines.append('    <tr>')
+    html_lines.append("  <thead>")
+    html_lines.append("    <tr>")
     html_lines.append('      <th class="col-cataloger" rowspan="2">Cataloger</th>')
     html_lines.append('      <th class="col-license" rowspan="2">License</th>')
     html_lines.append('      <th colspan="3">Dependency</th>')
     html_lines.append('      <th colspan="3">Package Manager</th>')
-    html_lines.append('    </tr>')
-    html_lines.append('    <tr>')
+    html_lines.append("    </tr>")
+    html_lines.append("    <tr>")
     html_lines.append('      <th class="col-depth">Depth</th>')
     html_lines.append('      <th class="col-edges">Edges</th>')
     html_lines.append('      <th class="col-kinds">Kinds</th>')
     html_lines.append('      <th class="col-files">Files</th>')
     html_lines.append('      <th class="col-digests">Digests</th>')
     html_lines.append('      <th class="col-integrity-hash">Integrity Hash</th>')
-    html_lines.append('    </tr>')
-    html_lines.append('  </thead>')
-    html_lines.append('  <tbody>')
+    html_lines.append("    </tr>")
+    html_lines.append("  </thead>")
+    html_lines.append("  <tbody>")
 
     # table body (each row shows its own cataloger+evidence and capabilities)
-    for i, row in enumerate(sorted_rows):
-        html_lines.append('    <tr>')
+    for row in sorted_rows:
+        html_lines.append("    <tr>")
 
         # cataloger column with evidence (no rowspan - each row shows its own)
-        cataloger_content = format_cataloger_with_evidence(row.cataloger_name, row.globs, row.paths, row.mimetypes)
+        cataloger_content = format_cataloger_with_evidence(
+            row.cataloger_name, row.globs, row.paths, row.mimetypes
+        )
         html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
-        html_lines.append(f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>'
+        )
 
         # dependency columns (individual values)
         depth_cap = row.capabilities.get("dependency.depth")
-        html_lines.append(f'      <td class="col-depth value">{format_depth_value(depth_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-depth value">{format_depth_value(depth_cap)}</td>'
+        )
 
         edges_cap = row.capabilities.get("dependency.edges")
-        html_lines.append(f'      <td class="col-edges value">{format_edges_value(edges_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-edges value">{format_edges_value(edges_cap)}</td>'
+        )
 
         kinds_cap = row.capabilities.get("dependency.kinds")
-        html_lines.append(f'      <td class="col-kinds value">{format_kinds_value(kinds_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-kinds value">{format_kinds_value(kinds_cap)}</td>'
+        )
 
         # package manager columns (SVG indicators)
         files_cap = row.capabilities.get("package_manager.files.listing")
-        html_lines.append(f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>'
+        )
 
         digests_cap = row.capabilities.get("package_manager.files.digests")
-        html_lines.append(f'      <td class="col-digests indicator">{get_capability_indicator_svg(digests_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-digests indicator">{get_capability_indicator_svg(digests_cap)}</td>'
+        )
 
         integrity_cap = row.capabilities.get("package_manager.package_integrity_hash")
-        html_lines.append(f'      <td class="col-integrity-hash indicator">{get_capability_indicator_svg(integrity_cap)}</td>')
+        html_lines.append(
+            f'      <td class="col-integrity-hash indicator">{get_capability_indicator_svg(integrity_cap)}</td>'
+        )
 
-        html_lines.append('    </tr>')
+        html_lines.append("    </tr>")
 
     # close table
-    html_lines.append('  </tbody>')
-    html_lines.append('</table>')
+    html_lines.append("  </tbody>")
+    html_lines.append("</table>")
 
     # write file
     with open(output_file, "w") as f:
@@ -1066,24 +1120,38 @@ def main(update: bool, verbose: int) -> None:
         logger.error("No catalogers found")
         sys.exit(1)
 
-    logger.info(f"Found {len(rows)} cataloger patterns across {len(set(r.ecosystem for r in rows))} ecosystems")
+    logger.info(
+        f"Found {len(rows)} cataloger patterns across {len({r.ecosystem for r in rows})} ecosystems"
+    )
 
     # generate tables
     logger.info("Generating tables...")
 
     # generate overview table
-    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview", ecosystem_display_names, logger)
+    generate_overview_table(
+        rows,
+        paths.capabilities_snippet_dir / "overview",
+        ecosystem_display_names,
+        logger,
+    )
 
     # generate individual ecosystem tables
-    ecosystems = set(r.ecosystem for r in rows)
+    ecosystems = {r.ecosystem for r in rows}
     for ecosystem in sorted(ecosystems):
-        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem", logger)
+        generate_ecosystem_table(
+            ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem", logger
+        )
 
     # collect and generate app config snippets
     logger.info("Generating app config snippets...")
     app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
     for ecosystem, config_fields in app_configs.items():
-        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir / "ecosystem", logger)
+        generate_app_config_snippet(
+            ecosystem,
+            config_fields,
+            paths.capabilities_snippet_dir / "ecosystem",
+            logger,
+        )
 
     logger.info("Generation complete!")
 

@@ -9,7 +9,6 @@ type = "docs"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/bitnami/package.md" >}}
 
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})

@@ -19,8 +19,6 @@ sidebar_badge = "debian+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dpkg/os.md" >}}
 
-
-
 ## Next steps
 
 - [Syft package analysis]({{< ref "/docs/guides/sbom" >}})
