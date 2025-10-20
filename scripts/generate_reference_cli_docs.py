@@ -10,6 +10,7 @@ from collections import deque
 from pathlib import Path
 
 import click
+from utils.cache import get_cached_output, save_to_cache
 from utils.config import get_generated_comment, paths
 from utils.syft import run_syft
 
@@ -217,42 +218,6 @@ def get_cache_path_for_cli(tool_name: str, cmd_parts: list[str]) -> Path:
         cache_dir = paths.reference_cache_dir / tool_name / "cli" / "/".join(cmd_parts)
 
     return cache_dir / "output.txt"
-
-
-def get_cached_output(cache_path: Path, update: bool) -> str | None:
-    """
-    get cached output if available and not updating.
-
-    Args:
-        cache_path: path to cache file
-        update: if true, ignore cache and return None
-
-    Returns:
-        cached output string or None if not available/updating
-    """
-    # if updating, delete existing cache
-    if update and cache_path.exists():
-        cache_path.unlink()
-        return None
-
-    # check if cache exists
-    if cache_path.exists():
-        return cache_path.read_text()
-
-    return None
-
-
-def save_to_cache(cache_path: Path, content: str) -> None:
-    """
-    save content to cache file.
-
-    Args:
-        cache_path: path to cache file
-        content: content to save
-    """
-    # create directory if it doesn't exist
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(content)
 
 
 def discover_all_commands(image: str, app_name: str, tool_name: str, update: bool = False):

@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 import click
+from utils.cache import get_cached_output, save_to_cache
 from utils.config import get_generated_comment, paths
 from utils.syft import run_syft
 
@@ -141,44 +142,6 @@ def get_cache_path(tool_name: str, command_type: str) -> Path:
     """
     cache_dir = paths.reference_cache_dir / tool_name / command_type
     return cache_dir / "output.txt"
-
-
-def get_cached_output(cache_path: Path, update: bool) -> str | None:
-    """
-    get cached output if available and not updating.
-
-    Args:
-        cache_path: path to cache file
-        update: if true, ignore cache and return None
-
-    Returns:
-        cached output string or None if not available/updating
-    """
-    # if updating, delete existing cache
-    if update and cache_path.exists():
-        cache_path.unlink()
-        return None
-
-    # check if cache exists
-    if cache_path.exists():
-        print(f"Using cached output from {cache_path}")
-        return cache_path.read_text()
-
-    return None
-
-
-def save_to_cache(cache_path: Path, content: str) -> None:
-    """
-    save content to cache file.
-
-    Args:
-        cache_path: path to cache file
-        content: content to save
-    """
-    # create directory if it doesn't exist
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    cache_path.write_text(content)
-    print(f"Cached output to {cache_path}")
 
 
 def get_config_locations_section(app_name: str, tool_display: str) -> str:

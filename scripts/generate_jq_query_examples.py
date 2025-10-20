@@ -12,7 +12,7 @@ from pathlib import Path
 import click
 import yaml
 from utils.config import docker_images, paths, timeouts
-from utils.syft import run_syft_with_config
+from utils.sbom import get_or_generate_sbom
 
 
 @click.command()
@@ -120,13 +120,14 @@ def generate_example(
     example_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate or retrieve SBOM
+    config_file = example_file.parent / config if config else None
     sbom_json = get_or_generate_sbom(
         image=image,
-        config=config,
         cache_dir=cache_dir,
         syft_image=syft_image,
-        examples_dir=example_file.parent,
         update=update,
+        config_file=config_file,
+        return_content=True,
     )
 
     # Generate query.md - just the jq expression
@@ -163,63 +164,6 @@ def generate_example(
 
     output_md = f"```{output_format}\n{output}\n```\n"
     (example_dir / "output.md").write_text(output_md)
-
-
-def get_or_generate_sbom(
-    image: str,
-    config: str | None,
-    cache_dir: Path,
-    syft_image: str,
-    examples_dir: Path | None = None,
-    update: bool = False,
-) -> str:
-    """Get SBOM from cache or generate it using Syft."""
-    if examples_dir is None:
-        examples_dir = paths.jq_query_examples_dir
-
-    # create cache key from image and config
-    cache_key = f"{image.replace(':', '_').replace('/', '_')}"
-    if config:
-        cache_key += f"_{Path(config).stem}"
-    cache_file = cache_dir / f"{cache_key}.json"
-
-    # if updating, delete existing cache
-    if update and cache_file.exists():
-        cache_file.unlink()
-        print(f"  Deleted cached SBOM: {cache_file}")
-
-    # check cache
-    if cache_file.exists():
-        print(f"  Using cached SBOM: {cache_file}")
-        return cache_file.read_text()
-
-    # generate SBOM
-    print(f"  Generating SBOM for: {image}")
-    if config:
-        config_path = examples_dir / config
-        sbom_json = run_syft_with_config(
-            target_image=image,
-            config_file=config_path,
-            syft_image=syft_image,
-            output_format="syft-json",
-            timeout=timeouts.syft_scan_with_config,
-        )
-    else:
-        # import the base run_syft_scan for non-config runs
-        from utils.syft import run_syft_scan
-
-        sbom_json = run_syft_scan(
-            target_image=image,
-            syft_image=syft_image,
-            output_format="syft-json",
-            timeout=timeouts.syft_scan_with_config,
-        )
-
-    # save to cache
-    cache_file.write_text(sbom_json)
-    print(f"  Cached SBOM to: {cache_file}")
-
-    return sbom_json
 
 
 def run_jq_query(sbom_json: str, query: str) -> str:

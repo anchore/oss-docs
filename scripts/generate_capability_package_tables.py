@@ -32,9 +32,8 @@ from pathlib import Path
 from typing import Any
 
 import click
-import yaml
-from utils.config import get_generated_comment, paths, timeouts
-from utils.syft import run_syft
+from utils.config import get_generated_comment, paths
+from utils.data import load_cataloger_data, load_ecosystem_aliases
 
 
 @dataclass
@@ -190,82 +189,6 @@ ECOSYSTEM_CONFIG = {
         },
     ],
 }
-
-
-def load_ecosystem_aliases() -> dict[str, str]:
-    """
-    load ecosystem aliases from YAML file.
-
-    Returns:
-        dict mapping source ecosystem names to target ecosystem names
-    """
-    aliases_file = paths.ecosystem_aliases_file
-
-    if not aliases_file.exists():
-        print(f"Warning: Ecosystem aliases file not found: {aliases_file}", file=sys.stderr)
-        return {}
-
-    try:
-        with open(aliases_file) as f:
-            data = yaml.safe_load(f)
-            return data.get("alias", {})
-    except Exception as e:
-        print(f"Warning: Failed to load ecosystem aliases: {e}", file=sys.stderr)
-        return {}
-
-
-def load_or_generate_cataloger_data(update: bool = False) -> dict:
-    """
-    load cataloger data from cache or generate it from syft.
-
-    Args:
-        update: if true, regenerate data even if cache exists
-
-    Returns:
-        dict with cataloger information
-    """
-    cache_file = paths.cataloger_cache_file
-
-    # check if cache exists and we're not forcing update
-    if cache_file.exists() and not update:
-        print(f"Using existing {cache_file}")
-        try:
-            with open(cache_file) as f:
-                data = json.load(f)
-                # filter out the _comment field if present
-                return {k: v for k, v in data.items() if k != "_comment"}
-        except json.JSONDecodeError as e:
-            print(f"Warning: Invalid JSON in {cache_file}: {e}", file=sys.stderr)
-            print("Regenerating cataloger data...", file=sys.stderr)
-
-    # generate cataloger data from syft
-    print("Extracting cataloger information from Syft...")
-    try:
-        stdout, stderr, returncode = run_syft(
-            args=["cataloger", "info", "-o", "json"],
-            timeout=timeouts.cataloger_info,
-        )
-
-        if returncode != 0:
-            print(f"Error running Syft: {stderr or stdout}", file=sys.stderr)
-            sys.exit(1)
-
-        data = json.loads(stdout)
-
-        # save to cache
-        cache_file.parent.mkdir(parents=True, exist_ok=True)
-        comment = get_generated_comment("scripts/generate_capability_tables.py", "json")
-        cache_data = {"_comment": comment, **data}
-
-        with open(cache_file, "w") as f:
-            json.dump(cache_data, f, indent=2)
-
-        print(f"Generated {cache_file}")
-        return data
-
-    except Exception as e:
-        print(f"Error generating cataloger data: {e}", file=sys.stderr)
-        sys.exit(1)
 
 
 def determine_capability_support(capability: dict) -> CapabilitySupport:
@@ -1064,7 +987,7 @@ def main(update: bool) -> None:
         print(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
 
     # load or generate cataloger data
-    cataloger_data = load_or_generate_cataloger_data(update=update)
+    cataloger_data = load_cataloger_data(update=update)
 
     # parse catalogers into rows
     print("Parsing cataloger capabilities...")

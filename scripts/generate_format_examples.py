@@ -9,7 +9,8 @@ from pathlib import Path
 
 import click
 from utils.config import docker_images, get_generated_comment, paths, timeouts
-from utils.syft import run_syft_convert_format, run_syft_scan
+from utils.sbom import get_or_generate_sbom
+from utils.syft import run_syft_convert_format
 
 # Format definitions: (format_name, file_extension, code_fence_language)
 FORMATS = [
@@ -129,43 +130,6 @@ def create_markdown_content(fence_lang: str, output: str) -> str:
 ```
 """
     return content
-
-
-def get_or_generate_sbom(
-    image: str,
-    cache_dir: Path,
-    syft_image: str,
-    update: bool = False,
-) -> Path:
-    """Get SBOM from cache or generate it using Syft."""
-    # create cache key from image name
-    cache_key = image.replace(":", "_").replace("/", "_")
-    cache_file = cache_dir / f"{cache_key}.json"
-
-    # if updating, delete existing cache
-    if update and cache_file.exists():
-        cache_file.unlink()
-        print(f"  Deleted cached SBOM: {cache_file}")
-
-    # check cache
-    if cache_file.exists():
-        print(f"  Using cached SBOM: {cache_file}")
-        return cache_file
-
-    # generate SBOM
-    print(f"  Generating SBOM for: {image}")
-    sbom_json = run_syft_scan(
-        target_image=image,
-        syft_image=syft_image,
-        output_format="syft-json",
-        timeout=timeouts.syft_scan_default,
-    )
-
-    # save to cache
-    cache_file.write_text(sbom_json)
-    print(f"  Cached SBOM to: {cache_file}")
-
-    return cache_file
 
 
 if __name__ == "__main__":
