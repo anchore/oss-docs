@@ -14,9 +14,9 @@
   <tbody>
     <tr>
       <td class="col-os-name">Gentoo Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">minimal support (CPE-based)</td>
+      <td class="col-provider">nvd</td>
+      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
     </tr>
   </tbody>
 </table>
