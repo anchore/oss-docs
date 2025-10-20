@@ -1,6 +1,6 @@
 +++
-title = "Linux"
-description = "Linux package analysis and vulnerability scanning capabilities"
+title = "Linux Kernel"
+description = "Linux kernel archive and module analysis and vulnerability scanning capabilities"
 weight = 180
 type = "docs"
 +++

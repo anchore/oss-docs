@@ -3,6 +3,8 @@ title = "APK"
 description = "APK package format analysis and vulnerability scanning capabilities"
 weight = 20
 type = "docs"
+[params]
+sidebar_badge = "alpine"
 +++
 
 
