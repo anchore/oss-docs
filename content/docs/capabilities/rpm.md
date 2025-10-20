@@ -4,7 +4,7 @@ description = "Red Hat Package Manager format used by Red Hat-based Linux distri
 weight = 270
 type = "docs"
 [params]
-sidebar_badge = "redhat"
+sidebar_badge = "redhat+"
 +++
 
 ## Package analysis

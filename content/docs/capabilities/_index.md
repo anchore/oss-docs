@@ -16,7 +16,14 @@ Capabilities describe the **cross-cutting features** available across Anchore's 
 
 These capabilities are ecosystem-specific. For example, Python's capabilities differ from Go's, and Ubuntu's capabilities differ from Alpine's.
 
-## Ecosystem capabilities
+## Operating system support
+
+Syft and Grype support several operating systems for package cataloging and vulnerability detection. 
+The table below shows which OS versions are supported and where Grype's vulnerability data comes from.
+
+{{< readfile file="/content/docs/capabilities/snippets/overview/os.md" >}}
+
+## Package analysis capabilities
 
 The table below shows which ecosystems support package analysis and vulnerability scanning.
 
@@ -27,11 +34,6 @@ The table below shows which ecosystems support package analysis and vulnerabilit
 - ⚙️ = Conditionally supported (requires configuration)
 - \- = Not supported
 
-## Operating system version support
-
-Grype maintains vulnerability data for specific operating system versions. The table below shows which OS versions are supported and where the data comes from.
-
-{{< readfile file="/content/docs/capabilities/snippets/overview/os.md" >}}
 
 ## Next steps
 

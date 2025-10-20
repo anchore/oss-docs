@@ -8,11 +8,9 @@ and helper functions to extract ecosystem, pattern, and capability information.
 
 import json
 import subprocess
-from pathlib import Path
 
 from .config import docker_images, paths, timeouts
 from .logging import get_logger
-
 
 logger = get_logger(__name__)
 
@@ -91,9 +89,9 @@ def get_cataloger_data(skip_cache: bool = False) -> dict:
     # fast path: return cached data if available and not skipping cache
     if not skip_cache and cache_file.exists():
         try:
-            with open(cache_file, "r") as f:
+            with open(cache_file) as f:
                 return json.load(f)
-        except (json.JSONDecodeError, IOError) as e:
+        except (OSError, json.JSONDecodeError):
             # if cache read fails, fall through to fetch fresh data
             pass
 
@@ -106,7 +104,7 @@ def get_cataloger_data(skip_cache: bool = False) -> dict:
         cache_file.parent.mkdir(parents=True, exist_ok=True)
         with open(cache_file, "w") as f:
             json.dump(data, f, indent=2)
-    except IOError as e:
+    except OSError as e:
         # cache write failure is not critical, just log and continue
         logger.warning(f"Failed to write cache file: {e}")
 

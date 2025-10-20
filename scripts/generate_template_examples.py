@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import click
-from utils.config import docker_images, paths, timeouts
+from utils.config import docker_images, paths
 from utils.logging import setup_logging
 from utils.sbom import get_or_generate_sbom
 from utils.syft import run_syft_convert

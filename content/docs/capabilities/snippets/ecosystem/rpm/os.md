@@ -26,15 +26,9 @@
     </tr>
     <tr>
       <td class="col-os-name">CentOS</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
-    </tr>
-    <tr>
-      <td class="col-os-name">Gentoo Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">5, 6, 7, 8</td>
+      <td class="col-provider">rhel</td>
+      <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>
     <tr>
       <td class="col-os-name">CBL-Mariner</td>
@@ -50,15 +44,15 @@
     </tr>
     <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>
-      <td class="col-versions">5.9, 6.4+, 7, 8.1, 8.2, 8.4, 8.6, 8.8, 9</td>
+      <td class="col-versions">5, 6, 7, 8, 9, 10<br>EUS: 5.9, 6.4+, 7, 8.1, 8.2, 8.4, 8.6, 8.8, 9</td>
       <td class="col-provider">rhel</td>
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Rocky Linux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">5, 6, 7, 8, 9, 10</td>
+      <td class="col-provider">rhel</td>
+      <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>
     <tr>
       <td class="col-os-name">SUSE Linux Enterprise Server</td>

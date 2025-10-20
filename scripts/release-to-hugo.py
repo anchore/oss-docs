@@ -13,7 +13,6 @@ from datetime import datetime
 
 import click
 import requests
-
 from utils.logging import setup_logging
 
 # GitHub API configuration

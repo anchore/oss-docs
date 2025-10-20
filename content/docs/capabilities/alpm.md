@@ -4,7 +4,7 @@ description = "Debian package format used by Debian-based Linux distributions"
 weight = 10
 type = "docs"
 [params]
-sidebar_badge = "arch"
+sidebar_badge = "arch+"
 +++
 
 ## Package analysis

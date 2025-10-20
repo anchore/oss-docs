@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,42 +21,44 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence" rowspan="3"><code>pnpm-lock.yaml</code>, <code>yarn.lock</code>, <code>package-lock.json</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>pnpm-lock.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>yarn.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>package-lock.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>package.json</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-package-cataloger</div><div class="evidence-patterns"><code>package.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
   </tbody>
 </table>

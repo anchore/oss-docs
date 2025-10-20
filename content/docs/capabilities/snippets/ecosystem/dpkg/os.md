@@ -26,9 +26,9 @@
     </tr>
     <tr>
       <td class="col-os-name">Raspberry Pi OS</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions">7 (wheezy), 8 (jessie), 9 (stretch), 10 (buster), 11 (bullseye), 12 (bookworm), 13 (trixie), 14, unstable</td>
+      <td class="col-provider">debian</td>
+      <td class="col-data-source"><a href="https://security-tracker.debian.org/tracker/">Debian Security Tracker</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Ubuntu</td>

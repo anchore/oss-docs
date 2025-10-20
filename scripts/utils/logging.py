@@ -6,7 +6,6 @@ Provides consistent, pretty logging across all scripts using the rich library.
 """
 
 import logging
-import sys
 
 from rich.console import Console
 from rich.logging import RichHandler
@@ -39,7 +38,7 @@ def setup_logging(verbosity: int = 0, script_name: str | None = None) -> logging
     log_level = level_map.get(verbosity, logging.DEBUG)
 
     # create rich console for stderr output
-    console = Console(stderr=True, force_terminal=True)
+    console = Console(stderr=True)
 
     # configure rich handler with clean formatting
     rich_handler = RichHandler(

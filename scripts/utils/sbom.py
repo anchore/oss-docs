@@ -12,7 +12,6 @@ from .config import timeouts
 from .logging import get_logger
 from .syft import run_syft_scan, run_syft_with_config
 
-
 logger = get_logger(__name__)
 
 

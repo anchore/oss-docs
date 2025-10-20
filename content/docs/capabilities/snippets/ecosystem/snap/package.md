@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,50 +21,54 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence" rowspan="5"><code>snap/snapcraft.yaml</code>, <code>snap/manifest.yaml</code>, <code>doc/linux-modules-*/changelog.Debian.gz</code>, <code>usr/share/snappy/dpkg.yaml</code>, <code>meta/snap.yaml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/snapcraft.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/manifest.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>doc/linux-modules-*/changelog.Debian.gz</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>usr/share/snappy/dpkg.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>meta/snap.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
   </tbody>
 </table>

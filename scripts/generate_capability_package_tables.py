@@ -8,14 +8,16 @@ are supported across different ecosystems and catalogers.
 
 Outputs:
 1. Overview table: content/docs/capabilities/snippets/overview/package.md
-   - Single-row header with 6 columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+   - Single-row header with 5 columns: Ecosystem, Cataloger, License, Dependency, Files
+   - Cataloger column combines cataloger name with evidence patterns
    - Dependency aggregates depth/edges/kinds into single indicator
    - All capabilities shown as ✅/-/⚙️ indicators
 
 2. Individual ecosystem tables: content/docs/capabilities/snippets/{ecosystem}/package.md
    - Two-row grouped header with 8 columns:
-     Row 1: Evidence, License, Dependency (colspan=3), Package Manager (colspan=3)
+     Row 1: Cataloger, License, Dependency (colspan=3), Package Manager (colspan=3)
      Row 2: (under Dependency) Depth, Edges, Kinds; (under Package Manager) Files, Digests, Integrity Hash
+   - Cataloger column combines cataloger name with evidence patterns
    - Depth/Edges/Kinds show actual values, others show ✅/-/⚙️ indicators
 
 NOTE: This script generates HTML tables that use SVG icon symbols (icon-check,
@@ -24,7 +26,7 @@ layouts/partials/hooks/body-end.html and are automatically included on every
 page by the Docsy theme.
 """
 
-import json
+import re
 import sys
 from collections import defaultdict
 from dataclasses import dataclass
@@ -33,7 +35,11 @@ from typing import Any
 
 import click
 from utils.config import get_generated_comment, paths
-from utils.data import load_cataloger_data, load_ecosystem_aliases
+from utils.data import (
+    load_cataloger_data,
+    load_ecosystem_aliases,
+    load_ecosystem_display_names,
+)
 from utils.logging import setup_logging
 
 
@@ -95,14 +101,8 @@ OVERVIEW_CONFIG = {
             "key": "cataloger",
             "label": "Cataloger",
             "class": "col-cataloger",
-            "type": "text",
-            "formatter": "clean_cataloger_name",
-        },
-        {
-            "key": "evidence",
-            "label": "Evidence",
-            "class": "col-evidence",
-            "type": "evidence",
+            "type": "cataloger_with_evidence",
+            # combines cataloger name + evidence patterns
         },
         {
             "key": "license",
@@ -240,42 +240,41 @@ def parse_catalogers(cataloger_data: dict, ecosystem_aliases: dict[str, str]) ->
         ecosystem = ecosystem_aliases.get(raw_ecosystem, raw_ecosystem)
         cataloger_name = cataloger.get("name", "unknown")
 
-        # aggregate evidence across all patterns for this cataloger
         patterns = cataloger.get("patterns", [])
-        globs = []
-        paths = []
-        mimetypes = []
-
-        for pattern in patterns:
-            method = pattern.get("method", "")
-            criteria = pattern.get("criteria", [])
-
-            if method == "glob":
-                globs.extend(criteria)
-            elif method == "path":
-                paths.extend(criteria)
-            elif method == "mimetype":
-                mimetypes.extend(criteria)
-
         # cataloger-level capabilities (fallback if pattern doesn't define them)
         cataloger_level_caps = cataloger.get("capabilities", [])
 
         if not patterns:
-            # no patterns, use cataloger-level capabilities
+            # no patterns, use cataloger-level capabilities with empty evidence
             capabilities = _parse_capabilities(cataloger_level_caps)
             rows.append(
                 CatalogerRow(
                     ecosystem=ecosystem,
                     cataloger_name=cataloger_name,
-                    globs=globs,
-                    paths=paths,
-                    mimetypes=mimetypes,
+                    globs=[],
+                    paths=[],
+                    mimetypes=[],
                     capabilities=capabilities,
                 )
             )
         else:
-            # process each pattern - create one row per unique capability combination
+            # process each pattern - extract pattern-specific evidence
             for pattern in patterns:
+                # extract evidence from THIS pattern only
+                method = pattern.get("method", "")
+                criteria = pattern.get("criteria", [])
+
+                globs = []
+                paths = []
+                mimetypes = []
+
+                if method == "glob":
+                    globs = criteria
+                elif method == "path":
+                    paths = criteria
+                elif method == "mimetype":
+                    mimetypes = criteria
+
                 # prefer pattern-level capabilities, fall back to cataloger-level
                 pattern_caps = pattern.get("capabilities", cataloger_level_caps)
                 capabilities = _parse_capabilities(pattern_caps)
@@ -316,9 +315,9 @@ def _parse_capabilities(capabilities_list: list[dict]) -> dict[str, CapabilitySu
 
 def _calculate_rowspans_for_overview(rows: list[CatalogerRow]) -> dict[str, list[int]]:
     """
-    calculate rowspan values for overview table (ecosystem and cataloger merging).
+    calculate rowspan values for overview table (ecosystem merging only).
 
-    Note: cataloger rowspans are used for evidence column even though cataloger column is not displayed.
+    cataloger cells are not merged - each row shows its own cataloger+evidence.
 
     Args:
         rows: sorted list of CatalogerRow objects
@@ -329,7 +328,7 @@ def _calculate_rowspans_for_overview(rows: list[CatalogerRow]) -> dict[str, list
     n = len(rows)
     rowspans = {
         "ecosystem": [0] * n,
-        "cataloger": [0] * n,
+        "cataloger": [0] * n,  # all zeros - no cataloger merging
     }
 
     if not rows:
@@ -348,52 +347,28 @@ def _calculate_rowspans_for_overview(rows: list[CatalogerRow]) -> dict[str, list
         rowspans["ecosystem"][i] = count
         i = j
 
-    # calculate cataloger rowspans (within same ecosystem)
-    i = 0
-    while i < n:
-        current_ecosystem = rows[i].ecosystem
-        current_cataloger = rows[i].cataloger_name
-        count = 1
-        j = i + 1
-        while j < n and rows[j].ecosystem == current_ecosystem and rows[j].cataloger_name == current_cataloger:
-            count += 1
-            j += 1
-
-        rowspans["cataloger"][i] = count
-        i = j
+    # cataloger rowspans are all 0 (no merging)
+    # each row shows its own cataloger name + pattern-specific evidence
 
     return rowspans
 
 
 def _calculate_rowspans_for_ecosystem(rows: list[CatalogerRow]) -> list[int]:
     """
-    calculate rowspan values for ecosystem table (cataloger merging only, no ecosystem column).
+    calculate rowspan values for ecosystem table (no merging).
+
+    cataloger cells are not merged - each row shows its own cataloger+evidence.
 
     Args:
         rows: sorted list of CatalogerRow objects (all same ecosystem)
 
     Returns:
-        list of rowspan values for cataloger column
+        list of rowspan values for cataloger column (all zeros)
     """
     n = len(rows)
-    rowspans = [0] * n
+    rowspans = [0] * n  # all zeros - no cataloger merging
 
-    if not rows:
-        return rowspans
-
-    # calculate cataloger rowspans
-    i = 0
-    while i < n:
-        current_cataloger = rows[i].cataloger_name
-        count = 1
-        j = i + 1
-        while j < n and rows[j].cataloger_name == current_cataloger:
-            count += 1
-            j += 1
-
-        rowspans[i] = count
-        i = j
-
+    # each row shows its own cataloger name + pattern-specific evidence
     return rowspans
 
 
@@ -458,6 +433,35 @@ def format_evidence(globs: list[str], paths: list[str], mimetypes: list[str]) ->
         content += ", ".join(f"<code>{m}</code>" for m in mimetypes) + " (mimetype)"
 
     return content
+
+
+def format_cataloger_with_evidence(cataloger_name: str, globs: list[str], paths: list[str], mimetypes: list[str]) -> str:
+    """
+    format cataloger name with evidence patterns for display in a combined table cell.
+
+    Shows cataloger name prominently (in div, not code), then evidence patterns below in a div with code tags.
+
+    Args:
+        cataloger_name: name of the cataloger
+        globs: list of glob patterns
+        paths: list of path patterns
+        mimetypes: list of mimetype patterns
+
+    Returns:
+        formatted HTML string for combined cataloger+evidence cell
+    """
+    # use exact cataloger name (keep -cataloger suffix)
+    # get formatted evidence patterns
+    evidence_content = format_evidence(globs, paths, mimetypes)
+
+    # build combined cell content - cataloger name in div, not code
+    html = f'<div class="cataloger-name">{cataloger_name}</div>'
+
+    # only add evidence div if there are actual patterns
+    if evidence_content and evidence_content != "-":
+        html += f'<div class="evidence-patterns">{evidence_content}</div>'
+
+    return html
 
 
 def format_depth_value(cap_support: CapabilitySupport | None) -> str:
@@ -696,6 +700,56 @@ def clean_cataloger_name(name: str) -> str:
     return name.removesuffix("-cataloger")
 
 
+def get_ecosystem_display_name(ecosystem: str, display_names: dict[str, str]) -> str:
+    """
+    get the display name for an ecosystem.
+
+    Args:
+        ecosystem: ecosystem key (e.g., "python", "dotnet", "github-actions")
+        display_names: dict mapping ecosystem keys to display names
+
+    Returns:
+        display name for the ecosystem, falling back to title case if not found
+
+    Examples:
+        >>> get_ecosystem_display_name("python", {"python": "Python"})
+        'Python'
+        >>> get_ecosystem_display_name("dotnet", {"dotnet": ".NET"})
+        '.NET'
+        >>> get_ecosystem_display_name("unknown", {})
+        'Unknown'
+    """
+    # look up display name, fall back to title case
+    return display_names.get(ecosystem, ecosystem.title())
+
+
+def get_ecosystem_sort_key(ecosystem: str, display_names: dict[str, str]) -> str:
+    """
+    get the sort key for an ecosystem, stripping leading non-alphabetic characters from display name.
+
+    this ensures ecosystems like ".NET" sort under "N" rather than at the beginning or in the "d" section.
+
+    Args:
+        ecosystem: ecosystem key (e.g., "dotnet", "python")
+        display_names: dict mapping ecosystem keys to display names
+
+    Returns:
+        lowercase sort key with leading non-alphabetic characters removed
+
+    Examples:
+        >>> get_ecosystem_sort_key("dotnet", {"dotnet": ".NET"})
+        'net'
+        >>> get_ecosystem_sort_key("python", {"python": "Python"})
+        'python'
+        >>> get_ecosystem_sort_key("c++", {"c++": "C++"})
+        'c++'
+    """
+    display_name = get_ecosystem_display_name(ecosystem, display_names)
+    # strip leading non-alphabetic characters and convert to lowercase for case-insensitive sorting
+    cleaned = re.sub(r'^[^a-zA-Z]+', '', display_name)
+    return cleaned.lower()
+
+
 def clean_glob_pattern(pattern: str) -> str:
     """
     clean glob pattern by removing **/ prefix.
@@ -732,16 +786,16 @@ def get_capability_indicator_svg(cap_support: CapabilitySupport | None) -> str:
         cap_support: CapabilitySupport object or None
 
     Returns:
-        HTML string with SVG icon
+        HTML string with SVG icon, or empty string if not supported
     """
     if cap_support is None:
-        return get_svg_icon('dash')
+        return ""
     elif cap_support.conditional:
         return get_svg_icon('gear')
     elif cap_support.supported:
         return get_svg_icon('check')
     else:
-        return get_svg_icon('dash')
+        return ""
 
 
 def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> CapabilitySupport | None:
@@ -777,25 +831,27 @@ def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> Ca
     return None
 
 
-def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, logger) -> None:
+def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, display_names: dict[str, str], logger) -> None:
     """
     generate overview table with simple single-row header.
 
-    Columns: Ecosystem, Cataloger, Evidence, License, Dependency, Files
+    Columns: Ecosystem, Cataloger, License, Dependency, Files (5 columns)
+    - Cataloger column combines cataloger name with evidence patterns
     - Dependency aggregates depth/edges/kinds into single indicator
     - Files shows package_manager.files.listing indicator
 
     Args:
         rows: list of all CatalogerRow objects
         output_dir: output directory for snippets
+        display_names: dict mapping ecosystem keys to display names
         logger: logger instance
     """
     output_dir.mkdir(parents=True, exist_ok=True)
 
     output_file = output_dir / "package.md"
 
-    # sort rows by ecosystem and cataloger
-    sorted_rows = sorted(rows, key=lambda r: (r.ecosystem, r.cataloger_name))
+    # sort rows by ecosystem and cataloger (using display name for ecosystem sorting)
+    sorted_rows = sorted(rows, key=lambda r: (get_ecosystem_sort_key(r.ecosystem, display_names), r.cataloger_name))
 
     # calculate rowspans for ecosystem and cataloger columns
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
@@ -807,13 +863,12 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, logger) 
     # build HTML lines
     html_lines = []
 
-    # table header - single row with simple columns
+    # table header - single row with simple columns (5 columns total)
     html_lines.append('<table class="capability-table capability-table-overview">')
     html_lines.append('  <thead>')
     html_lines.append('    <tr>')
     html_lines.append('      <th class="col-ecosystem">Ecosystem</th>')
     html_lines.append('      <th class="col-cataloger">Cataloger</th>')
-    html_lines.append('      <th class="col-evidence">Evidence</th>')
     html_lines.append('      <th class="col-license">License</th>')
     html_lines.append('      <th class="col-dependency">Dependency</th>')
     html_lines.append('      <th class="col-files">Files</th>')
@@ -825,22 +880,15 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, logger) 
     for i, row in enumerate(sorted_rows):
         html_lines.append('    <tr>')
 
-        # ecosystem column (with rowspan)
+        # ecosystem column (with rowspan) - use display name
         if rowspans["ecosystem"][i] > 0:
             rowspan_attr = f' rowspan="{rowspans["ecosystem"][i]}"' if rowspans["ecosystem"][i] > 1 else ""
-            html_lines.append(f'      <td class="col-ecosystem"{rowspan_attr}>{row.ecosystem}</td>')
+            ecosystem_display = get_ecosystem_display_name(row.ecosystem, display_names)
+            html_lines.append(f'      <td class="col-ecosystem"{rowspan_attr}>{ecosystem_display}</td>')
 
-        # cataloger column (with rowspan)
-        if rowspans["cataloger"][i] > 0:
-            rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
-            cataloger_display = clean_cataloger_name(row.cataloger_name)
-            html_lines.append(f'      <td class="col-cataloger"{rowspan_attr}><code>{cataloger_display}</code></td>')
-
-        # evidence column (with cataloger rowspan - evidence is per cataloger)
-        if rowspans["cataloger"][i] > 0:
-            rowspan_attr = f' rowspan="{rowspans["cataloger"][i]}"' if rowspans["cataloger"][i] > 1 else ""
-            evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
-            html_lines.append(f'      <td class="col-evidence"{rowspan_attr}>{evidence_content}</td>')
+        # cataloger column with evidence (no rowspan - each row shows its own)
+        cataloger_content = format_cataloger_with_evidence(row.cataloger_name, row.globs, row.paths, row.mimetypes)
+        html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
@@ -874,8 +922,10 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     generate complete ecosystem-specific table with grouped capability columns.
 
     Two-row header structure:
-    Row 1: Evidence, License, Dependency (colspan=3), Package Manager (colspan=3)
+    Row 1: Cataloger, License, Dependency (colspan=3), Package Manager (colspan=3)
     Row 2: (under Dependency) Depth, Edges, Kinds; (under Package Manager) Files, Digests, Integrity Hash
+
+    Cataloger column combines cataloger name with evidence patterns.
 
     Args:
         ecosystem: ecosystem name
@@ -911,7 +961,7 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     html_lines.append('<table class="capability-table capability-table-ecosystem">')
     html_lines.append('  <thead>')
     html_lines.append('    <tr>')
-    html_lines.append('      <th class="col-evidence" rowspan="2">Evidence</th>')
+    html_lines.append('      <th class="col-cataloger" rowspan="2">Cataloger</th>')
     html_lines.append('      <th class="col-license" rowspan="2">License</th>')
     html_lines.append('      <th colspan="3">Dependency</th>')
     html_lines.append('      <th colspan="3">Package Manager</th>')
@@ -927,15 +977,13 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     html_lines.append('  </thead>')
     html_lines.append('  <tbody>')
 
-    # table body (multiple capability rows per cataloger, evidence uses rowspan)
+    # table body (each row shows its own cataloger+evidence and capabilities)
     for i, row in enumerate(sorted_rows):
         html_lines.append('    <tr>')
 
-        # evidence column (with rowspan - evidence is per cataloger)
-        if rowspans[i] > 0:
-            rowspan_attr = f' rowspan="{rowspans[i]}"' if rowspans[i] > 1 else ""
-            evidence_content = format_evidence(row.globs, row.paths, row.mimetypes)
-            html_lines.append(f'      <td class="col-evidence"{rowspan_attr}>{evidence_content}</td>')
+        # cataloger column with evidence (no rowspan - each row shows its own)
+        cataloger_content = format_cataloger_with_evidence(row.cataloger_name, row.globs, row.paths, row.mimetypes)
+        html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
@@ -998,6 +1046,12 @@ def main(update: bool, verbose: int) -> None:
     if ecosystem_aliases:
         logger.debug(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
 
+    # load ecosystem display names
+    logger.debug("Loading ecosystem display names...")
+    ecosystem_display_names = load_ecosystem_display_names()
+    if ecosystem_display_names:
+        logger.debug(f"Loaded {len(ecosystem_display_names)} ecosystem display names")
+
     # load or generate cataloger data
     cataloger_data = load_cataloger_data(update=update)
 
@@ -1015,7 +1069,7 @@ def main(update: bool, verbose: int) -> None:
     logger.info("Generating tables...")
 
     # generate overview table
-    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview", logger)
+    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview", ecosystem_display_names, logger)
 
     # generate individual ecosystem tables
     ecosystems = set(r.ecosystem for r in rows)

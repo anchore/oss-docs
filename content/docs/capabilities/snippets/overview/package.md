@@ -7,7 +7,6 @@
     <tr>
       <th class="col-ecosystem">Ecosystem</th>
       <th class="col-cataloger">Cataloger</th>
-      <th class="col-evidence">Evidence</th>
       <th class="col-license">License</th>
       <th class="col-dependency">Dependency</th>
       <th class="col-files">Files</th>
@@ -15,550 +14,506 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-ecosystem">alpm</td>
-      <td class="col-cataloger"><code>alpm-db</code></td>
-      <td class="col-evidence"><code>var/lib/pacman/local/**/desc</code></td>
+      <td class="col-ecosystem">ALPM</td>
+      <td class="col-cataloger"><div class="cataloger-name">alpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/pacman/local/**/desc</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">apk</td>
-      <td class="col-cataloger"><code>apk-db</code></td>
-      <td class="col-evidence"><code>lib/apk/db/installed</code></td>
+      <td class="col-ecosystem">APK</td>
+      <td class="col-cataloger"><div class="cataloger-name">apk-db-cataloger</div><div class="evidence-patterns"><code>lib/apk/db/installed</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">binary</td>
-      <td class="col-cataloger"><code>binary-classifier</code></td>
-      <td class="col-evidence"><code>VERSION*</code>, <code>arangosh</code>, <code>bash</code>, <code>beam.smp</code>, <code>busybox</code>, <code>cabal</code>, <code>chrome</code>, <code>composer*</code>, <code>consul</code>, <code>curl</code>, <code>dart</code>, <code>erlexec</code>, <code>ffmpeg</code>, <code>fluent-bit</code>, <code>gcc</code>, <code>getopt</code>, <code>ghc*</code>, <code>go</code>, <code>gzip</code>, <code>haproxy</code>, <code>helm</code>, <code>httpd</code>, <code>java</code>, <code>jdb</code>, <code>jq</code>, <code>libav*</code>, <code>liberts_internal.a</code>, <code>libjulia-internal.so</code>, <code>libpypy*.so*</code>, <code>libpython*.so*</code>, <code>libstd-????????????????.dylib</code>, <code>libstd-????????????????.so</code>, <code>libswresample*</code>, <code>lighttpd</code>, <code>memcached</code>, <code>mysql</code>, <code>nginx</code>, <code>node</code>, <code>openssl</code>, <code>perl</code>, <code>postgres</code>, <code>proftpd</code>, <code>python*</code>, <code>redis-server</code>, <code>ruby</code>, <code>sqlcipher</code>, <code>stack</code>, <code>swipl</code>, <code>traefik</code>, <code>vault</code>, <code>wp</code>, <code>xtrabackup</code>, <code>xz</code>, <code>zstd</code>, <code>{mariadb,mysql}</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="3">Binary</td>
+      <td class="col-cataloger"><div class="cataloger-name">binary-classifier-cataloger</div><div class="evidence-patterns"><code>VERSION*</code>, <code>arangosh</code>, <code>bash</code>, <code>beam.smp</code>, <code>busybox</code>, <code>cabal</code>, <code>chrome</code>, <code>composer*</code>, <code>consul</code>, <code>curl</code>, <code>dart</code>, <code>erlexec</code>, <code>ffmpeg</code>, <code>fluent-bit</code>, <code>gcc</code>, <code>getopt</code>, <code>ghc*</code>, <code>go</code>, <code>gzip</code>, <code>haproxy</code>, <code>helm</code>, <code>httpd</code>, <code>java</code>, <code>jdb</code>, <code>jq</code>, <code>libav*</code>, <code>liberts_internal.a</code>, <code>libjulia-internal.so</code>, <code>libpypy*.so*</code>, <code>libpython*.so*</code>, <code>libstd-????????????????.dylib</code>, <code>libstd-????????????????.so</code>, <code>libswresample*</code>, <code>lighttpd</code>, <code>memcached</code>, <code>mysql</code>, <code>nginx</code>, <code>node</code>, <code>openssl</code>, <code>perl</code>, <code>postgres</code>, <code>proftpd</code>, <code>python*</code>, <code>redis-server</code>, <code>ruby</code>, <code>sqlcipher</code>, <code>stack</code>, <code>swipl</code>, <code>traefik</code>, <code>vault</code>, <code>wp</code>, <code>xtrabackup</code>, <code>xz</code>, <code>zstd</code>, <code>{mariadb,mysql}</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>elf-binary-package</code></td>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
+      <td class="col-cataloger"><div class="cataloger-name">elf-binary-package-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>pe-binary-package</code></td>
-      <td class="col-evidence"><code>*.dll</code>, <code>*.exe</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">pe-binary-package-cataloger</div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">bitnami</td>
-      <td class="col-cataloger"><code>bitnami</code></td>
-      <td class="col-evidence"><code>/opt/bitnami/**/.spdx-*.spdx</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem">Bitnami</td>
+      <td class="col-cataloger"><div class="cataloger-name">bitnami-cataloger</div><div class="evidence-patterns"><code>/opt/bitnami/**/.spdx-*.spdx</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">c++</td>
-      <td class="col-cataloger" rowspan="2"><code>conan</code></td>
-      <td class="col-evidence" rowspan="2"><code>conan.lock</code>, <code>conanfile.txt</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="3">C++</td>
+      <td class="col-cataloger"><div class="cataloger-name">conan-cataloger</div><div class="evidence-patterns"><code>conan.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">conan-cataloger</div><div class="evidence-patterns"><code>conanfile.txt</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>conan-info</code></td>
-      <td class="col-evidence"><code>conaninfo.txt</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">conan-info-cataloger</div><div class="evidence-patterns"><code>conaninfo.txt</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">conda</td>
-      <td class="col-cataloger"><code>conda-meta</code></td>
-      <td class="col-evidence"><code>conda-meta/*.json</code></td>
+      <td class="col-ecosystem">Conda</td>
+      <td class="col-cataloger"><div class="cataloger-name">conda-meta-cataloger</div><div class="evidence-patterns"><code>conda-meta/*.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">dart</td>
-      <td class="col-cataloger"><code>dart-pubspec</code></td>
-      <td class="col-evidence"><code>pubspec.yml</code>, <code>pubspec.yaml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="2">Dart</td>
+      <td class="col-cataloger"><div class="cataloger-name">dart-pubspec-cataloger</div><div class="evidence-patterns"><code>pubspec.yml</code>, <code>pubspec.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>dart-pubspec-lock</code></td>
-      <td class="col-evidence"><code>pubspec.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">dart-pubspec-lock-cataloger</div><div class="evidence-patterns"><code>pubspec.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="4">dotnet</td>
-      <td class="col-cataloger"><code>dotnet-deps-binary</code></td>
-      <td class="col-evidence"><code>*.deps.json</code>, <code>*.dll</code>, <code>*.exe</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><code>dotnet-deps</code></td>
-      <td class="col-evidence"><code>*.deps.json</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><code>dotnet-packages-lock</code></td>
-      <td class="col-evidence"><code>packages.lock.json</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><code>dotnet-portable-executable</code></td>
-      <td class="col-evidence"><code>*.dll</code>, <code>*.exe</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem" rowspan="2">dpkg</td>
-      <td class="col-cataloger"><code>deb-archive</code></td>
-      <td class="col-evidence"><code>*.deb</code></td>
+      <td class="col-ecosystem" rowspan="2">DPKG</td>
+      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>dpkg-db</code></td>
-      <td class="col-evidence"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">dpkg-db-cataloger</div><div class="evidence-patterns"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">elixir</td>
-      <td class="col-cataloger"><code>elixir-mix-lock</code></td>
-      <td class="col-evidence"><code>mix.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem">Elixir</td>
+      <td class="col-cataloger"><div class="cataloger-name">elixir-mix-lock-cataloger</div><div class="evidence-patterns"><code>mix.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">erlang</td>
-      <td class="col-cataloger"><code>erlang-otp-application</code></td>
-      <td class="col-evidence"><code>*.app</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="2">Erlang</td>
+      <td class="col-cataloger"><div class="cataloger-name">erlang-otp-application-cataloger</div><div class="evidence-patterns"><code>*.app</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>erlang-rebar-lock</code></td>
-      <td class="col-evidence"><code>rebar.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">erlang-rebar-lock-cataloger</div><div class="evidence-patterns"><code>rebar.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">github-actions</td>
-      <td class="col-cataloger"><code>github-action-workflow-usage</code></td>
-      <td class="col-evidence"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="3">GitHub Actions</td>
+      <td class="col-cataloger"><div class="cataloger-name">github-action-workflow-usage-cataloger</div><div class="evidence-patterns"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger" rowspan="2"><code>github-actions-usage</code></td>
-      <td class="col-evidence" rowspan="2"><code>.github/actions/*/action.yml</code>, <code>.github/actions/*/action.yaml</code>, <code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">github-actions-usage-cataloger</div><div class="evidence-patterns"><code>.github/actions/*/action.yml</code>, <code>.github/actions/*/action.yaml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">github-actions-usage-cataloger</div><div class="evidence-patterns"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">go</td>
-      <td class="col-cataloger"><code>go-module-binary</code></td>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</td>
+      <td class="col-ecosystem" rowspan="2">Go</td>
+      <td class="col-cataloger"><div class="cataloger-name">go-module-binary-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-gear"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>go-module-file</code></td>
-      <td class="col-evidence"><code>go.mod</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">go-module-file-cataloger</div><div class="evidence-patterns"><code>go.mod</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-gear"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">haskell</td>
-      <td class="col-cataloger" rowspan="3"><code>haskell</code></td>
-      <td class="col-evidence" rowspan="3"><code>cabal.project.freeze</code>, <code>stack.yaml.lock</code>, <code>stack.yaml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="3">Haskell</td>
+      <td class="col-cataloger"><div class="cataloger-name">haskell-cataloger</div><div class="evidence-patterns"><code>cabal.project.freeze</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">haskell-cataloger</div><div class="evidence-patterns"><code>stack.yaml.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">haskell-cataloger</div><div class="evidence-patterns"><code>stack.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">homebrew</td>
-      <td class="col-cataloger"><code>homebrew</code></td>
-      <td class="col-evidence"><code>Cellar/*/*/.brew/*.rb</code>, <code>Library/Taps/*/*/Formula/*.rb</code></td>
+      <td class="col-ecosystem">Homebrew</td>
+      <td class="col-cataloger"><div class="cataloger-name">homebrew-cataloger</div><div class="evidence-patterns"><code>Cellar/*/*/.brew/*.rb</code>, <code>Library/Taps/*/*/Formula/*.rb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="7">java</td>
-      <td class="col-cataloger"><code>graalvm-native-image</code></td>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="7">Java</td>
+      <td class="col-cataloger"><div class="cataloger-name">graalvm-native-image-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger" rowspan="3"><code>java-archive</code></td>
-      <td class="col-evidence" rowspan="3"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code>, <code>*.zip</code>, <code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.zip</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-gradle-lockfile</code></td>
-      <td class="col-evidence"><code>gradle.lockfile*</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-gradle-lockfile-cataloger</div><div class="evidence-patterns"><code>gradle.lockfile*</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-jvm</code></td>
-      <td class="col-evidence"><code>release</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-jvm-cataloger</div><div class="evidence-patterns"><code>release</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>java-pom</code></td>
-      <td class="col-evidence"><code>*pom.xml</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-pom-cataloger</div><div class="evidence-patterns"><code>*pom.xml</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="4">javascript</td>
-      <td class="col-cataloger" rowspan="3"><code>javascript-lock</code></td>
-      <td class="col-evidence" rowspan="3"><code>pnpm-lock.yaml</code>, <code>yarn.lock</code>, <code>package-lock.json</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="4">JavaScript</td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>pnpm-lock.yaml</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>yarn.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>package-lock.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>javascript-package</code></td>
-      <td class="col-evidence"><code>package.json</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-package-cataloger</div><div class="evidence-patterns"><code>package.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">linux</td>
-      <td class="col-cataloger"><code>linux-kernel</code></td>
-      <td class="col-evidence"><code>kernel</code>, <code>kernel-*</code>, <code>vmlinux</code>, <code>vmlinux-*</code>, <code>vmlinuz</code>, <code>vmlinuz-*</code>, <code>lib/modules/**/*.ko</code></td>
+      <td class="col-ecosystem">Linux</td>
+      <td class="col-cataloger"><div class="cataloger-name">linux-kernel-cataloger</div><div class="evidence-patterns"><code>kernel</code>, <code>kernel-*</code>, <code>vmlinux</code>, <code>vmlinux-*</code>, <code>vmlinuz</code>, <code>vmlinuz-*</code>, <code>lib/modules/**/*.ko</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">lua</td>
-      <td class="col-cataloger"><code>lua-rock</code></td>
-      <td class="col-evidence"><code>*.rockspec</code></td>
+      <td class="col-ecosystem">Lua</td>
+      <td class="col-cataloger"><div class="cataloger-name">lua-rock-cataloger</div><div class="evidence-patterns"><code>*.rockspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">nix</td>
-      <td class="col-cataloger"><code>nix</code></td>
-      <td class="col-evidence"><code>nix/var/nix/db/db.sqlite</code>, <code>nix/store/*</code>, <code>nix/store/*.drv</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="4">.NET</td>
+      <td class="col-cataloger"><div class="cataloger-name">dotnet-deps-binary-cataloger</div><div class="evidence-patterns"><code>*.deps.json</code>, <code>*.dll</code>, <code>*.exe</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">dotnet-deps-cataloger</div><div class="evidence-patterns"><code>*.deps.json</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">dotnet-packages-lock-cataloger</div><div class="evidence-patterns"><code>packages.lock.json</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">dotnet-portable-executable-cataloger</div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="2">Nix</td>
+      <td class="col-cataloger"><div class="cataloger-name">nix-cataloger</div><div class="evidence-patterns"><code>nix/var/nix/db/db.sqlite</code>, <code>nix/store/*</code>, <code>nix/store/*.drv</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>nix-store</code></td>
-      <td class="col-evidence"><code>nix/store/*</code>, <code>nix/store/*.drv</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">nix-store-cataloger</div><div class="evidence-patterns"><code>nix/store/*</code>, <code>nix/store/*.drv</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-gear"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">ocaml</td>
-      <td class="col-cataloger"><code>opam</code></td>
-      <td class="col-evidence"><code>*opam</code></td>
+      <td class="col-ecosystem">OCaml</td>
+      <td class="col-cataloger"><div class="cataloger-name">opam-cataloger</div><div class="evidence-patterns"><code>*opam</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="5">php</td>
-      <td class="col-cataloger"><code>php-composer-installed</code></td>
-      <td class="col-evidence"><code>installed.json</code></td>
+      <td class="col-ecosystem" rowspan="5">PHP</td>
+      <td class="col-cataloger"><div class="cataloger-name">php-composer-installed-cataloger</div><div class="evidence-patterns"><code>installed.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-composer-lock</code></td>
-      <td class="col-evidence"><code>composer.lock</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-composer-lock-cataloger</div><div class="evidence-patterns"><code>composer.lock</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-interpreter</code></td>
-      <td class="col-evidence"><code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-interpreter-cataloger</div><div class="evidence-patterns"><code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-pear-serialized</code></td>
-      <td class="col-evidence"><code>php/.registry/**/*.reg</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-pear-serialized-cataloger</div><div class="evidence-patterns"><code>php/.registry/**/*.reg</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>php-pecl-serialized</code></td>
-      <td class="col-evidence"><code>php/.registry/.channel.*/*.reg</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-pecl-serialized-cataloger</div><div class="evidence-patterns"><code>php/.registry/.channel.*/*.reg</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">portage</td>
-      <td class="col-cataloger"><code>portage</code></td>
-      <td class="col-evidence"><code>var/db/pkg/*/*/CONTENTS</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">prolog</td>
-      <td class="col-cataloger"><code>swipl-pack</code></td>
-      <td class="col-evidence"><code>pack.pl</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem" rowspan="6">python</td>
-      <td class="col-cataloger"><code>python-installed-package</code></td>
-      <td class="col-evidence"><code>*.egg-info</code>, <code>*dist-info/METADATA</code>, <code>*egg-info/PKG-INFO</code>, <code>*DIST-INFO/METADATA</code>, <code>*EGG-INFO/PKG-INFO</code></td>
+      <td class="col-ecosystem">Portage</td>
+      <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger" rowspan="5"><code>python-package</code></td>
-      <td class="col-evidence" rowspan="5"><code>uv.lock</code>, <code>setup.py</code>, <code>Pipfile.lock</code>, <code>poetry.lock</code>, <code>*requirements*.txt</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem">Prolog</td>
+      <td class="col-cataloger"><div class="cataloger-name">swipl-pack-cataloger</div><div class="evidence-patterns"><code>pack.pl</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">r</td>
-      <td class="col-cataloger"><code>r-package</code></td>
-      <td class="col-evidence"><code>DESCRIPTION</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem" rowspan="3">rpm</td>
-      <td class="col-cataloger"><code>rpm-archive</code></td>
-      <td class="col-evidence"><code>*.rpm</code></td>
+      <td class="col-ecosystem" rowspan="6">Python</td>
+      <td class="col-cataloger"><div class="cataloger-name">python-installed-package-cataloger</div><div class="evidence-patterns"><code>*.egg-info</code>, <code>*dist-info/METADATA</code>, <code>*egg-info/PKG-INFO</code>, <code>*DIST-INFO/METADATA</code>, <code>*EGG-INFO/PKG-INFO</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger" rowspan="2"><code>rpm-db</code></td>
-      <td class="col-evidence" rowspan="2"><code>var/lib/rpmmanifest/container-manifest-2</code>, <code>{var/lib,usr/share,usr/lib/sysimage}/rpm/{Packages,Packages.db,rpmdb.sqlite}</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>uv.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>setup.py</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>Pipfile.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>poetry.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>*requirements*.txt</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">R</td>
+      <td class="col-cataloger"><div class="cataloger-name">r-package-cataloger</div><div class="evidence-patterns"><code>DESCRIPTION</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="3">RPM</td>
+      <td class="col-cataloger"><div class="cataloger-name">rpm-archive-cataloger</div><div class="evidence-patterns"><code>*.rpm</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">ruby</td>
-      <td class="col-cataloger"><code>ruby-gemfile</code></td>
-      <td class="col-evidence"><code>Gemfile.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">rpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/rpmmanifest/container-manifest-2</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>ruby-gemspec</code></td>
-      <td class="col-evidence"><code>*.gemspec</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">rpm-db-cataloger</div><div class="evidence-patterns"><code>{var/lib,usr/share,usr/lib/sysimage}/rpm/{Packages,Packages.db,rpmdb.sqlite}</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>ruby-installed-gemspec</code></td>
-      <td class="col-evidence"><code>specifications/**/*.gemspec</code></td>
+      <td class="col-ecosystem" rowspan="3">Ruby</td>
+      <td class="col-cataloger"><div class="cataloger-name">ruby-gemfile-cataloger</div><div class="evidence-patterns"><code>Gemfile.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">ruby-gemspec-cataloger</div><div class="evidence-patterns"><code>*.gemspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">rust</td>
-      <td class="col-cataloger"><code>cargo-auditable-binary</code></td>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><code>rust-cargo-lock</code></td>
-      <td class="col-evidence"><code>Cargo.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">sbom</td>
-      <td class="col-cataloger"><code>sbom</code></td>
-      <td class="col-evidence"><code>*.syft.json</code>, <code>*.bom.*</code>, <code>*.bom</code>, <code>bom</code>, <code>*.sbom.*</code>, <code>*.sbom</code>, <code>sbom</code>, <code>*.cdx.*</code>, <code>*.cdx</code>, <code>*.spdx.*</code>, <code>*.spdx</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">ruby-installed-gemspec-cataloger</div><div class="evidence-patterns"><code>specifications/**/*.gemspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem" rowspan="5">snap</td>
-      <td class="col-cataloger" rowspan="5"><code>snap</code></td>
-      <td class="col-evidence" rowspan="5"><code>snap/snapcraft.yaml</code>, <code>snap/manifest.yaml</code>, <code>doc/linux-modules-*/changelog.Debian.gz</code>, <code>usr/share/snappy/dpkg.yaml</code>, <code>meta/snap.yaml</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem" rowspan="2">swift</td>
-      <td class="col-cataloger"><code>cocoapods</code></td>
-      <td class="col-evidence"><code>Podfile.lock</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><code>swift-package-manager</code></td>
-      <td class="col-evidence"><code>Package.resolved</code>, <code>.package.resolved</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-ecosystem" rowspan="2">Rust</td>
+      <td class="col-cataloger"><div class="cataloger-name">cargo-auditable-binary-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">terraform</td>
-      <td class="col-cataloger"><code>terraform-lock</code></td>
-      <td class="col-evidence"><code>.terraform.lock.hcl</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">rust-cargo-lock-cataloger</div><div class="evidence-patterns"><code>Cargo.lock</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">wordpress</td>
-      <td class="col-cataloger"><code>wordpress-plugins</code></td>
-      <td class="col-evidence"><code>wp-content/plugins/*/*.php</code></td>
+      <td class="col-ecosystem">SBOM</td>
+      <td class="col-cataloger"><div class="cataloger-name">sbom-cataloger</div><div class="evidence-patterns"><code>*.syft.json</code>, <code>*.bom.*</code>, <code>*.bom</code>, <code>bom</code>, <code>*.sbom.*</code>, <code>*.sbom</code>, <code>sbom</code>, <code>*.cdx.*</code>, <code>*.cdx</code>, <code>*.spdx.*</code>, <code>*.spdx</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="5">Snap</td>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/snapcraft.yaml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/manifest.yaml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>doc/linux-modules-*/changelog.Debian.gz</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>usr/share/snappy/dpkg.yaml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>meta/snap.yaml</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="2">Swift</td>
+      <td class="col-cataloger"><div class="cataloger-name">cocoapods-cataloger</div><div class="evidence-patterns"><code>Podfile.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">swift-package-manager-cataloger</div><div class="evidence-patterns"><code>Package.resolved</code>, <code>.package.resolved</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">Terraform</td>
+      <td class="col-cataloger"><div class="cataloger-name">terraform-lock-cataloger</div><div class="evidence-patterns"><code>.terraform.lock.hcl</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">WordPress</td>
+      <td class="col-cataloger"><div class="cataloger-name">wordpress-plugins-cataloger</div><div class="evidence-patterns"><code>wp-content/plugins/*/*.php</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
     </tr>
   </tbody>
 </table>

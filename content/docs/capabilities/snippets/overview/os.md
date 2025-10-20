@@ -31,6 +31,12 @@
       <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/cbl-mariner-2.0-oval.xml">Microsoft CBL-Mariner OVAL</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">CentOS</td>
+      <td class="col-versions">5, 6, 7, 8</td>
+      <td class="col-provider">rhel</td>
+      <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
+    </tr>
+    <tr>
       <td class="col-os-name">Chainguard OS</td>
       <td class="col-versions">rolling</td>
       <td class="col-provider">chainguard</td>
@@ -67,8 +73,20 @@
       <td class="col-data-source"><a href="https://linux.oracle.com/security/">Oracle Linux Security</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Raspberry Pi OS</td>
+      <td class="col-versions">7 (wheezy), 8 (jessie), 9 (stretch), 10 (buster), 11 (bullseye), 12 (bookworm), 13 (trixie), 14, unstable</td>
+      <td class="col-provider">debian</td>
+      <td class="col-data-source"><a href="https://security-tracker.debian.org/tracker/">Debian Security Tracker</a></td>
+    </tr>
+    <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>
       <td class="col-versions">5, 6, 7, 8, 9, 10<br>EUS: 5.9, 6.4+, 7, 8.1, 8.2, 8.4, 8.6, 8.8, 9</td>
+      <td class="col-provider">rhel</td>
+      <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Rocky Linux</td>
+      <td class="col-versions">5, 6, 7, 8, 9, 10</td>
       <td class="col-provider">rhel</td>
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>

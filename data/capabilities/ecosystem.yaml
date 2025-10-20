@@ -1,2 +1,38 @@
 alias:
   alpine: apk
+
+display_names:
+  alpm: ALPM
+  apk: APK
+  binary: Binary
+  bitnami: Bitnami
+  c++: C++
+  conda: Conda
+  dart: Dart
+  dotnet: .NET
+  dpkg: DPKG
+  elixir: Elixir
+  erlang: Erlang
+  github-actions: GitHub Actions
+  go: Go
+  haskell: Haskell
+  homebrew: Homebrew
+  java: Java
+  javascript: JavaScript
+  linux: Linux
+  lua: Lua
+  nix: Nix
+  ocaml: OCaml
+  php: PHP
+  portage: Portage
+  prolog: Prolog
+  python: Python
+  r: R
+  rpm: RPM
+  ruby: Ruby
+  rust: Rust
+  sbom: SBOM
+  snap: Snap
+  swift: Swift
+  terraform: Terraform
+  wordpress: WordPress

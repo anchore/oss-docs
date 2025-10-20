@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence"><code>conda-meta/*.json</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">conda-meta-cataloger</div><div class="evidence-patterns"><code>conda-meta/*.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
       <td class="col-edges value">-</td>

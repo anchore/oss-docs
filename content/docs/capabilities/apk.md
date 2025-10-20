@@ -4,7 +4,7 @@ description = "APK package format analysis and vulnerability scanning capabiliti
 weight = 20
 type = "docs"
 [params]
-sidebar_badge = "alpine"
+sidebar_badge = "alpine+"
 +++
 
 

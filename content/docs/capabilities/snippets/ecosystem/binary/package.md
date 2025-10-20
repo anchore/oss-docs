@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,34 +21,34 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence"><code>VERSION*</code>, <code>arangosh</code>, <code>bash</code>, <code>beam.smp</code>, <code>busybox</code>, <code>cabal</code>, <code>chrome</code>, <code>composer*</code>, <code>consul</code>, <code>curl</code>, <code>dart</code>, <code>erlexec</code>, <code>ffmpeg</code>, <code>fluent-bit</code>, <code>gcc</code>, <code>getopt</code>, <code>ghc*</code>, <code>go</code>, <code>gzip</code>, <code>haproxy</code>, <code>helm</code>, <code>httpd</code>, <code>java</code>, <code>jdb</code>, <code>jq</code>, <code>libav*</code>, <code>liberts_internal.a</code>, <code>libjulia-internal.so</code>, <code>libpypy*.so*</code>, <code>libpython*.so*</code>, <code>libstd-????????????????.dylib</code>, <code>libstd-????????????????.so</code>, <code>libswresample*</code>, <code>lighttpd</code>, <code>memcached</code>, <code>mysql</code>, <code>nginx</code>, <code>node</code>, <code>openssl</code>, <code>perl</code>, <code>postgres</code>, <code>proftpd</code>, <code>python*</code>, <code>redis-server</code>, <code>ruby</code>, <code>sqlcipher</code>, <code>stack</code>, <code>swipl</code>, <code>traefik</code>, <code>vault</code>, <code>wp</code>, <code>xtrabackup</code>, <code>xz</code>, <code>zstd</code>, <code>{mariadb,mysql}</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">binary-classifier-cataloger</div><div class="evidence-patterns"><code>VERSION*</code>, <code>arangosh</code>, <code>bash</code>, <code>beam.smp</code>, <code>busybox</code>, <code>cabal</code>, <code>chrome</code>, <code>composer*</code>, <code>consul</code>, <code>curl</code>, <code>dart</code>, <code>erlexec</code>, <code>ffmpeg</code>, <code>fluent-bit</code>, <code>gcc</code>, <code>getopt</code>, <code>ghc*</code>, <code>go</code>, <code>gzip</code>, <code>haproxy</code>, <code>helm</code>, <code>httpd</code>, <code>java</code>, <code>jdb</code>, <code>jq</code>, <code>libav*</code>, <code>liberts_internal.a</code>, <code>libjulia-internal.so</code>, <code>libpypy*.so*</code>, <code>libpython*.so*</code>, <code>libstd-????????????????.dylib</code>, <code>libstd-????????????????.so</code>, <code>libswresample*</code>, <code>lighttpd</code>, <code>memcached</code>, <code>mysql</code>, <code>nginx</code>, <code>node</code>, <code>openssl</code>, <code>perl</code>, <code>postgres</code>, <code>proftpd</code>, <code>python*</code>, <code>redis-server</code>, <code>ruby</code>, <code>sqlcipher</code>, <code>stack</code>, <code>swipl</code>, <code>traefik</code>, <code>vault</code>, <code>wp</code>, <code>xtrabackup</code>, <code>xz</code>, <code>zstd</code>, <code>{mariadb,mysql}</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
+      <td class="col-cataloger"><div class="cataloger-name">elf-binary-package-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>*.dll</code>, <code>*.exe</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">pe-binary-package-cataloger</div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
   </tbody>
 </table>

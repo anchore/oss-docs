@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,72 +21,74 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">graalvm-native-image-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence" rowspan="3"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code>, <code>*.zip</code>, <code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.zip</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>gradle.lockfile*</code></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-gradle-lockfile-cataloger</div><div class="evidence-patterns"><code>gradle.lockfile*</code></div></td>
+      <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>release</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-jvm-cataloger</div><div class="evidence-patterns"><code>release</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">runtime, dev</td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>*pom.xml</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">java-pom-cataloger</div><div class="evidence-patterns"><code>*pom.xml</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime, dev</td>
-      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
   </tbody>
 </table>

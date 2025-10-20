@@ -5,7 +5,7 @@
 <table class="capability-table capability-table-ecosystem">
   <thead>
     <tr>
-      <th class="col-evidence" rowspan="2">Evidence</th>
+      <th class="col-cataloger" rowspan="2">Cataloger</th>
       <th class="col-license" rowspan="2">License</th>
       <th colspan="3">Dependency</th>
       <th colspan="3">Package Manager</th>
@@ -21,24 +21,24 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-evidence"><code>*.deb</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">-</td>
       <td class="col-edges value">-</td>
       <td class="col-kinds value">-</td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-evidence"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></td>
+      <td class="col-cataloger"><div class="cataloger-name">dpkg-db-cataloger</div><div class="evidence-patterns"><code>lib/dpkg/status</code>, <code>lib/dpkg/status.d/*</code>, <code>lib/opkg/info/*.control</code>, <code>lib/opkg/status</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
       <td class="col-edges value">complete</td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-dash"/></svg></td>
+      <td class="col-integrity-hash indicator"></td>
     </tr>
   </tbody>
 </table>
