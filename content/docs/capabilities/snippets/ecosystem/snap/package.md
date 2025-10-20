@@ -23,9 +23,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/snapcraft.yaml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -33,9 +33,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/manifest.yaml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -43,9 +43,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>doc/linux-modules-*/changelog.Debian.gz</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -53,9 +53,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>usr/share/snappy/dpkg.yaml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -63,9 +63,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>meta/snap.yaml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>

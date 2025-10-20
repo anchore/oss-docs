@@ -24,7 +24,7 @@
       <td class="col-cataloger"><div class="cataloger-name">opam-cataloger</div><div class="evidence-patterns"><code>*opam</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>

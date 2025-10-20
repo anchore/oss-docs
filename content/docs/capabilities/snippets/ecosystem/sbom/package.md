@@ -23,9 +23,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">sbom-cataloger</div><div class="evidence-patterns"><code>*.syft.json</code>, <code>*.bom.*</code>, <code>*.bom</code>, <code>bom</code>, <code>*.sbom.*</code>, <code>*.sbom</code>, <code>sbom</code>, <code>*.cdx.*</code>, <code>*.cdx</code>, <code>*.spdx.*</code>, <code>*.spdx</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>

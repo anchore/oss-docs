@@ -24,7 +24,7 @@
       <td class="col-cataloger"><div class="cataloger-name">php-composer-installed-cataloger</div><div class="evidence-patterns"><code>installed.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime, dev</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
@@ -34,7 +34,7 @@
       <td class="col-cataloger"><div class="cataloger-name">php-composer-lock-cataloger</div><div class="evidence-patterns"><code>composer.lock</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">transitive</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
@@ -54,7 +54,7 @@
       <td class="col-cataloger"><div class="cataloger-name">php-pear-serialized-cataloger</div><div class="evidence-patterns"><code>php/.registry/**/*.reg</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-digests indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -64,7 +64,7 @@
       <td class="col-cataloger"><div class="cataloger-name">php-pecl-serialized-cataloger</div><div class="evidence-patterns"><code>php/.registry/.channel.*/*.reg</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">direct</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>

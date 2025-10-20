@@ -477,12 +477,12 @@ def format_depth_value(cap_support: CapabilitySupport | None) -> str:
         formatted string: "direct", "transitive", or "-"
     """
     if cap_support is None or not cap_support.supported:
-        return "-"
+        return ""
 
     # get the default value (should be a list)
     value = cap_support.default_value
     if not isinstance(value, list) or not value:
-        return "-"
+        return ""
 
     # if it contains both direct and indirect, show "transitive"
     if "direct" in value and "indirect" in value:
@@ -492,7 +492,7 @@ def format_depth_value(cap_support: CapabilitySupport | None) -> str:
     elif "indirect" in value:
         return "transitive"
     else:
-        return "-"
+        return ""
 
 
 def format_edges_value(cap_support: CapabilitySupport | None) -> str:
@@ -508,17 +508,17 @@ def format_edges_value(cap_support: CapabilitySupport | None) -> str:
         formatted string or "-"
     """
     if cap_support is None or not cap_support.supported:
-        return "-"
+        return ""
 
     value = cap_support.default_value
     if isinstance(value, bool):
-        return "✅" if value else "-"
+        return "✅" if value else ""
     elif isinstance(value, str):
-        return value if value else "-"
+        return value if value else ""
     elif isinstance(value, list):
-        return ", ".join(str(v) for v in value) if value else "-"
+        return ", ".join(str(v) for v in value) if value else ""
     else:
-        return str(value) if value else "-"
+        return str(value) if value else ""
 
 
 def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
@@ -534,7 +534,7 @@ def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
         formatted string or "-"
     """
     if cap_support is None or not cap_support.supported:
-        return "-"
+        return ""
 
     value = cap_support.default_value
     if isinstance(value, list) and value:
@@ -542,7 +542,7 @@ def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
     elif isinstance(value, str) and value:
         return value
     else:
-        return "-"
+        return ""
 
 
 def collect_app_configs_by_ecosystem(cataloger_data: dict, ecosystem_aliases: dict[str, str]) -> dict[str, list[dict]]:

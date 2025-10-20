@@ -24,7 +24,7 @@
       <td class="col-cataloger"><div class="cataloger-name">swipl-pack-cataloger</div><div class="evidence-patterns"><code>pack.pl</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">direct</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime, dev</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>

@@ -23,9 +23,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">r-package-cataloger</div><div class="evidence-patterns"><code>DESCRIPTION</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>

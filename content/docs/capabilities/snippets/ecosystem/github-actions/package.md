@@ -23,9 +23,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">github-action-workflow-usage-cataloger</div><div class="evidence-patterns"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -33,9 +33,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">github-actions-usage-cataloger</div><div class="evidence-patterns"><code>.github/actions/*/action.yml</code>, <code>.github/actions/*/action.yaml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
@@ -43,9 +43,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">github-actions-usage-cataloger</div><div class="evidence-patterns"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-depth value">-</td>
-      <td class="col-edges value">-</td>
-      <td class="col-kinds value">-</td>
+      <td class="col-depth value"></td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>

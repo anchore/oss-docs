@@ -24,7 +24,7 @@
       <td class="col-cataloger"><div class="cataloger-name">cocoapods-cataloger</div><div class="evidence-patterns"><code>Podfile.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
@@ -34,7 +34,7 @@
       <td class="col-cataloger"><div class="cataloger-name">swift-package-manager-cataloger</div><div class="evidence-patterns"><code>Package.resolved</code>, <code>.package.resolved</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>

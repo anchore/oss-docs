@@ -24,7 +24,7 @@
       <td class="col-cataloger"><div class="cataloger-name">dart-pubspec-cataloger</div><div class="evidence-patterns"><code>pubspec.yml</code>, <code>pubspec.yaml</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">direct</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
@@ -34,7 +34,7 @@
       <td class="col-cataloger"><div class="cataloger-name">dart-pubspec-lock-cataloger</div><div class="evidence-patterns"><code>pubspec.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">transitive</td>
-      <td class="col-edges value">-</td>
+      <td class="col-edges value"></td>
       <td class="col-kinds value">runtime, dev</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
