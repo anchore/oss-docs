@@ -1,0 +1,25 @@
+// Tab component styles (file-tabs shortcode)
+
+// fix file-tabs shortcode styling
+// the shortcode has a wrapper div.tab-content > ul.nav-tabs + div.tab-content structure
+// we need to remove styling from the outer wrapper and fix tab borders
+.td-content > .tab-content {
+  // remove bootstrap tab-content styling from the outer wrapper
+  padding: 0;
+
+  > .nav-tabs {
+    // remove full-width border
+    border-bottom: none;
+    margin-bottom: -1px; // overlap with inner tab-content border
+  }
+
+  // the inner tab-content should have normal styling
+  > .tab-content {
+    // this will have the default Bootstrap tab-content border
+
+    // remove the extra borders from tab panes to prevent "border in a border" effect
+    .tab-pane {
+      border: none;
+    }
+  }
+}

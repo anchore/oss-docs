@@ -1,0 +1,106 @@
+// Navigation bar styles
+
+// navbar improvements
+.td-navbar {
+  // improve logo and site title alignment
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; // add space between logo and text
+
+    .navbar-brand__logo {
+      display: flex;
+      align-items: center;
+
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    .navbar-brand__name {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      margin: 0;
+      padding: 0;
+      line-height: 1.2;
+
+      // add subtle brand color accent
+      /* background: linear-gradient(45deg, white, lighten($primary, 20%)); */
+      background: white;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      // fallback for non-webkit browsers
+      @supports not (-webkit-background-clip: text) {
+        color: white;
+      }
+    }
+  }
+
+  // enhance top navigation menu
+  .navbar-nav {
+    .nav-item {
+      .nav-link {
+        display: flex;
+        align-items: center;
+        /* gap: 0.5rem; */
+        padding: 0.75rem 0.75rem !important;
+        border-radius: 6px;
+        /* margin: 0 0.25rem; */
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+
+        // improve text contrast
+        color: rgba(255, 255, 255, 0.9) !important;
+
+        // icon styling
+        i {
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          opacity: 0.8;
+        }
+
+        &:hover {
+          color: white !important;
+          background-color: rgba(255, 255, 255, 0.1);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+          i {
+            opacity: 1;
+            transform: scale(1.1);
+
+            // add color to specific icons on hover
+            &.fa-book {
+              color: $warning;
+            }
+            &.fa-calendar {
+              color: $warning;
+            }
+            &.fa-rss {
+              color: $warning;
+            }
+            &.fa-github {
+              color: $warning;
+            }
+            &.fa-discourse {
+              color: $warning;
+            }
+          }
+        }
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.15);
+          color: white !important;
+
+          i {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

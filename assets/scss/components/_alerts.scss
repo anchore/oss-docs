@@ -1,0 +1,54 @@
+// Alert box component styles
+
+// alert boxes with brand colors
+.alert {
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-weight: 400;
+
+  &.alert-primary {
+    border-left: 4px solid $primary;
+
+    [data-bs-theme='light'] & {
+      color: darken($primary, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($primary, 20%);
+    }
+  }
+
+  &.alert-success {
+    border-left: 4px solid $success;
+
+    [data-bs-theme='light'] & {
+      color: darken($success, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($success, 20%);
+    }
+  }
+
+  &.alert-warning {
+    border-left: 4px solid $warning;
+
+    [data-bs-theme='light'] & {
+      color: darken($warning, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($warning, 20%);
+    }
+  }
+
+  &.alert-info {
+    border-left: 4px solid $info;
+
+    [data-bs-theme='light'] & {
+      color: darken($warning, 20%);
+    }
+    [data-bs-theme='dark'] & {
+      color: lighten($warning, 20%);
+    }
+  }
+}

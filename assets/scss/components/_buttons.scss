@@ -1,0 +1,13 @@
+// Button component styles
+
+// buttons with subtle improvements
+.btn-primary {
+  border-radius: 6px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(48, 127, 226, 0.3);
+  }
+}

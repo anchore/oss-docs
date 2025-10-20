@@ -1,0 +1,64 @@
+// Typography styles - links, content spacing, headings, and text formatting
+
+// remove underlines from all links by default
+a {
+  text-decoration: none;
+}
+
+// ensure links in the content area are underlined for clarity
+.td-content a {
+  text-decoration: dotted underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2.25px;
+}
+
+// subtle underline-like wave accent for section dividers
+.td-content > h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, $primary, $secondary);
+  margin: 0.5rem 0 1.5rem 0;
+  border-radius: 2px;
+}
+
+// improved content spacing
+.td-content {
+  > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  > p {
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+}
+
+// Heading anchor links - hidden by default, visible on hover
+.heading-anchor {
+  visibility: hidden !important;
+  text-decoration: none !important;
+}
+
+h2:hover .heading-anchor,
+h3:hover .heading-anchor,
+h4:hover .heading-anchor,
+h5:hover .heading-anchor,
+h6:hover .heading-anchor {
+  visibility: visible !important;
+}
