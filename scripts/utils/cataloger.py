@@ -11,6 +11,10 @@ import subprocess
 from pathlib import Path
 
 from .config import docker_images, paths, timeouts
+from .logging import get_logger
+
+
+logger = get_logger(__name__)
 
 
 def run_syft_cataloger_info(
@@ -104,7 +108,7 @@ def get_cataloger_data(skip_cache: bool = False) -> dict:
             json.dump(data, f, indent=2)
     except IOError as e:
         # cache write failure is not critical, just log and continue
-        print(f"Warning: Failed to write cache file: {e}")
+        logger.warning(f"Failed to write cache file: {e}")
 
     return data
 

@@ -12,6 +12,7 @@ from pathlib import Path
 import click
 import yaml
 from utils.config import docker_images, paths, timeouts
+from utils.logging import setup_logging
 from utils.sbom import get_or_generate_sbom
 
 
@@ -36,13 +37,22 @@ from utils.sbom import get_or_generate_sbom
     is_flag=True,
     help="Update the SBOM cache even if it already exists",
 )
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
 def main(
     examples_dir: str,
     output_dir: str,
     syft_image: str,
     update: bool,
+    verbose: int,
 ) -> None:
     """Generate jq query example documentation."""
+    logger = setup_logging(verbose, __file__)
+
     examples_path = Path(examples_dir)
     output_path = Path(output_dir)
 
@@ -50,21 +60,21 @@ def main(
     cache_dir = examples_path / "sbom-cache"
 
     if not examples_path.exists():
-        print(f"Error: Examples directory not found: {examples_path}", file=sys.stderr)
+        logger.error(f"Examples directory not found: {examples_path}")
         sys.exit(1)
 
     # Find all YAML example files
     example_files = sorted(examples_path.glob("*.yaml"))
     if not example_files:
-        print(f"Error: No .yaml files found in {examples_path}", file=sys.stderr)
+        logger.error(f"No .yaml files found in {examples_path}")
         sys.exit(1)
 
-    print(f"Found {len(example_files)} example(s) in {examples_path}")
-    print(f"Using Syft image: {syft_image}")
+    logger.info(f"Found {len(example_files)} example(s) in {examples_path}")
+    logger.debug(f"Using Syft image: {syft_image}")
 
     # Clean output directory to remove stale examples
     if output_path.exists():
-        print(f"Cleaning output directory: {output_path}")
+        logger.debug(f"Cleaning output directory: {output_path}")
         shutil.rmtree(output_path)
 
     # Create output and cache directories
@@ -74,7 +84,7 @@ def main(
     # Process each example
     for example_file in example_files:
         example_name = example_file.stem
-        print(f"\nProcessing: {example_name}")
+        logger.debug(f"Processing: {example_name}")
 
         try:
             generate_example(
@@ -85,12 +95,12 @@ def main(
                 syft_image=syft_image,
                 update=update,
             )
-            print(f"  ✓ Generated {example_name}")
+            logger.debug(f"  ✓ Generated {example_name}")
         except Exception as e:
-            print(f"  ✗ Failed to generate {example_name}: {e}", file=sys.stderr)
+            logger.error(f"  ✗ Failed to generate {example_name}: {e}")
             sys.exit(1)
 
-    print(f"\n✓ All examples generated successfully in {output_path}")
+    logger.info(f"All examples generated successfully in {output_path}")
 
 
 def generate_example(

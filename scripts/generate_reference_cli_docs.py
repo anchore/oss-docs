@@ -12,6 +12,7 @@ from pathlib import Path
 import click
 from utils.cache import get_cached_output, save_to_cache
 from utils.config import get_generated_comment, paths
+from utils.logging import setup_logging
 from utils.syft import run_syft
 
 
@@ -46,6 +47,12 @@ from utils.syft import run_syft
     is_flag=True,
     help="Update the cache even if it already exists",
 )
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
 def main(
     image: str,
     output: str,
@@ -54,11 +61,14 @@ def main(
     include_all_cmds: bool,
     include_cmd: tuple[str, ...],
     update: bool,
+    verbose: int,
 ) -> None:
     """Generate command reference documentation.
 
     IMAGE: Container image (e.g., anchore/syft:latest)
     """
+    logger = setup_logging(verbose, __file__)
+
     # Auto-detect tool and app names if not provided
     if not tool_name:
         # Extract tool name from image name (e.g., anchore/syft:latest -> syft)
@@ -72,7 +82,7 @@ def main(
     if not app_name:
         app_name = tool_name
 
-    print(f"Generating CLI docs for {tool_name} using image {image}...")
+    logger.info(f"Generating CLI docs for {tool_name} using image {image}...")
 
     # Create output directory if it doesn't exist
     output_dir = os.path.dirname(output)
@@ -94,10 +104,10 @@ def main(
         with open(output, "w", encoding="utf-8") as f:
             f.write(content)
 
-        print(f"CLI docs generated successfully: {output}")
+        logger.info(f"CLI docs generated successfully: {output}")
 
     except Exception as e:
-        print(f"Error generating documentation: {e}", file=sys.stderr)
+        logger.error(f"Error generating documentation: {e}")
         sys.exit(1)
 
 
@@ -325,6 +335,9 @@ def get_version_info(image: str, app_name: str, tool_name: str, update: bool = F
 
 def get_command_help(image: str, cmd_parts, tool_name: str, update: bool = False) -> str:
     """Get help output for a specific command."""
+    import logging
+    logger = logging.getLogger(__name__)
+
     # check cache first
     cache_path = get_cache_path_for_cli(tool_name, cmd_parts)
     cached = get_cached_output(cache_path, update)
@@ -332,9 +345,8 @@ def get_command_help(image: str, cmd_parts, tool_name: str, update: bool = False
     if cached is not None:
         return cached.strip()
 
-    print(
-        "   ...Getting help output for command:",
-        " ".join(cmd_parts) if cmd_parts else "(main help)",
+    logger.debug(
+        f"Getting help output for command: {' '.join(cmd_parts) if cmd_parts else '(main help)'}"
     )
 
     for help_flag in ["--help"]:

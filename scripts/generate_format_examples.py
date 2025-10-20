@@ -9,6 +9,7 @@ from pathlib import Path
 
 import click
 from utils.config import docker_images, get_generated_comment, paths, timeouts
+from utils.logging import setup_logging
 from utils.sbom import get_or_generate_sbom
 from utils.syft import run_syft_convert_format
 
@@ -48,9 +49,17 @@ FORMATS = [
     is_flag=True,
     help="Update the SBOM cache even if it already exists",
 )
-def main(image: str, syft_image: str, output_dir: str, update: bool) -> None:
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
+def main(image: str, syft_image: str, output_dir: str, update: bool, verbose: int) -> None:
     """Generate SBOM format examples using Syft."""
-    print(f"Generating format examples for {image} using {syft_image}...")
+    logger = setup_logging(verbose, __file__)
+
+    logger.info(f"Generating format examples for {image} using {syft_image}...")
 
     # Create output directory if it doesn't exist
     output_path = Path(output_dir)
@@ -71,7 +80,7 @@ def main(image: str, syft_image: str, output_dir: str, update: bool) -> None:
 
     # Generate examples for each format
     for format_name, _, fence_lang in FORMATS:
-        print(f"Generating {format_name} example...")
+        logger.debug(f"Generating {format_name} example...")
         try:
             generate_format_example(
                 sbom_file=sbom_file,
@@ -80,12 +89,12 @@ def main(image: str, syft_image: str, output_dir: str, update: bool) -> None:
                 fence_lang=fence_lang,
                 output_path=output_path / f"{format_name}.md",
             )
-            print(f"  ✓ Generated {format_name}.md")
+            logger.debug(f"  ✓ Generated {format_name}.md")
         except Exception as e:
-            print(f"  ✗ Error generating {format_name}: {e}", file=sys.stderr)
+            logger.error(f"  ✗ Error generating {format_name}: {e}")
             sys.exit(1)
 
-    print(f"\nSuccessfully generated {len(FORMATS)} format examples in {output_path}")
+    logger.info(f"Successfully generated {len(FORMATS)} format examples in {output_path}")
 
 
 def generate_format_example(

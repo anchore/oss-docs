@@ -34,6 +34,7 @@ from typing import Any
 import click
 from utils.config import get_generated_comment, paths
 from utils.data import load_cataloger_data, load_ecosystem_aliases
+from utils.logging import setup_logging
 
 
 @dataclass
@@ -620,7 +621,7 @@ def strip_field_name_from_description(description: str, field_key: str) -> str:
     return description
 
 
-def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], output_dir: Path) -> None:
+def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], output_dir: Path, logger) -> None:
     """
     generate app configuration snippet for an ecosystem.
 
@@ -628,6 +629,7 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
         ecosystem: ecosystem name
         config_fields: list of config field dicts with app_key and description
         output_dir: output directory for snippets
+        logger: logger instance
     """
     if not config_fields:
         return
@@ -678,7 +680,7 @@ def generate_app_config_snippet(ecosystem: str, config_fields: list[dict], outpu
         for line in html_lines:
             f.write(line + "\n")
 
-    print(f"Generated {output_file}")
+    logger.debug(f"Generated {output_file}")
 
 
 def clean_cataloger_name(name: str) -> str:
@@ -775,7 +777,7 @@ def has_any_dependency_support(capabilities: dict[str, CapabilitySupport]) -> Ca
     return None
 
 
-def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
+def generate_overview_table(rows: list[CatalogerRow], output_dir: Path, logger) -> None:
     """
     generate overview table with simple single-row header.
 
@@ -786,6 +788,7 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
     Args:
         rows: list of all CatalogerRow objects
         output_dir: output directory for snippets
+        logger: logger instance
     """
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -863,10 +866,10 @@ def generate_overview_table(rows: list[CatalogerRow], output_dir: Path) -> None:
         for line in html_lines:
             f.write(line + "\n")
 
-    print(f"Generated {output_file}")
+    logger.debug(f"Generated {output_file}")
 
 
-def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_dir: Path) -> None:
+def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_dir: Path, logger) -> None:
     """
     generate complete ecosystem-specific table with grouped capability columns.
 
@@ -878,6 +881,7 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
         ecosystem: ecosystem name
         rows: list of all CatalogerRow objects
         output_dir: output directory for snippets
+        logger: logger instance
     """
     ecosystem_dir = output_dir / ecosystem
     ecosystem_dir.mkdir(parents=True, exist_ok=True)
@@ -969,7 +973,7 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
         for line in html_lines:
             f.write(line + "\n")
 
-    print(f"Generated {output_file}")
+    logger.debug(f"Generated {output_file}")
 
 
 @click.command()
@@ -978,45 +982,53 @@ def generate_ecosystem_table(ecosystem: str, rows: list[CatalogerRow], output_di
     is_flag=True,
     help="Update the cataloger data cache even if it already exists",
 )
-def main(update: bool) -> None:
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
+def main(update: bool, verbose: int) -> None:
     """Generate package capability table snippets from Syft cataloger information."""
+    logger = setup_logging(verbose, __file__)
+
     # load ecosystem aliases
-    print("Loading ecosystem aliases...")
+    logger.debug("Loading ecosystem aliases...")
     ecosystem_aliases = load_ecosystem_aliases()
     if ecosystem_aliases:
-        print(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
+        logger.debug(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
 
     # load or generate cataloger data
     cataloger_data = load_cataloger_data(update=update)
 
     # parse catalogers into rows
-    print("Parsing cataloger capabilities...")
+    logger.info("Parsing cataloger capabilities...")
     rows = parse_catalogers(cataloger_data, ecosystem_aliases)
 
     if not rows:
-        print("Error: No catalogers found", file=sys.stderr)
+        logger.error("No catalogers found")
         sys.exit(1)
 
-    print(f"Found {len(rows)} cataloger patterns across {len(set(r.ecosystem for r in rows))} ecosystems")
+    logger.info(f"Found {len(rows)} cataloger patterns across {len(set(r.ecosystem for r in rows))} ecosystems")
 
     # generate tables
-    print("Generating tables...")
+    logger.info("Generating tables...")
 
     # generate overview table
-    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview")
+    generate_overview_table(rows, paths.capabilities_snippet_dir / "overview", logger)
 
     # generate individual ecosystem tables
     ecosystems = set(r.ecosystem for r in rows)
     for ecosystem in sorted(ecosystems):
-        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem")
+        generate_ecosystem_table(ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem", logger)
 
     # collect and generate app config snippets
-    print("Generating app config snippets...")
+    logger.info("Generating app config snippets...")
     app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
     for ecosystem, config_fields in app_configs.items():
-        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir / "ecosystem")
+        generate_app_config_snippet(ecosystem, config_fields, paths.capabilities_snippet_dir / "ecosystem", logger)
 
-    print("\nGeneration complete!")
+    logger.info("Generation complete!")
 
 
 if __name__ == "__main__":

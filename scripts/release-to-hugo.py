@@ -14,6 +14,8 @@ from datetime import datetime
 import click
 import requests
 
+from utils.logging import setup_logging
+
 # GitHub API configuration
 HEADERS = {"Accept": "application/vnd.github.v3+json"}
 
@@ -144,28 +146,37 @@ Version [{version}]({release["html_url"]})
     default=10,
     help="Weight for the _index.md front matter (default: 10)",
 )
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
 def main(
     repo: str,
     token: str | None,
     output_dir: str,
     limit: int | None,
     weight: int,
+    verbose: int,
 ) -> None:
     """Generate Hugo markdown files from GitHub releases with minimal processing."""
+    logger = setup_logging(verbose, __file__)
+
     repo_full = f"anchore/{repo}"
 
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
     # Fetch releases
-    print(f"Fetching releases from {repo_full} on GitHub...")
+    logger.info(f"Fetching releases from {repo_full} on GitHub...")
     releases = fetch_releases(repo_full, token=token, limit=limit)
-    print(f"Found {len(releases)} releases")
+    logger.info(f"Found {len(releases)} releases")
 
     # Process each release
     for release in releases:
         if release.get("draft"):
-            print(f"Skipping draft release: {release['tag_name']}")
+            logger.debug(f"Skipping draft release: {release['tag_name']}")
             continue
 
         # Create filename
@@ -173,10 +184,10 @@ def main(
         filepath = os.path.join(output_dir, filename)
 
         if os.path.exists(filepath):
-            print(f"Skipping existing release: {release['tag_name']} (already exists)")
+            logger.debug(f"Skipping existing release: {release['tag_name']} (already exists)")
             continue
 
-        print(f"Processing release: {release['tag_name']}")
+        logger.debug(f"Processing release: {release['tag_name']}")
 
         # Generate Hugo content
         content = generate_hugo_content(release, repo)
@@ -185,7 +196,7 @@ def main(
         with open(filepath, "w") as f:
             f.write(content)
 
-        print(f"Created {filepath}")
+        logger.debug(f"Created {filepath}")
 
     # After processing releases, update _index.md in the output directory
     # List the most recent 10 releases (sorted by version tag, descending)
@@ -226,11 +237,11 @@ weight = {weight}
         with open(os.path.join(output_dir, "_index.md"), "w") as f:
             f.write(index_md)
     except ImportError:
-        print(
-            "Warning: packaging.version not available. Skipping _index.md generation."
+        logger.warning(
+            "packaging.version not available. Skipping _index.md generation."
         )
 
-    print("Done!")
+    logger.info("Done!")
 
 
 if __name__ == "__main__":

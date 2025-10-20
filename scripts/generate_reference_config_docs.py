@@ -11,6 +11,7 @@ from pathlib import Path
 import click
 from utils.cache import get_cached_output, save_to_cache
 from utils.config import get_generated_comment, paths
+from utils.logging import setup_logging
 from utils.syft import run_syft
 
 
@@ -35,17 +36,26 @@ from utils.syft import run_syft
     is_flag=True,
     help="Update the cache even if it already exists",
 )
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
 def main(
     image: str,
     output: str,
     tool_name: str | None,
     app_name: str | None,
     update: bool,
+    verbose: int,
 ) -> None:
     """Generate configuration reference documentation.
 
     IMAGE: Container image (e.g., anchore/syft:latest)
     """
+    logger = setup_logging(verbose, __file__)
+
     # Auto-detect tool and app names if not provided
     if not tool_name:
         # Extract tool name from image name (e.g., anchore/syft:latest -> syft)
@@ -59,7 +69,7 @@ def main(
     if not app_name:
         app_name = tool_name
 
-    print(f"Generating configuration docs for {tool_name} using image {image}...")
+    logger.info(f"Generating configuration docs for {tool_name} using image {image}...")
 
     # Create output directory if it doesn't exist
     output_dir = os.path.dirname(output)
@@ -74,10 +84,10 @@ def main(
         with open(output, "w", encoding="utf-8") as f:
             f.write(content)
 
-        print(f"Configuration docs generated successfully: {output}")
+        logger.info(f"Configuration docs generated successfully: {output}")
 
     except Exception as e:
-        print(f"Error generating configuration documentation: {e}", file=sys.stderr)
+        logger.error(f"Error generating configuration documentation: {e}")
         sys.exit(1)
 
 

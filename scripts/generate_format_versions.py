@@ -16,6 +16,7 @@ from pathlib import Path
 
 import click
 from utils.config import docker_images, get_generated_comment, paths, timeouts
+from utils.logging import setup_logging
 
 
 def extract_format_versions():
@@ -58,20 +59,23 @@ def extract_format_versions():
         return formats
 
     except subprocess.TimeoutExpired:
-        print("Error: Syft command timed out", file=sys.stderr)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error("Syft command timed out")
         sys.exit(1)
     except subprocess.CalledProcessError as e:
-        print(f"Error running Syft: {e}", file=sys.stderr)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error(f"Error running Syft: {e}")
         sys.exit(1)
     except FileNotFoundError:
-        print(
-            "Error: Syft command not found. Please ensure Syft is installed.",
-            file=sys.stderr,
-        )
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.error("Syft command not found. Please ensure Syft is installed.")
         sys.exit(1)
 
 
-def save_json_data(formats, output_path: Path) -> None:
+def save_json_data(formats, output_path: Path, logger) -> None:
     """save format versions to JSON file"""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -82,10 +86,10 @@ def save_json_data(formats, output_path: Path) -> None:
     with open(output_path, "w") as f:
         json.dump(data, f, indent=2)
 
-    print(f"Generated {output_path}")
+    logger.info(f"Generated {output_path}")
 
 
-def generate_markdown_snippet(formats, output_path: Path) -> None:
+def generate_markdown_snippet(formats, output_path: Path, logger) -> None:
     """
     generate markdown snippet showing formats with multiple versions
 
@@ -97,7 +101,7 @@ def generate_markdown_snippet(formats, output_path: Path) -> None:
     multi_version_formats = {k: v for k, v in formats.items() if len(v) > 1}
 
     if not multi_version_formats:
-        print("No formats with multiple versions found", file=sys.stderr)
+        logger.warning("No formats with multiple versions found")
         return
 
     # add auto-generated comment
@@ -117,7 +121,7 @@ def generate_markdown_snippet(formats, output_path: Path) -> None:
         f.write("\n".join(lines))
         f.write("\n")
 
-    print(f"Generated {output_path}")
+    logger.info(f"Generated {output_path}")
 
 
 def load_existing_formats(json_path: Path):
@@ -130,7 +134,9 @@ def load_existing_formats(json_path: Path):
     except FileNotFoundError:
         return None
     except json.JSONDecodeError as e:
-        print(f"Warning: Invalid JSON in {json_path}: {e}", file=sys.stderr)
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.warning(f"Invalid JSON in {json_path}: {e}")
         return None
 
 
@@ -140,35 +146,43 @@ def load_existing_formats(json_path: Path):
     is_flag=True,
     help="Update the JSON file even if it already exists",
 )
-def main(update: bool) -> None:
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
+def main(update: bool, verbose: int) -> None:
     """Generate format version information from Syft output."""
+    logger = setup_logging(verbose, __file__)
+
     # define output paths from config
     json_output = paths.format_versions_json
     md_output = paths.format_versions_snippet
 
     # check if JSON file already exists
     if json_output.exists() and not update:
-        print(f"Using existing {json_output}")
+        logger.info(f"Using existing {json_output}")
         formats = load_existing_formats(json_output)
         if formats is None:
-            print("Error: Could not load existing JSON file", file=sys.stderr)
+            logger.error("Could not load existing JSON file")
             sys.exit(1)
     else:
         # extract format information
-        print("Extracting format versions from Syft...")
+        logger.info("Extracting format versions from Syft...")
         formats = extract_format_versions()
 
         if not formats:
-            print("Error: No formats found", file=sys.stderr)
+            logger.error("No formats found")
             sys.exit(1)
 
-        print(f"Found {len(formats)} formats")
+        logger.info(f"Found {len(formats)} formats")
 
         # save JSON data
-        save_json_data(formats, json_output)
+        save_json_data(formats, json_output, logger)
 
     # generate markdown snippet
-    generate_markdown_snippet(formats, md_output)
+    generate_markdown_snippet(formats, md_output, logger)
 
 
 if __name__ == "__main__":

@@ -12,7 +12,11 @@ import sys
 import yaml
 
 from .config import get_generated_comment, paths, timeouts
+from .logging import get_logger
 from .syft import run_syft
+
+
+logger = get_logger(__name__)
 
 
 def load_ecosystem_aliases() -> dict[str, str]:
@@ -29,8 +33,8 @@ def load_ecosystem_aliases() -> dict[str, str]:
     aliases_file = paths.ecosystem_aliases_file
 
     if not aliases_file.exists():
-        print(
-            f"Warning: Ecosystem aliases file not found: {aliases_file}", file=sys.stderr
+        logger.warning(
+            f"Ecosystem aliases file not found: {aliases_file}"
         )
         return {}
 
@@ -39,7 +43,7 @@ def load_ecosystem_aliases() -> dict[str, str]:
             data = yaml.safe_load(f)
             return data.get("alias", {})
     except Exception as e:
-        print(f"Warning: Failed to load ecosystem aliases: {e}", file=sys.stderr)
+        logger.warning(f"Failed to load ecosystem aliases: {e}")
         return {}
 
 
@@ -61,18 +65,18 @@ def load_cataloger_data(update: bool = False) -> dict:
 
     # check if cache exists and we're not forcing update
     if cache_file.exists() and not update:
-        print(f"Using existing {cache_file}")
+        logger.info(f"Using existing {cache_file}")
         try:
             with open(cache_file) as f:
                 data = json.load(f)
                 # filter out the _comment field if present
                 return {k: v for k, v in data.items() if k != "_comment"}
         except json.JSONDecodeError as e:
-            print(f"Warning: Invalid JSON in {cache_file}: {e}", file=sys.stderr)
-            print("Regenerating cataloger data...", file=sys.stderr)
+            logger.warning(f"Invalid JSON in {cache_file}: {e}")
+            logger.info("Regenerating cataloger data...")
 
     # generate cataloger data from syft
-    print("Extracting cataloger information from Syft...")
+    logger.info("Extracting cataloger information from Syft...")
     try:
         stdout, stderr, returncode = run_syft(
             args=["cataloger", "info", "-o", "json"],
@@ -80,7 +84,7 @@ def load_cataloger_data(update: bool = False) -> dict:
         )
 
         if returncode != 0:
-            print(f"Error running Syft: {stderr or stdout}", file=sys.stderr)
+            logger.error(f"Error running Syft: {stderr or stdout}")
             sys.exit(1)
 
         data = json.loads(stdout)
@@ -93,11 +97,11 @@ def load_cataloger_data(update: bool = False) -> dict:
         with open(cache_file, "w") as f:
             json.dump(cache_data, f, indent=2)
 
-        print(f"Generated {cache_file}")
+        logger.info(f"Generated {cache_file}")
         return data
 
     except Exception as e:
-        print(f"Error generating cataloger data: {e}", file=sys.stderr)
+        logger.error(f"Error generating cataloger data: {e}")
         sys.exit(1)
 
 
@@ -116,14 +120,14 @@ def load_os_data() -> list[dict]:
     os_file = paths.os_data_file
 
     if not os_file.exists():
-        print(f"Error: OS data file not found: {os_file}", file=sys.stderr)
+        logger.error(f"OS data file not found: {os_file}")
         sys.exit(1)
 
     try:
         with open(os_file) as f:
             return json.load(f)
     except Exception as e:
-        print(f"Error loading OS data: {e}", file=sys.stderr)
+        logger.error(f"Error loading OS data: {e}")
         sys.exit(1)
 
 
@@ -146,8 +150,8 @@ def load_vulnerability_data() -> dict:
     vuln_file = paths.vulnerability_data_file
 
     if not vuln_file.exists():
-        print(
-            f"Error: Vulnerability data file not found: {vuln_file}", file=sys.stderr
+        logger.error(
+            f"Vulnerability data file not found: {vuln_file}"
         )
         sys.exit(1)
 
@@ -170,5 +174,5 @@ def load_vulnerability_data() -> dict:
 
         return data
     except Exception as e:
-        print(f"Error loading vulnerability data: {e}", file=sys.stderr)
+        logger.error(f"Error loading vulnerability data: {e}")
         sys.exit(1)

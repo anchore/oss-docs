@@ -9,7 +9,11 @@ of the same images during documentation generation.
 from pathlib import Path
 
 from .config import timeouts
+from .logging import get_logger
 from .syft import run_syft_scan, run_syft_with_config
+
+
+logger = get_logger(__name__)
 
 
 def get_or_generate_sbom(
@@ -64,17 +68,17 @@ def get_or_generate_sbom(
     # if updating, delete existing cache
     if update and cache_file.exists():
         cache_file.unlink()
-        print(f"  Deleted cached SBOM: {cache_file}")
+        logger.debug(f"Deleted cached SBOM: {cache_file}")
 
     # check cache
     if cache_file.exists():
-        print(f"  Using cached SBOM: {cache_file}")
+        logger.debug(f"Using cached SBOM: {cache_file}")
         if return_content:
             return cache_file.read_text()
         return cache_file
 
     # generate SBOM
-    print(f"  Generating SBOM for: {image}")
+    logger.debug(f"Generating SBOM for: {image}")
 
     if config_file:
         sbom_json = run_syft_with_config(
@@ -94,7 +98,7 @@ def get_or_generate_sbom(
 
     # save to cache
     cache_file.write_text(sbom_json)
-    print(f"  Cached SBOM to: {cache_file}")
+    logger.debug(f"Cached SBOM to: {cache_file}")
 
     if return_content:
         return sbom_json
