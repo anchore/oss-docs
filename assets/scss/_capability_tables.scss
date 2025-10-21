@@ -368,8 +368,9 @@ svg use[href='#icon-dash'] {
 
 /* Header Help Tooltips */
 
-/* Abbr element containing help icon - remove default styling */
+/* Abbr element containing help icon - remove default styling and set up tooltip positioning */
 .header-help {
+  position: relative;  /* position context for custom tooltip */
   text-decoration: none;
   border: none;
   cursor: help;
@@ -395,4 +396,91 @@ svg use[href='#icon-dash'] {
 /* Help icon color */
 svg use[href='#icon-help'] {
   color: currentColor;
+}
+
+
+/* Custom Tooltips for Header Help Icons */
+
+/* Tooltip content */
+.header-help::after {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 8px);  /* position above with gap */
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* styling */
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  max-width: 250px;
+  width: max-content;
+  text-align: left;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* theme-aware colors */
+  [data-bs-theme='light'] & {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+  [data-bs-theme='dark'] & {
+    background-color: #f9fafb;
+    color: #1f2937;
+    border: 1px solid #e5e7eb;
+  }
+
+  /* hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+
+  /* layer above table */
+  z-index: 1000;
+}
+
+
+/* Show tooltip on hover */
+.header-help:hover::after,
+.header-help:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Fix table overflow to allow tooltips to show */
+.capability-table {
+  overflow: visible !important;
+}
+
+.capability-table thead {
+  overflow: visible !important;
+}
+
+/* Adjust positioning for tooltips near right edge */
+th:nth-last-child(-n+2) .header-help::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0);
+}
+
+th:nth-last-child(-n+2) .header-help::before {
+  left: auto;
+  right: 12px;
+  transform: translateX(0);
+}
+
+/* Adjust positioning for tooltips near left edge */
+th:first-child .header-help::after {
+  left: 0;
+  transform: translateX(0);
+}
+
+th:first-child .header-help::before {
+  left: 12px;
+  transform: translateX(0);
 }

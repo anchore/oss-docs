@@ -1,5 +1,5 @@
 +++
-title =  "OSS Adopters"
+title =  "Adopters"
 description = "Adopters of Anchore Open Source Tools"
 weight = 20
 categories = ["community"]
