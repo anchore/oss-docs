@@ -4,6 +4,7 @@ Generate template example documentation with rendered outputs.
 Runs Syft templates against a test image and creates markdown files.
 """
 
+import shutil
 import sys
 from pathlib import Path
 from typing import cast
@@ -77,6 +78,11 @@ def main(
     logger.info(f"Found {len(template_files)} template(s) in {template_path}")
     logger.info(f"Scanning image: {image}")
     logger.debug(f"Using Syft image: {syft_image}")
+
+    # Clean output directory to ensure no stale content
+    if output_path.exists():
+        logger.debug(f"Cleaning output directory: {output_path}")
+        shutil.rmtree(output_path)
 
     # Create output and cache directories
     output_path.mkdir(parents=True, exist_ok=True)

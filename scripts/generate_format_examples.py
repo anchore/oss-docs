@@ -4,6 +4,7 @@ Generate SBOM format examples by running Syft against a sample image.
 Creates markdown files with code fences for each format.
 """
 
+import shutil
 import sys
 from pathlib import Path
 from typing import cast
@@ -64,8 +65,11 @@ def main(
 
     logger.info(f"Generating format examples for {image} using {syft_image}...")
 
-    # Create output directory if it doesn't exist
+    # Clean output directory to ensure no stale content
     output_path = Path(output_dir)
+    if output_path.exists():
+        logger.debug(f"Cleaning output directory: {output_path}")
+        shutil.rmtree(output_path)
     output_path.mkdir(parents=True, exist_ok=True)
 
     # use convention: cache is always sbom-cache subdirectory of template dir

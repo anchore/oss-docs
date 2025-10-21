@@ -2,13 +2,13 @@
 
 ```
 [Image]
- Layer:   0
- Digest:  sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
- Size:   4170750
- MediaType:  application/vnd.oci.image.layer.v1.tar+gzip
+ Layer:		 0
+ Digest:	 sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19
+ Size:		 4170750
+ MediaType:	 application/vnd.oci.image.layer.v1.tar+gzip
 
 [busybox]
- Version:  1.37.0
- Type:   binary
- Found by:  binary-classifier-cataloger
+ Version:	 1.37.0
+ Type:		 binary
+ Found by:	 binary-classifier-cataloger
 ```

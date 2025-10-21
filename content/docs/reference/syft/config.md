@@ -13,6 +13,7 @@ url = "docs/reference/syft/configuration"
 This documentation was generated from Syft version `1.33.0-SNAPSHOT-1510db7c`.
 {{< /alert >}}
 
+
 Syft searches for configuration files in the following locations, in order:
 
 1. `./.syft.yaml` - current working directory
@@ -31,17 +32,17 @@ log:
   verbosity: 0
 
   # explicitly set the logging level (available: [error warn info debug trace]) (env: SYFT_LOG_LEVEL)
-  level: "warn"
+  level: 'warn'
 
   # file path to write logs to (env: SYFT_LOG_FILE)
-  file: ""
+  file: ''
 
 dev:
   # capture resource profiling data (available: [cpu, mem]) (env: SYFT_DEV_PROFILE)
-  profile: ""
+  profile: ''
 
 # the configuration file(s) used to load application configuration (env: SYFT_CONFIG)
-config: ""
+config: ''
 
 # the output format(s) of the SBOM report (options: syft-table, syft-text, syft-json, spdx-json, ...)
 # to specify multiple output files in differing formats, use a list:
@@ -49,10 +50,10 @@ config: ""
 #   - "syft-json=<syft-json-output-file>"
 #   - "spdx-json=<spdx-json-output-file>" (env: SYFT_OUTPUT)
 output:
-  - "syft-table"
+  - 'syft-table'
 
 # file to write the default report output to (default is STDOUT) (env: SYFT_LEGACYFILE)
-legacyFile: ""
+legacyFile: ''
 
 format:
   # default value for all formats that support the "pretty" option (default is unset) (env: SYFT_FORMAT_PRETTY)
@@ -61,7 +62,7 @@ format:
   template:
     # path to the template file to use when rendering the output with the template output format.
     # Note that all template paths are based on the current syft-json schema (env: SYFT_FORMAT_TEMPLATE_PATH)
-    path: ""
+    path: ''
 
     # if true, uses the go structs for the syft-json format for templating.
     # if false, uses the syft-json output for templating (which follows the syft JSON schema exactly).
@@ -127,7 +128,7 @@ package:
 
 license:
   # include the content of licenses in the SBOM for a given syft scan; valid values are: [all unknown none] (env: SYFT_LICENSE_CONTENT)
-  content: "none"
+  content: 'none'
 
   # adjust the percent as a fraction of the total text, in normalized words, that
   # matches any valid license for the given inputs, expressed as a percentage across all of the licenses matched. (env: SYFT_LICENSE_COVERAGE)
@@ -140,12 +141,12 @@ file:
     #  - "all": capture all files from the search space
     #  - "owned-by-package": capture only files owned by packages
     #  - "none", "": do not capture any files (env: SYFT_FILE_METADATA_SELECTION)
-    selection: "owned-by-package"
+    selection: 'owned-by-package'
 
     # the file digest algorithms to use when cataloging files (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512") (env: SYFT_FILE_METADATA_DIGESTS)
     digests:
-      - "sha1"
-      - "sha256"
+      - 'sha1'
+      - 'sha256'
 
   content:
     # skip searching a file entirely if it is above the given size (default = 1MB; unit = bytes) (env: SYFT_FILE_CONTENT_SKIP_FILES_ABOVE_SIZE)
@@ -159,7 +160,7 @@ file:
     globs: []
 
 # selection of layers to catalog, options=[squashed all-layers deep-squashed] (env: SYFT_SCOPE)
-scope: "squashed"
+scope: 'squashed'
 
 # number of cataloger workers to run in parallel
 # by default, when set to 0: this will be based on runtime.NumCPU * 4, if set to less than 0 it will be unbounded (env: SYFT_PARALLELISM)
@@ -174,10 +175,10 @@ relationships:
 
 compliance:
   # action to take when a package is missing a name (env: SYFT_COMPLIANCE_MISSING_NAME)
-  missing-name: "drop"
+  missing-name: 'drop'
 
   # action to take when a package is missing a version (env: SYFT_COMPLIANCE_MISSING_VERSION)
-  missing-version: "stub"
+  missing-version: 'stub'
 
 # Enable data enrichment operations, which can utilize services such as Maven Central and NPM.
 # By default all enrichment is disabled, use: all to enable everything.
@@ -203,25 +204,25 @@ golang:
   search-local-mod-cache-licenses:
 
   # specify an explicit go mod cache directory, if unset this defaults to $GOPATH/pkg/mod or $HOME/go/pkg/mod (env: SYFT_GOLANG_LOCAL_MOD_CACHE_DIR)
-  local-mod-cache-dir: "~go~pkg~mod"
+  local-mod-cache-dir: '~go~pkg~mod'
 
   # search for go package licences in the vendor folder on the system running Syft, note that this is outside the
   # container filesystem and potentially outside the root of a local directory scan (env: SYFT_GOLANG_SEARCH_LOCAL_VENDOR_LICENSES)
   search-local-vendor-licenses:
 
   # specify an explicit go vendor directory, if unset this defaults to ./vendor (env: SYFT_GOLANG_LOCAL_VENDOR_DIR)
-  local-vendor-dir: ""
+  local-vendor-dir: ''
 
   # search for go package licences by retrieving the package from a network proxy (env: SYFT_GOLANG_SEARCH_REMOTE_LICENSES)
   search-remote-licenses:
 
   # remote proxy to use when retrieving go packages from the network,
   # if unset this defaults to $GOPROXY followed by https://proxy.golang.org (env: SYFT_GOLANG_PROXY)
-  proxy: "https://proxy.golang.org,direct"
+  proxy: 'https://proxy.golang.org,direct'
 
   # specifies packages which should not be fetched by proxy
   # if unset this defaults to $GONOPROXY (env: SYFT_GOLANG_NO_PROXY)
-  no-proxy: ""
+  no-proxy: ''
 
   main-module-version:
     # look for LD flags that appear to be setting a version (e.g. -X main.version=1.0.0) (env: SYFT_GOLANG_MAIN_MODULE_VERSION_FROM_LD_FLAGS)
@@ -250,10 +251,10 @@ java:
 
   # override the default location of the local Maven repository.
   # the default is the subdirectory '.m2/repository' in your home directory (env: SYFT_JAVA_MAVEN_LOCAL_REPOSITORY_DIR)
-  maven-local-repository-dir: "~.m2~repository"
+  maven-local-repository-dir: '~.m2~repository'
 
   # maven repository to use, defaults to Maven central (env: SYFT_JAVA_MAVEN_URL)
-  maven-url: "https://repo1.maven.org/maven2"
+  maven-url: 'https://repo1.maven.org/maven2'
 
   # depth to recursively resolve parent POMs, no limit if <= 0 (env: SYFT_JAVA_MAX_PARENT_RECURSIVE_DEPTH)
   max-parent-recursive-depth: 0
@@ -266,7 +267,7 @@ javascript:
   search-remote-licenses:
 
   # base NPM url to use (env: SYFT_JAVASCRIPT_NPM_BASE_URL)
-  npm-base-url: ""
+  npm-base-url: ''
 
   # include development-scoped dependencies (env: SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES)
   include-dev-dependencies:
@@ -294,51 +295,51 @@ registry:
   insecure-use-http: false
 
   # Authentication credentials for specific registries. Each entry describes authentication for a specific authority:
-  # - authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
-  #  username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
-  #  password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
-  #  token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
-  #  tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
-  #  tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
+  # -	authority: the registry authority URL the URL to the registry (e.g. "docker.io", "localhost:5000", etc.) (env: SYFT_REGISTRY_AUTH_AUTHORITY)
+  # 	username: a username if using basic credentials (env: SYFT_REGISTRY_AUTH_USERNAME)
+  # 	password: a corresponding password (env: SYFT_REGISTRY_AUTH_PASSWORD)
+  # 	token: a token if using token-based authentication, mutually exclusive with username/password (env: SYFT_REGISTRY_AUTH_TOKEN)
+  # 	tls-cert: filepath to the client certificate used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_CERT)
+  # 	tls-key: filepath to the client key used for TLS authentication to the registry (env: SYFT_REGISTRY_AUTH_TLS_KEY)
   auth: []
 
   # filepath to a CA certificate (or directory containing *.crt, *.cert, *.pem) used to generate the client certificate (env: SYFT_REGISTRY_CA_CERT)
-  ca-cert: ""
+  ca-cert: ''
 
 # specify the source behavior to use (e.g. docker, registry, oci-dir, ...) (env: SYFT_FROM)
 from: []
 
 # an optional platform specifier for container image sources (e.g. 'linux/arm64', 'linux/arm64/v8', 'arm64', 'linux') (env: SYFT_PLATFORM)
-platform: ""
+platform: ''
 
 source:
   # set the name of the target being analyzed (env: SYFT_SOURCE_NAME)
-  name: ""
+  name: ''
 
   # set the version of the target being analyzed (env: SYFT_SOURCE_VERSION)
-  version: ""
+  version: ''
 
   # the organization that supplied the component, which often may be the manufacturer, distributor, or repackager (env: SYFT_SOURCE_SUPPLIER)
-  supplier: ""
+  supplier: ''
 
   # (env: SYFT_SOURCE_SOURCE)
-  source: ""
+  source: ''
 
   # base directory for scanning, no links will be followed above this directory, and all paths will be reported relative to this directory (env: SYFT_SOURCE_BASE_PATH)
-  base-path: ""
+  base-path: ''
 
   file:
     # the file digest algorithms to use on the scanned file (options: "md5", "sha1", "sha224", "sha256", "sha384", "sha512") (env: SYFT_SOURCE_FILE_DIGESTS)
     digests:
-      - "SHA-256"
+      - 'SHA-256'
 
   image:
     # allows users to specify which image source should be used to generate the sbom
     # valid values are: registry, docker, podman (env: SYFT_SOURCE_IMAGE_DEFAULT_PULL_SOURCE)
-    default-pull-source: ""
+    default-pull-source: ''
 
     # (env: SYFT_SOURCE_IMAGE_MAX_LAYER_SIZE)
-    max-layer-size: ""
+    max-layer-size: ''
 
 # exclude paths from being scanned using a glob expression (env: SYFT_EXCLUDE)
 exclude: []
@@ -355,10 +356,10 @@ unknowns:
 
 cache:
   # root directory to cache any downloaded content; empty string will use an in-memory cache (env: SYFT_CACHE_DIR)
-  dir: "~.cache~syft"
+  dir: '~.cache~syft'
 
   # time to live for cached data; setting this to 0 will disable caching entirely (env: SYFT_CACHE_TTL)
-  ttl: "7d"
+  ttl: '7d'
 
 # show catalogers that have been de-selected (env: SYFT_SHOW_HIDDEN)
 show-hidden: false
@@ -368,9 +369,10 @@ Names: []
 
 attest:
   # the key to use for the attestation (env: SYFT_ATTEST_KEY)
-  key: ""
+  key: ''
 
   # password to decrypt to given private key
   # additionally responds to COSIGN_PASSWORD env var (env: SYFT_ATTEST_PASSWORD)
-  password: ""
+  password: ''
 ```
+

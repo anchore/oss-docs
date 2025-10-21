@@ -36,7 +36,7 @@ You can also explicitly specify the scheme to use:
     grype CPE                                    read a single CPE directly (e.g. cpe:2.3:a:openssl:openssl:3.0.14:*:*:*:*:*)
 
 You can also pipe in Syft JSON directly:
- syft yourimage:tag -o json | grype
+	syft yourimage:tag -o json | grype
 
 Usage:
   grype [IMAGE] [flags]
@@ -127,7 +127,7 @@ Flags:
 
 Import a vulnerability database archive from a local FILE or URL.
 
-DB archives can be obtained from "<https://grype.anchore.io/databases>" (or running `db list`). If the URL has a `checksum` query parameter with a fully qualified digest (e.g. 'sha256:abc728...') then the archive/DB will be verified against this value.
+DB archives can be obtained from "https://grype.anchore.io/databases" (or running `db list`). If the URL has a `checksum` query parameter with a fully qualified digest (e.g. 'sha256:abc728...') then the archive/DB will be verified against this value.
 
 ```
 Usage:
@@ -271,3 +271,4 @@ Compiler:            gc
 Syft Version:        v1.33.0
 Supported DB Schema: 6
 ```
+
