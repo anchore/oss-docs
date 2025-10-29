@@ -101,6 +101,7 @@ class SVGIcons(str, Enum):
     def __str__(self) -> str:
         return self.value
 
+
 class OutputFormats(str, Enum):
     """Syft output format identifiers."""
 
@@ -129,6 +130,7 @@ class OutputFormats(str, Enum):
 
     def __str__(self) -> str:
         return self.value
+
 
 # Header definitions for table tooltips
 # these are shared across capability and vulnerability tables

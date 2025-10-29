@@ -89,7 +89,9 @@ def main(
         output_file = output_path / f"{format_name}.md"
 
         # Check if output needs regeneration
-        if not output_manager.should_regenerate(output_file, [sbom_file], update=update):
+        if not output_manager.should_regenerate(
+            output_file, [sbom_file], update=update
+        ):
             logger.debug(f"  ⊚ Skipping {format_name}.md (up-to-date)")
             skipped_count += 1
             continue
@@ -115,7 +117,9 @@ def main(
             f"Format examples: {generated_count} generated, {skipped_count} skipped (up-to-date)"
         )
     else:
-        logger.info(f"Successfully generated {len(FORMATS)} format examples in {output_path}")
+        logger.info(
+            f"Successfully generated {len(FORMATS)} format examples in {output_path}"
+        )
 
 
 def generate_format_example(
@@ -148,7 +152,9 @@ def generate_format_example(
 def create_markdown_content(fence_lang: str, output: str) -> str:
     """Create markdown content with code fence."""
     # Add auto-generated comment
-    comment = config.get_generated_comment("scripts/generate_format_examples.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_format_examples.py", "html"
+    )
 
     # Use markdown utility for code fence
     content = comment + markdown.create_code_fence(output, fence_lang)

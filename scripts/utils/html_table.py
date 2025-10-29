@@ -315,7 +315,9 @@ def format_evidence_for_tooltip(evidence: list[str]) -> str:
     return "&#10;".join(f"• {path}" for path in evidence)
 
 
-def format_conditions_for_tooltip(conditions: list[dict], prefix: str = "Requires") -> str:
+def format_conditions_for_tooltip(
+    conditions: list[dict], prefix: str = "Requires"
+) -> str:
     """
     format condition requirements for tooltip display.
 
@@ -379,8 +381,8 @@ def format_conditions_for_tooltip(conditions: list[dict], prefix: str = "Require
 
 def get_capability_indicator_svg(
     cap_support,
-    evidence: list[str] = None,
-    conditions: list[dict] = None,
+    evidence: list[str] | None = None,
+    conditions: list[dict] | None = None,
 ) -> str:
     """
     get the SVG icon for a capability support level with optional tooltip.
@@ -652,11 +654,11 @@ class TableBuilder:
             attrs.append(f'class="{cell["class"]}"')
 
         # add rowspan
-        if "rowspan" in cell and cell["rowspan"] > 1:
+        if "rowspan" in cell and int(cell["rowspan"]) > 1:
             attrs.append(f'rowspan="{cell["rowspan"]}"')
 
         # add colspan
-        if "colspan" in cell and cell["colspan"] > 1:
+        if "colspan" in cell and int(cell["colspan"]) > 1:
             attrs.append(f'colspan="{cell["colspan"]}"')
 
         # format content with optional tooltip
@@ -669,7 +671,7 @@ class TableBuilder:
 
         # build tag
         attr_str = " " + " ".join(attrs) if attrs else ""
-        return f'      <th{attr_str}>{content}</th>'
+        return f"      <th{attr_str}>{content}</th>"
 
     def _format_body_cell(self, cell: dict[str, str | int]) -> str:
         """
@@ -688,15 +690,15 @@ class TableBuilder:
             attrs.append(f'class="{cell["class"]}"')
 
         # add rowspan
-        if "rowspan" in cell and cell["rowspan"] > 1:
+        if "rowspan" in cell and int(cell["rowspan"]) > 1:
             attrs.append(f'rowspan="{cell["rowspan"]}"')
 
         # add colspan
-        if "colspan" in cell and cell["colspan"] > 1:
+        if "colspan" in cell and int(cell["colspan"]) > 1:
             attrs.append(f'colspan="{cell["colspan"]}"')
 
         content = cell.get("content", "")
 
         # build tag
         attr_str = " " + " ".join(attrs) if attrs else ""
-        return f'      <td{attr_str}>{content}</td>'
+        return f"      <td{attr_str}>{content}</td>"

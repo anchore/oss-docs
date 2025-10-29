@@ -140,7 +140,9 @@ def generate_example(
     output_md = example_dir / "output.md"
 
     # Check if outputs need regeneration
-    if not output_manager.should_regenerate_multiple([template_md, output_md], [template_file], update):
+    if not output_manager.should_regenerate_multiple(
+        [template_md, output_md], [template_file], update
+    ):
         return False
 
     # Read template content
@@ -148,7 +150,9 @@ def generate_example(
 
     # Generate template.md
     # see the language support: https://gohugo.io/content-management/syntax-highlighting/#languages
-    template_md_content = markdown.create_code_fence(template_content, "go-text-template")
+    template_md_content = markdown.create_code_fence(
+        template_content, "go-text-template"
+    )
     (example_dir / "template.md").write_text(template_md_content)
 
     # Generate or retrieve SBOM from cache

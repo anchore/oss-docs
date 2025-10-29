@@ -73,7 +73,6 @@ class CatalogerRow:
     conditions: list[dict] | None = None
 
 
-
 @click.command()
 @click.option(
     "--update",
@@ -135,7 +134,7 @@ def main(update: bool, verbose: int) -> None:
         config.paths.capabilities_snippet_dir / "overview",
         ecosystem_display_names,
         logger,
-        )
+    )
 
     # generate individual ecosystem tables
     ecosystems = {r.ecosystem for r in rows}
@@ -151,7 +150,7 @@ def main(update: bool, verbose: int) -> None:
             cataloger_data,
             config.paths.capabilities_snippet_dir / "ecosystem",
             logger,
-            )
+        )
 
     # collect and generate app config snippets
     logger.info("Generating app config snippets...")
@@ -162,7 +161,7 @@ def main(update: bool, verbose: int) -> None:
             config_fields,
             config.paths.capabilities_snippet_dir / "ecosystem",
             logger,
-            )
+        )
 
     logger.info("Generation complete!")
 
@@ -532,12 +531,16 @@ def format_cataloger_with_evidence(
     # use exact cataloger name (keep -cataloger suffix)
     # build combined cell content - cataloger name in div, not code
     # add deprecated pill inline if cataloger is deprecated
-    deprecated_pill = ' <span class="deprecated-pill">deprecated</span>' if deprecated else ''
+    deprecated_pill = (
+        ' <span class="deprecated-pill">deprecated</span>' if deprecated else ""
+    )
 
     # add conditional gear icon inline if pattern has conditions
-    condition_icon = ''
+    condition_icon = ""
     if conditions:
-        formatted_condition = html_table.format_conditions_for_tooltip(conditions, prefix="Requires")
+        formatted_condition = html_table.format_conditions_for_tooltip(
+            conditions, prefix="Requires"
+        )
         if formatted_condition:
             escaped_condition = formatted_condition.replace('"', "&quot;")
             condition_icon = f' <span class="cataloger-condition-wrapper" data-tooltip="{escaped_condition}"><svg class="capability-icon inline-icon"><use href="#icon-gear"/></svg></span>'
@@ -741,7 +744,9 @@ def generate_app_config_snippet(
     output_file = ecosystem_dir / "syft-app-config.md"
 
     # generate comment
-    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_capability_tables.py", "html"
+    )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -943,7 +948,9 @@ def generate_overview_table(
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
 
     # generate comment
-    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_capability_tables.py", "html"
+    )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -951,7 +958,9 @@ def generate_overview_table(
     html_lines = []
 
     # table header - single row with simple columns (5 columns total)
-    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_OVERVIEW}">')
+    html_lines.append(
+        f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_OVERVIEW}">'
+    )
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
@@ -999,7 +1008,9 @@ def generate_overview_table(
             row.deprecated,
             row.conditions,
         )
-        html_lines.append(f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>')
+        html_lines.append(
+            f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>'
+        )
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
@@ -1067,7 +1078,9 @@ def generate_ecosystem_table(
     sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
 
     # generate comment
-    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_capability_tables.py", "html"
+    )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -1075,7 +1088,9 @@ def generate_ecosystem_table(
     html_lines = []
 
     # table header with two-row grouped structure
-    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_ECOSYSTEM}">')
+    html_lines.append(
+        f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_ECOSYSTEM}">'
+    )
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
@@ -1121,7 +1136,11 @@ def generate_ecosystem_table(
         # cataloger column with evidence (no rowspan - each row shows its own)
         # special handling for binary-classifier-cataloger in ecosystem-specific tables
         if row.cataloger_name == "binary-classifier-cataloger":
-            deprecated_pill = ' <span class="deprecated-pill">deprecated</span>' if row.deprecated else ''
+            deprecated_pill = (
+                ' <span class="deprecated-pill">deprecated</span>'
+                if row.deprecated
+                else ""
+            )
             cataloger_content = f'<div class="cataloger-name">binary-classifier-cataloger{deprecated_pill}</div><div class="evidence-patterns"><em>(see table below)</em></div>'
         else:
             cataloger_content = format_cataloger_with_evidence(
@@ -1133,7 +1152,9 @@ def generate_ecosystem_table(
                 row.deprecated,
                 row.conditions,
             )
-        html_lines.append(f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>')
+        html_lines.append(
+            f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>'
+        )
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
@@ -1226,7 +1247,9 @@ def generate_binary_package_details_table(
     output_file = binary_dir / "binary-package-details.md"
 
     # generate comment
-    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_capability_tables.py", "html"
+    )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -1237,7 +1260,9 @@ def generate_binary_package_details_table(
     html_lines.append('<div class="config-table-header">Binary Package Details</div>')
 
     # table header
-    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.BINARY_DETAILS_TABLE}">')
+    html_lines.append(
+        f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.BINARY_DETAILS_TABLE}">'
+    )
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
@@ -1279,7 +1304,9 @@ def generate_binary_package_details_table(
         # format criteria (glob patterns)
         criteria = pattern.get("criteria", [])
         if criteria:
-            criteria_html = ", ".join(f"<code>{clean_glob_pattern(c)}</code>" for c in criteria)
+            criteria_html = ", ".join(
+                f"<code>{clean_glob_pattern(c)}</code>" for c in criteria
+            )
         else:
             criteria_html = "-"
 
@@ -1294,8 +1321,12 @@ def generate_binary_package_details_table(
 
         html_lines.append("    <tr>")
         html_lines.append(f'      <td class="{CSSClasses.COL_CLASS}">{class_name}</td>')
-        html_lines.append(f'      <td class="{CSSClasses.COL_CRITERIA}">{criteria_html}</td>')
-        html_lines.append(f'      <td class="{CSSClasses.COL_PURL}"><code>{purl}</code></td>')
+        html_lines.append(
+            f'      <td class="{CSSClasses.COL_CRITERIA}">{criteria_html}</td>'
+        )
+        html_lines.append(
+            f'      <td class="{CSSClasses.COL_PURL}"><code>{purl}</code></td>'
+        )
         html_lines.append(f'      <td class="{CSSClasses.COL_CPES}">{cpes_html}</td>')
         html_lines.append("    </tr>")
 
@@ -1310,7 +1341,6 @@ def generate_binary_package_details_table(
             f.write(line + "\n")
 
     logger.debug(f"Generated {output_file}")
-
 
 
 if __name__ == "__main__":

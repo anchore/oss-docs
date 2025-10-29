@@ -137,7 +137,9 @@ def generate_markdown_content(
     )
 
     # Add auto-generated comment
-    content += config.get_generated_comment("scripts/generate_reference_cli_docs.py", "html")
+    content += config.get_generated_comment(
+        "scripts/generate_reference_cli_docs.py", "html"
+    )
 
     # Add version info block at the top
     version_info = get_version_info(image, app_name, tool_name, update)
@@ -217,7 +219,9 @@ def get_cache_path_for_cli(tool_name: str, cmd_parts: list[str]) -> Path:
         cache_dir = config.paths.reference_cache_dir / tool_name / "cli" / "main"
     else:
         # subcommand help - use command path as directory structure
-        cache_dir = config.paths.reference_cache_dir / tool_name / "cli" / "/".join(cmd_parts)
+        cache_dir = (
+            config.paths.reference_cache_dir / tool_name / "cli" / "/".join(cmd_parts)
+        )
 
     return cache_dir / "output.txt"
 

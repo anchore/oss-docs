@@ -18,7 +18,6 @@ import click
 from utils import config, log
 
 
-
 @click.command()
 @click.option(
     "--update",
@@ -128,7 +127,9 @@ def save_json_data(formats, output_path: Path, logger) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # add auto-generated comment as a special field
-    comment = config.get_generated_comment("scripts/generate_format_versions.py", "json")
+    comment = config.get_generated_comment(
+        "scripts/generate_format_versions.py", "json"
+    )
     data = {"_comment": comment, **formats}
 
     with open(output_path, "w") as f:
@@ -153,7 +154,9 @@ def generate_markdown_snippet(formats, output_path: Path, logger) -> None:
         return
 
     # add auto-generated comment
-    comment = config.get_generated_comment("scripts/generate_format_versions.py", "html")
+    comment = config.get_generated_comment(
+        "scripts/generate_format_versions.py", "html"
+    )
 
     # generate markdown list only
     lines = []
@@ -187,7 +190,6 @@ def load_existing_formats(json_path: Path):
         logger = logging.getLogger(__name__)
         logger.warning(f"Invalid JSON in {json_path}: {e}")
         return None
-
 
 
 if __name__ == "__main__":

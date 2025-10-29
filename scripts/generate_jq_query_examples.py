@@ -156,7 +156,9 @@ def generate_example(
         source_files.append(config_file)
 
     # Check if outputs need regeneration
-    if not output_manager.should_regenerate_multiple([query_md, example_md, output_md], source_files, update):
+    if not output_manager.should_regenerate_multiple(
+        [query_md, example_md, output_md], source_files, update
+    ):
         return False
 
     # Import sbom utility for SBOM generation
@@ -192,7 +194,9 @@ def generate_example(
         config_path = example_file.parent / config
         if config_path.exists():
             config_content = config_path.read_text()
-            config_md = markdown.create_code_fence(f"# .syft.yaml\n{config_content}", "yaml")
+            config_md = markdown.create_code_fence(
+                f"# .syft.yaml\n{config_content}", "yaml"
+            )
             (example_dir / "config.md").write_text(config_md)
 
     # Run jq query and generate output.md

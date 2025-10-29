@@ -1,5 +1,7 @@
 """Markdown generation utilities for documentation scripts."""
 
+from typing import Any
+
 
 def create_code_fence(content: str, language: str = "") -> str:
     """
@@ -32,7 +34,7 @@ def generate_front_matter(
     url: str | None = None,
     description: str | None = None,
     aliases: list[str] | None = None,
-    params: dict[str, any] | None = None,
+    params: dict[str, Any] | None = None,
 ) -> str:
     """
     Generate Hugo front matter in TOML format.
