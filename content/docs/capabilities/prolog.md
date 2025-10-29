@@ -3,6 +3,7 @@ title = "Prolog"
 description = "Prolog package analysis and vulnerability scanning capabilities"
 weight = 240
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

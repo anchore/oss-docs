@@ -67,11 +67,64 @@
   {{- end }}
   {{- if $withChild }}
   {{- $ulNr := add $ulNr 1 }}
-  <ul class="ul-{{ $ulNr }}{{ if (gt $ulNr 1)}} foldable{{end}}">
-    {{ range $pages -}}
-    {{ if (not (and (eq $s $p.Site.Home) (eq .Params.toc_root true))) -}}
-    {{ template "section-tree-nav-section" (dict "page" $p "section" . "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "ulNr" $ulNr "ulShow" $ulShow) }}
+  {{- $isCapabilitiesSection := eq $s.Title "Capabilities" }}
+  {{- $sortedPages := $pages }}
+  {{- if $isCapabilitiesSection }}
+    {{- $groupConfigs := $p.Site.Params.capabilities_groups }}
+    {{- $tempSorted := slice }}
+
+    {{- /* Build lookup map and sort pages by group order */ -}}
+    {{- $p.Scratch.Set "cap_group_titles" dict }}
+    {{- range $idx, $grpCfg := $groupConfigs }}
+      {{- /* Store title for later lookup */ -}}
+      {{- $titles := $p.Scratch.Get "cap_group_titles" }}
+      {{- $titles = merge $titles (dict $grpCfg.id $grpCfg.title) }}
+      {{- $p.Scratch.Set "cap_group_titles" $titles }}
+
+      {{- /* Collect all pages for this group */ -}}
+      {{- range $pages }}
+        {{- if eq .Params.menu_group $grpCfg.id }}
+          {{- $tempSorted = $tempSorted | append . }}
+        {{- end }}
+      {{- end }}
     {{- end }}
+
+    {{- /* Add ungrouped pages at the end */ -}}
+    {{- $knownGroups := slice }}
+    {{- range $groupConfigs }}
+      {{- $knownGroups = $knownGroups | append .id }}
+    {{- end }}
+    {{- range $pages }}
+      {{- if not (in $knownGroups .Params.menu_group) }}
+        {{- $tempSorted = $tempSorted | append . }}
+      {{- end }}
+    {{- end }}
+    {{- $sortedPages = $tempSorted }}
+  {{- end }}
+  <ul class="ul-{{ $ulNr }}{{ if (gt $ulNr 1)}} foldable{{end}}">
+    {{ if and $isCapabilitiesSection $activePath -}}
+      {{- $p.Scratch.Set "cap_lastgroup" "" }}
+      {{- range $sortedPages }}
+        {{ if (not (and (eq $s $p.Site.Home) (eq .Params.toc_root true))) -}}
+        {{- $currentGrp := .Params.menu_group | default "" }}
+        {{- $lastGrp := $p.Scratch.Get "cap_lastgroup" }}
+        {{- if and (ne $currentGrp "") (ne $currentGrp $lastGrp) }}
+        {{- $titles := $p.Scratch.Get "cap_group_titles" }}
+        {{- $displayTitle := index $titles $currentGrp | default $currentGrp }}
+        <li class="td-sidebar-group-header">{{ $displayTitle }}</li>
+        {{- end }}
+        {{- if ne $currentGrp "" }}
+        {{- $p.Scratch.Set "cap_lastgroup" $currentGrp }}
+        {{- end }}
+        {{ template "section-tree-nav-section" (dict "page" $p "section" . "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "ulNr" $ulNr "ulShow" $ulShow) }}
+        {{- end }}
+      {{- end }}
+    {{- else }}
+      {{ range $sortedPages -}}
+      {{ if (not (and (eq $s $p.Site.Home) (eq .Params.toc_root true))) -}}
+      {{ template "section-tree-nav-section" (dict "page" $p "section" . "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "ulNr" $ulNr "ulShow" $ulShow) }}
+      {{- end }}
+      {{- end }}
     {{- end }}
   </ul>
   {{- end }}

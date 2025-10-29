@@ -3,6 +3,7 @@ title = "Swift"
 description = "Swift package analysis and vulnerability scanning capabilities"
 weight = 320
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

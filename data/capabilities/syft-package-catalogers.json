@@ -1,9 +1,20 @@
 {
   "catalogers": [
     {
-      "ecosystem": "arch",
+      "ecosystem": "alpm",
       "name": "alpm-db-cataloger",
       "type": "generic",
+      "selectors": [
+        "alpm",
+        "archlinux",
+        "directory",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package",
+        "pacman"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -64,6 +75,16 @@
       "ecosystem": "alpine",
       "name": "apk-db-cataloger",
       "type": "generic",
+      "selectors": [
+        "alpine",
+        "apk",
+        "directory",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -84,7 +105,8 @@
             {
               "name": "dependency.depth",
               "default": [
-                "direct"
+                "direct",
+                "indirect"
               ]
             },
             {
@@ -126,6 +148,14 @@
       "ecosystem": "binary",
       "name": "binary-classifier-cataloger",
       "type": "custom",
+      "selectors": [
+        "binary",
+        "declared",
+        "directory",
+        "image",
+        "installed",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1475,6 +1505,16 @@
       "ecosystem": "binary",
       "name": "elf-binary-package-cataloger",
       "type": "custom",
+      "selectors": [
+        "binary",
+        "declared",
+        "directory",
+        "elf",
+        "elf-package",
+        "image",
+        "installed",
+        "package"
+      ],
       "patterns": [
         {
           "method": "mimetype",
@@ -1529,6 +1569,18 @@
       "ecosystem": "binary",
       "name": "pe-binary-package-cataloger",
       "type": "generic",
+      "selectors": [
+        "binary",
+        "declared",
+        "directory",
+        "dll",
+        "exe",
+        "image",
+        "installed",
+        "package",
+        "pe",
+        "pe-package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1579,6 +1631,12 @@
       "ecosystem": "bitnami",
       "name": "bitnami-cataloger",
       "type": "generic",
+      "selectors": [
+        "bitnami",
+        "image",
+        "installed",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1594,7 +1652,7 @@
           "capabilities": [
             {
               "name": "license",
-              "default": false
+              "default": true
             },
             {
               "name": "dependency.depth",
@@ -1636,6 +1694,15 @@
       "ecosystem": "rust",
       "name": "cargo-auditable-binary-cataloger",
       "type": "generic",
+      "selectors": [
+        "binary",
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "rust"
+      ],
       "patterns": [
         {
           "method": "mimetype",
@@ -1695,6 +1762,14 @@
       "ecosystem": "rust",
       "name": "rust-cargo-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "cargo",
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "rust"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1754,6 +1829,14 @@
       "ecosystem": "swift",
       "name": "cocoapods-cataloger",
       "type": "generic",
+      "selectors": [
+        "cocoapods",
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "swift"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1811,6 +1894,14 @@
       "ecosystem": "swift",
       "name": "swift-package-manager-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "spm",
+        "swift"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1866,6 +1957,14 @@
       "ecosystem": "c++",
       "name": "conan-cataloger",
       "type": "generic",
+      "selectors": [
+        "conan",
+        "cpp",
+        "declared",
+        "directory",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -1912,7 +2011,11 @@
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": false
+              "default": true,
+              "evidence": [
+                "ConanV1LockEntry.Ref",
+                "ConanV2LockEntry.RecipeRevision"
+              ]
             }
           ]
         },
@@ -1968,6 +2071,14 @@
       "ecosystem": "c++",
       "name": "conan-info-cataloger",
       "type": "generic",
+      "selectors": [
+        "conan",
+        "cpp",
+        "image",
+        "installed",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2021,6 +2132,12 @@
       "ecosystem": "conda",
       "name": "conda-meta-cataloger",
       "type": "generic",
+      "selectors": [
+        "conda",
+        "directory",
+        "installed",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2071,7 +2188,11 @@
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": true
+              "default": true,
+              "evidence": [
+                "CondaMetaPackage.MD5",
+                "CondaMetaPackage.SHA256"
+              ]
             }
           ]
         }
@@ -2081,6 +2202,13 @@
       "ecosystem": "dart",
       "name": "dart-pubspec-cataloger",
       "type": "generic",
+      "selectors": [
+        "dart",
+        "declared",
+        "directory",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2135,6 +2263,13 @@
       "ecosystem": "dart",
       "name": "dart-pubspec-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "dart",
+        "declared",
+        "directory",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2187,9 +2322,19 @@
       ]
     },
     {
-      "ecosystem": "debian",
+      "ecosystem": "dpkg",
       "name": "dpkg-db-cataloger",
       "type": "generic",
+      "selectors": [
+        "debian",
+        "directory",
+        "dpkg",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2250,9 +2395,18 @@
       ]
     },
     {
-      "ecosystem": "debian",
+      "ecosystem": "dpkg",
       "name": "deb-archive-cataloger",
       "type": "generic",
+      "selectors": [
+        "deb",
+        "debian",
+        "declared",
+        "directory",
+        "linux",
+        "os",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2308,6 +2462,15 @@
       "ecosystem": "dotnet",
       "name": "dotnet-deps-binary-cataloger",
       "type": "custom",
+      "selectors": [
+        "c#",
+        "directory",
+        "dotnet",
+        "image",
+        "installed",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2366,6 +2529,11 @@
       "ecosystem": "dotnet",
       "name": "dotnet-deps-cataloger",
       "type": "custom",
+      "selectors": [
+        "deprecated",
+        "package"
+      ],
+      "deprecated": true,
       "patterns": [
         {
           "method": "glob",
@@ -2420,6 +2588,15 @@
       "ecosystem": "dotnet",
       "name": "dotnet-packages-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "c#",
+        "declared",
+        "directory",
+        "dotnet",
+        "image",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2479,6 +2656,11 @@
       "ecosystem": "dotnet",
       "name": "dotnet-portable-executable-cataloger",
       "type": "custom",
+      "selectors": [
+        "deprecated",
+        "package"
+      ],
+      "deprecated": true,
       "patterns": [
         {
           "method": "glob",
@@ -2554,6 +2736,13 @@
       "ecosystem": "elixir",
       "name": "elixir-mix-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "elixir",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2613,6 +2802,14 @@
       "ecosystem": "erlang",
       "name": "erlang-otp-application-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "erlang",
+        "language",
+        "otp",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2664,6 +2861,13 @@
       "ecosystem": "erlang",
       "name": "erlang-rebar-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "erlang",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2722,6 +2926,13 @@
       "ecosystem": "github-actions",
       "name": "github-action-workflow-usage-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "github",
+        "github-actions",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2772,6 +2983,13 @@
       "ecosystem": "github-actions",
       "name": "github-actions-usage-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "github",
+        "github-actions",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -2865,6 +3083,17 @@
       "ecosystem": "go",
       "name": "go-module-binary-cataloger",
       "type": "generic",
+      "selectors": [
+        "binary",
+        "directory",
+        "go",
+        "golang",
+        "gomod",
+        "image",
+        "installed",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "mimetype",
@@ -2982,6 +3211,15 @@
       "ecosystem": "go",
       "name": "go-module-file-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "go",
+        "golang",
+        "gomod",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3096,6 +3334,15 @@
       "ecosystem": "java",
       "name": "java-archive-cataloger",
       "type": "custom",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "language",
+        "maven",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3114,6 +3361,9 @@
           "comment": "JAR-based archives - always active",
           "package_types": [
             "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
           ]
         },
         {
@@ -3131,6 +3381,9 @@
           "comment": "ZIP archives require indexed archive support",
           "package_types": [
             "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
           ]
         },
         {
@@ -3166,6 +3419,9 @@
           "comment": "TAR archives require unindexed archive support",
           "package_types": [
             "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
           ]
         }
       ],
@@ -3256,6 +3512,14 @@
       "ecosystem": "java",
       "name": "java-gradle-lockfile-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "gradle",
+        "java",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3311,6 +3575,14 @@
       "ecosystem": "java",
       "name": "java-pom-cataloger",
       "type": "custom",
+      "selectors": [
+        "declared",
+        "directory",
+        "java",
+        "language",
+        "maven",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3365,6 +3637,17 @@
       "ecosystem": "java",
       "name": "java-jvm-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "jdk",
+        "jre",
+        "jvm",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3423,6 +3706,14 @@
       "ecosystem": "java",
       "name": "graalvm-native-image-cataloger",
       "type": "custom",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "mimetype",
@@ -3480,6 +3771,15 @@
       "ecosystem": "haskell",
       "name": "haskell-cataloger",
       "type": "generic",
+      "selectors": [
+        "cabal",
+        "declared",
+        "directory",
+        "hackage",
+        "haskell",
+        "language",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3633,6 +3933,13 @@
       "ecosystem": "homebrew",
       "name": "homebrew-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "homebrew",
+        "image",
+        "installed",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3683,6 +3990,15 @@
       "ecosystem": "javascript",
       "name": "javascript-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "javascript",
+        "language",
+        "node",
+        "npm",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3855,6 +4171,14 @@
       "ecosystem": "javascript",
       "name": "javascript-package-cataloger",
       "type": "generic",
+      "selectors": [
+        "image",
+        "installed",
+        "javascript",
+        "language",
+        "node",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3908,6 +4232,15 @@
       "ecosystem": "linux",
       "name": "linux-kernel-cataloger",
       "type": "custom",
+      "selectors": [
+        "declared",
+        "directory",
+        "image",
+        "installed",
+        "kernel",
+        "linux",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -3975,6 +4308,14 @@
       "ecosystem": "lua",
       "name": "lua-rock-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "lua",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4028,6 +4369,14 @@
       "ecosystem": "nix",
       "name": "nix-cataloger",
       "type": "custom",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "nix",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4087,6 +4436,11 @@
       "ecosystem": "nix",
       "name": "nix-store-cataloger",
       "type": "custom",
+      "selectors": [
+        "deprecated",
+        "package"
+      ],
+      "deprecated": true,
       "patterns": [
         {
           "method": "glob",
@@ -4166,6 +4520,14 @@
       "ecosystem": "ocaml",
       "name": "opam-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "ocaml",
+        "opam",
+        "package"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4219,6 +4581,14 @@
       "ecosystem": "php",
       "name": "php-composer-installed-cataloger",
       "type": "generic",
+      "selectors": [
+        "composer",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "php"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4274,6 +4644,14 @@
       "ecosystem": "php",
       "name": "php-composer-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "composer",
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "php"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4328,6 +4706,15 @@
       "ecosystem": "php",
       "name": "php-interpreter-cataloger",
       "type": "custom",
+      "selectors": [
+        "binary",
+        "declared",
+        "directory",
+        "image",
+        "installed",
+        "package",
+        "php"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4383,6 +4770,15 @@
       "ecosystem": "php",
       "name": "php-pear-serialized-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "image",
+        "language",
+        "package",
+        "pear",
+        "php"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4436,6 +4832,11 @@
       "ecosystem": "php",
       "name": "php-pecl-serialized-cataloger",
       "type": "generic",
+      "selectors": [
+        "deprecated",
+        "package"
+      ],
+      "deprecated": true,
       "patterns": [
         {
           "method": "glob",
@@ -4486,9 +4887,19 @@
       ]
     },
     {
-      "ecosystem": "gentoo",
+      "ecosystem": "portage",
       "name": "portage-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "gentoo",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package",
+        "portage"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4548,6 +4959,14 @@
       "ecosystem": "python",
       "name": "python-installed-package-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "python"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4611,6 +5030,13 @@
       "ecosystem": "python",
       "name": "python-package-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "python"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4817,7 +5243,9 @@
             },
             {
               "name": "dependency.depth",
-              "default": []
+              "default": [
+                "direct"
+              ]
             },
             {
               "name": "dependency.edges",
@@ -4825,7 +5253,9 @@
             },
             {
               "name": "dependency.kinds",
-              "default": []
+              "default": [
+                "any"
+              ]
             },
             {
               "name": "package_manager.files.listing",
@@ -4857,6 +5287,14 @@
       "ecosystem": "r",
       "name": "r-package-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "r"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4906,6 +5344,15 @@
       "ecosystem": "rpm",
       "name": "rpm-archive-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "linux",
+        "os",
+        "package",
+        "redhat",
+        "rpm"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -4925,19 +5372,15 @@
             },
             {
               "name": "dependency.depth",
-              "default": [
-                "direct"
-              ]
+              "default": []
             },
             {
               "name": "dependency.edges",
-              "default": "complete"
+              "default": ""
             },
             {
               "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
+              "default": []
             },
             {
               "name": "package_manager.files.listing",
@@ -4965,6 +5408,16 @@
       "ecosystem": "rpm",
       "name": "rpm-db-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package",
+        "redhat",
+        "rpm"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5072,6 +5525,14 @@
       "ecosystem": "ruby",
       "name": "ruby-gemfile-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "gem",
+        "language",
+        "package",
+        "ruby"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5124,6 +5585,15 @@
       "ecosystem": "ruby",
       "name": "ruby-gemspec-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "gem",
+        "gemspec",
+        "language",
+        "package",
+        "ruby"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5180,6 +5650,15 @@
       "ecosystem": "ruby",
       "name": "ruby-installed-gemspec-cataloger",
       "type": "generic",
+      "selectors": [
+        "gem",
+        "gemspec",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "ruby"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5237,6 +5716,10 @@
       "ecosystem": "sbom",
       "name": "sbom-cataloger",
       "type": "generic",
+      "selectors": [
+        "package",
+        "sbom"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5296,6 +5779,13 @@
       "ecosystem": "snap",
       "name": "snap-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "package",
+        "snap"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5513,6 +6003,14 @@
       "ecosystem": "prolog",
       "name": "swipl-pack-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "pack",
+        "package",
+        "swipl"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5567,6 +6065,12 @@
       "ecosystem": "terraform",
       "name": "terraform-lock-cataloger",
       "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "package",
+        "terraform"
+      ],
       "patterns": [
         {
           "method": "glob",
@@ -5610,7 +6114,10 @@
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": true
+              "default": true,
+              "evidence": [
+                "TerraformLockProviderEntry.Hashes"
+              ]
             }
           ]
         }
@@ -5620,6 +6127,12 @@
       "ecosystem": "wordpress",
       "name": "wordpress-plugins-cataloger",
       "type": "generic",
+      "selectors": [
+        "directory",
+        "image",
+        "package",
+        "wordpress"
+      ],
       "patterns": [
         {
           "method": "glob",

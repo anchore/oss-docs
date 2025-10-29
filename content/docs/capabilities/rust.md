@@ -3,6 +3,7 @@ title = "Rust"
 description = "Rust package analysis and vulnerability scanning capabilities"
 weight = 290
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

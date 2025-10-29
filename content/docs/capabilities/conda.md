@@ -3,6 +3,7 @@ title = "Conda"
 description = "Conda package analysis and vulnerability scanning capabilities"
 weight = 50
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

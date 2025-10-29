@@ -12,7 +12,7 @@ from pathlib import Path
 from .config import docker_images, timeouts
 
 
-def run_syft(
+def run(
     syft_image: str = docker_images.syft,
     args: list[str] | None = None,
     timeout: int = timeouts.syft_scan_default,
@@ -39,13 +39,13 @@ def run_syft(
 
     Examples:
         >>> # Scan an image
-        >>> stdout, stderr, code = run_syft(args=["alpine:3.9.2", "-o", "json"])
+        >>> stdout, stderr, code = syft.run(args=["alpine:3.9.2", "-o", "json"])
         >>>
         >>> # Get version
-        >>> stdout, stderr, code = run_syft(args=["version"])
+        >>> stdout, stderr, code = syft.run(args=["version"])
         >>>
         >>> # Get config
-        >>> stdout, stderr, code = run_syft(args=["config"])
+        >>> stdout, stderr, code = syft.run(args=["config"])
     """
     docker_cmd = ["docker", "run", "--rm"]
 
@@ -80,7 +80,7 @@ def run_syft(
         raise
 
 
-def run_syft_scan(
+def scan(
     target_image: str,
     syft_image: str = docker_images.syft,
     output_format: str = "syft-json",
@@ -114,7 +114,7 @@ def run_syft_scan(
         args.extend(extra_args)
 
     try:
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = run(
             syft_image=syft_image,
             args=args,
             timeout=timeout,
@@ -133,7 +133,7 @@ def run_syft_scan(
         raise RuntimeError(f"Failed to run Syft: {e}") from e
 
 
-def run_syft_with_template(
+def scan_with_template(
     template_file: Path,
     target_image: str,
     syft_image: str = docker_images.syft,
@@ -163,7 +163,7 @@ def run_syft_with_template(
     # use template output format with path to mounted template
     extra_args = ["-t", "/template.tmpl"]
 
-    return run_syft_scan(
+    return scan(
         target_image=target_image,
         syft_image=syft_image,
         output_format="template",
@@ -173,7 +173,7 @@ def run_syft_with_template(
     )
 
 
-def run_syft_with_config(
+def scan_with_config(
     target_image: str,
     config_file: Path,
     syft_image: str = docker_images.syft,
@@ -208,7 +208,7 @@ def run_syft_with_config(
     # specify config file path
     extra_args = ["-c", "/config.yaml"]
 
-    return run_syft_scan(
+    return scan(
         target_image=target_image,
         syft_image=syft_image,
         output_format=output_format,
@@ -218,7 +218,7 @@ def run_syft_with_config(
     )
 
 
-def run_syft_convert(
+def convert(
     sbom_file: Path,
     template_file: Path,
     syft_image: str = docker_images.syft,
@@ -259,7 +259,7 @@ def run_syft_convert(
     args = ["convert", "/sbom.json", "-o", "template", "-t", "/template.tmpl"]
 
     try:
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = run(
             syft_image=syft_image,
             args=args,
             timeout=timeout,
@@ -279,7 +279,7 @@ def run_syft_convert(
         raise RuntimeError(f"Failed to run Syft convert: {e}") from e
 
 
-def run_syft_convert_format(
+def convert_format(
     sbom_file: Path,
     output_format: str,
     syft_image: str = docker_images.syft,
@@ -316,7 +316,7 @@ def run_syft_convert_format(
     args = ["convert", "/sbom.json", "-o", output_format]
 
     try:
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = run(
             syft_image=syft_image,
             args=args,
             timeout=timeout,
@@ -337,7 +337,7 @@ def run_syft_convert_format(
         raise RuntimeError(f"Failed to run Syft convert: {e}") from e
 
 
-def run_syft_with_format(
+def scan_with_format(
     target_image: str,
     syft_image: str = docker_images.syft,
     output_format: str = "json",
@@ -370,7 +370,7 @@ def run_syft_with_format(
     if file_metadata_selection:
         env_vars["SYFT_FILE_METADATA_SELECTION"] = file_metadata_selection
 
-    return run_syft_scan(
+    return scan(
         target_image=target_image,
         syft_image=syft_image,
         output_format=output_format,

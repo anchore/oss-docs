@@ -3,6 +3,7 @@ title = "Go"
 description = "Go package analysis and vulnerability scanning capabilities"
 weight = 130
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

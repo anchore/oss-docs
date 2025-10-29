@@ -3,6 +3,7 @@ title = "OCaml"
 description = "OCaml package analysis and vulnerability scanning capabilities"
 weight = 210
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

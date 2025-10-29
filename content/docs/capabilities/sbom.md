@@ -3,6 +3,7 @@ title = "SBOM"
 description = "SBOM package analysis and vulnerability scanning capabilities"
 weight = 300
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

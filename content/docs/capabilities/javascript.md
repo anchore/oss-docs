@@ -3,6 +3,7 @@ title = "JavaScript"
 description = "JavaScript package analysis and vulnerability scanning capabilities"
 weight = 170
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

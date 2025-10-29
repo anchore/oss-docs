@@ -13,7 +13,7 @@ from datetime import datetime
 
 import click
 import requests
-from utils.logging import setup_logging
+from utils import log
 
 # GitHub API configuration
 HEADERS = {"Accept": "application/vnd.github.v3+json"}
@@ -160,7 +160,7 @@ def main(
     verbose: int,
 ) -> None:
     """Generate Hugo markdown files from GitHub releases with minimal processing."""
-    logger = setup_logging(verbose, __file__)
+    logger = log.setup(verbose, __file__)
 
     repo_full = f"anchore/{repo}"
 

@@ -3,6 +3,7 @@ title = "Homebrew"
 description = "Homebrew package analysis and vulnerability scanning capabilities"
 weight = 150
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

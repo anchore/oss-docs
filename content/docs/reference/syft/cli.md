@@ -274,14 +274,14 @@ Flags:
 
 ### `syft version`
 
+Show version information.
+
 ```
-Application:   syft
-Version:       1.33.0-SNAPSHOT-1510db7c
-BuildDate:     2025-10-14T14:06:38Z
-GitCommit:     1510db7c4ea279ff41bc5f0dca627ec2c1c200d0
-GitDescription: v1.33.0-35-g1510db7c
-Platform:      linux/amd64
-GoVersion:     go1.24.4
-Compiler:      gc
-SchemaVersion: 16.0.40
+Usage:
+  syft version [flags]
+
+Flags:
+  -h, --help            help for version
+  -o, --output string   the format to show the results (allowable: [text json]) (default "text")
+
 ```

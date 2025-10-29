@@ -3,6 +3,7 @@ title = "PHP"
 description = "PHP package analysis and vulnerability scanning capabilities"
 weight = 220
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

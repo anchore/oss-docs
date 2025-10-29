@@ -11,7 +11,7 @@ from rich.console import Console
 from rich.logging import RichHandler
 
 
-def setup_logging(verbosity: int = 0, script_name: str | None = None) -> logging.Logger:
+def setup(verbosity: int = 0, script_name: str | None = None) -> logging.Logger:
     """
     configure logging with RichHandler for pretty output.
 
@@ -26,7 +26,7 @@ def setup_logging(verbosity: int = 0, script_name: str | None = None) -> logging
         >>> # in a script with click
         >>> @click.option("-v", "--verbose", count=True)
         >>> def main(verbose: int):
-        ...     logger = setup_logging(verbose, __file__)
+        ...     logger = log.setup(verbose, __file__)
         ...     logger.info("Starting script...")
     """
     # map verbosity count to log level
@@ -85,11 +85,11 @@ def setup_logging(verbosity: int = 0, script_name: str | None = None) -> logging
     return logger
 
 
-def get_logger(name: str | None = None) -> logging.Logger:
+def logger(name: str | None = None) -> logging.Logger:
     """
     get a logger instance for use in utility modules.
 
-    this function assumes setup_logging() has already been called
+    this function assumes setup() has already been called
     by the main script entrypoint.
 
     Args:
@@ -100,7 +100,7 @@ def get_logger(name: str | None = None) -> logging.Logger:
 
     Examples:
         >>> # in a utility module
-        >>> logger = get_logger(__name__)
+        >>> logger = log.logger(__name__)
         >>> logger.debug("Processing data...")
     """
     return logging.getLogger(name)

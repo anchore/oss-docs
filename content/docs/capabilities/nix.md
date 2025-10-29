@@ -3,6 +3,7 @@ title = "Nix"
 description = "Nix package analysis and vulnerability scanning capabilities"
 weight = 200
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

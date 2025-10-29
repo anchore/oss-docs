@@ -3,6 +3,7 @@ title = "Dart"
 description = "Dart package analysis and vulnerability scanning capabilities"
 weight = 70
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

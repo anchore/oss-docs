@@ -9,10 +9,7 @@ import sys
 from pathlib import Path
 
 import click
-from utils.cache import get_cached_output, save_to_cache
-from utils.config import get_generated_comment, paths, reference_weights
-from utils.logging import setup_logging
-from utils.syft import run_syft
+from utils import cache, config, log, markdown, syft, version
 
 
 @click.command()
@@ -54,7 +51,7 @@ def main(
 
     IMAGE: Container image (e.g., anchore/syft:latest)
     """
-    logger = setup_logging(verbose, __file__)
+    logger = log.setup(verbose, __file__)
 
     # Auto-detect tool and app names if not provided
     if not tool_name:
@@ -75,6 +72,11 @@ def main(
     output_dir = os.path.dirname(output)
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
+
+    # Check if output is up-to-date
+    if is_output_up_to_date(output, tool_name, update):
+        logger.info(f"Configuration docs are up-to-date, skipping generation: {output}")
+        return
 
     # Generate markdown content
     try:
@@ -98,21 +100,19 @@ def generate_markdown_content(
     # Prepare tool name for display
     tool_display = tool_name.title()
 
-    # Generate front matter
-    weight = reference_weights.get_weight(tool_name, "config")
-    content = f"""+++
-title = "{tool_display} Default Configuration"
-linkTitle = "{tool_display} Default Config"
-weight = {weight}
-tags = ['{tool_name.lower()}']
-categories = ['reference']
-url = "docs/reference/{tool_name.lower()}/configuration"
-+++
-
-"""
+    # Generate front matter using utility
+    weight = config.reference_weights.get_weight(tool_name, "config")
+    content = markdown.generate_front_matter(
+        title=f"{tool_display} Default Configuration",
+        link_title=f"{tool_display} Default Config",
+        weight=weight,
+        tags=[tool_name.lower()],
+        categories=["reference"],
+        url=f"docs/reference/{tool_name.lower()}/configuration",
+    )
 
     # Add auto-generated comment
-    content += get_generated_comment(
+    content += config.get_generated_comment(
         "scripts/generate_reference_config_docs.py", "html"
     )
 
@@ -135,7 +135,7 @@ This documentation was generated with {tool_display} version `{app_version}`.
     config_output = get_config_output(image, tool_name, update)
 
     if config_output:
-        content += f"```yaml\n{config_output}\n```\n\n"
+        content += markdown.create_code_fence(config_output, "yaml") + "\n"
     else:
         raise RuntimeError(
             f"Failed to retrieve configuration from the image '{image}'."
@@ -155,8 +155,48 @@ def get_cache_path(tool_name: str, command_type: str) -> Path:
     Returns:
         Path to cache file
     """
-    cache_dir = paths.reference_cache_dir / tool_name / command_type
+    cache_dir = config.paths.reference_cache_dir / tool_name / command_type
     return cache_dir / "output.txt"
+
+
+def is_output_up_to_date(output_path: str, tool_name: str, update: bool) -> bool:
+    """
+    check if output file is up-to-date relative to cache files.
+
+    Args:
+        output_path: path to output markdown file
+        tool_name: tool name (e.g., "syft", "grype")
+        update: if true, always return False to force regeneration
+
+    Returns:
+        True if output exists and is newer than all cache files
+    """
+    # if updating, always regenerate
+    if update:
+        return False
+
+    # check if output exists
+    output_file = Path(output_path)
+    if not output_file.exists():
+        return False
+
+    # get output modification time
+    output_mtime = output_file.stat().st_mtime
+
+    # check version cache
+    version_cache = get_cache_path(tool_name, "version")
+    if version_cache.exists():
+        if version_cache.stat().st_mtime > output_mtime:
+            return False
+
+    # check config cache
+    config_cache = get_cache_path(tool_name, "config")
+    if config_cache.exists():
+        if config_cache.stat().st_mtime > output_mtime:
+            return False
+
+    # output is up-to-date
+    return True
 
 
 def get_config_locations_section(app_name: str, tool_display: str) -> str:
@@ -180,29 +220,25 @@ def get_app_version(image: str, tool_name: str, update: bool = False) -> str | N
     """Get the application version from the image."""
     # check cache first
     cache_path = get_cache_path(tool_name, "version")
-    cached = get_cached_output(cache_path, update)
+    cached = cache.get_output(cache_path, update)
 
     if cached is not None:
-        # parse cached output
-        for line in cached.splitlines():
-            if line.startswith("Version:"):
-                return line.split(":", 1)[1].strip()
-        return None
+        # parse cached output using utility function
+        return version.extract_from_output(cached, tool_name=tool_name)
 
     # run command
-    stdout, stderr, returncode = run_syft(
+    stdout, stderr, returncode = syft.run(
         syft_image=image,
         args=["version"],
     )
 
     if returncode == 0:
         # save to cache
-        save_to_cache(cache_path, stdout)
+        cache.save(cache_path, stdout)
 
-        # parse output
-        for line in stdout.splitlines():
-            if line.startswith("Version:"):
-                return line.split(":", 1)[1].strip()
+        # parse output using utility function
+        return version.extract_from_output(stdout, tool_name=tool_name)
+
     return None
 
 
@@ -210,20 +246,20 @@ def get_config_output(image: str, tool_name: str, update: bool = False) -> str |
     """Get configuration output from the app."""
     # check cache first
     cache_path = get_cache_path(tool_name, "config")
-    cached = get_cached_output(cache_path, update)
+    cached = cache.get_output(cache_path, update)
 
     if cached is not None:
         return cached.strip()
 
     # run command
-    stdout, stderr, returncode = run_syft(
+    stdout, stderr, returncode = syft.run(
         syft_image=image,
         args=["config"],
     )
 
     if returncode == 0:
         # save to cache
-        save_to_cache(cache_path, stdout)
+        cache.save(cache_path, stdout)
         return stdout.strip()
     return None
 

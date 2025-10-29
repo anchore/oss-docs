@@ -3,6 +3,7 @@ title = "GitHub Actions"
 description = "GitHub Actions package analysis and vulnerability scanning capabilities"
 weight = 120
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

@@ -8,14 +8,12 @@ of the same images during documentation generation.
 
 from pathlib import Path
 
-from .config import timeouts
-from .logging import get_logger
-from .syft import run_syft_scan, run_syft_with_config
+from . import config, log, syft
 
-logger = get_logger(__name__)
+logger = log.logger(__name__)
 
 
-def get_or_generate_sbom(
+def get_or_generate(
     image: str,
     cache_dir: Path,
     syft_image: str,
@@ -80,19 +78,19 @@ def get_or_generate_sbom(
     logger.debug(f"Generating SBOM for: {image}")
 
     if config_file:
-        sbom_json = run_syft_with_config(
+        sbom_json = syft.scan_with_config(
             target_image=image,
             config_file=config_file,
             syft_image=syft_image,
             output_format="syft-json",
-            timeout=timeouts.syft_scan_with_config,
+            timeout=config.timeouts.syft_scan_with_config,
         )
     else:
-        sbom_json = run_syft_scan(
+        sbom_json = syft.scan(
             target_image=image,
             syft_image=syft_image,
             output_format="syft-json",
-            timeout=timeouts.syft_scan_default,
+            timeout=config.timeouts.syft_scan_default,
         )
 
     # save to cache

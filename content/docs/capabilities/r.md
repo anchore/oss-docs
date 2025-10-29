@@ -3,6 +3,7 @@ title = "R"
 description = "R package analysis and vulnerability scanning capabilities"
 weight = 260
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

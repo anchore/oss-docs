@@ -10,10 +10,7 @@ from collections import deque
 from pathlib import Path
 
 import click
-from utils.cache import get_cached_output, save_to_cache
-from utils.config import get_generated_comment, paths, reference_weights
-from utils.logging import setup_logging
-from utils.syft import run_syft
+from utils import cache, config, log, markdown, syft, version
 
 
 @click.command()
@@ -67,7 +64,7 @@ def main(
 
     IMAGE: Container image (e.g., anchore/syft:latest)
     """
-    logger = setup_logging(verbose, __file__)
+    logger = log.setup(verbose, __file__)
 
     # Auto-detect tool and app names if not provided
     if not tool_name:
@@ -88,6 +85,11 @@ def main(
     output_dir = os.path.dirname(output)
     if output_dir and not os.path.exists(output_dir):
         os.makedirs(output_dir, exist_ok=True)
+
+    # Check if output is up-to-date
+    if is_output_up_to_date(output, tool_name, update):
+        logger.info(f"CLI docs are up-to-date, skipping generation: {output}")
+        return
 
     # Generate markdown content
     try:
@@ -123,39 +125,24 @@ def generate_markdown_content(
     # Prepare tool name for display
     tool_display = tool_name.title()
 
-    # Generate front matter
-    weight = reference_weights.get_weight(tool_name, "cli")
-    content = f"""+++
-title = "{tool_display} Command Line Reference"
-linkTitle = "{tool_display} CLI"
-weight = {weight}
-tags = ['{tool_name.lower()}']
-categories = ['reference']
-url = "docs/reference/{tool_name.lower()}/cli"
-+++
-
-"""
+    # Generate front matter using utility
+    weight = config.reference_weights.get_weight(tool_name, "cli")
+    content = markdown.generate_front_matter(
+        title=f"{tool_display} Command Line Reference",
+        link_title=f"{tool_display} CLI",
+        weight=weight,
+        tags=[tool_name.lower()],
+        categories=["reference"],
+        url=f"docs/reference/{tool_name.lower()}/cli",
+    )
 
     # Add auto-generated comment
-    content += get_generated_comment("scripts/generate_reference_cli_docs.py", "html")
+    content += config.get_generated_comment("scripts/generate_reference_cli_docs.py", "html")
 
     # Add version info block at the top
     version_info = get_version_info(image, app_name, tool_name, update)
-    # Extract just the version line for the info block
-    version_lines = version_info.split("\n")
-    app_version = "unknown"
-    for line in version_lines:
-        if line.startswith("Version:") or line.startswith("version:"):
-            app_version = line.split(":", 1)[1].strip()
-            break
-        elif line.startswith(f"{tool_display}:") or line.startswith(f"{tool_name}:"):
-            app_version = line.split(":", 1)[1].strip()
-            break
-        elif "version" in line.lower() and ":" in line:
-            parts = line.split(":", 1)
-            if len(parts) == 2:
-                app_version = parts[1].strip()
-                break
+    # Extract version using utility function
+    app_version = version.extract_from_output(version_info, tool_name=tool_name)
 
     content += f"""{{{{< alert title="Note" >}}}}
 This documentation was generated with {tool_display} version `{app_version}`.
@@ -167,7 +154,7 @@ This documentation was generated with {tool_display} version `{app_version}`.
     main_help = get_command_help(
         image, [], tool_name, update
     )  # Empty cmd_parts for main help
-    content += f"```\n{main_help}\n```\n\n"
+    content += markdown.create_code_fence(main_help, "") + "\n"
 
     # Discover and add all subcommands
     all_commands, leaf_commands = discover_all_commands(
@@ -209,7 +196,7 @@ This documentation was generated with {tool_display} version `{app_version}`.
         content += f"### `{app_name} {cmd_string}`\n\n"
         if description:
             content += f"{description}\n\n"
-        content += f"```\n{command_details}\n```\n\n"
+        content += markdown.create_code_fence(command_details, "") + "\n"
 
     return content
 
@@ -227,10 +214,10 @@ def get_cache_path_for_cli(tool_name: str, cmd_parts: list[str]) -> Path:
     """
     if not cmd_parts:
         # main help
-        cache_dir = paths.reference_cache_dir / tool_name / "cli" / "main"
+        cache_dir = config.paths.reference_cache_dir / tool_name / "cli" / "main"
     else:
         # subcommand help - use command path as directory structure
-        cache_dir = paths.reference_cache_dir / tool_name / "cli" / "/".join(cmd_parts)
+        cache_dir = config.paths.reference_cache_dir / tool_name / "cli" / "/".join(cmd_parts)
 
     return cache_dir / "output.txt"
 
@@ -282,13 +269,13 @@ def get_subcommands(image: str, cmd_parts, tool_name: str, update: bool = False)
     """Extract subcommands from help output."""
     # check cache first
     cache_path = get_cache_path_for_cli(tool_name, cmd_parts + ["help"])
-    cached = get_cached_output(cache_path, update)
+    cached = cache.get_output(cache_path, update)
 
     if cached is not None:
         lines = cached.split("\n")
     else:
         # run command
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = syft.run(
             syft_image=image,
             args=cmd_parts + ["help"],
         )
@@ -297,7 +284,7 @@ def get_subcommands(image: str, cmd_parts, tool_name: str, update: bool = False)
             return []
 
         # save to cache
-        save_to_cache(cache_path, stdout)
+        cache.save(cache_path, stdout)
         lines = stdout.split("\n")
     in_commands_section = False
     commands = []
@@ -323,20 +310,20 @@ def get_version_info(
     """Get version information from the app."""
     # check cache first
     cache_path = get_cache_path_for_cli(tool_name, ["version"])
-    cached = get_cached_output(cache_path, update)
+    cached = cache.get_output(cache_path, update)
 
     if cached is not None:
         return cached.strip()
 
     # run command
-    stdout, stderr, returncode = run_syft(
+    stdout, stderr, returncode = syft.run(
         syft_image=image,
         args=["version"],
     )
 
     if returncode == 0:
         # save to cache
-        save_to_cache(cache_path, stdout)
+        cache.save(cache_path, stdout)
         return stdout.strip()
 
     raise RuntimeError(f"Failed to retrieve version info from the image '{image}'.")
@@ -352,7 +339,7 @@ def get_command_help(
 
     # check cache first
     cache_path = get_cache_path_for_cli(tool_name, cmd_parts)
-    cached = get_cached_output(cache_path, update)
+    cached = cache.get_output(cache_path, update)
 
     if cached is not None:
         return cached.strip()
@@ -367,16 +354,57 @@ def get_command_help(
         else:
             full_cmd = cmd_parts + [help_flag]
 
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = syft.run(
             syft_image=image,
             args=full_cmd,
         )
         if returncode == 0 and stdout.strip():
             # save to cache
-            save_to_cache(cache_path, stdout)
+            cache.save(cache_path, stdout)
             return stdout.strip()
 
     raise RuntimeError(f"Failed to retrieve help for command: {' '.join(cmd_parts)}")
+
+
+def is_output_up_to_date(output_path: str, tool_name: str, update: bool) -> bool:
+    """
+    check if output file is up-to-date relative to cache files.
+
+    Args:
+        output_path: path to output markdown file
+        tool_name: tool name (e.g., "syft", "grype")
+        update: if true, always return False to force regeneration
+
+    Returns:
+        True if output exists and is newer than all cache files
+    """
+    # if updating, always regenerate
+    if update:
+        return False
+
+    # check if output exists
+    output_file = Path(output_path)
+    if not output_file.exists():
+        return False
+
+    # get output modification time
+    output_mtime = output_file.stat().st_mtime
+
+    # find all cache files for this tool
+    cache_base = config.paths.reference_cache_dir / tool_name / "cli"
+    if not cache_base.exists():
+        # no cache exists, output is stale
+        return False
+
+    # check all cache files recursively
+    for cache_file in cache_base.rglob("output.txt"):
+        cache_mtime = cache_file.stat().st_mtime
+        if cache_mtime > output_mtime:
+            # cache is newer than output, output is stale
+            return False
+
+    # output is up-to-date
+    return True
 
 
 def split_help_output(help_output: str, is_main_help=False) -> tuple[str, str]:

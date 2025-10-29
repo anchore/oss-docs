@@ -11,11 +11,9 @@ import sys
 
 import yaml
 
-from .config import get_generated_comment, paths, timeouts
-from .logging import get_logger
-from .syft import run_syft
+from . import config, log, syft
 
-logger = get_logger(__name__)
+logger = log.logger(__name__)
 
 
 def version_to_number(version: str) -> float:
@@ -120,7 +118,7 @@ def load_ecosystem_aliases() -> dict[str, str]:
         >>> aliases = load_ecosystem_aliases()
         >>> # {'javascript': 'npm', 'typescript': 'npm'}
     """
-    aliases_file = paths.ecosystem_aliases_file
+    aliases_file = config.paths.ecosystem_aliases_file
 
     if not aliases_file.exists():
         logger.warning(f"Ecosystem aliases file not found: {aliases_file}")
@@ -149,7 +147,7 @@ def load_ecosystem_display_names() -> dict[str, str]:
         >>> display_names.get('dotnet')
         '.NET'
     """
-    aliases_file = paths.ecosystem_aliases_file
+    aliases_file = config.paths.ecosystem_aliases_file
 
     if not aliases_file.exists():
         logger.warning(f"Ecosystem aliases file not found: {aliases_file}")
@@ -178,7 +176,7 @@ def load_cataloger_data(update: bool = False) -> dict:
         >>> data = load_cataloger_data()
         >>> catalogers = data.get("catalogers", [])
     """
-    cache_file = paths.cataloger_cache_file
+    cache_file = config.paths.cataloger_cache_file
 
     # check if cache exists and we're not forcing update
     if cache_file.exists() and not update:
@@ -195,9 +193,9 @@ def load_cataloger_data(update: bool = False) -> dict:
     # generate cataloger data from syft
     logger.info("Extracting cataloger information from Syft...")
     try:
-        stdout, stderr, returncode = run_syft(
+        stdout, stderr, returncode = syft.run(
             args=["cataloger", "info", "-o", "json"],
-            timeout=timeouts.cataloger_info,
+            timeout=config.timeouts.cataloger_info,
         )
 
         if returncode != 0:
@@ -208,7 +206,7 @@ def load_cataloger_data(update: bool = False) -> dict:
 
         # save to cache
         cache_file.parent.mkdir(parents=True, exist_ok=True)
-        comment = get_generated_comment("scripts/generate_capability_tables.py", "json")
+        comment = config.get_generated_comment("scripts/generate_capability_tables.py", "json")
         cache_data = {"_comment": comment, **data}
 
         with open(cache_file, "w") as f:
@@ -240,7 +238,7 @@ def load_os_data() -> list[dict]:
         >>> for os_entry in os_list:
         ...     print(os_entry["name"])
     """
-    os_file = paths.os_data_file
+    os_file = config.paths.os_data_file
 
     if not os_file.exists():
         logger.error(f"OS data file not found: {os_file}")
@@ -345,7 +343,7 @@ def load_vulnerability_data() -> dict:
         >>> sources = vuln_data.get("sources", {})
         >>> ecosystems = vuln_data.get("ecosystems", {})
     """
-    vuln_file = paths.vulnerability_data_file
+    vuln_file = config.paths.vulnerability_data_file
 
     if not vuln_file.exists():
         logger.error(f"Vulnerability data file not found: {vuln_file}")

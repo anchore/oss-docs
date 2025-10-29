@@ -9,15 +9,14 @@ and helper functions to extract ecosystem, pattern, and capability information.
 import json
 import subprocess
 
-from .config import docker_images, paths, timeouts
-from .logging import get_logger
+from . import config, log
 
-logger = get_logger(__name__)
+logger = log.logger(__name__)
 
 
 def run_syft_cataloger_info(
-    syft_image: str = docker_images.syft,
-    timeout: int = timeouts.cataloger_info,
+    syft_image: str = config.docker_images.syft,
+    timeout: int = config.timeouts.cataloger_info,
 ) -> str:
     """
     run 'syft cataloger info' command in Docker and return JSON output.
@@ -84,7 +83,7 @@ def get_cataloger_data(skip_cache: bool = False) -> dict:
         RuntimeError: if data retrieval fails
         json.JSONDecodeError: if cached or fresh data is invalid JSON
     """
-    cache_file = paths.cataloger_cache_file
+    cache_file = config.paths.cataloger_cache_file
 
     # fast path: return cached data if available and not skipping cache
     if not skip_cache and cache_file.exists():

@@ -3,6 +3,7 @@ title = "Ruby"
 description = "Ruby package analysis and vulnerability scanning capabilities"
 weight = 280
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

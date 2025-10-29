@@ -3,6 +3,7 @@ title = "RPM"
 description = "Red Hat Package Manager format used by Red Hat-based Linux distributions"
 weight = 270
 type = "docs"
+menu_group = "os"
 [params]
 sidebar_badge = "redhat+"
 +++

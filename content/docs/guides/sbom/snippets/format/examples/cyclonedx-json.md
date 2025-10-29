@@ -5,30 +5,30 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:16b64a7f-f004-4dc8-9901-15800a374335",
+  "serialNumber": "urn:uuid:8a80f804-a4f4-4676-bbdf-274a12ff9baa",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-10-23T01:25:11Z",
+    "timestamp": "2025-10-28T13:53:47Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "author": "anchore",
           "name": "syft",
-          "version": "1.33.0"
+          "version": "1.33.0-SNAPSHOT-1510db7c"
         }
       ]
     },
     "component": {
-      "bom-ref": "84d86520b9546322",
+      "bom-ref": "2c93ec6538b05582",
       "type": "container",
       "name": "busybox",
-      "version": "sha256:cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3"
+      "version": "sha256:182014572d8981d8323fe9944876f63b39694e16ce08ae6296e97686c52b150c"
     }
   },
   "components": [
     {
-      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=74d9294c42941b37",
+      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=5ac87151014646ee",
       "type": "application",
       "name": "busybox",
       "version": "1.37.0",
@@ -49,7 +49,7 @@
         },
         {
           "name": "syft:location:0:layerID",
-          "value": "sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19"
+          "value": "sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
         },
         {
           "name": "syft:location:0:path",
@@ -92,17 +92,17 @@
       ]
     },
     {
-      "bom-ref": "de0bf36b25443562",
+      "bom-ref": "236898de58a38d00",
       "type": "file",
       "name": "/bin/[",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "99f9c7cb06f6f8f074b5c16245f295e33844855a"
+          "content": "5b35fda458b860954b919ccd4f94b9bc32b8403d"
         },
         {
           "alg": "SHA-256",
-          "content": "8a4212147744cedcf7f679c81921942c81eb3b8d356bbb2b08b51336b2fe8add"
+          "content": "91a25e00cc7850644994ba476846d2489651d8d1645be39aacdb116c83c22379"
         }
       ]
     }

@@ -9,7 +9,7 @@ to avoid redundant command executions.
 from pathlib import Path
 
 
-def get_cached_output(cache_path: Path, update: bool) -> str | None:
+def get_output(cache_path: Path, update: bool) -> str | None:
     """
     get cached output if available and not updating.
 
@@ -22,7 +22,7 @@ def get_cached_output(cache_path: Path, update: bool) -> str | None:
 
     Examples:
         >>> cache_path = Path("cache/syft/cli/main/output.txt")
-        >>> cached = get_cached_output(cache_path, update=False)
+        >>> cached = cache.get_output(cache_path, update=False)
         >>> if cached:
         ...     print("Using cached output")
         ... else:
@@ -40,7 +40,7 @@ def get_cached_output(cache_path: Path, update: bool) -> str | None:
     return None
 
 
-def save_to_cache(cache_path: Path, content: str) -> None:
+def save(cache_path: Path, content: str) -> None:
     """
     save content to cache file.
 
@@ -52,7 +52,7 @@ def save_to_cache(cache_path: Path, content: str) -> None:
 
     Examples:
         >>> cache_path = Path("cache/syft/version/output.txt")
-        >>> save_to_cache(cache_path, "Syft version 1.0.0")
+        >>> cache.save(cache_path, "Syft version 1.0.0")
     """
     # create directory if it doesn't exist
     cache_path.parent.mkdir(parents=True, exist_ok=True)

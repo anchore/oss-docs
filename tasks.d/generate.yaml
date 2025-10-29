@@ -3,7 +3,7 @@ version: '3'
 vars:
   SYFT_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
   SYFT_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft"
-  SYFT_JSON_SCHEMA_CMD: "uv run ./scripts/generate_reference_syft_json_schema.py --latest"
+  SYFT_JSON_SCHEMA_CMD: "uv run ./scripts/generate_reference_syft_json_schema.py"
   GRYPE_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/grype/cli.md --tool-name grype"
   GRYPE_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/grype/config.md --tool-name grype"
   FORMAT_EXAMPLES_CMD: "uv run ./scripts/generate_format_examples.py"

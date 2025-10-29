@@ -3,6 +3,7 @@ title = "APK"
 description = "APK package format analysis and vulnerability scanning capabilities"
 weight = 20
 type = "docs"
+menu_group = "os"
 [params]
 sidebar_badge = "alpine+"
 +++
@@ -19,7 +20,7 @@ sidebar_badge = "alpine+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/os.md" >}}
 
-The APK vulnerability database (a.k.a. "SecDB") includes data from the Alpine Security Tracker, which provides detailed information on vulnerabilities affecting Alpine Linux packages.
+The APK vulnerability database (a.k.a. "SecDB") includes data from the Alpine Security Tracker, which provides fix information for known vulnerabilities that affect Alpine Linux packages.
 This database only includes vulnerabilities that have fixes available and does not track unfixed vulnerabilities.
 The maintainers of the SecDB intend for the primary source of truth for disclosures to be the [National Vulnerability Database](https://nvd.nist.gov/developers/vulnerabilities) (NVD).
 

@@ -27,7 +27,6 @@ page by the Docsy theme.
 """
 
 import re
-import shutil
 import sys
 from collections import defaultdict
 from dataclasses import dataclass
@@ -35,32 +34,8 @@ from pathlib import Path
 from typing import Any
 
 import click
-from utils.config import get_generated_comment, paths
-from utils.data import (
-    load_cataloger_data,
-    load_ecosystem_aliases,
-    load_ecosystem_display_names,
-)
-from utils.logging import setup_logging
-
-# Header definitions for tooltips
-HEADER_DEFINITIONS = {
-    "ecosystem": "The package manager or programming language ecosystem",
-    "cataloger": "The Syft cataloger name and file patterns it analyzes to discover packages",
-    "license": "Whether Syft can detect and catalog license information from package metadata",
-    "licenses": "Whether Syft can detect and catalog license information from package metadata",
-    "dependencies": "Whether dependency information can be captured (depth, edges, kinds)",
-    "depth": "How far into the dependency graph packages are discovered (direct = only explicit dependencies, transitive = all depths)",
-    "edges": "Whether relationships between packages can be captured (flat = star topology from root, complete = full dependency graph)",
-    "kinds": "Types of dependencies captured (runtime = required at runtime, dev = development dependencies)",
-    "package_manager_claims": "Metadata and integrity information explicitly tracked by the package manager about packages and their files",
-    "files": "Whether Syft can catalog the list of files that are part of a package installation",
-    "digests": "Whether Syft can capture file checksums (digests/hashes) claimed by the package manager for individual files within a package",
-    "integrity_hash": "Whether Syft can capture a single package-level hash used by package managers to verify the package itself",
-    "configuration_key": "The configuration field name used in Syft application configuration",
-    "description": "Explanation of what the configuration option controls",
-}
-
+from utils import config, data, html_table, log
+from utils.constants import HEADER_DEFINITIONS, CSSClasses
 
 # catalogers that should be aggregated into a single row with class-pattern pills
 SPECIAL_AGGREGATED_CATALOGERS = {"binary-classifier-cataloger"}
@@ -74,6 +49,7 @@ class CapabilitySupport:
     conditional: bool  # true if support depends on configuration
     default_value: Any  # the actual default value from the cataloger
     evidence: list[str]  # evidence field paths in syft package metadata
+    conditions: list[dict]  # raw condition data for tooltip generation
 
 
 @dataclass
@@ -91,6 +67,104 @@ class CatalogerRow:
     # for special aggregated catalogers: class-to-pattern mappings
     # each tuple is (class_name, [pattern1, pattern2, ...])
     class_pattern_pairs: list[tuple[str, list[str]]] | None = None
+    # whether this cataloger is deprecated
+    deprecated: bool = False
+    # pattern-level conditions (config requirements for this pattern)
+    conditions: list[dict] | None = None
+
+
+
+@click.command()
+@click.option(
+    "--update",
+    is_flag=True,
+    help="Update the cataloger data cache even if it already exists",
+)
+@click.option(
+    "-v",
+    "--verbose",
+    count=True,
+    help="Increase verbosity (use -v for info, -vv for debug)",
+)
+def main(update: bool, verbose: int) -> None:
+    """Generate package capability table snippets from Syft cataloger information."""
+    logger = log.setup(verbose, __file__)
+
+    # Clean only owned files to avoid deleting artifacts from other scripts
+    output_dir = config.paths.capabilities_snippet_dir
+    owned_files = {
+        "package.md",
+        "syft-app-config.md",
+        "binary-package-details.md",
+    }
+    html_table.clean_owned_files(output_dir, owned_files, logger)
+
+    # load ecosystem aliases
+    logger.debug("Loading ecosystem aliases...")
+    ecosystem_aliases = data.load_ecosystem_aliases()
+    if ecosystem_aliases:
+        logger.debug(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
+
+    # load ecosystem display names
+    logger.debug("Loading ecosystem display names...")
+    ecosystem_display_names = data.load_ecosystem_display_names()
+    if ecosystem_display_names:
+        logger.debug(f"Loaded {len(ecosystem_display_names)} ecosystem display names")
+
+    # load or generate cataloger data
+    cataloger_data = data.load_cataloger_data(update=update)
+
+    # parse catalogers into rows
+    logger.info("Parsing cataloger capabilities...")
+    rows = parse_catalogers(cataloger_data, ecosystem_aliases)
+
+    if not rows:
+        logger.error("No catalogers found")
+        sys.exit(1)
+
+    logger.info(
+        f"Found {len(rows)} cataloger patterns across {len({r.ecosystem for r in rows})} ecosystems"
+    )
+
+    # generate tables
+    logger.info("Generating tables...")
+
+    # generate overview table
+    generate_overview_table(
+        rows,
+        config.paths.capabilities_snippet_dir / "overview",
+        ecosystem_display_names,
+        logger,
+        )
+
+    # generate individual ecosystem tables
+    ecosystems = {r.ecosystem for r in rows}
+    for ecosystem in sorted(ecosystems):
+        generate_ecosystem_table(
+            ecosystem, rows, config.paths.capabilities_snippet_dir / "ecosystem", logger
+        )
+
+    # generate binary package details table (for binary ecosystem)
+    if "binary" in ecosystems:
+        logger.info("Generating binary package details table...")
+        generate_binary_package_details_table(
+            cataloger_data,
+            config.paths.capabilities_snippet_dir / "ecosystem",
+            logger,
+            )
+
+    # collect and generate app config snippets
+    logger.info("Generating app config snippets...")
+    app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
+    for ecosystem, config_fields in app_configs.items():
+        generate_app_config_snippet(
+            ecosystem,
+            config_fields,
+            config.paths.capabilities_snippet_dir / "ecosystem",
+            logger,
+            )
+
+    logger.info("Generation complete!")
 
 
 def determine_capability_support(capability: dict) -> CapabilitySupport:
@@ -104,7 +178,8 @@ def determine_capability_support(capability: dict) -> CapabilitySupport:
         CapabilitySupport object
     """
     default_value = capability.get("default")
-    has_conditions = "conditions" in capability
+    conditions = capability.get("conditions", [])
+    has_conditions = bool(conditions)
     evidence = capability.get("evidence", [])
 
     # determine if capability is supported based on default value
@@ -120,6 +195,7 @@ def determine_capability_support(capability: dict) -> CapabilitySupport:
         conditional=has_conditions,
         default_value=default_value,
         evidence=evidence,
+        conditions=conditions,
     )
 
 
@@ -144,6 +220,7 @@ def parse_catalogers(
         # apply ecosystem aliasing
         ecosystem = ecosystem_aliases.get(raw_ecosystem, raw_ecosystem)
         cataloger_name = cataloger.get("name", "unknown")
+        deprecated = cataloger.get("deprecated", False)
 
         patterns = cataloger.get("patterns", [])
         # cataloger-level capabilities (fallback if pattern doesn't define them)
@@ -160,6 +237,7 @@ def parse_catalogers(
                     paths=[],
                     mimetypes=[],
                     capabilities=capabilities,
+                    deprecated=deprecated,
                 )
             )
         elif cataloger_name in SPECIAL_AGGREGATED_CATALOGERS:
@@ -200,6 +278,7 @@ def parse_catalogers(
                     mimetypes=[],
                     capabilities=capabilities,
                     class_pattern_pairs=class_pattern_pairs,
+                    deprecated=deprecated,
                 )
             )
         else:
@@ -220,6 +299,9 @@ def parse_catalogers(
                 elif method == "mimetype":
                     mimetypes = criteria
 
+                # extract pattern-level conditions
+                pattern_conditions = pattern.get("conditions")
+
                 # prefer pattern-level capabilities, fall back to cataloger-level
                 pattern_caps = pattern.get("capabilities", cataloger_level_caps)
                 capabilities = _parse_capabilities(pattern_caps)
@@ -232,6 +314,8 @@ def parse_catalogers(
                         paths=paths,
                         mimetypes=mimetypes,
                         capabilities=capabilities,
+                        deprecated=deprecated,
+                        conditions=pattern_conditions,
                     )
                 )
 
@@ -423,12 +507,15 @@ def format_cataloger_with_evidence(
     paths: list[str],
     mimetypes: list[str],
     class_pattern_pairs: list[tuple[str, list[str]]] | None = None,
+    deprecated: bool = False,
+    conditions: list[dict] | None = None,
 ) -> str:
     """
     format cataloger name with evidence patterns for display in a combined table cell.
 
     Shows cataloger name prominently (in div, not code), then evidence patterns below in a div with code tags.
     For special catalogers, displays class-pattern pills instead of regular evidence.
+    If pattern has conditions, shows a gear icon inline after the cataloger name.
 
     Args:
         cataloger_name: name of the cataloger
@@ -436,13 +523,26 @@ def format_cataloger_with_evidence(
         paths: list of path patterns
         mimetypes: list of mimetype patterns
         class_pattern_pairs: optional list of (class_name, [patterns]) for special catalogers
+        deprecated: whether this cataloger is deprecated
+        conditions: optional pattern-level conditions (config requirements)
 
     Returns:
         formatted HTML string for combined cataloger+evidence cell
     """
     # use exact cataloger name (keep -cataloger suffix)
     # build combined cell content - cataloger name in div, not code
-    html = f'<div class="cataloger-name">{cataloger_name}</div>'
+    # add deprecated pill inline if cataloger is deprecated
+    deprecated_pill = ' <span class="deprecated-pill">deprecated</span>' if deprecated else ''
+
+    # add conditional gear icon inline if pattern has conditions
+    condition_icon = ''
+    if conditions:
+        formatted_condition = html_table.format_conditions_for_tooltip(conditions, prefix="Requires")
+        if formatted_condition:
+            escaped_condition = formatted_condition.replace('"', "&quot;")
+            condition_icon = f' <span class="cataloger-condition-wrapper" data-tooltip="{escaped_condition}"><svg class="capability-icon inline-icon"><use href="#icon-gear"/></svg></span>'
+
+    html = f'<div class="cataloger-name">{cataloger_name}{deprecated_pill}{condition_icon}</div>'
 
     # check if this is a special cataloger with class-pattern pills
     if class_pattern_pairs is not None:
@@ -479,13 +579,11 @@ def format_depth_value(cap_support: CapabilitySupport | None) -> str:
     if not isinstance(value, list) or not value:
         return ""
 
-    # if it contains both direct and indirect, show "transitive"
+    # if it contains both direct and indirect, show "Transitive"
     if "direct" in value and "indirect" in value:
-        return "transitive"
+        return "Transitive"
     elif "direct" in value:
-        return "direct"
-    elif "indirect" in value:
-        return "transitive"
+        return "Direct"
     else:
         return ""
 
@@ -509,11 +607,11 @@ def format_edges_value(cap_support: CapabilitySupport | None) -> str:
     if isinstance(value, bool):
         return "✅" if value else ""
     elif isinstance(value, str):
-        return value if value else ""
+        return value.title() if value else ""
     elif isinstance(value, list):
-        return ", ".join(str(v) for v in value) if value else ""
+        return ", ".join(str(v).title() for v in value) if value else ""
     else:
-        return str(value) if value else ""
+        return str(value).title() if value else ""
 
 
 def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
@@ -533,9 +631,9 @@ def format_kinds_value(cap_support: CapabilitySupport | None) -> str:
 
     value = cap_support.default_value
     if isinstance(value, list) and value:
-        return ", ".join(str(v) for v in value)
+        return ", ".join(str(v).title() for v in value)
     elif isinstance(value, str) and value:
-        return value
+        return value.title()
     else:
         return ""
 
@@ -643,7 +741,7 @@ def generate_app_config_snippet(
     output_file = ecosystem_dir / "syft-app-config.md"
 
     # generate comment
-    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -658,10 +756,10 @@ def generate_app_config_snippet(
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
-        f'      <th class="col-config-key">Configuration Key <abbr class="header-help" title="{HEADER_DEFINITIONS["configuration_key"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_CONFIG_KEY}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["configuration_key"]}">Configuration Key</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-description">Description <abbr class="header-help" title="{HEADER_DEFINITIONS["description"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_DESCRIPTION}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["description"]}">Description</abbr></th>'
     )
     html_lines.append("    </tr>")
     html_lines.append("  </thead>")
@@ -678,10 +776,10 @@ def generate_app_config_snippet(
 
         html_lines.append("    <tr>")
         html_lines.append(
-            f'      <td class="col-config-key"><code>{app_key}</code></td>'
+            f'      <td class="{CSSClasses.COL_CONFIG_KEY}"><code>{app_key}</code></td>'
         )
         html_lines.append(
-            f'      <td class="col-description">{cleaned_description}</td>'
+            f'      <td class="{CSSClasses.COL_DESCRIPTION}">{cleaned_description}</td>'
         )
         html_lines.append("    </tr>")
 
@@ -774,81 +872,6 @@ def clean_glob_pattern(pattern: str) -> str:
     return pattern.removeprefix("**/")
 
 
-def format_evidence_for_tooltip(evidence: list[str]) -> str:
-    """
-    format evidence field paths for tooltip display.
-
-    Args:
-        evidence: list of evidence field paths (e.g., ['AlpmDBEntry.Files'])
-
-    Returns:
-        formatted string for tooltip:
-        - empty string if no evidence
-        - single path if one item
-        - bullet list with line breaks if multiple items
-    """
-    if not evidence:
-        return ""
-
-    if len(evidence) == 1:
-        return evidence[0]
-
-    # format as bullet list with line breaks for multiple items
-    return "&#10;".join(f"• {path}" for path in evidence)
-
-
-def get_svg_icon(icon_type: str) -> str:
-    """
-    get SVG icon HTML for a capability indicator.
-
-    Args:
-        icon_type: 'check', 'gear', or 'dash'
-
-    Returns:
-        HTML string with SVG icon
-    """
-    if icon_type not in ["check", "gear", "dash"]:
-        icon_type = "dash"
-    return f'<svg class="capability-icon"><use href="#icon-{icon_type}"/></svg>'
-
-
-def get_capability_indicator_svg(cap_support: CapabilitySupport | None) -> str:
-    """
-    get the SVG icon for a capability support level.
-
-    Args:
-        cap_support: CapabilitySupport object or None
-
-    Returns:
-        HTML string with SVG icon (with data-evidence attribute if evidence exists), or empty string if not supported
-    """
-    if cap_support is None:
-        return ""
-
-    # determine icon type
-    if cap_support.conditional:
-        icon_type = "gear"
-    elif cap_support.supported:
-        icon_type = "check"
-    else:
-        return ""
-
-    # format evidence for tooltip if present
-    evidence_attr = ""
-    if cap_support.evidence:
-        formatted_evidence = format_evidence_for_tooltip(cap_support.evidence)
-        if formatted_evidence:
-            # escape quotes in evidence for HTML attribute
-            escaped_evidence = formatted_evidence.replace('"', "&quot;")
-            evidence_attr = f' data-evidence="{escaped_evidence}"'
-
-    # wrap SVG in span when evidence exists (SVG elements don't support ::after pseudo-elements)
-    if evidence_attr:
-        return f'<span class="capability-icon-wrapper"{evidence_attr}><svg class="capability-icon"><use href="#icon-{icon_type}"/></svg></span>'
-    else:
-        return f'<svg class="capability-icon"><use href="#icon-{icon_type}"/></svg>'
-
-
 def has_any_dependency_support(
     capabilities: dict[str, CapabilitySupport],
 ) -> CapabilitySupport | None:
@@ -880,6 +903,7 @@ def has_any_dependency_support(
             conditional=has_conditional,
             default_value=None,
             evidence=[],  # aggregated dependency support has no specific evidence
+            conditions=[],  # aggregated dependency support has no specific conditions
         )
 
     return None
@@ -919,7 +943,7 @@ def generate_overview_table(
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
 
     # generate comment
-    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -927,23 +951,23 @@ def generate_overview_table(
     html_lines = []
 
     # table header - single row with simple columns (5 columns total)
-    html_lines.append('<table class="capability-table capability-table-overview">')
+    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_OVERVIEW}">')
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
-        f'      <th class="col-ecosystem">Ecosystem <abbr class="header-help" title="{HEADER_DEFINITIONS["ecosystem"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_ECOSYSTEM}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["ecosystem"]}">Ecosystem</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-cataloger">Cataloger + Evidence <abbr class="header-help" title="{HEADER_DEFINITIONS["cataloger"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_CATALOGER}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["cataloger"]}">Cataloger + Evidence</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-license">Licenses <abbr class="header-help" title="{HEADER_DEFINITIONS["licenses"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_LICENSE}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["licenses"]}">Licenses</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-dependency">Dependencies <abbr class="header-help" title="{HEADER_DEFINITIONS["dependencies"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_DEPENDENCY}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["dependencies"]}">Dependencies</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-files">Files <abbr class="header-help" title="{HEADER_DEFINITIONS["files"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_FILES}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["files"]}">Files</abbr></th>'
     )
     html_lines.append("    </tr>")
     html_lines.append("  </thead>")
@@ -962,7 +986,7 @@ def generate_overview_table(
             )
             ecosystem_display = get_ecosystem_display_name(row.ecosystem, display_names)
             html_lines.append(
-                f'      <td class="col-ecosystem"{rowspan_attr}>{ecosystem_display}</td>'
+                f'      <td class="{CSSClasses.COL_ECOSYSTEM}"{rowspan_attr}>{ecosystem_display}</td>'
             )
 
         # cataloger column with evidence (no rowspan - each row shows its own)
@@ -972,25 +996,27 @@ def generate_overview_table(
             row.paths,
             row.mimetypes,
             row.class_pattern_pairs,
+            row.deprecated,
+            row.conditions,
         )
-        html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
+        html_lines.append(f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
         html_lines.append(
-            f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_LICENSE} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(license_cap)}</td>'
         )
 
         # dependency column (aggregated SVG indicator)
         dependency_cap = has_any_dependency_support(row.capabilities)
         html_lines.append(
-            f'      <td class="col-dependency indicator">{get_capability_indicator_svg(dependency_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_DEPENDENCY} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(dependency_cap)}</td>'
         )
 
         # files column (SVG indicator)
         files_cap = row.capabilities.get("package_manager.files.listing")
         html_lines.append(
-            f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_FILES} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(files_cap)}</td>'
         )
 
         html_lines.append("    </tr>")
@@ -1041,7 +1067,7 @@ def generate_ecosystem_table(
     sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
 
     # generate comment
-    comment = get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -1049,40 +1075,40 @@ def generate_ecosystem_table(
     html_lines = []
 
     # table header with two-row grouped structure
-    html_lines.append('<table class="capability-table capability-table-ecosystem">')
+    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.CAPABILITY_TABLE_ECOSYSTEM}">')
     html_lines.append("  <thead>")
     html_lines.append("    <tr>")
     html_lines.append(
-        f'      <th class="col-cataloger" rowspan="2">Cataloger + Evidence <abbr class="header-help" title="{HEADER_DEFINITIONS["cataloger"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_CATALOGER}" rowspan="2"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["cataloger"]}">Cataloger + Evidence</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-license" rowspan="2">License <abbr class="header-help" title="{HEADER_DEFINITIONS["license"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_LICENSE}" rowspan="2"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["license"]}">License</abbr></th>'
     )
     html_lines.append(
-        f'      <th colspan="3">Dependencies <abbr class="header-help" title="{HEADER_DEFINITIONS["dependencies"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th colspan="3"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["dependencies"]}">Dependencies</abbr></th>'
     )
     html_lines.append(
-        f'      <th colspan="3">Package Manager Claims <abbr class="header-help" title="{HEADER_DEFINITIONS["package_manager_claims"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th colspan="3"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["package_manager_claims"]}">Package Manager Claims</abbr></th>'
     )
     html_lines.append("    </tr>")
     html_lines.append("    <tr>")
     html_lines.append(
-        f'      <th class="col-depth">Depth <abbr class="header-help" title="{HEADER_DEFINITIONS["depth"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_DEPTH}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["depth"]}">Depth</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-edges">Edges <abbr class="header-help" title="{HEADER_DEFINITIONS["edges"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_EDGES}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["edges"]}">Edges</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-kinds">Kinds <abbr class="header-help" title="{HEADER_DEFINITIONS["kinds"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_KINDS}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["kinds"]}">Kinds</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-files">Files <abbr class="header-help" title="{HEADER_DEFINITIONS["files"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_FILES}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["files"]}">Files</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-digests">Digests <abbr class="header-help" title="{HEADER_DEFINITIONS["digests"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_DIGESTS}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["digests"]}">Digests</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="col-integrity-hash">Integrity Hash <abbr class="header-help" title="{HEADER_DEFINITIONS["integrity_hash"]}"><svg class="capability-icon header-help-icon"><use href="#icon-help"/></svg></abbr></th>'
+        f'      <th class="{CSSClasses.COL_INTEGRITY_HASH}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["integrity_hash"]}">Integrity Hash</abbr></th>'
     )
     html_lines.append("    </tr>")
     html_lines.append("  </thead>")
@@ -1093,51 +1119,58 @@ def generate_ecosystem_table(
         html_lines.append("    <tr>")
 
         # cataloger column with evidence (no rowspan - each row shows its own)
-        cataloger_content = format_cataloger_with_evidence(
-            row.cataloger_name,
-            row.globs,
-            row.paths,
-            row.mimetypes,
-            row.class_pattern_pairs,
-        )
-        html_lines.append(f'      <td class="col-cataloger">{cataloger_content}</td>')
+        # special handling for binary-classifier-cataloger in ecosystem-specific tables
+        if row.cataloger_name == "binary-classifier-cataloger":
+            deprecated_pill = ' <span class="deprecated-pill">deprecated</span>' if row.deprecated else ''
+            cataloger_content = f'<div class="cataloger-name">binary-classifier-cataloger{deprecated_pill}</div><div class="evidence-patterns"><em>(see table below)</em></div>'
+        else:
+            cataloger_content = format_cataloger_with_evidence(
+                row.cataloger_name,
+                row.globs,
+                row.paths,
+                row.mimetypes,
+                row.class_pattern_pairs,
+                row.deprecated,
+                row.conditions,
+            )
+        html_lines.append(f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>')
 
         # license column (SVG indicator)
         license_cap = row.capabilities.get("license")
         html_lines.append(
-            f'      <td class="col-license indicator">{get_capability_indicator_svg(license_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_LICENSE} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(license_cap)}</td>'
         )
 
         # dependency columns (individual values)
         depth_cap = row.capabilities.get("dependency.depth")
         html_lines.append(
-            f'      <td class="col-depth value">{format_depth_value(depth_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_DEPTH} {CSSClasses.VALUE}">{format_depth_value(depth_cap)}</td>'
         )
 
         edges_cap = row.capabilities.get("dependency.edges")
         html_lines.append(
-            f'      <td class="col-edges value">{format_edges_value(edges_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_EDGES} {CSSClasses.VALUE}">{format_edges_value(edges_cap)}</td>'
         )
 
         kinds_cap = row.capabilities.get("dependency.kinds")
         html_lines.append(
-            f'      <td class="col-kinds value">{format_kinds_value(kinds_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_KINDS} {CSSClasses.VALUE}">{format_kinds_value(kinds_cap)}</td>'
         )
 
         # package manager columns (SVG indicators)
         files_cap = row.capabilities.get("package_manager.files.listing")
         html_lines.append(
-            f'      <td class="col-files indicator">{get_capability_indicator_svg(files_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_FILES} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(files_cap)}</td>'
         )
 
         digests_cap = row.capabilities.get("package_manager.files.digests")
         html_lines.append(
-            f'      <td class="col-digests indicator">{get_capability_indicator_svg(digests_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_DIGESTS} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(digests_cap)}</td>'
         )
 
         integrity_cap = row.capabilities.get("package_manager.package_integrity_hash")
         html_lines.append(
-            f'      <td class="col-integrity-hash indicator">{get_capability_indicator_svg(integrity_cap)}</td>'
+            f'      <td class="{CSSClasses.COL_INTEGRITY_HASH} {CSSClasses.INDICATOR}">{html_table.get_capability_indicator_svg(integrity_cap)}</td>'
         )
 
         html_lines.append("    </tr>")
@@ -1155,86 +1188,129 @@ def generate_ecosystem_table(
     logger.debug(f"Generated {output_file}")
 
 
-@click.command()
-@click.option(
-    "--update",
-    is_flag=True,
-    help="Update the cataloger data cache even if it already exists",
-)
-@click.option(
-    "-v",
-    "--verbose",
-    count=True,
-    help="Increase verbosity (use -v for info, -vv for debug)",
-)
-def main(update: bool, verbose: int) -> None:
-    """Generate package capability table snippets from Syft cataloger information."""
-    logger = setup_logging(verbose, __file__)
+def generate_binary_package_details_table(
+    cataloger_data: dict, output_dir: Path, logger
+) -> None:
+    """
+    generate binary package details table showing class-to-package mappings.
 
-    # Clean output directory to ensure no stale content
-    # Note: This script runs first and shares output dir with generate_capability_vulnerability_tables.py
-    output_dir = paths.capabilities_snippet_dir
-    if output_dir.exists():
-        logger.debug(f"Cleaning output directory: {output_dir}")
-        shutil.rmtree(output_dir)
+    creates a table showing detailed information about each pattern in the
+    binary-classifier-cataloger, including class, criteria, PURL, and CPEs.
 
-    # load ecosystem aliases
-    logger.debug("Loading ecosystem aliases...")
-    ecosystem_aliases = load_ecosystem_aliases()
-    if ecosystem_aliases:
-        logger.debug(f"Loaded {len(ecosystem_aliases)} ecosystem aliases")
+    Args:
+        cataloger_data: dict from syft cataloger info
+        output_dir: output directory for snippets (ecosystem/binary/)
+        logger: logger instance
+    """
+    # find binary-classifier-cataloger
+    catalogers = cataloger_data.get("catalogers", [])
+    binary_cataloger = None
+    for cataloger in catalogers:
+        if cataloger.get("name") == "binary-classifier-cataloger":
+            binary_cataloger = cataloger
+            break
 
-    # load ecosystem display names
-    logger.debug("Loading ecosystem display names...")
-    ecosystem_display_names = load_ecosystem_display_names()
-    if ecosystem_display_names:
-        logger.debug(f"Loaded {len(ecosystem_display_names)} ecosystem display names")
+    if not binary_cataloger:
+        logger.warning("binary-classifier-cataloger not found in cataloger data")
+        return
 
-    # load or generate cataloger data
-    cataloger_data = load_cataloger_data(update=update)
+    patterns = binary_cataloger.get("patterns", [])
+    if not patterns:
+        logger.warning("No patterns found in binary-classifier-cataloger")
+        return
 
-    # parse catalogers into rows
-    logger.info("Parsing cataloger capabilities...")
-    rows = parse_catalogers(cataloger_data, ecosystem_aliases)
+    # create output directory
+    binary_dir = output_dir / "binary"
+    binary_dir.mkdir(parents=True, exist_ok=True)
 
-    if not rows:
-        logger.error("No catalogers found")
-        sys.exit(1)
+    output_file = binary_dir / "binary-package-details.md"
 
-    logger.info(
-        f"Found {len(rows)} cataloger patterns across {len({r.ecosystem for r in rows})} ecosystems"
+    # generate comment
+    comment = config.get_generated_comment("scripts/generate_capability_tables.py", "html")
+    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n"
+
+    # build HTML lines
+    html_lines = []
+
+    # table header text
+    html_lines.append('<div class="config-table-header">Binary Package Details</div>')
+
+    # table header
+    html_lines.append(f'<table class="{CSSClasses.CAPABILITY_TABLE} {CSSClasses.BINARY_DETAILS_TABLE}">')
+    html_lines.append("  <thead>")
+    html_lines.append("    <tr>")
+    html_lines.append(
+        '      <th class="{CSSClasses.COL_CLASS}"><abbr class="{CSSClasses.HEADER_HELP}" title="The classification identifier for this binary pattern">Class</abbr></th>'
     )
-
-    # generate tables
-    logger.info("Generating tables...")
-
-    # generate overview table
-    generate_overview_table(
-        rows,
-        paths.capabilities_snippet_dir / "overview",
-        ecosystem_display_names,
-        logger,
+    html_lines.append(
+        '      <th class="{CSSClasses.COL_CRITERIA}"><abbr class="{CSSClasses.HEADER_HELP}" title="The glob patterns used to identify this binary">Criteria</abbr></th>'
     )
+    html_lines.append(
+        '      <th class="{CSSClasses.COL_PURL}"><abbr class="{CSSClasses.HEADER_HELP}" title="The Package URL identifier for packages matching this pattern">PURL</abbr></th>'
+    )
+    html_lines.append(
+        '      <th class="{CSSClasses.COL_CPES}"><abbr class="{CSSClasses.HEADER_HELP}" title="Common Platform Enumeration identifiers associated with this package">CPEs</abbr></th>'
+    )
+    html_lines.append("    </tr>")
+    html_lines.append("  </thead>")
+    html_lines.append("  <tbody>")
 
-    # generate individual ecosystem tables
-    ecosystems = {r.ecosystem for r in rows}
-    for ecosystem in sorted(ecosystems):
-        generate_ecosystem_table(
-            ecosystem, rows, paths.capabilities_snippet_dir / "ecosystem", logger
-        )
+    # sort patterns by class name for consistent output
+    def get_class_name(pattern):
+        packages = pattern.get("packages", [])
+        if packages:
+            return packages[0].get("class", "")
+        return ""
 
-    # collect and generate app config snippets
-    logger.info("Generating app config snippets...")
-    app_configs = collect_app_configs_by_ecosystem(cataloger_data, ecosystem_aliases)
-    for ecosystem, config_fields in app_configs.items():
-        generate_app_config_snippet(
-            ecosystem,
-            config_fields,
-            paths.capabilities_snippet_dir / "ecosystem",
-            logger,
-        )
+    sorted_patterns = sorted(patterns, key=get_class_name)
 
-    logger.info("Generation complete!")
+    # table body - one row per pattern
+    for pattern in sorted_patterns:
+        packages = pattern.get("packages", [])
+        if not packages:
+            continue
+
+        pkg = packages[0]  # each pattern has exactly one package
+        class_name = pkg.get("class", "")
+        purl = pkg.get("purl", "")
+        cpes = pkg.get("cpes", [])
+
+        # format criteria (glob patterns)
+        criteria = pattern.get("criteria", [])
+        if criteria:
+            criteria_html = ", ".join(f"<code>{clean_glob_pattern(c)}</code>" for c in criteria)
+        else:
+            criteria_html = "-"
+
+        # format CPEs
+        if not cpes:
+            cpes_html = "-"
+        elif len(cpes) == 1:
+            cpes_html = f"<code>{cpes[0]}</code>"
+        else:
+            # multiple CPEs - show as separate lines
+            cpes_html = "<br>".join(f"<code>{cpe}</code>" for cpe in cpes)
+
+        html_lines.append("    <tr>")
+        html_lines.append(f'      <td class="{CSSClasses.COL_CLASS}">{class_name}</td>')
+        html_lines.append(f'      <td class="{CSSClasses.COL_CRITERIA}">{criteria_html}</td>')
+        html_lines.append(f'      <td class="{CSSClasses.COL_PURL}"><code>{purl}</code></td>')
+        html_lines.append(f'      <td class="{CSSClasses.COL_CPES}">{cpes_html}</td>')
+        html_lines.append("    </tr>")
+
+    # close table
+    html_lines.append("  </tbody>")
+    html_lines.append("</table>")
+
+    # write file
+    with open(output_file, "w") as f:
+        f.write(comment)
+        for line in html_lines:
+            f.write(line + "\n")
+
+    logger.debug(f"Generated {output_file}")
+
 
 
 if __name__ == "__main__":

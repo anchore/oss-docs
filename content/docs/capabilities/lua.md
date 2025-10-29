@@ -3,6 +3,7 @@ title = "Lua"
 description = "Lua package analysis and vulnerability scanning capabilities"
 weight = 190
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

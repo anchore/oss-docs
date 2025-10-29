@@ -1,8 +1,9 @@
 +++
 title = "Portage"
-description = "Debian package format used by Debian-based Linux distributions"
+description = "Portage package format used by Gentoo-based Linux distributions"
 weight = 230
 type = "docs"
+menu_group = "os"
 [params]
 sidebar_badge = "gentoo"
 +++

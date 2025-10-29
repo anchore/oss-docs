@@ -4,38 +4,34 @@ Generate template example documentation with rendered outputs.
 Runs Syft templates against a test image and creates markdown files.
 """
 
-import shutil
 import sys
 from pathlib import Path
 from typing import cast
 
 import click
-from utils.config import docker_images, paths
-from utils.logging import setup_logging
-from utils.sbom import get_or_generate_sbom
-from utils.syft import run_syft_convert
+from utils import config, log, markdown, output_manager, sbom, syft
 
 
 @click.command()
 @click.option(
     "--template-dir",
-    default=str(paths.template_examples_dir),
-    help=f"Directory containing template files (default: {paths.template_examples_dir})",
+    default=str(config.paths.template_examples_dir),
+    help=f"Directory containing template files (default: {config.paths.template_examples_dir})",
 )
 @click.option(
     "--output-dir",
-    default=str(paths.templates_snippet_dir),
-    help=f"Output directory for generated examples (default: {paths.templates_snippet_dir})",
+    default=str(config.paths.templates_snippet_dir),
+    help=f"Output directory for generated examples (default: {config.paths.templates_snippet_dir})",
 )
 @click.option(
     "--image",
-    default=docker_images.alpine_test,
-    help=f"Docker image to scan (default: {docker_images.alpine_test})",
+    default=config.docker_images.alpine_test,
+    help=f"Docker image to scan (default: {config.docker_images.alpine_test})",
 )
 @click.option(
     "--syft-image",
-    default=docker_images.syft,
-    help=f"Syft Docker image to use (default: {docker_images.syft})",
+    default=config.docker_images.syft,
+    help=f"Syft Docker image to use (default: {config.docker_images.syft})",
 )
 @click.option(
     "--update",
@@ -57,7 +53,7 @@ def main(
     verbose: int,
 ) -> None:
     """Generate template example documentation."""
-    logger = setup_logging(verbose, __file__)
+    logger = log.setup(verbose, __file__)
 
     template_path = Path(template_dir)
     output_path = Path(output_dir)
@@ -79,22 +75,20 @@ def main(
     logger.info(f"Scanning image: {image}")
     logger.debug(f"Using Syft image: {syft_image}")
 
-    # Clean output directory to ensure no stale content
-    if output_path.exists():
-        logger.debug(f"Cleaning output directory: {output_path}")
-        shutil.rmtree(output_path)
-
-    # Create output and cache directories
-    output_path.mkdir(parents=True, exist_ok=True)
-    cache_dir.mkdir(parents=True, exist_ok=True)
+    # Clean and prepare directories
+    output_manager.clean_directory(output_path, update=update, logger=logger)
+    output_manager.ensure_directory(cache_dir)
 
     # Process each template
+    skipped_count = 0
+    generated_count = 0
+
     for template_file in template_files:
         example_name = template_file.stem  # filename without extension
         logger.debug(f"Processing: {example_name}")
 
         try:
-            generate_example(
+            was_generated = generate_example(
                 template_file=template_file,
                 example_name=example_name,
                 output_dir=output_path,
@@ -103,12 +97,23 @@ def main(
                 syft_image=syft_image,
                 update=update,
             )
-            logger.debug(f"  ✓ Generated {example_name}")
+            if was_generated:
+                logger.debug(f"  ✓ Generated {example_name}")
+                generated_count += 1
+            else:
+                logger.debug(f"  ⊚ Skipping {example_name} (up-to-date)")
+                skipped_count += 1
         except Exception as e:
             logger.error(f"  ✗ Failed to generate {example_name}: {e}")
             sys.exit(1)
 
-    logger.info(f"All examples generated successfully in {output_path}")
+    # Log summary
+    if skipped_count > 0:
+        logger.info(
+            f"Template examples: {generated_count} generated, {skipped_count} skipped (up-to-date)"
+        )
+    else:
+        logger.info(f"All examples generated successfully in {output_path}")
 
 
 def generate_example(
@@ -119,24 +124,37 @@ def generate_example(
     image: str,
     syft_image: str,
     update: bool = False,
-) -> None:
-    """Generate markdown files for a single template example."""
+) -> bool:
+    """
+    Generate markdown files for a single template example.
+
+    Returns:
+        True if example was generated, False if skipped (up-to-date)
+    """
     # Create example directory
     example_dir = output_dir / example_name
-    example_dir.mkdir(parents=True, exist_ok=True)
+    output_manager.ensure_directory(example_dir)
+
+    # Define output files
+    template_md = example_dir / "template.md"
+    output_md = example_dir / "output.md"
+
+    # Check if outputs need regeneration
+    if not output_manager.should_regenerate_multiple([template_md, output_md], [template_file], update):
+        return False
 
     # Read template content
     template_content = template_file.read_text()
 
     # Generate template.md
     # see the language support: https://gohugo.io/content-management/syntax-highlighting/#languages
-    template_md = f"```go-text-template\n{template_content}\n```\n"
-    (example_dir / "template.md").write_text(template_md)
+    template_md_content = markdown.create_code_fence(template_content, "go-text-template")
+    (example_dir / "template.md").write_text(template_md_content)
 
     # Generate or retrieve SBOM from cache
     sbom_file = cast(
         Path,
-        get_or_generate_sbom(
+        sbom.get_or_generate(
             image=image,
             cache_dir=cache_dir,
             syft_image=syft_image,
@@ -145,7 +163,7 @@ def generate_example(
     )
 
     # Use syft convert to apply template to cached SBOM
-    output = run_syft_convert(
+    output = syft.convert(
         sbom_file=sbom_file,
         template_file=template_file,
         syft_image=syft_image,
@@ -162,8 +180,10 @@ def generate_example(
         output_format = "text"
 
     # Generate output.md
-    output_md = f"```{output_format}\n{output}\n```\n"
-    (example_dir / "output.md").write_text(output_md)
+    output_md_content = markdown.create_code_fence(output, output_format)
+    (example_dir / "output.md").write_text(output_md_content)
+
+    return True
 
 
 if __name__ == "__main__":

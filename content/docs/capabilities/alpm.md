@@ -3,6 +3,7 @@ title = "ALPM"
 description = "ALPM package format used by Arch-based Linux distributions"
 weight = 10
 type = "docs"
+menu_group = "os"
 [params]
 sidebar_badge = "arch"
 +++

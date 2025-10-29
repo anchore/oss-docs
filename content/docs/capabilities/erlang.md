@@ -3,6 +3,7 @@ title = "Erlang"
 description = "Erlang package analysis and vulnerability scanning capabilities"
 weight = 110
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

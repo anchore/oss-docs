@@ -2,25 +2,25 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:fa73dcbb-2581-441b-89cb-58c6a067b045" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:d3c911ab-dcf7-40d4-9bef-fcff76cb979d" version="1">
   <metadata>
-    <timestamp>2025-10-23T01:25:11Z</timestamp>
+    <timestamp>2025-10-28T13:53:48Z</timestamp>
     <tools>
       <components>
         <component type="application">
           <author>anchore</author>
           <name>syft</name>
-          <version>1.33.0</version>
+          <version>1.33.0-SNAPSHOT-1510db7c</version>
         </component>
       </components>
     </tools>
-    <component bom-ref="84d86520b9546322" type="container">
+    <component bom-ref="2c93ec6538b05582" type="container">
       <name>busybox</name>
-      <version>sha256:cddc8af5547af9de5e6fb66b36d66ef7418561204e1255ae528d0b2c919d09a3</version>
+      <version>sha256:182014572d8981d8323fe9944876f63b39694e16ce08ae6296e97686c52b150c</version>
     </component>
   </metadata>
   <components>
-    <component bom-ref="pkg:generic/busybox@1.37.0?package-id=74d9294c42941b37" type="application">
+    <component bom-ref="pkg:generic/busybox@1.37.0?package-id=5ac87151014646ee" type="application">
       <name>busybox</name>
       <version>1.37.0</version>
       <cpe>cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*</cpe>
@@ -29,7 +29,7 @@
         <property name="syft:package:foundBy">binary-classifier-cataloger</property>
         <property name="syft:package:type">binary</property>
         <property name="syft:package:metadataType">binary-signature</property>
-        <property name="syft:location:0:layerID">sha256:6aba5e0d32d91e3e923854dcb30588dc4112bfa1dae82b89535ad31d322a7b19</property>
+        <property name="syft:location:0:layerID">sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a</property>
         <property name="syft:location:0:path">/bin/[</property>
       </properties>
     </component>
@@ -46,11 +46,11 @@
         <property name="syft:distro:versionID">1.37.0</property>
       </properties>
     </component>
-    <component bom-ref="de0bf36b25443562" type="file">
+    <component bom-ref="236898de58a38d00" type="file">
       <name>/bin/[</name>
       <hashes>
-        <hash alg="SHA-1">99f9c7cb06f6f8f074b5c16245f295e33844855a</hash>
-        <hash alg="SHA-256">8a4212147744cedcf7f679c81921942c81eb3b8d356bbb2b08b51336b2fe8add</hash>
+        <hash alg="SHA-1">5b35fda458b860954b919ccd4f94b9bc32b8403d</hash>
+        <hash alg="SHA-256">91a25e00cc7850644994ba476846d2489651d8d1645be39aacdb116c83c22379</hash>
       </hashes>
     </component>
   </components>

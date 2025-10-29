@@ -3,6 +3,7 @@ title = "Snap"
 description = "Snap package analysis and vulnerability scanning capabilities"
 weight = 310
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

@@ -3,6 +3,7 @@ title = "Python"
 description = "Python package analysis and vulnerability scanning capabilities"
 weight = 250
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

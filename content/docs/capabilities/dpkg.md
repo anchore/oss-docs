@@ -3,6 +3,7 @@ title = "DPKG"
 description = "Debian package format used by Debian-based Linux distributions"
 weight = 80
 type = "docs"
+menu_group = "os"
 [params]
 sidebar_badge = "debian+"
 +++
@@ -11,10 +12,10 @@ sidebar_badge = "debian+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/dpkg/package.md" >}}
 
-**Notable capabilities:**
+There is additional functionality for:
 
-- **OPKG compatibility**: Syft supports OpenWrt's OPKG package manager format using the same cataloger.
-- **Distroless images**: Syft automatically detects and supports Google distroless images that use `/var/lib/dpkg/status.d/`.
+- the detection of [OpenWrt's](https://openwrt.org/) [OPKG packages](https://openwrt.org/docs/guide-user/additional-software/opkg)
+- the detection of [Google Distroless image](https://github.com/GoogleContainerTools/distroless) debian-based packages
 
 ## Vulnerability scanning
 

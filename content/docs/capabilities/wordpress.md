@@ -3,6 +3,7 @@ title = "Wordpress"
 description = "Wordpress package analysis and vulnerability scanning capabilities"
 weight = 340
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

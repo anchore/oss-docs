@@ -3,6 +3,7 @@ title = "Elixir"
 description = "Elixir package analysis and vulnerability scanning capabilities"
 weight = 100
 type = "docs"
+menu_group = "language"
 +++
 
 ## Package analysis

@@ -3,6 +3,7 @@ title = "Terraform"
 description = "Terraform package analysis and vulnerability scanning capabilities"
 weight = 330
 type = "docs"
+menu_group = "other"
 +++
 
 ## Package analysis

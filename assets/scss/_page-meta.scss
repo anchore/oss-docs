@@ -1,0 +1,31 @@
+// page metadata styling (e.g., last modified info)
+
+.td-page-meta__lastmod {
+  font-size: 0.8rem;
+  color: #6c757d; // muted grey for light mode
+  margin-top: 2rem;
+
+  a {
+    color: #6c757d; // muted grey for links
+    text-decoration: underline; // preserve underline
+
+    &:hover {
+      color: #495057; // slightly darker on hover
+    }
+  }
+}
+
+// dark mode adjustments
+[data-bs-theme='dark'] {
+  .td-page-meta__lastmod {
+    color: #adb5bd; // lighter grey for dark mode
+
+    a {
+      color: #adb5bd;
+
+      &:hover {
+        color: #ced4da; // lighter on hover
+      }
+    }
+  }
+}
