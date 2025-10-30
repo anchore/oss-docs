@@ -65,7 +65,7 @@ Syft supports multiple SBOM output formats, find out more about [Output Formats]
 
 ### Examine the SBOM file contents
 
-We can use [`jq`](https://jqlang.org/) to extract specific package data from the SBOM files (note: by default Syft outputs JSON on a single line,
+We can use [`jq`](https://jqlang.org/) to extract specific package data from the SBOM files (by default Syft outputs JSON on a single line,
 but you can enable pretty-printing with the `SYFT_FORMAT_PRETTY=true` environment variable).
 Both formats structure package information differently:
 
@@ -100,6 +100,10 @@ To include software from all image layers, regardless of its presence in the fin
 ```bash
 syft <image> --scope all-layers
 ```
+
+{{% alert title="More JSON examples" color="primary" %}}
+For more examples of working with Syft's JSON output using jq, see the [jq recipes](/docs/guides/sbom/syft-json/#jq-recipes).
+{{% /alert %}}
 
 ## FAQ
 

@@ -19,3 +19,10 @@
     </symbol>
   </defs>
 </svg>
+
+<!-- TOC scroll spy -->
+{{ $tocScrollspy := resources.Get "js/toc-scroll-spy.js" }}
+{{ if hugo.IsProduction }}
+  {{ $tocScrollspy = $tocScrollspy | minify }}
+{{ end }}
+<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>

@@ -1,6 +1,6 @@
 +++
 title = "Guides"
 linkTitle = "Guides"
-weight = 13
+weight = 11
 url = "docs/guides"
 +++

@@ -1,7 +1,7 @@
 +++
 title = "Capabilities"
 description = "Summary of package analysis and vulnerability scanning capabilities across ecosystems"
-weight = 11
+weight = 13
 type = "docs"
 +++
 

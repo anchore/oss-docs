@@ -101,29 +101,104 @@
   }
 }
 
-// table of contents improvements
+// table of contents improvements with smooth scrollspy
 .td-toc {
   #TableOfContents {
+    position: relative;
+
+    // vertical line that's always visible
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+
+      [data-bs-theme='light'] & {
+        background-color: rgba(0, 0, 0, 0.12);
+      }
+      [data-bs-theme='dark'] & {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    // gliding marker that moves smoothly along the vertical line
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: var(--toc-marker-top, 0);
+      width: 2px;
+      height: 18px;
+      background-color: $primary;
+      transition:
+        top 0.25s cubic-bezier(0, 1, 0.5, 1),
+        opacity 0.2s ease;
+      opacity: var(--toc-marker-opacity, 0);
+      pointer-events: none;
+    }
+
     ul {
-      /* padding-left: 1rem; */
+      position: relative;
+      padding-left: 1rem;
 
       li {
         margin-bottom: 0.25rem;
+        position: relative;
 
         a {
           padding: 0.25rem 0.5rem;
-          border-radius: 4px;
           display: block;
           font-size: 0.875rem;
+          position: relative;
+          transition:
+            color 0.2s ease,
+            opacity 0.2s ease;
 
-          &:hover {
+          // default inactive state - subtly deemphasized
+          [data-bs-theme='light'] & {
+            color: rgba(0, 0, 0, 0.65);
+            opacity: 0.85;
+          }
+          [data-bs-theme='dark'] & {
+            color: rgba(255, 255, 255, 0.65);
+            opacity: 0.85;
+          }
+
+          // active state - just brighten the text
+          &.active {
             [data-bs-theme='light'] & {
-              background-color: rgba($primary, 0.1);
+              color: $primary;
+              opacity: 1;
             }
             [data-bs-theme='dark'] & {
-              background-color: rgba($primary, 0.2);
+              color: $primary;
+              opacity: 1;
             }
           }
+
+          &:hover {
+            // brighten on hover but don't change background
+            [data-bs-theme='light'] & {
+              color: rgba(0, 0, 0, 0.8);
+              opacity: 1;
+            }
+            [data-bs-theme='dark'] & {
+              color: rgba(255, 255, 255, 0.8);
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      // nested lists (sub-sections)
+      ul {
+        margin-top: 0.25rem;
+        padding-left: 1rem;
+
+        li a {
+          font-size: 0.8125rem;
         }
       }
     }
