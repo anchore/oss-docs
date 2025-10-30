@@ -7,6 +7,14 @@ url = "docs/guides/sbom/file-selection"
 
 +++
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- By default, Syft includes information about files owned by packages into the SBOM
+- Select which files to include: `file.metadata.selection` can be one of `all`, `none`, or `owned-by-package`
+- Exclude paths and globs: `--exclude '**/node_modules/**'`
+
+{{< /alert >}}
+
 By default, Syft catalogs file details and digests for files owned by discovered packages. You can change this behavior using the `SYFT_FILE_METADATA_SELECTION` environment variable or the `file.metadata.selection` configuration option.
 
 **Available options:**
@@ -75,7 +83,7 @@ syft /usr/foo --exclude './out/**'            # Excludes everything under /usr/f
 | `*/`    | One level of directories        | `*/temp`          |
 | `**/`   | Any depth of directories        | `**/node_modules` |
 
-{{< alert title="Note" color="info" >}}
+{{< alert title="Note" color="primary" >}}
 When scanning directories, you cannot use absolute paths like `/etc` or `/usr/**/*.txt`. The pattern must begin with `./`, `*/`, or `**/` to be resolved relative to your specified scan directory.
 {{< /alert >}}
 
@@ -94,3 +102,40 @@ syft <source> --exclude '**/node_modules/**' --exclude '**/vendor/**'
 # Exclude test files
 syft <source> --exclude '**/*_test.go' --exclude '**/test/**'
 ```
+
+## FAQ
+
+**Why is my exclusion pattern not working?**
+
+Common issues:
+
+- **Missing quotes**: Wrap patterns in single quotes to prevent shell expansion (`'**/*.json'` not `**/*.json`)
+- **Wrong path prefix**: Directory scans require `./`, `*/`, or `**/` prefix; absolute paths like `/etc` won't work
+- **Pattern syntax**: Use glob syntax, not regex (e.g., `**/*.txt` not `.*\.txt`)
+
+**What's the difference between `owned-by-package` and `all` file metadata?**
+
+- **`owned-by-package`** (default): Only catalogs files that belong to discovered packages (e.g., files in an RPM's file manifest)
+- **`all`**: Catalogs every file in the scan space, which significantly increases SBOM size and scan time
+
+Use `all` when you need complete file listings for compliance or audit purposes.
+
+**Can I exclude directories based on .gitignore?**
+
+Not directly, but you can convert `.gitignore` patterns to `--exclude` flags. Note that `.gitignore` syntax differs from glob patterns, so you may need to adjust patterns (e.g., `node_modules/` becomes `**/node_modules/**`).
+
+**Do exclusions affect package detection?**
+
+Yes! If you exclude a file that a cataloger needs (like `package.json` or `requirements.txt`), Syft won't detect packages from that file. Exclude carefully to avoid missing dependencies.
+
+## Next steps
+
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Learn about [Using Templates](/docs/guides/sbom/templates/) to create custom SBOM output formats tailored to your specific needs.
+{{< /alert >}}
+
+Additional resources:
+
+- **Configure catalogers**: See [Package Catalogers](/docs/guides/sbom/catalogers/) to control which package types are detected
+- **Configuration file**: Use [Configuration](/docs/reference/syft/configuration) to set persistent exclusion patterns
+- **Source types**: Review [Supported Sources](/docs/guides/sbom/sources/) to understand scanning behavior for different source types

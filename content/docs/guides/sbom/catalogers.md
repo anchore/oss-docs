@@ -202,7 +202,7 @@ Use this flag to adjust the default cataloger set. This is the recommended appro
 3. Remove any catalogers matching `-<name-or-tag>`
 4. Add any catalogers specified with `+<name>`
 
-{{< alert title="Note" color="info" >}}
+{{< alert title="Note" color="primary" >}}
 Added catalogers (prefixed with `+`) are always included, regardless of other filters or removals.
 {{< /alert >}}
 
@@ -383,3 +383,15 @@ final_set = (base_catalogers SUBTRACT removed_catalogers) UNION added_catalogers
 ```
 
 This logic applies when using `--select-catalogers`. The `--override-default-catalogers` flag bypasses the default cataloger selection entirely and starts with the specified catalogers instead.
+
+## Next steps
+
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Learn about [File Selection](/docs/guides/sbom/file-selection/) to control which files and directories Syft scans during cataloging.
+{{< /alert >}}
+
+Additional resources:
+
+- **Reference**: See the complete list of [available catalogers](/docs/reference/syft/catalogers) and their capabilities
+- **Configuration**: Check [configuration options](/docs/reference/syft/configuration) for persistent cataloger settings
+- **Filter files**: Use [File Selection](/docs/guides/sbom/file-selection) to exclude irrelevant paths before cataloging

@@ -11,6 +11,10 @@ Syft's native JSON format provides the most comprehensive view of discovered sof
 Since Syft can [convert from its native JSON format to standard SBOM formats](/docs/guides/sbom/conversion/),
 capturing your SBOM in Syft JSON format lets you generate any SBOM format as needed for compliance requirements.
 
+{{< alert title="JSON Schema Reference" color="primary" >}}
+For the complete, detailed JSON schema specification, see the [Syft JSON Schema Reference](/docs/reference/syft/json/latest).
+{{< /alert >}}
+
 ## Data Shapes
 
 A Syft JSON output contains these main sections:
@@ -373,8 +377,50 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/packages-with-cves"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
+## Troubleshooting
+
+### jq command not found
+
+Install jq to query JSON output:
+
+- **macOS**: `brew install jq`
+- **Ubuntu/Debian**: `apt-get install jq`
+- **Fedora/RHEL**: `dnf install jq`
+- **Windows**: Download from [jqlang.org](https://jqlang.org/)
+
+### Empty or unexpected query results
+
+Common jq query issues:
+
+- **Wrong field path**: Use `jq 'keys'` to list available top-level keys, then explore nested structures
+- **Missing select filter**: Remember to use `select()` when filtering (e.g., `.artifacts[] | select(.type=="apk")`)
+- **String vs array**: Some fields like licenses are arrays; use `.[0]` or iterate with `.[]`
+
+### Query works in terminal but not in scripts
+
+When using jq in shell scripts:
+
+- **Quote properly**: Single quotes prevent shell variable expansion (e.g., `jq '.artifacts'` not `jq ".artifacts"`)
+- **Escape for heredocs**: Use different quotes or escape when embedding jq in heredocs
+- **Pipe errors**: Add `set -o pipefail` to catch jq errors in pipelines
+
+### Performance issues with large SBOMs
+
+For very large JSON files:
+
+- **Stream processing**: Use jq's `--stream` flag for memory-efficient processing
+- **Filter early**: Apply filters as early as possible in the pipeline to reduce data volume
+- **Use specific queries**: Avoid `.[]` on large arrays; be specific about what you need
+
 ## Next steps
 
-- Explore [output formats](/docs/guides/sbom/formats/) to see all available SBOM formats
-- Learn about [format conversion](/docs/guides/sbom/conversion/) to generate multiple formats efficiently
-- Use [templates](/docs/guides/sbom/templates/) to create custom output formats
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Dive into [Package Catalogers](/docs/guides/sbom/catalogers/) to understand how Syft discovers different types of software packages.
+{{< /alert >}}
+
+Additional resources:
+
+- **Other formats**: Explore [output formats](/docs/guides/sbom/formats/) to see all available SBOM formats
+- **Convert formats**: Learn about [format conversion](/docs/guides/sbom/conversion/) to generate multiple formats efficiently
+- **Custom output**: Use [templates](/docs/guides/sbom/templates/) to create custom output formats
+- **Syft JSON Schema**: Review the [Syft JSON Schema Reference](/docs/reference/syft/json/latest) for detailed field definitions

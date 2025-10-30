@@ -7,6 +7,18 @@ url = "docs/guides/sbom/formats"
 
 +++
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- Choose format with `-o <format>`:
+  - `table` (default)
+  - `json` (complete data)
+  - `spdx-json`/`spdx-tag-value`
+  - `cyclonedx-json`/`cyclonedx-xml`
+- Write to file: `-o json=sbom.json`
+- Generate multiple formats at once: use multiple `-o` flags
+
+{{< /alert >}}
+
 Syft supports multiple output formats to fit different workflows and requirements by using the `-o` (or `--output`) flag:
 
 ```bash
@@ -108,8 +120,35 @@ syft <source> \
   -o json=sbom.json    # write to file
 ```
 
+## FAQ
+
+**Which format should I use?**
+
+- **For human review**: Use `table` (default) for quick package lists
+- **For automation and queries**: Use `json` to access all Syft data including file details, relationships, and metadata
+- **For compliance and sharing**: Use `spdx-json` or `cyclonedx-json` - both are widely supported industry standards
+- **For custom formats**: Use `template` to create your own output format
+
+**Can I convert between formats?**
+
+Yes! See the [Format Conversion](/docs/guides/sbom/conversion/) guide to convert existing SBOMs between formats without re-scanning.
+
+**Do all formats contain the same information?**
+
+No. Syft's native `json` format contains the most complete information. Standard formats (SPDX, CycloneDX) contain package data but may not include all file details or Syft-specific metadata. Some data may be omitted or transformed to fit the target schema.
+
+**Which version should I use for SPDX or CycloneDX?**
+
+Use the latest version (default) unless you need compatibility with specific tools that require older versions. Check your downstream tools' documentation for version requirements.
+
 ## Next steps
 
-- Learn about [customizing output with templates](/docs/guides/sbom/templates) for specialized formats
-- Explore [supported sources](/docs/guides/sbom/sources) to understand what Syft can analyze
-- See [configuration options](/docs/reference/syft/configuration) for advanced format settings
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Explore [Working with Syft JSON](/docs/guides/sbom/syft-json/) to learn how to query and extract specific data from Syft's native format using jq.
+{{< /alert >}}
+
+Additional resources:
+
+- **Custom formats**: Learn about [customizing output with templates](/docs/guides/sbom/templates) for specialized formats
+- **Convert formats**: See [Format Conversion](/docs/guides/sbom/conversion/) to convert between different SBOM formats
+- **Advanced settings**: Check [configuration options](/docs/reference/syft/configuration) for format-specific settings

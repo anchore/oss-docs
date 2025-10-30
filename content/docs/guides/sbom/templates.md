@@ -6,6 +6,14 @@ tags = ["syft", "sbom", "templates"]
 url = "docs/guides/sbom/templates"
 +++
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- Create custom formats: `syft <image> -o template -t ./template.tmpl`
+- Templates receive same data as JSON output (explore with `syft <image> -o json`)
+- Supports [Sprig](http://masterminds.github.io/sprig/) helper functions
+
+{{< /alert >}}
+
 Syft lets you define custom output formats using [Go templates](https://pkg.go.dev/text/template). This is useful for generating custom reports, integrating with specific tools, or extracting only the data you need.
 
 ## How to use templates
@@ -129,15 +137,21 @@ tabs="template|template.md,output|output.md" >}}
 
 **Template syntax errors:** Refer to the [Go template documentation](https://pkg.go.dev/text/template) for syntax help.
 
-{{< alert title="Note" color="info" >}}
+{{< alert title="Note" color="primary" >}}
 If you have templates from before Syft v0.102.0 that no longer work, set `format.template.legacy: true` in your configuration. This uses internal Go structs instead of the JSON output schema.
 
 Long-term support for this legacy option is not guaranteed.
 {{< /alert >}}
 
-## Additional resources
+## Next steps
 
-- [Go template documentation](https://pkg.go.dev/text/template) - Template syntax reference
-- [Sprig function documentation](http://masterminds.github.io/sprig/) - Helper functions
-- [Output formats](/docs/guides/sbom/formats/) - Other output format options
-- [Configuration options](/docs/reference/syft/configuration/) - Advanced settings
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Learn about [Format Conversion](/docs/guides/sbom/conversion/) to convert existing SBOMs between different formats without re-scanning.
+{{< /alert >}}
+
+Additional resources:
+
+- **Template syntax**: See [Go template documentation](https://pkg.go.dev/text/template) for syntax reference
+- **Helper functions**: Browse [Sprig function documentation](http://masterminds.github.io/sprig/) for available helpers
+- **Query with jq**: Check [Working with Syft JSON](/docs/guides/sbom/syft-json/) for query examples to use in templates
+- **Configuration**: See [Configuration options](/docs/reference/syft/configuration/) for persistent template settings

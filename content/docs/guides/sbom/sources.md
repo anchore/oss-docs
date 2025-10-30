@@ -6,6 +6,14 @@ tags = ["syft", "sbom"]
 url = "docs/guides/sbom/sources"
 +++
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- Syft automatically detects source type, simply pass it as an argument: `syft <target>`
+- Supports **container images** (Docker/Podman/Containerd/registries), **directories**, **files**, and **archives**
+- Use `--from <type>` to explicitly specify source (e.g., `--from registry` to bypass local daemons)
+
+{{< /alert >}}
+
 Syft can generate an SBOM from a variety of sources including container images, directories, files, and archives.
 In most cases, you can simply point Syft at what you want to analyze and it will automatically detect and catalog it correctly.
 
@@ -216,3 +224,49 @@ Credentials are resolved in the following order:
 
 - Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
 - If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries](/docs/guides/private-registries) for more details.
+
+## Troubleshooting
+
+### Image not found in local daemon
+
+If Syft reports an image doesn't exist but you know it's available:
+
+- **Check which daemon has the image**: Run `docker images`, `podman images`, or `nerdctl images` to see where the image exists
+- **Specify the source explicitly**: Use `--from docker`, `--from podman`, or `--from containerd` to target the correct daemon
+- **Pull from registry**: Use `--from registry` to bypass local daemons and pull directly
+
+### Authentication failures with private registries
+
+If you get authentication errors when scanning private images:
+
+- **For daemon sources**: Ensure you're logged in via the daemon (e.g., `docker login registry.example.com`)
+- **For registry source**: Configure credentials in `~/.docker/config.json` or use environment variables (see [Private Registries](/docs/guides/private-registries))
+- **Verify credentials**: Check that your credentials haven't expired and have appropriate permissions
+
+### Podman connection issues
+
+If Syft can't connect to Podman:
+
+- **Start the service**: Run `podman system service` to start the Podman socket
+- **Check socket location**: Verify the socket exists at `$XDG_RUNTIME_DIR/podman/podman.sock` or `/run/podman/podman.sock`
+- **Use environment variable**: Set `CONTAINER_HOST` to point to your Podman socket location
+
+### Slow directory scans
+
+If scanning a directory takes too long:
+
+- **Exclude unnecessary paths**: Use file selection options to skip build artifacts, caches, or virtual environments (see [File Selection](/docs/guides/sbom/file-selection))
+- **Avoid system directories**: Scanning `/` includes all mounted filesystems; consider scanning specific application directories instead
+- **Check mount points**: Ensure you're not accidentally scanning network mounts or remote filesystems
+
+## Next steps
+
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Learn about [Output Formats](/docs/guides/sbom/formats/) to understand how to generate SBOMs in different standard formats like SPDX and CycloneDX.
+{{< /alert >}}
+
+Additional resources:
+
+- **Authenticate with registries**: Set up [Private Registry Authentication](/docs/guides/private-registries) for scanning private images
+- **Control what gets scanned**: Use [File Selection](/docs/guides/sbom/file-selection) to include or exclude specific files
+- **Configure defaults**: See [Configuration](/docs/reference/syft/configuration) for setting default source preferences

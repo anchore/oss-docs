@@ -121,10 +121,13 @@ Nothing. Syft runs entirely locally and doesn't send any data to external servic
 
 ## Next steps
 
-Now that you've generated your first SBOM, here's what you can do next:
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Learn about all the different [Supported Sources](/docs/guides/sbom/sources/) Syft can analyze - from container images to local directories and archives.
+{{< /alert >}}
+
+Now that you've generated your first SBOM, here are additional resources:
 
 - **Scan for vulnerabilities**: Use [Grype](/docs/guides/vulnerability/getting-started/) to find security issues in your SBOMs
 - **Check licenses**: Learn about [License Scanning](/docs/guides/license/getting-started/) to understand dependency licenses
 - **Customize output**: Explore different [Output Formats](/docs/guides/sbom/formats/) for various tools and workflows
-- **Scan different sources**: Discover all [Supported Sources](/docs/guides/sbom/sources/) Syft can analyze
 - **Query SBOM data**: Master [Working with Syft JSON](/docs/guides/sbom/syft-json/) for advanced data extraction

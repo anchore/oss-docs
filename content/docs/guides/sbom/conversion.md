@@ -11,6 +11,14 @@ url = "docs/guides/sbom/conversion"
 This feature is experimental and may change in future releases.
 {{< /alert >}}
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- Convert from Syft JSON to other SBOM formats: `syft convert <sbom-file> -o <format>`
+- Best practice: keep Syft JSON as source, convert to SPDX/CycloneDX as needed
+- Avoid chaining conversions (e.g., SPDX → CycloneDX)
+
+{{< /alert >}}
+
 The ability to convert existing SBOMs means you can create SBOMs in different formats quickly, without the need to regenerate the SBOM from scratch, which may take significantly more time.
 
 ```
@@ -90,3 +98,37 @@ Avoid chaining conversions (e.g., SPDX → CycloneDX). Each step may lose format
 
 - You need complete format-specific data
 - Conversion output is missing critical information
+
+## FAQ
+
+**Can I convert from SPDX to CycloneDX?**
+
+Yes, but it's not recommended. Converting between non-Syft formats loses data with each conversion. If you have the original Syft JSON or can re-scan the source, that's a better approach.
+
+**Why is some data missing after conversion?**
+
+Different SBOM formats have different schemas with different capabilities. SPDX and CycloneDX can't represent all Syft metadata. Converting from Syft JSON to standard formats works best; converting between standard formats loses more data.
+
+**Is conversion faster than re-scanning?**
+
+Yes, significantly. Conversion takes milliseconds while scanning can take seconds to minutes depending on source size. This makes conversion ideal for CI/CD pipelines that need multiple formats.
+
+**Can I convert back to Syft JSON from SPDX?**
+
+Yes, but you'll lose Syft-specific metadata that doesn't exist in SPDX (like cataloger information, layer details, and file metadata). The result won't match the original Syft JSON.
+
+**Which format versions are supported?**
+
+See the [Output Formats](/docs/guides/sbom/formats/) guide for supported versions of each format. Syft converts to the latest version by default, but you can specify older versions (e.g., `-o spdx-json@2.2`).
+
+## Next steps
+
+{{< alert title="Continue the guide" color="success" >}}
+**Next**: Explore [Attestation](/docs/guides/sbom/attestation/) to learn how to sign and verify your SBOMs for supply chain security.
+{{< /alert >}}
+
+Additional resources:
+
+- **Source format**: See [Working with Syft JSON](/docs/guides/sbom/syft-json/) to understand the source format
+- **Available formats**: Check [Output Formats](/docs/guides/sbom/formats/) for all supported SBOM formats
+- **Direct generation**: Learn about generating formats directly in [Getting Started](/docs/guides/sbom/getting-started/)

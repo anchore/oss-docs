@@ -12,6 +12,16 @@ url = "docs/guides/sbom/attestation"
 This feature is experimental and may change in future releases.
 {{< /alert >}}
 
+{{< alert title="TL;DR" color="primary" >}}
+
+- Sign SBOMs: `syft attest --output cyclonedx-json <image>` (keyless via OIDC)
+- Or with keys: `syft attest --key cosign.key --output spdx-json <image>`
+- Requires Cosign ≥ v1.12.0 and registry write access
+- Verify: `cosign verify-attestation`
+- Attestations attach to images in OCI registries
+
+{{< /alert >}}
+
 ## Overview
 
 An attestation is cryptographic proof that you created a specific SBOM for a container image. When you publish an image, consumers need to trust that the SBOM accurately describes the image contents. Attestations solve this by letting you sign SBOMs and attach them to images, enabling consumers to verify authenticity.
@@ -165,3 +175,23 @@ This ensures you're scanning a verified, trusted SBOM.
 - Verify write access to the registry
 - Check authentication credentials are current
 - Ensure the image exists in the registry before attaching attestations
+
+## Next steps
+
+{{< alert title="Guide complete!" color="success" >}}
+Now let's put those SBOMs to good use and [with Grype to understand your exposure to vulnerabilities](/docs/guides/vulnerability/getting-started/).
+{{< /alert >}}
+
+**Continue your journey:**
+
+- **Scan for vulnerabilities**: Use [Grype](/docs/guides/vulnerability/getting-started/) to find security issues in your SBOMs
+- **Check licenses**: Analyze open source licenses with [Grant](/docs/guides/license/getting-started/)
+- **Reference documentation**: Explore [Syft CLI reference](/docs/reference/syft/cli/) for all available commands and options
+- **Configure Syft**: See [Configuration](/docs/reference/syft/configuration/) for advanced settings and persistent configuration
+
+**Key pages to revisit:**
+
+- [Getting Started](/docs/guides/sbom/getting-started/) - Quick start and installation
+- [Supported Sources](/docs/guides/sbom/sources/) - All scanning capabilities
+- [Output Formats](/docs/guides/sbom/formats/) - SBOM format options
+- [Working with Syft JSON](/docs/guides/sbom/syft-json/) - Query and extract data
