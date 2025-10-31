@@ -3,7 +3,7 @@ title = "Linux Kernel"
 description = "Linux kernel archive and module analysis and vulnerability scanning capabilities"
 weight = 180
 type = "docs"
-menu_group = "os"
+menu_group = "other"
 +++
 
 ## Package analysis

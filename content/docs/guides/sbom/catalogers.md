@@ -392,6 +392,6 @@ This logic applies when using `--select-catalogers`. The `--override-default-cat
 
 Additional resources:
 
-- **Reference**: See the complete list of [available catalogers](/docs/reference/syft/catalogers) and their capabilities
+- **Reference**: See the [ecosystem capabilities](/docs/capabilities/) for detailed information about package detection and vulnerability matching
 - **Configuration**: Check [configuration options](/docs/reference/syft/configuration) for persistent cataloger settings
 - **Filter files**: Use [File Selection](/docs/guides/sbom/file-selection) to exclude irrelevant paths before cataloging

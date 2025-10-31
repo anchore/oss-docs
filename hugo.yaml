@@ -52,13 +52,24 @@ params:
   github_repo: https://github.com/anchore/oss-docs
   github_project_repo: https://github.com/anchore/oss-docs
   offlineSearch: true
-  capabilities_groups:
-    - id: 'os'
-      title: 'OS Distro'
-    - id: 'language'
-      title: 'Language / Framework'
-    - id: 'other'
-      title: 'Other'
+  sidebar_groups:
+    Capabilities:
+      - id: 'os'
+        title: 'OS Distro'
+      - id: 'language'
+        title: 'Language / Framework'
+      - id: 'other'
+        title: 'Other'
+    Contributing:
+      - id: 'general'
+        title: 'General'
+      - id: 'projects'
+        title: 'Project Specific'
+    Architecture:
+      - id: 'general'
+        title: 'General'
+      - id: 'projects'
+        title: 'Project Specific'
   links:
     user:
       - name: OSS Docs home

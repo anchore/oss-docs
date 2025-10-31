@@ -30,12 +30,6 @@ Reference information
 - [Grype command-line options](/docs/reference/grype/cli)
 - [Organizations/Projects using Anchore OSS](/docs/about/adopters/)
 
-OSS release notes:
-
-- [Syft Releases](/docs/releases/syft/)
-- [Grype Releases](/docs/releases/grype/)
-- [Grype Releases](/docs/releases/grant/)
-
 **Note**: Many topics have nested sub-topics in the navigation pane to the left that become visible when you click a topic.
 
 ### Installing the Tools

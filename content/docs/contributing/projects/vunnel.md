@@ -1,21 +1,18 @@
 +++
 title =  "Vunnel"
 description = "Developer guidelines when contributing to Vunnel"
-weight = 50
+weight = 28
 categories = ["developer"]
 tags = ["vunnel"]
 url = "docs/contributing/vunnel"
+menu_group = "projects"
 +++
 
-We welcome contributions to the project! There are a few useful things to know before diving into the codebase.
-
-Do also take note of the [General Guidelines](/docs/contributing/#general-guidelines) that apply accross all Anchore Open Source projects.
-
-## Getting Started
+## Getting started
 
 This project requires:
 
-- python (>= 3.7)
+- python (>= 3.11)
 - pip (>= 22.2)
 - uv
 - docker
@@ -51,6 +48,8 @@ uv run pre-commit install --hook-type pre-push
 ```
 
 ## Developing
+
+### Development shell
 
 The easiest way to develop on a providers is to use the development shell, selecting the specific provider(s) you'd like to focus your development workflow on:
 
@@ -141,12 +140,16 @@ GRYPE_PATH=~/somewhere/else/grype
 GRYPE_DB_PATH=~/also/somewhere/else/grype-db
 ```
 
+### Rebuilding development tools
+
 To rebuild the grype and grype-db binaries from local source, run:
 
 ```
 make build-grype
 make build-grype-db
 ```
+
+### Common commands
 
 This project uses Make for running common development tasks:
 
@@ -173,7 +176,7 @@ uv pip uninstall vunnel  #... if you already have vunnel installed in this virtu
 uv pip install -e .
 ```
 
-### Snapshot Tests
+### Snapshot tests
 
 In order to ensure that the same feed state from providers would make the same
 set of vulnerabilities, snapshot testing is used.
@@ -191,185 +194,15 @@ pytest ./tests/unit/providers/debian/test_debian.py -k test_provider_via_snapsho
 
 ## Architecture
 
-Vunnel is a CLI tool that downloads and processes vulnerability data from various sources (in the codebase, these are called "providers").
+For detailed information about Vunnel's architecture, including:
 
-<!-- repo path: docs/vunnel-run-workflow.drawio -->
-<!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456403838 -->
-<img src="https://user-images.githubusercontent.com/590471/223163266-e73d2595-f320-4607-a016-f1b22aad45c7.svg" width="600" alt="Vunnel run workflow diagram" />
+- Provider abstraction and design
+- Workspace conventions
+- Vulnerability schemas (OS, NVD, GitHub, OSV)
+- Provider configuration options
+- Integration with Grype DB
 
-Conceptually, one or more invocations of Vunnel will produce a single data directory which Grype-DB uses to create a Grype database:
-
-<!-- repo path: docs/vunnel+grype-db-workflow.drawio -->
-<!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456408327 -->
-<img src="https://user-images.githubusercontent.com/590471/223167464-aca39d4b-699a-47da-b852-fea904ba9824.svg" width="600" alt="Vunnel and Grype-DB workflow diagram" />
-
-Additionally, the Vunnel CLI tool is optimized to run
-a single provider at a time, not orchestrating multiple providers at once. [Grype-db](https://github.com/anchore/grype-db) is the
-tool that collates output from multiple providers and produces a single database, and is ultimately responsible for
-orchestrating multiple Vunnel calls to prepare the input data:
-
-<!-- repo path: docs/grype-db-actions.drawio -->
-<!-- asset comment: https://github.com/anchore/vunnel/issues/102#issuecomment-1456415533 -->
-<img src="https://user-images.githubusercontent.com/590471/223165191-8b06b696-f7b5-4a92-912a-c7110c1cd324.svg" width="600" alt="Grype-DB actions workflow diagram" />
-
-For more information about how Grype-DB uses Vunnel see [the Grype-DB documentation](../grype-db/#architecture).
-
-### Vunnel Providers
-
-A "Provider" is the core abstraction for Vunnel and represents a single source of vulnerability data. Vunnel is a CLI wrapper
-around multiple vulnerability data providers.
-
-All provider implementations should...
-
-- live under `src/vunnel/providers` in their own directory (e.g. the NVD provider code is under `src/vunnel/providers/nvd/...`)
-- have a class that implements the [`Provider` interface](https://github.com/anchore/vunnel/blob/1285a3be0f24fd6472c1f469dd327541ff1fc01e/src/vunnel/provider.py#L73)
-- be centrally registered with a unique name under [`src/vunnel/providers/__init__.py`](https://github.com/anchore/vunnel/blob/1285a3be0f24fd6472c1f469dd327541ff1fc01e/src/vunnel/providers/__init__.py)
-- be independent from other vulnerability providers data --that is, the debian provider CANNOT reach into the NVD data provider directory to look up information (such as severity)
-- follow the workspace conventions for downloaded provider inputs, produced results, and tracking of metadata
-
-Each provider has a "workspace" directory within the "vunnel root" directory (defaults to `./data`) named after the provider.
-
-```yaml
-data/                       # the "vunnel root" directory
-└── alpine/                 # the provider workspace directory
-    ├── input/              # any file that needs to be downloaded and referenced should be stored here
-    ├── results/            # schema-compliant vulnerability results (1 record per file)
-    ├── checksums           # listing of result file checksums (xxh64 algorithm)
-    └── metadata.json       # metadata about the input and result files
-```
-
-The `metadata.json` and `checksums` are written out after all results are written to `results/`. An example `metadata.json`:
-
-```json
-{
-  "provider": "amazon",
-  "urls": ["https://alas.aws.amazon.com/AL2022/alas.rss"],
-  "listing": {
-    "digest": "dd3bb0f6c21f3936",
-    "path": "checksums",
-    "algorithm": "xxh64"
-  },
-  "timestamp": "2023-01-01T21:20:57.504194+00:00",
-  "schema": {
-    "version": "1.0.0",
-    "url": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/provider-workspace-state/schema-1.0.0.json"
-  }
-}
-```
-
-Where:
-
-- `provider`: the name of the provider that generated the results
-- `urls`: the URLs that were referenced to generate the results
-- `listing`: the path to the `checksums` listing file that lists all of the results, the checksum of that file, and the algorithm used to checksum the file (and the same algorithm used for all contained checksums)
-- `timestamp`: the point in time when the results were generated or last updated
-- `schema`: the data shape that the current file conforms to
-
-All results from a provider are handled by a common base class helper (`provider.Provider.results_writer()`) and is driven
-by the application configuration (e.g. JSON flat files or SQLite database). The data shape of the results are
-self-describing via an envelope with a schema reference. For example:
-
-For example:
-
-```json
-{
-  "schema": "https://raw.githubusercontent.com/anchore/vunnel/main/schema/vulnerability/os/schema-1.0.0.json",
-  "identifier": "3.3/cve-2015-8366",
-  "item": {
-    "Vulnerability": {
-      "Severity": "Unknown",
-      "NamespaceName": "alpine:3.3",
-      "FixedIn": [
-        {
-          "VersionFormat": "apk",
-          "NamespaceName": "alpine:3.3",
-          "Name": "libraw",
-          "Version": "0.17.1-r0"
-        }
-      ],
-      "Link": "http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8366",
-      "Description": "",
-      "Metadata": {},
-      "Name": "CVE-2015-8366",
-      "CVSS": []
-    }
-  }
-}
-```
-
-Where:
-
-- the `schema` field is a URL to the schema that describes the data shape of the `item` field
-- the `identifier` field should have a unique identifier within the context of the provider results
-- the `item` field is the actual vulnerability data, and the shape of this field is defined by the schema
-
-Note that the identifier is `3.3/cve-2015-8366` and not just `cve-2015-8366` in order to uniquely identify
-`cve-2015-8366` as applied to the `alpine 3.3` distro version among other records in the results directory.
-
-Currently only JSON payloads are supported at this time.
-
-Possible vulnerability schemas supported within the vunnel repo are:
-
-- [Generic OS Vulnerability](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/os)
-- [GitHub Security Advisories](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/github-security-advisory)
-- [NVD Vulnerability](https://github.com/anchore/vunnel/tree/main/schema/vulnerability/nvd)
-- [Open Source Vulnerability (OSV)](https://ossf.github.io/osv-schema)
-
-If at any point a breaking change needs to be made to a provider (and say the schema remains the same), then you
-can set the `__version__` attribute on the provider class to a new integer value (incrementing from `1` onwards). This
-is a way to indicate that the cached input/results are not compatible with the output of the current version of the
-provider, in which case the next invocation of the provider will delete the previous input and results before running.
-
-### Provider configurations
-
-Each provider has a configuration object defined next to the provider class. This object is used in the vunnel application
-configuration and is passed as input to the provider class. Take the debian provider configuration for example:
-
-```python
-from dataclasses import dataclass, field
-
-from vunnel import provider, result
-
-@dataclass
-class Config:
-    runtime: provider.RuntimeConfig = field(
-        default_factory=lambda: provider.RuntimeConfig(
-            result_store=result.StoreStrategy.SQLITE,
-            existing_results=provider.ResultStatePolicy.DELETE_BEFORE_WRITE,
-        ),
-    )
-    request_timeout: int = 125
-
-```
-
-Every provider configuration must:
-
-- be a `dataclass`
-- have a `runtime` field that is a `provider.RuntimeConfig` field
-
-The `runtime` field is used to configure common behaviors of the provider that are enforced within the `vunnel.provider.Provider` subclass. Options include:
-
-- `on_error`: what to do when the provider fails, sub fields include:
-  - `action`: choose to `fail`, `skip`, or `retry` when the failure occurs
-  - `retry_count`: the number of times to retry the provider before failing (only applicable when `action` is `retry`)
-  - `retry_delay`: the number of seconds to wait between retries (only applicable when `action` is `retry`)
-  - `input`: what to do about the `input` data directory on failure (such as `keep` or `delete`)
-  - `results`: what to do about the `results` data directory on failure (such as `keep` or `delete`)
-
-- `existing_results`: what to do when the provider is run again and the results directory already exists. Options include:
-  - `delete-before-write`: delete the existing results just before writing the first processed (new) result
-  - `delete`: delete existing results before running the provider
-  - `keep`: keep the existing results
-
-- `existing_input`: what to do when the provider is run again and the input directory already exists. Options include:
-  - `delete`: delete the existing input before running the provider
-  - `keep`: keep the existing input
-
-- `result_store`: where to store the results. Options include:
-  - `sqlite`: store results as key-value form in a SQLite database, where keys are the record identifiers values are the json vulnerability records
-  - `flat-file`: store results in JSON files named after the record identifiers
-
-Any provider-specific config options can be added to the configuration object as needed (such as `request_timeout`, which is a common field).
+See the [Vunnel Architecture](/docs/architecture/vunnel) page.
 
 ## Adding a new provider
 
@@ -401,9 +234,13 @@ Validating this provider has different implications depending on what is being a
 adding a new vulnerability source but is ultimately using an existing schema to express results then there may be very little to do!
 If you are adding a new schema, then the downstream data pipeline will need to be altered to support reading data in the new schema.
 
-**_Please feel free to reach out to a maintainer on an incomplete draft PR and we can help you get it over the finish line!_**
+{{< alert color="primary" >}}
+**Need help with your provider?**
 
-### ...for an existing schema
+Feel free to reach out to a maintainer on an incomplete draft PR and we can help you get it over the finish line!
+{{< /alert >}}
+
+### For an existing schema
 
 #### **1. Fork Vunnel and add the new provider.**
 
@@ -505,7 +342,7 @@ make capture provider=<your-provider-name>
 make validate
 ```
 
-This uses the latest Grype-DB release to build a DB and the specified Grype version with a DB containing only data from the new provider.
+This uses the latest Grype DB release to build a DB and the specified Grype version with a DB containing only data from the new provider.
 
 You are looking for a passing run before continuing further.
 
@@ -549,16 +386,18 @@ The PR will also run all of the same quality gate checks that you ran locally.
 
 If you have Grype changes, you should also create a PR for that as well. The Vunnel PR will not pass PR checks until the Grype PR is merged and the `test/quality/config.yaml` file is updated to point back to the `latest` Grype version.
 
-### ...for a new schema
+### For a new schema
 
 This is the same process as listed above with a few additional steps:
 
 1. You will need to add the new schema to the Vunnel repo in the `schemas` directory.
-2. Grype-DB will need to be updated to support the new schema in the `pkg/provider/unmarshal` and `pkg/process/v*` directories.
+2. Grype DB will need to be updated to support the new schema in the `pkg/provider/unmarshal` and `pkg/process/v*` directories.
 3. The Vunnel `tests/quality/config.yaml` file will need to be updated to use development `grype-db.version`, pointing to your fork.
-4. The final Vunnel PR will not be able to be merged until the Grype-DB PR is merged and the `tests/quality/config.yaml` file is updated to point back to the `latest` Grype-DB version.
+4. The final Vunnel PR will not be able to be merged until the Grype DB PR is merged and the `tests/quality/config.yaml` file is updated to point back to the `latest` Grype DB version.
 
-## What might need refactoring?
+## Contributing improvements
+
+### Finding refactoring opportunities
 
 Looking to help out with improving the code quality of Vunnel, but not sure where to start?
 
@@ -617,7 +456,7 @@ $ wily rank
 
 Ideally we should try to get `wily diff` output into the CI pipeline and post on a sticky PR comment to show regressions (and potentially fail the CI run).
 
-## Not everything has types
+### Adding type hints
 
 This codebase has been ported from another repo that did not have any type hints. This is OK, though ideally over time this should
 be corrected as new features are added and bug fixes made.
@@ -627,3 +466,30 @@ We use `mypy` today for static type checking, however, the ported code has been 
 If you want to make enhancements in this area consider using automated tooling such as [`pytype`](https://github.com/google/pytype) to generate types via inference into `.pyi` files and later merge them into the codebase with [`merge-pyi`](https://github.com/google/pytype/tree/main/pytype/tools/merge_pyi).
 
 Alternatively a tool like [`MonkeyType`](https://github.com/Instagram/MonkeyType) can be used generate static types from runtime data and incorporate into the code.
+
+## Next Steps
+
+<!-- markdownlint-disable MD036 -->
+
+**Understanding the Codebase**
+
+- [Vunnel Architecture](/docs/architecture/vunnel) - Learn about provider abstraction, workspace conventions, and vulnerability schemas
+- [Example Provider](https://github.com/anchore/vunnel/blob/main/example/README.md) - Detailed walkthrough of creating a new provider
+- [Quality Gates](/docs/architecture/quality-gates/vunnel) - Learn about validation and quality checks
+
+**Contributing Your Work**
+
+- [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
+- [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues
+
+**Finding Work**
+
+- [New Provider Issues](https://github.com/anchore/vunnel/issues?q=is%3Aopen+is%3Aissue+label%3Anew-provider) - Add support for new vulnerability data sources
+- [Refactoring Issues](https://github.com/anchore/vunnel/issues?q=is%3Aissue+is%3Aopen+label%3Arefactor) - Help improve code quality
+- [Good First Issues](https://github.com/anchore/vunnel/issues?q=is%3Aopen%20is%3Aissue%20label%3A%22good-first-issue%22) - Beginner-friendly issues
+
+**Getting Help**
+
+- [Anchore Discourse](https://anchore.com/discourse) - Community discussions and questions
+
+<!-- markdownlint-enable MD036 -->

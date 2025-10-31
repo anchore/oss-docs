@@ -67,19 +67,21 @@
   {{- end }}
   {{- if $withChild }}
   {{- $ulNr := add $ulNr 1 }}
-  {{- $isCapabilitiesSection := eq $s.Title "Capabilities" }}
+  {{- /* Detect which groups config to use from unified sidebar_groups map */ -}}
+  {{- $groupConfigs := index $p.Site.Params.sidebar_groups $s.Title }}
+  {{- $hasGroups := ne $groupConfigs nil }}
   {{- $sortedPages := $pages }}
-  {{- if $isCapabilitiesSection }}
-    {{- $groupConfigs := $p.Site.Params.capabilities_groups }}
+  {{- if $hasGroups }}
     {{- $tempSorted := slice }}
+    {{- $scratchKey := printf "%s_group_titles" (anchorize $s.Title) }}
 
     {{- /* Build lookup map and sort pages by group order */ -}}
-    {{- $p.Scratch.Set "cap_group_titles" dict }}
+    {{- $p.Scratch.Set $scratchKey dict }}
     {{- range $idx, $grpCfg := $groupConfigs }}
       {{- /* Store title for later lookup */ -}}
-      {{- $titles := $p.Scratch.Get "cap_group_titles" }}
+      {{- $titles := $p.Scratch.Get $scratchKey }}
       {{- $titles = merge $titles (dict $grpCfg.id $grpCfg.title) }}
-      {{- $p.Scratch.Set "cap_group_titles" $titles }}
+      {{- $p.Scratch.Set $scratchKey $titles }}
 
       {{- /* Collect all pages for this group */ -}}
       {{- range $pages }}
@@ -102,19 +104,21 @@
     {{- $sortedPages = $tempSorted }}
   {{- end }}
   <ul class="ul-{{ $ulNr }}{{ if (gt $ulNr 1)}} foldable{{end}}">
-    {{ if and $isCapabilitiesSection $activePath -}}
-      {{- $p.Scratch.Set "cap_lastgroup" "" }}
+    {{ if and $hasGroups $activePath -}}
+      {{- $scratchKey := printf "%s_group_titles" (anchorize $s.Title) }}
+      {{- $lastGroupKey := printf "%s_lastgroup" (anchorize $s.Title) }}
+      {{- $p.Scratch.Set $lastGroupKey "" }}
       {{- range $sortedPages }}
         {{ if (not (and (eq $s $p.Site.Home) (eq .Params.toc_root true))) -}}
         {{- $currentGrp := .Params.menu_group | default "" }}
-        {{- $lastGrp := $p.Scratch.Get "cap_lastgroup" }}
+        {{- $lastGrp := $p.Scratch.Get $lastGroupKey }}
         {{- if and (ne $currentGrp "") (ne $currentGrp $lastGrp) }}
-        {{- $titles := $p.Scratch.Get "cap_group_titles" }}
+        {{- $titles := $p.Scratch.Get $scratchKey }}
         {{- $displayTitle := index $titles $currentGrp | default $currentGrp }}
         <li class="td-sidebar-group-header">{{ $displayTitle }}</li>
         {{- end }}
         {{- if ne $currentGrp "" }}
-        {{- $p.Scratch.Set "cap_lastgroup" $currentGrp }}
+        {{- $p.Scratch.Set $lastGroupKey $currentGrp }}
         {{- end }}
         {{ template "section-tree-nav-section" (dict "page" $p "section" . "shouldDelayActive" $shouldDelayActive "sidebarMenuTruncate" $sidebarMenuTruncate "ulNr" $ulNr "ulShow" $ulShow) }}
         {{- end }}

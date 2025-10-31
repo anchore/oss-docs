@@ -67,6 +67,16 @@
   }
 }
 
+// remove vertical border between left sidebar and main content
+.td-sidebar {
+  border-right: none !important;
+}
+
+// remove vertical border between main content and right sidebar (TOC)
+.td-sidebar-toc {
+  border-left: none !important;
+}
+
 // improved sidebar spacing and typography
 .td-sidebar {
   .td-sidebar-nav {
