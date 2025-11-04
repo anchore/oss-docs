@@ -386,7 +386,7 @@ This logic applies when using `--select-catalogers`. The `--override-default-cat
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/file-selection/" >}}
 **Next**: Learn about [File Selection](/docs/guides/sbom/file-selection/) to control which files and directories Syft scans during cataloging.
 {{< /alert >}}
 

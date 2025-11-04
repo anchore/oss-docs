@@ -145,7 +145,7 @@ Long-term support for this legacy option is not guaranteed.
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/conversion/" >}}
 **Next**: Learn about [Format Conversion](/docs/guides/sbom/conversion/) to convert existing SBOMs between different formats without re-scanning.
 {{< /alert >}}
 

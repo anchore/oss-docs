@@ -9,13 +9,13 @@ url = "docs/guides/sbom/formats"
 
 {{< alert title="TL;DR" color="primary" >}}
 
-- Choose format with `-o <format>`:
+- **Choose a format** with `-o <format>`:
   - `table` (default)
   - `json` (complete data)
   - `spdx-json`/`spdx-tag-value`
   - `cyclonedx-json`/`cyclonedx-xml`
-- Write to file: `-o json=sbom.json`
-- Generate multiple formats at once: use multiple `-o` flags
+- **Write to file**: `-o json=sbom.json`
+- Generate **multiple formats at once**: use multiple `-o` flags
 
 {{< /alert >}}
 
@@ -26,8 +26,6 @@ syft <image> -o <format>
 ```
 
 ## Available formats
-
-### Syft-native formats
 
 | `-o ARG`      | Description                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -40,7 +38,7 @@ syft <image> -o <format>
 
 ### CycloneDX
 
-CycloneDX is an OWASP-maintained industry standard SBOM format.
+[CycloneDX](https://cyclonedx.org/) is an OWASP-maintained industry standard SBOM format.
 
 | `-o ARG`         | Description                                                                                              |
 | ---------------- | -------------------------------------------------------------------------------------------------------- |
@@ -49,7 +47,7 @@ CycloneDX is an OWASP-maintained industry standard SBOM format.
 
 ### SPDX
 
-SPDX (Software Package Data Exchange) is an ISO/IEC 5962:2021 industry standard SBOM format.
+[SPDX](https://spdx.dev/) (Software Package Data Exchange) is an ISO/IEC 5962:2021 industry standard SBOM format.
 
 | `-o ARG`         | Description                                                                                                              |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -143,7 +141,7 @@ Use the latest version (default) unless you need compatibility with specific too
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/syft-json/" >}}
 **Next**: Explore [Working with Syft JSON](/docs/guides/sbom/syft-json/) to learn how to query and extract specific data from Syft's native format using jq.
 {{< /alert >}}
 

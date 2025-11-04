@@ -123,7 +123,7 @@ See the [Output Formats](/docs/guides/sbom/formats/) guide for supported version
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/attestation/" >}}
 **Next**: Explore [Attestation](/docs/guides/sbom/attestation/) to learn how to sign and verify your SBOMs for supply chain security.
 {{< /alert >}}
 

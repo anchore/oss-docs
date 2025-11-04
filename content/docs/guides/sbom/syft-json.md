@@ -414,7 +414,7 @@ For very large JSON files:
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/catalogers/" >}}
 **Next**: Dive into [Package Catalogers](/docs/guides/sbom/catalogers/) to understand how Syft discovers different types of software packages.
 {{< /alert >}}
 

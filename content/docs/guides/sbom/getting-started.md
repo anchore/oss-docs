@@ -6,11 +6,20 @@ tags = ["syft", "sbom"]
 url = "docs/guides/sbom/getting-started"
 +++
 
-Syft is a CLI tool for generating a Software Bill of Materials (SBOM) from container images and filesystems.
+## What is an SBOM?
+
+A **Software Bill of Materials** (SBOM) is a **detailed list of all libraries and components** that make up software.
+
+- **For developers**, it's crucial for tracking dependencies, identifying vulnerabilities, and ensuring license compliance.
+
+- **For organizations**, it provides transparency into the software supply chain to assess security risks.
+
+**[Syft](https://github.com/anchore/syft)** is a CLI tool for generating an SBOM from container images and filesystems.
 
 ## Installation
 
-Syft is provided as a single compiled executable. Run the command for your platform to download the latest release. The full list of official and community maintained packages can be found on the [installation](/docs/installation/syft) page.
+Syft is provided as a single compiled executable and requires no external dependencies to run.
+Run the command for your platform to download the latest release.
 
 {{< tabpane lang="bash">}}
 {{% tab header="Platform:" disabled=true /%}}
@@ -21,7 +30,7 @@ curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
 {{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}
 {{< /tabpane >}}
 
-See the [installation guide](/docs/installation/syft) for more options including package managers and manual installation.
+Check out [installation guide](/docs/installation/syft) for full list of official and community-maintained packaging options.
 
 ## Display the contents of a public container image
 
@@ -51,10 +60,13 @@ Syft supports more than just containers. Learn more about [Supported Sources](/d
 
 ## Create an industry-standard SBOM
 
-This command will display the human-readable table _and_ write SBOMs in both SPDX and CycloneDX formats, the two primary industry standards.
+This command will display the human-readable table _and_ write SBOMs in both **[SPDX](https://spdx.dev/)** and **[CycloneDX](https://cyclonedx.org/)** formats, the two primary industry standards.
 
 ```bash
-syft alpine:latest -o table -o spdx-json=alpine.spdx.json -o cyclonedx-json=alpine.cdx.json
+syft alpine:latest \                 # what we're scanning
+  -o table \                         # a human-readable table to stdout
+  -o spdx-json=alpine.spdx.json \    # SPDX-JSON formatted SBOM to a file
+  -o cyclonedx-json=alpine.cdx.json  # CycloneDX-JSON formatted SBOM to a file
 ```
 
 The same table will be displayed, and two SBOM files will be created in the current directory.
@@ -125,8 +137,8 @@ Nothing. Syft runs entirely locally and doesn't send any data to external servic
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
-**Next**: Learn about all the different [Supported Sources](/docs/guides/sbom/sources/) Syft can analyze - from container images to local directories and archives.
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/sources/" >}}
+**Next**: Learn about all the different [Supported Sources](/docs/guides/sbom/sources/) Syft can analyze --from container images to local directories and archives.
 {{< /alert >}}
 
 Now that you've generated your first SBOM, here are additional resources:

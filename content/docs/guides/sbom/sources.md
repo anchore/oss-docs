@@ -261,7 +261,7 @@ If scanning a directory takes too long:
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/formats/" >}}
 **Next**: Learn about [Output Formats](/docs/guides/sbom/formats/) to understand how to generate SBOMs in different standard formats like SPDX and CycloneDX.
 {{< /alert >}}
 

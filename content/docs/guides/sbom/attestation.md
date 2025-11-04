@@ -14,9 +14,9 @@ This feature is experimental and may change in future releases.
 
 {{< alert title="TL;DR" color="primary" >}}
 
-- Sign SBOMs: `syft attest --output cyclonedx-json <image>` (keyless via OIDC)
+- Sign SBOMs: `syft attest --output cyclonedx-json <image>` _(keyless via OIDC)_
 - Or with keys: `syft attest --key cosign.key --output spdx-json <image>`
-- Requires Cosign ≥ v1.12.0 and registry write access
+- Requires `cosign ≥ v1.12.0` and registry write access
 - Verify: `cosign verify-attestation`
 - Attestations attach to images in OCI registries
 
@@ -178,8 +178,8 @@ This ensures you're scanning a verified, trusted SBOM.
 
 ## Next steps
 
-{{< alert title="Guide complete!" color="success" >}}
-Now let's put those SBOMs to good use and [with Grype to understand your exposure to vulnerabilities](/docs/guides/vulnerability/getting-started/).
+{{< alert title="Guide complete!" color="success" url="/docs/guides/vulnerability/getting-started/" >}}
+Now let's put those SBOMs to good use and [scan with Grype to understand your exposure to vulnerabilities](/docs/guides/vulnerability/getting-started/).
 {{< /alert >}}
 
 **Continue your journey:**

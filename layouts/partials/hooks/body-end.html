@@ -26,3 +26,18 @@
   {{ $tocScrollspy = $tocScrollspy | minify }}
 {{ end }}
 <script defer src="{{ $tocScrollspy.RelPermalink }}"></script>
+
+<!-- Clickable alert cards -->
+{{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}
+{{ if hugo.IsProduction }}
+  {{ $clickableAlerts = $clickableAlerts | minify }}
+{{ end }}
+<script defer src="{{ $clickableAlerts.RelPermalink }}"></script>
+
+<!-- Pagefind search modal -->
+<script defer src="/pagefind/pagefind-ui.js"></script>
+{{ $pagefindModal := resources.Get "js/pagefind-modal.js" }}
+{{ if hugo.IsProduction }}
+  {{ $pagefindModal = $pagefindModal | minify }}
+{{ end }}
+<script defer src="{{ $pagefindModal.RelPermalink }}"></script>

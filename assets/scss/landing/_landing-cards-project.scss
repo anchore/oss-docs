@@ -232,7 +232,7 @@
       }
 
       &:hover .mascot-peek .mascot-image {
-        transform: translateY(-50%) translateX(-35%) rotateY(-10deg) rotateZ(-8deg); // reduced hover effect
+        transform: translateY(-50%) translateX(-35%) rotateY(-10deg) rotateZ(8deg); // reduced hover effect
       }
     }
 
@@ -249,7 +249,7 @@
       }
 
       &:hover .mascot-peek .mascot-image {
-        transform: translateY(-50%) translateX(-45%) rotateY(-6deg) rotateZ(-6deg); // minimal hover effect
+        transform: translateY(-50%) translateX(-45%) rotateY(-6deg) rotateZ(6deg); // minimal hover effect
       }
     }
   }

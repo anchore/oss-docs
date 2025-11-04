@@ -1,0 +1,23 @@
+{{ define "main" }}
+<div class="td-content">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <div id="search"></div>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      new PagefindUI({
+        element: "#search",
+        showSubResults: true,
+        showImages: false,
+        excerptLength: 15,
+        debounceTimeoutMs: 500,
+        processTerm: (term) => {
+          return term.length >= 3 ? term : "";
+        }
+      });
+    });
+  </script>
+</div>
+{{ end }}

@@ -4,13 +4,7 @@ description = "Learn how to create a Software Bill of Materials (SBOMs) for cont
 weight = 21
 tags = ["syft", "sbom"]
 url = "docs/guides/sbom"
+# we don't really have useful content here, lets get the user started instead
+manualLinkRelref = "/docs/guides/sbom/getting-started"
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
-
-An SBOM, or Software Bill of Materials, is a detailed list of all the components, libraries, and modules that make up a piece of software.
-
-For a developer, having an SBOM is crucial for tracking dependencies, quickly identifying known vulnerabilities within those components, and ensuring license compliance.
-
-For a consumer or organization using the software, an SBOM provides transparency into the software's supply chain, allowing them to assess potential security risks and understand what's "under the hood."  
-
-Syft is an open-source command-line tool and Go library. Its primary function is to scan container images, file systems, and archives to automatically generate a Software Bill of Materials, making it easier to understand the composition of software.

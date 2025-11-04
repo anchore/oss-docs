@@ -10,8 +10,8 @@ url = "docs/guides/sbom/file-selection"
 {{< alert title="TL;DR" color="primary" >}}
 
 - By default, Syft includes information about files owned by packages into the SBOM
-- Select which files to include: `file.metadata.selection` can be one of `all`, `none`, or `owned-by-package`
-- Exclude paths and globs: `--exclude '**/node_modules/**'`
+- **Select which files to include**: `file.metadata.selection` can be one of `all`, `none`, or `owned-by-package`
+- **Exclude paths and globs**: `--exclude '**/node_modules/**'`
 
 {{< /alert >}}
 
@@ -130,7 +130,7 @@ Yes! If you exclude a file that a cataloger needs (like `package.json` or `requi
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" >}}
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/templates/" >}}
 **Next**: Learn about [Using Templates](/docs/guides/sbom/templates/) to create custom SBOM output formats tailored to your specific needs.
 {{< /alert >}}
 

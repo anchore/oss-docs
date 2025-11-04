@@ -51,4 +51,60 @@
       color: lighten($warning, 20%);
     }
   }
+
+  // clickable alert cards
+  &.alert-clickable {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    // create a clickable overlay that covers the entire card
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    // 3D lift effect on hover
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    // ensure nested links and content are above the overlay
+    * {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  // clickable alert heading links
+  .alert-heading a.alert-link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
+      text-decoration: none;
+    }
+
+    i.fa-arrow-right {
+      font-size: 0.85em;
+      transition: transform 0.25s ease;
+    }
+
+    &:hover i.fa-arrow-right {
+      transform: translateX(6px);
+    }
+  }
 }

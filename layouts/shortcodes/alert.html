@@ -1,0 +1,22 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+{{ $color := .Get "color" | default "primary" }}
+{{ $url := .Get "url" }}
+<div class="alert alert-{{ $color }}{{ if $url }} alert-clickable{{ end }}" role="alert"{{ if $url }} data-url="{{ $url }}"{{ end }}>
+{{ with .Get "title" }}
+  {{ if $url }}
+    <h4 class="alert-heading">
+      <a href="{{ $url }}" class="alert-link">
+        {{ . | safeHTML }}
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </h4>
+  {{ else }}
+    <h4 class="alert-heading">{{ . | safeHTML }}</h4>
+  {{ end }}
+{{ end }}
+{{ if eq .Page.File.Ext "md" }}
+    {{ .Inner | markdownify }}
+{{ else }}
+    {{ .Inner | htmlUnescape | safeHTML }}
+{{ end }}
+</div>

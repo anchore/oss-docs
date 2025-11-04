@@ -1,0 +1,15 @@
+{{ .Scratch.Set "docsy-search" 0 -}}
+
+{{/* Pagefind modal search - always enabled */}}
+{{ .Scratch.Add "docsy-search" 1 -}}
+
+<div class="td-search">
+  <div class="td-search__icon"></div>
+  <button type="button"
+          class="td-search__input form-control td-search-input td-search-button"
+          id="pagefind-search-button"
+          aria-label="{{ T "ui_search" }}">
+    <span class="td-search-input-text">{{ T "ui_search" }}</span>
+    <kbd class="td-search-shortcut">Ctrl K</kbd>
+  </button>
+</div>
