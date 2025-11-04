@@ -116,7 +116,7 @@ tasks:
 
   release:
     desc: Build site for production release
+    deps: [tools]
     cmds:
       - npm install
       - npm run build
-      - hugo -e production --minify --gc
