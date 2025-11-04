@@ -114,6 +114,7 @@ tasks:
       - task: python:test
       - task: hugo:test
 
+  # note: this target name cannot be changed, as it is used by cloudflare pages to build and deploy the site
   release:
     desc: Build site for production release
     deps: [tools]
