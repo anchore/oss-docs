@@ -113,3 +113,10 @@ tasks:
       # per-stack tests
       - task: python:test
       - task: hugo:test
+
+  release:
+    desc: Build site for production release
+    cmds:
+      - npm install
+      - npm run build
+      - hugo -e production --minify --gc
