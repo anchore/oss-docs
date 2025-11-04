@@ -175,4 +175,3 @@ paths = Paths()
 docker_images = DockerImages()
 timeouts = Timeouts()
 reference_weights = ReferenceDocWeights()
-

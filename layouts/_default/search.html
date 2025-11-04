@@ -13,6 +13,14 @@
         showImages: false,
         excerptLength: 15,
         debounceTimeoutMs: 500,
+        showEmptyFilters: true,
+        filters: {
+          section: "Section",
+          project: "Tags"
+        },
+        translations: {
+          placeholder: "Search"
+        },
         processTerm: (term) => {
           return term.length >= 3 ? term : "";
         }

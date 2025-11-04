@@ -17,6 +17,14 @@ document.addEventListener('DOMContentLoaded', function() {
         excerptLength: 15,
         autofocus: true,
         debounceTimeoutMs: 500,
+        showEmptyFilters: true,
+        filters: {
+          section: "Section",
+          project: "Tags"
+        },
+        translations: {
+          placeholder: "Search"
+        },
         processTerm: (term) => {
           // require at least 2 characters to start searching (e.g. "jq"... which is why we don't have this at 3)
           return term.length >= 2 ? term : "";
@@ -25,9 +33,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // watch for when filters appear and auto-expand Section filter
+  let filtersObserver = null;
+  let sectionFilterExpanded = false;
+
+  function setupFiltersObserver() {
+    if (filtersObserver) return;
+
+    const searchContainer = modal.querySelector('#pagefind-search-container');
+    if (!searchContainer) return;
+
+    filtersObserver = new MutationObserver(() => {
+      // only expand Section filter once per modal opening
+      if (sectionFilterExpanded) return;
+
+      const filterNames = modal.querySelectorAll('.pagefind-ui__filter-name');
+      const sectionFilter = Array.from(filterNames).find(el => el.textContent.trim() === 'Section');
+
+      if (sectionFilter) {
+        sectionFilter.click();
+        sectionFilterExpanded = true;
+      }
+    });
+
+    filtersObserver.observe(searchContainer, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   // open modal
   function openModal() {
     modal.showModal();
+    sectionFilterExpanded = false; // reset flag for new modal opening
 
     // initialize Pagefind after dialog is rendered
     requestAnimationFrame(() => {
@@ -37,6 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const input = modal.querySelector('.pagefind-ui__search-input');
         if (input) input.focus();
       }, 50);
+
+      // set up observer to auto-expand Section filter when it appears
+      setupFiltersObserver();
     });
   }
 
