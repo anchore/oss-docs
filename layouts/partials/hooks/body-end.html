@@ -21,23 +21,23 @@
 </svg>
 
 <!-- TOC scroll spy -->
-<!--{{ $tocScrollspy := resources.Get "js/toc-scroll-spy.js" }}-->
-<!--{{ if hugo.IsProduction }}-->
-<!--  {{ $tocScrollspy = $tocScrollspy | minify }}-->
-<!--{{ end }}-->
-<!--<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>-->
+{{ $tocScrollspy := resources.Get "js/toc-scroll-spy.js" }}
+{{ if hugo.IsProduction }}
+  {{ $tocScrollspy = $tocScrollspy | minify }}
+{{ end }}
+<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>
 
-<!--&lt;!&ndash; Clickable alert cards &ndash;&gt;-->
-<!--{{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}-->
-<!--{{ if hugo.IsProduction }}-->
-<!--  {{ $clickableAlerts = $clickableAlerts | minify }}-->
-<!--{{ end }}-->
-<!--<script defer src="{{ $clickableAlerts.RelPermalink }}"></script>-->
+<!-- Clickable alert cards -->
+{{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}
+{{ if hugo.IsProduction }}
+  {{ $clickableAlerts = $clickableAlerts | minify }}
+{{ end }}
+<script defer src="{{ $clickableAlerts.RelPermalink }}"></script>
 
-<!--&lt;!&ndash; Pagefind search modal &ndash;&gt;-->
-<!--<script defer src="/pagefind/pagefind-ui.js"></script>-->
-<!--{{ $pagefindModal := resources.Get "js/pagefind-modal.js" }}-->
-<!--{{ if hugo.IsProduction }}-->
-<!--  {{ $pagefindModal = $pagefindModal | minify }}-->
-<!--{{ end }}-->
-<!--<script defer src="{{ $pagefindModal.RelPermalink }}"></script>-->
+<!-- Pagefind search modal -->
+<script defer src="/pagefind/pagefind-ui.js"></script>
+{{ $pagefindModal := resources.Get "js/pagefind-modal.js" }}
+{{ if hugo.IsProduction }}
+  {{ $pagefindModal = $pagefindModal | minify }}
+{{ end }}
+<script defer src="{{ $pagefindModal.RelPermalink }}"></script>
