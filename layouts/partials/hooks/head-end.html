@@ -1,6 +1,6 @@
 {{/* Font preloading to prevent flickering/FOUC */}}
-{{/* Async load Google Fonts for faster initial render */}}
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+{{/* Async load Google Fonts using media="print" technique (minification-safe) */}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"></noscript>
 
 {{/* Preload FontAwesome fonts to prevent icon flickering */}}
