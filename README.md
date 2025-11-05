@@ -19,6 +19,7 @@ make dev
 
 This will start a local development server at `http://localhost:1313/`.
 
+
 ## Contributing
 
 We welcome contributions to the Anchore open source documentation. If you would like to contribute, please fork this repository and submit a pull request.
