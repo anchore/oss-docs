@@ -1,2 +1,11 @@
+{{/* Font preloading to prevent flickering/FOUC */}}
+{{/* Async load Google Fonts for faster initial render */}}
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"></noscript>
+
+{{/* Preload FontAwesome fonts to prevent icon flickering */}}
+<link rel="preload" href="/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
 {{/* Pagefind search styles */}}
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">

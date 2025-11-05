@@ -58,3 +58,7 @@ $font-family-sans-serif:
   'Apple Color Emoji',
   'Segoe UI Emoji',
   'Segoe UI Symbol';
+
+// override FontAwesome's default 'block' font-display to prevent icon flickering
+// 'swap' allows fallback rendering immediately while fonts load
+$fa-font-display: swap;
