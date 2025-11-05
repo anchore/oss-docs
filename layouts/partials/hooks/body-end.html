@@ -27,12 +27,12 @@
 <!--{{ end }}-->
 <!--<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>-->
 
-<!-- Clickable alert cards -->
-{{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}
-{{ if hugo.IsProduction }}
-  {{ $clickableAlerts = $clickableAlerts | minify }}
-{{ end }}
-<script defer src="{{ $clickableAlerts.RelPermalink }}"></script>
+<!--&lt;!&ndash; Clickable alert cards &ndash;&gt;-->
+<!--{{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}-->
+<!--{{ if hugo.IsProduction }}-->
+<!--  {{ $clickableAlerts = $clickableAlerts | minify }}-->
+<!--{{ end }}-->
+<!--<script defer src="{{ $clickableAlerts.RelPermalink }}"></script>-->
 
 <!-- Pagefind search modal -->
 <script defer src="/pagefind/pagefind-ui.js"></script>
