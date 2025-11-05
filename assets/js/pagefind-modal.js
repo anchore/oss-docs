@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // initialize Pagefind UI when modal first opens
   function initPagefind() {
     if (!pagefindUI) {
+      // lazy-load Pagefind CSS on first modal open (performance optimization)
+      if (!document.querySelector('link[href="/pagefind/pagefind-ui.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '/pagefind/pagefind-ui.css';
+        document.head.appendChild(link);
+      }
+
       pagefindUI = new PagefindUI({
         element: "#pagefind-search-container",
         showSubResults: true,
