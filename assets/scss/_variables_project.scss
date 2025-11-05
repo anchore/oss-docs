@@ -45,7 +45,7 @@ $landing-gray-800: #1f2937; // dark gray for button hovers
 
 // typography
 $google_font_name: 'Poppins';
-$google_font_display: 'optional';
+$google_font_display: 'swap';
 $font-family-sans-serif:
   'Poppins',
   -apple-system,
@@ -59,7 +59,6 @@ $font-family-sans-serif:
   'Segoe UI Emoji',
   'Segoe UI Symbol';
 
-// use 'optional' instead of 'swap' to prevent layout shifts from font swapping
-// 'optional' shows fonts if they load fast (<100ms), otherwise uses fallback for entire page
-// this prevents mid-page font swapping that was causing reload loops in production
-$fa-font-display: optional;
+// override FontAwesome's default 'block' font-display to prevent icon flickering
+// 'swap' allows fallback rendering immediately while fonts load
+$fa-font-display: swap;

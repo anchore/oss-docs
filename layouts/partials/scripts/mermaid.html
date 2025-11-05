@@ -1,0 +1,69 @@
+{{ $version := .Site.Params.mermaid.version | default "latest" -}}
+
+{{ $cdnurl := printf "https://cdn.jsdelivr.net/npm/mermaid@%s/dist/mermaid.esm.min.mjs" $version -}}
+{{ with try (resources.GetRemote $cdnurl) -}}
+  {{ with .Err -}}
+    {{ errorf "Could not retrieve mermaid script from CDN. Reason: %s." . -}}
+  {{ end -}}
+{{ else -}}
+  {{ errorf "Invalid Mermaid version %s, could not retrieve this version from CDN." $version -}}
+{{ end -}}
+
+<script type="module" async>
+  import mermaid from "{{ $cdnurl }}";
+
+  (function ($) {
+    if ($('.mermaid').length == 0) {
+      mermaid.initialize({ startOnLoad: false });
+      return;
+    }
+
+    var params = {{ with .Site.Params.mermaid }}{{ . | jsonify | safeJS }}{{ else }}{}{{- end }};
+
+    // Site params are stored with lowercase keys; lookup correct casing
+    // from Mermaid default config.
+    var norm = function (defaultConfig, params) {
+      var result = {};
+      for (const key in defaultConfig) {
+        const keyLower = key.toLowerCase();
+        if (defaultConfig.hasOwnProperty(key) && params.hasOwnProperty(keyLower)) {
+          if (typeof defaultConfig[key] === "object") {
+            result[key] = norm(defaultConfig[key], params[keyLower]);
+          } else {
+            result[key] = params[keyLower];
+          }
+        }
+      }
+      return result;
+    };
+
+    var settings = norm(mermaid.mermaidAPI.defaultConfig, params);
+    settings.startOnLoad = true;
+    if ($('html[data-bs-theme="dark"]').length) {
+      settings.theme = 'dark';
+    }
+    mermaid.initialize(settings);
+
+    // REMOVED: MutationObserver that was causing infinite reload loop
+    //
+    // The original Docsy implementation included a MutationObserver here that
+    // watched for changes to the data-bs-theme attribute and called location.reload()
+    // to update mermaid diagrams when the theme changed.
+    //
+    // This caused a race condition: during initial page load, the dark-mode script
+    // would set the theme attribute, triggering the observer and causing location.reload()
+    // before the page finished loading, resulting in an infinite reload loop.
+    //
+    // Trade-off: Mermaid diagrams will not automatically update when users switch
+    // between light/dark themes. Users will need to manually reload the page to see
+    // diagrams in the new theme. This is acceptable because:
+    // 1. Theme switching is infrequent
+    // 2. Manual reload is better than infinite automatic reload
+    // 3. Most users have a consistent theme preference (cached)
+    //
+    // See: https://github.com/mermaid-js/mermaid/issues/1945
+    // Mermaid doesn't currently support reinitialization, which is why Docsy
+    // tried to use location.reload() as a workaround.
+
+  })(jQuery);
+</script>
