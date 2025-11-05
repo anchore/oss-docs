@@ -21,11 +21,11 @@
 </svg>
 
 <!-- TOC scroll spy -->
-{{ $tocScrollspy := resources.Get "js/toc-scroll-spy.js" }}
-{{ if hugo.IsProduction }}
-  {{ $tocScrollspy = $tocScrollspy | minify }}
-{{ end }}
-<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>
+<!--{{ $tocScrollspy := resources.Get "js/toc-scroll-spy.js" }}-->
+<!--{{ if hugo.IsProduction }}-->
+<!--  {{ $tocScrollspy = $tocScrollspy | minify }}-->
+<!--{{ end }}-->
+<!--<script defer src="{{ $tocScrollspy.RelPermalink }}"></script>-->
 
 <!-- Clickable alert cards -->
 {{ $clickableAlerts := resources.Get "js/clickable-alerts.js" }}
