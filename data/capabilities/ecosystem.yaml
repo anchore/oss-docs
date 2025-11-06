@@ -21,6 +21,7 @@ display_names:
   javascript: JavaScript
   linux: Linux
   lua: Lua
+  mariner: Azure Linux
   nix: Nix
   ocaml: OCaml
   php: PHP
@@ -36,3 +37,94 @@ display_names:
   swift: Swift
   terraform: Terraform
   wordpress: WordPress
+
+# Language ecosystems with package manager names for documentation
+languages:
+  - name: C/C++
+    package_manager: Conan
+    type: c++
+  - name: Dart
+    package_manager: Pub
+    type: dart
+  - name: Elixir/Erlang
+    package_manager: Hex
+    type: elixir
+  - name: Go
+    package_manager: Go modules
+    type: go
+  - name: Haskell
+    package_manager: Hackage
+    type: haskell
+  - name: Java
+    package_manager: Maven
+    type: java
+  - name: JavaScript/Node.js
+    package_manager: npm
+    type: javascript
+  - name: Lua
+    package_manager: LuaRocks
+    type: lua
+  - name: .NET
+    package_manager: NuGet
+    type: dotnet
+  - name: OCaml
+    package_manager: Opam
+    type: ocaml
+  - name: PHP
+    package_manager: Composer
+    type: php
+  - name: Python
+    package_manager: PyPI
+    type: python
+  - name: R
+    package_manager: CRAN
+    type: r
+  - name: Ruby
+    package_manager: RubyGems
+    type: ruby
+  - name: Rust
+    package_manager: Cargo
+    type: rust
+  - name: Swift
+    package_manager: Swift Package Manager
+    type: swift
+
+# Other package types with their vulnerability detection approach
+other_packages:
+  # Dedicated vulnerability sources
+  - name: Bitnami packages
+    type: bitnami
+    vulnerability_source: dedicated
+    source_name: bitnami
+  - name: GitHub Actions
+    type: github-actions
+    vulnerability_source: dedicated
+    source_name: github
+
+  # CPE fallback only (detected by Syft but rely on NVD/CPE matching)
+  - name: Binary executables
+    type: binary
+    vulnerability_source: cpe
+  - name: Cocoapods
+    description: iOS/macOS
+    type: cocoapods
+    vulnerability_source: cpe
+  - name: Conda packages
+    type: conda
+    vulnerability_source: cpe
+  - name: Homebrew
+    description: macOS
+    type: homebrew
+    vulnerability_source: cpe
+  - name: Jenkins plugins
+    type: jenkins-plugin
+    vulnerability_source: cpe
+  - name: Linux kernel and kernel modules
+    type: linux-kernel
+    vulnerability_source: cpe
+  - name: Nix packages
+    type: nix
+    vulnerability_source: cpe
+  - name: WordPress plugins
+    type: wordpress-plugin
+    vulnerability_source: cpe
