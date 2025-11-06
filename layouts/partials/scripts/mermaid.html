@@ -9,6 +9,10 @@
   {{ errorf "Invalid Mermaid version %s, could not retrieve this version from CDN." $version -}}
 {{ end -}}
 
+{{/* Load Mermaid controls CSS via Hugo asset pipeline */}}
+{{ $mermaidControlsCSS := resources.Get "scss/mermaid-controls.scss" | css.Sass | resources.Minify }}
+<link rel="stylesheet" href="{{ $mermaidControlsCSS.RelPermalink }}" integrity="{{ $mermaidControlsCSS.Data.Integrity }}" crossorigin="anonymous">
+
 <script type="module" async>
   import mermaid from "{{ $cdnurl }}";
 
@@ -38,11 +42,20 @@
     };
 
     var settings = norm(mermaid.mermaidAPI.defaultConfig, params);
-    settings.startOnLoad = true;
+    settings.startOnLoad = false;
     if ($('html[data-bs-theme="dark"]').length) {
       settings.theme = 'dark';
     }
     mermaid.initialize(settings);
+
+    // Run mermaid and setup lazy initialization after rendering completes
+    mermaid.run().then(function() {
+      // Use IntersectionObserver for lazy initialization
+      // This handles visible diagrams AND hidden ones (accordions, tabs, etc.)
+      if (typeof window.observeMermaidDiagrams !== 'undefined') {
+        window.observeMermaidDiagrams();
+      }
+    });
 
     // REMOVED: MutationObserver that was causing infinite reload loop
     //
@@ -67,3 +80,10 @@
 
   })(jQuery);
 </script>
+
+{{/* Load svg-pan-zoom library for zoom/pan controls */}}
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+
+{{/* Load Mermaid interactive controls via Hugo asset pipeline */}}
+{{ $mermaidControlsJS := resources.Get "js/mermaid-controls.js" | resources.Minify }}
+<script src="{{ $mermaidControlsJS.RelPermalink }}" integrity="{{ $mermaidControlsJS.Data.Integrity }}" crossorigin="anonymous"></script>

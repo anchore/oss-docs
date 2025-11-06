@@ -1,0 +1,323 @@
+// mermaid-controls.scss
+// modern styling for interactive Mermaid diagram controls
+
+// design tokens
+$toolbar-bg-light: rgba(255, 255, 255, 0.95);
+$toolbar-bg-dark: rgba(30, 30, 30, 0.95);
+$toolbar-border-light: rgba(0, 0, 0, 0.1);
+$toolbar-border-dark: rgba(255, 255, 255, 0.15);
+$toolbar-shadow-light: 0 2px 12px rgba(0, 0, 0, 0.1);
+$toolbar-shadow-dark: 0 2px 12px rgba(0, 0, 0, 0.4);
+
+$btn-color-light: #333;
+$btn-color-dark: #e0e0e0;
+$btn-hover-light: rgba(0, 0, 0, 0.06);
+$btn-hover-dark: rgba(255, 255, 255, 0.1);
+$btn-active-light: rgba(0, 0, 0, 0.12);
+$btn-active-dark: rgba(255, 255, 255, 0.2);
+
+$btn-size: 32px;
+$btn-size-mobile: 44px;
+
+$backdrop-light: rgba(0, 0, 0, 0.75);
+$backdrop-dark: rgba(0, 0, 0, 0.85);
+
+$transition-fast: 0.15s ease;
+$transition-medium: 0.3s ease;
+
+// diagram wrapper
+.mermaid-diagram-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  background: transparent;
+
+  // before panzoom activation
+  > svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    user-select: none;
+  }
+
+  // after panzoom activation
+  &.panzoom-active > svg {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
+
+// control toolbar
+.mermaid-controls-toolbar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: $toolbar-bg-light;
+  border: 1px solid $toolbar-border-light;
+  border-radius: 8px;
+  box-shadow: $toolbar-shadow-light;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity $transition-medium, visibility $transition-medium;
+  z-index: 10;
+  pointer-events: auto;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// control buttons
+.mermaid-control-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $btn-size;
+  height: $btn-size;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: $btn-color-light;
+  cursor: pointer;
+  transition: all $transition-fast;
+  outline: none;
+
+  &:hover {
+    background: $btn-hover-light;
+  }
+
+  &:active {
+    background: $btn-active-light;
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+// dark mode
+[data-bs-theme="dark"] {
+  .mermaid-controls-toolbar {
+    background: $toolbar-bg-dark;
+    border-color: $toolbar-border-dark;
+    box-shadow: $toolbar-shadow-dark;
+  }
+
+  .mermaid-control-btn {
+    color: $btn-color-dark;
+
+    &:hover {
+      background: $btn-hover-dark;
+    }
+
+    &:active {
+      background: $btn-active-dark;
+    }
+  }
+}
+
+// fullscreen backdrop
+.mermaid-fullscreen-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $backdrop-light;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9998;
+  opacity: 0;
+  transition: opacity $transition-medium;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.visible {
+    opacity: 1;
+  }
+}
+
+[data-bs-theme="dark"] .mermaid-fullscreen-backdrop {
+  background: $backdrop-dark;
+}
+
+// modal container (centered box within backdrop)
+.mermaid-modal-container {
+  position: relative;
+  width: 90vw;
+  height: 90vh;
+  max-width: 1600px;
+  max-height: 1200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: auto;
+  cursor: default;
+}
+
+[data-bs-theme="dark"] .mermaid-modal-container {
+  background: #1a1a1a;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+// close button (top-left corner of modal)
+.mermaid-close-btn {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  background: $toolbar-bg-light;
+  border: 1px solid $toolbar-border-light;
+  border-radius: 8px;
+  box-shadow: $toolbar-shadow-light;
+  color: $btn-color-light;
+  cursor: pointer;
+  transition: all $transition-fast;
+  z-index: 11;
+  outline: none;
+
+  &:hover {
+    background: #fee;
+    color: #c00;
+    border-color: #faa;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
+[data-bs-theme="dark"] .mermaid-close-btn {
+  background: $toolbar-bg-dark;
+  border-color: $toolbar-border-dark;
+  box-shadow: $toolbar-shadow-dark;
+  color: $btn-color-dark;
+
+  &:hover {
+    background: rgba(200, 0, 0, 0.2);
+    color: #faa;
+    border-color: rgba(200, 0, 0, 0.4);
+  }
+}
+
+// fullscreen mode (now lives inside modal container)
+.mermaid-diagram-wrapper.fullscreen-mode {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: auto;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+  border-radius: 0;
+
+  svg {
+      width: 100%;
+      height: 100%;
+  }
+
+  // toolbar always visible in fullscreen
+  .mermaid-controls-toolbar {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// prevent body scroll in fullscreen
+body.mermaid-fullscreen-active {
+  overflow: hidden;
+}
+
+// mobile/touch devices
+@media (max-width: 768px) {
+  .mermaid-controls-toolbar {
+    opacity: 1;
+    visibility: visible;
+    top: 8px;
+    right: 8px;
+  }
+
+  .mermaid-control-btn {
+    width: $btn-size-mobile;
+    height: $btn-size-mobile;
+  }
+
+  .mermaid-modal-container {
+    width: 95vw;
+    height: 95vh;
+    border-radius: 8px;
+  }
+
+  .mermaid-close-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+// small screens
+@media (max-width: 576px) {
+  .mermaid-controls-toolbar {
+    gap: 2px;
+    padding: 3px;
+    border-radius: 6px;
+  }
+
+  .mermaid-control-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mermaid-modal-container {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+// accessibility: reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .mermaid-controls-toolbar,
+  .mermaid-control-btn,
+  .mermaid-fullscreen-backdrop {
+    transition: none;
+  }
+}
