@@ -5,9 +5,7 @@ weight = 15
 type = "docs"
 #icon = "fa-solid fa-calendar"
 categories = ["community"]
-url = "docs/about/events"
 +++
-
 ## Open Source Live Streams
 
 Almost every Thursday the OSS team holds a "Gardening" live stream on the [Anchore YouTube channel](https://youtube.com/anchore/). Each week, we announce what time the live stream is happening in the [Announcements](https://anchorecommunity.discourse.group/tags/c/announcements/7/gardening) on [Discourse](https://anchore.com/discourse/).

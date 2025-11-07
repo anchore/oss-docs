@@ -3,9 +3,7 @@ title = "Private Registries"
 description = "Configure authentication for scanning container images from private registries using credentials, registry tokens, and credential helpers."
 weight = 80
 tags = ["syft", "grype", "docker", "container", "authentication"]
-url = "docs/guides/private-registries"
 +++
-
 The Anchore OSS tools analyze container images from private registries using multiple authentication methods.
 When a container runtime isn't available, the tools use the [go-containerregistry](https://github.com/google/go-containerregistry/tree/main/pkg/authn) library to handle authentication directly with registries.
 

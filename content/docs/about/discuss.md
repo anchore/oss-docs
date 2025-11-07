@@ -4,9 +4,7 @@ description = "Official Anchore OSS online discussion"
 weight = 30
 type = "docs"
 categories = ["community"]
-url = "docs/about/discuss"
 +++
-
 ## Official platforms
 
 Below are platforms maintained and monitored by Anchore OSS Team staff.

@@ -3,10 +3,8 @@ title = "Configuration Rules"
 description = "Configuration patterns and options used across all Anchore OSS tools"
 weight = 100
 tags = ["syft", "grype", "grant"]
-url = "docs/reference/configuration"
 menu_group = "general"
 +++
-
 All Anchore open source tools (Syft, Grype, Grant) share the same configuration system. This guide explains how to configure these tools using command-line flags, environment variables, and configuration files.
 
 ## Configuration precedence

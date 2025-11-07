@@ -2,12 +2,10 @@
 title = "Go CLI patterms"
 description = "All of the common patterns used in our go-based CLIs"
 weight = 10
-url = "docs/architecture/go-cli-patterns"
 categories = ["architecture"]
 tags = ["cli"]
 menu_group = "general"
 +++
-
 {{< alert title="TL;DR" color="primary" >}}
 
 We use...

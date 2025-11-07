@@ -5,11 +5,9 @@ weight = 30
 categories = ["developer"]
 tags = ["grant"]
 type = "docs"
-url = "docs/contributing/grant"
 menu_group = "projects"
 icon_image = "/images/logos/grant/favicon-48x48.png"
 +++
-
 ## Getting started
 
 In order to test and develop in the [Grant repo](https://github.com/anchore/grant) you will need the following dependencies installed:
@@ -152,8 +150,8 @@ Contributions to CLI features, command behavior, or user interface improvements 
 
 **Contributing Your Work**
 
-- [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
-- [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues
+- [Pull Requests]({{< relref "/docs/contributing/pull-requests" >}}) - Guidelines for submitting PRs and working with reviewers
+- [Issues and Discussions]({{< relref "/docs/contributing/issues-and-discussions" >}}) - Where to get help and report issues
 
 **Finding Work**
 

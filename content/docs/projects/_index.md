@@ -3,9 +3,7 @@ title = "Projects"
 description = "Overview of Anchore Open Source tools."
 weight = 5
 tags = ["syft", "grype", "grant"]
-url = "docs/projects"
 +++
-
 We maintain three popular command-line tools, some libraries, and supporting utilities. Most are written in Go, with a few in Python. They are all released under the Apache-2.0 license. For the full list, see our [GitHub org](https://github.com/orgs/anchore/repositories).
 
 Anchore's tools follow a simple workflow: search and raise up evidence in the form of a Software Bill of Materials (SBOM) using **Syft**,
@@ -64,12 +62,12 @@ This modular approach lets you generate the SBOM once with Syft, then use Grype 
 
 ### Installing the Tools
 
-The tools are available in many common distribution channels. The full list of official and community maintained packages can be found on the [installation](/docs/installation) page.
+The tools are available in many common distribution channels. The full list of official and community maintained packages can be found on the [installation]({{< relref "/docs/installation" >}}) page.
 
 ### Using the Tools
 
-We have "Getting Started" user guides for [SBOM Generation](/docs/guides/sbom/getting-started) with Syft, [Vulnerability Scanning](/docs/guides/sbom/getting-started) with Grype, and [License Scanning](/docs/guides/license/getting-started).
+We have "Getting Started" user guides for [SBOM Generation]({{< relref "/docs/guides/sbom/getting-started" >}}) with Syft, [Vulnerability Scanning]({{< relref "/docs/guides/sbom/getting-started" >}}) with Grype, and [License Scanning]({{< relref "/docs/guides/license/getting-started" >}}).
 
 ### Developing
 
-Developers also have [Contribution Guides](/docs/contributing/) for all of our open source tools and libraries.
+Developers also have [Contribution Guides]({{< relref "/docs/contributing/" >}}) for all of our open source tools and libraries.

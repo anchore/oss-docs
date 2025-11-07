@@ -3,11 +3,9 @@ title = "Grype DB"
 description = "Architecture and design of the Grype vulnerability database build system"
 weight = 30
 categories = ["architecture"]
-url = "docs/architecture/grype-db"
 tags = ["grype-db", "vunnel"]
 menu_group = "projects"
 +++
-
 ## Overview
 
 `grype-db` is essentially an application that extracts information from upstream vulnerability data providers, transforms it into smaller records targeted for Grype consumption, and loads the individual records into a new SQLite DB.
@@ -265,4 +263,4 @@ Once the listing file has been uploaded, user-facing Grype installations should 
 For more details on:
 
 - How Vunnel processes vulnerability data, see the [Vunnel Architecture](/docs/architecture/vunnel) page
-- How quality gates validate database builds, see the [Quality Gates](/docs/architecture/quality-gates) section
+- How quality gates validate database builds, see the Quality Gates section

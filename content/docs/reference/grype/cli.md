@@ -37,7 +37,7 @@ You can also explicitly specify the scheme to use:
     grype CPE                                    read a single CPE directly (e.g. cpe:2.3:a:openssl:openssl:3.0.14:*:*:*:*:*)
 
 You can also pipe in Syft JSON directly:
- syft yourimage:tag -o json | grype
+	syft yourimage:tag -o json | grype
 
 Usage:
   grype [IMAGE] [flags]
@@ -272,3 +272,4 @@ Compiler:            gc
 Syft Version:        v1.33.0
 Supported DB Schema: 6
 ```
+

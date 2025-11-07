@@ -2,15 +2,13 @@
 title = "Syft"
 description = "Architecture and design of the Syft SBOM tool"
 weight = 10
-url = "docs/architecture/syft"
 categories = ["architecture"]
 tags = ["syft"]
 menu_group = "projects"
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
-
 {{< alert title="Note" color="primary" >}}
-See the [Golang CLI Patterns](/docs/architecture/go-cli-patterns) for **common structures and frameworks** used in Syft and across other Anchore open source projects.
+See the [Golang CLI Patterns]({{< relref "/docs/architecture/golang-cli" >}}) for **common structures and frameworks** used in Syft and across other Anchore open source projects.
 
 For detailed **API examples**, see the [Syft reponitory on GitHub](https://github.com/anchore/syft/tree/main/examples).
 {{< /alert >}}

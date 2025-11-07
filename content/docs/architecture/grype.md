@@ -2,13 +2,11 @@
 title = "Grype"
 description = "Architecture and design of the Grype vulnerability scanner"
 weight = 20
-url = "docs/architecture/grype"
 categories = ["architecture"]
 tags = ["grype"]
 menu_group = "projects"
 icon_image = "/images/logos/grype/favicon-48x48.png"
 +++
-
 ## Overview
 
 Grype is a vulnerability scanner for container images and filesystems. It uses Syft to catalog packages and matches them against vulnerability data stored in a SQLite database.
@@ -65,4 +63,3 @@ For more details on how the database is built and published, see the [Grype DB A
 
 - [Syft Architecture](/docs/architecture/syft) - Package cataloging
 - [Grype DB Architecture](/docs/architecture/grype-db) - Database build and publishing
-- [Quality Gates](/docs/architecture/quality-gates) - Validation and testing

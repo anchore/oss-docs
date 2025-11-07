@@ -14,6 +14,7 @@ menu_group = "grant"
 This documentation was generated with Grant version `0.5.0`.
 {{< /alert >}}
 
+
 Grant searches for configuration files in the following locations, in order:
 
 1. `./.grant.yaml` - current working directory
@@ -23,7 +24,7 @@ Grant searches for configuration files in the following locations, in order:
 
 The configuration file can use either `.yaml` or `.yml` extensions. The first configuration file found will be used.
 
-For general information about how config and environment variables are handled, see the [Configuration Reference](/docs/reference/configuration) section.
+For general information about how config and environment variables are handled, see the [Configuration Reference]({< relref "/docs/reference/configuration" >}) section.
 
 ```yaml
 # Grant License Compliance Configuration
@@ -36,9 +37,9 @@ verbose: false # Enable verbose output (default: false)
 # List of allowed license patterns (supports glob matching)
 # Default behavior: DENY all licenses except those explicitly permitted
 allow:
-  - MIT
-  - Apache-2.0
-  - BSD-3-Clause
+    - MIT
+    - Apache-2.0
+    - BSD-3-Clause
 # List of package patterns to ignore from license checking
 # Supports glob patterns for flexible matching
 ignore-packages: []
@@ -58,3 +59,4 @@ summary: false # Show only summary information for check command
 # Show only packages without licenses (default: false)
 only-unlicensed: false # maps to grant check --unlicensed || grant list --unlicensed
 ```
+

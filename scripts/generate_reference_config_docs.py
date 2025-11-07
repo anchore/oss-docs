@@ -212,7 +212,7 @@ def get_config_locations_section(app_name: str, tool_display: str) -> str:
 
 The configuration file can use either `.yaml` or `.yml` extensions. The first configuration file found will be used.
 
-For general information about how config and environment variables are handled, see the [Configuration Reference](/docs/reference/configuration) section.
+For general information about how config and environment variables are handled, see the [Configuration Reference]({{{{< relref "/docs/reference/configuration" >}}}}) section.
 
 """
 

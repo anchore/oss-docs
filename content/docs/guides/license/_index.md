@@ -3,10 +3,8 @@ title = "License Scanning"
 description = "Learn how to scan container images and filesystems for software licenses covering detection, compliance checking, and managing license obligations."
 weight = 41
 tags = ["syft", "grant", "licenses"]
-url = "docs/guides/license"
 icon_image = "/images/logos/grant/favicon-48x48.png"
 +++
-
 License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project.
 
 This is important because most software relies on third-party and open-source components, each with its own licensing terms that dictate how the software can be used, modified, and distributed, and failing to comply can lead to legal issues.
