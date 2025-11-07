@@ -5,6 +5,7 @@ weight = 30
 type = "docs"
 categories = ["community"]
 +++
+
 ## Official platforms
 
 Below are platforms maintained and monitored by Anchore OSS Team staff.

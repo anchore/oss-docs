@@ -6,6 +6,7 @@ categories = ["developer"]
 tags = ["scan-action"]
 menu_group = "projects"
 +++
+
 ## Getting started
 
 In order to test and develop in the [scan-action repo](https://github.com/anchore/scan-action) you will need the following dependencies installed:

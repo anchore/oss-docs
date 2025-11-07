@@ -286,4 +286,3 @@ Flags:
   -o, --output string   the format to show the results (allowable: [text json]) (default "text")
 
 ```
-

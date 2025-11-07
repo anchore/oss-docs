@@ -6,6 +6,7 @@ categories = ["developer"]
 tags = ["grype-db", "vunnel"]
 menu_group = "projects"
 +++
+
 ## Getting started
 
 This codebase is primarily Go, however, there are also Python scripts critical to the daily DB publishing process as
@@ -103,7 +104,7 @@ make db-acceptance schema=<version>
 
 - [Architecture](/docs/architecture/grype-db) - Learn about the ETL pipeline, schema support, and publishing workflow
 - [Vunnel Documentation](https://github.com/anchore/vunnel) - Understand the vulnerability data provider system that feeds Grype DB
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

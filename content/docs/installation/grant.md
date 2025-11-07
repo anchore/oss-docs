@@ -5,6 +5,7 @@ description = "Installing Grant"
 weight = 30
 icon_image = "/images/logos/grant/favicon-48x48.png"
 +++
+
 ## Official builds
 
 The Anchore OSS team publish official source archives and binary builds for Linux and macOS. There are also some community-maintained builds of the tools for different platforms.

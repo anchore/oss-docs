@@ -5,6 +5,7 @@ description = "Installing Syft"
 weight = 10
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
+
 ## Official builds
 
 The Anchore OSS team publish official source archives and binary builds of Syft for Linux, macOS and Windows. There are also numerous community-maintained builds of the tools for different platforms.

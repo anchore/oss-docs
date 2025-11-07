@@ -4,6 +4,7 @@ description = "Explore the different sources Syft can analyze including containe
 weight = 20
 tags = ["syft", "sbom"]
 +++
+
 {{< alert title="TL;DR" color="primary" >}}
 
 - Syft automatically detects source type, simply pass it as an argument: `syft <target>`

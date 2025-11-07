@@ -4,6 +4,7 @@ description = "Style guide for writing Anchore OSS documentation"
 weight = 90
 type = "docs"
 +++
+
 This style guide is for the [Anchore OSS documentation](/docs/).
 The style guide helps contributors to write documentation that readers can understand quickly and correctly.
 

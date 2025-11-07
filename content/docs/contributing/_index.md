@@ -4,6 +4,7 @@ tags = ["syft", "grype", "grant", "grype-db", "vunnel", "stereoscope"]
 description = "Guidelines for developing & contributing to Anchore Open Source projects"
 weight = 40
 +++
+
 Welcome! We appreciate all contributions to Anchore's open source projects.
 Whether you're fixing a bug, adding a feature, or improving documentation, your help makes these tools better for everyone.
 

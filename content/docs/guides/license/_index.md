@@ -5,6 +5,7 @@ weight = 41
 tags = ["syft", "grant", "licenses"]
 icon_image = "/images/logos/grant/favicon-48x48.png"
 +++
+
 License scanning involves automatically identifying and analyzing the licenses associated with the various software components used in a project.
 
 This is important because most software relies on third-party and open-source components, each with its own licensing terms that dictate how the software can be used, modified, and distributed, and failing to comply can lead to legal issues.

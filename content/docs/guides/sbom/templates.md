@@ -4,6 +4,7 @@ description = "Create custom SBOM output formats using Go templates with availab
 weight = 60
 tags = ["syft", "sbom", "templates"]
 +++
+
 {{< alert title="TL;DR" color="primary" >}}
 
 - Create custom formats: `syft <image> -o template -t ./template.tmpl`

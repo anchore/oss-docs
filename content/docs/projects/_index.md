@@ -4,6 +4,7 @@ description = "Overview of Anchore Open Source tools."
 weight = 5
 tags = ["syft", "grype", "grant"]
 +++
+
 We maintain three popular command-line tools, some libraries, and supporting utilities. Most are written in Go, with a few in Python. They are all released under the Apache-2.0 license. For the full list, see our [GitHub org](https://github.com/orgs/anchore/repositories).
 
 Anchore's tools follow a simple workflow: search and raise up evidence in the form of a Software Bill of Materials (SBOM) using **Syft**,

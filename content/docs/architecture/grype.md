@@ -7,6 +7,7 @@ tags = ["grype"]
 menu_group = "projects"
 icon_image = "/images/logos/grype/favicon-48x48.png"
 +++
+
 ## Overview
 
 Grype is a vulnerability scanner for container images and filesystems. It uses Syft to catalog packages and matches them against vulnerability data stored in a SQLite database.

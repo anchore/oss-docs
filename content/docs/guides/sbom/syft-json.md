@@ -4,6 +4,7 @@ description = "Learn how to work with Syft's native JSON format including queryi
 weight = 45
 tags = ["syft", "sbom", "json", "jq"]
 +++
+
 Syft's native JSON format provides the most comprehensive view of discovered software components, capturing all package metadata, file details, relationships, and source information.
 
 Since Syft can [convert from its native JSON format to standard SBOM formats]({{< relref "/docs/guides/sbom/conversion/" >}}),

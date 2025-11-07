@@ -7,6 +7,7 @@ tags = ["grype"]
 menu_group = "projects"
 icon_image = "/images/logos/grype/favicon-48x48.png"
 +++
+
 ## Getting started
 
 In order to test and develop in the [Grype repo](https://github.com/anchore/grype) you will need the following dependencies installed:
@@ -165,7 +166,7 @@ CVE-2006-2450                 libvncserver  nvd         = 0.7.1             unkn
 
 - [Architecture](/docs/architecture/grype) - Learn about package structure, core library flow, and matchers
 - [API Reference](https://pkg.go.dev/github.com/anchore/grype) - Explore the public Go API, type definitions, and function signatures
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

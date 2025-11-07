@@ -7,6 +7,7 @@ tags = ["syft"]
 menu_group = "projects"
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
+
 ## Getting started
 
 In order to test and develop in the [Syft repo](https://github.com/anchore/syft) you will need the following dependencies installed:

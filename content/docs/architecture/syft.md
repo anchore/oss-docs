@@ -7,6 +7,7 @@ tags = ["syft"]
 menu_group = "projects"
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
+
 {{< alert title="Note" color="primary" >}}
 See the [Golang CLI Patterns]({{< relref "/docs/architecture/golang-cli" >}}) for **common structures and frameworks** used in Syft and across other Anchore open source projects.
 

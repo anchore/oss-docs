@@ -4,6 +4,7 @@ description = "Configure which package catalogers Syft uses to discover software
 weight = 50
 tags = ["syft", "sbom", "catalogers"]
 +++
+
 {{< alert title="TL;DR" color="primary" >}}
 
 - **Syft automatically picks the right catalogers for you** (recommended for most users)

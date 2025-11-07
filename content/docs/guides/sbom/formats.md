@@ -4,6 +4,7 @@ description = "Choose from multiple SBOM output formats including SPDX, CycloneD
 weight = 40
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx", "json"]
 +++
+
 {{< alert title="TL;DR" color="primary" >}}
 
 - **Choose a format** with `-o <format>`:
@@ -30,7 +31,7 @@ syft <image> -o <format>
 | `json`        | Native output for Syft—use this to get as much information out of Syft as possible! (see the [JSON schema](https://github.com/anchore/syft/blob/main/schema/json/schema-latest.json)) |
 | `purls`       | A line-separated list of [Package URLs (PURLs)](https://github.com/package-url/purl-spec) for all discovered packages                                                                 |
 | `github-json` | A JSON report conforming to GitHub's dependency snapshot format                                                                                                                       |
-| `template`    | Lets you specify a custom output format via Go templates (see [Templates]({{< relref "/docs/guides/sbom/templates/" >}}) for more detail)                                                              |
+| `template`    | Lets you specify a custom output format via Go templates (see [Templates]({{< relref "/docs/guides/sbom/templates/" >}}) for more detail)                                             |
 | `text`        | A row-oriented, human-and-machine-friendly output                                                                                                                                     |
 
 ### CycloneDX

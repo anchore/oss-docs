@@ -4,6 +4,7 @@ description = "Definitions of terms used in software security, SBOM generation, 
 weight = 200
 type = "docs"
 +++
+
 ## A
 
 ### Artifact

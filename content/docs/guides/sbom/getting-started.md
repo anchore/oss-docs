@@ -4,6 +4,7 @@ description = "Use Syft to generate your first SBOM from container images, direc
 weight = 10
 tags = ["syft", "sbom"]
 +++
+
 ## What is an SBOM?
 
 A **Software Bill of Materials** (SBOM) is a **detailed list of all libraries and components** that make up software.

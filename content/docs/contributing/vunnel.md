@@ -6,6 +6,7 @@ categories = ["developer"]
 tags = ["vunnel"]
 menu_group = "projects"
 +++
+
 ## Getting started
 
 This project requires:
@@ -473,7 +474,7 @@ Alternatively a tool like [`MonkeyType`](https://github.com/Instagram/MonkeyType
 
 - [Vunnel Architecture](/docs/architecture/vunnel) - Learn about provider abstraction, workspace conventions, and vulnerability schemas
 - [Example Provider](https://github.com/anchore/vunnel/blob/main/example/README.md) - Detailed walkthrough of creating a new provider
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

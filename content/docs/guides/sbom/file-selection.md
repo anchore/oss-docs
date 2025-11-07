@@ -4,6 +4,7 @@ description = "Control which files and directories Syft includes or excludes whe
 weight = 55
 tags = ["syft", "sbom"]
 +++
+
 {{< alert title="TL;DR" color="primary" >}}
 
 - By default, Syft includes information about files owned by packages into the SBOM

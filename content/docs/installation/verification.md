@@ -4,6 +4,7 @@ title = "Verifying Downloads"
 description = "Verifying release assets after downloading"
 weight = 50
 +++
+
 ## Why verify downloads?
 
 Verifying your downloads ensures that:

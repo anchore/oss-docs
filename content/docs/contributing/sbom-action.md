@@ -6,6 +6,7 @@ categories = ["developer"]
 tags = ["sbom-action"]
 menu_group = "projects"
 +++
+
 ## Getting started
 
 In order to test and develop in the [sbom-action repo](https://github.com/anchore/sbom-action) you will need the following dependencies installed:

@@ -4,6 +4,7 @@ description = "License Scanning Getting Started"
 weight = 10
 tags = ["grant", "licenses"]
 +++
+
 ### Introduction
 
 Grant searches SBOMs for licenses and the packages they belong to.
