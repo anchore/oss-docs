@@ -1,8 +1,15 @@
-Application:    grant
-Version:        0.5.0
-BuildDate:      2025-11-03T21:33:27Z
-GitCommit:      f1559d8f24d41b8a344788a6ba00349f24eb0b35
-GitDescription: v0.5.0
-Platform:       linux/arm64
-GoVersion:      go1.24.9
-Compiler:       gc
+Show the version information for grant
+
+Usage:
+  grant version [flags]
+
+Flags:
+  -h, --help   help for version
+
+Global Flags:
+  -c, --config string        path to configuration file
+      --no-output            suppress terminal output when writing to file
+  -o, --output string        output format (table, json) (default "table")
+  -f, --output-file string   write JSON output to file (sets output format to json)
+  -q, --quiet                suppress all non-essential output
+  -v, --verbose              enable verbose output

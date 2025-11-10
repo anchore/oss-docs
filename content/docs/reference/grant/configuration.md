@@ -23,7 +23,7 @@ Grant searches for configuration files in the following locations, in order:
 
 The configuration file can use either `.yaml` or `.yml` extensions. The first configuration file found will be used.
 
-For general information about how config and environment variables are handled, see the [Configuration Reference]({< relref "/docs/reference/configuration" >}) section.
+For general information about how config and environment variables are handled, see the [Configuration Reference]({{< relref "/docs/reference/configuration" >}}) section.
 
 ```yaml
 # Grant License Compliance Configuration

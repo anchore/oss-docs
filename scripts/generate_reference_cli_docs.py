@@ -143,9 +143,7 @@ def generate_markdown_content(
     )
 
     # Add version info block at the top
-    version_info = get_version_info(image, app_name, tool_name, update)
-    # Extract version using utility function
-    app_version = version.extract_from_output(version_info, tool_name=tool_name)
+    app_version = get_version_info(image, tool_name, update)
 
     content += f"""{{{{< alert title="Note" >}}}}
 This documentation was generated with {tool_display} version `{app_version}`.
@@ -309,29 +307,15 @@ def get_subcommands(image: str, cmd_parts, tool_name: str, update: bool = False)
     return commands
 
 
-def get_version_info(
-    image: str, app_name: str, tool_name: str, update: bool = False
-) -> str:
+def get_version_info(image: str, tool_name: str, update: bool = False) -> str:
     """Get version information from the app."""
-    # check cache first
     cache_path = get_cache_path_for_cli(tool_name, ["version"])
-    cached = cache.get_output(cache_path, update)
+    app_version = version.get_app_version(image, tool_name, cache_path, update)
 
-    if cached is not None:
-        return cached.strip()
+    if app_version is None:
+        raise RuntimeError(f"Failed to retrieve version info from the image '{image}'.")
 
-    # run command
-    stdout, stderr, returncode = syft.run(
-        syft_image=image,
-        args=["version"],
-    )
-
-    if returncode == 0:
-        # save to cache
-        cache.save(cache_path, stdout)
-        return stdout.strip()
-
-    raise RuntimeError(f"Failed to retrieve version info from the image '{image}'.")
+    return app_version
 
 
 def get_command_help(

@@ -2,22 +2,22 @@
 [
   {
     "path": "/lib/libcrypto.so.1.1",
-    "size": 2593440,
+    "size": 2321984,
     "mimeType": "application/x-sharedlib"
   },
   {
     "path": "/bin/busybox",
-    "size": 796240,
+    "size": 841320,
     "mimeType": "application/x-sharedlib"
   },
   {
-    "path": "/lib/ld-musl-x86_64.so.1",
-    "size": 584304,
+    "path": "/lib/ld-musl-aarch64.so.1",
+    "size": 616960,
     "mimeType": "application/x-sharedlib"
   },
   {
     "path": "/lib/libssl.so.1.1",
-    "size": 519632,
+    "size": 515376,
     "mimeType": "application/x-sharedlib"
   },
   {
@@ -27,27 +27,27 @@
   },
   {
     "path": "/sbin/apk",
-    "size": 211304,
-    "mimeType": "application/x-sharedlib"
-  },
-  {
-    "path": "/lib/libz.so.1.2.11",
-    "size": 100144,
+    "size": 218928,
     "mimeType": "application/x-sharedlib"
   },
   {
     "path": "/usr/lib/libtls-standalone.so.1.0.0",
-    "size": 96096,
+    "size": 96032,
+    "mimeType": "application/x-sharedlib"
+  },
+  {
+    "path": "/lib/libz.so.1.2.11",
+    "size": 91888,
     "mimeType": "application/x-sharedlib"
   },
   {
     "path": "/usr/bin/scanelf",
-    "size": 83744,
+    "size": 79592,
     "mimeType": "application/x-sharedlib"
   },
   {
     "path": "/usr/bin/getent",
-    "size": 51912,
+    "size": 48704,
     "mimeType": "application/x-sharedlib"
   }
 ]

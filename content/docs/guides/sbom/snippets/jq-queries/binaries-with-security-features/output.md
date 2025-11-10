@@ -6,7 +6,7 @@
   "nx": true
 }
 {
-  "path": "/lib/ld-musl-x86_64.so.1",
+  "path": "/lib/ld-musl-aarch64.so.1",
   "pie": false,
   "stackCanary": true,
   "nx": true
