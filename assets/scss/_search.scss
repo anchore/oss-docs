@@ -15,7 +15,7 @@
   gap: 0.75rem;
   width: 100%;
   cursor: pointer;
-  font-weight: 500; // match site pattern
+  font-weight: 600; // match site pattern
   transition: all 0.2s ease;
 
   [data-bs-theme='light'] & {
@@ -73,7 +73,7 @@
   font-family:
     ui-monospace, 'SF Mono', 'Cascadia Code', 'Roboto Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
 
   [data-bs-theme='light'] & {

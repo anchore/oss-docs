@@ -20,28 +20,56 @@
   // project card styling with new design
   .project-card {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; // keep mascots within card boundaries
     min-height: 420px;
     border-radius: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition:
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    // gradient backgrounds for each tool
-    &:nth-child(1) {
-      background: linear-gradient(135deg, rgba(236, 121, 249, 0.9) 0%, rgba(251, 113, 133, 0.9) 100%);
+    // neutral default background with strong visibility - much lighter for dark mode
+    background: linear-gradient(135deg, rgba(148, 163, 184, 1) 0%, rgba(203, 213, 225, 0.9) 100%);
+
+    [data-bs-theme='light'] & {
+      background: linear-gradient(135deg, rgba(226, 232, 240, 1) 0%, rgba(203, 213, 225, 0.95) 100%);
     }
 
-    &:nth-child(2) {
-      background: linear-gradient(135deg, rgba(96, 165, 250, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
+    // colored gradient overlay using pseudo-element for smooth opacity transition
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+      border-radius: 1.5rem;
     }
 
-    &:nth-child(3) {
-      background: linear-gradient(135deg, rgba(34, 197, 94, 0.9) 0%, rgba(16, 185, 129, 0.9) 100%);
+    // colored gradients for each tool
+    &#syft::before {
+      background: linear-gradient(135deg, rgba(236, 121, 249, 0.5) 0%, rgba(251, 113, 133, 0.5) 100%);
     }
 
-    // hover effect - lift card
+    &#grype::before {
+      background: linear-gradient(135deg, rgba(96, 165, 250, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%);
+    }
+
+    &#grant::before {
+      background: linear-gradient(135deg, rgba(34, 197, 94, 0.5) 0%, rgba(16, 185, 129, 0.5) 100%);
+    }
+
+    // hover effect - lift card and fade in colored gradient
     &:hover {
       transform: translateY(-8px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+
+      &::before {
+        opacity: 1;
+      }
     }
 
     // tool name at top-left
@@ -49,17 +77,19 @@
       position: absolute;
       top: var(--landing-space-xl);
       left: var(--landing-space-xl);
-      font-size: 2rem;
-      font-weight: 800;
-      color: $landing-white;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: $landing-black;
       margin: 0;
-      z-index: 2;
-      text-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.3),
-        0 4px 16px rgba(0, 0, 0, 0.2);
+      z-index: 20;
+      letter-spacing: -0.04em;
+      //       font-family: 'Poppins', sans-serif;
+      //       text-shadow:
+      //         0 2px 8px rgba(0, 0, 0, 0.3),
+      //         0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
-    // mascot peek container - now on RIGHT side
+    // mascot peek container - positioned on right side
     .mascot-peek {
       position: absolute;
       right: 0;
@@ -72,9 +102,9 @@
       .mascot-image {
         position: absolute;
         right: 0;
-        top: 50%;
-        transform: translateY(-50%) translateX(55%) scale(0.9);
-        height: 85%;
+        top: 25%; // position so eyes/nose/beaks peek above popup edge
+        transform: translateY(-45%) translateX(55%) scale(0.9);
+        height: 90%;
         width: auto;
         object-fit: contain;
         transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -84,8 +114,8 @@
 
     // hover effect for mascot - peek in more from right
     &:hover .mascot-peek .mascot-image {
-      transform: translateY(-50%) translateX(20%) rotateY(15deg) rotateZ(-12deg);
-      filter: drop-shadow(-4px 8px 16px rgba(0, 0, 0, 0.4));
+      transform: translateY(-50%) translateX(30%) rotateY(15deg) rotateZ(-10deg) scale(0.95);
+      filter: drop-shadow(-4px 8px 8px rgba(0, 0, 0, 0.5));
     }
 
     // hide the original project-icon
@@ -96,12 +126,13 @@
     // white popup overlay at bottom 60%
     .card-popup {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 0px;
+      left: -1px;
+      right: -1px;
       height: 60%;
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 1.5rem 1.5rem 0 0;
       z-index: 3;
       padding: var(--landing-space-xl);
@@ -125,7 +156,7 @@
         font-size: 1.1rem;
         line-height: 1.6;
         margin: 0;
-        font-weight: 500;
+        font-weight: 400;
       }
     }
 
@@ -171,10 +202,12 @@
       }
 
       .mascot-peek {
+        top: 0;
         width: 180px;
 
         .mascot-image {
-          height: 70%;
+          top: 28%;
+          height: 75%;
           transform: translateY(-50%) translateX(60%) scale(0.85);
         }
       }
@@ -203,10 +236,12 @@
       }
 
       .mascot-peek {
+        top: 0;
         width: 140px;
 
         .mascot-image {
-          height: 60%;
+          top: 30%;
+          height: 65%;
           transform: translateY(-50%) translateX(65%) scale(0.8);
         }
       }

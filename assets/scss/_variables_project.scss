@@ -37,7 +37,8 @@ $landing-dark-secondary: #1e293b; // secondary dark background
 $landing-light-bg: #f8fafc; // primary light background
 $landing-light-secondary: #f1f5f9; // secondary light background
 $landing-light-tertiary: #e2e8f0; // tertiary light background
-$landing-white: #ffffff; // pure white
+$landing-white: #ffffff; // light
+$landing-black: #333333; // dark
 $landing-text-dark: rgba(255, 255, 255, 0.8); // dark mode text
 $landing-text-light: rgba(15, 23, 42, 0.7); // light mode text
 $landing-gray-600: #374151; // medium gray for buttons
@@ -46,6 +47,7 @@ $landing-gray-800: #1f2937; // dark gray for button hovers
 // typography
 $google_font_name: 'Poppins';
 $google_font_display: 'swap';
+$google_font_family: 'Poppins:400,500,600';
 $td-enable-google-fonts: true;
 $font-family-sans-serif:
   'Poppins',
