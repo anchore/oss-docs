@@ -1,5 +1,5 @@
 +++
-title = "Welcome to Anchore Open Source"
+title = "Welcome"
 linkTitle = "Open Source"
 weight = 30
 +++
