@@ -12,6 +12,18 @@ a {
   text-decoration-thickness: 2.25px;
 }
 
+// set all headings to use Poppins font
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div.lead {
+  font-family: 'Poppins'; // body already defines good fallbacks
+  letter-spacing: -0.03em;
+}
+
 // subtle underline-like wave accent for section dividers
 .td-content > h2::after {
   content: '';

@@ -3,7 +3,6 @@ title = "Glossary"
 description = "Definitions of terms used in software security, SBOM generation, and vulnerability scanning"
 weight = 200
 type = "docs"
-url = "docs/about/glossary"
 +++
 
 ## A
@@ -14,7 +13,7 @@ In Syft's JSON output format, "artifacts" refers to the array of software packag
 Each artifact represents a single package (library, application, OS package, etc.) with its metadata, version, licenses, locations, and identifiers like CPE and PURL.
 This is distinct from general software artifacts like binaries or container images.
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ### Attestation
 
@@ -33,7 +32,7 @@ When Syft scans a target, it runs multiple catalogers to comprehensively discove
 
 **Why it matters:** The `foundBy` field in Syft's JSON output tells you which cataloger discovered each package, which can help debug why certain packages appear in your SBOM or troubleshoot scanning issues.
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ### Container image
 
@@ -42,7 +41,7 @@ Container images are built from layers and typically run using container runtime
 
 **Why it matters:** Both Syft and Grype can scan container images directly without requiring them to be running. Syft generates SBOMs from container images, and Grype scans them for vulnerabilities.
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom), [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}}), [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### CPE
 
@@ -68,7 +67,7 @@ Understanding CPEs helps you troubleshoot why certain vulnerabilities are or are
 
 - [NIST CPE Dictionary](https://nvd.nist.gov/products/cpe)
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ### CVE
 
@@ -85,7 +84,7 @@ Each match in a Grype scan references one or more CVE IDs.
 - [CVE Program](https://www.cve.org/)
 - [NVD CVE Database](https://nvd.nist.gov/vuln)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### CVSS
 
@@ -109,7 +108,7 @@ You can filter Grype results by severity level to focus on the most critical vul
 
 - [CVSS Specification](https://www.first.org/cvss/)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### CycloneDX
 
@@ -122,7 +121,7 @@ Grype can also scan CycloneDX SBOMs for vulnerabilities.
 
 - [CycloneDX Specification](https://cyclonedx.org/)
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ## D
 
@@ -141,7 +140,7 @@ Short for "distribution", referring to a specific Linux distribution like Alpine
 **Why it matters:** Grype uses distro information to match OS packages against the correct vulnerability database.
 Syft automatically detects the distro from files like `/etc/os-release` and includes it in the SBOM, ensuring accurate vulnerability matching.
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ### Docker
 
@@ -165,7 +164,7 @@ Different ecosystems have different package formats, naming conventions, and vul
 **Why it matters:** Syft supports dozens of package ecosystems, and each uses a different cataloger.
 The ecosystem determines how packages are identified (PURL type), which metadata is captured, and which vulnerability data sources Grype uses for matching.
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ### EPSS
 
@@ -182,7 +181,7 @@ Grype can display EPSS scores alongside CVSS to help you focus remediation effor
 - [EPSS Model](https://www.first.org/epss/)
 - [EPSS Data](https://api.first.org/data/v1/epss)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ## F
 
@@ -229,7 +228,7 @@ Some organizations make KEV remediation mandatory within tight timeframes (e.g.,
 - [CISA KEV Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog)
 - [KEV Catalog (JSON)](https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ## L
 
@@ -240,7 +239,7 @@ Container images are built as a series of filesystem layers, where each layer re
 **Why it matters:** By default, Syft scans only the "squashed" view of an image (what you'd see if the container were running).
 Use `--scope all-layers` to scan all layers, which can reveal packages that were installed then deleted, potentially exposing vulnerabilities in build-time dependencies.
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ### License
 
@@ -254,7 +253,7 @@ A legal instrument governing the use and distribution of software. Software lice
 
 A match is a vulnerability finding in Grype's output, representing a single package-vulnerability pair. Each match indicates that a specific package version is affected by a particular CVE.
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### Matcher
 
@@ -276,7 +275,7 @@ It provides comprehensive vulnerability information including CVE IDs, CVSS scor
 
 - [NVD Website](https://nvd.nist.gov/)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ## O
 
@@ -336,7 +335,7 @@ PURLs provide a consistent way to refer to packages across different SBOM format
 
 - [PURL Specification](https://github.com/package-url/purl-spec)
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ## R
 
@@ -348,7 +347,7 @@ For example, a relationship might indicate that a file is "contained-by" a packa
 **Why it matters:** Relationships provide the graph structure of your software, showing not just what packages exist but how they're connected.
 This is essential for understanding dependency chains and reachability analysis.
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ## S
 
@@ -367,7 +366,7 @@ SBOMs are becoming required by regulations and standards like Executive Order 14
 - [CISA SBOM Minimum Elements](https://www.cisa.gov/resources-tools/resources/2025-minimum-elements-software-bill-materials-sbom)
 - [NTIA SBOM Minimum Elements [PDF]](https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf)
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ### Severity
 
@@ -376,7 +375,7 @@ Common severity levels are Critical, High, Medium, Low, and Negligible (or None)
 
 **Why it matters:** Grype reports vulnerability severity to help you prioritize remediation efforts. You can filter Grype output by severity (e.g., `--fail-on high` to fail CI builds for high or critical vulnerabilities).
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### Software supply chain
 
@@ -392,7 +391,7 @@ In Syft's JSON output, the "source" object describes what was scanned—whether 
 
 **Why it matters:** The source information helps you correlate SBOMs with specific artifacts, especially important when tracking multiple image versions or builds.
 
-**Related documentation:** [Working with Syft JSON](/docs/guides/sbom/syft-json)
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
 
 ### SPDX
 
@@ -406,7 +405,7 @@ Grype can also scan SPDX SBOMs for vulnerabilities.
 
 - [SPDX Specification](https://spdx.dev/)
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ### Squash
 
@@ -415,7 +414,7 @@ It's the result of applying all image layers in sequence, where later layers can
 
 **Why it matters:** Syft scans the squashed view by default (what you actually run), but you can use `--scope all-layers` to also see packages that existed in intermediate layers but were deleted before the final image.
 
-**Related documentation:** [SBOM Generation](/docs/guides/sbom)
+**Related documentation:** [SBOM Generation]({{< relref "/docs/guides/sbom" >}})
 
 ## V
 
@@ -432,7 +431,7 @@ When Grype reports a vulnerability that doesn't actually affect your application
 - [CISA VEX Overview](https://www.cisa.gov/resources-tools/resources/minimum-requirements-vulnerability-exploitability-exchange-vex)
 - [OpenVEX Specification](https://github.com/openvex/spec)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### Vulnerability
 
@@ -455,7 +454,7 @@ Understanding the context of a vulnerability helps you assess real risk rather t
 - [NIST Vulnerability Metrics](https://nvd.nist.gov/vuln-metrics/cvss)
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})
 
 ### Vulnerability database
 
@@ -465,7 +464,7 @@ Vulnerability databases aggregate data from multiple sources like NVD, security 
 **Why it matters:** Grype downloads and maintains a local vulnerability database that's updated daily.
 The database quality directly impacts scan accuracy—Grype uses curated, high-quality data from multiple providers to minimize false positives and false negatives.
 
-**Related documentation:** [Vulnerability Database](/docs/guides/vulnerability/database)
+**Related documentation:** [Vulnerability Database]({{< relref "/docs/guides/vulnerability/database" >}})
 
 ### Vulnerability scanner
 
@@ -475,4 +474,4 @@ Vulnerability scanners like Grype analyze software artifacts (container images, 
 **Why it matters:** Grype is a vulnerability scanner that works seamlessly with Syft-generated SBOMs.
 You can scan images directly with Grype, or generate an SBOM with Syft first and scan it separately, enabling workflows where SBOMs are generated once and scanned multiple times as new vulnerabilities are discovered.
 
-**Related documentation:** [Vulnerability Scanning](/docs/guides/vulnerability)
+**Related documentation:** [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability" >}})

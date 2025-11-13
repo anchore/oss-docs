@@ -3,7 +3,6 @@ title = "Configuration Rules"
 description = "Configuration patterns and options used across all Anchore OSS tools"
 weight = 100
 tags = ["syft", "grype", "grant"]
-url = "docs/reference/configuration"
 menu_group = "general"
 +++
 

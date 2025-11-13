@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to Syft"
 weight = 10
 categories = ["developer"]
 tags = ["syft"]
-url = "docs/contributing/syft"
 menu_group = "projects"
 icon_image = "/images/logos/syft/favicon-48x48.png"
 +++
@@ -327,13 +326,13 @@ For more information on this setup and troubleshooting see [issue 1895](https://
 
 **Understanding the Codebase**
 
-- [Architecture](/docs/architecture/syft) - Learn about package structure, core library flow, cataloger design patterns, and file searching
+- [Architecture]({{< relref "/docs/architecture/syft" >}}) - Learn about package structure, core library flow, cataloger design patterns, and file searching
 - [API Reference](https://pkg.go.dev/github.com/anchore/syft) - Explore the public Go API, type definitions, and function signatures
 
 **Contributing Your Work**
 
-- [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
-- [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues
+- [Pull Requests]({{< relref "/docs/contributing/pull-requests" >}}) - Guidelines for submitting PRs and working with reviewers
+- [Issues and Discussions]({{< relref "/docs/contributing/issues-and-discussions" >}}) - Where to get help and report issues
 
 **Finding Work**
 

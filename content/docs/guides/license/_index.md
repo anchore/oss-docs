@@ -3,7 +3,6 @@ title = "License Scanning"
 description = "Learn how to scan container images and filesystems for software licenses covering detection, compliance checking, and managing license obligations."
 weight = 41
 tags = ["syft", "grant", "licenses"]
-url = "docs/guides/license"
 icon_image = "/images/logos/grant/favicon-48x48.png"
 +++
 

@@ -212,35 +212,15 @@ def get_config_locations_section(app_name: str, tool_display: str) -> str:
 
 The configuration file can use either `.yaml` or `.yml` extensions. The first configuration file found will be used.
 
-For general information about how config and environment variables are handled, see the [Configuration Reference](/docs/reference/configuration) section.
+For general information about how config and environment variables are handled, see the [Configuration Reference]({{{{< relref "/docs/reference/configuration" >}}}}) section.
 
 """
 
 
 def get_app_version(image: str, tool_name: str, update: bool = False) -> str | None:
     """Get the application version from the image."""
-    # check cache first
     cache_path = get_cache_path(tool_name, "version")
-    cached = cache.get_output(cache_path, update)
-
-    if cached is not None:
-        # parse cached output using utility function
-        return version.extract_from_output(cached, tool_name=tool_name)
-
-    # run command
-    stdout, stderr, returncode = syft.run(
-        syft_image=image,
-        args=["version"],
-    )
-
-    if returncode == 0:
-        # save to cache
-        cache.save(cache_path, stdout)
-
-        # parse output using utility function
-        return version.extract_from_output(stdout, tool_name=tool_name)
-
-    return None
+    return version.get_app_version(image, tool_name, cache_path, update)
 
 
 def get_config_output(image: str, tool_name: str, update: bool = False) -> str | None:

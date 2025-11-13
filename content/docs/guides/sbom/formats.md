@@ -3,8 +3,6 @@ title = "Output Formats"
 description = "Choose from multiple SBOM output formats including SPDX, CycloneDX, and Syft's native JSON format."
 weight = 40
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx", "json"]
-url = "docs/guides/sbom/formats"
-
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
@@ -33,7 +31,7 @@ syft <image> -o <format>
 | `json`        | Native output for Syft—use this to get as much information out of Syft as possible! (see the [JSON schema](https://github.com/anchore/syft/blob/main/schema/json/schema-latest.json)) |
 | `purls`       | A line-separated list of [Package URLs (PURLs)](https://github.com/package-url/purl-spec) for all discovered packages                                                                 |
 | `github-json` | A JSON report conforming to GitHub's dependency snapshot format                                                                                                                       |
-| `template`    | Lets you specify a custom output format via Go templates (see [Templates](/docs/guides/sbom/templates/) for more detail)                                                              |
+| `template`    | Lets you specify a custom output format via Go templates (see [Templates]({{< relref "/docs/guides/sbom/templates/" >}}) for more detail)                                             |
 | `text`        | A row-oriented, human-and-machine-friendly output                                                                                                                                     |
 
 ### CycloneDX
@@ -129,7 +127,7 @@ syft <source> \
 
 **Can I convert between formats?**
 
-Yes! See the [Format Conversion](/docs/guides/sbom/conversion/) guide to convert existing SBOMs between formats without re-scanning.
+Yes! See the [Format Conversion]({{< relref "/docs/guides/sbom/conversion/" >}}) guide to convert existing SBOMs between formats without re-scanning.
 
 **Do all formats contain the same information?**
 
@@ -142,11 +140,11 @@ Use the latest version (default) unless you need compatibility with specific too
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/syft-json/" >}}
-**Next**: Explore [Working with Syft JSON](/docs/guides/sbom/syft-json/) to learn how to query and extract specific data from Syft's native format using jq.
+**Next**: Explore [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) to learn how to query and extract specific data from Syft's native format using jq.
 {{< /alert >}}
 
 Additional resources:
 
-- **Custom formats**: Learn about [customizing output with templates](/docs/guides/sbom/templates) for specialized formats
-- **Convert formats**: See [Format Conversion](/docs/guides/sbom/conversion/) to convert between different SBOM formats
-- **Advanced settings**: Check [configuration options](/docs/reference/syft/configuration) for format-specific settings
+- **Custom formats**: Learn about [customizing output with templates]({{< relref "/docs/guides/sbom/templates" >}}) for specialized formats
+- **Convert formats**: See [Format Conversion]({{< relref "/docs/guides/sbom/conversion/" >}}) to convert between different SBOM formats
+- **Advanced settings**: Check [configuration options]({{< relref "/docs/reference/syft/configuration" >}}) for format-specific settings

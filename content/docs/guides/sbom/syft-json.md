@@ -3,16 +3,15 @@ title = "Working with Syft JSON"
 description = "Learn how to work with Syft's native JSON format including querying with jq, extracting metadata, and understanding the SBOM structure."
 weight = 45
 tags = ["syft", "sbom", "json", "jq"]
-url = "docs/guides/sbom/syft-json"
 +++
 
 Syft's native JSON format provides the most comprehensive view of discovered software components, capturing all package metadata, file details, relationships, and source information.
 
-Since Syft can [convert from its native JSON format to standard SBOM formats](/docs/guides/sbom/conversion/),
+Since Syft can [convert from its native JSON format to standard SBOM formats]({{< relref "/docs/guides/sbom/conversion/" >}}),
 capturing your SBOM in Syft JSON format lets you generate any SBOM format as needed for compliance requirements.
 
 {{< alert title="JSON Schema Reference" color="primary" >}}
-For the complete, detailed JSON schema specification, see the [Syft JSON Schema Reference](/docs/reference/syft/json/latest).
+For the complete, detailed JSON schema specification, see the [Syft JSON Schema Reference]({{< relref "/docs/reference/syft/json/16" >}}).
 {{< /alert >}}
 
 ## Data Shapes
@@ -415,12 +414,12 @@ For very large JSON files:
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/catalogers/" >}}
-**Next**: Dive into [Package Catalogers](/docs/guides/sbom/catalogers/) to understand how Syft discovers different types of software packages.
+**Next**: Dive into [Package Catalogers]({{< relref "/docs/guides/sbom/catalogers/" >}}) to understand how Syft discovers different types of software packages.
 {{< /alert >}}
 
 Additional resources:
 
-- **Other formats**: Explore [output formats](/docs/guides/sbom/formats/) to see all available SBOM formats
-- **Convert formats**: Learn about [format conversion](/docs/guides/sbom/conversion/) to generate multiple formats efficiently
-- **Custom output**: Use [templates](/docs/guides/sbom/templates/) to create custom output formats
-- **Syft JSON Schema**: Review the [Syft JSON Schema Reference](/docs/reference/syft/json/latest) for detailed field definitions
+- **Other formats**: Explore [output formats]({{< relref "/docs/guides/sbom/formats/" >}}) to see all available SBOM formats
+- **Convert formats**: Learn about [format conversion]({{< relref "/docs/guides/sbom/conversion/" >}}) to generate multiple formats efficiently
+- **Custom output**: Use [templates]({{< relref "/docs/guides/sbom/templates/" >}}) to create custom output formats
+- **Syft JSON Schema**: Review the [Syft JSON Schema Reference]({{< relref "/docs/reference/syft/json/16" >}}) for detailed field definitions

@@ -20,7 +20,7 @@ footer {
     &:hover,
     &.active {
       color: $primary;
-      font-weight: 500;
+      font-weight: 400;
     }
   }
 }
@@ -31,7 +31,7 @@ footer {
   margin-left: 0.5rem;
   padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
   border-radius: 12px;
   white-space: nowrap;
 
@@ -90,6 +90,7 @@ footer {
 // remove vertical border between left sidebar and main content
 .td-sidebar {
   border-right: none !important;
+  min-width: 275px;
 }
 
 #td-sidebar-menu {

@@ -3,8 +3,6 @@ title = "Package Catalogers"
 description = "Configure which package catalogers Syft uses to discover software components including language-specific and file-based catalogers."
 weight = 50
 tags = ["syft", "sbom", "catalogers"]
-url = "docs/guides/sbom/catalogers"
-
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
@@ -387,11 +385,11 @@ This logic applies when using `--select-catalogers`. The `--override-default-cat
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/file-selection/" >}}
-**Next**: Learn about [File Selection](/docs/guides/sbom/file-selection/) to control which files and directories Syft scans during cataloging.
+**Next**: Learn about [File Selection]({{< relref "/docs/guides/sbom/file-selection/" >}}) to control which files and directories Syft scans during cataloging.
 {{< /alert >}}
 
 Additional resources:
 
-- **Reference**: See the [ecosystem capabilities](/docs/capabilities/) for detailed information about package detection and vulnerability matching
-- **Configuration**: Check [configuration options](/docs/reference/syft/configuration) for persistent cataloger settings
-- **Filter files**: Use [File Selection](/docs/guides/sbom/file-selection) to exclude irrelevant paths before cataloging
+- **Reference**: See the [ecosystem capabilities]({{< relref "/docs/capabilities/" >}}) for detailed information about package detection and vulnerability matching
+- **Configuration**: Check [configuration options]({{< relref "/docs/reference/syft/configuration" >}}) for persistent cataloger settings
+- **Filter files**: Use [File Selection]({{< relref "/docs/guides/sbom/file-selection" >}}) to exclude irrelevant paths before cataloging

@@ -7,7 +7,7 @@
   "detector": {
     "name": "syft",
     "url": "https://github.com/anchore/syft",
-    "version": "1.33.0-SNAPSHOT-1510db7c"
+    "version": "1.37.0"
   },
   "metadata": {
     "syft:distro": "pkg:generic/busybox@1.37.0?like=busybox"
@@ -19,7 +19,7 @@
         "source_location": "busybox:latest:/bin/busybox"
       },
       "metadata": {
-        "syft:filesystem": "sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+        "syft:filesystem": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
       },
       "resolved": {
         "pkg:generic/busybox@1.37.0": {
@@ -30,6 +30,6 @@
       }
     }
   },
-  "scanned": "2025-10-28T13:53:49Z"
+  "scanned": "2025-11-07T18:52:40Z"
 }
 ```

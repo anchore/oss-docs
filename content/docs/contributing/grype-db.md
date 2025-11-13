@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to Grype DB"
 weight = 25
 categories = ["developer"]
 tags = ["grype-db", "vunnel"]
-url = "docs/contributing/grype-db"
 menu_group = "projects"
 +++
 
@@ -105,9 +104,7 @@ make db-acceptance schema=<version>
 
 - [Architecture](/docs/architecture/grype-db) - Learn about the ETL pipeline, schema support, and publishing workflow
 - [Vunnel Documentation](https://github.com/anchore/vunnel) - Understand the vulnerability data provider system that feeds Grype DB
-- [Quality Gates](/docs/architecture/quality-gates/grype-db) - Learn about validation and quality checks
-
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

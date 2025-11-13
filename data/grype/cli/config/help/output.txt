@@ -31,7 +31,7 @@ file: ''
 # pretty-print output (env: GRYPE_PRETTY)
 pretty: false
 
-# distro to match against in the format: <distro>:<version> (env: GRYPE_DISTRO)
+# distro to match against in the format: <distro>[-:@]<version> (env: GRYPE_DISTRO)
 distro: ''
 
 # generate CPEs for packages with no CPE data (env: GRYPE_ADD_CPES_IF_NONE)

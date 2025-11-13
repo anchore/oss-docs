@@ -3,7 +3,6 @@ title = "Contributing"
 tags = ["syft", "grype", "grant", "grype-db", "vunnel", "stereoscope"]
 description = "Guidelines for developing & contributing to Anchore Open Source projects"
 weight = 40
-url = "docs/contributing"
 +++
 
 Welcome! We appreciate all contributions to Anchore's open source projects.

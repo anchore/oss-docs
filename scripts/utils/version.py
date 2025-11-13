@@ -10,6 +10,7 @@ Provides utilities for:
 
 import re
 from dataclasses import dataclass
+from pathlib import Path
 
 
 def extract_from_output(
@@ -87,6 +88,54 @@ def extract_from_output(
 
     # If nothing found, return unknown
     return "unknown"
+
+
+def get_app_version(
+    image: str, tool_name: str, cache_path: Path, update: bool = False
+) -> str | None:
+    """
+    get application version from container image.
+
+    Retrieves version information from a container image, using caching
+    to avoid redundant calls. Parses the version output using extract_from_output().
+
+    Args:
+        image: container image name (e.g., "anchore/syft:latest")
+        tool_name: tool name for version extraction (e.g., "syft", "grype")
+        cache_path: path to cache file for storing version output
+        update: if True, bypass cache and fetch fresh version info
+
+    Returns:
+        version string (e.g., "v1.2.3") or None if version cannot be retrieved
+
+    Examples:
+        >>> cache_path = Path("/tmp/cache/syft/version/output.txt")
+        >>> get_app_version("anchore/syft:latest", "syft", cache_path)
+        'v1.2.3'
+    """
+    from . import cache, syft
+
+    # check cache first
+    cached = cache.get_output(cache_path, update)
+
+    if cached is not None:
+        # parse cached output using utility function
+        return extract_from_output(cached, tool_name=tool_name)
+
+    # run command
+    stdout, stderr, returncode = syft.run(
+        syft_image=image,
+        args=["version"],
+    )
+
+    if returncode == 0:
+        # save to cache
+        cache.save(cache_path, stdout)
+
+        # parse output using utility function
+        return extract_from_output(stdout, tool_name=tool_name)
+
+    return None
 
 
 @dataclass

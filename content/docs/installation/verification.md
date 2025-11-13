@@ -3,7 +3,6 @@ tags = ['syft', 'grype', 'grant']
 title = "Verifying Downloads"
 description = "Verifying release assets after downloading"
 weight = 50
-url = "docs/installation/verification"
 +++
 
 ## Why verify downloads?
@@ -24,7 +23,7 @@ Installation scripts support automatic verification using the `-v` flag if you h
 
 Before verifying downloads, you need:
 
-- The binary you want to verify (see [Installation](/docs/installation/))
+- The binary you want to verify (see [Installation]({{< relref "/docs/installation/" >}}))
 - [Cosign](https://docs.sigstore.dev/cosign/system_config/installation/) installed (for signature verification)
 
 **Note**: Checksum verification doesn't require additional tools beyond your operating system's built-in utilities.

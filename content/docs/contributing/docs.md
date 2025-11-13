@@ -3,7 +3,6 @@ title =  "Docs (this site!)"
 description = "Style guide for writing Anchore OSS documentation"
 weight = 90
 type = "docs"
-url = "docs/contributing/docs"
 +++
 
 This style guide is for the [Anchore OSS documentation](/docs/).

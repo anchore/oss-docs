@@ -6,16 +6,16 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "busybox",
-  "documentNamespace": "https://anchore.com/syft/image/busybox-b62f90c3-4108-407e-bdc3-1be4685577e5",
+  "documentNamespace": "https://anchore.com/syft/image/busybox-2c6b062a-fa65-44db-8956-a94726643040",
   "creationInfo": {
     "licenseListVersion": "3.27",
-    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.33.0-SNAPSHOT-1510db7c"],
-    "created": "2025-10-28T13:53:48Z"
+    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.37.0"],
+    "created": "2025-11-07T18:52:39Z"
   },
   "packages": [
     {
       "name": "busybox",
-      "SPDXID": "SPDXRef-Package-binary-busybox-5ac87151014646ee",
+      "SPDXID": "SPDXRef-Package-binary-busybox-fe44cee3fe279dfa",
       "versionInfo": "1.37.0",
       "supplier": "NOASSERTION",
       "downloadLocation": "NOASSERTION",
@@ -40,14 +40,14 @@
     {
       "name": "busybox",
       "SPDXID": "SPDXRef-DocumentRoot-Image-busybox",
-      "versionInfo": "sha256:182014572d8981d8323fe9944876f63b39694e16ce08ae6296e97686c52b150c",
+      "versionInfo": "sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b",
       "supplier": "NOASSERTION",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "182014572d8981d8323fe9944876f63b39694e16ce08ae6296e97686c52b150c"
+          "checksumValue": "396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b"
         }
       ],
       "licenseConcluded": "NOASSERTION",
@@ -57,7 +57,7 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:oci/busybox@sha256%3A182014572d8981d8323fe9944876f63b39694e16ce08ae6296e97686c52b150c?arch=amd64&tag=latest"
+          "referenceLocator": "pkg:oci/busybox@sha256%3A396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b?arch=arm64&tag=latest"
         }
       ],
       "primaryPackagePurpose": "CONTAINER"
@@ -66,26 +66,26 @@
   "files": [
     {
       "fileName": "bin/[",
-      "SPDXID": "SPDXRef-File-bin---236898de58a38d00",
+      "SPDXID": "SPDXRef-File-bin---3a6b3df220691408",
       "fileTypes": ["APPLICATION", "BINARY"],
       "checksums": [
         {
           "algorithm": "SHA1",
-          "checksumValue": "5b35fda458b860954b919ccd4f94b9bc32b8403d"
+          "checksumValue": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
         },
         {
           "algorithm": "SHA256",
-          "checksumValue": "91a25e00cc7850644994ba476846d2489651d8d1645be39aacdb116c83c22379"
+          "checksumValue": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
         }
       ],
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "bin/getconf",
-      "SPDXID": "SPDXRef-File-bin-getconf-11a9326bac8f8c54",
+      "SPDXID": "SPDXRef-File-bin-getconf-eab1ede6d517d844",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -95,11 +95,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
-      "fileName": "lib/ld-linux-x86-64.so.2",
-      "SPDXID": "SPDXRef-File-lib-ld-linux-x86-64.so.2-d75d617f020bb2b3",
+      "fileName": "lib/ld-linux-aarch64.so.1",
+      "SPDXID": "SPDXRef-File-lib-ld-linux-aarch64.so.1-9c61e609f3b76f4a",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -109,11 +109,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libc.so.6",
-      "SPDXID": "SPDXRef-File-lib-libc.so.6-408b15110698ae17",
+      "SPDXID": "SPDXRef-File-lib-libc.so.6-456b7910a9499337",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -123,11 +123,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libm.so.6",
-      "SPDXID": "SPDXRef-File-lib-libm.so.6-d164b64c94bcb8a5",
+      "SPDXID": "SPDXRef-File-lib-libm.so.6-9376910c472a1ddd",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -137,11 +137,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libnss_compat.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-compat.so.2-8687368b6ef726b6",
+      "SPDXID": "SPDXRef-File-lib-libnss-compat.so.2-383904be0603bd22",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -151,11 +151,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libnss_dns.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-dns.so.2-75d93c7a58c1287f",
+      "SPDXID": "SPDXRef-File-lib-libnss-dns.so.2-324828ff45e1fc0b",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -165,11 +165,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libnss_files.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-files.so.2-1b24799b00791035",
+      "SPDXID": "SPDXRef-File-lib-libnss-files.so.2-9a791682497737bd",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -179,11 +179,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libnss_hesiod.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-hesiod.so.2-cb5847e3eb9a3780",
+      "SPDXID": "SPDXRef-File-lib-libnss-hesiod.so.2-c6f668db34996e30",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -193,11 +193,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libpthread.so.0",
-      "SPDXID": "SPDXRef-File-lib-libpthread.so.0-a3c671d656d293e8",
+      "SPDXID": "SPDXRef-File-lib-libpthread.so.0-d5aa00430d994aa8",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -207,11 +207,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     },
     {
       "fileName": "lib/libresolv.so.2",
-      "SPDXID": "SPDXRef-File-lib-libresolv.so.2-7168278800c9ea6e",
+      "SPDXID": "SPDXRef-File-lib-libresolv.so.2-5804ce9e713c7582",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -221,19 +221,19 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:80e840de630d08a6a1e0ee30e7c8378cf1ed6a424315d7e437f54780aee6bf5a"
+      "comment": "layerID: sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
     }
   ],
   "relationships": [
     {
-      "spdxElementId": "SPDXRef-Package-binary-busybox-5ac87151014646ee",
-      "relatedSpdxElement": "SPDXRef-File-bin---236898de58a38d00",
+      "spdxElementId": "SPDXRef-Package-binary-busybox-fe44cee3fe279dfa",
+      "relatedSpdxElement": "SPDXRef-File-bin---3a6b3df220691408",
       "relationshipType": "OTHER",
       "comment": "evident-by: indicates the package's existence is evident by the given file"
     },
     {
       "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
-      "relatedSpdxElement": "SPDXRef-Package-binary-busybox-5ac87151014646ee",
+      "relatedSpdxElement": "SPDXRef-Package-binary-busybox-fe44cee3fe279dfa",
       "relationshipType": "CONTAINS"
     },
     {

@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to Grype"
 weight = 20
 categories = ["developer"]
 tags = ["grype"]
-url = "docs/contributing/grype"
 menu_group = "projects"
 icon_image = "/images/logos/grype/favicon-48x48.png"
 +++
@@ -70,7 +69,7 @@ Common commands for ongoing development:
 
 - `quality` (`make quality`): located within `test/quality`, these are tests that verify vulnerability matching quality by comparing Grype's results against known-good results (quality gates).
   These tests help ensure that changes to vulnerability matching logic don't introduce regressions in match quality. The quality tests use a pinned database version to ensure consistent results.
-  See the [quality gate architecture documentation](/docs/architecture/quality-gates/grype/) for how the system works and the [test/quality README](https://github.com/anchore/grype/tree/main/test/quality) for practical development workflows.
+  See the quality gate architecture documentation for how the system works and the [test/quality README](https://github.com/anchore/grype/tree/main/test/quality) for practical development workflows.
 
 - `install` (part of acceptance testing): located within `test/install`, these are smoke-like tests that ensure that application packaging and installation works as expected.
   For example, during release we provide RPM packages as a download artifact.
@@ -95,7 +94,6 @@ Quality gates validate that code changes don't cause performance regressions in 
 
 **Learn more:**
 
-- [Quality Gate Architecture](/docs/architecture/quality-gates/grype/) - Understand how the system works
 - [test/quality README](https://github.com/anchore/grype/tree/main/test/quality) - Detailed setup and workflows
 
 ## Relationship to Syft
@@ -168,9 +166,7 @@ CVE-2006-2450                 libvncserver  nvd         = 0.7.1             unkn
 
 - [Architecture](/docs/architecture/grype) - Learn about package structure, core library flow, and matchers
 - [API Reference](https://pkg.go.dev/github.com/anchore/grype) - Explore the public Go API, type definitions, and function signatures
-- [Quality Gates](/docs/architecture/quality-gates/grype) - Learn about validation and quality checks
-
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

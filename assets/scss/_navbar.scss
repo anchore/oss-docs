@@ -7,8 +7,16 @@
   z-index: 100;
 }
 
+.td-breadcrumb-wrapper {
+  font-family: 'Poppins'; // body already defines good fallbacks
+  letter-spacing: -0.03em;
+  font-weight: 400;
+}
+
 // navbar improvements
 .td-navbar {
+  font-family: 'Poppins'; // body already defines good fallbacks
+  letter-spacing: -0.01em;
   // improve logo and site title alignment
   .navbar-brand {
     display: flex;
@@ -56,7 +64,7 @@
         padding: 0.75rem 0.75rem !important;
         border-radius: 6px;
         /* margin: 0 0.25rem; */
-        font-weight: 500;
+        font-weight: 400;
         transition: all 0.3s ease;
         position: relative;
 

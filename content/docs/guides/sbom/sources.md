@@ -3,7 +3,6 @@ title = "Supported Sources"
 description = "Explore the different sources Syft can analyze including container images, OCI registries, directories, files, and archives."
 weight = 20
 tags = ["syft", "sbom"]
-url = "docs/guides/sbom/sources"
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
@@ -71,7 +70,7 @@ For example, when you run `syft alpine:latest`, Syft will first check your local
 If Docker isn't available, it tries Podman, then Containerd, and finally attempts to pull directly from the registry.
 
 You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific source.
-See [Configuration](/docs/reference/syft/configuration) for more details.
+See [Configuration]({{< relref "/docs/reference/syft/configuration" >}}) for more details.
 
 ### Directory Sources
 
@@ -183,7 +182,7 @@ docker save -o alpine.tar alpine:latest
 When using container runtime sources (Docker, Podman, or Containerd):
 
 - **Missing images**: If an image doesn't exist locally in the container runtime, Syft attempts to pull it from the registry via the runtime
-- **Private images**: You must be logged in to the registry via the container runtime (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries](/docs/guides/private-registries) for more details.
+- **Private images**: You must be logged in to the registry via the container runtime (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries]({{< relref "/docs/guides/private-registries" >}}) for more details.
 
 ### Environment Variables
 
@@ -223,7 +222,7 @@ The `registry` source bypasses container runtimes entirely and pulls images dire
 Credentials are resolved in the following order:
 
 - Syft first attempts to use default Docker credentials from `~/.docker/config.json` if they exist
-- If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries](/docs/guides/private-registries) for more details.
+- If default credentials are not available, you can provide credentials via environment variables. See [Authentication with Private Registries]({{< relref "/docs/guides/private-registries" >}}) for more details.
 
 ## Troubleshooting
 
@@ -240,7 +239,7 @@ If Syft reports an image doesn't exist but you know it's available:
 If you get authentication errors when scanning private images:
 
 - **For daemon sources**: Ensure you're logged in via the daemon (e.g., `docker login registry.example.com`)
-- **For registry source**: Configure credentials in `~/.docker/config.json` or use environment variables (see [Private Registries](/docs/guides/private-registries))
+- **For registry source**: Configure credentials in `~/.docker/config.json` or use environment variables (see [Private Registries]({{< relref "/docs/guides/private-registries" >}}))
 - **Verify credentials**: Check that your credentials haven't expired and have appropriate permissions
 
 ### Podman connection issues
@@ -255,18 +254,18 @@ If Syft can't connect to Podman:
 
 If scanning a directory takes too long:
 
-- **Exclude unnecessary paths**: Use file selection options to skip build artifacts, caches, or virtual environments (see [File Selection](/docs/guides/sbom/file-selection))
+- **Exclude unnecessary paths**: Use file selection options to skip build artifacts, caches, or virtual environments (see [File Selection]({{< relref "/docs/guides/sbom/file-selection" >}}))
 - **Avoid system directories**: Scanning `/` includes all mounted filesystems; consider scanning specific application directories instead
 - **Check mount points**: Ensure you're not accidentally scanning network mounts or remote filesystems
 
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/formats/" >}}
-**Next**: Learn about [Output Formats](/docs/guides/sbom/formats/) to understand how to generate SBOMs in different standard formats like SPDX and CycloneDX.
+**Next**: Learn about [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) to understand how to generate SBOMs in different standard formats like SPDX and CycloneDX.
 {{< /alert >}}
 
 Additional resources:
 
-- **Authenticate with registries**: Set up [Private Registry Authentication](/docs/guides/private-registries) for scanning private images
-- **Control what gets scanned**: Use [File Selection](/docs/guides/sbom/file-selection) to include or exclude specific files
-- **Configure defaults**: See [Configuration](/docs/reference/syft/configuration) for setting default source preferences
+- **Authenticate with registries**: Set up [Private Registry Authentication]({{< relref "/docs/guides/private-registries" >}}) for scanning private images
+- **Control what gets scanned**: Use [File Selection]({{< relref "/docs/guides/sbom/file-selection" >}}) to include or exclude specific files
+- **Configure defaults**: See [Configuration]({{< relref "/docs/reference/syft/configuration" >}}) for setting default source preferences

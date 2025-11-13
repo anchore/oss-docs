@@ -4,7 +4,6 @@ Usage:
   syft cataloger [command]
 
 Available Commands:
-  info        Show detailed capabilities of catalogers
   list        List available catalogers
 
 Flags:

@@ -8,18 +8,12 @@
             {{- if $cover }} td-navbar-cover {{- end }}" data-bs-theme="dark">
 <div class="container-fluid flex-column flex-md-row">
   <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
-    {{- /**/ -}}
     <span class="navbar-brand__logo navbar-logo">
       {{- if ne .Site.Params.ui.navbar_logo false -}}
         {{- /* Use Anchore logo instead of default SVG */ -}}
         <img src="/images/logos/anchore-logo-white.png" alt="Anchore" height="32" style="max-width: 120px;">
       {{ end -}}
     </span>
-    {{- /**/ -}}
-    <span class="navbar-brand__name d-none d-md-inline">
-      {{- .Site.Title -}}
-    </span>
-    {{- /**/ -}}
   </a>
   <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
     <ul class="navbar-nav">

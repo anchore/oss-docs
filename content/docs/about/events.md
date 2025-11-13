@@ -5,7 +5,6 @@ weight = 15
 type = "docs"
 #icon = "fa-solid fa-calendar"
 categories = ["community"]
-url = "docs/about/events"
 +++
 
 ## Open Source Live Streams

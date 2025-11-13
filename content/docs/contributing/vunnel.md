@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to Vunnel"
 weight = 28
 categories = ["developer"]
 tags = ["vunnel"]
-url = "docs/contributing/vunnel"
 menu_group = "projects"
 +++
 
@@ -475,9 +474,7 @@ Alternatively a tool like [`MonkeyType`](https://github.com/Instagram/MonkeyType
 
 - [Vunnel Architecture](/docs/architecture/vunnel) - Learn about provider abstraction, workspace conventions, and vulnerability schemas
 - [Example Provider](https://github.com/anchore/vunnel/blob/main/example/README.md) - Detailed walkthrough of creating a new provider
-- [Quality Gates](/docs/architecture/quality-gates/vunnel) - Learn about validation and quality checks
-
-**Contributing Your Work**
+  **Contributing Your Work**
 
 - [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
 - [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues

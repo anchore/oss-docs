@@ -4,8 +4,6 @@ linkTitle = "Attestation"
 description = "Generate cryptographically signed SBOM attestations using in-toto and Sigstore to create, verify, and attach attestations to container images for supply chain security."
 weight = 90
 tags = ["syft", "sbom", "attestation"]
-url = "docs/guides/sbom/attestation"
-
 +++
 
 {{< alert color="warning" title="Experimental Feature" >}}
@@ -179,19 +177,19 @@ This ensures you're scanning a verified, trusted SBOM.
 ## Next steps
 
 {{< alert title="Guide complete!" color="success" url="/docs/guides/vulnerability/getting-started/" >}}
-Now let's put those SBOMs to good use and [scan with Grype to understand your exposure to vulnerabilities](/docs/guides/vulnerability/getting-started/).
+Now let's put those SBOMs to good use and [scan with Grype to understand your exposure to vulnerabilities]({{< relref "/docs/guides/vulnerability/getting-started/" >}}).
 {{< /alert >}}
 
 **Continue your journey:**
 
-- **Scan for vulnerabilities**: Use [Grype](/docs/guides/vulnerability/getting-started/) to find security issues in your SBOMs
-- **Check licenses**: Analyze open source licenses with [Grant](/docs/guides/license/getting-started/)
-- **Reference documentation**: Explore [Syft CLI reference](/docs/reference/syft/cli/) for all available commands and options
-- **Configure Syft**: See [Configuration](/docs/reference/syft/configuration/) for advanced settings and persistent configuration
+- **Scan for vulnerabilities**: Use [Grype]({{< relref "/docs/guides/vulnerability/getting-started/" >}}) to find security issues in your SBOMs
+- **Check licenses**: Analyze open source licenses with [Grant]({{< relref "/docs/guides/license/getting-started/" >}})
+- **Reference documentation**: Explore [Syft CLI reference]({{< relref "/docs/reference/syft/cli/" >}}) for all available commands and options
+- **Configure Syft**: See [Configuration]({{< relref "/docs/reference/syft/configuration/" >}}) for advanced settings and persistent configuration
 
 **Key pages to revisit:**
 
-- [Getting Started](/docs/guides/sbom/getting-started/) - Quick start and installation
-- [Supported Sources](/docs/guides/sbom/sources/) - All scanning capabilities
-- [Output Formats](/docs/guides/sbom/formats/) - SBOM format options
-- [Working with Syft JSON](/docs/guides/sbom/syft-json/) - Query and extract data
+- [Getting Started]({{< relref "/docs/guides/sbom/getting-started/" >}}) - Quick start and installation
+- [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) - All scanning capabilities
+- [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) - SBOM format options
+- [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) - Query and extract data

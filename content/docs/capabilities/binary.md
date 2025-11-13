@@ -12,26 +12,26 @@ Within the `.files[].executable` sections of the Syft JSON there is an analysis 
 
 This includes:
 
-- Imported libraries (shared libraries)
+- Imported libraries (use of shared libraries)
 - Exported symbols
 - Security features (like NX, PIE, RELRO, etc)
 
 Security features that can be detected include:
 
-- if debugging symbols have been stripped
-- presence of _Stack Canaries_ to protect against stack smashing (which lead to buffer overflows)
-- _NoExecute_ (NX) bit support to prevent execution of code on the stack or heap
-- _Relocation Read-Only_ (RelRO) to protect the Global Offset Table (GOT) from being overwritten (can be "partial" or "full")
-- _Position Independent Executable_ (PIE) support such that offsets are used instead of absolute addresses
-- if it is a _Dynamic Shared Object_ (DSO) (not a security feature, but important for analysis)
-- [LLVM SafeStack](https://clang.llvm.org/docs/SafeStack.html) partitioning is in use, which separates unsafe stack objects from safe stack objects to mitigate stack-based memory corruption vulnerabilities
-- [LLVM Control Flow Integrity](https://clang.llvm.org/docs/ControlFlowIntegrity.html) (CFI) is in use, which adds runtime checks to ensure that indirect function calls only target valid functions, helping to prevent control-flow hijacking attacks
-- [Clang Fortified Builds](https://clang.llvm.org/docs/ClangFortifyBuild.html) is enabled, which adds additional runtime checks for certain standard library functions to detect buffer overflows and other memory errors
+- if **debugging symbols** have been stripped
+- presence of **Stack Canaries** to protect against stack smashing (which lead to buffer overflows)
+- **NoExecute** (**NX**) bit support to prevent execution of code on the stack or heap
+- **Relocation Read-Only** (**RelRO**) to protect the Global Offset Table (GOT) from being overwritten (can be "partial" or "full")
+- **Position Independent Executable** (**PIE**) support such that offsets are used instead of absolute addresses
+- if it is a **Dynamic Shared Object** (**DSO**) (not a security feature, but important for analysis)
+- **[LLVM SafeStack](https://clang.llvm.org/docs/SafeStack.html)** partitioning is in use, which separates unsafe stack objects from safe stack objects to mitigate stack-based memory corruption vulnerabilities
+- **[LLVM Control Flow Integrity](https://clang.llvm.org/docs/ControlFlowIntegrity.html)** (**CFI**) is in use, which adds runtime checks to ensure that indirect function calls only target valid functions, helping to prevent control-flow hijacking attacks
+- **[Clang Fortified Builds](https://clang.llvm.org/docs/ClangFortifyBuild.html)** is enabled, which adds additional runtime checks for certain standard library functions to detect buffer overflows and other memory errors
 
 When it comes to shared library requirement claims and exported symbol claims, these are used by Syft to:
 
-- associate file-to-file relationships (in the case of executables/shared libraries being distributed without a package manager)
-- associate file-to-package relationships (when an executable imports a shared library that is managed by a package manager)
+- associate `file-to-file` relationships (in the case of executables/shared libraries being distributed without a package manager)
+- associate `file-to-package` relationships (when an executable imports a shared library that is managed by a package manager)
 
 Say that all package manager information has been stripped from a container image, leaving behind a collection of binary files (some of which may be executables or shared libraries).
 In this case Syft can still synthesize a dependency graph from the imported libraries and exported symbols found within the binaries, allowing for a more complete SBOM to be generated.
@@ -39,10 +39,6 @@ In a mixed case, where there are some packages managed by package managers and s
 Package-level relationships are preferred over file-level relationships when both are available, which simplifies the dependency graph.
 
 ## Package analysis
-
-{{< readfile file="/content/docs/capabilities/snippets/ecosystem/binary/package.md" >}}
-
-{{< readfile file="/content/docs/capabilities/snippets/ecosystem/binary/binary-package-details.md" >}}
 
 ### ELF package notes
 
@@ -67,6 +63,12 @@ Which, if stored in `payload.json`, can be injected into an existing ELF binary 
 ```bash
 objcopy --add-section .note.package=payload.json --set-section-flags .note.package=noload,readonly
 ```
+
+### Known patterns
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/binary/package.md" >}}
+
+{{< readfile file="/content/docs/capabilities/snippets/ecosystem/binary/binary-package-details.md" >}}
 
 ## Vulnerability scanning
 

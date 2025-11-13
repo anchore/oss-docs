@@ -3,7 +3,6 @@ title = "Getting Started"
 description = "License Scanning Getting Started"
 weight = 10
 tags = ["grant", "licenses"]
-url = "docs/guides/license/getting-started"
 +++
 
 ### Introduction
@@ -12,7 +11,7 @@ Grant searches SBOMs for licenses and the packages they belong to.
 
 ### Install the latest Grant release
 
-Grant is provided as a single compiled executable. Issue the command for your platform to download the latest release of Grant. The full list of official and community maintained packages can be found on the [installation](/docs/installation/grant) page.
+Grant is provided as a single compiled executable. Issue the command for your platform to download the latest release of Grant. The full list of official and community maintained packages can be found on the [installation]({{< relref "/docs/installation/grant" >}}) page.
 
 {{% alert title="Note" color="primary" %}}
 Grant is not currently available for Windows
@@ -56,11 +55,11 @@ The image used here is quite large (over 3GB) so may take a while to download an
 grant check pytorch/pytorch:latest --osi-approved
 ```
 
-Read more in our [License Auditing User Guide](/docs/guides/license).
+Read more in our [License Auditing User Guide]({{< relref "/docs/guides/license" >}}).
 
 {{% alert title="Next steps" color="primary" %}}
 
 - Try running Syft against other containers, or an application directory on your workstation.
-- Find out more about [Supported Sources](/docs/guides/sbom/sources/) and [Output Formats](/docs/guides/sbom/formats/).
-- Learn about [Vulnerability Scanning](/docs/guides/vulnerability/getting-started/) and [License Scanning](/docs/guides/license/getting-started/) your SBOMs.
+- Find out more about [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) and [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}).
+- Learn about [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability/getting-started/" >}}) and [License Scanning]({{< relref "/docs/guides/license/getting-started/" >}}) your SBOMs.
   {{% /alert %}}

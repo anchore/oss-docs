@@ -4,7 +4,6 @@ description = "Architecture and design of the Vunnel vulnerability data processi
 weight = 40
 categories = ["architecture"]
 tags = ["vunnel"]
-url = "docs/architecture/vunnel"
 menu_group = "projects"
 +++
 
@@ -230,7 +229,7 @@ flowchart LR
     classDef Database stroke-width:1px, stroke-dasharray:none, stroke:#424242, fill:#fff9c4, color:#000000
 ```
 
-For more information about how Grype DB uses Vunnel see the [Grype DB Architecture](/docs/architecture/grype-db) page.
+For more information about how Grype DB uses Vunnel see the [Grype DB Architecture]({{< relref "/docs/architecture/grype-db" >}}) page.
 
 ## Provider Architecture
 
@@ -394,10 +393,10 @@ Any provider-specific config options can be added to the configuration object as
 
 ## Related Architecture
 
-For more details on how Grype DB uses Vunnel output, see the [Grype DB Architecture](/docs/architecture/grype-db) page.
+For more details on how Grype DB uses Vunnel output, see the [Grype DB Architecture]({{< relref "/docs/architecture/grype-db" >}}) page.
 
 ## Next Steps
 
-- **[Vunnel Contributing Guide](/docs/contributing/vunnel)** - Learn how to build providers, run tests, and contribute code
-- **[Grype DB Architecture](/docs/architecture/grype-db)** - Understand how Grype DB processes Vunnel output
-- **[Grype Architecture](/docs/architecture/grype)** - See how vulnerability data is used during scanning
+- **[Vunnel Contributing Guide]({{< relref "/docs/contributing/vunnel" >}})** - Learn how to build providers, run tests, and contribute code
+- **[Grype DB Architecture]({{< relref "/docs/architecture/grype-db" >}})** - Understand how Grype DB processes Vunnel output
+- **[Grype Architecture]({{< relref "/docs/architecture/grype" >}})** - See how vulnerability data is used during scanning

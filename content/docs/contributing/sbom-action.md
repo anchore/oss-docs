@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to sbom-action"
 weight = 40
 categories = ["developer"]
 tags = ["sbom-action"]
-url = "docs/contributing/sbom-action"
 menu_group = "projects"
 +++
 
@@ -171,12 +170,12 @@ The sbom-action uses the Node.js 20 runtime (`runs.using: node20` in action.yml)
 **Understanding the Codebase**
 
 - [SBOM Action Repository](https://github.com/anchore/sbom-action) - Source code and issue tracker
-- [Syft Documentation](/docs/installation/syft) - The underlying SBOM generation tool that sbom-action uses
+- [Syft Documentation]({{< relref "/docs/installation/syft" >}}) - The underlying SBOM generation tool that sbom-action uses
 
 **Contributing Your Work**
 
-- [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
-- [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues
+- [Pull Requests]({{< relref "/docs/contributing/pull-requests" >}}) - Guidelines for submitting PRs and working with reviewers
+- [Issues and Discussions]({{< relref "/docs/contributing/issues-and-discussions" >}}) - Where to get help and report issues
 
 **Finding Work**
 

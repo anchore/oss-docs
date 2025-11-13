@@ -1,9 +1,8 @@
 +++
 tags = ['grype']
-title = "Grype"
-description = "Installing Grype"
+title = "Installing Grype"
+linkTitle = "Grype"
 weight = 20
-url = "docs/installation/grype"
 icon_image = "/images/logos/grype/favicon-48x48.png"
 +++
 

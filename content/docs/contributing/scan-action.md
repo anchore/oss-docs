@@ -4,7 +4,6 @@ description = "Developer guidelines when contributing to scan-action"
 weight = 50
 categories = ["developer"]
 tags = ["scan-action"]
-url = "docs/contributing/scan-action"
 menu_group = "projects"
 +++
 
@@ -196,12 +195,12 @@ The scan-action uses the Node.js 20 runtime (`runs.using: node20` in action.yml)
 **Understanding the Codebase**
 
 - [Scan Action Repository](https://github.com/anchore/scan-action) - Source code and issue tracker
-- [Grype Documentation](/docs/installation/grype) - Learn about the underlying vulnerability scanner that scan-action uses
+- [Grype Documentation]({{< relref "/docs/installation/grype" >}}) - Learn about the underlying vulnerability scanner that scan-action uses
 
 **Contributing Your Work**
 
-- [Pull Requests](/docs/contributing/pull-requests) - Guidelines for submitting PRs and working with reviewers
-- [Issues and Discussions](/docs/contributing/issues-and-discussions) - Where to get help and report issues
+- [Pull Requests]({{< relref "/docs/contributing/pull-requests" >}}) - Guidelines for submitting PRs and working with reviewers
+- [Issues and Discussions]({{< relref "/docs/contributing/issues-and-discussions" >}}) - Where to get help and report issues
 
 **Finding Work**
 

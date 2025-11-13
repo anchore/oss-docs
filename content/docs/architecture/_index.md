@@ -2,7 +2,6 @@
 title = "Architecture"
 description = "How all the projects and datasets fit together"
 weight = 60
-url = "architecture"
 menu_group = "general"
 +++
 

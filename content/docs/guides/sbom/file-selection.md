@@ -3,8 +3,6 @@ title = "File Selection"
 description = "Control which files and directories Syft includes or excludes when generating SBOMs."
 weight = 55
 tags = ["syft", "sbom"]
-url = "docs/guides/sbom/file-selection"
-
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
@@ -131,11 +129,11 @@ Yes! If you exclude a file that a cataloger needs (like `package.json` or `requi
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/templates/" >}}
-**Next**: Learn about [Using Templates](/docs/guides/sbom/templates/) to create custom SBOM output formats tailored to your specific needs.
+**Next**: Learn about [Using Templates]({{< relref "/docs/guides/sbom/templates/" >}}) to create custom SBOM output formats tailored to your specific needs.
 {{< /alert >}}
 
 Additional resources:
 
-- **Configure catalogers**: See [Package Catalogers](/docs/guides/sbom/catalogers/) to control which package types are detected
-- **Configuration file**: Use [Configuration](/docs/reference/syft/configuration) to set persistent exclusion patterns
-- **Source types**: Review [Supported Sources](/docs/guides/sbom/sources/) to understand scanning behavior for different source types
+- **Configure catalogers**: See [Package Catalogers]({{< relref "/docs/guides/sbom/catalogers/" >}}) to control which package types are detected
+- **Configuration file**: Use [Configuration]({{< relref "/docs/reference/syft/configuration" >}}) to set persistent exclusion patterns
+- **Source types**: Review [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) to understand scanning behavior for different source types

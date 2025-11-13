@@ -155,13 +155,13 @@ Flags:
 
 ### `grant version`
 
+Show the version information for grant.
+
 ```
-Application:    grant
-Version:        0.5.0
-BuildDate:      2025-11-03T21:33:27Z
-GitCommit:      f1559d8f24d41b8a344788a6ba00349f24eb0b35
-GitDescription: v0.5.0
-Platform:       linux/arm64
-GoVersion:      go1.24.9
-Compiler:       gc
+Usage:
+  grant version [flags]
+
+Flags:
+  -h, --help   help for version
+
 ```

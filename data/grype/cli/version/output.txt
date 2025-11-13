@@ -1,10 +1,14 @@
-Application:         grype
-Version:             0.100.0
-BuildDate:           2025-09-15T21:51:57Z
-GitCommit:           088112b26e638c139a513f387f7a6e51f1a8b76d
-GitDescription:      v0.100.0
-Platform:            linux/arm64
-GoVersion:           go1.24.7
-Compiler:            gc
-Syft Version:        v1.33.0
-Supported DB Schema: 6
+show version information
+
+Usage:
+  grype version [flags]
+
+Flags:
+  -h, --help            help for version
+  -o, --output string   the format to show the results (allowable: [text json]) (default "text")
+
+Global Flags:
+  -c, --config stringArray    grype configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)

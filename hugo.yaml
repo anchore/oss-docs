@@ -1,7 +1,7 @@
 # basic site configuration - these settings control URLs, build output location, and content processing
 baseURL: https://oss.anchore.com/
 languageCode: en-us
-title: ''
+title: 'Anchore Open Source'
 publishDir: public/ # where the generated static site files are written
 timeout: 180s # maximum time for building the site (important for large sites with many pages)
 ignoreLogs:

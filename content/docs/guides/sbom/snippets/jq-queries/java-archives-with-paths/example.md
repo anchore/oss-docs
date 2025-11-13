@@ -1,5 +1,5 @@
 ```bash
-syft openjdk:11-jre-slim -o json | \
+syft openjdk:11.0.11-jre-slim -o json | \
   jq '.artifacts[] |
   select(.type == "java-archive") |
   {

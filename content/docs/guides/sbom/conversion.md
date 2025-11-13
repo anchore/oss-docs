@@ -4,7 +4,6 @@ linkTitle = "Format Conversion"
 description = "Convert existing SBOMs between different formats including SPDX and CycloneDX using Syft's experimental conversion capabilities."
 weight = 70
 tags = ["syft", "sbom", "formats", "spdx", "cyclonedx"]
-url = "docs/guides/sbom/conversion"
 +++
 
 {{< alert color="warning" title="Experimental Feature" >}}
@@ -58,7 +57,7 @@ syft convert sbom.json -o cyclonedx-json=sbom.cdx.json
 Converting between non-Syft formats loses data. Syft JSON contains all information Syft extracted, while other formats use different schemas that can't represent the same fields.
 
 {{< alert title="Learn more" color="primary" >}}
-Learn more about working with Syft's native format in the [Working with Syft JSON](/docs/guides/sbom/syft-json/) guide.
+Learn more about working with Syft's native format in the [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) guide.
 {{< /alert >}}
 
 ### What gets preserved
@@ -119,16 +118,16 @@ Yes, but you'll lose Syft-specific metadata that doesn't exist in SPDX (like cat
 
 **Which format versions are supported?**
 
-See the [Output Formats](/docs/guides/sbom/formats/) guide for supported versions of each format. Syft converts to the latest version by default, but you can specify older versions (e.g., `-o spdx-json@2.2`).
+See the [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) guide for supported versions of each format. Syft converts to the latest version by default, but you can specify older versions (e.g., `-o spdx-json@2.2`).
 
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/attestation/" >}}
-**Next**: Explore [Attestation](/docs/guides/sbom/attestation/) to learn how to sign and verify your SBOMs for supply chain security.
+**Next**: Explore [Attestation]({{< relref "/docs/guides/sbom/attestation/" >}}) to learn how to sign and verify your SBOMs for supply chain security.
 {{< /alert >}}
 
 Additional resources:
 
-- **Source format**: See [Working with Syft JSON](/docs/guides/sbom/syft-json/) to understand the source format
-- **Available formats**: Check [Output Formats](/docs/guides/sbom/formats/) for all supported SBOM formats
-- **Direct generation**: Learn about generating formats directly in [Getting Started](/docs/guides/sbom/getting-started/)
+- **Source format**: See [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) to understand the source format
+- **Available formats**: Check [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) for all supported SBOM formats
+- **Direct generation**: Learn about generating formats directly in [Getting Started]({{< relref "/docs/guides/sbom/getting-started/" >}})

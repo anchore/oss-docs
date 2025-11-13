@@ -63,7 +63,7 @@
 
 /* Column-specific widths - Overview table */
 .capability-table-overview .col-ecosystem {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .capability-table-overview .col-license,
@@ -85,12 +85,12 @@
 
 /* Column-specific widths - OS Overview table */
 .capability-table-os-overview .col-os-name {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Column-specific widths - OS table (package format specific) */
 .capability-table-os .col-os-name {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 /* Column-specific widths - Vulnerability table */
@@ -213,7 +213,7 @@ svg use[href='#icon-dash'] {
 
 /* Config table header - bold text above the table */
 .config-table-header {
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9375rem;
   margin-bottom: 0.75rem;
 
@@ -323,7 +323,7 @@ svg use[href='#icon-dash'] {
 /* Left side - darker background for class name */
 .pill-class {
   padding: 0.125rem 0.375rem;
-  font-weight: 500;
+  font-weight: 400;
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -373,7 +373,7 @@ svg use[href='#icon-dash'] {
   margin-left: 0.5rem;
   border-radius: 3px;
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.025em;
   vertical-align: middle;

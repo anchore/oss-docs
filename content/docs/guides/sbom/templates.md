@@ -3,7 +3,6 @@ title = "Using Templates"
 description = "Create custom SBOM output formats using Go templates with available data fields to build tailored reports for specific tooling or compliance requirements."
 weight = 60
 tags = ["syft", "sbom", "templates"]
-url = "docs/guides/sbom/templates"
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
@@ -24,7 +23,7 @@ Set the output format to `template` and specify the template file path:
 syft <image> -o template -t ./path/to/custom.tmpl
 ```
 
-You can also configure the template path in your [configuration file](/docs/reference/syft/configuration/):
+You can also configure the template path in your [configuration file]({{< relref "/docs/reference/syft/configuration/" >}}):
 
 ```yaml
 #.syft.yaml
@@ -146,12 +145,12 @@ Long-term support for this legacy option is not guaranteed.
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/conversion/" >}}
-**Next**: Learn about [Format Conversion](/docs/guides/sbom/conversion/) to convert existing SBOMs between different formats without re-scanning.
+**Next**: Learn about [Format Conversion]({{< relref "/docs/guides/sbom/conversion/" >}}) to convert existing SBOMs between different formats without re-scanning.
 {{< /alert >}}
 
 Additional resources:
 
 - **Template syntax**: See [Go template documentation](https://pkg.go.dev/text/template) for syntax reference
 - **Helper functions**: Browse [Sprig function documentation](http://masterminds.github.io/sprig/) for available helpers
-- **Query with jq**: Check [Working with Syft JSON](/docs/guides/sbom/syft-json/) for query examples to use in templates
-- **Configuration**: See [Configuration options](/docs/reference/syft/configuration/) for persistent template settings
+- **Query with jq**: Check [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) for query examples to use in templates
+- **Configuration**: See [Configuration options]({{< relref "/docs/reference/syft/configuration/" >}}) for persistent template settings

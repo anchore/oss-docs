@@ -3,7 +3,6 @@ title = "Getting Started"
 description = "Use Syft to generate your first SBOM from container images, directories, or archives."
 weight = 10
 tags = ["syft", "sbom"]
-url = "docs/guides/sbom/getting-started"
 +++
 
 ## What is an SBOM?
@@ -30,7 +29,7 @@ curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
 {{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}
 {{< /tabpane >}}
 
-Check out [installation guide](/docs/installation/syft) for full list of official and community-maintained packaging options.
+Check out [installation guide]({{< relref "/docs/installation/syft" >}}) for full list of official and community-maintained packaging options.
 
 ## Display the contents of a public container image
 
@@ -55,7 +54,7 @@ busybox-binsh           1.37.0-r12   apk
 ```
 
 {{< alert title="Learn more" color="primary" >}}
-Syft supports more than just containers. Learn more about [Supported Sources](/docs/guides/sbom/sources/)
+Syft supports more than just containers. Learn more about [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}})
 {{< /alert >}}
 
 ## Create an industry-standard SBOM
@@ -72,7 +71,7 @@ syft alpine:latest \                 # what we're scanning
 The same table will be displayed, and two SBOM files will be created in the current directory.
 
 {{< alert title="Learn more" color="primary" >}}
-Syft supports multiple SBOM output formats, find out more about [Output Formats](/docs/guides/sbom/formats/).
+Syft supports multiple SBOM output formats, find out more about [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}).
 {{< /alert >}}
 
 ### Examine the SBOM file contents
@@ -114,7 +113,7 @@ syft <image> --scope all-layers
 ```
 
 {{% alert title="More JSON examples" color="primary" %}}
-For more examples of working with Syft's JSON output using jq, see the [jq recipes](/docs/guides/sbom/syft-json/#jq-recipes).
+For more examples of working with Syft's JSON output using jq, see the [jq recipes]({{< relref "/docs/guides/sbom/syft-json/#jq-recipes" >}}).
 {{% /alert %}}
 
 ## FAQ
@@ -125,7 +124,7 @@ Only for downloading container images. By default, scanning works offline.
 
 **What about private container registries?**
 
-Syft supports authentication for private registries. See [Private Registries](/docs/guides/private-registries/).
+Syft supports authentication for private registries. See [Private Registries]({{< relref "/docs/guides/private-registries/" >}}).
 
 **Can I use Syft in CI/CD pipelines?**
 
@@ -138,12 +137,12 @@ Nothing. Syft runs entirely locally and doesn't send any data to external servic
 ## Next steps
 
 {{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/sources/" >}}
-**Next**: Learn about all the different [Supported Sources](/docs/guides/sbom/sources/) Syft can analyze --from container images to local directories and archives.
+**Next**: Learn about all the different [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) Syft can analyze --from container images to local directories and archives.
 {{< /alert >}}
 
 Now that you've generated your first SBOM, here are additional resources:
 
-- **Scan for vulnerabilities**: Use [Grype](/docs/guides/vulnerability/getting-started/) to find security issues in your SBOMs
-- **Check licenses**: Learn about [License Scanning](/docs/guides/license/getting-started/) to understand dependency licenses
-- **Customize output**: Explore different [Output Formats](/docs/guides/sbom/formats/) for various tools and workflows
-- **Query SBOM data**: Master [Working with Syft JSON](/docs/guides/sbom/syft-json/) for advanced data extraction
+- **Scan for vulnerabilities**: Use [Grype]({{< relref "/docs/guides/vulnerability/getting-started/" >}}) to find security issues in your SBOMs
+- **Check licenses**: Learn about [License Scanning]({{< relref "/docs/guides/license/getting-started/" >}}) to understand dependency licenses
+- **Customize output**: Explore different [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) for various tools and workflows
+- **Query SBOM data**: Master [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) for advanced data extraction
