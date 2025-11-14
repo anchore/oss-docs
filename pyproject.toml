@@ -14,7 +14,7 @@ pythonpath = ["src"]
 addopts = [
   "-ra",                       # show summary of all test results
   "--strict-markers",          # error on undefined markers
-  "--cov=src/utils",           # measure coverage for utils modules
+  "--cov=src",           # measure coverage for utils modules
   "--cov-report=term-missing", # show lines missing coverage
   "--cov-report=html",         # generate HTML coverage report
 ]
