@@ -49,6 +49,13 @@ To explicitly specify the source, use the `--from` flag:
 | `file`           | Read directly from a path on disk (any single file)                                                                                                           |
 | `registry`       | Pull image directly from a registry (bypass any container runtimes)                                                                                           |
 
+Instead of using the `--from` flag explicitly, you can instead:
+
+- provide **no hint** and let Syft **automatically detect** the source type implicitly based on the input provided
+
+- provide the source type as a **URI scheme** in the target argument (e.g., `docker:alpine:latest`, `oci-archive:/path/to/image.tar`, `dir:/path/to/dir`)
+
+
 ## Source-Specific Behaviors
 
 ### Container Image Sources

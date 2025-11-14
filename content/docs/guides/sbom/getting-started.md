@@ -31,15 +31,13 @@ curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
 
 Check out [installation guide]({{< relref "/docs/installation/syft" >}}) for full list of official and community-maintained packaging options.
 
-## Display the contents of a public container image
+## Find packages within a container image
 
-Run `syft` against a small container image, which will be pulled from DockerHub. The output will be a simple human-readable table.
+Run `syft` against a small container image; the output will be a simple human-readable table of the installed packages found:
 
 ```
 syft alpine:latest
 ```
-
-The output will look similar to the following table.
 
 ```
 NAME                    VERSION      TYPE

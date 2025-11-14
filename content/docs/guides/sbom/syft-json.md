@@ -214,7 +214,7 @@ The Syft JSON schema is versioned and available in the Syft repository:
 [jq](https://jqlang.org/) is a command-line tool for querying and manipulating JSON.
 The following examples demonstrate practical queries for working with Syft JSON output.
 
-**Find packages by name pattern:**
+### Find packages by name pattern
 
 Uses regex pattern matching to find security-critical packages
 
@@ -223,7 +223,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/find-package-versions"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Location of all JARs:**
+### Location of all JARs
 
 Shows Java packages with their primary installation paths
 
@@ -232,7 +232,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/java-archives-with-paths"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**All executable files:**
+### All executable files
 
 Lists all binary files with their format and entry point status
 
@@ -241,7 +241,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/all-executables"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Binaries not owned by packages:**
+### Binaries not owned by packages
 
 Uses set operations on relationships to identify untracked binaries that might indicate supply chain issues
 
@@ -250,7 +250,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/binaries-not-owned"
 tabs="query|query.md,example|example.md,config|config.md,output|output.md" >}}
 
-**Binary file digests:**
+### Binary file digests
 
 Useful for verifying binary integrity and detecting tampering
 
@@ -259,7 +259,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/binary-digests"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Binaries with security features:**
+### Binaries with security features
 
 Analyzes ELF security hardening features extracted during SBOM generation
 
@@ -268,7 +268,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/binaries-with-security-features"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Binaries importing specific libraries:**
+### Binaries importing specific libraries
 
 Identifies which binaries depend on specific shared libraries for security audits
 
@@ -277,7 +277,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/binary-imports"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Extract Package URLs (PURLs):**
+### Extract Package URLs (PURLs)
 
 Extracts Package URLs for cross-tool SBOM correlation and vulnerability matching
 
@@ -286,7 +286,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/all-purls"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Group packages by language:**
+### Group packages by language
 
 Groups and counts packages by programming language
 
@@ -295,7 +295,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/packages-by-language"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Count packages by type:**
+### Count packages by type
 
 Provides a summary count of packages per ecosystem
 
@@ -304,7 +304,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/count-packages-by-type"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Package locations:**
+### Package locations
 
 Maps packages to their filesystem locations
 
@@ -313,7 +313,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/package-locations"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Files by MIME type:**
+### Files by MIME type
 
 Filters files by MIME type, useful for finding specific file types
 
@@ -322,7 +322,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/files-by-mime-type"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Dependency relationships:**
+### Dependency relationships
 
 Traverses package dependency graph using relationships
 
@@ -331,7 +331,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/dependency-relationships"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Files without packages:**
+### Files without packages###
 
 Finds orphaned files not associated with any package
 
@@ -340,7 +340,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/files-without-packages"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Largest files:**
+### Largest files
 
 Identifies the top 10 largest files by size
 
@@ -349,7 +349,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/large-files"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Extract CPEs:**
+### Extract CPEs
 
 Lists Common Platform Enumeration identifiers for vulnerability scanning
 
@@ -358,7 +358,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/all-cpes"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Packages without licenses:**
+### Packages without licenses
 
 Identifies packages missing license information for compliance audits
 
@@ -367,7 +367,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/packages-without-licenses"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-**Packages with CPE identifiers:**
+### Packages with CPE identifiers
 
 Lists packages with CPE identifiers indicating potential CVE matches
 
