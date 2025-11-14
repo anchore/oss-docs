@@ -5,6 +5,7 @@ Tests version extraction, parsing, comparison, and sorting functionality.
 """
 
 import pytest
+
 from utils.version import (
     Version,
     compare,

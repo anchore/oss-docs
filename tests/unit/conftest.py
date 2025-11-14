@@ -3,6 +3,7 @@ Shared fixtures for test suite.
 """
 
 import pytest
+
 from utils.html_table import OSVersion
 
 

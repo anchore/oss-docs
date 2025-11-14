@@ -12,6 +12,7 @@ import json
 import re
 import subprocess
 import sys
+from logging import Logger
 from pathlib import Path
 
 import click
@@ -123,14 +124,12 @@ def extract_format_versions():
         sys.exit(1)
 
 
-def save_json_data(formats, output_path: Path, logger) -> None:
+def save_json_data(formats, output_path: Path, logger: Logger) -> None:
     """save format versions to JSON file"""
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     # add auto-generated comment as a special field
-    comment = config.get_generated_comment(
-        "src/generate_format_versions.py", "json"
-    )
+    comment = config.get_generated_comment("src/generate_format_versions.py", "json")
     data = {"_comment": comment, **formats}
 
     with open(output_path, "w") as f:
@@ -139,7 +138,7 @@ def save_json_data(formats, output_path: Path, logger) -> None:
     logger.info(f"Generated {output_path}")
 
 
-def generate_markdown_snippet(formats, output_path: Path, logger) -> None:
+def generate_markdown_snippet(formats, output_path: Path, logger: Logger) -> None:
     """
     generate markdown snippet showing formats with multiple versions
 
@@ -155,9 +154,7 @@ def generate_markdown_snippet(formats, output_path: Path, logger) -> None:
         return
 
     # add auto-generated comment
-    comment = config.get_generated_comment(
-        "src/generate_format_versions.py", "html"
-    )
+    comment = config.get_generated_comment("src/generate_format_versions.py", "html")
 
     # generate markdown list only
     lines = []

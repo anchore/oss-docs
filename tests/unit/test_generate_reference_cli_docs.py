@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pytest
+
 from generate_reference_cli_docs import split_help_output
 
 # fixtures directory containing test inputs

@@ -30,6 +30,7 @@ import re
 import sys
 from collections import defaultdict
 from dataclasses import dataclass
+from logging import Logger
 from pathlib import Path
 from typing import Any
 
@@ -725,7 +726,7 @@ def strip_field_name_from_description(description: str, field_key: str) -> str:
 
 
 def generate_app_config_snippet(
-    ecosystem: str, config_fields: list[dict], output_dir: Path, logger
+    ecosystem: str, config_fields: list[dict], output_dir: Path, logger: Logger
 ) -> None:
     """
     generate app configuration snippet for an ecosystem.
@@ -745,9 +746,7 @@ def generate_app_config_snippet(
     output_file = ecosystem_dir / "syft-app-config.md"
 
     # generate comment
-    comment = config.get_generated_comment(
-        "src/generate_capability_tables.py", "html"
-    )
+    comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -916,7 +915,10 @@ def has_any_dependency_support(
 
 
 def generate_overview_table(
-    rows: list[CatalogerRow], output_dir: Path, display_names: dict[str, str], logger
+    rows: list[CatalogerRow],
+    output_dir: Path,
+    display_names: dict[str, str],
+    logger: Logger,
 ) -> None:
     """
     generate overview table with simple single-row header.
@@ -949,9 +951,7 @@ def generate_overview_table(
     rowspans = _calculate_rowspans_for_overview(sorted_rows)
 
     # generate comment
-    comment = config.get_generated_comment(
-        "src/generate_capability_tables.py", "html"
-    )
+    comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -1047,7 +1047,7 @@ def generate_overview_table(
 
 
 def generate_ecosystem_table(
-    ecosystem: str, rows: list[CatalogerRow], output_dir: Path, logger
+    ecosystem: str, rows: list[CatalogerRow], output_dir: Path, logger: Logger
 ) -> None:
     """
     generate complete ecosystem-specific table with grouped capability columns.
@@ -1079,9 +1079,7 @@ def generate_ecosystem_table(
     sorted_rows = sorted(ecosystem_rows, key=lambda r: r.cataloger_name)
 
     # generate comment
-    comment = config.get_generated_comment(
-        "src/generate_capability_tables.py", "html"
-    )
+    comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
@@ -1211,7 +1209,7 @@ def generate_ecosystem_table(
 
 
 def generate_binary_package_details_table(
-    cataloger_data: dict, output_dir: Path, logger
+    cataloger_data: dict, output_dir: Path, logger: Logger
 ) -> None:
     """
     generate binary package details table showing class-to-package mappings.
@@ -1248,9 +1246,7 @@ def generate_binary_package_details_table(
     output_file = binary_dir / "binary-package-details.md"
 
     # generate comment
-    comment = config.get_generated_comment(
-        "src/generate_capability_tables.py", "html"
-    )
+    comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 

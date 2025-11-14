@@ -32,6 +32,7 @@ Future implementation: data-driven (NOT YET IMPLEMENTED)
 import json
 import re
 import sys
+from logging import Logger
 from pathlib import Path
 from typing import Any
 
@@ -148,7 +149,7 @@ def parse_schema_filename(filename: str) -> tuple[int, int, int] | None:
 
 
 def scan_schema_directory(
-    dir_path: Path, logger
+    dir_path: Path, logger: Logger
 ) -> list[tuple[Path, tuple[int, int, int]]]:
     """
     scan directory for schema files and extract versions.
@@ -189,7 +190,7 @@ def scan_schema_directory(
 
 
 def select_schemas_to_process(
-    schemas: list[tuple[Path, tuple[int, int, int]]], min_major: int, logger
+    schemas: list[tuple[Path, tuple[int, int, int]]], min_major: int, logger: Logger
 ) -> dict[int, tuple[Path, tuple[int, int, int]]]:
     """
     select latest patch version for each major version >= min_major.
@@ -238,7 +239,7 @@ def select_schemas_to_process(
     return selected
 
 
-def load_json_schema(schema_path: Path, major_version: int, logger) -> dict:
+def load_json_schema(schema_path: Path, major_version: int, logger: Logger) -> dict:
     """
     load and parse JSON schema file, validating version matches $id field.
 
@@ -423,7 +424,7 @@ def is_single_word_type(type_name: str) -> bool:
 
 
 def _categorize_using_cataloger_data(
-    all_defs: dict, ecosystem_types_from_schema: set[str], logger
+    all_defs: dict, ecosystem_types_from_schema: set[str], logger: Logger
 ) -> tuple[set[str], set[str], dict[str, set[str]]]:
     """
     use cataloger metadata to determine ecosystem vs core types.
@@ -546,7 +547,7 @@ def _build_categorization_from_core_types(
     ecosystem_types: set[str],
     ecosystem_refs: dict[str, set[str]],
     all_defs: dict,
-    logger,
+    logger: Logger,
 ) -> dict[str, Any]:
     """
     build categorization structure from truly core types.
@@ -649,7 +650,7 @@ def _build_categorization_from_core_types(
 
 
 def compute_type_categories(
-    all_defs: dict, ecosystem_types: set[str], logger
+    all_defs: dict, ecosystem_types: set[str], logger: Logger
 ) -> dict[str, Any]:
     """
     **CATEGORIZATION CHOKEPOINT** - single function that decides which types go where.
@@ -697,7 +698,7 @@ def compute_type_categories(
     )
 
 
-def categorize_definitions(schema: dict, logger) -> dict[str, Any]:
+def categorize_definitions(schema: dict, logger: Logger) -> dict[str, Any]:
     """
     categorize schema definitions into Core Types, Ecosystem Types, and related types.
 
@@ -1154,7 +1155,7 @@ def generate_type_section_html(
     type_names: list[str],
     all_defs: dict,
     section_title: str,
-    logger,
+    logger: Logger,
     documented_types: set[str],
     related_types_map: dict[str, list[str]] | None = None,
 ) -> list[str]:
@@ -1327,7 +1328,7 @@ def generate_schema_documentation(
     full_version: tuple[int, int, int],
     output_dir: Path,
     is_latest: bool,
-    logger,
+    logger: Logger,
 ) -> None:
     """
     generate complete schema reference documentation.

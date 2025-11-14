@@ -7,6 +7,7 @@ Tests version constraint parsing, version matching, and data file loading.
 from unittest import mock
 
 import yaml
+
 from utils.data import (
     load_ecosystem_aliases,
     load_ecosystem_display_names,
