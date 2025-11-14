@@ -14,7 +14,7 @@
   "scripts": {
     "build": ".tool/hugo --gc --minify -e production && npx -y pagefind --site public",
     "build:dev": ".tool/hugo --buildDrafts --buildFuture",
-    "serve": ".tool/hugo server --buildDrafts --buildFuture",
+    "serve": ".tool/hugo server --bind=0.0.0.0 --buildDrafts --buildFuture",
     "serve:with-search": "npm run build:dev && npx -y pagefind --site public && npm run serve",
     "dev": "npm run serve:with-search",
     "lint": "npm-run-all lint:*",
