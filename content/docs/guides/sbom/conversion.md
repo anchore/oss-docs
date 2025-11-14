@@ -57,7 +57,7 @@ syft convert sbom.json -o cyclonedx-json=sbom.cdx.json
 Converting between non-Syft formats loses data. Syft JSON contains all information Syft extracted, while other formats use different schemas that can't represent the same fields.
 
 {{< alert title="Learn more" color="primary" >}}
-Learn more about working with Syft's native format in the [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) guide.
+Learn more about working with Syft's native format in the [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) guide.
 {{< /alert >}}
 
 ### What gets preserved
@@ -128,6 +128,6 @@ See the [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) guide for 
 
 Additional resources:
 
-- **Source format**: See [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) to understand the source format
+- **Source format**: See [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) to understand the source format
 - **Available formats**: Check [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) for all supported SBOM formats
 - **Direct generation**: Learn about generating formats directly in [Getting Started]({{< relref "/docs/guides/sbom/getting-started/" >}})

@@ -152,5 +152,5 @@ Additional resources:
 
 - **Template syntax**: See [Go template documentation](https://pkg.go.dev/text/template) for syntax reference
 - **Helper functions**: Browse [Sprig function documentation](http://masterminds.github.io/sprig/) for available helpers
-- **Query with jq**: Check [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) for query examples to use in templates
+- **Query with jq**: Check [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) for query examples to use in templates
 - **Configuration**: See [Configuration options]({{< relref "/docs/reference/syft/configuration/" >}}) for persistent template settings

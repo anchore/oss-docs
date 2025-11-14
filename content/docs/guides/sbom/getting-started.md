@@ -111,7 +111,7 @@ syft <image> --scope all-layers
 ```
 
 {{% alert title="More JSON examples" color="primary" %}}
-For more examples of working with Syft's JSON output using jq, see the [jq recipes]({{< relref "/docs/guides/sbom/syft-json/#jq-recipes" >}}).
+For more examples of working with Syft's JSON output using jq, see the [jq recipes]({{< relref "/docs/guides/sbom/json/#jq-recipes" >}}).
 {{% /alert %}}
 
 ## FAQ
@@ -143,4 +143,4 @@ Now that you've generated your first SBOM, here are additional resources:
 - **Scan for vulnerabilities**: Use [Grype]({{< relref "/docs/guides/vulnerability/getting-started/" >}}) to find security issues in your SBOMs
 - **Check licenses**: Learn about [License Scanning]({{< relref "/docs/guides/license/getting-started/" >}}) to understand dependency licenses
 - **Customize output**: Explore different [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) for various tools and workflows
-- **Query SBOM data**: Master [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) for advanced data extraction
+- **Query SBOM data**: Master [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) for advanced data extraction

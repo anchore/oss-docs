@@ -192,4 +192,4 @@ Now let's put those SBOMs to good use and [scan with Grype to understand your ex
 - [Getting Started]({{< relref "/docs/guides/sbom/getting-started/" >}}) - Quick start and installation
 - [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) - All scanning capabilities
 - [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) - SBOM format options
-- [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) - Query and extract data
+- [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) - Query and extract data

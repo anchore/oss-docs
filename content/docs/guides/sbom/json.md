@@ -1,5 +1,5 @@
 +++
-title = "Working with Syft JSON"
+title = "Working with JSON"
 description = "Learn how to work with Syft's native JSON format including querying with jq, extracting metadata, and understanding the SBOM structure."
 weight = 45
 tags = ["syft", "sbom", "json", "jq"]
@@ -331,7 +331,7 @@ title=""
 path="content/docs/guides/sbom/snippets/jq-queries/dependency-relationships"
 tabs="query|query.md,example|example.md,output|output.md" >}}
 
-### Files without packages###
+### Files without packages
 
 Finds orphaned files not associated with any package
 

@@ -55,7 +55,6 @@ Instead of using the `--from` flag explicitly, you can instead:
 
 - provide the source type as a **URI scheme** in the target argument (e.g., `docker:alpine:latest`, `oci-archive:/path/to/image.tar`, `dir:/path/to/dir`)
 
-
 ## Source-Specific Behaviors
 
 ### Container Image Sources

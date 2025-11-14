@@ -13,7 +13,7 @@ In Syft's JSON output format, "artifacts" refers to the array of software packag
 Each artifact represents a single package (library, application, OS package, etc.) with its metadata, version, licenses, locations, and identifiers like CPE and PURL.
 This is distinct from general software artifacts like binaries or container images.
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ### Attestation
 
@@ -32,7 +32,7 @@ When Syft scans a target, it runs multiple catalogers to comprehensively discove
 
 **Why it matters:** The `foundBy` field in Syft's JSON output tells you which cataloger discovered each package, which can help debug why certain packages appear in your SBOM or troubleshoot scanning issues.
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ### Container image
 
@@ -67,7 +67,7 @@ Understanding CPEs helps you troubleshoot why certain vulnerabilities are or are
 
 - [NIST CPE Dictionary](https://nvd.nist.gov/products/cpe)
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ### CVE
 
@@ -140,7 +140,7 @@ Short for "distribution", referring to a specific Linux distribution like Alpine
 **Why it matters:** Grype uses distro information to match OS packages against the correct vulnerability database.
 Syft automatically detects the distro from files like `/etc/os-release` and includes it in the SBOM, ensuring accurate vulnerability matching.
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ### Docker
 
@@ -335,7 +335,7 @@ PURLs provide a consistent way to refer to packages across different SBOM format
 
 - [PURL Specification](https://github.com/package-url/purl-spec)
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ## R
 
@@ -347,7 +347,7 @@ For example, a relationship might indicate that a file is "contained-by" a packa
 **Why it matters:** Relationships provide the graph structure of your software, showing not just what packages exist but how they're connected.
 This is essential for understanding dependency chains and reachability analysis.
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ## S
 
@@ -391,7 +391,7 @@ In Syft's JSON output, the "source" object describes what was scanned—whether 
 
 **Why it matters:** The source information helps you correlate SBOMs with specific artifacts, especially important when tracking multiple image versions or builds.
 
-**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json" >}})
+**Related documentation:** [Working with Syft JSON]({{< relref "/docs/guides/sbom/json" >}})
 
 ### SPDX
 

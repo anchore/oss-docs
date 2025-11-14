@@ -37,7 +37,7 @@ Each example creates a subdirectory with:
 1. Create a new `.yaml` file in this directory
 2. Fill in the required fields (`image` and `query` are required)
 3. Run the generation script
-4. Add a reference to the new example in `content/docs/guides/sbom/syft-json.md` using the `file-tabs` shortcode
+4. Add a reference to the new example in `content/docs/guides/sbom/json.md` using the `file-tabs` shortcode
 
 Example:
 

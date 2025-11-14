@@ -139,8 +139,8 @@ Use the latest version (default) unless you need compatibility with specific too
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/syft-json/" >}}
-**Next**: Explore [Working with Syft JSON]({{< relref "/docs/guides/sbom/syft-json/" >}}) to learn how to query and extract specific data from Syft's native format using jq.
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/json/" >}}
+**Next**: Explore [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) to learn how to query and extract specific data from Syft's native format using jq.
 {{< /alert >}}
 
 Additional resources:
