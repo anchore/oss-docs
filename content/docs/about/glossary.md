@@ -169,7 +169,11 @@ The ecosystem determines how packages are identified (PURL type), which metadata
 ### EPSS
 
 Exploit Prediction Scoring System (EPSS) is a data-driven framework that estimates the probability that a software vulnerability will be exploited in the wild within the next 30 days.
-EPSS scores range from 0 to 1 (or 0% to 100%), with higher scores indicating a greater likelihood of exploitation based on real-world threat intelligence.
+
+EPSS provides two complementary metrics:
+
+- **Score**: A probability value from 0.0 to 1.0 (0% to 100%) indicating the likelihood of exploitation. For example, a score of 0.00034 means a 0.034% probability of exploitation.
+- **Percentile**: A ranking showing what percentage of all CVEs have a lower EPSS score. For example, a percentile of 0.09274 means this CVE scores higher than 9.274% of all tracked vulnerabilities.
 
 Unlike CVSS which measures theoretical severity, EPSS predicts actual exploitation probability by analyzing factors like available exploits, social media activity, and observed attacks (among other signals).
 
@@ -191,6 +195,7 @@ In the context of scanning for vulnerabilities, a false positive is a vulnerabil
 False positives can occur due to incorrect CPE matching, version misidentification, or when a vulnerability applies to one variant of a package but not another.
 
 **Why it matters:** When Grype reports a false positive, you can use VEX documents or Grype's ignore rules to suppress it, preventing alert fatigue and focusing on real security issues.
+If you believe a match is incorrect, you can [report it on GitHub](https://github.com/anchore/grype/issues/new?template=match_issue.md) to help improve Grype for everyone.
 
 ### False negative
 
@@ -246,6 +251,8 @@ Use `--scope all-layers` to scan all layers, which can reveal packages that were
 A legal instrument governing the use and distribution of software. Software licenses range from permissive (MIT, Apache) to copyleft (GPL) to proprietary.
 
 **Why it matters:** Syft extracts license information from packages and includes it in SBOMs, helping you ensure compliance with open source licenses and identify packages with incompatible or restricted licenses.
+
+**Related documentation:** [License Compliance]({{< relref "/docs/guides/license" >}})
 
 ## M
 

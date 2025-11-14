@@ -11,7 +11,7 @@ icon_image = "/images/logos/syft/favicon-48x48.png"
 {{< alert title="Note" color="primary" >}}
 See the [Golang CLI Patterns]({{< relref "/docs/architecture/golang-cli" >}}) for **common structures and frameworks** used in Syft and across other Anchore open source projects.
 
-For detailed **API examples**, see the [Syft reponitory on GitHub](https://github.com/anchore/syft/tree/main/examples).
+For detailed **API examples**, see the [Syft repository on GitHub](https://github.com/anchore/syft/tree/main/examples).
 {{< /alert >}}
 
 ## Code organization
@@ -52,7 +52,7 @@ sequenceDiagram
     CLI->>CLI: Parse configuration
 
     CLI->>Resolve: Resolve input (image/dir/file)
-    Note over Resolve: Tries: File→Directory→OCI→Registry→Podman→DockerRetry
+    Note over Resolve: Tries: File→Directory→OCI→Docker→Podman→Containerd→Registry
     Resolve-->>CLI: source.Source
 
     CLI->>Catalog: Create SBOM from source

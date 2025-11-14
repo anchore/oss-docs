@@ -9,7 +9,7 @@ ignoreLogs:
 ignoreFiles: # patterns for files that should not be processed during site generation
   - content/docs/guides/sbom/snippets/.*\.md$
   - content/docs/capabilities/snippets/.*\.md$
-  - data/
+  - data/(grant|grype|syft|sbom)/
 enableGitInfo: true # adds last modified dates from git history to pages
 
 # theme configuration - imports the Docsy theme which provides layout, styling, and navigation components

@@ -53,7 +53,7 @@ This modular approach lets you generate the SBOM once with Syft, then use Grype 
 #### <img src="/images/logos/grype/apple-touch-icon-60x60.png" alt="Grype logo" class="m4-3 h1" style="max-height: 50px;"/> Grype
 
 {{< card title="Vulnerability Scanner" footer="<a href='https://github.com/anchore/grype'>GitHub Repo</a> | <a href=/docs/installation/grype>Installing</a> | <a href=/docs/guides/vulnerability/getting-started>Vulnerability Scanning Guide</a>" >}}
-<b>Grype</b> (pronounced like <i>hype</i>) is an open-source vulnerability scanner specifically designed to analyze container images and filesystems. It works by comparing the software components it finds against a database of known vulnerabilities, providing a report of potential risks so they can be addressed.
+<b>Grype</b> (rhymes with <i>hype</i>) is an open-source vulnerability scanner specifically designed to analyze container images and filesystems. It works by comparing the software components it finds against a database of known vulnerabilities, providing a report of potential risks so they can be addressed.
 {{< /card >}}
 
 #### <img src="/images/logos/grant/apple-touch-icon-60x60.png" alt="Grant logo" class="m4-3 h1" style="max-height: 50px;"/> Grant
