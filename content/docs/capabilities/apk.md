@@ -16,6 +16,8 @@ sidebar_badge = "alpine+"
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/vulnerability.md" >}}
 
+The APK vulnerability matcher searches all data sources for upstream packages, including NVD.
+
 ### Operating systems
 
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/apk/os.md" >}}
