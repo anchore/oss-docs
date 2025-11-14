@@ -72,9 +72,9 @@ docker run --rm \
 ### Existing Scripts
 
 Leverage repository scripts when available:
-- `./scripts/generate-jq-examples.sh` - jq query examples
-- `python scripts/generate-jq-examples.py --query "filter-by-type"` - Specific jq examples
-- `python scripts/generate-template-examples.py --template custom.tmpl` - Template examples
+- `./src/generate-jq-examples.sh` - jq query examples
+- `python src/generate-jq-examples.py --query "filter-by-type"` - Specific jq examples
+- `python src/generate-template-examples.py --template custom.tmpl` - Template examples
 
 ## Snippet Generation Workflow
 

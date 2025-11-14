@@ -1,6 +1,8 @@
 # Documentation Generation Scripts
 
-This directory contains Python scripts that generate documentation content for Anchore's open source tools (Syft, Grype, Grant).
+> **Note:** Python scripts have been moved to the `src/` directory following Python packaging conventions. This directory now contains only shell scripts for automation tasks.
+
+For Python documentation generation scripts, see the `../src/` directory. This directory contains shell scripts that generate documentation content for Anchore's open source tools (Syft, Grype, Grant).
 
 ## Clean State Principle
 
@@ -20,7 +22,7 @@ Generation scripts follow a **clean state principle** to ensure no stale content
 **Purpose:** Generate example outputs for all supported SBOM formats (JSON, SPDX, CycloneDX, etc.)
 
 ```bash
-uv run ./scripts/generate_format_examples.py [--update] [-v]
+uv run ./src/generate_format_examples.py [--update] [-v]
 ```
 
 ### SBOM Format Versions
@@ -30,7 +32,7 @@ uv run ./scripts/generate_format_examples.py [--update] [-v]
 **Purpose:** Generate table showing supported versions for each SBOM format
 
 ```bash
-uv run ./scripts/generate_format_versions.py [--update] [-v]
+uv run ./src/generate_format_versions.py [--update] [-v]
 ```
 
 ### JQ Query Examples
@@ -40,7 +42,7 @@ uv run ./scripts/generate_format_versions.py [--update] [-v]
 **Purpose:** Generate executable jq query examples with real outputs
 
 ```bash
-uv run ./scripts/generate_jq_query_examples.py [--update] [-v]
+uv run ./src/generate_jq_query_examples.py [--update] [-v]
 ```
 
 ### Template Examples
@@ -50,7 +52,7 @@ uv run ./scripts/generate_jq_query_examples.py [--update] [-v]
 **Purpose:** Generate Syft template examples with rendered outputs
 
 ```bash
-uv run ./scripts/generate_template_examples.py [--update] [-v]
+uv run ./src/generate_template_examples.py [--update] [-v]
 ```
 
 ### Package Capability Tables
@@ -60,7 +62,7 @@ uv run ./scripts/generate_template_examples.py [--update] [-v]
 **Purpose:** Generate tables showing Syft's package detection capabilities per ecosystem
 
 ```bash
-uv run ./scripts/generate_capability_package_tables.py [--update] [-v]
+uv run ./src/generate_capability_package_tables.py [--update] [-v]
 ```
 
 ### Vulnerability Capability Tables
@@ -70,7 +72,7 @@ uv run ./scripts/generate_capability_package_tables.py [--update] [-v]
 **Purpose:** Generate tables showing Grype's vulnerability detection capabilities and OS support
 
 ```bash
-uv run ./scripts/generate_capability_vulnerability_tables.py [--update] [-v]
+uv run ./src/generate_capability_vulnerability_tables.py [--update] [-v]
 ```
 
 ### Reference Documentation
@@ -82,8 +84,8 @@ uv run ./scripts/generate_capability_vulnerability_tables.py [--update] [-v]
 **Output:** `content/docs/reference/{tool}/`
 
 ```bash
-uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft
-uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft
+uv run ./src/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft
+uv run ./src/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft
 ```
 
 ### Syft JSON Schema Reference
@@ -93,7 +95,7 @@ uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output 
 **Purpose:** Generate reference documentation for Syft's JSON schema versions
 
 ```bash
-uv run ./scripts/generate_reference_syft_json_schema.py [--schema-dir <path>] [--update] [-v]
+uv run ./src/generate_reference_syft_json_schema.py [--schema-dir <path>] [--update] [-v]
 ```
 
 Creates versioned schema documentation pages from Syft's JSON schema files.
@@ -160,7 +162,7 @@ clean_owned_files(paths.capabilities_snippet_dir, script_name, logger)
 
 ### Output Path Definitions
 
-All paths are defined in `scripts/utils/config.py`:
+All paths are defined in `src/utils/config.py`:
 
 ```python
 @dataclass(frozen=True)
@@ -244,7 +246,7 @@ The `/docs/about/adopters/` page can be regenerated periodically:
 
 ```bash
 pip install requests packaging
-./scripts/generate-adopters-info.sh
+./src/generate-adopters-info.sh
 ```
 
 **Note:** Release notes generation has been removed from this repository. Release notes are now managed through a different process.
@@ -304,10 +306,10 @@ When creating a new generation script:
 
 ```bash
 # Test individual script (with verbose output)
-uv run ./scripts/generate_format_examples.py -vv
+uv run ./src/generate_format_examples.py -vv
 
 # Test individual script with cleaning
-uv run ./scripts/generate_format_examples.py --update -vv
+uv run ./src/generate_format_examples.py --update -vv
 
 # Test full workflow
 task generate -v

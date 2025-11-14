@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 
 import click
+
 from utils import config, log
 
 
@@ -128,7 +129,7 @@ def save_json_data(formats, output_path: Path, logger) -> None:
 
     # add auto-generated comment as a special field
     comment = config.get_generated_comment(
-        "scripts/generate_format_versions.py", "json"
+        "src/generate_format_versions.py", "json"
     )
     data = {"_comment": comment, **formats}
 
@@ -155,7 +156,7 @@ def generate_markdown_snippet(formats, output_path: Path, logger) -> None:
 
     # add auto-generated comment
     comment = config.get_generated_comment(
-        "scripts/generate_format_versions.py", "html"
+        "src/generate_format_versions.py", "html"
     )
 
     # generate markdown list only

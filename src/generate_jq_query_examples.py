@@ -11,6 +11,7 @@ from typing import cast
 
 import click
 import yaml
+
 from utils import config, log, markdown, output_manager, sbom
 
 

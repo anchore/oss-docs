@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import cast
 
 import click
+
 from utils import config, log, markdown, output_manager, sbom, syft
 
 # Format definitions: (format_name, file_extension, code_fence_language)
@@ -153,7 +154,7 @@ def create_markdown_content(fence_lang: str, output: str) -> str:
     """Create markdown content with code fence."""
     # Add auto-generated comment
     comment = config.get_generated_comment(
-        "scripts/generate_format_examples.py", "html"
+        "src/generate_format_examples.py", "html"
     )
 
     # Use markdown utility for code fence

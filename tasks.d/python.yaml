@@ -31,13 +31,13 @@ tasks:
   lint:
     desc: Run code linters
     cmds:
-      - uv run ruff check scripts tests
+      - uv run ruff check src tests
 
   lint-fix:
     desc: Run code lint fixers
     cmds:
-      - uv run ruff check scripts tests --fix
-      - uv run pyrefly infer scripts
+      - uv run ruff check src tests --fix
+      - uv run pyrefly infer src
 
   test:
     desc: Run all tests
@@ -52,4 +52,4 @@ tasks:
   check-types:
     desc: Run ty type checking
     cmds:
-      - uv run ty check scripts
+      - uv run ty check src

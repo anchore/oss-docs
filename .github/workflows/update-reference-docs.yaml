@@ -9,7 +9,7 @@ on:
     branches:
       - main
     paths:
-      - 'scripts/generate_reference_*'
+      - 'src/generate_reference_*'
       - 'tasks.d/generate.yaml'
 
 permissions:

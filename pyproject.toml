@@ -10,11 +10,11 @@ dependencies = ["click>=8.3.0", "requests>=2.32.5", "rich>=13.0.0", "pyyaml>=6.0
 packages = [] # no Python packages to install - this is a Hugo site with helper scripts
 
 [tool.pytest.ini_options]
-pythonpath = ["scripts"]
+pythonpath = ["src"]
 addopts = [
   "-ra",                       # show summary of all test results
   "--strict-markers",          # error on undefined markers
-  "--cov=scripts/utils",       # measure coverage for utils modules
+  "--cov=src/utils",           # measure coverage for utils modules
   "--cov-report=term-missing", # show lines missing coverage
   "--cov-report=html",         # generate HTML coverage report
 ]
@@ -71,6 +71,6 @@ warn_unreachable = true
 strict_equality = true
 
 [tool.ty.environment]
-root = ["scripts"]
+root = ["src"]
 
 [tool.pyrefly]

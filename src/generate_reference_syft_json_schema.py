@@ -36,6 +36,7 @@ from pathlib import Path
 from typing import Any
 
 import click
+
 from utils import config, log
 from utils.constants import CSSClasses
 
@@ -1376,7 +1377,7 @@ def generate_schema_documentation(
 
     # generate comment (after front matter)
     comment = config.get_generated_comment(
-        "scripts/generate_reference_syft_json_schema.py", "html"
+        "src/generate_reference_syft_json_schema.py", "html"
     )
     comment += "<!-- markdownlint-disable MD013 MD033 -->\n"
 

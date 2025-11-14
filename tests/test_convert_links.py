@@ -10,7 +10,7 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from convert_links_to_relref import convert_absolute_link, convert_relative_link
 
 

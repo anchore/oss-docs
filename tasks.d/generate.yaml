@@ -1,19 +1,19 @@
 version: '3'
 
 vars:
-  SYFT_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
-  SYFT_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/configuration.md --tool-name syft"
-  SYFT_JSON_SCHEMA_CMD: "uv run ./scripts/generate_reference_syft_json_schema.py"
-  GRYPE_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/grype/cli.md --tool-name grype"
-  GRYPE_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/grype/configuration.md --tool-name grype"
-  GRANT_CLI_CMD: "uv run ./scripts/generate_reference_cli_docs.py anchore/grant:latest --output ./content/docs/reference/grant/cli.md --tool-name grant"
-  GRANT_CONFIG_CMD: "uv run ./scripts/generate_reference_config_docs.py anchore/grant:latest --output ./content/docs/reference/grant/configuration.md --tool-name grant"
-  FORMAT_EXAMPLES_CMD: "uv run ./scripts/generate_format_examples.py"
-  FORMAT_VERSIONS_CMD: "uv run ./scripts/generate_format_versions.py"
-  JQ_EXAMPLES_CMD: "uv run ./scripts/generate_jq_query_examples.py"
-  TEMPLATE_EXAMPLES_CMD: "uv run ./scripts/generate_template_examples.py"
-  PACKAGE_CAPABILITIES_CMD: "uv run ./scripts/generate_capability_package_tables.py"
-  VULNERABILITY_CAPABILITIES_CMD: "uv run ./scripts/generate_capability_vulnerability_tables.py"
+  SYFT_CLI_CMD: "uv run ./src/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
+  SYFT_CONFIG_CMD: "uv run ./src/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/configuration.md --tool-name syft"
+  SYFT_JSON_SCHEMA_CMD: "uv run ./src/generate_reference_syft_json_schema.py"
+  GRYPE_CLI_CMD: "uv run ./src/generate_reference_cli_docs.py anchore/grype:latest --output ./content/docs/reference/grype/cli.md --tool-name grype"
+  GRYPE_CONFIG_CMD: "uv run ./src/generate_reference_config_docs.py anchore/grype:latest --output ./content/docs/reference/grype/configuration.md --tool-name grype"
+  GRANT_CLI_CMD: "uv run ./src/generate_reference_cli_docs.py anchore/grant:latest --output ./content/docs/reference/grant/cli.md --tool-name grant"
+  GRANT_CONFIG_CMD: "uv run ./src/generate_reference_config_docs.py anchore/grant:latest --output ./content/docs/reference/grant/configuration.md --tool-name grant"
+  FORMAT_EXAMPLES_CMD: "uv run ./src/generate_format_examples.py"
+  FORMAT_VERSIONS_CMD: "uv run ./src/generate_format_versions.py"
+  JQ_EXAMPLES_CMD: "uv run ./src/generate_jq_query_examples.py"
+  TEMPLATE_EXAMPLES_CMD: "uv run ./src/generate_template_examples.py"
+  PACKAGE_CAPABILITIES_CMD: "uv run ./src/generate_capability_package_tables.py"
+  VULNERABILITY_CAPABILITIES_CMD: "uv run ./src/generate_capability_vulnerability_tables.py"
 
 tasks:
   default:

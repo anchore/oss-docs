@@ -29,7 +29,7 @@ repos:
 
       # makes sure files end in a newline and only a newline
       - id: end-of-file-fixer
-        exclude: '^tests/(fixtures|snapshots)/'
+        exclude: '^tests/unit/(fixtures|snapshots)/'
         stages:
           - pre-push
 

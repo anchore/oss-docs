@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 import click
+
 from utils import cache, config, log, markdown, syft, version
 
 
@@ -114,7 +115,7 @@ def generate_markdown_content(
 
     # Add auto-generated comment
     content += config.get_generated_comment(
-        "scripts/generate_reference_config_docs.py", "html"
+        "src/generate_reference_config_docs.py", "html"
     )
 
     # Get version information

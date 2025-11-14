@@ -52,7 +52,7 @@ All agents are located in `.claude/agents/` and work as Claude Code subagents vi
 
 ## Testing
 
-**Unit Tests** (pytest) - Tests `scripts/utils/` modules:
+**Unit Tests** (pytest) - Tests `src/utils/` modules:
 
 ```bash
 pytest              # run all unit tests

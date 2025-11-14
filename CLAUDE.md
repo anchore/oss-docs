@@ -11,7 +11,7 @@ This is a Hugo-based documentation site for Anchore's open source tools (Syft, G
 - **Hugo Configuration**: `hugo.toml` - defines site structure, theme settings, and deployment configuration
 - **Content Structure**: `content/docs/` - organized into sections (installation, contributing, releases, reference)
 - **Theme**: Uses Docsy theme with custom CSS (`static/css/custom.css`)
-- **Release Management**: Automated scripts in `scripts/` for generating release notes from GitHub
+- **Release Management**: Automated scripts in `src/` for generating release notes from GitHub
 - **PostCSS Pipeline**: Uses Autoprefixer for CSS processing
 
 **Content Organization:**
@@ -41,15 +41,15 @@ npx postcss --use autoprefixer --dir css/ --ext css css/*.css  # Process CSS fil
 **Release Notes Generation:**
 
 ```bash
-./scripts/generate-release-notes.sh                           # Generate all release notes
-python scripts/release-to-hugo.py --repo <repo> --output-dir content/docs/releases/<repo> --weight <num>
+./src/generate-release-notes.sh                           # Generate all release notes
+python src/release-to-hugo.py --repo <repo> --output-dir content/docs/releases/<repo> --weight <num>
 ```
 
 **Adopters Info Update:**
 
 ```bash
 pip install requests packaging
-./scripts/generate-adopters-info.sh                          # Update adopters page
+./src/generate-adopters-info.sh                          # Update adopters page
 ```
 
 ## Documentation Authoring with AI Agents

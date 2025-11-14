@@ -18,7 +18,7 @@ query: 'jq query expression'
 To generate the documentation snippets from these examples:
 
 ```bash
-python3 scripts/generate_jq_query_examples.py
+python3 src/generate_jq_query_examples.py
 ```
 
 This script will:

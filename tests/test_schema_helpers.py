@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 # import functions from the script
-sys.path.insert(0, str(Path(__file__).parent.parent / "scripts"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 from generate_reference_syft_json_schema import (
     clean_type_description,
     extract_type_prefix,

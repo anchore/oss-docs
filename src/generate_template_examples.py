@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import cast
 
 import click
+
 from utils import config, log, markdown, output_manager, sbom, syft
 
 

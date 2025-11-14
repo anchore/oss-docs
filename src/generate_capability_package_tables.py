@@ -34,6 +34,7 @@ from pathlib import Path
 from typing import Any
 
 import click
+
 from utils import config, data, html_table, log
 from utils.constants import HEADER_DEFINITIONS, CSSClasses
 
@@ -745,7 +746,7 @@ def generate_app_config_snippet(
 
     # generate comment
     comment = config.get_generated_comment(
-        "scripts/generate_capability_tables.py", "html"
+        "src/generate_capability_tables.py", "html"
     )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
@@ -949,7 +950,7 @@ def generate_overview_table(
 
     # generate comment
     comment = config.get_generated_comment(
-        "scripts/generate_capability_tables.py", "html"
+        "src/generate_capability_tables.py", "html"
     )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
@@ -1079,7 +1080,7 @@ def generate_ecosystem_table(
 
     # generate comment
     comment = config.get_generated_comment(
-        "scripts/generate_capability_tables.py", "html"
+        "src/generate_capability_tables.py", "html"
     )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
@@ -1248,7 +1249,7 @@ def generate_binary_package_details_table(
 
     # generate comment
     comment = config.get_generated_comment(
-        "scripts/generate_capability_tables.py", "html"
+        "src/generate_capability_tables.py", "html"
     )
     comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
