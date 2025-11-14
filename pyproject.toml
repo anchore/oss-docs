@@ -11,12 +11,20 @@ packages = [] # no Python packages to install - this is a Hugo site with helper 
 
 [tool.pytest.ini_options]
 pythonpath = ["scripts"]
+addopts = [
+  "-ra",                       # show summary of all test results
+  "--strict-markers",          # error on undefined markers
+  "--cov=scripts/utils",       # measure coverage for utils modules
+  "--cov-report=term-missing", # show lines missing coverage
+  "--cov-report=html",         # generate HTML coverage report
+]
 
 [dependency-groups]
 dev = [
   "pre-commit>=4.3.0",
   "pyrefly>=0.29.0",
   "pytest>=8.4.1",
+  "pytest-cov>=6.0.0",
   "pytest-snapshot>=0.9.0",
   "pytest-sugar>=1.0.0",
   "ruff>=0.12.7",

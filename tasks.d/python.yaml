@@ -47,7 +47,7 @@ tasks:
   unit:
     desc: Run unit tests
     cmds:
-      - uv run pytest ./tests -vv --color=yes
+      - uv run pytest ./tests/unit -vv --color=yes
 
   check-types:
     desc: Run ty type checking

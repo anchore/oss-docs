@@ -1,0 +1,54 @@
+name: E2E Tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    name: Run E2E tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          submodules: true
+          persist-credentials: false
+
+      - name: Bootstrap environment
+        uses: ./.github/actions/bootstrap
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Build site for testing
+        run: npm run build:dev
+
+      - name: Run Playwright tests
+        run: npm test
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+      - name: Upload screenshots on failure
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-screenshots
+          path: test-results/**/*.png
+          retention-days: 7

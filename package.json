@@ -5,6 +5,7 @@
     "postcss-cli": "^11.0.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.56.1",
     "cspell": "^9.3.0",
     "markdownlint-cli2": "^0.18.1",
     "npm-run-all": "^4.1.5",
@@ -13,10 +14,17 @@
   },
   "scripts": {
     "build": ".tool/hugo --gc --minify -e production && npx -y pagefind --site public",
-    "build:dev": ".tool/hugo --buildDrafts --buildFuture",
+    "build:dev": ".tool/hugo --buildDrafts --buildFuture && npx -y pagefind --site public",
     "serve": ".tool/hugo server --bind=0.0.0.0 --buildDrafts --buildFuture",
     "serve:with-search": "npm run build:dev && npx -y pagefind --site public && npm run serve",
     "dev": "npm run serve:with-search",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
+    "test:mobile": "playwright test --project=mobile-chrome --project=mobile-safari",
     "lint": "npm-run-all lint:*",
     "lint:prettier": "prettier --check \"content/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"assets/**/*.{json,yaml,yml,md,scss,css,html,toml}\" \"*.{json,yaml,yml,md,scss,css,html,toml}\"",
     "lint:markdown": "markdownlint-cli2 \"content/**/*.md\" \"archetypes/**/*.md\"",

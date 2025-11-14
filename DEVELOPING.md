@@ -49,3 +49,28 @@ Use these slash commands with claude code:
 | **structure-guide**    | Validate document organization  | Need help with heading hierarchy, links, and sections     |
 
 All agents are located in `.claude/agents/` and work as Claude Code subagents via the Task tool.
+
+## Testing
+
+**Unit Tests** (pytest) - Tests `scripts/utils/` modules:
+
+```bash
+pytest              # run all unit tests
+task unit           # same as above
+pytest --cov        # with coverage
+```
+
+**E2E Tests** (Playwright) - Tests Hugo site (search, navigation, theme, mermaid, responsive):
+
+```bash
+npm test            # run all e2e tests
+task e2e            # same as above
+npm run test:ui     # interactive mode
+```
+
+**All Tests**:
+
+```bash
+task test           # unit + e2e
+task validate       # linting + unit + e2e + hugo build
+```

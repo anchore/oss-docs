@@ -4,9 +4,12 @@ This directory contains Python scripts that generate documentation content for A
 
 ## Clean State Principle
 
-All generation follows a **clean state principle**: scripts automatically clean their output directories before regeneration to ensure no stale content remains when script configurations change.
+Generation scripts follow a **clean state principle** to ensure no stale content remains when configurations change:
 
-**Single Source of Truth:** All output paths are defined in `utils/config.py` via the `paths` dataclass. Scripts import these paths and self-clean, ensuring path definitions exist in exactly one place.
+- Scripts using the `--update` flag trigger **conditional cleaning** via `output_manager.clean_directory()` (removes entire output directory)
+- Capability scripts perform **selective cleaning** via `html_table.clean_owned_files()` (removes only script-owned files)
+
+**Single Source of Truth:** All output paths are defined in `utils/config.py` via the `paths` dataclass. Scripts import these paths, ensuring path definitions exist in exactly one place.
 
 ## Generation Scripts
 
@@ -83,22 +86,77 @@ uv run ./scripts/generate_reference_cli_docs.py anchore/syft:latest --output ./c
 uv run ./scripts/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/config.md --tool-name syft
 ```
 
-## How Scripts Self-Clean
+### Syft JSON Schema Reference
 
-Each script cleans its output directory automatically at startup:
+**Script:** `generate_reference_syft_json_schema.py`
+**Output:** `content/docs/reference/syft/json/`
+**Purpose:** Generate reference documentation for Syft's JSON schema versions
+
+```bash
+uv run ./scripts/generate_reference_syft_json_schema.py [--schema-dir <path>] [--update] [-v]
+```
+
+Creates versioned schema documentation pages from Syft's JSON schema files.
+
+## Utility Scripts
+
+### Link Converter
+
+**Script:** `convert_links_to_relref.py`
+**Purpose:** Convert markdown links to Hugo relref shortcodes for build-time link validation
+
+This is a one-time utility script for converting existing documentation links to Hugo's relref format.
+
+### Hugo Validation
+
+**Script:** `validate-hugo.sh`
+**Purpose:** Run comprehensive Hugo validation checks for CI/testing
+
+Validates:
+- Successful Hugo build
+- Front matter consistency
+- Content structure
+- Shortcode usage
+- Menu weights
+
+## How Scripts Clean Output
+
+Scripts use two different cleaning strategies depending on their needs:
+
+### Strategy 1: Conditional Directory Cleaning
+
+Most generation scripts use `output_manager.clean_directory()` which **only cleans when `--update` is provided**:
 
 ```python
 from utils.config import paths
+from utils.output_manager import clean_directory
 
-# Every script uses paths from single source of truth
-output_path = paths.format_examples_snippet_dir  # or whatever path it needs
+output_path = paths.format_examples_snippet_dir  # from single source of truth
 
-# Clean before generation
-if output_path.exists():
-    logger.debug(f"Cleaning output directory: {output_path}")
-    shutil.rmtree(output_path)
-output_path.mkdir(parents=True, exist_ok=True)
+# Cleans entire directory only if --update flag is set
+clean_directory(output_path, update=args.update, logger=logger)
 ```
+
+**Scripts using this strategy:**
+- `generate_format_examples.py`
+- `generate_jq_query_examples.py`
+- `generate_template_examples.py`
+
+### Strategy 2: Selective File Cleaning
+
+Capability scripts use `html_table.clean_owned_files()` which **always removes script-owned files** (those with auto-generated markers):
+
+```python
+from utils.config import paths
+from utils.html_table import clean_owned_files
+
+# Remove only files owned by this script (unconditional)
+clean_owned_files(paths.capabilities_snippet_dir, script_name, logger)
+```
+
+**Scripts using this strategy:**
+- `generate_capability_package_tables.py` (cleans before all capability scripts)
+- `generate_capability_vulnerability_tables.py`
 
 ### Output Path Definitions
 
@@ -117,29 +175,30 @@ class Paths:
 
 ### Directory Ownership
 
-| Script | Output Path Variable | Notes |
-|--------|---------------------|-------|
-| `generate_format_examples.py` | `paths.format_examples_snippet_dir` | Self-cleans |
-| `generate_jq_query_examples.py` | `paths.jq_queries_snippet_dir` | Self-cleans |
-| `generate_template_examples.py` | `paths.templates_snippet_dir` | Self-cleans |
-| `generate_capability_package_tables.py` | `paths.capabilities_snippet_dir` | Cleans (runs first) |
-| `generate_capability_vulnerability_tables.py` | `paths.capabilities_snippet_dir` | Shared dir (relies on package script) |
+| Script | Output Path Variable | Cleaning Strategy |
+|--------|---------------------|-------------------|
+| `generate_format_examples.py` | `paths.format_examples_snippet_dir` | Conditional (on `--update`) |
+| `generate_jq_query_examples.py` | `paths.jq_queries_snippet_dir` | Conditional (on `--update`) |
+| `generate_template_examples.py` | `paths.templates_snippet_dir` | Conditional (on `--update`) |
 | `generate_format_versions.py` | `paths.format_versions_snippet` | Single file (overwrites) |
-| Reference scripts | CLI args specify path | Single files (overwrite) |
+| `generate_capability_package_tables.py` | `paths.capabilities_snippet_dir` | Selective (always, owned files) |
+| `generate_capability_vulnerability_tables.py` | `paths.capabilities_snippet_dir` | Selective (always, owned files) |
+| `generate_reference_syft_json_schema.py` | `paths.syft_json_schema_reference_dir` | Creates versioned files |
+| Reference CLI/config scripts | CLI args specify path | Single files (overwrite) |
 
 ## Task-Based Workflow
 
 The recommended way to run generation is via Taskfile:
 
 ```bash
-# Generate all documentation (scripts auto-clean)
+# Generate all documentation
 task generate
 
-# Generate with cache updates
+# Generate with cache updates (triggers conditional cleaning)
 task generate:update
 ```
 
-The `generate` task runs all generation scripts in sequence. Each script automatically cleans its output directory before generating new content.
+The `generate` task runs all generation scripts in sequence. The `generate:update` variant passes `--update` to scripts, triggering conditional cleaning of output directories.
 
 ## Cache Management
 
@@ -161,7 +220,7 @@ task generate:update
 ## Benefits of This Approach
 
 ✅ **Single source of truth** - All paths defined in `utils/config.py`
-✅ **No stale content** - Scripts auto-clean before generation
+✅ **Controlled cleaning** - Scripts clean output strategically (conditional or selective)
 ✅ **No duplication** - Taskfile doesn't know about paths
 ✅ **Self-contained scripts** - Each script manages its own outputs
 ✅ **Simple workflow** - `task generate` just runs scripts
@@ -188,21 +247,7 @@ pip install requests packaging
 ./scripts/generate-adopters-info.sh
 ```
 
-### Generate Release Notes
-
-Pull release notes for all open source repos:
-
-```bash
-scripts/generate-release-notes.sh
-```
-
-Or for individual repos:
-
-```bash
-python scripts/release-to-hugo.py --repo syft --output-dir content/docs/releases/syft --weight 10
-```
-
-The `--weight` parameter controls menu positioning (lower = higher in menu).
+**Note:** Release notes generation has been removed from this repository. Release notes are now managed through a different process.
 
 ## Development
 
@@ -218,15 +263,26 @@ When creating a new generation script:
        your_snippet_dir: Path = snippets_dir / "your-section"
    ```
 
-2. **Add self-cleaning to script:**
+2. **Add cleaning to script (choose strategy):**
+
+   **Option A: Conditional directory cleaning** (for most scripts):
    ```python
    from utils.config import paths
+   from utils.output_manager import clean_directory
+
+   def main(update: bool, ...):
+       # Clean only when --update is provided
+       clean_directory(paths.your_snippet_dir, update=update, logger=logger)
+   ```
+
+   **Option B: Selective file cleaning** (for shared directories):
+   ```python
+   from utils.config import paths
+   from utils.html_table import clean_owned_files
 
    def main(...):
-       # Clean output directory at startup
-       if paths.your_snippet_dir.exists():
-           shutil.rmtree(paths.your_snippet_dir)
-       paths.your_snippet_dir.mkdir(parents=True, exist_ok=True)
+       # Remove only files owned by this script (always)
+       clean_owned_files(paths.your_snippet_dir, "your_script.py", logger)
    ```
 
 3. **Add to Taskfile:**
@@ -247,13 +303,19 @@ When creating a new generation script:
 ### Testing Generation
 
 ```bash
-# Test individual script (auto-cleans its output)
+# Test individual script (with verbose output)
 uv run ./scripts/generate_format_examples.py -vv
 
-# Test full workflow (each script auto-cleans)
+# Test individual script with cleaning
+uv run ./scripts/generate_format_examples.py --update -vv
+
+# Test full workflow
 task generate -v
 
-# Verify clean state by running twice
+# Test full workflow with cleaning and cache updates
+task generate:update -v
+
+# Verify idempotency by running twice
 task generate
 git status  # Should show no changes after second run
 ```
