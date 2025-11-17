@@ -1489,7 +1489,7 @@
             {
               "class": "java-binary-graalvm",
               "name": "graalvm",
-              "purl": "pkg:generic/oracle/graalvm@version",
+              "purl": "pkg:generic/oracle/graalvm",
               "cpes": [
                 "cpe:2.3:a:oracle:graalvm:*:*:*:*:*:*:*:*"
               ],
@@ -1498,7 +1498,7 @@
             {
               "class": "java-binary-openjdk-zulu",
               "name": "zulu",
-              "purl": "pkg:generic/azul/zulu@version",
+              "purl": "pkg:generic/azul/zulu",
               "cpes": [
                 "cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*"
               ],
@@ -1507,7 +1507,7 @@
             {
               "class": "java-binary-openjdk-with-update",
               "name": "openjdk",
-              "purl": "pkg:generic/oracle/openjdk@version",
+              "purl": "pkg:generic/oracle/openjdk",
               "cpes": [
                 "cpe:2.3:a:oracle:openjdk:{{.primary}}:update{{.update}}:*:*:*:*:*:*"
               ],
@@ -1516,7 +1516,7 @@
             {
               "class": "java-binary-openjdk",
               "name": "openjdk",
-              "purl": "pkg:generic/oracle/openjdk@version",
+              "purl": "pkg:generic/oracle/openjdk",
               "cpes": [
                 "cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*"
               ],
@@ -1525,7 +1525,7 @@
             {
               "class": "java-binary-ibm",
               "name": "java",
-              "purl": "pkg:generic/ibm/java@version",
+              "purl": "pkg:generic/ibm/java",
               "cpes": [
                 "cpe:2.3:a:ibm:java:*:*:*:*:*:*:*:*"
               ],
@@ -1534,7 +1534,7 @@
             {
               "class": "java-binary-openjdk-fallthrough",
               "name": "jre",
-              "purl": "pkg:generic/oracle/jre@version",
+              "purl": "pkg:generic/oracle/jre",
               "cpes": [
                 "cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*"
               ],
@@ -1543,7 +1543,7 @@
             {
               "class": "java-binary-oracle",
               "name": "jre",
-              "purl": "pkg:generic/oracle/jre@version",
+              "purl": "pkg:generic/oracle/jre",
               "cpes": [
                 "cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*"
               ],
@@ -1568,6 +1568,60 @@
               "name": "",
               "purl": "pkg:/",
               "cpes": [],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "java-binary-graalvm",
+              "name": "graalvm",
+              "purl": "pkg:generic/oracle/graalvm",
+              "cpes": [
+                "cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "jdb-binary-openjdk-zulu",
+              "name": "zulu",
+              "purl": "pkg:generic/azul/zulu",
+              "cpes": [
+                "cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "java-jdb-binary-openjdk",
+              "name": "openjdk",
+              "purl": "pkg:generic/oracle/openjdk",
+              "cpes": [
+                "cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "java-sdk-binary-ibm",
+              "name": "java_sdk",
+              "purl": "pkg:generic/ibm/java_sdk",
+              "cpes": [
+                "cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "java-binary-openjdk-fallthrough",
+              "name": "openjdk",
+              "purl": "pkg:generic/oracle/openjdk",
+              "cpes": [
+                "cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "java-binary-jdk",
+              "name": "jdk",
+              "purl": "pkg:generic/oracle/jdk",
+              "cpes": [
+                "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
+              ],
               "type": "BinaryPkg"
             },
             {
@@ -6405,6 +6459,67 @@
     },
     {
       "ecosystem": "ai",
+      "name": "gguf-cataloger",
+      "type": "generic",
+      "selectors": [
+        "ai",
+        "directory",
+        "gguf",
+        "image",
+        "ml",
+        "model",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.gguf"
+          ],
+          "package_types": [
+            "model"
+          ],
+          "json_schema_types": [
+            "GgufFileHeader"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "GGUFFileHeader.MetadataKeyValuesHash"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "other",
       "name": "gguf-cataloger",
       "type": "generic",
       "selectors": [

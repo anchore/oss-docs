@@ -9,7 +9,7 @@
   <thead>
     <tr>
       <th class="col-class"><abbr class="header-help" title="The classification identifier for this binary pattern">Class</abbr></th>
-      <th class="col-criteria"><abbr class="header-help" title="The glob patterns used to identify this binary">Criteria</abbr></th>
+      <th class="col-criteria"><abbr class="header-help" title="The file patterns used to identify this binary">Files</abbr></th>
       <th class="col-purl"><abbr class="header-help" title="The Package URL identifier for packages matching this pattern">PURL</abbr></th>
       <th class="col-cpes"><abbr class="header-help" title="Common Platform Enumeration identifiers associated with this package">CPEs</abbr></th>
     </tr>
@@ -180,14 +180,14 @@
     <tr>
       <td class="col-class">java-binary</td>
       <td class="col-criteria"><code>java</code></td>
-      <td class="col-purl"><code>pkg:/</code></td>
-      <td class="col-cpes">-</td>
+      <td class="col-purl"><code>pkg:generic/oracle/graalvm</code><br><code>pkg:generic/azul/zulu</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/ibm/java</code><br><code>pkg:generic/oracle/jre</code><br><code>pkg:generic/oracle/jre</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:graalvm:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:{{.primary}}:update{{.update}}:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jre:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">java-jdb-binary</td>
       <td class="col-criteria"><code>jdb</code></td>
-      <td class="col-purl"><code>pkg:/</code></td>
-      <td class="col-cpes">-</td>
+      <td class="col-purl"><code>pkg:generic/oracle/graalvm</code><br><code>pkg:generic/azul/zulu</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/ibm/java_sdk</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/oracle/jdk</code><br><code>pkg:generic/oracle/graalvm@version</code><br><code>pkg:generic/azul/zulu@version</code><br><code>pkg:generic/oracle/openjdk@version</code><br><code>pkg:generic/ibm/java_sdk@version</code><br><code>pkg:generic/oracle/openjdk@version</code><br><code>pkg:generic/oracle/jdk@version</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">jq-binary</td>
@@ -311,13 +311,13 @@
     </tr>
     <tr>
       <td class="col-class">rust-standard-library-linux</td>
-      <td class="col-criteria"><code>libstd-????????????????.so</code></td>
+      <td class="col-criteria"><code>libstd-*.so</code></td>
       <td class="col-purl"><code>pkg:generic/rust</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:rust-lang:rust:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">rust-standard-library-macos</td>
-      <td class="col-criteria"><code>libstd-????????????????.dylib</code></td>
+      <td class="col-criteria"><code>libstd-*.dylib</code></td>
       <td class="col-purl"><code>pkg:generic/rust</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:rust-lang:rust:*:*:*:*:*:*:*:*</code></td>
     </tr>

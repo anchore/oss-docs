@@ -33,8 +33,8 @@ When it comes to shared library requirement claims and exported symbol claims, t
 - associate `file-to-file` relationships (in the case of executables/shared libraries being distributed without a package manager)
 - associate `file-to-package` relationships (when an executable imports a shared library that is managed by a package manager)
 
-Say that all package manager information has been stripped from a container image, leaving behind a collection of binary files (some of which may be executables or shared libraries).
-In this case Syft can still synthesize a dependency graph from the imported libraries and exported symbols found within the binaries, allowing for a more complete SBOM to be generated.
+Syft can synthesize a dependency graph from the imported libraries and exported symbols found within a set of binaries,
+even if all package manager information has been removed, allowing for a more complete SBOM to be generated.
 In a mixed case, where there are some packages managed by package managers and some binaries without package manager metadata, Syft can still use the binary analysis to fill in the gaps.
 Package-level relationships are preferred over file-level relationships when both are available, which simplifies the dependency graph.
 

@@ -866,7 +866,7 @@ def get_ecosystem_sort_key(ecosystem: str, display_names: dict[str, str]) -> str
 
 def clean_glob_pattern(pattern: str) -> str:
     """
-    clean glob pattern by removing **/ prefix.
+    clean glob pattern by removing **/ prefix and other simplifications.
 
     Args:
         pattern: glob pattern
@@ -874,6 +874,7 @@ def clean_glob_pattern(pattern: str) -> str:
     Returns:
         cleaned pattern without **/ prefix
     """
+    pattern = re.sub(r"[?]+", "*", pattern)
     return pattern.removeprefix("**/")
 
 
@@ -1268,7 +1269,7 @@ def generate_binary_package_details_table(
         f'      <th class="{CSSClasses.COL_CLASS}"><abbr class="{CSSClasses.HEADER_HELP}" title="The classification identifier for this binary pattern">Class</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="{CSSClasses.COL_CRITERIA}"><abbr class="{CSSClasses.HEADER_HELP}" title="The glob patterns used to identify this binary">Criteria</abbr></th>'
+        f'      <th class="{CSSClasses.COL_CRITERIA}"><abbr class="{CSSClasses.HEADER_HELP}" title="The file patterns used to identify this binary">Files</abbr></th>'
     )
     html_lines.append(
         f'      <th class="{CSSClasses.COL_PURL}"><abbr class="{CSSClasses.HEADER_HELP}" title="The Package URL identifier for packages matching this pattern">PURL</abbr></th>'
@@ -1297,8 +1298,17 @@ def generate_binary_package_details_table(
 
         pkg = packages[0]  # each pattern has exactly one package
         class_name = pkg.get("class", "")
-        purl = pkg.get("purl", "")
-        cpes = pkg.get("cpes", [])
+        purls = []
+        cpes = []
+
+        for p in packages:
+            purl = p.get("purl", "")
+            if purl != "" and purl != "pkg:/":
+                purls.append(purl)
+
+            for cpe in p.get("cpes", []):
+                if cpe != "":
+                    cpes.append(cpe)
 
         # format criteria (glob patterns)
         criteria = pattern.get("criteria", [])
@@ -1308,6 +1318,15 @@ def generate_binary_package_details_table(
             )
         else:
             criteria_html = "-"
+
+        # format PURLs
+        if not purls:
+            purls_html = "-"
+        elif len(purls) == 1:
+            purls_html = f"<code>{purls[0]}</code>"
+        else:
+            # multiple PURLs - show as separate lines
+            purls_html = "<br>".join(f"<code>{purl}</code>" for purl in purls)
 
         # format CPEs
         if not cpes:
@@ -1324,7 +1343,7 @@ def generate_binary_package_details_table(
             f'      <td class="{CSSClasses.COL_CRITERIA}">{criteria_html}</td>'
         )
         html_lines.append(
-            f'      <td class="{CSSClasses.COL_PURL}"><code>{purl}</code></td>'
+            f'      <td class="{CSSClasses.COL_PURL}">{purls_html}</td>'
         )
         html_lines.append(f'      <td class="{CSSClasses.COL_CPES}">{cpes_html}</td>')
         html_lines.append("    </tr>")

@@ -41,3 +41,17 @@
   {{ $pagefindModal = $pagefindModal | minify }}
 {{ end }}
 <script defer src="{{ $pagefindModal.RelPermalink }}"></script>
+
+<!-- Automatic tooltips display for elements -->
+{{ $tooltips := resources.Get "js/tooltips.js" }}
+{{ if hugo.IsProduction }}
+  {{ $tooltips = $tooltips | minify }}
+{{ end }}
+<script defer src="{{ $tooltips.RelPermalink }}"></script>
+
+<!-- Ensure responsive table wrappers -->
+{{ $tableWrappers := resources.Get "js/table-wrappers.js" }}
+{{ if hugo.IsProduction }}
+  {{ $tableWrappers = $tableWrappers | minify }}
+{{ end }}
+<script defer src="{{ $tableWrappers.RelPermalink }}"></script>

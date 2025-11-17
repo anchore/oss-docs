@@ -3,10 +3,11 @@
 /* Table wrapper for better horizontal scroll UX */
 .table-wrapper {
   position: relative;
+  overflow-y: visible;
   overflow-x: auto;
-  overflow-y: visible; // allow tooltips to show above
   margin: 1.5rem 0;
   border-radius: 6px;
+  width: 100%;
 
   // styled scrollbar for better visibility
   &::-webkit-scrollbar {
@@ -44,45 +45,6 @@
     }
   }
 
-  // scroll shadows to indicate more content
-  &::before,
-  &::after {
-    content: '';
-    position: sticky;
-    display: block;
-    width: 30px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 10;
-    transition: opacity 0.3s ease;
-  }
-
-  // left shadow
-  &::before {
-    left: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.1), transparent);
-    opacity: 0;
-  }
-
-  // right shadow
-  &::after {
-    right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.1), transparent);
-  }
-
-  // show left shadow when scrolled
-  &.scrolled-left::before {
-    opacity: 1;
-  }
-
-  // hide right shadow when at end
-  &.scrolled-right::after {
-    opacity: 0;
-  }
-
   // smooth scrolling on touch devices
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -106,6 +68,11 @@
 
   // prevent double-tap zoom on table wrapper
   touch-action: pan-x pan-y;
+
+  .tooltip-inner {
+    text-align: left;
+    white-space: pre-wrap;
+  }
 }
 
 /* Base table styles */
@@ -114,7 +81,7 @@
 .td-content table.binary-details-table {
   display: table;
   width: auto;
-  min-width: 96%;
+  min-width: 100%;
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
@@ -125,7 +92,6 @@
   border-left-width: 0;
   border-bottom-width: 0;
   border-radius: 6px;
-  overflow: visible; // allow tooltips to show
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
   thead th {
@@ -621,88 +587,6 @@ svg use[href='#icon-help'] {
   color: currentColor;
 }
 
-/* Custom Tooltips for Header Help Icons */
-
-/* Tooltip content */
-.header-help::after {
-  content: attr(title);
-  position: absolute;
-  bottom: calc(100% + 8px); /* position above with gap */
-  left: 50%;
-  transform: translateX(-50%);
-
-  /* styling */
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  line-height: 1.4;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: normal;
-  white-space: normal;
-  max-width: 250px;
-  width: max-content;
-  text-align: left;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-  /* theme-aware colors */
-  [data-bs-theme='light'] & {
-    background-color: #1f2937;
-    color: #f9fafb;
-  }
-  [data-bs-theme='dark'] & {
-    background-color: #f9fafb;
-    color: #1f2937;
-    border: 1px solid #e5e7eb;
-  }
-
-  /* hidden by default */
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease;
-
-  /* layer above table */
-  z-index: 1000;
-}
-
-/* Show tooltip on hover */
-.header-help:hover::after,
-.header-help:hover::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Tooltips are now handled by wrapper overflow-y: visible */
-
-/* Adjust positioning for tooltips near right edge */
-th:nth-last-child(-n + 2) .header-help::after {
-  left: auto;
-  right: 0;
-  transform: translateX(0);
-}
-
-th:nth-last-child(-n + 2) .header-help::before {
-  left: auto;
-  right: 12px;
-  transform: translateX(0);
-}
-
-/* Adjust positioning for tooltips near left edge */
-th:first-child .header-help::after {
-  left: 0;
-  transform: translateX(0);
-}
-
-th:first-child .header-help::before {
-  left: 12px;
-  transform: translateX(0);
-}
-
 /* Cataloger Condition Indicator - Inline Gear Icon */
 
 .cataloger-condition-wrapper {
@@ -716,82 +600,4 @@ th:first-child .header-help::before {
 .cataloger-condition-wrapper .inline-icon {
   width: 16px;
   height: 16px;
-}
-
-/* Unified Tooltips for Capability Icons and Cataloger Conditions */
-
-/* Set up tooltip positioning for capability icons and cataloger conditions */
-.capability-icon-wrapper[data-tooltip],
-.cataloger-condition-wrapper[data-tooltip] {
-  position: relative;
-  cursor: help;
-  display: inline-block; /* needed for proper positioning */
-}
-
-/* Tooltip content */
-.capability-icon-wrapper[data-tooltip]::after,
-.cataloger-condition-wrapper[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 8px); /* position above with gap */
-  left: 50%;
-  transform: translateX(-50%);
-
-  /* styling - match header help tooltips */
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  line-height: 1.6;
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: normal;
-  white-space: pre-line; /* preserve line breaks for bullet list */
-  max-width: 300px;
-  width: max-content;
-  text-align: left;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-
-  /* theme-aware colors */
-  [data-bs-theme='light'] & {
-    background-color: #1f2937;
-    color: #f9fafb;
-  }
-  [data-bs-theme='dark'] & {
-    background-color: #f9fafb;
-    color: #1f2937;
-    border: 1px solid #e5e7eb;
-  }
-
-  /* hidden by default */
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease;
-
-  /* layer above table */
-  z-index: 1000;
-}
-
-/* Show tooltip on hover */
-.capability-icon-wrapper[data-tooltip]:hover::after,
-.cataloger-condition-wrapper[data-tooltip]:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Adjust positioning for tooltips in cells near right edge */
-td:nth-last-child(-n + 2) .capability-icon-wrapper[data-tooltip]::after {
-  left: auto;
-  right: 0;
-  transform: translateX(0);
-}
-
-/* Adjust positioning for tooltips in cells near left edge */
-td:first-child .capability-icon-wrapper[data-tooltip]::after {
-  left: 0;
-  transform: translateX(0);
 }
