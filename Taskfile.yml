@@ -88,6 +88,8 @@ tasks:
 
   lint-fix:
     desc: Auto-fix linting issues where possible
+    deps:
+      - format
     cmds:
       - task: python:lint-fix
       - task: hugo:lint-fix

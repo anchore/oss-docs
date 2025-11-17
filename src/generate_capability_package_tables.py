@@ -1342,9 +1342,7 @@ def generate_binary_package_details_table(
         html_lines.append(
             f'      <td class="{CSSClasses.COL_CRITERIA}">{criteria_html}</td>'
         )
-        html_lines.append(
-            f'      <td class="{CSSClasses.COL_PURL}">{purls_html}</td>'
-        )
+        html_lines.append(f'      <td class="{CSSClasses.COL_PURL}">{purls_html}</td>')
         html_lines.append(f'      <td class="{CSSClasses.COL_CPES}">{cpes_html}</td>')
         html_lines.append("    </tr>")
 
