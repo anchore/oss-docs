@@ -269,7 +269,7 @@
       <td class="col-ecosystem">Lua</td>
       <td class="col-cataloger"><div class="cataloger-name">lua-rock-cataloger</div><div class="evidence-patterns"><code>*.rockspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
@@ -315,13 +315,6 @@
       <td class="col-cataloger"><div class="cataloger-name">opam-cataloger</div><div class="evidence-patterns"><code>*opam</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">Other</td>
-      <td class="col-cataloger"><div class="cataloger-name">gguf-cataloger</div><div class="evidence-patterns"><code>*.gguf</code></div></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>

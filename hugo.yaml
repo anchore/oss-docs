@@ -7,6 +7,7 @@ timeout: 180s # maximum time for building the site (important for large sites wi
 ignoreLogs:
   - warning-goldmark-raw-html
 ignoreFiles: # patterns for files that should not be processed during site generation
+  - content/docs/reference/.*/snippets/.*\.md$
   - content/docs/guides/sbom/snippets/.*\.md$
   - content/docs/capabilities/snippets/.*\.md$
   - data/(grant|grype|syft|sbom)/

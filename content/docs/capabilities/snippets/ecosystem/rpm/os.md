@@ -12,6 +12,12 @@
   </thead>
   <tbody>
     <tr>
+      <td class="col-os-name">AlmaLinux</td>
+      <td class="col-versions">unsupported</td>
+      <td class="col-provider">-</td>
+      <td class="col-data-source">-</td>
+    </tr>
+    <tr>
       <td class="col-os-name">Amazon Linux</td>
       <td class="col-versions"><code>2</code>, <code>2022</code>, <code>2023</code></td>
       <td class="col-provider"><code>amazon</code></td>
@@ -30,16 +36,34 @@
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Fedora</td>
+      <td class="col-versions">minimal support (CPE-based)</td>
+      <td class="col-provider"><code>nvd</code></td>
+      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
+    </tr>
+    <tr>
       <td class="col-os-name">CBL-Mariner</td>
       <td class="col-versions"><code>1.0</code>, <code>2.0</code></td>
       <td class="col-provider"><code>mariner</code></td>
       <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/cbl-mariner-2.0-oval.xml">Microsoft CBL-Mariner OVAL</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">OpenSUSE Leap</td>
+      <td class="col-versions">minimal support (CPE-based)</td>
+      <td class="col-provider"><code>nvd</code></td>
+      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
+    </tr>
+    <tr>
       <td class="col-os-name">Oracle Linux</td>
       <td class="col-versions"><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
       <td class="col-provider"><code>oracle</code></td>
       <td class="col-data-source"><a href="https://linux.oracle.com/security/">Oracle Linux Security</a></td>
+    </tr>
+    <tr>
+      <td class="col-os-name">Photon OS</td>
+      <td class="col-versions">minimal support (CPE-based)</td>
+      <td class="col-provider"><code>nvd</code></td>
+      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>

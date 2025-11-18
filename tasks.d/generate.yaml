@@ -14,6 +14,7 @@ vars:
   TEMPLATE_EXAMPLES_CMD: "uv run ./src/generate_template_examples.py"
   PACKAGE_CAPABILITIES_CMD: "uv run ./src/generate_capability_package_tables.py"
   VULNERABILITY_CAPABILITIES_CMD: "uv run ./src/generate_capability_vulnerability_tables.py"
+  DATA_SOURCES_CMD: "uv run ./src/generate_data_source_tables.py"
 
 tasks:
   default:
@@ -32,6 +33,7 @@ tasks:
       - "{{.TEMPLATE_EXAMPLES_CMD}}"
       - "{{.PACKAGE_CAPABILITIES_CMD}}"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
+      - "{{.DATA_SOURCES_CMD}}"
 
   update:
     desc: Deletes all data caches and generate all documentation
@@ -49,6 +51,7 @@ tasks:
       - "{{.TEMPLATE_EXAMPLES_CMD}} --update"
       - "{{.PACKAGE_CAPABILITIES_CMD}} --update"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
+      - "{{.DATA_SOURCES_CMD}} --update"
 
   update-release-notes:
     desc: Generate release notes for all projects
