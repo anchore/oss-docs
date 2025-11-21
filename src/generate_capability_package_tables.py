@@ -747,14 +747,15 @@ def generate_app_config_snippet(
 
     # generate comment
     comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
-    comment += "<!-- markdownlint-disable MD013 -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n\n"
 
     # build HTML lines
     html_lines = []
 
     # table header text
     html_lines.append('<br><div class="config-table-header">Syft Configuration</div>')
+    html_lines.append("")  # blank line
 
     # table header
     html_lines.append('<table class="config-table syft-config-table">')
@@ -953,7 +954,7 @@ def generate_overview_table(
 
     # generate comment
     comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
     # build HTML lines
@@ -1081,7 +1082,7 @@ def generate_ecosystem_table(
 
     # generate comment
     comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
     comment += "<!-- markdownlint-disable MD013 -->\n"
 
     # build HTML lines
@@ -1248,8 +1249,8 @@ def generate_binary_package_details_table(
 
     # generate comment
     comment = config.get_generated_comment("src/generate_capability_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
-    comment += "<!-- markdownlint-disable MD013 -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- markdownlint-disable MD013 -->\n\n"
 
     # build HTML lines
     html_lines = []
@@ -1258,6 +1259,7 @@ def generate_binary_package_details_table(
     html_lines.append(
         '<br><div class="config-table-header">Binary Package Details</div>'
     )
+    html_lines.append("")  # blank line
 
     # table header
     html_lines.append(

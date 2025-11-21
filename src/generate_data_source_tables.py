@@ -161,7 +161,7 @@ def generate_capabilities_table(vuln_data: dict, output_file: Path) -> None:
 
     # generate comment
     comment = config.get_generated_comment("src/generate_data_source_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
 
     # build HTML lines
     html_lines = []
@@ -293,7 +293,7 @@ def generate_provenance_table(
 
     # generate comment
     comment = config.get_generated_comment("src/generate_data_source_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
 
     # build HTML lines
     html_lines = []
@@ -380,7 +380,7 @@ def generate_enrichment_sources_table(vuln_data: dict, output_file: Path) -> Non
 
     # generate comment
     comment = config.get_generated_comment("src/generate_data_source_tables.py", "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
 
     # build HTML lines
     html_lines = []
