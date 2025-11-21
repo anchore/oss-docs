@@ -190,6 +190,6 @@ Now let's put those SBOMs to good use and [scan with Grype to understand your ex
 **Key pages to revisit:**
 
 - [Getting Started]({{< relref "/docs/guides/sbom/getting-started/" >}}) - Quick start and installation
-- [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) - All scanning capabilities
+- [Supported Scan Targets]({{< relref "/docs/guides/sbom/scan-targets/" >}}) - All scanning capabilities
 - [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}) - SBOM format options
 - [Working with Syft JSON]({{< relref "/docs/guides/sbom/json/" >}}) - Query and extract data

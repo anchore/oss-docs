@@ -60,6 +60,6 @@ Read more in our [License Auditing User Guide]({{< relref "/docs/guides/license"
 {{% alert title="Next steps" color="primary" %}}
 
 - Try running Syft against other containers, or an application directory on your workstation.
-- Find out more about [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) and [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}).
+- Find out more about [Supported Scan Targets]({{< relref "/docs/guides/sbom/scan-targets/" >}}) and [Output Formats]({{< relref "/docs/guides/sbom/formats/" >}}).
 - Learn about [Vulnerability Scanning]({{< relref "/docs/guides/vulnerability/getting-started/" >}}) and [License Scanning]({{< relref "/docs/guides/license/getting-started/" >}}) your SBOMs.
   {{% /alert %}}

@@ -52,7 +52,7 @@ busybox-binsh           1.37.0-r12   apk
 ```
 
 {{< alert title="Learn more" color="primary" >}}
-Syft supports more than just containers. Learn more about [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}})
+Syft supports more than just containers. Learn more about [Supported Scan Targets]({{< relref "/docs/guides/sbom/scan-targets/" >}})
 {{< /alert >}}
 
 ## Create an industry-standard SBOM
@@ -134,8 +134,8 @@ Nothing. Syft runs entirely locally and doesn't send any data to external servic
 
 ## Next steps
 
-{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/sources/" >}}
-**Next**: Learn about all the different [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) Syft can analyze --from container images to local directories and archives.
+{{< alert title="Continue the guide" color="success" url="/docs/guides/sbom/scan-targets/" >}}
+**Next**: Learn about all the different [Supported Scan Targets]({{< relref "/docs/guides/sbom/scan-targets/" >}}) Syft can analyze --from container images to local directories and archives.
 {{< /alert >}}
 
 Now that you've generated your first SBOM, here are additional resources:

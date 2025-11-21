@@ -1,19 +1,20 @@
 +++
-title = "Supported Sources"
-description = "Explore the different sources Syft can analyze including container images, OCI registries, directories, files, and archives."
+title = "Supported Scan Targets"
+linkTitle = "Scan Targets"
+description = "Explore the different scan targets Syft supports including container images, OCI registries, directories, files, and archives."
 weight = 20
 tags = ["syft", "sbom"]
 +++
 
 {{< alert title="TL;DR" color="primary" >}}
 
-- Syft automatically detects source type, simply pass it as an argument: `syft <target>`
+- Syft automatically detects scan target type, simply pass it as an argument: `syft <target>`
 - Supports **container images** (Docker/Podman/Containerd/registries), **directories**, **files**, and **archives**
-- Use `--from <type>` to explicitly specify source (e.g., `--from registry` to bypass local daemons)
+- Use `--from <type>` to explicitly specify scan target type (e.g., `--from registry` to bypass local daemons)
 
 {{< /alert >}}
 
-Syft can generate an SBOM from a variety of sources including container images, directories, files, and archives.
+Syft can generate an SBOM from a variety of scan targets including container images, directories, files, and archives.
 In most cases, you can simply point Syft at what you want to analyze and it will automatically detect and catalog it correctly.
 
 Catalog a container image from your local daemon or a remote registry:
@@ -34,7 +35,7 @@ Catalog a container image archive:
 syft image.tar
 ```
 
-To explicitly specify the source, use the `--from` flag:
+To explicitly specify the scan target type, use the `--from` flag:
 
 | `--from ARG`     | Description                                                                                                                                                   |
 | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -51,13 +52,13 @@ To explicitly specify the source, use the `--from` flag:
 
 Instead of using the `--from` flag explicitly, you can instead:
 
-- provide **no hint** and let Syft **automatically detect** the source type implicitly based on the input provided
+- provide **no hint** and let Syft **automatically detect** the scan target type implicitly based on the input provided
 
-- provide the source type as a **URI scheme** in the target argument (e.g., `docker:alpine:latest`, `oci-archive:/path/to/image.tar`, `dir:/path/to/dir`)
+- provide the scan target type as a **URI scheme** in the target argument (e.g., `docker:alpine:latest`, `oci-archive:/path/to/image.tar`, `dir:/path/to/dir`)
 
-## Source-Specific Behaviors
+## Scan Target-Specific Behaviors
 
-### Container Image Sources
+### Container Image Scan Targets
 
 When working with container images, Syft applies the following defaults and behaviors:
 
@@ -65,7 +66,7 @@ When working with container images, Syft applies the following defaults and beha
 - **Platform**: For unspecific image references (tags) or multi-arch images pointing to an index (not a manifest), Syft analyzes the `linux/amd64` manifest by default.
   Use the `--platform` flag to target a different platform.
 
-When you provide an image reference without specifying a source type (i.e. no `--from` flag), Syft attempts to resolve the image using the following sources in order:
+When you provide an image reference without specifying a scan target type (i.e. no `--from` flag), Syft attempts to resolve the image using the following scan targets in order:
 
 1. Docker daemon
 2. Podman daemon
@@ -75,12 +76,12 @@ When you provide an image reference without specifying a source type (i.e. no `-
 For example, when you run `syft alpine:latest`, Syft will first check your local Docker daemon for the image.
 If Docker isn't available, it tries Podman, then Containerd, and finally attempts to pull directly from the registry.
 
-You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific source.
+You can override this default behavior with the `default-image-pull-source` configuration option to always prefer a specific scan target.
 See [Configuration]({{< relref "/docs/reference/syft/configuration" >}}) for more details.
 
-### Directory Sources
+### Directory Scan Targets
 
-When you provide a directory path as the source, Syft recursively scans the directory tree to catalog installed software packages and files.
+When you provide a directory path as the scan target, Syft recursively scans the directory tree to catalog installed software packages and files.
 
 When you point Syft at a directory (especially system directories like `/`), it automatically skips certain filesystem types to improve
 scan performance and avoid indexing areas that don't contain installed software packages.
@@ -118,7 +119,7 @@ These file types are never indexed during directory scans:
 
 Regular files, directories, and symbolic links are always processed.
 
-### Archive Sources
+### Archive Scan Targets
 
 Syft automatically detects and unpacks common archive formats, then catalogs their contents.
 If an archive is a container image archive (from `docker save` or `skopeo copy`), Syft treats it as a container image.
@@ -151,13 +152,13 @@ Standalone compression formats (extracted if containing tar):
 - `.xz`
 - `.zst` / `.zstd` (zstandard)
 
-### OCI Archives and Layout Sources
+### OCI Archives and Layout Scan Targets
 
 Syft automatically detects OCI archive and directory structures (including OCI layouts and SIF files) and catalogs them accordingly.
 
 OCI archives and layouts are particularly useful for CI/CD pipelines, as they allow you to catalog images, scan for vulnerabilities, or perform other checks without publishing to a registry. This provides a powerful pattern for build-time gating.
 
-#### Create OCI sources without a registry
+#### Create OCI scan targets without a registry
 
 OCI archive from an image:
 
@@ -185,7 +186,7 @@ docker save -o alpine.tar alpine:latest
 
 ### Image Availability and Authentication
 
-When using container runtime sources (Docker, Podman, or Containerd):
+When using container runtime scan targets (Docker, Podman, or Containerd):
 
 - **Missing images**: If an image doesn't exist locally in the container runtime, Syft attempts to pull it from the registry via the runtime
 - **Private images**: You must be logged in to the registry via the container runtime (e.g., `docker login`) or have credentials configured for direct registry access. See [Authentication with Private Registries]({{< relref "/docs/guides/private-registries" >}}) for more details.
@@ -194,7 +195,7 @@ When using container runtime sources (Docker, Podman, or Containerd):
 
 Syft respects the following environment variables for each container runtime:
 
-| Source         | Environment Variables  | Description                                                                                             |
+| Scan Target    | Environment Variables  | Description                                                                                             |
 | -------------- | ---------------------- | ------------------------------------------------------------------------------------------------------- |
 | **Docker**     | `DOCKER_HOST`          | Docker daemon socket/host address (supports `ssh://` for remote connections)                            |
 |                | `DOCKER_TLS_VERIFY`    | Enable TLS verification (auto-sets `DOCKER_CERT_PATH` if not set)                                       |
@@ -223,7 +224,7 @@ Syft attempts to connect to Podman using the following methods in order:
 
 ## Direct Registry Access
 
-The `registry` source bypasses container runtimes entirely and pulls images directly from the registry.
+The `registry` scan target bypasses container runtimes entirely and pulls images directly from the registry.
 
 Credentials are resolved in the following order:
 
@@ -237,15 +238,15 @@ Credentials are resolved in the following order:
 If Syft reports an image doesn't exist but you know it's available:
 
 - **Check which daemon has the image**: Run `docker images`, `podman images`, or `nerdctl images` to see where the image exists
-- **Specify the source explicitly**: Use `--from docker`, `--from podman`, or `--from containerd` to target the correct daemon
+- **Specify the scan target type explicitly**: Use `--from docker`, `--from podman`, or `--from containerd` to target the correct daemon
 - **Pull from registry**: Use `--from registry` to bypass local daemons and pull directly
 
 ### Authentication failures with private registries
 
 If you get authentication errors when scanning private images:
 
-- **For daemon sources**: Ensure you're logged in via the daemon (e.g., `docker login registry.example.com`)
-- **For registry source**: Configure credentials in `~/.docker/config.json` or use environment variables (see [Private Registries]({{< relref "/docs/guides/private-registries" >}}))
+- **For daemon scan targets**: Ensure you're logged in via the daemon (e.g., `docker login registry.example.com`)
+- **For registry scan target**: Configure credentials in `~/.docker/config.json` or use environment variables (see [Private Registries]({{< relref "/docs/guides/private-registries" >}}))
 - **Verify credentials**: Check that your credentials haven't expired and have appropriate permissions
 
 ### Podman connection issues
