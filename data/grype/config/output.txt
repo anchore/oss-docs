@@ -185,6 +185,9 @@ name: ''
 # valid values are: registry, docker, podman (env: GRYPE_DEFAULT_IMAGE_PULL_SOURCE)
 default-image-pull-source: ''
 
+# specify the source behavior to use (e.g. docker, registry, podman, oci-dir, ...) (env: GRYPE_FROM)
+from: []
+
 # a list of VEX documents to consider when producing scanning results (env: GRYPE_VEX_DOCUMENTS)
 vex-documents: []
 
