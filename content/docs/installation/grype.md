@@ -78,7 +78,6 @@ scoop bucket add main
 scoop install main/grype
 ```
 
-
 ### Snapcraft
 
 ```
