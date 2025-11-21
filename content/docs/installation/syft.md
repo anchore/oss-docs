@@ -99,16 +99,10 @@ Alternatively, just try it out in an ephemeral nix shell.
 nix-shell -p syft
 ```
 
-### Scoop
-
-```
-scoop install syft
-```
-
 ### WinGet
 
 ```
-nuget install Anchore.syft
+winget install Anchore.syft
 ```
 
 - [WinGet packaging for Syft](https://github.com/microsoft/winget-pkgs/tree/master/manifests/a/Anchore/Syft)
