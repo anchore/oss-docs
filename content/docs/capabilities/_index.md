@@ -16,18 +16,19 @@ For example, Python's capabilities differ from Go's, and Ubuntu's capabilities d
 Default capabilities do not require to be online or have special configuration (other than having a vulnerability DB downloaded).
 Some capabilities may be conditionally supported, requiring additional configuration or online access to function.
 
+{{< alert title="Show me the data!" color="primary" >}}
+This page explains **how to interpret the capabilities tables** found on each ecosystem-specific capability pages.
+
+There are **separate overviews** of [supported pacakge ecosystems]({{< ref "docs/capabilities/all-packages" >}}) as well as [supported Operating Systems]({{< ref "docs/capabilities/all-os" >}}).
+{{< /alert >}}
+
 ## Vulnerability scanning capabilities
 
-### Operating system support
+Vulnerability data source qualities vary in the information they provide and how to interpret them correctly.
 
-Syft and Grype support several operating systems for package cataloging and vulnerability detection.
-The table below shows which OS versions are supported and where Grype's vulnerability data comes from.
+### Disclosure and fix information
 
-{{< readfile file="/content/docs/capabilities/snippets/overview/os.md" >}}
-
-### Data sources
-
-Vulnerability data sources vary in the information they provide. Grype uses these capabilities when available to provide more accurate and comprehensive vulnerability detection:
+In terms of disclosures and fixes, each data source can be described along the following dimensions:
 
 - **Independent Disclosure**: Whether the advisory discloses the vulnerability regardless of fix availability. Sources with this capability report vulnerabilities even when no fix is available yet.
 
@@ -37,17 +38,17 @@ Vulnerability data sources vary in the information they provide. Grype uses thes
 
 - **Fix Date**: Whether the advisory includes a date when the fix was made available. This helps you understand the timeline of vulnerability remediation.
 
+### Track by source package
+
+Some ecosystems have parent packages where the source code for the current package is maintained.
+For example, the `libcrypto` for debian is part of the larger `openssl` package (where `openssl` is denoted as the `origin` package).
+The same is true for redhat-based packages, except the parent package is denoted as the `srcrpm` package.
+
+Ecosystems like this have vulnerabilities are often disclosed and fixed at the parent package level (`origin` and `srcrpm`).
+More critically, the parent packages are often not installed on the system, making it impossible to directly detect vulnerabilities against them.
+There tends to be package metadata on the downstream package that denotes the parent package name and version, which Syft can extract during package analysis.
+
 ## Package analysis capabilities
-
-The table below shows which ecosystems support package analysis and vulnerability scanning.
-
-{{< readfile file="/content/docs/capabilities/snippets/overview/package.md" >}}
-
-## Legend
-
-- <svg class="capability-icon"><use href="#icon-check"/> : Supported by default
-- <svg class="capability-icon"><use href="#icon-gear"/> : Conditionally supported (requires configuration)
-- _(empty)_ : Not supported
 
 ### Dependencies
 
@@ -85,5 +86,6 @@ Syft can extract various package manager metadata beyond basic package informati
 ## Next steps
 
 - Explore capabilities for specific ecosystems using the navigation menu
-- Learn about [Syft package analysis]({{< ref "docs/guides/sbom" >}})
-- Learn about [Grype vulnerability scanning]({{< ref "docs/guides/vulnerability" >}})
+- Learn about [Supported ecosystems for package analysis]({{< ref "docs/capabilities/all-packages" >}})
+- Learn about [Supported operating systems]({{< ref "docs/capabilities/all-os" >}})
+- Learn details about [all supported data sources]({{< ref "docs/reference/grype/data-sources/" >}})

@@ -14,6 +14,10 @@ The following are a list of data sources used to directly match packages to vuln
 
 Here are the capabilities of each data source as Grype uses them:
 
+{{< alert title="What do these columns mean?" color="primary" >}}
+For a detailed explanation of the columns in the table, please see the [Capabilities overview]({{< ref "docs/capabilities/" >}}).
+{{< /alert >}}
+
 {{< readfile file="/content/docs/reference/grype/snippets/data-source-capabilities.md" >}}
 
 ## Auxiliary data

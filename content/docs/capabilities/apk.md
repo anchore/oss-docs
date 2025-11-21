@@ -30,8 +30,8 @@ This is true of other APK vulnerability data sources as well (such as Chainguard
 
 ## Next steps
 
-- [Syft package analysis]({{< ref "docs/guides/sbom" >}})
-- [Grype vulnerability scanning]({{< ref "docs/guides/vulnerability" >}})
+- [Syft package analysis]({{< ref "docs/guides/sbom/getting-started" >}})
+- [Grype vulnerability scanning]({{< ref "docs/guides/vulnerability/getting-started" >}})
 - [Alpine Linux](https://alpinelinux.org/)
 - [Wolfi](https://wolfi.dev/)
 - [Chainguard Images](https://www.chainguard.dev/chainguard-images)

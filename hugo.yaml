@@ -65,6 +65,8 @@ params:
   offlineSearch: false # when true, builds search index into site for offline use (increases site size)
   sidebar_groups: # organizes sidebar sections into collapsible groups with custom titles
     Capabilities:
+      - id: 'overview'
+        title: 'Overview'
       - id: 'os'
         title: 'OS Distro'
       - id: 'language'
