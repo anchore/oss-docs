@@ -71,6 +71,14 @@ sudo port install grype
 winget install Anchore.Grype
 ```
 
+### Scoop
+
+```powershell
+scoop bucket add main
+scoop install main/grype
+```
+
+
 ### Snapcraft
 
 ```
