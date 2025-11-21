@@ -13,9 +13,9 @@
   <tbody>
     <tr>
       <td class="col-os-name">AlmaLinux</td>
-      <td class="col-versions">unsupported</td>
-      <td class="col-provider">-</td>
-      <td class="col-data-source">-</td>
+      <td class="col-versions"><code>8</code>, <code>9</code>, <code>10</code></td>
+      <td class="col-provider"><code>alma</code></td>
+      <td class="col-data-source"><a href="https://github.com/AlmaLinux/osv-database">AlmaLinux OSV Database</a></td>
     </tr>
     <tr>
       <td class="col-os-name">Amazon Linux</td>
