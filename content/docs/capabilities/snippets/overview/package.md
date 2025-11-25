@@ -193,25 +193,25 @@
     <tr>
       <td class="col-ecosystem" rowspan="7">Java</td>
       <td class="col-cataloger"><div class="cataloger-name">graalvm-native-image-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
-      <td class="col-license indicator"></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger</div><div class="evidence-patterns"><code>*.jar</code>, <code>*.war</code>, <code>*.ear</code>, <code>*.par</code>, <code>*.sar</code>, <code>*.nar</code>, <code>*.jpi</code>, <code>*.hpi</code>, <code>*.kar</code>, <code>*.lpkg</code></div></td>
-      <td class="col-license indicator"></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger <span class="cataloger-condition-wrapper" data-tooltip="Requires: IncludeIndexedArchives = true"><svg class="capability-icon inline-icon"><use href="#icon-gear"/></svg></span></div><div class="evidence-patterns"><code>*.zip</code></div></td>
-      <td class="col-license indicator"></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">java-archive-cataloger <span class="cataloger-condition-wrapper" data-tooltip="Requires: IncludeUnindexedArchives = true"><svg class="capability-icon inline-icon"><use href="#icon-gear"/></svg></span></div><div class="evidence-patterns"><code>*.tar</code>, <code>*.tar.gz</code>, <code>*.tgz</code>, <code>*.tar.bz</code>, <code>*.tar.bz2</code>, <code>*.tbz</code>, <code>*.tbz2</code>, <code>*.tar.br</code>, <code>*.tbr</code>, <code>*.tar.lz4</code>, <code>*.tlz4</code>, <code>*.tar.sz</code>, <code>*.tsz</code>, <code>*.tar.xz</code>, <code>*.txz</code>, <code>*.tar.zst</code>, <code>*.tzst</code>, <code>*.tar.zstd</code>, <code>*.tzstd</code></div></td>
-      <td class="col-license indicator"></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
@@ -224,7 +224,7 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">java-jvm-cataloger</div><div class="evidence-patterns"><code>release</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="JavaVMInstallation.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
@@ -314,7 +314,7 @@
       <td class="col-ecosystem">OCaml</td>
       <td class="col-cataloger"><div class="cataloger-name">opam-cataloger</div><div class="evidence-patterns"><code>*opam</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
@@ -331,7 +331,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">php-interpreter-cataloger</div><div class="evidence-patterns"><code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-interpreter-cataloger</div><div class="evidence-patterns"><code>php*</code>, <code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
@@ -352,14 +352,14 @@
       <td class="col-ecosystem">Portage</td>
       <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="PortageEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
       <td class="col-ecosystem">Prolog</td>
       <td class="col-cataloger"><div class="cataloger-name">swipl-pack-cataloger</div><div class="evidence-patterns"><code>pack.pl</code></div></td>
       <td class="col-license indicator"></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>

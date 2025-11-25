@@ -41,7 +41,7 @@
       <td class="col-integrity-hash indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">php-interpreter-cataloger</div><div class="evidence-patterns"><code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">php-interpreter-cataloger</div><div class="evidence-patterns"><code>php*</code>, <code>php*/**/*.so</code>, <code>php-fpm*</code>, <code>apache*/**/libphp*.so</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Direct</td>
       <td class="col-edges value">Flat</td>
