@@ -24,7 +24,7 @@ def text(content: str) -> str:
     Returns:
         Formatted text, not wrapped in paragraph
     """
-    return non_wrapped_renderer(content)
+    return f"{non_wrapped_renderer(content)}"
 
 
 def create_code_fence(content: str, language: str = "") -> str:
