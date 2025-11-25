@@ -3999,7 +3999,7 @@
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": false
+              "default": true
             }
           ]
         },
@@ -4084,7 +4084,8 @@
             {
               "name": "dependency.kinds",
               "default": [
-                "runtime"
+                "runtime",
+                "dev"
               ]
             },
             {
@@ -4168,7 +4169,8 @@
             {
               "name": "dependency.kinds",
               "default": [
-                "runtime"
+                "runtime",
+                "dev"
               ]
             },
             {
@@ -4257,7 +4259,7 @@
         "fields": [
           {
             "key": "CatalogModules",
-            "description": "CatalogModules enables cataloging linux kernel modules (*.ko files) in addition to the kernel itself.",
+            "description": "CatalogModules enables cataloging linux kernel modules (`*.ko` files) in addition to the kernel itself.",
             "app_key": "linux-kernel.catalog-modules"
           }
         ]
