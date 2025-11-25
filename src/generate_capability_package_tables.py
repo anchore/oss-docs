@@ -36,7 +36,7 @@ from typing import Any
 
 import click
 
-from utils import config, data, html_table, log
+from utils import config, data, html_table, log, markdown
 from utils.constants import HEADER_DEFINITIONS, CSSClasses
 
 # catalogers that should be aggregated into a single row with class-pattern pills
@@ -779,6 +779,7 @@ def generate_app_config_snippet(
 
         # strip redundant field name prefix from godoc-style descriptions
         cleaned_description = strip_field_name_from_description(description, key)
+        cleaned_description = markdown.text(cleaned_description)
 
         html_lines.append("    <tr>")
         html_lines.append(
