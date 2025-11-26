@@ -13,7 +13,7 @@ If you've made changes and the tests are passing, it's time to submit a pull req
 Before submitting your PR, make sure you have:
 
 - ✓ Run the test suite and confirmed tests pass
-- ✓ Signed off all commits (see [Sign-off Requirements]({{< ref "sign-off" >}}))
+- ✓ Signed off all commits (see [Sign-off Requirements]({{< ref "/docs/contributing/sign-off" >}}))
 - ✓ Updated in-repo documentation if your changes affect user-facing behavior
 - ✓ Written a clear PR title that describes the user-facing impact
 - ✓ Followed existing code style and patterns in the project
@@ -153,7 +153,7 @@ Once approved, a maintainer will merge your PR. Depending on the project, you mi
 
 Watch out for these common pitfalls:
 
-- **Missing sign-off**: All commits must be signed off (see [Sign-off Requirements]({{< ref "sign-off" >}}))
+- **Missing sign-off**: All commits must be signed off (see [Sign-off Requirements]({{< ref "/docs/contributing/sign-off" >}}))
 - **Failing CI checks**: Make sure all tests and checks pass before requesting review
 - **Merge conflicts**: Keep your branch up to date with main to avoid conflicts
 - **Formatting-only changes**: Submit formatting and refactoring in separate PRs from features
