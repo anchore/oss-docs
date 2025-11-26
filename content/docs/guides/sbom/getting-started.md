@@ -118,7 +118,8 @@ For more examples of working with Syft's JSON output using jq, see the [jq recip
 
 **Does Syft need internet access?**
 
-Only for downloading container images. By default, scanning works offline.
+Only for downloading container images. By default, scanning works offline, but Syft can download supplemental
+information from online sources when enabled with the `--enrich` option.
 
 **What about private container registries?**
 

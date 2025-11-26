@@ -15,7 +15,7 @@
   <tbody>
     <tr>
       <td class="col-config-key"><code>linux-kernel.catalog-modules</code></td>
-      <td class="col-description">Enables cataloging linux kernel modules (*.ko files) in addition to the kernel itself.</td>
+      <td class="col-description">Enables cataloging linux kernel modules (<code>*.ko</code> files) in addition to the kernel itself.</td>
     </tr>
   </tbody>
 </table>
