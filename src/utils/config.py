@@ -51,6 +51,7 @@ class Paths:
     snippets_dir: Path = sbom_guides_dir / "snippets"
     reference_dir: Path = docs_dir / "reference"
     syft_reference_dir: Path = reference_dir / "syft"
+    grype_reference_dir: Path = reference_dir / "grype"
     json_reference_dir: Path = syft_reference_dir / "json"
 
     # snippet subdirectories
@@ -59,9 +60,18 @@ class Paths:
     format_snippet_dir: Path = snippets_dir / "format"
     format_examples_snippet_dir: Path = format_snippet_dir / "examples"
     capabilities_snippet_dir: Path = docs_dir / "capabilities" / "snippets"
+    grype_snippets_dir: Path = grype_reference_dir / "snippets"
 
     # snippet files
     format_versions_snippet: Path = format_snippet_dir / "versions.md"
+    data_source_capabilities_snippet: Path = (
+        grype_snippets_dir / "data-source-capabilities.md"
+    )
+    data_source_provenance_snippet: Path = (
+        grype_snippets_dir / "data-source-provenance.md"
+    )
+    data_source_enrichment_snippet: Path = grype_snippets_dir / "data-source-aux.md"
+    supported_os_snippet: Path = capabilities_snippet_dir / "overview" / "os.md"
 
     # external repositories (for reference doc generation)
     syft_repo_root: Path = project_root.parent / "syft"

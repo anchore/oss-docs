@@ -1,11 +1,21 @@
 #!/usr/bin/env python3
 """
-Utility functions for running Syft in Docker containers.
+Utility functions for running Syft/Grype/Grant in Docker containers or locally.
 
-Provides common functionality for scripts that need to run Syft,
+Provides common functionality for scripts that need to run these tools,
 including template execution, format generation, and config-based scanning.
+
+Set <TOOL>_LOCAL_PATH environment variable to run locally via 'go run'
+instead of Docker. Examples:
+    export SYFT_LOCAL_PATH=/path/to/syft
+    export GRYPE_LOCAL_PATH=/path/to/grype
+    export GRANT_LOCAL_PATH=/path/to/grant
+
+When set, commands like syft.run(syft_image="anchore/syft:latest") will
+execute 'go run ./cmd/syft' in the specified directory instead of Docker.
 """
 
+import os
 import subprocess
 from pathlib import Path
 
@@ -47,6 +57,42 @@ def run(
         >>> # Get config
         >>> stdout, stderr, code = syft.run(args=["config"])
     """
+    # Detect tool name from image (e.g., "anchore/syft:latest" -> "syft")
+    tool_name = None
+    if "/" in syft_image:
+        tool_name = syft_image.split("/")[-1].split(":")[0]
+    else:
+        tool_name = syft_image.split(":")[0]
+
+    # Check for local path environment variable
+    env_var_name = f"{tool_name.upper()}_LOCAL_PATH"
+    local_path = os.environ.get(env_var_name)
+
+    if local_path:
+        # Run locally via 'go run ./cmd/<tool>'
+        cmd = ["go", "run", f"./cmd/{tool_name}"]
+        if args:
+            cmd.extend(args)
+
+        # Build environment
+        run_env = os.environ.copy()
+        if env_vars:
+            run_env.update(env_vars)
+
+        try:
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+                cwd=local_path,
+                env=run_env,
+            )
+            return result.stdout, result.stderr, result.returncode
+        except subprocess.TimeoutExpired:
+            raise
+
+    # Docker execution path
     docker_cmd = ["docker", "run", "--pull", "always", "--rm"]
 
     # always set HOME to avoid path mangling in config output

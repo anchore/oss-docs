@@ -136,4 +136,4 @@ Additional resources:
 
 - **Configure catalogers**: See [Package Catalogers]({{< relref "/docs/guides/sbom/catalogers/" >}}) to control which package types are detected
 - **Configuration file**: Use [Configuration]({{< relref "/docs/reference/syft/configuration" >}}) to set persistent exclusion patterns
-- **Source types**: Review [Supported Sources]({{< relref "/docs/guides/sbom/sources/" >}}) to understand scanning behavior for different source types
+- **Scan target types**: Review [Supported Scan Targets]({{< relref "/docs/guides/sbom/scan-targets/" >}}) to understand scanning behavior for different scan target types

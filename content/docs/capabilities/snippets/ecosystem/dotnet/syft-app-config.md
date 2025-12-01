@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <td class="col-config-key"><code>dotnet.relax-dll-claims-when-bundling-detected</code></td>
-      <td class="col-description">Will look for indications of IL bundle tooling via deps.json package names and, if found (and this config option is enabled), will relax the DepPackagesMustClaimDLL value to `false` only in those cases.</td>
+      <td class="col-description">Will look for indications of IL bundle tooling via deps.json package names and, if found (and this config option is enabled), will relax the DepPackagesMustClaimDLL value to <code>false</code> only in those cases.</td>
     </tr>
   </tbody>
 </table>

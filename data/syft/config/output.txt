@@ -156,7 +156,7 @@ compliance:
 
 # Enable data enrichment operations, which can utilize services such as Maven Central and NPM.
 # By default all enrichment is disabled, use: all to enable everything.
-# Available options are: all, golang, java, javascript (env: SYFT_ENRICH)
+# Available options are: all, golang, java, javascript, python (env: SYFT_ENRICH)
 enrich: []
 
 dotnet:
@@ -255,11 +255,17 @@ nix:
   capture-owned-files: false
 
 python:
+  # enables Syft to use the network to fill in more detailed license information (env: SYFT_PYTHON_SEARCH_REMOTE_LICENSES)
+  search-remote-licenses:
+
+  # base Pypi url to use (env: SYFT_PYTHON_PYPI_BASE_URL)
+  pypi-base-url: ''
+
   # when running across entries in requirements.txt that do not specify a specific version
   # (e.g. "sqlalchemy >= 1.0.0, <= 2.0.0, != 3.0.0, <= 3.0.0"), attempt to guess what the version could
   # be based on the version requirements specified (e.g. "1.0.0"). When enabled the lowest expressible version
   # when given an arbitrary constraint will be used (even if that version may not be available/published). (env: SYFT_PYTHON_GUESS_UNPINNED_REQUIREMENTS)
-  guess-unpinned-requirements: false
+  guess-unpinned-requirements:
 
 registry:
   # skip TLS verification when communicating with the registry (env: SYFT_REGISTRY_INSECURE_SKIP_TLS_VERIFY)

@@ -33,6 +33,7 @@ Selection expressions: 0
 │ elixir-mix-lock-cataloger              │ declared, directory, elixir, language, package                                   │
 │ erlang-otp-application-cataloger       │ declared, directory, erlang, language, otp, package                              │
 │ erlang-rebar-lock-cataloger            │ declared, directory, erlang, language, package                                   │
+│ gguf-cataloger                         │ ai, directory, gguf, image, ml, model, package                                   │
 │ github-action-workflow-usage-cataloger │ declared, directory, github, github-actions, package                             │
 │ github-actions-usage-cataloger         │ declared, directory, github, github-actions, package                             │
 │ go-module-binary-cataloger             │ binary, directory, go, golang, gomod, image, installed, language, package        │

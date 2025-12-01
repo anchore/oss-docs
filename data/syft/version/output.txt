@@ -1,9 +1,9 @@
 Application:   syft
-Version:       1.37.0
-BuildDate:     2025-11-03T18:13:17Z
-GitCommit:     4c93394bc26c0bd649b58a6a1a9eb498f4847124
-GitDescription: v1.37.0
+Version:       1.38.0
+BuildDate:     2025-11-17T17:42:49Z
+GitCommit:     a033ae525f6c7ef937c6f49513e3403f07a1d6c0
+GitDescription: v1.38.0
 Platform:      linux/arm64
-GoVersion:     go1.25.3
+GoVersion:     go1.25.4
 Compiler:      gc
-SchemaVersion: 16.0.41
+SchemaVersion: 16.1.0

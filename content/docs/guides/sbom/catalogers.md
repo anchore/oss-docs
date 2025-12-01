@@ -46,7 +46,7 @@ By looking at installed packages in an image, after any build tooling has been i
 Scanning an image:
 
 ```bash
-$ syft <container-image> --select-catalogers python
+syft <container-image> --select-catalogers python
 # Uses: python-installed-package-cataloger
 # Finds: Packages in site-packages directories
 ```
@@ -54,7 +54,7 @@ $ syft <container-image> --select-catalogers python
 Scanning a directory:
 
 ```bash
-$ syft <source-directory> --select-catalogers python
+syft <source-directory> --select-catalogers python
 # Uses: python-installed-package-cataloger, python-package-cataloger
 # Finds: Packages in site-packages + requirements.txt, setup.py, Pipfile, etc.
 ```
@@ -134,7 +134,7 @@ Output shows file and package catalogers with their tags:
 Preview which catalogers a selection expression would use:
 
 ```bash
-$ syft cataloger list --select-catalogers python
+syft cataloger list --select-catalogers python
 Default selections: 1
   • 'all'
 Selection expressions: 1
@@ -156,10 +156,10 @@ Get cataloger information in different formats:
 
 ```bash
 # Table format (default)
-$ syft cataloger list
+syft cataloger list
 
 # JSON format (useful for automation)
-$ syft cataloger list -o json
+syft cataloger list -o json
 ```
 
 ## Cataloger References
@@ -251,7 +251,7 @@ syft <target> --select-catalogers +sbom-cataloger
 Scan with defaults plus both SBOM and binary catalogers:
 
 ```bash
-syft <target> --select-catalogers +sbom-cataloger,+binary-cataloger
+syft <target> --select-catalogers +sbom-cataloger,+binary-classifier-cataloger
 ```
 
 ### Removing Catalogers
@@ -273,7 +273,7 @@ syft <target> --select-catalogers -java-archive-cataloger
 Scan for Go packages, always include SBOM cataloger, but exclude binary analysis:
 
 ```bash
-$ syft <container-image> --select-catalogers go,+sbom-cataloger,-binary
+syft <container-image> --select-catalogers go,+sbom-cataloger,-binary
 # Result: go-module-binary-cataloger, sbom-cataloger
 # (binary cataloger excluded even though it's in go tag)
 ```
@@ -289,7 +289,7 @@ syft <directory> --select-catalogers java,+java-pom-cataloger,-gradle
 Use only binary analysis catalogers regardless of scan type:
 
 ```bash
-$ syft <target> --override-default-catalogers binary
+syft <target> --override-default-catalogers binary
 # Result: binary-cataloger, cargo-auditable-binary-cataloger,
 #         dotnet-portable-executable-cataloger, go-module-binary-cataloger
 ```
@@ -314,13 +314,13 @@ Check which catalogers ran and whether they found packages:
 
 ```bash
 # See which catalogers were used
-$ syft <target> -o json | jq '.descriptor.configuration.catalogers.used'
+syft <target> -o json | jq '.descriptor.configuration.catalogers.used'
 
 # See which catalogers found packages
-$ syft <target> -o json | jq '.artifacts[].foundBy'
+syft <target> -o json | jq '.artifacts[].foundBy'
 
 # See packages found by a specific cataloger
-$ syft <target> -o json | jq '.artifacts[] | select(.foundBy == "python-package-cataloger") | .name'
+syft <target> -o json | jq '.artifacts[] | select(.foundBy == "python-package-cataloger") | .name'
 ```
 
 If your expected cataloger isn't in the `used` list:

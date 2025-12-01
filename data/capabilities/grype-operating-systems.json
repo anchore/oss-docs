@@ -1,5 +1,21 @@
 [
   {
+    "name": "almalinux",
+    "versions": [
+      {
+        "value": "8"
+      },
+      {
+        "value": "9"
+      },
+      {
+        "value": "10"
+      }
+    ],
+    "releaseId": "almalinux",
+    "provider": "alma"
+  },
+  {
     "name": "alpine",
     "versions": [
       {

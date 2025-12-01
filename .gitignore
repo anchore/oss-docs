@@ -15,6 +15,9 @@ draft/
 # cache directories
 .cache/
 
+# e2e tests
+test-results
+
 # python
 /venv
 .venv/

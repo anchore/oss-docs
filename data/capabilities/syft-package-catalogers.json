@@ -1,31 +1,29 @@
 {
   "catalogers": [
     {
-      "ecosystem": "alpm",
-      "name": "alpm-db-cataloger",
+      "ecosystem": "ai",
+      "name": "gguf-cataloger",
       "type": "generic",
       "selectors": [
-        "alpm",
-        "archlinux",
+        "ai",
         "directory",
+        "gguf",
         "image",
-        "installed",
-        "linux",
-        "os",
-        "package",
-        "pacman"
+        "ml",
+        "model",
+        "package"
       ],
       "patterns": [
         {
           "method": "glob",
           "criteria": [
-            "**/var/lib/pacman/local/**/desc"
+            "**/*.gguf"
           ],
           "package_types": [
-            "alpm"
+            "model"
           ],
           "json_schema_types": [
-            "AlpmDbEntry"
+            "GgufFileHeader"
           ],
           "capabilities": [
             {
@@ -34,38 +32,30 @@
             },
             {
               "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
+              "default": []
             },
             {
               "name": "dependency.edges",
-              "default": "complete"
+              "default": ""
             },
             {
               "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
+              "default": []
             },
             {
               "name": "package_manager.files.listing",
-              "default": true,
-              "evidence": [
-                "AlpmDBEntry.Files"
-              ]
+              "default": false
             },
             {
               "name": "package_manager.files.digests",
-              "default": true,
-              "evidence": [
-                "AlpmDBEntry.Files[].Digests"
-              ]
+              "default": false
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": false
+              "default": true,
+              "evidence": [
+                "GGUFFileHeader.MetadataKeyValuesHash"
+              ]
             }
           ]
         }
@@ -139,6 +129,77 @@
               "evidence": [
                 "ApkDBEntry.Checksum"
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "alpm",
+      "name": "alpm-db-cataloger",
+      "type": "generic",
+      "selectors": [
+        "alpm",
+        "archlinux",
+        "directory",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package",
+        "pacman"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/var/lib/pacman/local/**/desc"
+          ],
+          "package_types": [
+            "alpm"
+          ],
+          "json_schema_types": [
+            "AlpmDbEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": true,
+              "evidence": [
+                "AlpmDBEntry.Files"
+              ]
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": true,
+              "evidence": [
+                "AlpmDBEntry.Files[].Digests"
+              ]
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
             }
           ]
         }
@@ -1623,60 +1684,6 @@
                 "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
               ],
               "type": "BinaryPkg"
-            },
-            {
-              "class": "java-binary-graalvm",
-              "name": "graalvm",
-              "purl": "pkg:generic/oracle/graalvm",
-              "cpes": [
-                "cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
-            },
-            {
-              "class": "jdb-binary-openjdk-zulu",
-              "name": "zulu",
-              "purl": "pkg:generic/azul/zulu",
-              "cpes": [
-                "cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
-            },
-            {
-              "class": "java-jdb-binary-openjdk",
-              "name": "openjdk",
-              "purl": "pkg:generic/oracle/openjdk",
-              "cpes": [
-                "cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
-            },
-            {
-              "class": "java-sdk-binary-ibm",
-              "name": "java_sdk",
-              "purl": "pkg:generic/ibm/java_sdk",
-              "cpes": [
-                "cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
-            },
-            {
-              "class": "java-binary-openjdk-fallthrough",
-              "name": "openjdk",
-              "purl": "pkg:generic/oracle/openjdk",
-              "cpes": [
-                "cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
-            },
-            {
-              "class": "java-binary-jdk",
-              "name": "jdk",
-              "purl": "pkg:generic/oracle/jdk",
-              "cpes": [
-                "cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*"
-              ],
-              "type": "BinaryPkg"
             }
           ],
           "package_types": [
@@ -1894,269 +1901,6 @@
               "evidence": [
                 "BitnamiSBOMEntry.Files"
               ]
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "rust",
-      "name": "cargo-auditable-binary-cataloger",
-      "type": "generic",
-      "selectors": [
-        "binary",
-        "directory",
-        "image",
-        "installed",
-        "language",
-        "package",
-        "rust"
-      ],
-      "patterns": [
-        {
-          "method": "mimetype",
-          "criteria": [
-            "application/x-executable",
-            "application/x-mach-binary",
-            "application/x-elf",
-            "application/x-sharedlib",
-            "application/vnd.microsoft.portable-executable",
-            "application/x-executable"
-          ],
-          "package_types": [
-            "rust-crate"
-          ],
-          "json_schema_types": [
-            "RustCargoAuditEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": false
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": "complete"
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "rust",
-      "name": "rust-cargo-lock-cataloger",
-      "type": "generic",
-      "selectors": [
-        "cargo",
-        "declared",
-        "directory",
-        "language",
-        "package",
-        "rust"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/Cargo.lock"
-          ],
-          "package_types": [
-            "rust-crate"
-          ],
-          "json_schema_types": [
-            "RustCargoLockEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": false
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": "complete"
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime",
-                "dev",
-                "build"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": true,
-              "evidence": [
-                "RustCargoLockEntry.Checksum"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "swift",
-      "name": "cocoapods-cataloger",
-      "type": "generic",
-      "selectors": [
-        "cocoapods",
-        "declared",
-        "directory",
-        "language",
-        "package",
-        "swift"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/Podfile.lock"
-          ],
-          "package_types": [
-            "pod"
-          ],
-          "json_schema_types": [
-            "CocoaPodfileLockEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": false
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": true,
-              "evidence": [
-                "CocoaPodfileLockEntry.Checksum"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "swift",
-      "name": "swift-package-manager-cataloger",
-      "type": "generic",
-      "selectors": [
-        "declared",
-        "directory",
-        "language",
-        "package",
-        "spm",
-        "swift"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/Package.resolved",
-            "**/.package.resolved"
-          ],
-          "package_types": [
-            "swift"
-          ],
-          "json_schema_types": [
-            "SwiftPackageManagerLockEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": false
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
             },
             {
               "name": "package_manager.files.digests",
@@ -2539,143 +2283,6 @@
       ]
     },
     {
-      "ecosystem": "dpkg",
-      "name": "dpkg-db-cataloger",
-      "type": "generic",
-      "selectors": [
-        "debian",
-        "directory",
-        "dpkg",
-        "image",
-        "installed",
-        "linux",
-        "os",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/lib/dpkg/status",
-            "**/lib/dpkg/status.d/*",
-            "**/lib/opkg/info/*.control",
-            "**/lib/opkg/status"
-          ],
-          "package_types": [
-            "deb"
-          ],
-          "json_schema_types": [
-            "DpkgDbEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": true
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": "complete"
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": true,
-              "evidence": [
-                "DpkgDBEntry.Files"
-              ]
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": true,
-              "evidence": [
-                "DpkgDBEntry.Files[].Digest"
-              ]
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "dpkg",
-      "name": "deb-archive-cataloger",
-      "type": "generic",
-      "selectors": [
-        "deb",
-        "debian",
-        "declared",
-        "directory",
-        "linux",
-        "os",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/*.deb"
-          ],
-          "package_types": [
-            "deb"
-          ],
-          "json_schema_types": [
-            "DpkgArchiveEntry"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": true
-            },
-            {
-              "name": "dependency.depth",
-              "default": []
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": []
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": true,
-              "evidence": [
-                "DpkgArchiveEntry.Files"
-              ]
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": true,
-              "evidence": [
-                "DpkgArchiveEntry.Files[].Digest"
-              ]
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
       "ecosystem": "dotnet",
       "name": "dotnet-deps-binary-cataloger",
       "type": "custom",
@@ -2950,6 +2557,143 @@
       }
     },
     {
+      "ecosystem": "dpkg",
+      "name": "deb-archive-cataloger",
+      "type": "generic",
+      "selectors": [
+        "deb",
+        "debian",
+        "declared",
+        "directory",
+        "linux",
+        "os",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.deb"
+          ],
+          "package_types": [
+            "deb"
+          ],
+          "json_schema_types": [
+            "DpkgArchiveEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": true,
+              "evidence": [
+                "DpkgArchiveEntry.Files"
+              ]
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": true,
+              "evidence": [
+                "DpkgArchiveEntry.Files[].Digest"
+              ]
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "dpkg",
+      "name": "dpkg-db-cataloger",
+      "type": "generic",
+      "selectors": [
+        "debian",
+        "directory",
+        "dpkg",
+        "image",
+        "installed",
+        "linux",
+        "os",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/lib/dpkg/status",
+            "**/lib/dpkg/status.d/*",
+            "**/lib/opkg/info/*.control",
+            "**/lib/opkg/status"
+          ],
+          "package_types": [
+            "deb"
+          ],
+          "json_schema_types": [
+            "DpkgDbEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": true,
+              "evidence": [
+                "DpkgDBEntry.Files"
+              ]
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": true,
+              "evidence": [
+                "DpkgDBEntry.Files[].Digest"
+              ]
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "ecosystem": "elixir",
       "name": "elixir-mix-lock-cataloger",
       "type": "generic",
@@ -3105,7 +2849,8 @@
             {
               "name": "dependency.depth",
               "default": [
-                "direct"
+                "direct",
+                "indirect"
               ]
             },
             {
@@ -3548,443 +3293,6 @@
       }
     },
     {
-      "ecosystem": "java",
-      "name": "java-archive-cataloger",
-      "type": "custom",
-      "selectors": [
-        "directory",
-        "image",
-        "installed",
-        "java",
-        "language",
-        "maven",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/*.jar",
-            "**/*.war",
-            "**/*.ear",
-            "**/*.par",
-            "**/*.sar",
-            "**/*.nar",
-            "**/*.jpi",
-            "**/*.hpi",
-            "**/*.kar",
-            "**/*.lpkg"
-          ],
-          "comment": "JAR-based archives - always active",
-          "package_types": [
-            "java-archive"
-          ],
-          "json_schema_types": [
-            "JavaArchive"
-          ]
-        },
-        {
-          "method": "glob",
-          "criteria": [
-            "**/*.zip"
-          ],
-          "conditions": [
-            {
-              "when": {
-                "IncludeIndexedArchives": true
-              }
-            }
-          ],
-          "comment": "ZIP archives require indexed archive support",
-          "package_types": [
-            "java-archive"
-          ],
-          "json_schema_types": [
-            "JavaArchive"
-          ]
-        },
-        {
-          "method": "glob",
-          "criteria": [
-            "**/*.tar",
-            "**/*.tar.gz",
-            "**/*.tgz",
-            "**/*.tar.bz",
-            "**/*.tar.bz2",
-            "**/*.tbz",
-            "**/*.tbz2",
-            "**/*.tar.br",
-            "**/*.tbr",
-            "**/*.tar.lz4",
-            "**/*.tlz4",
-            "**/*.tar.sz",
-            "**/*.tsz",
-            "**/*.tar.xz",
-            "**/*.txz",
-            "**/*.tar.zst",
-            "**/*.tzst",
-            "**/*.tar.zstd",
-            "**/*.tzstd"
-          ],
-          "conditions": [
-            {
-              "when": {
-                "IncludeUnindexedArchives": true
-              }
-            }
-          ],
-          "comment": "TAR archives require unindexed archive support",
-          "package_types": [
-            "java-archive"
-          ],
-          "json_schema_types": [
-            "JavaArchive"
-          ]
-        }
-      ],
-      "capabilities": [
-        {
-          "name": "license",
-          "default": false
-        },
-        {
-          "name": "dependency.depth",
-          "default": [
-            "direct",
-            "indirect"
-          ]
-        },
-        {
-          "name": "dependency.edges",
-          "default": "complete"
-        },
-        {
-          "name": "dependency.kinds",
-          "default": [
-            "runtime",
-            "dev"
-          ]
-        },
-        {
-          "name": "package_manager.files.listing",
-          "default": false
-        },
-        {
-          "name": "package_manager.files.digests",
-          "default": false
-        },
-        {
-          "name": "package_manager.package_integrity_hash",
-          "default": true,
-          "evidence": [
-            "JavaArchive.ArchiveDigests"
-          ]
-        }
-      ],
-      "config": {
-        "type": "java.ArchiveCatalogerConfig",
-        "fields": [
-          {
-            "key": "IncludeIndexedArchives",
-            "description": "IncludeIndexedArchives indicates whether to search within indexed archive files (e.g., .zip)."
-          },
-          {
-            "key": "IncludeUnindexedArchives",
-            "description": "IncludeUnindexedArchives indicates whether to search within unindexed archive files (e.g., .tar*)."
-          },
-          {
-            "key": "UseNetwork",
-            "description": "UseNetwork enables network operations for java package metadata enrichment, such as fetching parent POMs and license information.",
-            "app_key": "java.use-network"
-          },
-          {
-            "key": "UseMavenLocalRepository",
-            "description": "UseMavenLocalRepository enables searching the local maven repository (~/.m2/repository by default) for parent POMs and other metadata.",
-            "app_key": "java.use-maven-local-repository"
-          },
-          {
-            "key": "MavenLocalRepositoryDir",
-            "description": "MavenLocalRepositoryDir specifies the location of the local maven repository. When not set, defaults to ~/.m2/repository.",
-            "app_key": "java.maven-local-repository-dir"
-          },
-          {
-            "key": "MavenBaseURL",
-            "description": "MavenBaseURL specifies the base URL(s) to use for fetching POMs and metadata from maven central or other repositories. When not set, defaults to https://repo1.maven.org/maven2.",
-            "app_key": "java.maven-url"
-          },
-          {
-            "key": "MaxParentRecursiveDepth",
-            "description": "MaxParentRecursiveDepth limits how many parent POMs will be fetched recursively before stopping. This prevents infinite loops or excessively deep parent chains.",
-            "app_key": "java.max-parent-recursive-depth"
-          },
-          {
-            "key": "ResolveTransitiveDependencies",
-            "description": "ResolveTransitiveDependencies enables resolving transitive dependencies for java packages found within archives.",
-            "app_key": "java.resolve-transitive-dependencies"
-          }
-        ]
-      }
-    },
-    {
-      "ecosystem": "java",
-      "name": "java-gradle-lockfile-cataloger",
-      "type": "generic",
-      "selectors": [
-        "declared",
-        "directory",
-        "gradle",
-        "java",
-        "language",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/gradle.lockfile*"
-          ],
-          "package_types": [
-            "java-archive"
-          ],
-          "json_schema_types": [
-            "JavaArchive"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": false
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime",
-                "dev"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "java",
-      "name": "java-pom-cataloger",
-      "type": "custom",
-      "selectors": [
-        "declared",
-        "directory",
-        "java",
-        "language",
-        "maven",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "*pom.xml"
-          ],
-          "package_types": [
-            "java-archive"
-          ],
-          "json_schema_types": [
-            "JavaArchive"
-          ]
-        }
-      ],
-      "capabilities": [
-        {
-          "name": "license",
-          "default": true
-        },
-        {
-          "name": "dependency.depth",
-          "default": [
-            "direct"
-          ]
-        },
-        {
-          "name": "dependency.edges",
-          "default": "complete"
-        },
-        {
-          "name": "dependency.kinds",
-          "default": [
-            "runtime",
-            "dev"
-          ]
-        },
-        {
-          "name": "package_manager.files.listing",
-          "default": false
-        },
-        {
-          "name": "package_manager.files.digests",
-          "default": false
-        },
-        {
-          "name": "package_manager.package_integrity_hash",
-          "default": false
-        }
-      ]
-    },
-    {
-      "ecosystem": "java",
-      "name": "java-jvm-cataloger",
-      "type": "generic",
-      "selectors": [
-        "declared",
-        "directory",
-        "image",
-        "installed",
-        "java",
-        "jdk",
-        "jre",
-        "jvm",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/release"
-          ],
-          "package_types": [
-            "binary"
-          ],
-          "json_schema_types": [
-            "JavaJvmInstallation"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": true
-            },
-            {
-              "name": "dependency.depth",
-              "default": [
-                "direct",
-                "indirect"
-              ]
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": [
-                "runtime",
-                "dev"
-              ]
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": true,
-              "evidence": [
-                "JavaVMInstallation.Files"
-              ]
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "java",
-      "name": "graalvm-native-image-cataloger",
-      "type": "custom",
-      "selectors": [
-        "directory",
-        "image",
-        "installed",
-        "java",
-        "language",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "mimetype",
-          "criteria": [
-            "application/x-executable",
-            "application/x-mach-binary",
-            "application/x-elf",
-            "application/x-sharedlib",
-            "application/vnd.microsoft.portable-executable"
-          ],
-          "package_types": [
-            "graalvm-native-image"
-          ]
-        }
-      ],
-      "capabilities": [
-        {
-          "name": "license",
-          "default": false
-        },
-        {
-          "name": "dependency.depth",
-          "default": [
-            "direct",
-            "indirect"
-          ],
-          "comment": "the dependencies ultimately depends on the quality of the embedded SBOM"
-        },
-        {
-          "name": "dependency.edges",
-          "default": "complete"
-        },
-        {
-          "name": "dependency.kinds",
-          "default": [
-            "runtime",
-            "dev"
-          ]
-        },
-        {
-          "name": "package_manager.files.listing",
-          "default": false
-        },
-        {
-          "name": "package_manager.files.digests",
-          "default": false
-        },
-        {
-          "name": "package_manager.package_integrity_hash",
-          "default": false
-        }
-      ]
-    },
-    {
       "ecosystem": "haskell",
       "name": "haskell-cataloger",
       "type": "generic",
@@ -4204,6 +3512,437 @@
       ]
     },
     {
+      "ecosystem": "java",
+      "name": "graalvm-native-image-cataloger",
+      "type": "custom",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "language",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "mimetype",
+          "criteria": [
+            "application/x-executable",
+            "application/x-mach-binary",
+            "application/x-elf",
+            "application/x-sharedlib",
+            "application/vnd.microsoft.portable-executable"
+          ],
+          "package_types": [
+            "graalvm-native-image"
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "name": "license",
+          "default": true
+        },
+        {
+          "name": "dependency.depth",
+          "default": [
+            "direct",
+            "indirect"
+          ],
+          "comment": "the dependencies ultimately depends on the quality of the embedded SBOM"
+        },
+        {
+          "name": "dependency.edges",
+          "default": "complete"
+        },
+        {
+          "name": "dependency.kinds",
+          "default": [
+            "runtime",
+            "dev"
+          ]
+        },
+        {
+          "name": "package_manager.files.listing",
+          "default": false
+        },
+        {
+          "name": "package_manager.files.digests",
+          "default": false
+        },
+        {
+          "name": "package_manager.package_integrity_hash",
+          "default": false
+        }
+      ]
+    },
+    {
+      "ecosystem": "java",
+      "name": "java-archive-cataloger",
+      "type": "custom",
+      "selectors": [
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "language",
+        "maven",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.jar",
+            "**/*.war",
+            "**/*.ear",
+            "**/*.par",
+            "**/*.sar",
+            "**/*.nar",
+            "**/*.jpi",
+            "**/*.hpi",
+            "**/*.kar",
+            "**/*.lpkg"
+          ],
+          "comment": "JAR-based archives - always active",
+          "package_types": [
+            "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.zip"
+          ],
+          "conditions": [
+            {
+              "when": {
+                "IncludeIndexedArchives": true
+              }
+            }
+          ],
+          "comment": "ZIP archives require indexed archive support",
+          "package_types": [
+            "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.tar",
+            "**/*.tar.gz",
+            "**/*.tgz",
+            "**/*.tar.bz",
+            "**/*.tar.bz2",
+            "**/*.tbz",
+            "**/*.tbz2",
+            "**/*.tar.br",
+            "**/*.tbr",
+            "**/*.tar.lz4",
+            "**/*.tlz4",
+            "**/*.tar.sz",
+            "**/*.tsz",
+            "**/*.tar.xz",
+            "**/*.txz",
+            "**/*.tar.zst",
+            "**/*.tzst",
+            "**/*.tar.zstd",
+            "**/*.tzstd"
+          ],
+          "conditions": [
+            {
+              "when": {
+                "IncludeUnindexedArchives": true
+              }
+            }
+          ],
+          "comment": "TAR archives require unindexed archive support",
+          "package_types": [
+            "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "name": "license",
+          "default": true
+        },
+        {
+          "name": "dependency.depth",
+          "default": [
+            "direct",
+            "indirect"
+          ]
+        },
+        {
+          "name": "dependency.edges",
+          "default": "complete"
+        },
+        {
+          "name": "dependency.kinds",
+          "default": [
+            "runtime",
+            "dev"
+          ]
+        },
+        {
+          "name": "package_manager.files.listing",
+          "default": false
+        },
+        {
+          "name": "package_manager.files.digests",
+          "default": false
+        },
+        {
+          "name": "package_manager.package_integrity_hash",
+          "default": true,
+          "evidence": [
+            "JavaArchive.ArchiveDigests"
+          ]
+        }
+      ],
+      "config": {
+        "type": "java.ArchiveCatalogerConfig",
+        "fields": [
+          {
+            "key": "IncludeIndexedArchives",
+            "description": "IncludeIndexedArchives indicates whether to search within indexed archive files (e.g., .zip)."
+          },
+          {
+            "key": "IncludeUnindexedArchives",
+            "description": "IncludeUnindexedArchives indicates whether to search within unindexed archive files (e.g., .tar*)."
+          },
+          {
+            "key": "UseNetwork",
+            "description": "UseNetwork enables network operations for java package metadata enrichment, such as fetching parent POMs and license information.",
+            "app_key": "java.use-network"
+          },
+          {
+            "key": "UseMavenLocalRepository",
+            "description": "UseMavenLocalRepository enables searching the local maven repository (`~/.m2/repository` by default) for parent POMs and other metadata.",
+            "app_key": "java.use-maven-local-repository"
+          },
+          {
+            "key": "MavenLocalRepositoryDir",
+            "description": "MavenLocalRepositoryDir specifies the location of the local maven repository. When not set, defaults to `~/.m2/repository`.",
+            "app_key": "java.maven-local-repository-dir"
+          },
+          {
+            "key": "MavenBaseURL",
+            "description": "MavenBaseURL specifies the base URL(s) to use for fetching POMs and metadata from maven central or other repositories. When not set, defaults to `https://repo1.maven.org/maven2`.",
+            "app_key": "java.maven-url"
+          },
+          {
+            "key": "MaxParentRecursiveDepth",
+            "description": "MaxParentRecursiveDepth limits how many parent POMs will be fetched recursively before stopping. This prevents fetching excessively deep parent graphs.",
+            "app_key": "java.max-parent-recursive-depth"
+          },
+          {
+            "key": "ResolveTransitiveDependencies",
+            "description": "ResolveTransitiveDependencies enables resolving transitive dependencies for java packages found within archives.",
+            "app_key": "java.resolve-transitive-dependencies"
+          }
+        ]
+      }
+    },
+    {
+      "ecosystem": "java",
+      "name": "java-gradle-lockfile-cataloger",
+      "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "gradle",
+        "java",
+        "language",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/gradle.lockfile*"
+          ],
+          "package_types": [
+            "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime",
+                "dev"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "java",
+      "name": "java-jvm-cataloger",
+      "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "image",
+        "installed",
+        "java",
+        "jdk",
+        "jre",
+        "jvm",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/release"
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "JavaJvmInstallation"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": null
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": null
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": true,
+              "evidence": [
+                "JavaVMInstallation.Files"
+              ]
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "java",
+      "name": "java-pom-cataloger",
+      "type": "custom",
+      "selectors": [
+        "declared",
+        "directory",
+        "java",
+        "language",
+        "maven",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "*pom.xml"
+          ],
+          "package_types": [
+            "java-archive"
+          ],
+          "json_schema_types": [
+            "JavaArchive"
+          ]
+        }
+      ],
+      "capabilities": [
+        {
+          "name": "license",
+          "default": true
+        },
+        {
+          "name": "dependency.depth",
+          "default": [
+            "direct"
+          ]
+        },
+        {
+          "name": "dependency.edges",
+          "default": "complete"
+        },
+        {
+          "name": "dependency.kinds",
+          "default": [
+            "runtime",
+            "dev"
+          ]
+        },
+        {
+          "name": "package_manager.files.listing",
+          "default": false
+        },
+        {
+          "name": "package_manager.files.digests",
+          "default": false
+        },
+        {
+          "name": "package_manager.package_integrity_hash",
+          "default": false
+        }
+      ]
+    },
+    {
       "ecosystem": "javascript",
       "name": "javascript-lock-cataloger",
       "type": "generic",
@@ -4260,7 +3999,7 @@
             },
             {
               "name": "package_manager.package_integrity_hash",
-              "default": false
+              "default": true
             }
           ]
         },
@@ -4345,7 +4084,8 @@
             {
               "name": "dependency.kinds",
               "default": [
-                "runtime"
+                "runtime",
+                "dev"
               ]
             },
             {
@@ -4429,7 +4169,8 @@
             {
               "name": "dependency.kinds",
               "default": [
-                "runtime"
+                "runtime",
+                "dev"
               ]
             },
             {
@@ -4518,7 +4259,7 @@
         "fields": [
           {
             "key": "CatalogModules",
-            "description": "CatalogModules enables cataloging linux kernel modules (*.ko files) in addition to the kernel itself.",
+            "description": "CatalogModules enables cataloging linux kernel modules (`*.ko` files) in addition to the kernel itself.",
             "app_key": "linux-kernel.catalog-modules"
           }
         ]
@@ -4763,9 +4504,7 @@
             },
             {
               "name": "dependency.depth",
-              "default": [
-                "direct"
-              ]
+              "default": []
             },
             {
               "name": "dependency.edges",
@@ -4773,9 +4512,7 @@
             },
             {
               "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
+              "default": []
             },
             {
               "name": "package_manager.files.listing",
@@ -4935,6 +4672,7 @@
         {
           "method": "glob",
           "criteria": [
+            "**/php*",
             "**/php*/**/*.so",
             "**/php-fpm*",
             "**/apache*/**/libphp*.so"
@@ -5135,9 +4873,7 @@
             },
             {
               "name": "dependency.depth",
-              "default": [
-                "direct"
-              ]
+              "default": []
             },
             {
               "name": "dependency.edges",
@@ -5145,9 +4881,7 @@
             },
             {
               "name": "dependency.kinds",
-              "default": [
-                "runtime"
-              ]
+              "default": []
             },
             {
               "name": "package_manager.files.listing",
@@ -5162,6 +4896,63 @@
               "evidence": [
                 "PortageEntry.Files[].Digest"
               ]
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "prolog",
+      "name": "swipl-pack-cataloger",
+      "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "pack",
+        "package",
+        "swipl"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/pack.pl"
+          ],
+          "package_types": [
+            "swiplpack"
+          ],
+          "json_schema_types": [
+            "SwiplpackPackage"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
             },
             {
               "name": "package_manager.package_integrity_hash",
@@ -5990,6 +5781,141 @@
       ]
     },
     {
+      "ecosystem": "rust",
+      "name": "cargo-auditable-binary-cataloger",
+      "type": "generic",
+      "selectors": [
+        "binary",
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "rust"
+      ],
+      "patterns": [
+        {
+          "method": "mimetype",
+          "criteria": [
+            "application/x-executable",
+            "application/x-mach-binary",
+            "application/x-elf",
+            "application/x-sharedlib",
+            "application/vnd.microsoft.portable-executable",
+            "application/x-executable"
+          ],
+          "package_types": [
+            "rust-crate"
+          ],
+          "json_schema_types": [
+            "RustCargoAuditEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "rust",
+      "name": "rust-cargo-lock-cataloger",
+      "type": "generic",
+      "selectors": [
+        "cargo",
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "rust"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/Cargo.lock"
+          ],
+          "package_types": [
+            "rust-crate"
+          ],
+          "json_schema_types": [
+            "RustCargoLockEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime",
+                "dev",
+                "build"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "RustCargoLockEntry.Checksum"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "ecosystem": "sbom",
       "name": "sbom-cataloger",
       "type": "generic",
@@ -6277,28 +6203,28 @@
       ]
     },
     {
-      "ecosystem": "prolog",
-      "name": "swipl-pack-cataloger",
+      "ecosystem": "swift",
+      "name": "cocoapods-cataloger",
       "type": "generic",
       "selectors": [
+        "cocoapods",
         "declared",
         "directory",
         "language",
-        "pack",
         "package",
-        "swipl"
+        "swift"
       ],
       "patterns": [
         {
           "method": "glob",
           "criteria": [
-            "**/pack.pl"
+            "**/Podfile.lock"
           ],
           "package_types": [
-            "swiplpack"
+            "pod"
           ],
           "json_schema_types": [
-            "SwiplpackPackage"
+            "CocoaPodfileLockEntry"
           ],
           "capabilities": [
             {
@@ -6308,7 +6234,8 @@
             {
               "name": "dependency.depth",
               "default": [
-                "direct"
+                "direct",
+                "indirect"
               ]
             },
             {
@@ -6318,8 +6245,73 @@
             {
               "name": "dependency.kinds",
               "default": [
-                "runtime",
-                "dev"
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "CocoaPodfileLockEntry.Checksum"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "swift",
+      "name": "swift-package-manager-cataloger",
+      "type": "generic",
+      "selectors": [
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "spm",
+        "swift"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/Package.resolved",
+            "**/.package.resolved"
+          ],
+          "package_types": [
+            "swift"
+          ],
+          "json_schema_types": [
+            "SwiftPackageManagerLockEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
               ]
             },
             {
@@ -6450,67 +6442,6 @@
             {
               "name": "package_manager.package_integrity_hash",
               "default": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "ecosystem": "ai",
-      "name": "gguf-cataloger",
-      "type": "generic",
-      "selectors": [
-        "ai",
-        "directory",
-        "gguf",
-        "image",
-        "ml",
-        "model",
-        "package"
-      ],
-      "patterns": [
-        {
-          "method": "glob",
-          "criteria": [
-            "**/*.gguf"
-          ],
-          "package_types": [
-            "model"
-          ],
-          "json_schema_types": [
-            "GgufFileHeader"
-          ],
-          "capabilities": [
-            {
-              "name": "license",
-              "default": true
-            },
-            {
-              "name": "dependency.depth",
-              "default": []
-            },
-            {
-              "name": "dependency.edges",
-              "default": ""
-            },
-            {
-              "name": "dependency.kinds",
-              "default": []
-            },
-            {
-              "name": "package_manager.files.listing",
-              "default": false
-            },
-            {
-              "name": "package_manager.files.digests",
-              "default": false
-            },
-            {
-              "name": "package_manager.package_integrity_hash",
-              "default": true,
-              "evidence": [
-                "GGUFFileHeader.MetadataKeyValuesHash"
-              ]
             }
           ]
         }

@@ -186,8 +186,8 @@
     <tr>
       <td class="col-class">java-jdb-binary</td>
       <td class="col-criteria"><code>jdb</code></td>
-      <td class="col-purl"><code>pkg:generic/oracle/graalvm</code><br><code>pkg:generic/azul/zulu</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/ibm/java_sdk</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/oracle/jdk</code><br><code>pkg:generic/oracle/graalvm@version</code><br><code>pkg:generic/azul/zulu@version</code><br><code>pkg:generic/oracle/openjdk@version</code><br><code>pkg:generic/ibm/java_sdk@version</code><br><code>pkg:generic/oracle/openjdk@version</code><br><code>pkg:generic/oracle/jdk@version</code></td>
-      <td class="col-cpes"><code>cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*</code></td>
+      <td class="col-purl"><code>pkg:generic/oracle/graalvm</code><br><code>pkg:generic/azul/zulu</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/ibm/java_sdk</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/oracle/jdk</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:graalvm_for_jdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:azul:zulu:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:ibm:java_sdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:openjdk:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:jdk:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">jq-binary</td>

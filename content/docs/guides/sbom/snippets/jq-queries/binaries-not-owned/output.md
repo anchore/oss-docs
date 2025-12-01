@@ -29,7 +29,7 @@
 }
 {
   "path": "/usr/local/apache2/bin/httpd",
-  "sha256": "9eaf7e3b7cef41b254932e488f52b8967a1155e0f1e2220070075c99ba9bce12"
+  "sha256": "2f3b52523394d1f4d4e2c5e1c5565161dcf8a0fc8e957e8d2d741acd3a111563"
 }
 {
   "path": "/usr/local/apache2/bin/httxt2dbm",

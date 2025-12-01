@@ -15,7 +15,7 @@ Use GitHub issues for:
 - **Bug reports**: Something isn't working as documented
 - **Feature requests**: Proposals for new functionality
 - **Enhancement requests**: Improvements to existing features
-- **Security vulnerabilities**: Please follow our security policy (reported privately)
+- **Security vulnerabilities**: Please follow our [Security Policy]({{< ref "security" >}}) (reported privately)
 
 ### Creating a good issue
 

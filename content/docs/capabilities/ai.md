@@ -16,5 +16,5 @@ Unsupported at this time.
 
 ## Next steps
 
-- [Syft package analysis]({{< ref "docs/guides/sbom" >}})
-- [Grype vulnerability scanning]({{< ref "docs/guides/vulnerability" >}})
+- [Syft package analysis]({{< ref "docs/guides/sbom/getting-started" >}})
+- [Grype vulnerability scanning]({{< ref "docs/guides/vulnerability/getting-started" >}})

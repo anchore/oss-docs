@@ -15,15 +15,15 @@
   <tbody>
     <tr>
       <td class="col-config-key"><code>java.maven-local-repository-dir</code></td>
-      <td class="col-description">Specifies the location of the local maven repository. When not set, defaults to ~/.m2/repository.</td>
+      <td class="col-description">Specifies the location of the local maven repository. When not set, defaults to <code>~/.m2/repository</code>.</td>
     </tr>
     <tr>
       <td class="col-config-key"><code>java.maven-url</code></td>
-      <td class="col-description">Specifies the base URL(s) to use for fetching POMs and metadata from maven central or other repositories. When not set, defaults to https://repo1.maven.org/maven2.</td>
+      <td class="col-description">Specifies the base URL(s) to use for fetching POMs and metadata from maven central or other repositories. When not set, defaults to <code>https://repo1.maven.org/maven2</code>.</td>
     </tr>
     <tr>
       <td class="col-config-key"><code>java.max-parent-recursive-depth</code></td>
-      <td class="col-description">Limits how many parent POMs will be fetched recursively before stopping. This prevents infinite loops or excessively deep parent chains.</td>
+      <td class="col-description">Limits how many parent POMs will be fetched recursively before stopping. This prevents fetching excessively deep parent graphs.</td>
     </tr>
     <tr>
       <td class="col-config-key"><code>java.resolve-transitive-dependencies</code></td>
@@ -31,7 +31,7 @@
     </tr>
     <tr>
       <td class="col-config-key"><code>java.use-maven-local-repository</code></td>
-      <td class="col-description">Enables searching the local maven repository (~/.m2/repository by default) for parent POMs and other metadata.</td>
+      <td class="col-description">Enables searching the local maven repository (<code>~/.m2/repository</code> by default) for parent POMs and other metadata.</td>
     </tr>
     <tr>
       <td class="col-config-key"><code>java.use-network</code></td>

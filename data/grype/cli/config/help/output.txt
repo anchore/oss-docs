@@ -185,6 +185,9 @@ name: ''
 # valid values are: registry, docker, podman (env: GRYPE_DEFAULT_IMAGE_PULL_SOURCE)
 default-image-pull-source: ''
 
+# specify the source behavior to use (e.g. docker, registry, podman, oci-dir, ...) (env: GRYPE_FROM)
+from: []
+
 # a list of VEX documents to consider when producing scanning results (env: GRYPE_VEX_DOCUMENTS)
 vex-documents: []
 
@@ -207,7 +210,7 @@ timestamp: true
 
 db:
   # location to write the vulnerability database cache (env: GRYPE_DB_CACHE_DIR)
-  cache-dir: '~.cache~grype~db'
+  cache-dir: '~/.cache/grype/db'
 
   # URL of the vulnerability database (env: GRYPE_DB_UPDATE_URL)
   update-url: 'https://grype.anchore.io/databases'

@@ -2,6 +2,30 @@
 
 from typing import Any
 
+import mistune
+
+
+# NonWrappedRenderer outputs the text directly without wrapping it in <p> tags
+class NonWrappedRenderer(mistune.HTMLRenderer):
+    def paragraph(self, text):
+        return text
+
+
+non_wrapped_renderer = mistune.create_markdown(renderer=NonWrappedRenderer())
+
+
+def text(content: str) -> str:
+    """
+    Output markdown enhanced text, such as a table description.
+
+    Args:
+        content: text, including markdown formatting
+
+    Returns:
+        Formatted text, not wrapped in paragraph
+    """
+    return f"{non_wrapped_renderer(content)}"
+
 
 def create_code_fence(content: str, language: str = "") -> str:
     """

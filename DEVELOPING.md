@@ -27,6 +27,24 @@ This requires the syft/grype/grype-db/vunnel/grant repos to be checked out as si
 
 Any intermediate work from agents when using the slash commands is stored in `drafts/` in a session directory.
 
+## Data
+
+Python scripts in `./src` populate JSON and TXT data in `./data`, which are then used by those same scripts to
+generate `*.md` snippets throughout `content/docs/`.
+YAML files in `./data` are manually curated; all other files (JSON, TXT) are generated.
+
+To generate snippets from existing `./data` files:
+
+```bash
+make generate
+```
+
+To generate snippets after running the latest docker container syft/grype/grant to update the `./data` files:
+
+```bash
+make generate:update
+```
+
 ## AI Tooling
 
 Use these slash commands with claude code:
