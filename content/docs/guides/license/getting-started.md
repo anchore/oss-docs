@@ -60,7 +60,7 @@ Grant categorizes licenses into three risk levels:
 - **Low** (green): Permissive licenses with minimal restrictions
 
 {{< alert title="Learn more" color="primary" >}}
-Grant supports more than just containers. You can scan SBOM files, directories, and archives. The target types are similar to those supported by [Syft]({{< relref "/docs/guides/sbom/sources/" >}}).
+Grant supports more than just containers. You can scan SBOM files, directories, and archives. The target types are similar to those supported by [Syft]({{< relref "/docs/guides/sbom/scan-targets" >}}).
 {{< /alert >}}
 
 ## View packages with specific licenses
