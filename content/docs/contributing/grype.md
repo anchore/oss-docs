@@ -105,34 +105,29 @@ a release is cut the Syft version is updated to a released version (e.g. `go get
 
 ## Inspecting the database
 
-The currently supported database format is Sqlite3. Install `sqlite3` in your system and ensure that the `sqlite3` executable is available in your path.
+The v6 database is a highly normalized database with JSON data, making queries more difficult than the previous version.
+The easiest way to understand what's in the database is using the [`grype db search` subcommand]({{< relref "/docs/reference/grype/cli/#grype-db-search" >}}), e.g.:
+
+```
+go run ./cmd/grype db search CVE-2025-1234 -o json
+```
+
+If you need to inspect the database directly, the current database format is Sqlite3. Install `sqlite3` in your system and ensure that the `sqlite3` executable is available in your path.
 Ask `grype` about the location of the database, which will be different depending on the operating system:
 
 ```bash
 $ go run ./cmd/grype db status
-Location:  /Users/alfredo/Library/Caches/grype/db
-Built:  2020-07-31 08:18:29 +0000 UTC
-Current DB Version:  1
-Require DB Version:  1
-Status: Valid
-```
-
-The database is located within the XDG_CACHE_HOME path. To verify the database filename, list that path:
-
-```bash
-# OSX-specific path
-$ ls -alh  /Users/alfredo/Library/Caches/grype/db
-total 445392
-drwxr-xr-x  4 alfredo  staff   128B Jul 31 09:27 .
-drwxr-xr-x  3 alfredo  staff    96B Jul 31 09:27 ..
--rw-------  1 alfredo  staff   139B Jul 31 09:27 metadata.json
--rw-r--r--  1 alfredo  staff   217M Jul 31 09:27 vulnerability.db
+Path:      /Users/kzantow/Library/Caches/grype/db/6/vulnerability.db
+Schema:    v6.1.3
+Built:     2025-12-01T16:28:25Z
+From:      https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.3_2025-12-01T11:57:14Z_1764606505.tar.zst?checksum=sha256%3A8d34ad53aebced159559e767e1ccedddc41dfeb3f70492bdbb1b94df629def05
+Status:    valid
 ```
 
 Next, open the `vulnerability.db` with `sqlite3`:
 
 ```bash
-sqlite3 /Users/alfredo/Library/Caches/grype/db/vulnerability.db
+sqlite3 /Users/kzantow/Library/Caches/grype/db/6/vulnerability.db
 ```
 
 To make the reporting from Sqlite3 easier to read, enable the following:
@@ -146,16 +141,20 @@ List the tables:
 
 ```sql
 sqlite> .tables
-id                      vulnerability           vulnerability_metadata
+affected_cpe_handles                   operating_systems                    affected_package_handles               package_cpes
+...
 ```
 
-In this example you retrieve a specific vulnerability from the `nvd` namespace:
+To retrieve basic information for a specific vulnerability, join the `vulnerability_handles` table with `blobs`, for example:
 
 ```sql
-sqlite> select * from vulnerability where (namespace="nvd" and package_name="libvncserver") limit 1;
-id             record_source  package_name  namespace   version_constraint  version_format  cpes                                                         proxy_vulnerabilities
--------------  -------------  ------------  ----------  ------------------  --------------  -----------------------------------------------------------  ---------------------
-CVE-2006-2450                 libvncserver  nvd         = 0.7.1             unknown         ["cpe:2.3:a:libvncserver:libvncserver:0.7.1:*:*:*:*:*:*:*"]  []
+sqlite> select * from blobs b join vulnerability_handles h on b.id = h.blob_id where h.name = 'CVE-2025-1234';
+id       value                                                         id      name           status    published_date                 modified_date                  withdrawn_date  provider_id  blob_id
+-------  ------------------------------------------------------------  ------  -------------  --------  -----------------------------  -----------------------------  --------------  -----------  -------
+1016723  {"id":"CVE-2025-1234","assigner":["cve@gitlab.com"],"descrip  287704  CVE-2025-1234  rejected  2025-07-05 23:15:24.613+00:00  2025-07-05 23:15:24.613+00:00                  nvd          1016723
+         tion":"Rejected reason: This CVE ID has been rejected or wit
+         hdrawn by its CVE Numbering Authority.","refs":[{"url":"http
+         s://nvd.nist.gov/vuln/detail/CVE-2025-1234"}]}
 ```
 
 ## Next Steps
