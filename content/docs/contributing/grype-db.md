@@ -9,6 +9,11 @@ menu_group = "projects"
 
 ## Getting started
 
+{{< alert color="primary" title="Adding Data Sources" >}}
+Grype DB is responsible for building the database used by Grype, aggregating data provided by [Vunnel providers]({{< ref "docs/contributing/vunnel" >}}).
+If you're interested in adding a data source, you probably want to start with the [Vunnel documentation]({{< ref "docs/contributing/vunnel" >}}).
+{{< /alert >}}
+
 This codebase is primarily Go, however, there are also Python scripts critical to the daily DB publishing process as
 well as acceptance testing. You will require the following:
 
@@ -53,7 +58,7 @@ This data being pulled down is the same data used in the daily DB publishing wor
 
 ### Creating a new DB schema
 
-1. Create a new `v#` schema package in the `grype` repo (within `pkg/db`)
+1. Create a new `v#` schema package in the `grype` repo (within `grype/db`)
 2. Create a new `v#` schema package in the `grype-db` repo (use the `bump-schema.py` helper script) that uses the new changes from `grype-db`
 3. Modify the `manager/src/grype_db_manager/data/schema-info.json` to pin the last-latest version to a specific version of grype and add the new schema version pinned to the "main" branch of grype (or a development branch)
 4. Update all references in `grype` to use the new schema
