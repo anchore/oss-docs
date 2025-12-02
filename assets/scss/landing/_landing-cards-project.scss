@@ -30,6 +30,16 @@
     // neutral default background with strong visibility - much lighter for dark mode
     background: linear-gradient(135deg, rgba(148, 163, 184, 1) 0%, rgba(203, 213, 225, 0.9) 100%);
 
+    .area-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-indent: -9000px;
+      z-index: 21;
+    }
+
     [data-bs-theme='light'] & {
       background: linear-gradient(135deg, rgba(226, 232, 240, 1) 0%, rgba(203, 213, 225, 0.95) 100%);
     }
@@ -126,7 +136,7 @@
     // white popup overlay at bottom 60%
     .card-popup {
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       left: -1px;
       right: -1px;
       height: 60%;
@@ -134,7 +144,7 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 1.5rem 1.5rem 0 0;
-      z-index: 3;
+      z-index: 22;
       padding: var(--landing-space-xl);
       display: flex;
       flex-direction: column;
