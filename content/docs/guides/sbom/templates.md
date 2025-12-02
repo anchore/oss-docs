@@ -67,7 +67,7 @@ Common package (artifact) fields:
 Syft templates support:
 
 - **Go template built-ins** - See the [Go template documentation](https://pkg.go.dev/text/template#hdr-Functions)
-- **Sprig functions** - Additional helpers from [Sprig](http://masterminds.github.io/sprig/)
+- **Sprig functions** - The hermetic (repeatable, not based on environment) set of [Sprig functions](http://masterminds.github.io/sprig/)
 - **Syft-specific functions:**
 
 | Function       | Arguments      | Description                                                                      |
