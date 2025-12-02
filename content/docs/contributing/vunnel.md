@@ -208,14 +208,14 @@ All vunnel providers are protected by a quality gate. A quality gate essentially
 
 Before implementing a provider, understand how the pieces fit together:
 
-**Vulnerability matching overview**
+#### Vulnerability matching overview
 
 - **[Syft](https://github.com/anchore/syft)**: Catalogs packages from images/filesystems with metadata (type, name, version, distro, etc.)
 - **[Vunnel](https://github.com/anchore/vunnel)**: Provides vulnerability data from various sources
 - **[Grype DB](https://github.com/anchore/grype-db)**: Transforms and stores vulnerability data with ecosystem metadata
 - **[Grype](https://github.com/anchore/grype)**: Matches packages against vulnerabilities in the database built by grype-db
 
-**Affected vs. unaffected package handles**
+#### Affected vs. unaffected package handles
 
 Grype uses two types of package records:
 
@@ -229,7 +229,7 @@ Most providers emit affected package records. Some providers (like AlmaLinux) em
 - Affected packages: Most distro providers (Red Hat, Debian, Ubuntu, etc.)
 - Unaffected packages: [AlmaLinux matcher](https://github.com/anchore/grype/blob/main/grype/matcher/rpm/almalinux.go), [OSV transformer](https://github.com/anchore/grype-db/blob/main/pkg/process/v6/transformers/osv/transform.go#L61-L71)
 
-**Schemas**
+#### Schemas
 
 Vulnerability data must conform to a structured schema. Vunnel supports several schemas including OSV, OpenVEX, NVD, and GitHub Security Advisory. Schema selection is covered in detail below.
 
