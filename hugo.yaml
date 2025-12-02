@@ -110,6 +110,10 @@ params:
         url: https://x.com/anchore
         icon: fab fa-x-twitter
         desc: Follow Anchore on Twitter/X
+      - name: Youtube
+        url: https://youtube.com/anchore
+        icon: fab fa-youtube
+        desc: Follow Anchore on Youtube
       - name: Mastodon
         url: https://mstdn.business/@anchore
         icon: fab fa-mastodon pr-2
