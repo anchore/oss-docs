@@ -179,3 +179,5 @@ markup:
         block: true # enables attribute syntax for blocks
       autoHeadingIDType: github # generates GitHub-style heading IDs for anchor links
       autoHeadingAnchor: true # automatically adds anchor links to headings
+
+capitalizeListTitles: false # do not capitalize tags
