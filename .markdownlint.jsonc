@@ -1,5 +1,6 @@
 {
   "default": true,
+  "MD001": false, // we have some content that intentionally skips heading depths
   "MD003": {
     "style": "atx"
   },
