@@ -1,5 +1,5 @@
 +++
-title =  "Vunnel"
+title = "Vunnel"
 description = "Developer guidelines when contributing to Vunnel"
 weight = 28
 categories = ["developer"]

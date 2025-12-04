@@ -1,5 +1,5 @@
 +++
-title =  "Discussion"
+title = "Discussion"
 description = "Official Anchore OSS online discussion"
 weight = 30
 type = "docs"

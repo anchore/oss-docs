@@ -1,5 +1,5 @@
 +++
-title =  "Grype DB"
+title = "Grype DB"
 description = "Developer guidelines when contributing to Grype DB"
 weight = 25
 categories = ["developer"]

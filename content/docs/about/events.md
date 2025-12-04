@@ -1,5 +1,5 @@
 +++
-title =  "Events"
+title = "Events"
 description = "Anchore OSS Community Events and Meetings"
 weight = 15
 type = "docs"

@@ -1,5 +1,5 @@
 +++
-title =  "SBOM Action"
+title = "SBOM Action"
 description = "Developer guidelines when contributing to sbom-action"
 weight = 40
 categories = ["developer"]

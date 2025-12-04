@@ -1,5 +1,5 @@
 +++
-title =  "Grant"
+title = "Grant"
 description = "Developer guidelines when contributing to Grant"
 weight = 30
 categories = ["developer"]

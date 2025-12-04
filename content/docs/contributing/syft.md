@@ -1,5 +1,5 @@
 +++
-title =  "Syft"
+title = "Syft"
 description = "Developer guidelines when contributing to Syft"
 weight = 10
 categories = ["developer"]

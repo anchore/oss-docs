@@ -1,5 +1,5 @@
 +++
-title =  "Docs (this site!)"
+title = "Docs (this site!)"
 description = "Style guide for writing Anchore OSS documentation"
 weight = 90
 type = "docs"
