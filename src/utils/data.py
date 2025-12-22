@@ -196,6 +196,9 @@ def load_cataloger_data(update: bool = False) -> dict:
         stdout, stderr, returncode = syft.run(
             args=["cataloger", "info", "-o", "json"],
             timeout=config.timeouts.cataloger_info,
+            env_vars={
+                "SYFT_EXP_CAPABILITIES": "true",
+            }
         )
 
         if returncode != 0:
