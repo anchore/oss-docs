@@ -34,6 +34,7 @@ tasks:
       - "{{.PACKAGE_CAPABILITIES_CMD}}"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
       - "{{.DATA_SOURCES_CMD}}"
+      - "make validate || true"
 
   update:
     desc: Deletes all data caches and generate all documentation
@@ -52,6 +53,7 @@ tasks:
       - "{{.PACKAGE_CAPABILITIES_CMD}} --update"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
       - "{{.DATA_SOURCES_CMD}} --update"
+      - "make validate || true"
 
   update-release-notes:
     desc: Generate release notes for all projects
