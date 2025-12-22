@@ -198,7 +198,7 @@ def load_cataloger_data(update: bool = False) -> dict:
             timeout=config.timeouts.cataloger_info,
             env_vars={
                 "SYFT_EXP_CAPABILITIES": "true",
-            }
+            },
         )
 
         if returncode != 0:

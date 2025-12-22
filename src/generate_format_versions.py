@@ -17,10 +17,16 @@ from pathlib import Path
 
 import click
 
-from utils import config, log
+from utils import config, log, syft
 
 
 @click.command()
+@click.option(
+    "--syft-image",
+    type=str,
+    default=config.docker_images.syft,
+    help="Syft Docker image to use",
+)
 @click.option(
     "--update",
     is_flag=True,
@@ -32,7 +38,7 @@ from utils import config, log
     count=True,
     help="Increase verbosity (use -v for info, -vv for debug)",
 )
-def main(update: bool, verbose: int) -> None:
+def main(syft_image: str, update: bool, verbose: int) -> None:
     """Generate format version information from Syft output."""
     logger = log.setup(verbose, __file__)
 
@@ -50,7 +56,7 @@ def main(update: bool, verbose: int) -> None:
     else:
         # extract format information
         logger.info("Extracting format versions from Syft...")
-        formats = extract_format_versions()
+        formats = extract_format_versions(syft_image)
 
         if not formats:
             logger.error("No formats found")
@@ -65,23 +71,26 @@ def main(update: bool, verbose: int) -> None:
     generate_markdown_snippet(formats, md_output, logger)
 
 
-def extract_format_versions():
+def extract_format_versions(syft_image: str):
     """
-    run Syft with a fake format to capture available formats output
+    run Syft with a fake format to capture available formats output.
 
-    returns: dict mapping format names to lists of supported versions
+    Args:
+        syft_image: Syft Docker image to use
+
+    Returns:
+        dict mapping format names to lists of supported versions
     """
     try:
         # run syft with an invalid format to trigger the error message
-        result = subprocess.run(
-            ["syft", config.docker_images.busybox_test, "-o", "fake"],
-            capture_output=True,
-            text=True,
+        stdout, stderr, returncode = syft.run(
+            syft_image=syft_image,
+            args=[config.docker_images.busybox_test, "-o", "fake"],
             timeout=config.timeouts.syft_format_version_check,
         )
 
         # the format list will be in stderr
-        output = result.stderr
+        output = stderr
 
         # parse the format list
         # looking for lines like: "   - cyclonedx-json @ 1.2, 1.3, 1.4, 1.5, 1.6"
@@ -109,18 +118,6 @@ def extract_format_versions():
 
         logger = logging.getLogger(__name__)
         logger.error("Syft command timed out")
-        sys.exit(1)
-    except subprocess.CalledProcessError as e:
-        import logging
-
-        logger = logging.getLogger(__name__)
-        logger.error(f"Error running Syft: {e}")
-        sys.exit(1)
-    except FileNotFoundError:
-        import logging
-
-        logger = logging.getLogger(__name__)
-        logger.error("Syft command not found. Please ensure Syft is installed.")
         sys.exit(1)
 
 
