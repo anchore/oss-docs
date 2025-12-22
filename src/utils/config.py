@@ -9,6 +9,9 @@ consistent paths, images, and settings across all scripts.
 from dataclasses import dataclass
 from pathlib import Path
 
+# external repository configuration
+SYFT_REPO_URL = "https://github.com/anchore/syft.git"
+
 # schema processing configuration
 min_schema_major_version = 16
 
@@ -73,9 +76,10 @@ class Paths:
     data_source_enrichment_snippet: Path = grype_snippets_dir / "data-source-aux.md"
     supported_os_snippet: Path = capabilities_snippet_dir / "overview" / "os.md"
 
-    # external repositories (for reference doc generation)
-    syft_repo_root: Path = project_root.parent / "syft"
-    default_schema_dir: Path = syft_repo_root / "schema" / "json"
+    # cache directories for external repositories
+    cache_dir: Path = project_root / ".cache"
+    syft_cache_dir: Path = cache_dir / "syft"
+    syft_schema_dir: Path = syft_cache_dir / "schema" / "json"
 
 
 @dataclass(frozen=True)

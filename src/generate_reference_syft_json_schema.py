@@ -44,10 +44,10 @@ from utils.constants import CSSClasses
 
 @click.command()
 @click.option(
-    "--schema-dir",
-    type=click.Path(exists=True, path_type=Path),
-    default=config.paths.default_schema_dir,
-    help="Directory containing Syft JSON schema files",
+    "--syft-ref",
+    type=str,
+    default="main",
+    help="Git ref (branch/tag/commit) for Syft repository",
 )
 @click.option(
     "--update",
@@ -60,13 +60,26 @@ from utils.constants import CSSClasses
     count=True,
     help="Increase verbosity (use -v for info, -vv for debug)",
 )
-def main(schema_dir: Path, update: bool, verbose: int) -> None:
+def main(syft_ref: str, update: bool, verbose: int) -> None:
     """Generate JSON schema reference documentation from Syft schema files.
 
-    Processes all schema files in the specified directory, selecting the latest
+    Processes all schema files in the Syft repository, selecting the latest
     patch version for each major version >= {config.min_schema_major_version}.
     """
     logger = log.setup(verbose, __file__)
+
+    from utils import git
+
+    # ensure syft repo is cloned/synced
+    git.ensure_repo_synced(
+        repo_url=config.SYFT_REPO_URL,
+        clone_dir=config.paths.syft_cache_dir,
+        ref=syft_ref,
+        sparse_paths=["schema/json"],
+        logger=logger,
+    )
+
+    schema_dir = config.paths.syft_schema_dir
 
     # scan directory for schema files
     all_schemas = scan_schema_directory(schema_dir, logger)
