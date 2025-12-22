@@ -301,6 +301,28 @@ Checkout the [list of issues with the `new-cataloger` label](https://github.com/
 If you have questions about implementing a cataloger, feel free to file an issue or reach out to us [on discourse](https://anchore.com/discourse)!
 {{< /alert >}}
 
+### Documenting Cataloger Capabilities
+
+When adding a new cataloger or changing the capabilities of an existing one, you'll need to document its capabilities in `syft/pkg/cataloger/*/capabilities.yaml`.
+
+This includes:
+
+- What metadata types it produces
+- What package types it catalogs
+- What dependency information it provides (depth, edges, kinds)
+- Whether it extracts license information
+- How configuration affects its behavior
+
+After implementing your cataloger:
+
+1. **Write tests using the `pkgtest` helpers** - this automatically generates test observations that feed into capability documentation
+2. **Run `make generate-capabilities`** - this regenerates the `syft/pkg/cataloger/*/capabilities.yaml` file and validates your changes
+3. **Manually edit capabilities** - add the `ecosystem` field and detailed `capabilities` sections in `syft/pkg/cataloger/*/capabilities.yaml`
+
+For detailed information about the capability documentation system, see [the internal capabilities documentation](https://github.com/anchore/syft/blob/main/internal/capabilities/README.md)
+and the [capability generation documentation](https://github.com/anchore/syft/blob/main/internal/capabilities/generate/README.md) for a more detailed explanation
+of how this works under the hood.
+
 ## Troubleshooting
 
 ### Cannot build test fixtures with Artifactory repositories
