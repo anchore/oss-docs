@@ -57,7 +57,7 @@ Flags:
   -c, --config stringArray     grype configuration file(s) to use
       --distro string          distro to match against in the format: <distro>[-:@]<version>
       --exclude stringArray    exclude paths from being scanned using a glob expression
-  -f, --fail-on string         set the return code to 1 if a vulnerability is found with a severity >= the given severity, options=[negligible low medium high critical]
+  -f, --fail-on string         set the return code to 2 if a vulnerability is found with a severity >= the given severity, options=[negligible low medium high critical]
       --file string            file to write the default report output to (default is STDOUT)
       --from stringArray       specify the source behavior to use (e.g. docker, registry, podman, oci-dir, ...)
   -h, --help                   help for grype
