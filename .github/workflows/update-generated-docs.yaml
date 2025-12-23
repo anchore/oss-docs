@@ -1,9 +1,9 @@
 name: Update Generated Documentation
 
 on:
-#  schedule:
-#    # Run daily at 2 AM UTC
-#    - cron: '0 2 * * *'
+  schedule:
+    # run daily at 2 AM UTC
+    - cron: '0 2 * * *'
   workflow_dispatch:
   push:
     branches:
