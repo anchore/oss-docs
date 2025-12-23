@@ -22,6 +22,10 @@
       <td class="col-description">Allows for deps.json packages to be included only if there is a DLL on disk for that package.</td>
     </tr>
     <tr>
+      <td class="col-config-key"><code>dotnet.exclude-project-references</code></td>
+      <td class="col-description">Excludes packages with type &quot;project&quot; from deps.json output. These are internal project references, not external NuGet packages.</td>
+    </tr>
+    <tr>
       <td class="col-config-key"><code>dotnet.propagate-dll-claims-to-parents</code></td>
       <td class="col-description">Allows for deps.json packages to be included if any child (transitive) package claims a DLL. This applies to both the claims configuration and evidence-on-disk configurations.</td>
     </tr>

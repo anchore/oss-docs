@@ -12,7 +12,7 @@ Selection expressions: 0
 ┌────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────┐
 │ PACKAGE CATALOGER                      │ TAGS                                                                             │
 ├────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┤
-│ alpm-db-cataloger                      │ alpm, archlinux, directory, image, installed, linux, os, package                 │
+│ alpm-db-cataloger                      │ alpm, archlinux, directory, image, installed, linux, os, package, pacman         │
 │ apk-db-cataloger                       │ alpine, apk, directory, image, installed, linux, os, package                     │
 │ binary-classifier-cataloger            │ binary, declared, directory, image, installed, package                           │
 │ bitnami-cataloger                      │ bitnami, image, installed, package                                               │

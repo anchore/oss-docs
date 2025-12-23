@@ -2,555 +2,612 @@
 
 ```json
 {
-  "artifacts": [
+ "artifacts": [
+  {
+   "id": "99551fe9cb60fec9",
+   "name": "busybox",
+   "version": "1.37.0",
+   "type": "binary",
+   "foundBy": "binary-classifier-cataloger",
+   "locations": [
     {
-      "id": "fe44cee3fe279dfa",
-      "name": "busybox",
-      "version": "1.37.0",
-      "type": "binary",
-      "foundBy": "binary-classifier-cataloger",
-      "locations": [
-        {
-          "path": "/bin/[",
-          "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05",
-          "accessPath": "/bin/busybox",
-          "annotations": {
-            "evidence": "primary"
-          }
-        }
-      ],
-      "licenses": [],
-      "language": "",
-      "cpes": [
-        {
-          "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
-          "source": "nvd-cpe-dictionary"
-        }
-      ],
-      "purl": "pkg:generic/busybox@1.37.0",
-      "metadataType": "binary-signature",
-      "metadata": {
-        "matches": [
-          {
-            "classifier": "busybox-binary",
-            "location": {
-              "path": "/bin/[",
-              "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05",
-              "accessPath": "/bin/busybox",
-              "annotations": {
-                "evidence": "primary"
-              }
-            }
-          }
-        ]
+     "path": "/bin/[",
+     "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb",
+     "accessPath": "/bin/busybox",
+     "annotations": {
+      "evidence": "primary"
+     }
+    }
+   ],
+   "licenses": [],
+   "language": "",
+   "cpes": [
+    {
+     "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+     "source": "nvd-cpe-dictionary"
+    }
+   ],
+   "purl": "pkg:generic/busybox@1.37.0",
+   "metadataType": "binary-signature",
+   "metadata": {
+    "matches": [
+     {
+      "classifier": "busybox-binary",
+      "location": {
+       "path": "/bin/[",
+       "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb",
+       "accessPath": "/bin/busybox",
+       "annotations": {
+        "evidence": "primary"
+       }
       }
-    }
-  ],
-  "artifactRelationships": [
-    {
-      "parent": "396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b",
-      "child": "fe44cee3fe279dfa",
-      "type": "contains"
-    },
-    {
-      "parent": "fe44cee3fe279dfa",
-      "child": "3a6b3df220691408",
-      "type": "evident-by",
-      "metadata": {
-        "kind": "primary"
-      }
-    }
-  ],
-  "files": [
-    {
-      "id": "3a6b3df220691408",
-      "location": {
-        "path": "/bin/[",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "metadata": {
-        "mode": 755,
-        "type": "RegularFile",
-        "userID": 0,
-        "groupID": 0,
-        "mimeType": "application/x-sharedlib",
-        "size": 1119808
-      },
-      "digests": [
-        {
-          "algorithm": "sha1",
-          "value": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
-        },
-        {
-          "algorithm": "sha256",
-          "value": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
-        }
-      ],
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": true,
-        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": false,
-          "nx": true,
-          "relRO": "partial",
-          "pie": true,
-          "dso": true,
-          "safeStack": false
-        }
-      }
-    },
-    {
-      "id": "eab1ede6d517d844",
-      "location": {
-        "path": "/bin/getconf",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": true,
-        "importedLibraries": ["libc.so.6"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": false,
-          "nx": true,
-          "relRO": "full",
-          "pie": true,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "9c61e609f3b76f4a",
-      "location": {
-        "path": "/lib/ld-linux-aarch64.so.1",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": true,
-        "importedLibraries": [],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "456b7910a9499337",
-      "location": {
-        "path": "/lib/libc.so.6",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": true,
-        "importedLibraries": ["ld-linux-aarch64.so.1"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "9376910c472a1ddd",
-      "location": {
-        "path": "/lib/libm.so.6",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "383904be0603bd22",
-      "location": {
-        "path": "/lib/libnss_compat.so.2",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "324828ff45e1fc0b",
-      "location": {
-        "path": "/lib/libnss_dns.so.2",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": false,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "9a791682497737bd",
-      "location": {
-        "path": "/lib/libnss_files.so.2",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": false,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "c6f668db34996e30",
-      "location": {
-        "path": "/lib/libnss_hesiod.so.2",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libresolv.so.2", "libc.so.6", "ld-linux-aarch64.so.1"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "d5aa00430d994aa8",
-      "location": {
-        "path": "/lib/libpthread.so.0",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": false,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    },
-    {
-      "id": "5804ce9e713c7582",
-      "location": {
-        "path": "/lib/libresolv.so.2",
-        "layerID": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
-      },
-      "executable": {
-        "format": "elf",
-        "hasExports": true,
-        "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
-        "elfSecurityFeatures": {
-          "symbolTableStripped": true,
-          "stackCanary": true,
-          "nx": true,
-          "relRO": "full",
-          "pie": false,
-          "dso": true,
-          "safeStack": false
-        }
-      },
-      "unknowns": ["unknowns-labeler: no package identified in executable file"]
-    }
-  ],
-  "source": {
-    "id": "396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b",
-    "name": "busybox",
-    "version": "sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b",
-    "type": "image",
-    "metadata": {
-      "userInput": "busybox:latest",
-      "imageID": "sha256:eade5be814e817df411f138aa7711c3f81595185eb54b3257fd19f6c4966b285",
-      "manifestDigest": "sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b",
-      "mediaType": "application/vnd.oci.image.manifest.v1+json",
-      "tags": [],
-      "imageSize": 4170774,
-      "layers": [
-        {
-          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-          "digest": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05",
-          "size": 4170774
-        }
-      ],
-      "manifest": "ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmVhZGU1YmU4MTRlODE3ZGY0MTFmMTM4YWE3NzExYzNmODE1OTUxODVlYjU0YjMyNTdmZDE5ZjZjNDk2NmIyODUiLAoJCSJzaXplIjogNDc3Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OjViYzUxYjg3ZDRlY2NlMDYyOWM0ODg2NzRlMjU4MGEzZDU4ZDI5MzdkNzBjODFkNGY2ZDQ4NWQ0M2UwNmViMDYiLAoJCQkic2l6ZSI6IDE5MDI5OTEKCQl9CgldLAoJImFubm90YXRpb25zIjogewoJCSJvcmcub3BlbmNvbnRhaW5lcnMuaW1hZ2UudXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9kb2NrZXItbGlicmFyeS9idXN5Ym94IiwKCQkib3JnLm9wZW5jb250YWluZXJzLmltYWdlLnZlcnNpb24iOiAiMS4zNy4wLWdsaWJjIgoJfQp9Cg==",
-      "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjQtMDktMjZUMjE6MzE6NDJaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNC0wOS0yNlQyMTozMTo0MloiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzcuMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6MWEzODI3NDBjNTY0MmU0NjA3NDEyYTM0MWRmMzcxNmMyMjI4N2ZmYTZhZGY5MmVhZmY1NGUwNzlhMTkwMmYwNSIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhcm02NCIsCgkib3MiOiAibGludXgiLAoJInZhcmlhbnQiOiAidjgiCn0K",
-      "repoDigests": [
-        "index.docker.io/library/busybox@sha256:e3652a00a2fabd16ce889f0aa32c38eec347b997e73bd09e69c962ec7f8732ee"
-      ],
-      "architecture": "arm64",
-      "os": "linux"
-    }
-  },
-  "distro": {
-    "prettyName": "BusyBox v1.37.0",
-    "name": "busybox",
-    "id": "busybox",
-    "idLike": ["busybox"],
-    "version": "1.37.0",
-    "versionID": "1.37.0"
-  },
-  "descriptor": {
-    "name": "syft",
-    "version": "1.38.0",
-    "configuration": {
-      "catalogers": {
-        "requested": {
-          "default": ["image", "file"]
-        },
-        "used": [
-          "alpm-db-cataloger",
-          "apk-db-cataloger",
-          "binary-classifier-cataloger",
-          "bitnami-cataloger",
-          "cargo-auditable-binary-cataloger",
-          "conan-info-cataloger",
-          "dotnet-deps-binary-cataloger",
-          "dotnet-packages-lock-cataloger",
-          "dpkg-db-cataloger",
-          "elf-binary-package-cataloger",
-          "file-content-cataloger",
-          "file-digest-cataloger",
-          "file-executable-cataloger",
-          "file-metadata-cataloger",
-          "gguf-cataloger",
-          "go-module-binary-cataloger",
-          "graalvm-native-image-cataloger",
-          "homebrew-cataloger",
-          "java-archive-cataloger",
-          "java-jvm-cataloger",
-          "javascript-package-cataloger",
-          "linux-kernel-cataloger",
-          "lua-rock-cataloger",
-          "nix-cataloger",
-          "pe-binary-package-cataloger",
-          "php-composer-installed-cataloger",
-          "php-interpreter-cataloger",
-          "php-pear-serialized-cataloger",
-          "portage-cataloger",
-          "python-installed-package-cataloger",
-          "r-package-cataloger",
-          "rpm-db-cataloger",
-          "ruby-installed-gemspec-cataloger",
-          "snap-cataloger",
-          "wordpress-plugins-cataloger"
-        ]
-      },
-      "data-generation": {
-        "generate-cpes": true
-      },
-      "files": {
-        "content": {
-          "globs": null,
-          "skip-files-above-size": 0
-        },
-        "hashers": ["sha-1", "sha-256"],
-        "selection": "owned-by-package"
-      },
-      "licenses": {
-        "coverage": 75,
-        "include-content": "none"
-      },
-      "packages": {
-        "binary": [
-          "python-binary",
-          "python-binary-lib",
-          "pypy-binary-lib",
-          "go-binary",
-          "julia-binary",
-          "helm",
-          "redis-binary",
-          "nodejs-binary",
-          "go-binary-hint",
-          "busybox-binary",
-          "util-linux-binary",
-          "haproxy-binary",
-          "perl-binary",
-          "php-composer-binary",
-          "httpd-binary",
-          "memcached-binary",
-          "traefik-binary",
-          "arangodb-binary",
-          "postgresql-binary",
-          "mysql-binary",
-          "mysql-binary",
-          "mysql-binary",
-          "xtrabackup-binary",
-          "mariadb-binary",
-          "rust-standard-library-linux",
-          "rust-standard-library-macos",
-          "ruby-binary",
-          "erlang-binary",
-          "erlang-alpine-binary",
-          "erlang-library",
-          "swipl-binary",
-          "dart-binary",
-          "haskell-ghc-binary",
-          "haskell-cabal-binary",
-          "haskell-stack-binary",
-          "consul-binary",
-          "hashicorp-vault-binary",
-          "nginx-binary",
-          "bash-binary",
-          "openssl-binary",
-          "gcc-binary",
-          "fluent-bit-binary",
-          "wordpress-cli-binary",
-          "curl-binary",
-          "lighttpd-binary",
-          "proftpd-binary",
-          "zstd-binary",
-          "xz-binary",
-          "gzip-binary",
-          "sqlcipher-binary",
-          "jq-binary",
-          "chrome-binary",
-          "ffmpeg-binary",
-          "ffmpeg-library",
-          "ffmpeg-library",
-          "elixir-binary",
-          "elixir-library",
-          "java-binary",
-          "java-jdb-binary"
-        ],
-        "dotnet": {
-          "dep-packages-must-claim-dll": true,
-          "dep-packages-must-have-dll": false,
-          "propagate-dll-claims-to-parents": true,
-          "relax-dll-claims-when-bundling-detected": true
-        },
-        "golang": {
-          "local-mod-cache-dir": "/root/go/pkg/mod",
-          "local-vendor-dir": "",
-          "main-module-version": {
-            "from-build-settings": true,
-            "from-contents": false,
-            "from-ld-flags": true
-          },
-          "proxies": ["https://proxy.golang.org", "direct"],
-          "search-local-mod-cache-licenses": false,
-          "search-local-vendor-licenses": false,
-          "search-remote-licenses": false
-        },
-        "java-archive": {
-          "include-indexed-archives": true,
-          "include-unindexed-archives": false,
-          "maven-base-url": "https://repo1.maven.org/maven2",
-          "maven-localrepository-dir": "/root/.m2/repository",
-          "max-parent-recursive-depth": 0,
-          "resolve-transitive-dependencies": false,
-          "use-maven-localrepository": false,
-          "use-network": false
-        },
-        "javascript": {
-          "include-dev-dependencies": false,
-          "npm-base-url": "https://registry.npmjs.org",
-          "search-remote-licenses": false
-        },
-        "linux-kernel": {
-          "catalog-modules": true
-        },
-        "nix": {
-          "capture-owned-files": false
-        },
-        "python": {
-          "guess-unpinned-requirements": false,
-          "pypi-base-url": "https://pypi.org/pypi",
-          "search-remote-licenses": false
-        }
-      },
-      "relationships": {
-        "exclude-binary-packages-with-file-ownership-overlap": true,
-        "package-file-ownership": true,
-        "package-file-ownership-overlap": true
-      },
-      "search": {
-        "scope": "squashed"
-      }
-    }
-  },
-  "schema": {
-    "version": "16.1.0",
-    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.0.json"
+     }
+    ]
+   }
   }
+ ],
+ "artifactRelationships": [
+  {
+   "parent": "870e815c3a50dd0f6b40efddb319c72c32c3ee340b5a3e8945904232ccd12f44",
+   "child": "99551fe9cb60fec9",
+   "type": "contains"
+  },
+  {
+   "parent": "99551fe9cb60fec9",
+   "child": "e3fb161dd77abc2d",
+   "type": "evident-by",
+   "metadata": {
+    "kind": "primary"
+   }
+  }
+ ],
+ "files": [
+  {
+   "id": "e3fb161dd77abc2d",
+   "location": {
+    "path": "/bin/[",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "metadata": {
+    "mode": 755,
+    "type": "RegularFile",
+    "userID": 0,
+    "groupID": 0,
+    "mimeType": "application/x-sharedlib",
+    "size": 1017416
+   },
+   "digests": [
+    {
+     "algorithm": "sha1",
+     "value": "8dd52ce79dfc02f4af697c25783fbf34e334fd97"
+    },
+    {
+     "algorithm": "sha256",
+     "value": "786295804cdc6f04ce18325a96b2a7bf17ecc29d89fbb76d23b6f46370deb451"
+    }
+   ],
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": true,
+    "importedLibraries": [
+     "libm.so.6",
+     "libresolv.so.2",
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "partial",
+     "pie": true,
+     "dso": true,
+     "safeStack": false
+    }
+   }
+  },
+  {
+   "id": "1c05c64bc7c4c1a9",
+   "location": {
+    "path": "/bin/getconf",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": true,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "full",
+     "pie": true,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "d4b0e78def22964a",
+   "location": {
+    "path": "/lib/ld-linux-x86-64.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": true,
+    "importedLibraries": [],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "784386aa28791796",
+   "location": {
+    "path": "/lib/libc.so.6",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": true,
+    "importedLibraries": [
+     "ld-linux-x86-64.so.2"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": true,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "4314ad69fca7603c",
+   "location": {
+    "path": "/lib/libm.so.6",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6",
+     "ld-linux-x86-64.so.2"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": true,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "b453d66777f734f7",
+   "location": {
+    "path": "/lib/libnss_compat.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": true,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "e02ee38aaca0435e",
+   "location": {
+    "path": "/lib/libnss_dns.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "8b63105e9505ec90",
+   "location": {
+    "path": "/lib/libnss_files.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "c837fa3ec79e1c8d",
+   "location": {
+    "path": "/lib/libnss_hesiod.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libresolv.so.2",
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": true,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "5969b2a58748dcc1",
+   "location": {
+    "path": "/lib/libpthread.so.0",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": false,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  },
+  {
+   "id": "868ab5e95af735a3",
+   "location": {
+    "path": "/lib/libresolv.so.2",
+    "layerID": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
+   },
+   "executable": {
+    "format": "elf",
+    "hasExports": true,
+    "hasEntrypoint": false,
+    "importedLibraries": [
+     "libc.so.6"
+    ],
+    "elfSecurityFeatures": {
+     "symbolTableStripped": true,
+     "stackCanary": true,
+     "nx": true,
+     "relRO": "full",
+     "pie": false,
+     "dso": true,
+     "safeStack": false
+    }
+   },
+   "unknowns": [
+    "unknowns-labeler: no package identified in executable file"
+   ]
+  }
+ ],
+ "source": {
+  "id": "870e815c3a50dd0f6b40efddb319c72c32c3ee340b5a3e8945904232ccd12f44",
+  "name": "busybox",
+  "version": "sha256:870e815c3a50dd0f6b40efddb319c72c32c3ee340b5a3e8945904232ccd12f44",
+  "type": "image",
+  "metadata": {
+   "userInput": "busybox:latest",
+   "imageID": "sha256:08ef35a1c3f050afbbd64194ffd1b8d5878659f5491567f26d1c814513ae9649",
+   "manifestDigest": "sha256:870e815c3a50dd0f6b40efddb319c72c32c3ee340b5a3e8945904232ccd12f44",
+   "mediaType": "application/vnd.oci.image.manifest.v1+json",
+   "tags": [],
+   "imageSize": 4429366,
+   "layers": [
+    {
+     "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+     "digest": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb",
+     "size": 4429366
+    }
+   ],
+   "manifest": "ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OjA4ZWYzNWExYzNmMDUwYWZiYmQ2NDE5NGZmZDFiOGQ1ODc4NjU5ZjU0OTE1NjdmMjZkMWM4MTQ1MTNhZTk2NDkiLAoJCSJzaXplIjogNDU5Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OmU1OTgzOGVjZmVjNWU3OWViNDM3MWU5OTk1ZWY4NmM4MDAwZmUxYzY3ZDdiOWZhN2I1N2U5OTZkOWJhNzcyZmYiLAoJCQkic2l6ZSI6IDIyMTM3NTQKCQl9CgldLAoJImFubm90YXRpb25zIjogewoJCSJvcmcub3BlbmNvbnRhaW5lcnMuaW1hZ2UudXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9kb2NrZXItbGlicmFyeS9idXN5Ym94IiwKCQkib3JnLm9wZW5jb250YWluZXJzLmltYWdlLnZlcnNpb24iOiAiMS4zNy4wLWdsaWJjIgoJfQp9Cg==",
+   "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjQtMDktMjZUMjE6MzE6NDJaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNC0wOS0yNlQyMTozMTo0MloiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzcuMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6ZTE0NTQyY2MwNjI5NThjM2JmYWRhOWMyNjBhNmFlNDdiYjI5MDZmZDhiNTE0OTk5Nzc0NzYwNzEwZGJjZTNjYiIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiCn0K",
+   "repoDigests": [
+    "index.docker.io/library/busybox@sha256:d80cd694d3e9467884fcb94b8ca1e20437d8a501096cdf367a5a1918a34fc2fd"
+   ],
+   "architecture": "amd64",
+   "os": "linux"
+  }
+ },
+ "distro": {
+  "prettyName": "BusyBox v1.37.0",
+  "name": "busybox",
+  "id": "busybox",
+  "idLike": [
+   "busybox"
+  ],
+  "version": "1.37.0",
+  "versionID": "1.37.0"
+ },
+ "descriptor": {
+  "name": "syft",
+  "version": "1.39.0",
+  "configuration": {
+   "catalogers": {
+    "requested": {
+     "default": [
+      "image",
+      "file"
+     ]
+    },
+    "used": [
+     "alpm-db-cataloger",
+     "apk-db-cataloger",
+     "binary-classifier-cataloger",
+     "bitnami-cataloger",
+     "cargo-auditable-binary-cataloger",
+     "conan-info-cataloger",
+     "dotnet-deps-binary-cataloger",
+     "dotnet-packages-lock-cataloger",
+     "dpkg-db-cataloger",
+     "elf-binary-package-cataloger",
+     "file-content-cataloger",
+     "file-digest-cataloger",
+     "file-executable-cataloger",
+     "file-metadata-cataloger",
+     "gguf-cataloger",
+     "go-module-binary-cataloger",
+     "graalvm-native-image-cataloger",
+     "homebrew-cataloger",
+     "java-archive-cataloger",
+     "java-jvm-cataloger",
+     "javascript-package-cataloger",
+     "linux-kernel-cataloger",
+     "lua-rock-cataloger",
+     "nix-cataloger",
+     "pe-binary-package-cataloger",
+     "php-composer-installed-cataloger",
+     "php-interpreter-cataloger",
+     "php-pear-serialized-cataloger",
+     "portage-cataloger",
+     "python-installed-package-cataloger",
+     "r-package-cataloger",
+     "rpm-db-cataloger",
+     "ruby-installed-gemspec-cataloger",
+     "snap-cataloger",
+     "wordpress-plugins-cataloger"
+    ]
+   },
+   "data-generation": {
+    "generate-cpes": true
+   },
+   "files": {
+    "content": {
+     "globs": null,
+     "skip-files-above-size": 0
+    },
+    "hashers": [
+     "sha-1",
+     "sha-256"
+    ],
+    "selection": "owned-by-package"
+   },
+   "licenses": {
+    "coverage": 75,
+    "include-content": "none"
+   },
+   "packages": {
+    "binary": [
+     "python-binary",
+     "python-binary-lib",
+     "pypy-binary-lib",
+     "go-binary",
+     "julia-binary",
+     "helm",
+     "redis-binary",
+     "nodejs-binary",
+     "go-binary-hint",
+     "busybox-binary",
+     "util-linux-binary",
+     "haproxy-binary",
+     "perl-binary",
+     "php-composer-binary",
+     "httpd-binary",
+     "memcached-binary",
+     "traefik-binary",
+     "arangodb-binary",
+     "postgresql-binary",
+     "mysql-binary",
+     "mysql-binary",
+     "mysql-binary",
+     "xtrabackup-binary",
+     "mariadb-binary",
+     "rust-standard-library-linux",
+     "rust-standard-library-macos",
+     "ruby-binary",
+     "erlang-binary",
+     "erlang-alpine-binary",
+     "erlang-library",
+     "swipl-binary",
+     "dart-binary",
+     "haskell-ghc-binary",
+     "haskell-cabal-binary",
+     "haskell-stack-binary",
+     "consul-binary",
+     "hashicorp-vault-binary",
+     "nginx-binary",
+     "bash-binary",
+     "openssl-binary",
+     "gcc-binary",
+     "fluent-bit-binary",
+     "wordpress-cli-binary",
+     "curl-binary",
+     "lighttpd-binary",
+     "proftpd-binary",
+     "zstd-binary",
+     "xz-binary",
+     "gzip-binary",
+     "sqlcipher-binary",
+     "jq-binary",
+     "chrome-binary",
+     "ffmpeg-binary",
+     "ffmpeg-library",
+     "ffmpeg-library",
+     "elixir-binary",
+     "elixir-library",
+     "java-binary",
+     "java-jdb-binary"
+    ],
+    "dotnet": {
+     "dep-packages-must-claim-dll": true,
+     "dep-packages-must-have-dll": false,
+     "exclude-project-references": true,
+     "propagate-dll-claims-to-parents": true,
+     "relax-dll-claims-when-bundling-detected": true
+    },
+    "golang": {
+     "local-mod-cache-dir": "/root/go/pkg/mod",
+     "local-vendor-dir": "",
+     "main-module-version": {
+      "from-build-settings": true,
+      "from-contents": false,
+      "from-ld-flags": true
+     },
+     "proxies": [
+      "https://proxy.golang.org",
+      "direct"
+     ],
+     "search-local-mod-cache-licenses": false,
+     "search-local-vendor-licenses": false,
+     "search-remote-licenses": false,
+     "use-packages-lib": true
+    },
+    "java-archive": {
+     "include-indexed-archives": true,
+     "include-unindexed-archives": false,
+     "maven-base-url": "https://repo1.maven.org/maven2",
+     "maven-localrepository-dir": "/root/.m2/repository",
+     "max-parent-recursive-depth": 0,
+     "resolve-transitive-dependencies": false,
+     "use-maven-localrepository": false,
+     "use-network": false
+    },
+    "javascript": {
+     "include-dev-dependencies": false,
+     "npm-base-url": "https://registry.npmjs.org",
+     "search-remote-licenses": false
+    },
+    "linux-kernel": {
+     "catalog-modules": true
+    },
+    "nix": {
+     "capture-owned-files": false
+    },
+    "python": {
+     "guess-unpinned-requirements": false,
+     "pypi-base-url": "https://pypi.org/pypi",
+     "search-remote-licenses": false
+    }
+   },
+   "relationships": {
+    "exclude-binary-packages-with-file-ownership-overlap": true,
+    "package-file-ownership": true,
+    "package-file-ownership-overlap": true
+   },
+   "search": {
+    "scope": "squashed"
+   }
+  }
+ },
+ "schema": {
+  "version": "16.1.2",
+  "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.2.json"
+ }
 }
 ```
