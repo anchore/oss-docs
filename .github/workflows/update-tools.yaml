@@ -1,0 +1,13 @@
+name: PR for latest versions of tools
+on:
+  schedule:
+    - cron: "0 8 * * *" # 3 AM EST
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    uses: anchore/workflows/.github/workflows/update-tools.yaml@main
