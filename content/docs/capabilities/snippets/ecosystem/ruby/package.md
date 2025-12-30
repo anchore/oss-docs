@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">ruby-gemfile-cataloger</div><div class="evidence-patterns"><code>Gemfile.lock</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">ruby-gemfile-cataloger</div><div class="evidence-patterns"><code>Gemfile.lock</code>, <code>Gemfile.next.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Transitive</td>
       <td class="col-edges value"></td>
@@ -33,9 +33,9 @@
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">ruby-gemspec-cataloger</div><div class="evidence-patterns"><code>*.gemspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-depth value">Direct</td>
+      <td class="col-depth value"></td>
       <td class="col-edges value"></td>
-      <td class="col-kinds value">Runtime</td>
+      <td class="col-kinds value"></td>
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="RubyGemspec.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
