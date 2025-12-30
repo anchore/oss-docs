@@ -39,7 +39,7 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: 'npm'
 
-    - uses: astral-sh/setup-uv@d9e0f98d3fc6adb07d1e3d37f3043649ddad06a1 # v6.5.0
+    - uses: astral-sh/setup-uv@681c641aba71e4a1c380be3ab5e12ad51f415867 # v7.1.6
       if: inputs.python-version != ''
       with:
         enable-cache: true
