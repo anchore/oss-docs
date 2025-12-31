@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td class="col-config-key"><code>python.search-remote-licenses</code></td>
-      <td class="col-description">Enables querying the NPM registry API to retrieve license information for packages that are missing license data in their local metadata.</td>
+      <td class="col-description">Enables querying the PyPI registry API to retrieve license information for packages that are missing license data in their local metadata.</td>
     </tr>
   </tbody>
 </table>
