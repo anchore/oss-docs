@@ -55,7 +55,7 @@
       <td class="col-license indicator"></td>
       <td class="col-depth value">Direct</td>
       <td class="col-edges value"></td>
-      <td class="col-kinds value"></td>
+      <td class="col-kinds value">Any</td>
       <td class="col-files indicator"></td>
       <td class="col-digests indicator"></td>
       <td class="col-integrity-hash indicator"></td>
