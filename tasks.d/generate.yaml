@@ -53,7 +53,7 @@ tasks:
       - "{{.PACKAGE_CAPABILITIES_CMD}} --update"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
       - "{{.DATA_SOURCES_CMD}} --update"
-      - "make validate || true"
+      - "make lint-fix || true"
 
   update-release-notes:
     desc: Generate release notes for all projects
