@@ -29,3 +29,4 @@ disable-file-search: false # Disable filesystem license file search
 summary: false # Show only summary information for check command
 # Show only packages without licenses (default: false)
 only-unlicensed: false # maps to grant check --unlicensed || grant list --unlicensed
+
