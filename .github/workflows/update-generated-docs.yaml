@@ -12,6 +12,10 @@ on:
       - 'src/generate_*'
       - 'tasks.d/generate.yaml'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   pull-requests: write
@@ -76,7 +80,7 @@ jobs:
           title: "📚 Update generated documentation"
           body: |
             This PR contains automatic updates to the documentation generated from the latest tool container images (from the `update-generated-docs` workflow).
-          branch: update-generated-docs
+          branch: update-generated-docs-${{ github.ref }}
           labels: |
             documentation
             automated
