@@ -28,5 +28,6 @@
     "2.3"
   ],
   "syft-json": [],
-  "syft-table": []
+  "syft-table": [],
+  "syft-text": []
 }

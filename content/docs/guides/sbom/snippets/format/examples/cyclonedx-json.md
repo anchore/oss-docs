@@ -5,30 +5,30 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:56487061-366a-4528-8cea-939d95277d52",
+  "serialNumber": "urn:uuid:0045ec6b-c3e1-4e88-b1b3-563379210a8d",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-12-04T14:30:24Z",
+    "timestamp": "2026-01-02T02:38:15Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "author": "anchore",
           "name": "syft",
-          "version": "1.38.0"
+          "version": "1.39.0"
         }
       ]
     },
     "component": {
-      "bom-ref": "e98d5f0296649c51",
+      "bom-ref": "b53fc26b87398ccb",
       "type": "container",
       "name": "busybox",
-      "version": "sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b"
+      "version": "sha256:870e815c3a50dd0f6b40efddb319c72c32c3ee340b5a3e8945904232ccd12f44"
     }
   },
   "components": [
     {
-      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=fe44cee3fe279dfa",
+      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=99551fe9cb60fec9",
       "type": "application",
       "name": "busybox",
       "version": "1.37.0",
@@ -49,7 +49,7 @@
         },
         {
           "name": "syft:location:0:layerID",
-          "value": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
+          "value": "sha256:e14542cc062958c3bfada9c260a6ae47bb2906fd8b514999774760710dbce3cb"
         },
         {
           "name": "syft:location:0:path",
@@ -92,17 +92,17 @@
       ]
     },
     {
-      "bom-ref": "3a6b3df220691408",
+      "bom-ref": "e3fb161dd77abc2d",
       "type": "file",
       "name": "/bin/[",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
+          "content": "8dd52ce79dfc02f4af697c25783fbf34e334fd97"
         },
         {
           "alg": "SHA-256",
-          "content": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
+          "content": "786295804cdc6f04ce18325a96b2a7bf17ecc29d89fbb76d23b6f46370deb451"
         }
       ]
     }
