@@ -26,7 +26,7 @@ Run the command for your platform to download the latest release.
 curl -sSfL https://get.anchore.io/syft | sudo sh -s -- -b /usr/local/bin
 {{< /tab >}}
 {{% tab header="macOS"%}}brew install syft{{% /tab %}}
-{{% tab header="Windows"%}}nuget install Anchore.Syft{{% /tab %}}
+{{% tab header="Windows"%}}winget install Anchore.Syft{{% /tab %}}
 {{< /tabpane >}}
 
 Check out [installation guide]({{< relref "/docs/installation/syft" >}}) for full list of official and community-maintained packaging options.
