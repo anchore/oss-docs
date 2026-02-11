@@ -4,6 +4,10 @@ linkTitle = "Open Source"
 weight = 30
 +++
 
+{{< alert color="warning" title="Grype DB v5 schema reaches EOL on March 6, 2026" url="/docs/announcements/grype-db-v5-eol/" >}}
+Users running Grype versions older than v0.88.0 will stop receiving vulnerability database updates.<br>[See all announcements](/docs/announcements/).
+{{< /alert >}}
+
 Anchore Open Source Software (OSS) is a suite of tools for Software Bill of Materials (SBOM) Generation, Vulnerability Scanning, and License Scanning.
 
 Start by going to the [project overview]({{< relref "projects" >}}) of Anchore OSS to learn more about the basic concepts and functions.
