@@ -201,6 +201,8 @@ flowchart LR
     classDef Database stroke-width:1px, stroke-dasharray:none, stroke:#424242, fill:#fff9c4, color:#000000
 ```
 
+Note: `grype-db build` delegates the actual transformation and database writing to the [grype build library]({{< relref "/docs/architecture/grype#db-build-pipeline" >}}).
+
 ### grype-db package
 
 ```mermaid

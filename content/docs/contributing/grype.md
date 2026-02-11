@@ -103,6 +103,10 @@ indexing directories, cataloging packages, etc). Releases of Grype should always
 However, continually integrating unreleased Syft changes into Grype incrementally is encouraged (e.g. `go get github.com/anchore/syft@main`) as long as by the time
 a release is cut the Syft version is updated to a released version (e.g. `go get github.com/anchore/syft@v<semantic-version>`).
 
+## DB build utilities
+
+Grype also contains the DB build utilities under `grype/db/`, which includes processors, transformers, and writers used to transform raw vulnerability data into a Grype database. For architecture details, see the [DB build utilities]({{< relref "/docs/architecture/grype#db-build-utilities" >}}) section. If you are contributing to the build utilities, you may also want to review the [Grype DB contributing guide]({{< relref "/docs/contributing/grype-db" >}}) for orchestration and testing context.
+
 ## Inspecting the database
 
 The v6 database is a highly normalized database with JSON data, making queries more difficult than the previous version.

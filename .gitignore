@@ -11,6 +11,7 @@ TODO.md
 SUMMARY.md
 drafts/
 draft/
+.context/
 
 # cache directories
 .cache/

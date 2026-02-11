@@ -59,7 +59,7 @@ This data being pulled down is the same data used in the daily DB publishing wor
 ### Creating a new DB schema
 
 1. Create a new `v#` schema package in the `grype` repo (within `grype/db`)
-2. Create a new `v#` schema package in the `grype-db` repo (use the `bump-schema.py` helper script) that uses the new changes from `grype-db`
+2. Create the build utilities (processors, transformers, writer) for the new schema in grype under `grype/db/v#/build/`, then update grype-db to wire up the new schema version
 3. Modify the `manager/src/grype_db_manager/data/schema-info.json` to pin the last-latest version to a specific version of grype and add the new schema version pinned to the "main" branch of grype (or a development branch)
 4. Update all references in `grype` to use the new schema
 5. Use the [Staging DB Publisher](https://github.com/anchore/grype-db/actions/workflows/staging-db-publisher.yaml) workflow to test your DB changes with grype in a flow similar to the daily DB publisher workflow
@@ -107,7 +107,8 @@ make db-acceptance schema=<version>
 
 **Understanding the Codebase**
 
-- [Architecture](/docs/architecture/grype-db) - Learn about the ETL pipeline, schema support, and publishing workflow
+- [Architecture](/docs/architecture/grype-db) - Learn about the orchestration layer, schema support, and publishing workflow
+- [Grype DB Build utilities](/docs/architecture/grype#db-build-utilities) - Understand the build utilities internals (processors, transformers, writers) in grype
 - [Vunnel Documentation](https://github.com/anchore/vunnel) - Understand the vulnerability data provider system that feeds Grype DB
   **Contributing Your Work**
 

@@ -20,9 +20,14 @@ At a high level, this is the package structure of Grype:
 ./cmd/grype/                // main entrypoint
 │   └── ...
 └── grype/                  // the "core" grype library
-    ├── db/                 // vulnerability database management, schemas, readers, and writers
-    │   ├── v5/             // V5 database schema
+    ├── db/                 // vulnerability database management, schemas, readers, writers, and build utilities
+    │   ├── data/           // common build abstractions: processors, transformers, entries, writers
+    │   ├── processors/     // all data processors (nvd, osv, github, msrc, os, openvex, epss, kev, eol, etc.)
+    │   ├── provider/       // provider file/state/workspace management for build inputs
+    │   ├── v5/             // v5 database schema
+    │   │   └── build/      // v5 build utilities (transformers, processors, writer)
     │   └── v6/             // v6 database schema
+    │       └── build/      // v6 build utilities (transformers, processors, writer)
     ├── match/              // core types for matches and result processing
     ├── matcher/            // vulnerability matching strategies
     │   ├── stock/          // default matcher (ecosystem + CPE)
@@ -331,7 +336,82 @@ then uses the correct comparer to evaluate version constraints from the database
 The records from the Grype DB specify which version format to use on one side of the comparison, and the package type determines the format on the other side.
 If no specific format is found, or the formats are incompatible (essentially do not match), the fuzzy comparer is used as a last resort.
 
+## DB build utilities
+
+The `grype/db` package holds both the **read-side** logic (schema definitions, readers, and the vulnerability provider used during scanning) and the **write-side** logic (the build utilities that transforms raw vulnerability data into a Grype database). The [Grype DB]({{< relref "/docs/architecture/grype-db" >}}) CLI orchestrates the build utilities, but all transformation and writing logic lives here in the grype library.
+
+### Core abstractions
+
+The build utilities uses the following abstractions, defined in the [`grype/db/data`](https://github.com/anchore/grype/tree/main/grype/db/data) package:
+
+- **[Processor](https://github.com/anchore/grype/blob/main/grype/db/data/processor.go)** - Unmarshals entries from a given provider, passes them into Transformers, and returns resulting entries. The object definition is schema-agnostic, but instances are schema-specific since Transformers are dependency-injected.
+
+- **[Transformer](https://github.com/anchore/grype/blob/main/grype/db/data/transformers.go)** ([`v5`](https://github.com/anchore/grype/tree/main/grype/db/v5/build/transformers), [`v6`](https://github.com/anchore/grype/tree/main/grype/db/v6/build/transformers)) - Takes raw data entries of a specific [vunnel-defined schema](https://github.com/anchore/vunnel/tree/main/schema/vulnerability) and transforms them into schema-specific entries for database writing.
+
+- **[Entry](https://github.com/anchore/grype/blob/main/grype/db/data/entry.go)** - Encapsulates schema-specific database records produced by Processors/Transformers and accepted by Writers.
+
+- **[Writer](https://github.com/anchore/grype/blob/main/grype/db/data/writer.go)** ([`v5`](https://github.com/anchore/grype/blob/main/grype/db/v5/build/writer.go), [`v6`](https://github.com/anchore/grype/blob/main/grype/db/v6/build/writer.go)) - Takes Entry objects and writes them to a backing store (a SQLite database).
+
+### Data flow
+
+These abstractions work together in the following flow:
+
+```mermaid
+%%{ init: { 'flowchart': { 'curve': 'linear' } } }%%
+flowchart LR
+    A["Provider"]
+
+    subgraph processor["Processor"]
+        direction LR
+        B["unmarshaller"]
+        C["v# Transformer"]
+        B --> C
+    end
+
+    D["Writer"]
+    E["grype/db/v#/build/writer.Write"]
+
+    A -->|"cache file"| processor
+    processor -->|"[]Entry"| D --> E
+
+    style processor fill:none
+```
+
+Where there is:
+
+- A Provider for each upstream data source (e.g. canonical, redhat, github, NIST, etc.)
+- A Processor for every vunnel-defined data shape (github, os, msrc, nvd, etc., defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability))
+- A Transformer for every processor and DB schema version pairing
+- A Writer for every DB schema version
+
+### Build code organization
+
+```
+grype/db/
+├── data/                    # common abstractions: entry.go, processor.go, transformers.go, writer.go
+├── processors/              # all processors (nvd, osv, github, msrc, os, openvex, epss, kev, eol, etc.)
+├── provider/                # provider file/state/workspace management
+│   └── entry/
+├── internal/                # gormadapter, sqlite
+├── v5/
+│   └── build/               # v5 build utilities
+│       ├── transformers/    # v5-specific transformers
+│       ├── processors.go    # wires processors to v5 transformers
+│       └── writer.go
+├── v6/
+│   └── build/               # v6 build utilities
+│       ├── transformers/    # v6-specific transformers
+│       ├── processors.go    # wires processors to v6 transformers
+│       └── writer.go
+├── build.go
+├── generate.go
+└── package.go / package_legacy.go
+```
+
+Note that the Provider abstraction (responsible for pulling and caching raw vulnerability data) remains in the [grype-db repo](https://github.com/anchore/grype-db). See the [Grype DB architecture]({{< relref "/docs/architecture/grype-db" >}}) page for details on orchestration and the daily publishing workflow.
+
 ## Related architecture
 
 - [Golang CLI Patterns]({{< relref "/docs/architecture/golang-cli" >}}) - Common structures and frameworks used across Anchore OSS projects
 - [Syft Architecture]({{< relref "/docs/architecture/syft" >}}) - SBOM generation architecture that Grype builds upon
+- [Grype DB Architecture]({{< relref "/docs/architecture/grype-db" >}}) - Orchestration layer for building and publishing the vulnerability database

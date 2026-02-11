@@ -212,7 +212,7 @@ Before implementing a provider, understand how the pieces fit together:
 
 - **[Syft](https://github.com/anchore/syft)**: Catalogs packages from images/filesystems with metadata (type, name, version, distro, etc.)
 - **[Vunnel](https://github.com/anchore/vunnel)**: Provides vulnerability data from various sources
-- **[Grype DB](https://github.com/anchore/grype-db)**: Transforms and stores vulnerability data with ecosystem metadata
+- **[Grype DB](https://github.com/anchore/grype-db)**: Orchestrates data fetching and delegates transformation/storage to grype's build library
 - **[Grype](https://github.com/anchore/grype)**: Matches packages against vulnerabilities in the database built by grype-db
 
 #### Affected vs. unaffected package handles
@@ -227,7 +227,7 @@ Most providers emit affected package records. Some providers (like AlmaLinux) em
 **Examples in code:**
 
 - Affected packages: Most distro providers (Red Hat, Debian, Ubuntu, etc.)
-- Unaffected packages: [AlmaLinux matcher](https://github.com/anchore/grype/blob/main/grype/matcher/rpm/almalinux.go), [OSV transformer](https://github.com/anchore/grype-db/blob/main/pkg/process/v6/transformers/osv/transform.go#L61-L71)
+- Unaffected packages: [AlmaLinux matcher](https://github.com/anchore/grype/blob/main/grype/matcher/rpm/almalinux.go), [OSV transformer](https://github.com/anchore/grype/blob/main/grype/db/v6/build/transformers/osv/transform.go)
 
 #### Schemas
 
@@ -366,8 +366,8 @@ Depending on your answers to the key questions above, you may need PRs in vunnel
 **Which PRs do you need?**
 
 - **Vunnel PR**: Always needed—implements the provider and emits vulnerability data
-- **Grype DB PR**: Needed if adding a new schema transformer (may not be needed for OSV, OpenVEX, etc.)
-- **Grype PR**: Needed if adding new matching logic, distro types, or filtering behavior
+- **Grype PR**: Needed if adding new matching logic, distro types, filtering behavior, or a new schema transformer (transformer work now lives in grype under `grype/db/`)
+- **Grype DB PR**: Rarely needed for new providers; mainly for orchestration or provider configuration changes
 
 Don't be discouraged by the multi-repo requirement—this is a well-established workflow. Open draft PRs early and maintainers can help guide you through the process.
 
@@ -471,16 +471,16 @@ vunnel run <your-provider-name>  # Should execute successfully
 At this point you can open a draft Vunnel PR and ask maintainers for guidance on the next steps.
 {{< /alert >}}
 
-#### Step 5: Implement Grype DB changes (if needed)
+#### Step 5: Implement Grype build utilities changes (if needed)
 
 **When needed:**
 
-If your provider uses a schema that doesn't already have a transformer, add one in grype-db:
+If your provider uses a schema that doesn't already have a transformer, add one in grype (not grype-db):
 
-- Add unmarshaling logic in `pkg/provider/unmarshal`
-- Add processing/transformation logic in `pkg/process/v6` (the v5 data is only consumed by old versions of Grype, and new providers generally should not change v5 or older code in Grype DB)
+- Add processor logic in [`grype/db/processors/`](https://github.com/anchore/grype/tree/main/grype/db/processors)
+- Add transformation logic in [`grype/db/v6/build/transformers/`](https://github.com/anchore/grype/tree/main/grype/db/v6/build/transformers) (the v5 data is only consumed by old versions of Grype, and new providers generally should not change v5 or older code)
 
-**Note:** For OSV and OpenVEX, transformers already exist—check [grype-db transformers](https://github.com/anchore/grype-db/tree/main/pkg/process/v6/transformers).
+**Note:** For OSV and OpenVEX, transformers already exist—check [existing transformers](https://github.com/anchore/grype/tree/main/grype/db/v6/build/transformers).
 
 **Test the data flow:**
 
@@ -671,7 +671,7 @@ Open draft PRs early and ask maintainers for guidance. Maintainers are experienc
 If you're adding a provider that uses a completely new schema (not OSV, OpenVEX, etc.), follow the steps above with these additional requirements:
 
 1. You will need to add the new schema to the Vunnel repo in the `schemas` directory
-2. Grype DB will need to be updated to support the new schema in the `pkg/provider/unmarshal` and `pkg/process/v*` directories
+2. Grype will need a new transformer under [`grype/db/v*/build/transformers/`](https://github.com/anchore/grype/tree/main/grype/db/v6/build/transformers)
 3. The Vunnel `tests/quality/config.yaml` file will need to be updated to use development `grype-db.version`, pointing to your fork
 4. The final Vunnel PR will not be able to be merged until the Grype DB PR is merged and the `tests/quality/config.yaml` file is updated to point back to the `latest` Grype DB version
 

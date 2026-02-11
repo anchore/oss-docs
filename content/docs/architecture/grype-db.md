@@ -9,7 +9,7 @@ menu_group = "projects"
 
 ## Overview
 
-`grype-db` is essentially an application that extracts information from upstream vulnerability data providers, transforms it into smaller records targeted for Grype consumption, and loads the individual records into a new SQLite DB.
+`grype-db` is an orchestration layer that coordinates pulling upstream vulnerability data, delegating transformation and database writing to [grype's build library]({{< relref "/docs/architecture/grype#db-build-utilities" >}}), and packaging the resulting database for distribution.
 
 ```mermaid
 flowchart LR
@@ -17,7 +17,7 @@ flowchart LR
         A[Pull vuln data<br/>from upstream]
     end
 
-    subgraph build["Build"]
+    subgraph build["Build (delegates to grype)"]
         B[Transform entries]
         C[Load entries<br/>into new DB]
     end
@@ -58,72 +58,25 @@ flowchart LR
 
 ## Core Abstractions
 
-In order to support multiple DB schemas easily from a code-organization perspective, the following abstractions exist:
+The grype-db CLI retains the **[Provider](https://github.com/anchore/grype-db/blob/main/pkg/provider/provider.go)** abstraction, which is responsible for pulling and caching raw vulnerability data files locally for later processing.
 
-- **[Provider](https://github.com/anchore/grype-db/blob/main/pkg/provider/provider.go)** - Responsible for providing raw vulnerability data files that are cached locally for later processing.
-
-- **[Processor](https://github.com/anchore/grype-db/blob/main/pkg/data/processor.go)** - Responsible for unmarshalling any entries given by the `Provider`, passing them into `Transformers`, and returning any resulting entries. Note: the object definition is schema-agnostic but instances are schema-specific since Transformers are dependency-injected into this object.
-
-- **Transformer** ([`v5`](https://github.com/anchore/grype-db/blob/main/pkg/process/v5/transformers), [`v6`](https://github.com/anchore/grype-db/blob/main/pkg/process/v6/transformers)) - Takes raw data entries of a specific [vunnel-defined schema](https://github.com/anchore/vunnel/tree/main/schema/vulnerability) and transforms the data into schema-specific entries to later be written to the database. Note: the object definition is schema-specific, encapsulating `grypeDB/v#` specific objects within schema-agnostic `Entry` objects.
-
-- **[Entry](https://github.com/anchore/grype-db/blob/main/pkg/data/entry.go)** - Encapsulates schema-specific database records produced by `Processors`/`Transformers` (from the provider data) and accepted by `Writers`.
-
-- **Writer** ([`v5`](https://github.com/anchore/grype-db/blob/main/pkg/process/v5/writer.go), [`v6`](https://github.com/anchore/grype-db/blob/main/pkg/process/v6/writer.go)) - Takes `Entry` objects and writes them to a backing store (today a SQLite database). Note: the object definition is schema-specific and typically references `grypeDB/v#` schema-specific writers.
-
-## Data Flow
-
-All the above abstractions are defined in the [`pkg/data`](https://github.com/anchore/grype-db/tree/main/pkg/data) Go package and are used together commonly in the following flow:
-
-```mermaid
-%%{ init: { 'flowchart': { 'curve': 'linear' } } }%%
-flowchart LR
-    A["data.Provider"]
-
-    subgraph processor["data.Processor"]
-        direction LR
-        B["unmarshaller"]
-        C["v# data.Transformer"]
-        B --> C
-    end
-
-    D["data.Writer"]
-    E["grypeDB/v#/writer.Write"]
-
-    A -->|"cache file"| processor
-    processor -->|"[]data.Entry"| D --> E
-
-    style processor fill:none
-```
-
-Where there is:
-
-- A `data.Provider` for each upstream data source (e.g. canonical, redhat, github, NIST, etc.)
-- A `data.Processor` for every vunnel-defined data shape (github, os, msrc, nvd, etc... defined in the [vunnel repo](https://github.com/anchore/vunnel/tree/main/schema/vulnerability))
-- A `data.Transformer` for every processor and DB schema version pairing
-- A `data.Writer` for every DB schema version
+The build-side abstractions (Processor, Transformer, Entry, Writer) now live in the grype repo. See the [Grype DB build utilities]({{< relref "/docs/architecture/grype#db-build-utilities" >}}) section for details on these abstractions and the data flow through the build process.
 
 ## Code Organization
 
-From a Go package organization perspective, the above abstractions are organized as follows:
+After the migration of build logic to grype, grype-db retains orchestration and provider management:
 
 ```
 grype-db/
-└── pkg
-    ├── data                      # common data structures and objects that define the ETL flow
-    ├── process
-    │    ├── processors           # common data.Processors to call common unmarshallers and pass entries into data.Transformers
-    │    ├── v5                   # schema v5 (legacy, active)
-    │    │    ├── processors.go   # wires up all common data.Processors to v5-specific data.Transformers
-    │    │    ├── writer.go       # v5-specific store writer
-    │    │    └── transformers    # v5-specific transformers
-    │    └── v6                   # schema v6 (current, active)
-    │         ├── processors.go   # wires up all common data.Processors to v6-specific data.Transformers
-    │         ├── writer.go       # v6-specific store writer
-    │         └── transformers    # v6-specific transformers
-    └── provider                  # common code to pull, unmarshal, and cache upstream vuln data into local files
-        └── ...
-
+├── cmd/                          # CLI entrypoints (pull, build, package commands)
+├── pkg/
+│   └── provider/                 # provider file/state/workspace management (pulling and caching upstream data)
+├── manager/                      # Python scripts driving the daily DB publisher workflow
+├── data/                         # local vulnerability data cache (populated by grype-db pull)
+└── .grype-db.yaml                # configuration for providers and build settings
 ```
+
+Build logic (processors, transformers, writers) has moved to the grype repo under `grype/db/`. See the [Grype DB build utilities]({{< relref "/docs/architecture/grype#db-build-utilities" >}}) for the current code organization of those components.
 
 Note: Historical schema versions (v1-v4) have been removed from the codebase.
 
@@ -139,7 +92,7 @@ The definitions of what goes into the database and how to access it (both reads 
 - The name of the SQLite DB file within an archive
 - The definition of a listing file and listing file entries
 
-The purpose of [`grype-db`](https://github.com/anchore/grype-db) is to use the definitions from [`grype/db`](https://github.com/anchore/grype/tree/main/grype/db) and the upstream vulnerability data to create DB archives and make them publicly available for consumption via Grype.
+The purpose of [`grype-db`](https://github.com/anchore/grype-db) is to orchestrate and invoke the [build utilities from `grype/db`]({{< relref "/docs/architecture/grype#db-build-utilities" >}}) with upstream vulnerability data to create DB archives and make them publicly available for consumption via Grype.
 
 ## DB Distribution Files
 
@@ -252,7 +205,7 @@ Download the latest vulnerability data from various upstream data sources into a
 
 #### 2. Generate
 
-Build databases for all supported schema versions based on the latest vulnerability data and upload them to Cloudflare R2 (S3-compatible storage).
+Build databases for all supported schema versions (using grype's build library) based on the latest vulnerability data and upload them to Cloudflare R2 (S3-compatible storage).
 
 **Supported Schemas** (see [`schema-info.json`](https://github.com/anchore/grype-db/blob/main/manager/src/grype_db_manager/data/schema-info.json)):
 
@@ -296,5 +249,6 @@ Once the listing file has been uploaded to `databases/listing.json`, user-facing
 
 For more details on:
 
+- How the DB build utilities (processors, transformers, writers) works, see the [Grype DB build utilities](/docs/architecture/grype#db-build-utilities) section
 - How Vunnel processes vulnerability data, see the [Vunnel Architecture](/docs/architecture/vunnel) page
 - How quality gates validate database builds, see the Quality Gates section
