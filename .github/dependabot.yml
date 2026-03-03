@@ -9,6 +9,8 @@ updates:
     commit-message:
       prefix: "npm"
       include: "scope"
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -17,6 +19,8 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
+    cooldown:
+      default-days: 7
 
   - package-ecosystem: "github-actions"
     directory: "/.github/actions/bootstrap"
@@ -25,3 +29,5 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - "dependencies"
+    cooldown:
+      default-days: 7
