@@ -15,6 +15,7 @@ vars:
   PACKAGE_CAPABILITIES_CMD: "uv run ./src/generate_capability_package_tables.py"
   VULNERABILITY_CAPABILITIES_CMD: "uv run ./src/generate_capability_vulnerability_tables.py"
   DATA_SOURCES_CMD: "uv run ./src/generate_data_source_tables.py"
+  SUPPORTED_OS_CMD: "uv run ./src/generate_supported_os_table.py"
 
 tasks:
   default:
@@ -34,6 +35,7 @@ tasks:
       - "{{.PACKAGE_CAPABILITIES_CMD}}"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
       - "{{.DATA_SOURCES_CMD}}"
+      - "{{.SUPPORTED_OS_CMD}}"
       - "make validate || true"
 
   update:
@@ -53,6 +55,7 @@ tasks:
       - "{{.PACKAGE_CAPABILITIES_CMD}} --update"
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
       - "{{.DATA_SOURCES_CMD}} --update"
+      - "{{.SUPPORTED_OS_CMD}}"
       - "make lint-fix || true"
       - "uv run pre-commit run end-of-file-fixer --all-files || true"
       - "uv run pre-commit run trailing-whitespace --all-files || true"
