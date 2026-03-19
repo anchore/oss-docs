@@ -54,6 +54,8 @@ tasks:
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
       - "{{.DATA_SOURCES_CMD}} --update"
       - "make lint-fix || true"
+      - "uv run pre-commit run end-of-file-fixer --all-files || true"
+      - "uv run pre-commit run trailing-whitespace --all-files || true"
 
   update-release-notes:
     desc: Generate release notes for all projects
