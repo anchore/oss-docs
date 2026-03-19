@@ -20,6 +20,9 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  SLACK_NOTIFICATIONS: true
+
 jobs:
   update-docs:
     name: Update Documentation
@@ -80,9 +83,28 @@ jobs:
           title: "📚 Update generated documentation"
           body: |
             This PR contains automatic updates to the documentation generated from the latest tool container images (from the `update-generated-docs` workflow).
-          branch: update-generated-docs-${{ github.ref }}
+          branch: update-generated-docs
           labels: |
             documentation
             automated
           draft: false
           delete-branch: true
+
+      - name: Notify Slack on failure
+        uses: slackapi/slack-github-action@91efab103c0de0a537f72a35f6b8cda0ee76bf0a #v2.1.1
+        if: ${{ failure() && env.SLACK_NOTIFICATIONS == 'true' }}
+        with:
+          webhook: ${{ secrets.SLACK_TOOLBOX_WEBHOOK_URL }}
+          webhook-type: incoming-webhook
+          payload: |
+            text: "oss-docs generated documentation update failed"
+            blocks:
+              - type: section
+                text:
+                  type: mrkdwn
+                  text: |
+                    *oss-docs generated documentation update failed*
+                    • Workflow: `${{ github.workflow }}`
+                    • Event: `${{ github.event_name }}`
+                    • Job Status: `${{ job.status }}`
+                    • <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Run>
