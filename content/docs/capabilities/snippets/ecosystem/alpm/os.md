@@ -13,9 +13,9 @@
   <tbody>
     <tr>
       <td class="col-os-name">Arch Linux</td>
-      <td class="col-versions">minimal support (CPE-based)</td>
-      <td class="col-provider"><code>nvd</code></td>
-      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
+      <td class="col-versions"><code>rolling</code></td>
+      <td class="col-provider"><code>arch</code></td>
+      <td class="col-data-source">arch</td>
     </tr>
   </tbody>
 </table>

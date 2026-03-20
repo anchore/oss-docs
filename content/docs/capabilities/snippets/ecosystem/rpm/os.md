@@ -37,9 +37,9 @@
     </tr>
     <tr>
       <td class="col-os-name">Fedora</td>
-      <td class="col-versions">minimal support (CPE-based)</td>
-      <td class="col-provider"><code>nvd</code></td>
-      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
+      <td class="col-versions"><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>21</code>, <code>22</code>, <code>23</code>, <code>24</code>, <code>25</code>, <code>26</code>, <code>27</code>, <code>28</code>, <code>29</code>, <code>30</code>, <code>31</code>, <code>32</code>, <code>33</code>, <code>34</code>, <code>35</code>, <code>36</code>, <code>37</code>, <code>38</code>, <code>39</code>, <code>40</code>, <code>41</code>, <code>42</code>, <code>43</code>, <code>44</code>, <code>45</code></td>
+      <td class="col-provider"><code>fedora</code></td>
+      <td class="col-data-source">fedora</td>
     </tr>
     <tr>
       <td class="col-os-name">CBL-Mariner</td>
