@@ -2,9 +2,9 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:8a74a8c4-9fc4-4efd-abf6-c99adb69faa8" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:50cabbcc-41b8-4155-9494-3642900f299e" version="1">
   <metadata>
-    <timestamp>2026-03-20T12:29:40Z</timestamp>
+    <timestamp>2026-03-20T12:38:43Z</timestamp>
     <tools>
       <components>
         <component type="application">

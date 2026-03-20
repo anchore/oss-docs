@@ -446,6 +446,16 @@
     "provider": "rhel"
   },
   {
+    "name": "secureos",
+    "versions": [
+      {
+        "value": "rolling"
+      }
+    ],
+    "releaseId": "secureos",
+    "provider": "secureos"
+  },
+  {
     "name": "sles",
     "versions": [
       {

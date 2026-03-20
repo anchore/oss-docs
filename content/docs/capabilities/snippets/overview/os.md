@@ -114,6 +114,12 @@
       <td class="col-data-source"><a href="https://access.redhat.com/documentation/en-us/red_hat_security_data_api/">Red Hat Security Data API</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Secureos</td>
+      <td class="col-versions"><code>rolling</code></td>
+      <td class="col-provider"><code>secureos</code></td>
+      <td class="col-data-source">secureos</td>
+    </tr>
+    <tr>
       <td class="col-os-name">SUSE Linux Enterprise Server</td>
       <td class="col-versions"><code>11</code>, <code>12</code>, <code>15</code></td>
       <td class="col-provider"><code>sles</code></td>
