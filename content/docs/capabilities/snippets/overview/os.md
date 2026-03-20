@@ -78,6 +78,12 @@
       <td class="col-data-source"><a href="https://linux.oracle.com/security/">Oracle Linux Security</a></td>
     </tr>
     <tr>
+      <td class="col-os-name">Photon OS</td>
+      <td class="col-versions"><code>1.0</code>, <code>2.0</code>, <code>3.0</code>, <code>4.0</code>, <code>5.0</code></td>
+      <td class="col-provider"><code>photon</code></td>
+      <td class="col-data-source">photon</td>
+    </tr>
+    <tr>
       <td class="col-os-name">Raspberry Pi OS</td>
       <td class="col-versions"><code>7</code> (wheezy), <code>8</code> (jessie), <code>9</code> (stretch), <code>10</code> (buster), <code>11</code> (bullseye), <code>12</code> (bookworm), <code>13</code> (trixie), <code>14</code>, <code>unstable</code></td>
       <td class="col-provider"><code>debian</code></td>

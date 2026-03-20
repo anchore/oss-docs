@@ -70,6 +70,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:elixir-lang:elixir:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">envoy-binary</td>
+      <td class="col-criteria"><code>envoy</code></td>
+      <td class="col-purl"><code>pkg:generic/envoy</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:envoyproxy:envoy:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">erlang-alpine-binary</td>
       <td class="col-criteria"><code>beam.smp</code></td>
       <td class="col-purl"><code>pkg:generic/erlang</code></td>
@@ -119,15 +125,21 @@
     </tr>
     <tr>
       <td class="col-class">go-binary</td>
-      <td class="col-criteria"><code>go</code></td>
+      <td class="col-criteria"><code>{go,go.exe}</code></td>
       <td class="col-purl"><code>pkg:generic/go</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:golang:go:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
-      <td class="col-class">go-binary-hint</td>
-      <td class="col-criteria"><code>VERSION*</code></td>
-      <td class="col-purl"><code>pkg:generic/go</code></td>
-      <td class="col-cpes"><code>cpe:2.3:a:golang:go:*:*:*:*:*:*:*:*</code></td>
+      <td class="col-class">grafana-binary</td>
+      <td class="col-criteria"><code>grafana</code></td>
+      <td class="col-purl"><code>pkg:generic/grafana</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">grafana-binary</td>
+      <td class="col-criteria"><code>grafana-server</code></td>
+      <td class="col-purl"><code>pkg:generic/grafana</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:grafana:grafana:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">gzip-binary</td>
@@ -178,6 +190,18 @@
       <td class="col-cpes"><code>cpe:2.3:a:apache:http_server:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">istio-binary</td>
+      <td class="col-criteria"><code>pilot-discovery</code></td>
+      <td class="col-purl"><code>pkg:generic/istio</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:istio:istio:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">istio-binary</td>
+      <td class="col-criteria"><code>pilot-agent</code></td>
+      <td class="col-purl"><code>pkg:generic/istio</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:istio:istio:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">java-binary</td>
       <td class="col-criteria"><code>java</code></td>
       <td class="col-purl"><code>pkg:generic/oracle/graalvm</code><br><code>pkg:generic/azul/zulu</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/oracle/openjdk</code><br><code>pkg:generic/ibm/java</code><br><code>pkg:generic/oracle/jre</code><br><code>pkg:generic/oracle/jre</code></td>
@@ -218,6 +242,12 @@
       <td class="col-criteria"><code>memcached</code></td>
       <td class="col-purl"><code>pkg:generic/memcached</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:memcached:memcached:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">mongodb-binary</td>
+      <td class="col-criteria"><code>mongod</code></td>
+      <td class="col-purl"><code>pkg:generic/mongodb</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:mongodb:mongodb:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">mysql-binary</td>
@@ -298,6 +328,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:python_software_foundation:python:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:python:python:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">qt-qtbase-lib</td>
+      <td class="col-criteria"><code>libQt*Core.so*</code></td>
+      <td class="col-purl"><code>pkg:generic/qtbase</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:qt:qt:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:qt:qtbase:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">redis-binary</td>
       <td class="col-criteria"><code>redis-server</code></td>
       <td class="col-purl"><code>pkg:generic/redis</code></td>
@@ -344,6 +380,12 @@
       <td class="col-criteria"><code>getopt</code></td>
       <td class="col-purl"><code>pkg:generic/util-linux</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:kernel:util-linux:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">valkey-binary</td>
+      <td class="col-criteria"><code>valkey-server</code></td>
+      <td class="col-purl"><code>pkg:generic/valkey</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:lfprojects:valkey:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:linuxfoundation:valkey:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:valkey-io:valkey:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">wordpress-cli-binary</td>

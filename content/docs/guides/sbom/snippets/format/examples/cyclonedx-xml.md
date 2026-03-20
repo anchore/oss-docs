@@ -2,25 +2,25 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:4a0de52b-975c-4c5f-b377-4af551f9c2e5" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:ce35885b-92a2-4d4b-91e2-14477e385693" version="1">
   <metadata>
-    <timestamp>2025-12-04T14:30:25Z</timestamp>
+    <timestamp>2026-03-20T01:51:59Z</timestamp>
     <tools>
       <components>
         <component type="application">
           <author>anchore</author>
           <name>syft</name>
-          <version>1.38.0</version>
+          <version>1.42.3</version>
         </component>
       </components>
     </tools>
-    <component bom-ref="e98d5f0296649c51" type="container">
+    <component bom-ref="017c96a7521670cf" type="container">
       <name>busybox</name>
-      <version>sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b</version>
+      <version>sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8</version>
     </component>
   </metadata>
   <components>
-    <component bom-ref="pkg:generic/busybox@1.37.0?package-id=fe44cee3fe279dfa" type="application">
+    <component bom-ref="pkg:generic/busybox@1.37.0?package-id=7020dfe7743f6dfc" type="application">
       <name>busybox</name>
       <version>1.37.0</version>
       <cpe>cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*</cpe>
@@ -29,7 +29,7 @@
         <property name="syft:package:foundBy">binary-classifier-cataloger</property>
         <property name="syft:package:type">binary</property>
         <property name="syft:package:metadataType">binary-signature</property>
-        <property name="syft:location:0:layerID">sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05</property>
+        <property name="syft:location:0:layerID">sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7</property>
         <property name="syft:location:0:path">/bin/[</property>
       </properties>
     </component>
@@ -46,7 +46,7 @@
         <property name="syft:distro:versionID">1.37.0</property>
       </properties>
     </component>
-    <component bom-ref="3a6b3df220691408" type="file">
+    <component bom-ref="55ff7bb58de38199" type="file">
       <name>/bin/[</name>
       <hashes>
         <hash alg="SHA-1">5231d5d79cb52f3581f9c137396e7d9df7aa6d6b</hash>

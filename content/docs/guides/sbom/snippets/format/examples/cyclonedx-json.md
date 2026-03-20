@@ -5,30 +5,30 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
-  "serialNumber": "urn:uuid:56487061-366a-4528-8cea-939d95277d52",
+  "serialNumber": "urn:uuid:9221150c-ef09-418b-a0fc-a1c1eb6044da",
   "version": 1,
   "metadata": {
-    "timestamp": "2025-12-04T14:30:24Z",
+    "timestamp": "2026-03-20T01:51:58Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "author": "anchore",
           "name": "syft",
-          "version": "1.38.0"
+          "version": "1.42.3"
         }
       ]
     },
     "component": {
-      "bom-ref": "e98d5f0296649c51",
+      "bom-ref": "017c96a7521670cf",
       "type": "container",
       "name": "busybox",
-      "version": "sha256:396fa78f221c72de93053a00e33e3d69b5bdfa80131777e6ea518eb9a1af3f3b"
+      "version": "sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8"
     }
   },
   "components": [
     {
-      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=fe44cee3fe279dfa",
+      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=7020dfe7743f6dfc",
       "type": "application",
       "name": "busybox",
       "version": "1.37.0",
@@ -49,7 +49,7 @@
         },
         {
           "name": "syft:location:0:layerID",
-          "value": "sha256:1a382740c5642e4607412a341df3716c22287ffa6adf92eaff54e079a1902f05"
+          "value": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
         },
         {
           "name": "syft:location:0:path",
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "bom-ref": "3a6b3df220691408",
+      "bom-ref": "55ff7bb58de38199",
       "type": "file",
       "name": "/bin/[",
       "hashes": [

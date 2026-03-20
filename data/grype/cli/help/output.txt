@@ -17,6 +17,7 @@ You can also explicitly specify the scheme to use:
     grype registry:yourrepo/yourimage:tag        pull image directly from a registry (no container runtime required)
     grype purl:path/to/purl/file                 read a newline separated file of package URLs from a path on disk
     grype PURL                                   read a single package PURL directly (e.g. pkg:apk/openssl@3.2.1?distro=alpine-3.20.3)
+    grype cpes:path/to/cpes/file                 read a newline separated file of package CPEs from a path on disk
     grype CPE                                    read a single CPE directly (e.g. cpe:2.3:a:openssl:openssl:3.0.14:*:*:*:*:*)
 
 You can also pipe in Syft JSON directly:
@@ -40,7 +41,7 @@ Flags:
   -c, --config stringArray     grype configuration file(s) to use
       --distro string          distro to match against in the format: <distro>[-:@]<version>
       --exclude stringArray    exclude paths from being scanned using a glob expression
-  -f, --fail-on string         set the return code to 1 if a vulnerability is found with a severity >= the given severity, options=[negligible low medium high critical]
+  -f, --fail-on string         set the return code to 2 if a vulnerability is found with a severity >= the given severity, options=[negligible low medium high critical]
       --file string            file to write the default report output to (default is STDOUT)
       --from stringArray       specify the source behavior to use (e.g. docker, registry, podman, oci-dir, ...)
   -h, --help                   help for grype

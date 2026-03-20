@@ -61,9 +61,9 @@
     </tr>
     <tr>
       <td class="col-os-name">Photon OS</td>
-      <td class="col-versions">minimal support (CPE-based)</td>
-      <td class="col-provider"><code>nvd</code></td>
-      <td class="col-data-source"><a href="https://nvd.nist.gov/developers/vulnerabilities">National Vulnerability Database (NVD)</a></td>
+      <td class="col-versions"><code>1.0</code>, <code>2.0</code>, <code>3.0</code>, <code>4.0</code>, <code>5.0</code></td>
+      <td class="col-provider"><code>photon</code></td>
+      <td class="col-data-source">photon</td>
     </tr>
     <tr>
       <td class="col-os-name">Red Hat Enterprise Linux</td>

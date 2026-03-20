@@ -142,9 +142,33 @@ match:
     # use CPE matching to find vulnerabilities (env: GRYPE_MATCH_RUST_USING_CPES)
     using-cpes: false
 
+  hex:
+    # use CPE matching to find vulnerabilities (env: GRYPE_MATCH_HEX_USING_CPES)
+    using-cpes: false
+
   stock:
     # use CPE matching to find vulnerabilities (env: GRYPE_MATCH_STOCK_USING_CPES)
     using-cpes: true
+
+  dpkg:
+    # (env: GRYPE_MATCH_DPKG_USING_CPES)
+    using-cpes: false
+
+    # strategy for handling missing epochs in dpkg package versions during matching (options: zero, auto) (env: GRYPE_MATCH_DPKG_MISSING_EPOCH_STRATEGY)
+    missing-epoch-strategy: 'zero'
+
+    # use CPE matching for packages from end-of-life distributions (env: GRYPE_MATCH_DPKG_USE_CPES_FOR_EOL)
+    use-cpes-for-eol: false
+
+  rpm:
+    # (env: GRYPE_MATCH_RPM_USING_CPES)
+    using-cpes: false
+
+    # strategy for handling missing epochs in RPM package versions during matching (options: zero, auto) (env: GRYPE_MATCH_RPM_MISSING_EPOCH_STRATEGY)
+    missing-epoch-strategy: 'auto'
+
+    # use CPE matching for packages from end-of-life distributions (env: GRYPE_MATCH_RPM_USE_CPES_FOR_EOL)
+    use-cpes-for-eol: false
 
 # upon scanning, if a severity is found at or above the given severity then the return code will be 1
 # default is unset which will skip this validation (options: negligible, low, medium, high, critical) (env: GRYPE_FAIL_ON_SEVERITY)
@@ -207,6 +231,10 @@ fix-channel:
 
 # (env: GRYPE_TIMESTAMP)
 timestamp: true
+
+alerts:
+  # enable/disable warnings about packages from end-of-life (EOL) distros. When enabled, grype will track and report packages that come from distros that have reached their end-of-life date. (env: GRYPE_ALERTS_ENABLE_EOL_DISTRO_WARNINGS)
+  enable-eol-distro-warnings: true
 
 db:
   # location to write the vulnerability database cache (env: GRYPE_DB_CACHE_DIR)
