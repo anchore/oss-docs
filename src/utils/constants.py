@@ -5,10 +5,10 @@ This module centralizes magic strings used across documentation generation scrip
 to improve maintainability, reduce typos, and provide IDE autocomplete support.
 """
 
-from enum import Enum
+from enum import StrEnum
 
 
-class CSSClasses(str, Enum):
+class CSSClasses(StrEnum):
     """CSS class names used in HTML table generation."""
 
     # table classes
@@ -91,7 +91,7 @@ class CSSClasses(str, Enum):
         return self.value
 
 
-class SVGIcons(str, Enum):
+class SVGIcons(StrEnum):
     """SVG icon identifiers for capability indicators."""
 
     CHECK = "icon-check"
@@ -102,7 +102,7 @@ class SVGIcons(str, Enum):
         return self.value
 
 
-class OutputFormats(str, Enum):
+class OutputFormats(StrEnum):
     """Syft output format identifiers."""
 
     # SBOM formats
