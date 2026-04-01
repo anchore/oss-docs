@@ -83,9 +83,9 @@ def main(
     try:
         content = generate_markdown_content(image, app_name, tool_name, update)
 
-        # Write to file
+        # Write to file (ensure single trailing newline)
         with open(output, "w", encoding="utf-8") as f:
-            f.write(content)
+            f.write(content.rstrip() + "\n")
 
         logger.info(f"Configuration docs generated successfully: {output}")
 

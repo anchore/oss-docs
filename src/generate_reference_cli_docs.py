@@ -103,9 +103,9 @@ def main(
             update,
         )
 
-        # Write to file
+        # Write to file (ensure single trailing newline)
         with open(output, "w", encoding="utf-8") as f:
-            f.write(content)
+            f.write(content.rstrip() + "\n")
 
         logger.info(f"CLI docs generated successfully: {output}")
 
