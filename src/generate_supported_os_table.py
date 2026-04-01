@@ -94,7 +94,7 @@ def generate_overview_os_table(
 
     # generate comment
     comment = config.get_generated_comment(__file__, "html")
-    comment += "\n<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
+    comment += "<!-- NOTE: This table uses SVG icons defined in layouts/partials/hooks/body-end.html -->\n"
 
     # build HTML lines
     html_lines = []
