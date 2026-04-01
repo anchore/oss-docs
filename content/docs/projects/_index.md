@@ -31,13 +31,13 @@ graph LR
 
     classDef inputStyle fill:#f8fafc,stroke:#cbd5e1,stroke-width:2px,stroke-dasharray: 5 5,color:#64748b
     classDef syftStyle fill:#fdf4ff,stroke:#e879f9,stroke-width:2px,color:#6b21a8
-    classDef grypleStyle fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a
+    classDef grypeStyle fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a
     classDef grantStyle fill:#f0fdf4,stroke:#00b388,stroke-width:2px,color:#065f46
     classDef docStyle fill:#ffffff,stroke:#cbd5e1,stroke-width:1px,color:#475569
 
     class software inputStyle
     class syft syftStyle
-    class grype grypleStyle
+    class grype grypeStyle
     class grant grantStyle
     class sbom,vulns,licenses docStyle
 ```
