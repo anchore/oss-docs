@@ -9,6 +9,9 @@ dependencies = ["click>=8.3.0", "requests>=2.32.5", "rich>=13.0.0", "pyyaml>=6.0
 [tool.setuptools]
 packages = [] # no Python packages to install - this is a Hugo site with helper scripts
 
+[tool.uv]
+exclude-newer = "1 week"
+
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 addopts = [
