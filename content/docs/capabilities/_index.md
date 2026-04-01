@@ -19,7 +19,7 @@ Some capabilities may be conditionally supported, requiring additional configura
 {{< alert title="Show me the data!" color="primary" >}}
 This page explains **how to interpret the capabilities tables** found on each ecosystem-specific capability pages.
 
-There are **separate overviews** of [supported pacakge ecosystems]({{< ref "docs/capabilities/all-packages" >}}) as well as [supported Operating Systems]({{< ref "docs/capabilities/all-os" >}}).
+There are **separate overviews** of [supported package ecosystems]({{< ref "docs/capabilities/all-packages" >}}) as well as [supported Operating Systems]({{< ref "docs/capabilities/all-os" >}}).
 {{< /alert >}}
 
 ## Vulnerability scanning capabilities
