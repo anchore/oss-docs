@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 vars:
   SYFT_CLI_CMD: "uv run ./src/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
@@ -36,7 +36,10 @@ tasks:
       - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
       - "{{.DATA_SOURCES_CMD}}"
       - "{{.SUPPORTED_OS_CMD}}"
-      - "make validate || true"
+      - "make lint-fix || true"
+      - "uv run pre-commit run end-of-file-fixer --all-files || true"
+      - "uv run pre-commit run trailing-whitespace --all-files || true"
+      - "make validate"
 
   update:
     desc: Deletes all data caches and generate all documentation
@@ -59,6 +62,7 @@ tasks:
       - "make lint-fix || true"
       - "uv run pre-commit run end-of-file-fixer --all-files || true"
       - "uv run pre-commit run trailing-whitespace --all-files || true"
+      - "make validate"
 
   update-release-notes:
     desc: Generate release notes for all projects
