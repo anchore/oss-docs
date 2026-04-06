@@ -1135,7 +1135,9 @@ def parse_definition(def_name: str, def_schema: dict, all_defs: dict) -> dict[st
             field_desc = ""  # clear description for this special field
         else:
             field_type = expand_type_reference(field_spec, all_defs)
-            field_desc = field_spec.get("description", "")
+            # replace newlines with <br/> to prevent blank lines inside HTML elements,
+            # which would break CommonMark HTML block parsing and make prettier non-idempotent
+            field_desc = field_spec.get("description", "").replace("\n", "<br/>")
 
         is_required = field_name in required_fields
 
