@@ -78,3 +78,7 @@ strict_equality = true
 root = ["src"]
 
 [tool.pyrefly]
+# Override default project-excludes to remove the **/.[!/.]*/**/* glob,
+# which excludes everything when the repo is cloned under a dot-directory
+# (e.g. .cache/ in CI).
+project-excludes = ["**/node_modules", "**/__pycache__", "**/venv/**/*"]
