@@ -37,7 +37,7 @@ tasks:
     desc: Run code lint fixers
     cmds:
       - uv run ruff check src tests --fix
-      - uv run pyrefly infer src
+      - uv run pyrefly infer src --disable-project-excludes-heuristics --project-excludes '**/node_modules' '**/__pycache__' '**/venv/**/*'
 
   test:
     desc: Run all tests
