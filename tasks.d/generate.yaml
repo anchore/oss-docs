@@ -37,8 +37,8 @@ tasks:
       - "{{.DATA_SOURCES_CMD}}"
       - "{{.SUPPORTED_OS_CMD}}"
       - "make lint-fix || true"
-      - "uv run pre-commit run end-of-file-fixer --all-files || true"
-      - "uv run pre-commit run trailing-whitespace --all-files || true"
+      - "uv run pre-commit run end-of-file-fixer --all-files --hook-stage push || true"
+      - "uv run pre-commit run trailing-whitespace --all-files --hook-stage push || true"
       - "make validate"
 
   update:
@@ -60,8 +60,8 @@ tasks:
       - "{{.DATA_SOURCES_CMD}} --update"
       - "{{.SUPPORTED_OS_CMD}}"
       - "make lint-fix || true"
-      - "uv run pre-commit run end-of-file-fixer --all-files || true"
-      - "uv run pre-commit run trailing-whitespace --all-files || true"
+      - "uv run pre-commit run end-of-file-fixer --all-files --hook-stage push || true"
+      - "uv run pre-commit run trailing-whitespace --all-files --hook-stage push || true"
       - "make validate"
 
   update-release-notes:
