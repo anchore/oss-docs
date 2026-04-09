@@ -78,3 +78,6 @@ strict_equality = true
 root = ["src"]
 
 [tool.pyrefly]
+# override default project-excludes to remove the hidden directory pattern (**/.[!/.]*/**/*)
+# which incorrectly matches when the checkout path contains .cache (e.g., in CI)
+project-excludes = ["**/node_modules", "**/__pycache__", "**/venv/**/*"]
