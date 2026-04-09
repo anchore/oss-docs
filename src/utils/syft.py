@@ -93,7 +93,12 @@ def run(
             raise
 
     # Docker execution path
-    docker_cmd = ["docker", "run", "--pull", "always", "--rm"]
+    # note: use --pull missing to avoid rate limits (explicit pulls happen at generation start)
+    docker_cmd = ["docker", "run", "--pull", "missing", "--rm"]
+
+    # mount Docker socket so Syft can use host's Docker daemon for image access
+    # this enables shared image cache and auth with the host
+    docker_cmd.extend(["-v", "/var/run/docker.sock:/var/run/docker.sock"])
 
     # always set HOME to avoid path mangling in config output
     # (e.g., ~/go/pkg/mod becomes ~go~pkg~mod without HOME set)

@@ -18,8 +18,16 @@ vars:
   SUPPORTED_OS_CMD: "uv run ./src/generate_supported_os_table.py"
 
 tasks:
+  pull-images:
+    desc: Pull all required Docker images
+    cmds:
+      - docker pull anchore/syft:latest
+      - docker pull anchore/grype:latest
+      - docker pull anchore/grant:latest
+
   default:
     desc: Generate all documentation using existing caches
+    deps: [pull-images]
     cmds:
       - "{{.SYFT_CLI_CMD}}"
       - "{{.SYFT_CONFIG_CMD}}"
@@ -43,6 +51,7 @@ tasks:
 
   update:
     desc: Deletes all data caches and generate all documentation
+    deps: [pull-images]
     cmds:
       - "{{.SYFT_CLI_CMD}} --update"
       - "{{.SYFT_CONFIG_CMD}} --update"
