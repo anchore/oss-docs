@@ -64,6 +64,7 @@ tasks:
 
   install:
     desc: Install all development dependencies
+    deps: [tools]
     cmds:
       - task: hugo:install
       - task: python:install
