@@ -37,7 +37,9 @@ tasks:
     desc: Run code lint fixers
     cmds:
       - uv run ruff check src tests --fix
-      - uv run pyrefly infer src
+      # the flag prevents pyrefly from using default excludes that match hidden directories
+      # (e.g., **/.[!/.]*/**/*), which breaks when CI clones the repo under .cache/
+      - uv run pyrefly infer src --disable-project-excludes-heuristics
 
   test:
     desc: Run all tests
