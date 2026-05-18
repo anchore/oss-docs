@@ -31,28 +31,80 @@ inputs:
 
 runs:
   using: "composite"
+  # restore-only caching pattern: PRs (and pushes to fork default branches) read existing
+  # caches but never write back. Only pushes to the upstream repo's default branch refresh
+  # them. This keeps untrusted runs from polluting or evicting trusted cache entries.
   steps:
     - name: Setup node.js
       uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
       if: inputs.node-version != ''
       with:
         node-version: ${{ inputs.node-version }}
-        cache: 'npm'
+        # npm cache is managed below so untrusted runs cannot write back
 
     - uses: astral-sh/setup-uv@eac588ad8def6316056a12d4907a9d4d84ff7a3b # v7.3.0
       if: inputs.python-version != ''
       with:
-        enable-cache: true
+        # uv cache is managed below so untrusted runs cannot write back
+        enable-cache: false
 
     - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
       if: inputs.python-version != ''
       with:
         python-version: ${{ inputs.python-version }}
 
-    # restore-only caching pattern: PRs (and pushes to fork default branches) read
-    # existing caches but never write back. Only pushes to the upstream repo's default
-    # branch refresh them. This keeps untrusted runs from polluting or evicting trusted
-    # cache entries.
+    # resolve cache locations so the restore/save steps below stay tool-agnostic
+    - name: Resolve npm cache directory
+      if: inputs.node-version != ''
+      id: npm-cache-dir
+      shell: bash
+      run: echo "dir=$(npm config get cache)" >> "$GITHUB_OUTPUT"
+
+    - name: Resolve uv cache directory
+      if: inputs.python-version != ''
+      id: uv-cache-dir
+      shell: bash
+      run: echo "dir=$(uv cache dir)" >> "$GITHUB_OUTPUT"
+
+    # npm cache: restore-only on non-default branches and forks
+    - name: Restore npm cache
+      if: ${{ inputs.node-version != '' && (github.ref != format('refs/heads/{0}', github.event.repository.default_branch) || github.event.repository.fork == true) }}
+      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-node-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ inputs.cache-key-prefix }}-${{ runner.os }}-node-${{ inputs.node-version }}-
+
+    # npm cache: restore + save on the upstream default branch only
+    - name: Restore and save npm cache
+      if: ${{ inputs.node-version != '' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
+      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.dir }}
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-node-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ inputs.cache-key-prefix }}-${{ runner.os }}-node-${{ inputs.node-version }}-
+
+    # uv cache: restore-only on non-default branches and forks
+    - name: Restore uv cache
+      if: ${{ inputs.python-version != '' && (github.ref != format('refs/heads/{0}', github.event.repository.default_branch) || github.event.repository.fork == true) }}
+      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ steps.uv-cache-dir.outputs.dir }}
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-uv-${{ inputs.uv-version }}-${{ hashFiles('uv.lock', 'pyproject.toml') }}
+        restore-keys: |
+          ${{ inputs.cache-key-prefix }}-${{ runner.os }}-uv-${{ inputs.uv-version }}-
+
+    # uv cache: restore + save on the upstream default branch only
+    - name: Restore and save uv cache
+      if: ${{ inputs.python-version != '' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
+      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ steps.uv-cache-dir.outputs.dir }}
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-uv-${{ inputs.uv-version }}-${{ hashFiles('uv.lock', 'pyproject.toml') }}
+        restore-keys: |
+          ${{ inputs.cache-key-prefix }}-${{ runner.os }}-uv-${{ inputs.uv-version }}-
 
     # tool cache: restore-only on non-default branches and forks
     - name: Restore tool cache
