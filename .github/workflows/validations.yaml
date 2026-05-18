@@ -26,7 +26,17 @@ jobs:
       - name: Bootstrap environment
         uses: ./.github/actions/bootstrap
 
+      # restore-only on non-default branches and forks
       - name: Restore link check cache
+        if: ${{ github.ref != format('refs/heads/{0}', github.event.repository.default_branch) || github.event.repository.fork == true }}
+        uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+        with:
+          path: .cache/lychee
+          key: cache-lychee
+
+      # restore + save on the upstream default branch only
+      - name: Restore and save link check cache
+        if: ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
         uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
         with:
           path: .cache/lychee

@@ -1,6 +1,19 @@
 version: 2
 updates:
-  # Enable version updates for npm
+
+  - package-ecosystem: gomod
+    directories:
+      - "/"
+      - "/.make"
+    cooldown:
+      default-days: 7
+    schedule:
+      interval: "weekly"
+      day: "friday"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+
   - package-ecosystem: "npm"
     directories:
       - "/"
@@ -8,6 +21,7 @@ updates:
       default-days: 7
     schedule:
       interval: "weekly"
+      day: "friday"
     open-pull-requests-limit: 5
     commit-message:
       prefix: "npm"
@@ -21,6 +35,7 @@ updates:
       default-days: 7
     schedule:
       interval: "weekly"
+      day: "friday"
     open-pull-requests-limit: 10
     labels:
       - "dependencies"

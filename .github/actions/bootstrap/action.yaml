@@ -49,9 +49,24 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
 
+    # restore-only caching pattern: PRs (and pushes to fork default branches) read
+    # existing caches but never write back. Only pushes to the upstream repo's default
+    # branch refresh them. This keeps untrusted runs from polluting or evicting trusted
+    # cache entries.
+
+    # tool cache: restore-only on non-default branches and forks
     - name: Restore tool cache
-      if: inputs.tools == 'true'
+      if: ${{ inputs.tools == 'true' && (github.ref != format('refs/heads/{0}', github.event.repository.default_branch) || github.event.repository.fork == true) }}
       id: tool-cache
+      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ github.workspace }}/.tool
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-tool-${{ hashFiles('.binny.yaml') }}
+
+    # tool cache: restore + save on the upstream default branch only
+    - name: Restore and save tool cache
+      if: ${{ inputs.tools == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
+      id: tool-cache-rw
       uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
       with:
         path: ${{ github.workspace }}/.tool
@@ -76,8 +91,17 @@ runs:
         IFS=' ' read -ra packages <<< "$APT_PACKAGES"
         DEBIAN_FRONTEND=noninteractive sudo apt update && sudo -E apt install -y "${packages[@]}"
 
+    # ecosystem tool cache: restore-only on non-default branches and forks
     - name: Restore ecosystem tool cache
-      if: inputs.tools == 'true'
+      if: ${{ inputs.tools == 'true' && (github.ref != format('refs/heads/{0}', github.event.repository.default_branch) || github.event.repository.fork == true) }}
+      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      with:
+        path: ${{ github.workspace }}/.cache
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-ecosystem-tool
+
+    # ecosystem tool cache: restore + save on the upstream default branch only
+    - name: Restore and save ecosystem tool cache
+      if: ${{ inputs.tools == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
       uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
       with:
         path: ${{ github.workspace }}/.cache
