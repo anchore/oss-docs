@@ -1,10 +1,9 @@
 cooldown: 7d
-
 tools:
   # we want to use a pinned version of binny to manage the toolchain (so binny manages itself!)
   - name: binny
     version:
-      want: v0.10.0
+      want: v0.13.1
     method: github-release
     with:
       repo: anchore/binny
@@ -12,7 +11,7 @@ tools:
   # used for showing the changelog at release
   - name: glow
     version:
-      want: v2.1.1
+      want: v2.1.2
     method: github-release
     with:
       repo: charmbracelet/glow
@@ -20,7 +19,7 @@ tools:
   # used at release to generate the changelog
   - name: chronicle
     version:
-      want: v0.8.0
+      want: v0.11.0
     method: github-release
     with:
       repo: anchore/chronicle
@@ -28,7 +27,7 @@ tools:
   # used for running all local and CI tasks
   - name: task
     version:
-      want: v3.45.3
+      want: v3.51.1
     method: github-release
     with:
       repo: go-task/task
@@ -36,7 +35,7 @@ tools:
   # static site generator
   - name: hugo
     version:
-      want: v0.150.0
+      want: v0.161.1
     method: github-release
     with:
       repo: gohugoio/hugo
