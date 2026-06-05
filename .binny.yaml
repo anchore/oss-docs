@@ -35,7 +35,7 @@ tools:
   # static site generator
   - name: hugo
     version:
-      want: v0.162.0
+      want: v0.162.1
     method: github-release
     with:
       repo: gohugoio/hugo
