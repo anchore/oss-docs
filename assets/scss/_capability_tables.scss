@@ -229,6 +229,17 @@
   line-height: 1.6;
 }
 
+/* Package URL type column - lists one or more pkg:<type> tokens */
+.capability-table .col-purl-type {
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.capability-table-ecosystem .col-purl-type {
+  width: 12%;
+  min-width: 110px;
+}
+
 /* Cataloger name - prominent, not code */
 .capability-table .cataloger-name {
   font-weight: 600;
