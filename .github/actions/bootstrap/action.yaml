@@ -79,7 +79,7 @@ runs:
     # npm cache: restore + save on the upstream default branch only
     - name: Restore and save npm cache
       if: ${{ inputs.node-version != '' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ steps.npm-cache-dir.outputs.dir }}
         key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-node-${{ inputs.node-version }}-${{ hashFiles('**/package-lock.json') }}
@@ -99,7 +99,7 @@ runs:
     # uv cache: restore + save on the upstream default branch only
     - name: Restore and save uv cache
       if: ${{ inputs.python-version != '' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ steps.uv-cache-dir.outputs.dir }}
         key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-uv-${{ inputs.uv-version }}-${{ hashFiles('uv.lock', 'pyproject.toml') }}
@@ -119,7 +119,7 @@ runs:
     - name: Restore and save tool cache
       if: ${{ inputs.tools == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
       id: tool-cache-rw
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ github.workspace }}/.tool
         key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-tool-${{ hashFiles('.binny.yaml') }}
@@ -154,7 +154,7 @@ runs:
     # ecosystem tool cache: restore + save on the upstream default branch only
     - name: Restore and save ecosystem tool cache
       if: ${{ inputs.tools == 'true' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && github.event.repository.fork == false }}
-      uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 # v5.0.3
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ github.workspace }}/.cache
         key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-ecosystem-tool
