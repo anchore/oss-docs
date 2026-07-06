@@ -2,9 +2,6 @@ log:
   # suppress all logging output (env: SYFT_LOG_QUIET)
   quiet: false
 
-  # increase verbosity (-v = info, -vv = debug) (env: SYFT_LOG_VERBOSITY)
-  verbosity: 0
-
   # explicitly set the logging level (available: [error warn info debug trace]) (env: SYFT_LOG_LEVEL)
   level: 'warn'
 
@@ -12,7 +9,7 @@ log:
   file: ''
 
 dev:
-  # capture resource profiling data (available: [cpu, mem]) (env: SYFT_DEV_PROFILE)
+  # capture resource profiling data (available: [cpu, mem, ...]) (env: SYFT_DEV_PROFILE)
   profile: ''
 
 # the configuration file(s) used to load application configuration (env: SYFT_CONFIG)
@@ -25,9 +22,6 @@ config: ''
 #   - "spdx-json=<spdx-json-output-file>" (env: SYFT_OUTPUT)
 output:
   - 'syft-table'
-
-# file to write the default report output to (default is STDOUT) (env: SYFT_LEGACYFILE)
-legacyFile: ''
 
 format:
   # default value for all formats that support the "pretty" option (default is unset) (env: SYFT_FORMAT_PRETTY)
@@ -76,9 +70,6 @@ format:
 
 # whether to check for an application update on start up or not (env: SYFT_CHECK_FOR_APP_UPDATE)
 check-for-app-update: true
-
-# enable one or more package catalogers (env: SYFT_CATALOGERS)
-catalogers: []
 
 # set the base set of catalogers to use (defaults to 'image' or 'directory' depending on the scan source) (env: SYFT_DEFAULT_CATALOGERS)
 default-catalogers: []

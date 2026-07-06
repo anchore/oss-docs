@@ -21,7 +21,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">linux-kernel-cataloger</div><div class="evidence-patterns"><code>kernel</code>, <code>kernel-*</code>, <code>vmlinux</code>, <code>vmlinux-*</code>, <code>vmlinuz</code>, <code>vmlinuz-*</code>, <code>lib/modules/**/*.ko</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">linux-kernel-cataloger</div><div class="evidence-patterns"><code>kernel</code>, <code>kernel-*</code>, <code>vmlinux</code>, <code>vmlinux-*</code>, <code>vmlinuz</code>, <code>vmlinuz-*</code>, <code>bzImage</code>, <code>bzImage-*</code>, <code>zImage</code>, <code>zImage-*</code>, <code>lib/modules/**/*.ko</code>, <code>lib/modules/**/*.ko.gz</code>, <code>lib/modules/**/*.ko.xz</code>, <code>lib/modules/**/*.ko.zst</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value"></td>
       <td class="col-edges value"></td>

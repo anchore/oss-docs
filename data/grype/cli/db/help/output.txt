@@ -6,6 +6,7 @@ Usage:
 Available Commands:
   check       Check to see if there is a database update available
   delete      Delete the vulnerability database
+  diff        Diff two databases, showing packages with added, removed, and modified vulnerability matches
   import      Import a vulnerability database or archive from a local file or URL
   list        List all DBs available according to the listing URL
   providers   List vulnerability providers that are in the database

@@ -9,7 +9,7 @@ log:
   file: ''
 
 dev:
-  # capture resource profiling data (available: [cpu, mem]) (env: GRYPE_DEV_PROFILE)
+  # capture resource profiling data (available: [cpu, mem, ...]) (env: GRYPE_DEV_PROFILE)
   profile: ''
 
   db:
@@ -121,7 +121,7 @@ match:
     using-cpes: false
 
     # use CPE matching to find vulnerabilities for the Go standard library (env: GRYPE_MATCH_GOLANG_ALWAYS_USE_CPE_FOR_STDLIB)
-    always-use-cpe-for-stdlib: true
+    always-use-cpe-for-stdlib: false
 
     # allow comparison between main module pseudo-versions (e.g. v0.0.0-20240413-2b432cf643...) (env: GRYPE_MATCH_GOLANG_ALLOW_MAIN_MODULE_PSEUDO_VERSION_COMPARISON)
     allow-main-module-pseudo-version-comparison: false

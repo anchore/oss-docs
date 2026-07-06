@@ -4,15 +4,15 @@
 {
   "artifacts": [
     {
-      "id": "7020dfe7743f6dfc",
+      "id": "5a5ba7c7211dc63a",
       "name": "busybox",
-      "version": "1.37.0",
+      "version": "1.38.0",
       "type": "binary",
       "foundBy": "binary-classifier-cataloger",
       "locations": [
         {
           "path": "/bin/[",
-          "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7",
+          "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc",
           "accessPath": "/bin/busybox",
           "annotations": {
             "evidence": "primary"
@@ -23,11 +23,11 @@
       "language": "",
       "cpes": [
         {
-          "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
+          "cpe": "cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*",
           "source": "nvd-cpe-dictionary"
         }
       ],
-      "purl": "pkg:generic/busybox@1.37.0",
+      "purl": "pkg:generic/busybox@1.38.0",
       "metadataType": "binary-signature",
       "metadata": {
         "matches": [
@@ -35,7 +35,7 @@
             "classifier": "busybox-binary",
             "location": {
               "path": "/bin/[",
-              "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7",
+              "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc",
               "accessPath": "/bin/busybox",
               "annotations": {
                 "evidence": "primary"
@@ -48,25 +48,25 @@
   ],
   "artifactRelationships": [
     {
-      "parent": "7020dfe7743f6dfc",
-      "child": "55ff7bb58de38199",
+      "parent": "5a5ba7c7211dc63a",
+      "child": "4707db691d76c753",
       "type": "evident-by",
       "metadata": {
         "kind": "primary"
       }
     },
     {
-      "parent": "bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8",
-      "child": "7020dfe7743f6dfc",
+      "parent": "b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
+      "child": "5a5ba7c7211dc63a",
       "type": "contains"
     }
   ],
   "files": [
     {
-      "id": "55ff7bb58de38199",
+      "id": "4707db691d76c753",
       "location": {
         "path": "/bin/[",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "metadata": {
         "mode": 755,
@@ -74,16 +74,16 @@
         "userID": 0,
         "groupID": 0,
         "mimeType": "application/x-sharedlib",
-        "size": 1119808
+        "size": 1041984
       },
       "digests": [
         {
           "algorithm": "sha1",
-          "value": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
+          "value": "ad043255229d0a1f0a99e1cebaf70d32914c50e1"
         },
         {
           "algorithm": "sha256",
-          "value": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
+          "value": "c849b73ca587db87c78f3fefce435c9ead2bbd0f3bb66257531eb8235a41ec45"
         }
       ],
       "executable": {
@@ -103,10 +103,10 @@
       }
     },
     {
-      "id": "e0ed012dbfe876e1",
+      "id": "af6602274c595b5b",
       "location": {
         "path": "/bin/getconf",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
@@ -126,10 +126,10 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "db64fb8f8a5ca3fb",
+      "id": "2daa86e8f8c3e0f0",
       "location": {
-        "path": "/lib/ld-linux-aarch64.so.1",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "path": "/lib/ld-linux-x86-64.so.2",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
@@ -138,7 +138,7 @@
         "importedLibraries": [],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
-          "stackCanary": true,
+          "stackCanary": false,
           "nx": true,
           "relRO": "full",
           "pie": false,
@@ -149,16 +149,16 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "702d7f4d4e0d51ae",
+      "id": "305d4f920c381724",
       "location": {
         "path": "/lib/libc.so.6",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
         "hasExports": true,
         "hasEntrypoint": true,
-        "importedLibraries": ["ld-linux-aarch64.so.1"],
+        "importedLibraries": ["ld-linux-x86-64.so.2"],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
           "stackCanary": true,
@@ -172,16 +172,16 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "d5a2b244e5702e74",
+      "id": "c135340ebb00886e",
       "location": {
         "path": "/lib/libm.so.6",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
         "hasExports": true,
         "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
+        "importedLibraries": ["libc.so.6", "ld-linux-x86-64.so.2"],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
           "stackCanary": true,
@@ -195,16 +195,16 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "3ad0188c01cb01ef",
+      "id": "583e19e3c7518579",
       "location": {
         "path": "/lib/libnss_compat.so.2",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
         "hasExports": true,
         "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
+        "importedLibraries": ["libc.so.6"],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
           "stackCanary": true,
@@ -218,10 +218,10 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "937c9069f7be83d6",
+      "id": "1c8754d280fb96b0",
       "location": {
         "path": "/lib/libnss_dns.so.2",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
@@ -241,10 +241,10 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "c452469c5ef63264",
+      "id": "20825ee8c1221fae",
       "location": {
         "path": "/lib/libnss_files.so.2",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
@@ -264,16 +264,16 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "fb93554ae88ca5d5",
+      "id": "f4b72765a18c7b87",
       "location": {
         "path": "/lib/libnss_hesiod.so.2",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
         "hasExports": true,
         "hasEntrypoint": false,
-        "importedLibraries": ["libresolv.so.2", "libc.so.6", "ld-linux-aarch64.so.1"],
+        "importedLibraries": ["libresolv.so.2", "libc.so.6"],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
           "stackCanary": true,
@@ -287,10 +287,10 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "5ae601af03b99555",
+      "id": "9adf0120c658de53",
       "location": {
         "path": "/lib/libpthread.so.0",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
@@ -310,16 +310,16 @@
       "unknowns": ["unknowns-labeler: no package identified in executable file"]
     },
     {
-      "id": "c6ad3fd5f26bb1b7",
+      "id": "78a03145aefcbef9",
       "location": {
         "path": "/lib/libresolv.so.2",
-        "layerID": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "executable": {
         "format": "elf",
         "hasExports": true,
         "hasEntrypoint": false,
-        "importedLibraries": ["libc.so.6", "ld-linux-aarch64.so.1"],
+        "importedLibraries": ["libc.so.6"],
         "elfSecurityFeatures": {
           "symbolTableStripped": true,
           "stackCanary": true,
@@ -334,44 +334,42 @@
     }
   ],
   "source": {
-    "id": "bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8",
+    "id": "b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
     "name": "busybox",
-    "version": "sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8",
+    "version": "sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
     "type": "image",
     "metadata": {
       "userInput": "busybox:latest",
-      "imageID": "sha256:cd9176cd36f99ec4cae927afa38448e8a9592e5277252f62926defa6aafad0f5",
-      "manifestDigest": "sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8",
-      "mediaType": "application/vnd.oci.image.manifest.v1+json",
-      "tags": [],
-      "imageSize": 4105238,
+      "imageID": "sha256:c6348fa86ba0fb2108c9334f5fe913ddc6d853313e655891f133a0127c30099f",
+      "manifestDigest": "sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
+      "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+      "tags": ["busybox:latest"],
+      "imageSize": 4445814,
       "layers": [
         {
-          "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
-          "digest": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7",
-          "size": 4105238
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "digest": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc",
+          "size": 4445814
         }
       ],
-      "manifest": "ewoJInNjaGVtYVZlcnNpb24iOiAyLAoJIm1lZGlhVHlwZSI6ICJhcHBsaWNhdGlvbi92bmQub2NpLmltYWdlLm1hbmlmZXN0LnYxK2pzb24iLAoJImNvbmZpZyI6IHsKCQkibWVkaWFUeXBlIjogImFwcGxpY2F0aW9uL3ZuZC5vY2kuaW1hZ2UuY29uZmlnLnYxK2pzb24iLAoJCSJkaWdlc3QiOiAic2hhMjU2OmNkOTE3NmNkMzZmOTllYzRjYWU5MjdhZmEzODQ0OGU4YTk1OTJlNTI3NzI1MmY2MjkyNmRlZmE2YWFmYWQwZjUiLAoJCSJzaXplIjogNDc3Cgl9LAoJImxheWVycyI6IFsKCQl7CgkJCSJtZWRpYVR5cGUiOiAiYXBwbGljYXRpb24vdm5kLm9jaS5pbWFnZS5sYXllci52MS50YXIrZ3ppcCIsCgkJCSJkaWdlc3QiOiAic2hhMjU2OmI4NTc1N2E1Y2ExYWM4ZTNmMjVlMGVkYWZkZTcxNjdkYTE4MzBjZjRlNzkzN2YzN2VhZjgzOTJjNjQ1OGQ3NjgiLAoJCQkic2l6ZSI6IDE5MDA4NDUKCQl9CgldLAoJImFubm90YXRpb25zIjogewoJCSJvcmcub3BlbmNvbnRhaW5lcnMuaW1hZ2UudXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9kb2NrZXItbGlicmFyeS9idXN5Ym94IiwKCQkib3JnLm9wZW5jb250YWluZXJzLmltYWdlLnZlcnNpb24iOiAiMS4zNy4wLWdsaWJjIgoJfQp9Cg==",
-      "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjQtMDktMjZUMjE6MzE6NDJaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNC0wOS0yNlQyMTozMTo0MloiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzcuMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6NDNmMDUxYjVmZWRmODNlZTFmOGE1NGZhMmZjMWQxYjg1ZDdjZjg4YjY5YjI2MDRiYzc2ZDY3OWM0ZmUwYTliNyIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhcm02NCIsCgkib3MiOiAibGludXgiLAoJInZhcmlhbnQiOiAidjgiCn0K",
-      "repoDigests": [
-        "index.docker.io/library/busybox@sha256:b3255e7dfbcd10cb367af0d409747d511aeb66dfac98cf30e97e87e4207dd76f"
-      ],
-      "architecture": "arm64",
+      "manifest": "eyJzY2hlbWFWZXJzaW9uIjoyLCJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQuZG9ja2VyLmRpc3RyaWJ1dGlvbi5tYW5pZmVzdC52Mitqc29uIiwiY29uZmlnIjp7Im1lZGlhVHlwZSI6ImFwcGxpY2F0aW9uL3ZuZC5kb2NrZXIuY29udGFpbmVyLmltYWdlLnYxK2pzb24iLCJzaXplIjo0NTksImRpZ2VzdCI6InNoYTI1NjpjNjM0OGZhODZiYTBmYjIxMDhjOTMzNGY1ZmU5MTNkZGM2ZDg1MzMxM2U2NTU4OTFmMTMzYTAxMjdjMzAwOTlmIn0sImxheWVycyI6W3sibWVkaWFUeXBlIjoiYXBwbGljYXRpb24vdm5kLmRvY2tlci5pbWFnZS5yb290ZnMuZGlmZi50YXIuZ3ppcCIsInNpemUiOjQ2Nzk2ODAsImRpZ2VzdCI6InNoYTI1NjowOTU4ZTBmZWYyZDZhMzFlMTMyNWI4YmZlY2Q5OWRlYWQ5MzMzNjM2ODJkNjk4NTBhNzYwNjU5OTAyMzc1MWJjIn1dfQ==",
+      "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjYtMDUtMTNUMDI6MjE6NDlaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNi0wNS0xM1QwMjoyMTo0OVoiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzguMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6MDk1OGUwZmVmMmQ2YTMxZTEzMjViOGJmZWNkOTlkZWFkOTMzMzYzNjgyZDY5ODUwYTc2MDY1OTkwMjM3NTFiYyIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiCn0K",
+      "repoDigests": ["busybox@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d"],
+      "architecture": "amd64",
       "os": "linux"
     }
   },
   "distro": {
-    "prettyName": "BusyBox v1.37.0",
+    "prettyName": "BusyBox v1.38.0",
     "name": "busybox",
     "id": "busybox",
     "idLike": ["busybox"],
-    "version": "1.37.0",
-    "versionID": "1.37.0"
+    "version": "1.38.0",
+    "versionID": "1.38.0"
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.42.3",
+    "version": "1.46.0",
     "configuration": {
       "catalogers": {
         "requested": {
@@ -437,6 +435,7 @@
           "pypy-binary-lib",
           "go-binary",
           "julia-binary",
+          "julia-binary",
           "helm",
           "redis-binary",
           "valkey-binary",
@@ -454,6 +453,11 @@
           "mysql-binary",
           "mysql-binary",
           "mysql-binary",
+          "mysqld-mysql-cluster-legacy-binary",
+          "mysqld-binary",
+          "ndbd-binary",
+          "ndbmtd-binary",
+          "ndb_mgmd-binary",
           "xtrabackup-binary",
           "mariadb-binary",
           "rust-standard-library-linux",
@@ -464,6 +468,7 @@
           "erlang-library",
           "swipl-binary",
           "dart-binary",
+          "deno-binary",
           "haskell-ghc-binary",
           "haskell-cabal-binary",
           "haskell-stack-binary",
@@ -472,6 +477,7 @@
           "nginx-binary",
           "bash-binary",
           "openssl-binary",
+          "openldap-search-binary",
           "qt-qtbase-lib",
           "gcc-binary",
           "fluent-bit-binary",
@@ -496,6 +502,13 @@
           "grafana-binary",
           "envoy-binary",
           "mongodb-binary",
+          "ingress-nginx-binary",
+          "filebeat-binary",
+          "metricbeat-binary",
+          "heartbeat-binary",
+          "packetbeat-binary",
+          "auditbeat-binary",
+          "elastic-agent-binary",
           "java-binary",
           "java-jdb-binary"
         ],
@@ -558,8 +571,8 @@
     }
   },
   "schema": {
-    "version": "16.1.3",
-    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.3.json"
+    "version": "16.1.5",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.5.json"
   }
 }
 ```

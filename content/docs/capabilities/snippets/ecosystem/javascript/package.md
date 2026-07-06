@@ -21,6 +21,26 @@
   </thead>
   <tbody>
     <tr>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>deno.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-depth value">Transitive</td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value">Runtime</td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"><span class="capability-icon-wrapper" data-tooltip="• DenoLockEntry.Integrity&#10;• DenoRemoteLockEntry.Integrity"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>bun.lock</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-depth value">Transitive</td>
+      <td class="col-edges value"></td>
+      <td class="col-kinds value">Runtime, Dev</td>
+      <td class="col-files indicator"></td>
+      <td class="col-digests indicator"></td>
+      <td class="col-integrity-hash indicator"><span class="capability-icon-wrapper" data-tooltip="BunLockEntry.Integrity"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
+    </tr>
+    <tr>
       <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>pnpm-lock.yaml</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Transitive</td>

@@ -41,7 +41,7 @@
       <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>uv.lock</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">python-package-cataloger</div><div class="evidence-patterns"><code>uv.lock</code>, <code>*.py.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Transitive</td>
       <td class="col-edges value">Complete</td>

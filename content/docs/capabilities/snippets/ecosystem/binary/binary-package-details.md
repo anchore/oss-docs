@@ -22,6 +22,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:arangodb:arangodb:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">auditbeat-binary</td>
+      <td class="col-criteria"><code>auditbeat</code></td>
+      <td class="col-purl"><code>pkg:generic/auditbeat</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:auditbeat:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">bash-binary</td>
       <td class="col-criteria"><code>bash</code></td>
       <td class="col-purl"><code>pkg:generic/bash</code></td>
@@ -56,6 +62,18 @@
       <td class="col-criteria"><code>dart</code></td>
       <td class="col-purl"><code>pkg:generic/dart</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:dart:dart_software_development_kit:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">deno-binary</td>
+      <td class="col-criteria"><code>deno</code></td>
+      <td class="col-purl"><code>pkg:generic/deno</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:deno:deno:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">elastic-agent-binary</td>
+      <td class="col-criteria"><code>elastic-agent</code></td>
+      <td class="col-purl"><code>pkg:generic/elastic-agent</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:elastic_agent:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">elixir-binary</td>
@@ -110,6 +128,12 @@
       <td class="col-criteria"><code>libswresample*</code></td>
       <td class="col-purl"><code>pkg:generic/ffmpeg</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:ffmpeg:ffmpeg:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">filebeat-binary</td>
+      <td class="col-criteria"><code>filebeat</code></td>
+      <td class="col-purl"><code>pkg:generic/filebeat</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:filebeat:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">fluent-bit-binary</td>
@@ -178,6 +202,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:haskell:stack:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">heartbeat-binary</td>
+      <td class="col-criteria"><code>heartbeat</code></td>
+      <td class="col-purl"><code>pkg:generic/heartbeat</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:heartbeat:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">helm</td>
       <td class="col-criteria"><code>helm</code></td>
       <td class="col-purl"><code>pkg:golang/helm.sh/helm</code></td>
@@ -188,6 +218,12 @@
       <td class="col-criteria"><code>httpd</code></td>
       <td class="col-purl"><code>pkg:generic/httpd</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:apache:http_server:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">ingress-nginx-binary</td>
+      <td class="col-criteria"><code>nginx-ingress-controller</code></td>
+      <td class="col-purl"><code>pkg:generic/nginx-ingress-controller</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:kubernetes:ingress-nginx:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">istio-binary</td>
@@ -226,6 +262,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:julialang:julia:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">julia-binary</td>
+      <td class="col-criteria"><code>julia</code></td>
+      <td class="col-purl"><code>pkg:generic/julia</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:julialang:julia:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">lighttpd-binary</td>
       <td class="col-criteria"><code>lighttpd</code></td>
       <td class="col-purl"><code>pkg:generic/lighttpd</code></td>
@@ -242,6 +284,12 @@
       <td class="col-criteria"><code>memcached</code></td>
       <td class="col-purl"><code>pkg:generic/memcached</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:memcached:memcached:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">metricbeat-binary</td>
+      <td class="col-criteria"><code>metricbeat</code></td>
+      <td class="col-purl"><code>pkg:generic/metricbeat</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:metricbeat:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">mongodb-binary</td>
@@ -268,6 +316,36 @@
       <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:percona:percona_server:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:percona:xtradb_cluster:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">mysqld-binary</td>
+      <td class="col-criteria"><code>mysqld</code></td>
+      <td class="col-purl"><code>pkg:generic/mysql-cluster</code><br><code>pkg:generic/mysql-cluster</code><br><code>pkg:generic/mysql-server</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">mysqld-mysql-cluster-legacy-binary</td>
+      <td class="col-criteria"><code>mysqld</code></td>
+      <td class="col-purl"><code>pkg:generic/mysql-server</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">ndb_mgmd-binary</td>
+      <td class="col-criteria"><code>ndb_mgmd</code></td>
+      <td class="col-purl"><code>pkg:generic/mysql-cluster</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">ndbd-binary</td>
+      <td class="col-criteria"><code>ndbd</code></td>
+      <td class="col-purl"><code>pkg:generic/mysql-cluster</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">ndbmtd-binary</td>
+      <td class="col-criteria"><code>ndbmtd</code></td>
+      <td class="col-purl"><code>pkg:generic/mysql-cluster</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">nginx-binary</td>
       <td class="col-criteria"><code>nginx</code></td>
       <td class="col-purl"><code>pkg:generic/nginx</code></td>
@@ -280,10 +358,22 @@
       <td class="col-cpes"><code>cpe:2.3:a:nodejs:node.js:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">openldap-search-binary</td>
+      <td class="col-criteria"><code>ldapsearch</code></td>
+      <td class="col-purl"><code>pkg:generic/openldap</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:openldap:openldap:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">openssl-binary</td>
       <td class="col-criteria"><code>openssl</code></td>
-      <td class="col-purl"><code>pkg:generic/openssl</code></td>
-      <td class="col-cpes"><code>cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*</code></td>
+      <td class="col-purl"><code>pkg:generic/aws-lc</code><br><code>pkg:generic/openssl</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:amazon:aws_libcrypto:*:*:*:*:*:*:*:*</code><br><code>cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">packetbeat-binary</td>
+      <td class="col-criteria"><code>packetbeat</code></td>
+      <td class="col-purl"><code>pkg:generic/packetbeat</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:elastic:packetbeat:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">perl-binary</td>

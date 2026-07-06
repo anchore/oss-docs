@@ -2,38 +2,38 @@
 
 ```json
 {
-  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
-  "specVersion": "1.6",
-  "serialNumber": "urn:uuid:62a3c1ff-7f21-4cd4-b892-92c9e791af70",
+  "specVersion": "1.7",
+  "serialNumber": "urn:uuid:57382360-048e-4f3a-a34f-9755186c1434",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-03-20T12:38:42Z",
+    "timestamp": "2026-07-06T14:13:26Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "author": "anchore",
           "name": "syft",
-          "version": "1.42.3"
+          "version": "1.46.0"
         }
       ]
     },
     "component": {
-      "bom-ref": "017c96a7521670cf",
+      "bom-ref": "4382801843ecbee7",
       "type": "container",
       "name": "busybox",
-      "version": "sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8"
+      "version": "sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f"
     }
   },
   "components": [
     {
-      "bom-ref": "pkg:generic/busybox@1.37.0?package-id=7020dfe7743f6dfc",
+      "bom-ref": "pkg:generic/busybox@1.38.0?package-id=5a5ba7c7211dc63a",
       "type": "application",
       "name": "busybox",
-      "version": "1.37.0",
-      "cpe": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*",
-      "purl": "pkg:generic/busybox@1.37.0",
+      "version": "1.38.0",
+      "cpe": "cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*",
+      "purl": "pkg:generic/busybox@1.38.0",
       "properties": [
         {
           "name": "syft:package:foundBy",
@@ -49,7 +49,7 @@
         },
         {
           "name": "syft:location:0:layerID",
-          "value": "sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+          "value": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
         },
         {
           "name": "syft:location:0:path",
@@ -58,15 +58,15 @@
       ]
     },
     {
-      "bom-ref": "os:busybox@1.37.0",
+      "bom-ref": "os:busybox@1.38.0",
       "type": "operating-system",
       "name": "busybox",
-      "version": "1.37.0",
-      "description": "BusyBox v1.37.0",
+      "version": "1.38.0",
+      "description": "BusyBox v1.38.0",
       "swid": {
         "tagId": "busybox",
         "name": "busybox",
-        "version": "1.37.0"
+        "version": "1.38.0"
       },
       "properties": [
         {
@@ -83,26 +83,26 @@
         },
         {
           "name": "syft:distro:prettyName",
-          "value": "BusyBox v1.37.0"
+          "value": "BusyBox v1.38.0"
         },
         {
           "name": "syft:distro:versionID",
-          "value": "1.37.0"
+          "value": "1.38.0"
         }
       ]
     },
     {
-      "bom-ref": "55ff7bb58de38199",
+      "bom-ref": "4707db691d76c753",
       "type": "file",
       "name": "/bin/[",
       "hashes": [
         {
           "alg": "SHA-1",
-          "content": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
+          "content": "ad043255229d0a1f0a99e1cebaf70d32914c50e1"
         },
         {
           "alg": "SHA-256",
-          "content": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
+          "content": "c849b73ca587db87c78f3fefce435c9ead2bbd0f3bb66257531eb8235a41ec45"
         }
       ]
     }

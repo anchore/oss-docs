@@ -85,6 +85,9 @@
           "package_types": [
             "apk"
           ],
+          "purl_types": [
+            "apk"
+          ],
           "json_schema_types": [
             "ApkDbEntry"
           ],
@@ -157,6 +160,9 @@
             "**/var/lib/pacman/local/**/desc"
           ],
           "package_types": [
+            "alpm"
+          ],
+          "purl_types": [
             "alpm"
           ],
           "json_schema_types": [
@@ -315,6 +321,29 @@
           "method": "glob",
           "criteria": [
             "**/libjulia-internal.so"
+          ],
+          "packages": [
+            {
+              "class": "julia-binary",
+              "name": "julia",
+              "purl": "pkg:generic/julia",
+              "cpes": [
+                "cpe:2.3:a:julialang:julia:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/julia"
           ],
           "packages": [
             {
@@ -734,6 +763,150 @@
         {
           "method": "glob",
           "criteria": [
+            "**/mysqld"
+          ],
+          "packages": [
+            {
+              "class": "mysqld-mysql-cluster-legacy-binary",
+              "name": "mysql-server",
+              "purl": "pkg:generic/mysql-server",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*",
+                "cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/mysqld"
+          ],
+          "packages": [
+            {
+              "class": "mysqld-binary",
+              "name": "",
+              "purl": "pkg:/",
+              "cpes": [],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "mysqld-mysql-cluster-legacy-binary",
+              "name": "mysql-cluster",
+              "purl": "pkg:generic/mysql-cluster",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "mysqld-mysql-cluster-binary",
+              "name": "mysql-cluster",
+              "purl": "pkg:generic/mysql-cluster",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*",
+                "cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*",
+                "cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "mysqld-mysql-server-binary",
+              "name": "mysql-server",
+              "purl": "pkg:generic/mysql-server",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql:*:*:*:*:*:*:*:*",
+                "cpe:2.3:a:oracle:mysql_server:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/ndbd"
+          ],
+          "packages": [
+            {
+              "class": "ndbd-binary",
+              "name": "mysql-cluster",
+              "purl": "pkg:generic/mysql-cluster",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/ndbmtd"
+          ],
+          "packages": [
+            {
+              "class": "ndbmtd-binary",
+              "name": "mysql-cluster",
+              "purl": "pkg:generic/mysql-cluster",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/ndb_mgmd"
+          ],
+          "packages": [
+            {
+              "class": "ndb_mgmd-binary",
+              "name": "mysql-cluster",
+              "purl": "pkg:generic/mysql-cluster",
+              "cpes": [
+                "cpe:2.3:a:oracle:mysql_cluster:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/xtrabackup"
           ],
           "packages": [
@@ -964,6 +1137,29 @@
         {
           "method": "glob",
           "criteria": [
+            "**/deno"
+          ],
+          "packages": [
+            {
+              "class": "deno-binary",
+              "name": "deno",
+              "purl": "pkg:generic/deno",
+              "cpes": [
+                "cpe:2.3:a:deno:deno:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/ghc*"
           ],
           "packages": [
@@ -1131,10 +1327,49 @@
           "packages": [
             {
               "class": "openssl-binary",
+              "name": "",
+              "purl": "pkg:/",
+              "cpes": [],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "openssl-binary-aws-lc",
+              "name": "aws-lc",
+              "purl": "pkg:generic/aws-lc",
+              "cpes": [
+                "cpe:2.3:a:amazon:aws_libcrypto:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            },
+            {
+              "class": "openssl-binary",
               "name": "openssl",
               "purl": "pkg:generic/openssl",
               "cpes": [
                 "cpe:2.3:a:openssl:openssl:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/ldapsearch"
+          ],
+          "packages": [
+            {
+              "class": "openldap-search-binary",
+              "name": "openldap",
+              "purl": "pkg:generic/openldap",
+              "cpes": [
+                "cpe:2.3:a:openldap:openldap:*:*:*:*:*:*:*:*"
               ],
               "type": "BinaryPkg"
             }
@@ -1702,6 +1937,167 @@
         {
           "method": "glob",
           "criteria": [
+            "**/nginx-ingress-controller"
+          ],
+          "packages": [
+            {
+              "class": "ingress-nginx-binary",
+              "name": "nginx-ingress-controller",
+              "purl": "pkg:generic/nginx-ingress-controller",
+              "cpes": [
+                "cpe:2.3:a:kubernetes:ingress-nginx:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/filebeat"
+          ],
+          "packages": [
+            {
+              "class": "filebeat-binary",
+              "name": "filebeat",
+              "purl": "pkg:generic/filebeat",
+              "cpes": [
+                "cpe:2.3:a:elastic:filebeat:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/metricbeat"
+          ],
+          "packages": [
+            {
+              "class": "metricbeat-binary",
+              "name": "metricbeat",
+              "purl": "pkg:generic/metricbeat",
+              "cpes": [
+                "cpe:2.3:a:elastic:metricbeat:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/heartbeat"
+          ],
+          "packages": [
+            {
+              "class": "heartbeat-binary",
+              "name": "heartbeat",
+              "purl": "pkg:generic/heartbeat",
+              "cpes": [
+                "cpe:2.3:a:elastic:heartbeat:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/packetbeat"
+          ],
+          "packages": [
+            {
+              "class": "packetbeat-binary",
+              "name": "packetbeat",
+              "purl": "pkg:generic/packetbeat",
+              "cpes": [
+                "cpe:2.3:a:elastic:packetbeat:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/auditbeat"
+          ],
+          "packages": [
+            {
+              "class": "auditbeat-binary",
+              "name": "auditbeat",
+              "purl": "pkg:generic/auditbeat",
+              "cpes": [
+                "cpe:2.3:a:elastic:auditbeat:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/elastic-agent"
+          ],
+          "packages": [
+            {
+              "class": "elastic-agent-binary",
+              "name": "elastic-agent",
+              "purl": "pkg:generic/elastic-agent",
+              "cpes": [
+                "cpe:2.3:a:elastic:elastic_agent:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/java"
           ],
           "packages": [
@@ -1919,6 +2315,10 @@
             "binary",
             "rpm"
           ],
+          "purl_types": [
+            "apk",
+            "rpm"
+          ],
           "json_schema_types": [
             "ElfBinaryPackageNoteJsonPayload"
           ]
@@ -1961,6 +2361,7 @@
       "type": "generic",
       "selectors": [
         "binary",
+        "bpl",
         "declared",
         "directory",
         "dll",
@@ -1976,7 +2377,8 @@
           "method": "glob",
           "criteria": [
             "**/*.dll",
-            "**/*.exe"
+            "**/*.exe",
+            "**/*.bpl"
           ],
           "package_types": [
             "binary"
@@ -2036,6 +2438,9 @@
           "package_types": [
             "bitnami"
           ],
+          "purl_types": [
+            "bitnami"
+          ],
           "json_schema_types": [
             "BitnamiSbomEntry"
           ],
@@ -2079,6 +2484,9 @@
             "/opt/bitnami/**/.spdx-*.spdx"
           ],
           "package_types": [
+            "bitnami"
+          ],
+          "purl_types": [
             "bitnami"
           ],
           "json_schema_types": [
@@ -2146,6 +2554,9 @@
           "package_types": [
             "conan"
           ],
+          "purl_types": [
+            "conan"
+          ],
           "json_schema_types": [
             "CConanLockEntry",
             "CConanLockV2Entry"
@@ -2197,6 +2608,9 @@
             "**/conanfile.txt"
           ],
           "package_types": [
+            "conan"
+          ],
+          "purl_types": [
             "conan"
           ],
           "json_schema_types": [
@@ -2260,6 +2674,9 @@
           "package_types": [
             "conan"
           ],
+          "purl_types": [
+            "conan"
+          ],
           "json_schema_types": [
             "CConanInfoEntry"
           ],
@@ -2318,6 +2735,9 @@
           ],
           "package_types": [
             "conda"
+          ],
+          "purl_types": [
+            "generic"
           ],
           "json_schema_types": [
             "CondaMetadataEntry"
@@ -2391,6 +2811,9 @@
           "package_types": [
             "dart-pub"
           ],
+          "purl_types": [
+            "pub"
+          ],
           "json_schema_types": [
             "DartPubspec"
           ],
@@ -2450,6 +2873,9 @@
           ],
           "package_types": [
             "dart-pub"
+          ],
+          "purl_types": [
+            "pub"
           ],
           "json_schema_types": [
             "DartPubspecLockEntry"
@@ -2518,6 +2944,10 @@
             "dotnet",
             "npm"
           ],
+          "purl_types": [
+            "dotnet",
+            "npm"
+          ],
           "json_schema_types": [
             "DotnetDepsEntry",
             "DotnetPortableExecutableEntry"
@@ -2576,6 +3006,9 @@
             "**/*.deps.json"
           ],
           "package_types": [
+            "dotnet"
+          ],
+          "purl_types": [
             "dotnet"
           ],
           "json_schema_types": [
@@ -2641,6 +3074,9 @@
           "package_types": [
             "dotnet"
           ],
+          "purl_types": [
+            "dotnet"
+          ],
           "json_schema_types": [
             "DotnetPackagesLockEntry"
           ],
@@ -2704,6 +3140,9 @@
             "**/*.exe"
           ],
           "package_types": [
+            "dotnet"
+          ],
+          "purl_types": [
             "dotnet"
           ],
           "json_schema_types": [
@@ -2794,6 +3233,9 @@
           "package_types": [
             "deb"
           ],
+          "purl_types": [
+            "deb"
+          ],
           "json_schema_types": [
             "DpkgArchiveEntry"
           ],
@@ -2860,6 +3302,9 @@
             "**/lib/opkg/status"
           ],
           "package_types": [
+            "deb"
+          ],
+          "purl_types": [
             "deb"
           ],
           "json_schema_types": [
@@ -2929,6 +3374,9 @@
           "package_types": [
             "hex"
           ],
+          "purl_types": [
+            "hex"
+          ],
           "json_schema_types": [
             "ElixirMixLockEntry"
           ],
@@ -2996,6 +3444,9 @@
           "package_types": [
             "erlang-otp"
           ],
+          "purl_types": [
+            "otp"
+          ],
           "capabilities": [
             {
               "name": "license",
@@ -3052,6 +3503,9 @@
             "**/rebar.lock"
           ],
           "package_types": [
+            "hex"
+          ],
+          "purl_types": [
             "hex"
           ],
           "json_schema_types": [
@@ -3121,6 +3575,9 @@
           "package_types": [
             "github-action-workflow"
           ],
+          "purl_types": [
+            "github"
+          ],
           "json_schema_types": [
             "GithubActionsUseStatement"
           ],
@@ -3178,6 +3635,9 @@
           "package_types": [
             "github-action"
           ],
+          "purl_types": [
+            "github"
+          ],
           "json_schema_types": [
             "GithubActionsUseStatement"
           ],
@@ -3220,6 +3680,9 @@
           ],
           "package_types": [
             "github-action"
+          ],
+          "purl_types": [
+            "github"
           ],
           "json_schema_types": [
             "GithubActionsUseStatement"
@@ -3285,6 +3748,9 @@
           ],
           "package_types": [
             "go-module"
+          ],
+          "purl_types": [
+            "golang"
           ],
           "json_schema_types": [
             "GoModuleBuildinfoEntry"
@@ -3406,6 +3872,9 @@
           ],
           "package_types": [
             "go-module"
+          ],
+          "purl_types": [
+            "golang"
           ],
           "json_schema_types": [
             "GoModuleEntry",
@@ -3530,6 +3999,9 @@
           "package_types": [
             "hackage"
           ],
+          "purl_types": [
+            "hackage"
+          ],
           "capabilities": [
             {
               "name": "license",
@@ -3573,6 +4045,9 @@
             "**/stack.yaml.lock"
           ],
           "package_types": [
+            "hackage"
+          ],
+          "purl_types": [
             "hackage"
           ],
           "json_schema_types": [
@@ -3624,6 +4099,9 @@
             "**/stack.yaml"
           ],
           "package_types": [
+            "hackage"
+          ],
+          "purl_types": [
             "hackage"
           ],
           "json_schema_types": [
@@ -3689,6 +4167,9 @@
             "**/Library/Taps/*/*/Formula/*.rb"
           ],
           "package_types": [
+            "homebrew"
+          ],
+          "purl_types": [
             "homebrew"
           ],
           "json_schema_types": [
@@ -3824,6 +4305,9 @@
           "package_types": [
             "java-archive"
           ],
+          "purl_types": [
+            "maven"
+          ],
           "json_schema_types": [
             "JavaArchive"
           ]
@@ -3843,6 +4327,9 @@
           "comment": "ZIP archives require indexed archive support",
           "package_types": [
             "java-archive"
+          ],
+          "purl_types": [
+            "maven"
           ],
           "json_schema_types": [
             "JavaArchive"
@@ -3881,6 +4368,9 @@
           "comment": "TAR archives require unindexed archive support",
           "package_types": [
             "java-archive"
+          ],
+          "purl_types": [
+            "maven"
           ],
           "json_schema_types": [
             "JavaArchive"
@@ -3990,6 +4480,9 @@
           ],
           "package_types": [
             "java-archive"
+          ],
+          "purl_types": [
+            "maven"
           ],
           "json_schema_types": [
             "JavaArchive"
@@ -4117,6 +4610,9 @@
           "package_types": [
             "java-archive"
           ],
+          "purl_types": [
+            "maven"
+          ],
           "json_schema_types": [
             "JavaArchive"
           ]
@@ -4164,6 +4660,7 @@
       "type": "generic",
       "selectors": [
         "declared",
+        "deno",
         "directory",
         "javascript",
         "language",
@@ -4175,9 +4672,122 @@
         {
           "method": "glob",
           "criteria": [
+            "**/deno.lock"
+          ],
+          "package_types": [
+            "npm"
+          ],
+          "purl_types": [
+            "npm"
+          ],
+          "json_schema_types": [
+            "DenoLockEntry",
+            "DenoRemoteLockEntry",
+            "JavascriptNpmPackageLockEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "DenoLockEntry.Integrity",
+                "DenoRemoteLockEntry.Integrity"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/bun.lock"
+          ],
+          "package_types": [
+            "npm"
+          ],
+          "purl_types": [
+            "npm"
+          ],
+          "json_schema_types": [
+            "JavascriptBunLockEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime",
+                "dev"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "BunLockEntry.Integrity"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/pnpm-lock.yaml"
           ],
           "package_types": [
+            "npm"
+          ],
+          "purl_types": [
             "npm"
           ],
           "json_schema_types": [
@@ -4225,6 +4835,9 @@
             "**/yarn.lock"
           ],
           "package_types": [
+            "npm"
+          ],
+          "purl_types": [
             "npm"
           ],
           "json_schema_types": [
@@ -4276,6 +4889,9 @@
             "**/package-lock.json"
           ],
           "package_types": [
+            "npm"
+          ],
+          "purl_types": [
             "npm"
           ],
           "json_schema_types": [
@@ -4364,6 +4980,9 @@
           "package_types": [
             "npm"
           ],
+          "purl_types": [
+            "npm"
+          ],
           "json_schema_types": [
             "JavascriptNpmPackage"
           ],
@@ -4428,11 +5047,22 @@
             "**/vmlinux-*",
             "**/vmlinuz",
             "**/vmlinuz-*",
-            "**/lib/modules/**/*.ko"
+            "**/bzImage",
+            "**/bzImage-*",
+            "**/zImage",
+            "**/zImage-*",
+            "**/lib/modules/**/*.ko",
+            "**/lib/modules/**/*.ko.gz",
+            "**/lib/modules/**/*.ko.xz",
+            "**/lib/modules/**/*.ko.zst"
           ],
           "package_types": [
             "linux-kernel",
             "linux-kernel-module"
+          ],
+          "purl_types": [
+            "generic",
+            "generic/linux-kernel"
           ],
           "json_schema_types": [
             "LinuxKernelArchive",
@@ -4475,7 +5105,7 @@
         "fields": [
           {
             "key": "CatalogModules",
-            "description": "CatalogModules enables cataloging linux kernel modules (`*.ko` files) in addition to the kernel itself.",
+            "description": "CatalogModules enables cataloging linux kernel modules (`*.ko` and compressed `*.ko.gz`, `*.ko.xz`, `*.ko.zst` files) in addition to the kernel itself.",
             "app_key": "linux-kernel.catalog-modules"
           }
         ]
@@ -4501,6 +5131,9 @@
           ],
           "package_types": [
             "lua-rocks"
+          ],
+          "purl_types": [
+            "luarocks"
           ],
           "json_schema_types": [
             "LuarocksPackage"
@@ -4559,6 +5192,9 @@
             "**/nix/store/*.drv"
           ],
           "package_types": [
+            "nix"
+          ],
+          "purl_types": [
             "nix"
           ],
           "json_schema_types": [
@@ -4622,6 +5258,9 @@
             "**/nix/store/*.drv"
           ],
           "package_types": [
+            "nix"
+          ],
+          "purl_types": [
             "nix"
           ],
           "json_schema_types": [
@@ -4710,6 +5349,9 @@
           "package_types": [
             "opam"
           ],
+          "purl_types": [
+            "opam"
+          ],
           "json_schema_types": [
             "OpamPackage"
           ],
@@ -4766,6 +5408,9 @@
           ],
           "package_types": [
             "php-composer"
+          ],
+          "purl_types": [
+            "composer"
           ],
           "json_schema_types": [
             "PhpComposerInstalledEntry"
@@ -4829,6 +5474,9 @@
           ],
           "package_types": [
             "php-composer"
+          ],
+          "purl_types": [
+            "composer"
           ],
           "json_schema_types": [
             "PhpComposerLockEntry"
@@ -4958,6 +5606,9 @@
           "package_types": [
             "php-pear"
           ],
+          "purl_types": [
+            "pear"
+          ],
           "json_schema_types": [
             "PhpPearEntry"
           ],
@@ -5015,6 +5666,9 @@
           ],
           "package_types": [
             "php-pecl"
+          ],
+          "purl_types": [
+            "pear"
           ],
           "json_schema_types": [
             "PhpPeclEntry"
@@ -5077,6 +5731,9 @@
             "**/var/db/pkg/*/*/CONTENTS"
           ],
           "package_types": [
+            "portage"
+          ],
+          "purl_types": [
             "portage"
           ],
           "json_schema_types": [
@@ -5142,6 +5799,9 @@
           "package_types": [
             "swiplpack"
           ],
+          "purl_types": [
+            "swiplpack"
+          ],
           "json_schema_types": [
             "SwiplpackPackage"
           ],
@@ -5202,6 +5862,9 @@
           ],
           "package_types": [
             "python"
+          ],
+          "purl_types": [
+            "pypi"
           ],
           "json_schema_types": [
             "PythonPackage"
@@ -5269,6 +5932,9 @@
           "package_types": [
             "python"
           ],
+          "purl_types": [
+            "pypi"
+          ],
           "json_schema_types": [
             "PythonPdmLockEntry"
           ],
@@ -5313,10 +5979,14 @@
         {
           "method": "glob",
           "criteria": [
-            "**/uv.lock"
+            "**/uv.lock",
+            "**/*.py.lock"
           ],
           "package_types": [
             "python"
+          ],
+          "purl_types": [
+            "pypi"
           ],
           "json_schema_types": [
             "PythonUvLockEntry"
@@ -5367,6 +6037,9 @@
           "package_types": [
             "python"
           ],
+          "purl_types": [
+            "pypi"
+          ],
           "capabilities": [
             {
               "name": "license",
@@ -5409,6 +6082,9 @@
           ],
           "package_types": [
             "python"
+          ],
+          "purl_types": [
+            "pypi"
           ],
           "json_schema_types": [
             "PythonPipfileLockEntry"
@@ -5460,6 +6136,9 @@
           "package_types": [
             "python"
           ],
+          "purl_types": [
+            "pypi"
+          ],
           "json_schema_types": [
             "PythonPoetryLockEntry"
           ],
@@ -5508,6 +6187,9 @@
           ],
           "package_types": [
             "python"
+          ],
+          "purl_types": [
+            "pypi"
           ],
           "json_schema_types": [
             "PythonPipRequirementsEntry"
@@ -5590,6 +6272,9 @@
           "package_types": [
             "R-package"
           ],
+          "purl_types": [
+            "cran"
+          ],
           "json_schema_types": [
             "RDescription"
           ],
@@ -5646,6 +6331,9 @@
             "**/*.rpm"
           ],
           "package_types": [
+            "rpm"
+          ],
+          "purl_types": [
             "rpm"
           ],
           "json_schema_types": [
@@ -5713,6 +6401,9 @@
           "package_types": [
             "rpm"
           ],
+          "purl_types": [
+            "rpm"
+          ],
           "json_schema_types": [
             "RpmDbEntry"
           ],
@@ -5758,6 +6449,9 @@
             "**/{var/lib,usr/share,usr/lib/sysimage}/rpm/{Packages,Packages.db,rpmdb.sqlite}"
           ],
           "package_types": [
+            "rpm"
+          ],
+          "purl_types": [
             "rpm"
           ],
           "json_schema_types": [
@@ -5829,6 +6523,9 @@
           "package_types": [
             "gem"
           ],
+          "purl_types": [
+            "gem"
+          ],
           "capabilities": [
             {
               "name": "license",
@@ -5890,6 +6587,9 @@
           "package_types": [
             "gem"
           ],
+          "purl_types": [
+            "gem"
+          ],
           "json_schema_types": [
             "RubyGemspec"
           ],
@@ -5949,6 +6649,9 @@
             "**/specifications/**/*.gemspec"
           ],
           "package_types": [
+            "gem"
+          ],
+          "purl_types": [
             "gem"
           ],
           "json_schema_types": [
@@ -6022,6 +6725,9 @@
           "package_types": [
             "rust-crate"
           ],
+          "purl_types": [
+            "cargo"
+          ],
           "json_schema_types": [
             "RustCargoAuditEntry"
           ],
@@ -6083,6 +6789,9 @@
           ],
           "package_types": [
             "rust-crate"
+          ],
+          "purl_types": [
+            "cargo"
           ],
           "json_schema_types": [
             "RustCargoLockEntry"
@@ -6157,6 +6866,9 @@
           "package_types": [
             "apk"
           ],
+          "purl_types": [
+            "apk"
+          ],
           "json_schema_types": [
             "ApkDbEntry"
           ],
@@ -6213,6 +6925,9 @@
           "package_types": [
             "deb"
           ],
+          "purl_types": [
+            "deb"
+          ],
           "json_schema_types": [
             "SnapEntry"
           ],
@@ -6253,6 +6968,9 @@
             "**/snap/manifest.yaml"
           ],
           "package_types": [
+            "deb"
+          ],
+          "purl_types": [
             "deb"
           ],
           "json_schema_types": [
@@ -6297,6 +7015,9 @@
           "package_types": [
             "deb"
           ],
+          "purl_types": [
+            "deb"
+          ],
           "json_schema_types": [
             "SnapEntry"
           ],
@@ -6337,6 +7058,9 @@
             "**/usr/share/snappy/dpkg.yaml"
           ],
           "package_types": [
+            "deb"
+          ],
+          "purl_types": [
             "deb"
           ],
           "json_schema_types": [
@@ -6395,6 +7119,9 @@
           ],
           "package_types": [
             "pod"
+          ],
+          "purl_types": [
+            "cocoapods"
           ],
           "json_schema_types": [
             "CocoaPodfileLockEntry"
@@ -6462,6 +7189,9 @@
           "package_types": [
             "swift"
           ],
+          "purl_types": [
+            "swift"
+          ],
           "json_schema_types": [
             "SwiftPackageManagerLockEntry"
           ],
@@ -6520,6 +7250,9 @@
             "**/.terraform.lock.hcl"
           ],
           "package_types": [
+            "terraform"
+          ],
+          "purl_types": [
             "terraform"
           ],
           "json_schema_types": [
@@ -6582,6 +7315,9 @@
             "**/wp-content/plugins/*/*.php"
           ],
           "package_types": [
+            "wordpress-plugin"
+          ],
+          "purl_types": [
             "wordpress-plugin"
           ],
           "json_schema_types": [

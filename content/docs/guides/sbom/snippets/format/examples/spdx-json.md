@@ -6,17 +6,17 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "busybox",
-  "documentNamespace": "https://anchore.com/syft/image/busybox-ba212cfc-5103-4d2b-9eac-a4f74bee049e",
+  "documentNamespace": "https://anchore.com/syft/image/busybox-937a63fc-deb4-4a88-8bde-c753b6e67dff",
   "creationInfo": {
     "licenseListVersion": "3.28",
-    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.42.3"],
-    "created": "2026-03-20T12:38:44Z"
+    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.46.0"],
+    "created": "2026-07-06T14:13:27Z"
   },
   "packages": [
     {
       "name": "busybox",
-      "SPDXID": "SPDXRef-Package-binary-busybox-7020dfe7743f6dfc",
-      "versionInfo": "1.37.0",
+      "SPDXID": "SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a",
+      "versionInfo": "1.38.0",
       "supplier": "NOASSERTION",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
@@ -28,26 +28,26 @@
         {
           "referenceCategory": "SECURITY",
           "referenceType": "cpe23Type",
-          "referenceLocator": "cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*"
+          "referenceLocator": "cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*"
         },
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:generic/busybox@1.37.0"
+          "referenceLocator": "pkg:generic/busybox@1.38.0"
         }
       ]
     },
     {
       "name": "busybox",
       "SPDXID": "SPDXRef-DocumentRoot-Image-busybox",
-      "versionInfo": "sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8",
+      "versionInfo": "sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
       "supplier": "NOASSERTION",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
       "checksums": [
         {
           "algorithm": "SHA256",
-          "checksumValue": "bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8"
+          "checksumValue": "b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f"
         }
       ],
       "licenseConcluded": "NOASSERTION",
@@ -57,7 +57,7 @@
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:oci/busybox@sha256%3Abf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8?arch=arm64&tag=latest"
+          "referenceLocator": "pkg:oci/busybox@sha256%3Ab61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f?arch=amd64&tag=latest"
         }
       ],
       "primaryPackagePurpose": "CONTAINER"
@@ -66,26 +66,26 @@
   "files": [
     {
       "fileName": "bin/[",
-      "SPDXID": "SPDXRef-File-bin---55ff7bb58de38199",
+      "SPDXID": "SPDXRef-File-bin---4707db691d76c753",
       "fileTypes": ["APPLICATION", "BINARY"],
       "checksums": [
         {
           "algorithm": "SHA1",
-          "checksumValue": "5231d5d79cb52f3581f9c137396e7d9df7aa6d6b"
+          "checksumValue": "ad043255229d0a1f0a99e1cebaf70d32914c50e1"
         },
         {
           "algorithm": "SHA256",
-          "checksumValue": "f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5"
+          "checksumValue": "c849b73ca587db87c78f3fefce435c9ead2bbd0f3bb66257531eb8235a41ec45"
         }
       ],
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "bin/getconf",
-      "SPDXID": "SPDXRef-File-bin-getconf-e0ed012dbfe876e1",
+      "SPDXID": "SPDXRef-File-bin-getconf-af6602274c595b5b",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -95,11 +95,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
-      "fileName": "lib/ld-linux-aarch64.so.1",
-      "SPDXID": "SPDXRef-File-lib-ld-linux-aarch64.so.1-db64fb8f8a5ca3fb",
+      "fileName": "lib/ld-linux-x86-64.so.2",
+      "SPDXID": "SPDXRef-File-lib-ld-linux-x86-64.so.2-2daa86e8f8c3e0f0",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -109,11 +109,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libc.so.6",
-      "SPDXID": "SPDXRef-File-lib-libc.so.6-702d7f4d4e0d51ae",
+      "SPDXID": "SPDXRef-File-lib-libc.so.6-305d4f920c381724",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -123,11 +123,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libm.so.6",
-      "SPDXID": "SPDXRef-File-lib-libm.so.6-d5a2b244e5702e74",
+      "SPDXID": "SPDXRef-File-lib-libm.so.6-c135340ebb00886e",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -137,11 +137,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libnss_compat.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-compat.so.2-3ad0188c01cb01ef",
+      "SPDXID": "SPDXRef-File-lib-libnss-compat.so.2-583e19e3c7518579",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -151,11 +151,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libnss_dns.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-dns.so.2-937c9069f7be83d6",
+      "SPDXID": "SPDXRef-File-lib-libnss-dns.so.2-1c8754d280fb96b0",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -165,11 +165,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libnss_files.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-files.so.2-c452469c5ef63264",
+      "SPDXID": "SPDXRef-File-lib-libnss-files.so.2-20825ee8c1221fae",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -179,11 +179,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libnss_hesiod.so.2",
-      "SPDXID": "SPDXRef-File-lib-libnss-hesiod.so.2-fb93554ae88ca5d5",
+      "SPDXID": "SPDXRef-File-lib-libnss-hesiod.so.2-f4b72765a18c7b87",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -193,11 +193,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libpthread.so.0",
-      "SPDXID": "SPDXRef-File-lib-libpthread.so.0-5ae601af03b99555",
+      "SPDXID": "SPDXRef-File-lib-libpthread.so.0-9adf0120c658de53",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -207,11 +207,11 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     },
     {
       "fileName": "lib/libresolv.so.2",
-      "SPDXID": "SPDXRef-File-lib-libresolv.so.2-c6ad3fd5f26bb1b7",
+      "SPDXID": "SPDXRef-File-lib-libresolv.so.2-78a03145aefcbef9",
       "checksums": [
         {
           "algorithm": "SHA1",
@@ -221,19 +221,19 @@
       "licenseConcluded": "NOASSERTION",
       "licenseInfoInFiles": ["NOASSERTION"],
       "copyrightText": "NOASSERTION",
-      "comment": "layerID: sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7"
+      "comment": "layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
     }
   ],
   "relationships": [
     {
-      "spdxElementId": "SPDXRef-Package-binary-busybox-7020dfe7743f6dfc",
-      "relatedSpdxElement": "SPDXRef-File-bin---55ff7bb58de38199",
+      "spdxElementId": "SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a",
+      "relatedSpdxElement": "SPDXRef-File-bin---4707db691d76c753",
       "relationshipType": "OTHER",
       "comment": "evident-by: indicates the package's existence is evident by the given file"
     },
     {
       "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
-      "relatedSpdxElement": "SPDXRef-Package-binary-busybox-7020dfe7743f6dfc",
+      "relatedSpdxElement": "SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a",
       "relationshipType": "CONTAINS"
     },
     {

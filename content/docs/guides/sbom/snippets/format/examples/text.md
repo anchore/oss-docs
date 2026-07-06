@@ -3,12 +3,12 @@
 ```
 [Image]
  Layer:   0
- Digest:  sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7
- Size:   4105238
- MediaType:  application/vnd.oci.image.layer.v1.tar+gzip
+ Digest:  sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+ Size:   4445814
+ MediaType:  application/vnd.docker.image.rootfs.diff.tar.gzip
 
 [busybox]
- Version:  1.37.0
+ Version:  1.38.0
  Type:   binary
  Found by:  binary-classifier-cataloger
 ```

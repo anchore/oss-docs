@@ -2,5 +2,5 @@
 
 ```
 NAME     VERSION  TYPE
-busybox  1.37.0   binary
+busybox  1.38.0   binary
 ```

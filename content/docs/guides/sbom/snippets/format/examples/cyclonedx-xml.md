@@ -2,55 +2,55 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.6" serialNumber="urn:uuid:50cabbcc-41b8-4155-9494-3642900f299e" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:9381267f-ce8b-4e09-9b3a-06e35d2b0d5c" version="1">
   <metadata>
-    <timestamp>2026-03-20T12:38:43Z</timestamp>
+    <timestamp>2026-07-06T14:13:26Z</timestamp>
     <tools>
       <components>
         <component type="application">
           <author>anchore</author>
           <name>syft</name>
-          <version>1.42.3</version>
+          <version>1.46.0</version>
         </component>
       </components>
     </tools>
-    <component bom-ref="017c96a7521670cf" type="container">
+    <component bom-ref="4382801843ecbee7" type="container">
       <name>busybox</name>
-      <version>sha256:bf9536d50cebf4337eb4a802e4786f25a9068665385d82a780d210316b818cf8</version>
+      <version>sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f</version>
     </component>
   </metadata>
   <components>
-    <component bom-ref="pkg:generic/busybox@1.37.0?package-id=7020dfe7743f6dfc" type="application">
+    <component bom-ref="pkg:generic/busybox@1.38.0?package-id=5a5ba7c7211dc63a" type="application">
       <name>busybox</name>
-      <version>1.37.0</version>
-      <cpe>cpe:2.3:a:busybox:busybox:1.37.0:*:*:*:*:*:*:*</cpe>
-      <purl>pkg:generic/busybox@1.37.0</purl>
+      <version>1.38.0</version>
+      <cpe>cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*</cpe>
+      <purl>pkg:generic/busybox@1.38.0</purl>
       <properties>
         <property name="syft:package:foundBy">binary-classifier-cataloger</property>
         <property name="syft:package:type">binary</property>
         <property name="syft:package:metadataType">binary-signature</property>
-        <property name="syft:location:0:layerID">sha256:43f051b5fedf83ee1f8a54fa2fc1d1b85d7cf88b69b2604bc76d679c4fe0a9b7</property>
+        <property name="syft:location:0:layerID">sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc</property>
         <property name="syft:location:0:path">/bin/[</property>
       </properties>
     </component>
-    <component bom-ref="os:busybox@1.37.0" type="operating-system">
+    <component bom-ref="os:busybox@1.38.0" type="operating-system">
       <name>busybox</name>
-      <version>1.37.0</version>
-      <description>BusyBox v1.37.0</description>
-      <swid tagId="busybox" name="busybox" version="1.37.0"></swid>
+      <version>1.38.0</version>
+      <description>BusyBox v1.38.0</description>
+      <swid tagId="busybox" name="busybox" version="1.38.0"></swid>
       <properties>
         <property name="syft:distro:extendedSupport">false</property>
         <property name="syft:distro:id">busybox</property>
         <property name="syft:distro:idLike:0">busybox</property>
-        <property name="syft:distro:prettyName">BusyBox v1.37.0</property>
-        <property name="syft:distro:versionID">1.37.0</property>
+        <property name="syft:distro:prettyName">BusyBox v1.38.0</property>
+        <property name="syft:distro:versionID">1.38.0</property>
       </properties>
     </component>
-    <component bom-ref="55ff7bb58de38199" type="file">
+    <component bom-ref="4707db691d76c753" type="file">
       <name>/bin/[</name>
       <hashes>
-        <hash alg="SHA-1">5231d5d79cb52f3581f9c137396e7d9df7aa6d6b</hash>
-        <hash alg="SHA-256">f19470457088612bc3285404783d9f93533d917e869050aca13a4139b937c0a5</hash>
+        <hash alg="SHA-1">ad043255229d0a1f0a99e1cebaf70d32914c50e1</hash>
+        <hash alg="SHA-256">c849b73ca587db87c78f3fefce435c9ead2bbd0f3bb66257531eb8235a41ec45</hash>
       </hashes>
     </component>
   </components>

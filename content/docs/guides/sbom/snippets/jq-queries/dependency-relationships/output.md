@@ -1,15 +1,51 @@
 ```json
 {
-  "parent": "ca-certificates-bundle",
+  "parent": "libcrypto3",
+  "child": "ssl_client"
+}
+{
+  "parent": "libcrypto3",
   "child": "apk-tools"
 }
 {
-  "parent": "alpine-keys",
-  "child": "alpine-release"
+  "parent": "libcrypto3",
+  "child": "libssl3"
 }
 {
   "parent": "alpine-baselayout-data",
   "child": "alpine-baselayout"
+}
+{
+  "parent": "ca-certificates-bundle",
+  "child": "apk-tools"
+}
+{
+  "parent": "libgcc",
+  "child": "libstdc++"
+}
+{
+  "parent": "busybox",
+  "child": "busybox-binsh"
+}
+{
+  "parent": "busybox-binsh",
+  "child": "alpine-baselayout"
+}
+{
+  "parent": "zlib",
+  "child": "apk-tools"
+}
+{
+  "parent": "libssl3",
+  "child": "ssl_client"
+}
+{
+  "parent": "libssl3",
+  "child": "apk-tools"
+}
+{
+  "parent": "musl",
+  "child": "libcrypto3"
 }
 {
   "parent": "musl",
@@ -21,7 +57,7 @@
 }
 {
   "parent": "musl",
-  "child": "libstdc++"
+  "child": "busybox"
 }
 {
   "parent": "musl",
@@ -29,15 +65,15 @@
 }
 {
   "parent": "musl",
-  "child": "libssl3"
-}
-{
-  "parent": "musl",
-  "child": "busybox"
-}
-{
-  "parent": "musl",
   "child": "apk-tools"
+}
+{
+  "parent": "musl",
+  "child": "zlib"
+}
+{
+  "parent": "musl",
+  "child": "libssl3"
 }
 {
   "parent": "musl",
@@ -45,50 +81,14 @@
 }
 {
   "parent": "musl",
-  "child": "libcrypto3"
-}
-{
-  "parent": "musl",
-  "child": "zlib"
-}
-{
-  "parent": "libgcc",
   "child": "libstdc++"
-}
-{
-  "parent": "libssl3",
-  "child": "ssl_client"
-}
-{
-  "parent": "libssl3",
-  "child": "apk-tools"
-}
-{
-  "parent": "busybox",
-  "child": "busybox-binsh"
 }
 {
   "parent": "scanelf",
   "child": "musl-utils"
 }
 {
-  "parent": "busybox-binsh",
-  "child": "alpine-baselayout"
-}
-{
-  "parent": "libcrypto3",
-  "child": "ssl_client"
-}
-{
-  "parent": "libcrypto3",
-  "child": "libssl3"
-}
-{
-  "parent": "libcrypto3",
-  "child": "apk-tools"
-}
-{
-  "parent": "zlib",
-  "child": "apk-tools"
+  "parent": "alpine-keys",
+  "child": "alpine-release"
 }
 ```

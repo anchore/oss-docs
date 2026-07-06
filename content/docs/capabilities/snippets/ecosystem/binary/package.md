@@ -41,7 +41,7 @@
       <td class="col-integrity-hash indicator"></td>
     </tr>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">pe-binary-package-cataloger</div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">pe-binary-package-cataloger</div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code>, <code>*.bpl</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value"></td>
       <td class="col-edges value"></td>

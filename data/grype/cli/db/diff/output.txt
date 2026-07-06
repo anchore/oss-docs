@@ -1,0 +1,16 @@
+Diff two databases, showing packages with added, removed, and modified vulnerability matches
+
+Usage:
+  grype db diff [flags] old_db_url_or_path [new_db_url_or_path]
+
+Flags:
+  -h, --help            help for diff
+  -o, --output string   format to display results (available=[text, json]) (default "text")
+      --packages        only include packages
+      --vulns           only include vulnerabilities
+
+Global Flags:
+  -c, --config stringArray    grype configuration file(s) to use
+      --profile stringArray   configuration profiles to use
+  -q, --quiet                 suppress all logging output
+  -v, --verbose count         increase verbosity (-v = info, -vv = debug)
