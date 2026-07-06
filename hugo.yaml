@@ -13,6 +13,14 @@ ignoreFiles: # patterns for files that should not be processed during site gener
   - data/(grant|grype|syft|sbom)/
 enableGitInfo: true # adds last modified dates from git history to pages
 
+# Hugo >= v0.161 denies text/html content files by default (allowContent: ['! ^text/html$']),
+# which rejects the HTML landing page (content/_index.html). Whitelist exactly the two content
+# media types this site uses instead of the default deny rule.
+security:
+  allowContent:
+    - '^text/markdown$'
+    - '^text/html$'
+
 # theme configuration - imports the Docsy theme which provides layout, styling, and navigation components
 module:
   imports:

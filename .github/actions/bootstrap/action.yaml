@@ -5,7 +5,10 @@ inputs:
   node-version:
     description: "node version to install"
     required: true
-    default: "20"
+    # always use the latest LTS release (note: Hugo >= v0.161 runs node helpers
+    # (PostCSS) under Node's permission model (--permission), which requires
+    # Node >= 22.13)
+    default: "lts/*"
   dependencies:
     description: "Download dependencies"
     required: true
