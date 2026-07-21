@@ -22,7 +22,7 @@ In order to test and develop in the [Syft repo](https://github.com/anchore/syft)
 Run once after cloning to install development tools:
 
 ```bash
-make bootstrap
+make
 ```
 
 {{< alert color="primary" >}}
