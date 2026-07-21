@@ -16,6 +16,7 @@ In order to test and develop in the [Syft repo](https://github.com/anchore/syft)
 - Docker
 - Python (>= 3.9)
 - make
+- skopeo
 
 ### Initial setup
 
