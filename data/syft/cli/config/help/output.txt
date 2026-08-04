@@ -147,8 +147,13 @@ compliance:
 
 # Enable data enrichment operations, which can utilize services such as Maven Central and NPM.
 # By default all enrichment is disabled, use: all to enable everything.
-# Available options are: all, golang, java, javascript, python (env: SYFT_ENRICH)
+# Available options are: all, golang, java, javascript, python, vcpkg (env: SYFT_ENRICH)
 enrich: []
+
+cpp:
+  # enables Syft to use clone remote repositories for vcpkg custom git registries.
+  # 	(also useful if the builtin vcpkg registry is not cloned locally) (env: SYFT_CPP_VCPKG_ALLOW_GIT_CLONE)
+  vcpkg-allow-git-clone:
 
 dotnet:
   # only keep dep.json packages which an executable on disk is found. The package is also included if a DLL is found for any child package, even if the package itself does not have a DLL. (env: SYFT_DOTNET_DEP_PACKAGES_MUST_HAVE_DLL)
@@ -205,6 +210,10 @@ golang:
 
   # use the golang.org/x/tools/go/packages library, which executes golang tooling found on the path in addition to potential network access to get the most accurate results (env: SYFT_GOLANG_USE_PACKAGES_LIB)
   use-packages-lib:
+
+  # capture function symbols from the binary symbol table (pclntab). valid values are:
+  # "none" (disabled), "stdlib" (only the synthetic stdlib package), and "all" (all module packages plus stdlib) (env: SYFT_GOLANG_CAPTURE_SYMBOLS)
+  capture-symbols: 'none'
 
 java:
   # enables Syft to use the network to fetch version and license information for packages when

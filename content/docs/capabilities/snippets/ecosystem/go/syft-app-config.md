@@ -14,6 +14,10 @@
   </thead>
   <tbody>
     <tr>
+      <td class="col-config-key"><code>golang.capture-symbols</code></td>
+      <td class="col-description">Controls extracting function symbols from the binary symbol table (pclntab). Valid values are &quot;none&quot; (disabled), &quot;stdlib&quot; (only the synthetic stdlib package), and &quot;all&quot; (all module packages plus stdlib).</td>
+    </tr>
+    <tr>
       <td class="col-config-key"><code>golang.local-mod-cache-dir</code></td>
       <td class="col-description">Specifies the location of the local go module cache directory. When not set, syft will attempt to discover the GOPATH env or default to $HOME/go.</td>
     </tr>

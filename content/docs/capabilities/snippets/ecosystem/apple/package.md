@@ -21,37 +21,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">dotnet-deps-binary-cataloger</div><div class="evidence-patterns"><code>*.deps.json</code>, <code>*.dll</code>, <code>*.exe</code>, <code>*.bpl</code>, <code>*.DLL</code>, <code>*.EXE</code>, <code>*.BPL</code></div></td>
-      <td class="col-license indicator"></td>
-      <td class="col-depth value">Transitive</td>
-      <td class="col-edges value">Complete</td>
-      <td class="col-kinds value">Runtime</td>
-      <td class="col-files indicator"></td>
-      <td class="col-digests indicator"></td>
-      <td class="col-integrity-hash indicator"></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><div class="cataloger-name">dotnet-deps-cataloger <span class="deprecated-pill">deprecated</span></div><div class="evidence-patterns"><code>*.deps.json</code></div></td>
-      <td class="col-license indicator"></td>
-      <td class="col-depth value">Transitive</td>
-      <td class="col-edges value">Complete</td>
-      <td class="col-kinds value">Runtime</td>
-      <td class="col-files indicator"></td>
-      <td class="col-digests indicator"></td>
-      <td class="col-integrity-hash indicator"></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><div class="cataloger-name">dotnet-packages-lock-cataloger</div><div class="evidence-patterns"><code>packages.lock.json</code></div></td>
-      <td class="col-license indicator"></td>
-      <td class="col-depth value">Transitive</td>
-      <td class="col-edges value">Complete</td>
-      <td class="col-kinds value">Runtime, Dev, Build</td>
-      <td class="col-files indicator"></td>
-      <td class="col-digests indicator"></td>
-      <td class="col-integrity-hash indicator"><span class="capability-icon-wrapper" data-tooltip="DotnetPackagesLockEntry.ContentHash"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
-    </tr>
-    <tr>
-      <td class="col-cataloger"><div class="cataloger-name">dotnet-portable-executable-cataloger <span class="deprecated-pill">deprecated</span></div><div class="evidence-patterns"><code>*.dll</code>, <code>*.exe</code>, <code>*.bpl</code>, <code>*.DLL</code>, <code>*.EXE</code>, <code>*.BPL</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">apple-app-bundle-cataloger</div><div class="evidence-patterns"><code>*.app/Contents/Info.plist</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value"></td>
       <td class="col-edges value"></td>

@@ -63,6 +63,67 @@
       ]
     },
     {
+      "ecosystem": "ai",
+      "name": "safetensors-cataloger",
+      "type": "generic",
+      "selectors": [
+        "ai",
+        "directory",
+        "image",
+        "ml",
+        "model",
+        "package",
+        "safetensors"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.safetensors"
+          ],
+          "package_types": [
+            "model"
+          ],
+          "json_schema_types": [
+            "SafetensorsModelInfo"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": true,
+              "evidence": [
+                "SafeTensorsModelInfo.MetadataHash"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "ecosystem": "alpine",
       "name": "apk-db-cataloger",
       "type": "generic",
@@ -203,6 +264,62 @@
               "evidence": [
                 "AlpmDBEntry.Files[].Digests"
               ]
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "apple",
+      "name": "apple-app-bundle-cataloger",
+      "type": "generic",
+      "selectors": [
+        "apple",
+        "directory",
+        "image",
+        "installed",
+        "package"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/*.app/Contents/Info.plist"
+          ],
+          "package_types": [
+            "apple-app-bundle"
+          ],
+          "json_schema_types": [
+            "AppleAppBundleEntry"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
             },
             {
               "name": "package_manager.package_integrity_hash",
@@ -1160,6 +1277,29 @@
         {
           "method": "glob",
           "criteria": [
+            "**/bun"
+          ],
+          "packages": [
+            {
+              "class": "bun-binary",
+              "name": "bun",
+              "purl": "pkg:generic/bun",
+              "cpes": [
+                "cpe:2.3:a:oven-sh:bun:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/ghc*"
           ],
           "packages": [
@@ -1684,6 +1824,29 @@
         {
           "method": "glob",
           "criteria": [
+            "**/{firefox,firefox.exe}"
+          ],
+          "packages": [
+            {
+              "class": "firefox-binary",
+              "name": "firefox",
+              "purl": "pkg:generic/firefox",
+              "cpes": [
+                "cpe:2.3:a:mozilla:firefox:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/ffmpeg"
           ],
           "packages": [
@@ -2098,6 +2261,52 @@
         {
           "method": "glob",
           "criteria": [
+            "**/libkrb5.so*"
+          ],
+          "packages": [
+            {
+              "class": "krb5-library",
+              "name": "krb5",
+              "purl": "pkg:generic/krb5",
+              "cpes": [
+                "cpe:2.3:a:mit:kerberos_5:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/libkrb5.so*"
+          ],
+          "packages": [
+            {
+              "class": "heimdal-krb5-library",
+              "name": "heimdal-krb5",
+              "purl": "pkg:generic/heimdal-krb5",
+              "cpes": [
+                "cpe:2.3:a:heimdal_project:heimdal:*:*:*:*:*:*:*:*"
+              ],
+              "type": "BinaryPkg"
+            }
+          ],
+          "package_types": [
+            "binary"
+          ],
+          "json_schema_types": [
+            "BinarySignature"
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
             "**/java"
           ],
           "packages": [
@@ -2376,6 +2585,9 @@
         {
           "method": "glob",
           "criteria": [
+            "**/*.DLL",
+            "**/*.EXE",
+            "**/*.BPL",
             "**/*.dll",
             "**/*.exe",
             "**/*.bpl"
@@ -2718,6 +2930,81 @@
       ]
     },
     {
+      "ecosystem": "c++",
+      "name": "vcpkg-manifest-cataloger",
+      "type": "generic",
+      "selectors": [
+        "cpp",
+        "declared",
+        "directory",
+        "language",
+        "package",
+        "vcpkg"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/vcpkg.json"
+          ],
+          "package_types": [
+            "vcpkg"
+          ],
+          "purl_types": [
+            "vcpkg"
+          ],
+          "json_schema_types": [
+            "VcpkgManifest"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ]
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime"
+              ]
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ],
+      "config": {
+        "type": "cpp.CatalogerConfig",
+        "fields": [
+          {
+            "key": "VcpkgAllowGitClone",
+            "description": "VcpkgAllowGitClone enables cloning remote git registries to resolve vcpkg manifest dependencies (requires network access).",
+            "app_key": "cpp.vcpkg-allow-git-clone"
+          }
+        ]
+      }
+    },
+    {
       "ecosystem": "conda",
       "name": "conda-meta-cataloger",
       "type": "generic",
@@ -2938,15 +3225,19 @@
           "criteria": [
             "**/*.deps.json",
             "**/*.dll",
-            "**/*.exe"
+            "**/*.exe",
+            "**/*.bpl",
+            "**/*.DLL",
+            "**/*.EXE",
+            "**/*.BPL"
           ],
           "package_types": [
             "dotnet",
             "npm"
           ],
           "purl_types": [
-            "dotnet",
-            "npm"
+            "npm",
+            "nuget"
           ],
           "json_schema_types": [
             "DotnetDepsEntry",
@@ -3009,7 +3300,7 @@
             "dotnet"
           ],
           "purl_types": [
-            "dotnet"
+            "nuget"
           ],
           "json_schema_types": [
             "DotnetDepsEntry"
@@ -3075,7 +3366,7 @@
             "dotnet"
           ],
           "purl_types": [
-            "dotnet"
+            "nuget"
           ],
           "json_schema_types": [
             "DotnetPackagesLockEntry"
@@ -3137,13 +3428,17 @@
           "method": "glob",
           "criteria": [
             "**/*.dll",
-            "**/*.exe"
+            "**/*.exe",
+            "**/*.bpl",
+            "**/*.DLL",
+            "**/*.EXE",
+            "**/*.BPL"
           ],
           "package_types": [
             "dotnet"
           ],
           "purl_types": [
-            "dotnet"
+            "nuget"
           ],
           "json_schema_types": [
             "DotnetPortableExecutableEntry"
@@ -3847,6 +4142,11 @@
             "key": "NoProxy",
             "description": "NoProxy is a list of glob patterns that match go module names that should not be fetched from the go proxy. When not set, syft will use the GOPRIVATE and GONOPROXY env vars.",
             "app_key": "golang.no-proxy"
+          },
+          {
+            "key": "CaptureSymbols",
+            "description": "CaptureSymbols controls extracting function symbols from the binary symbol table (pclntab). Valid values are \"none\" (disabled), \"stdlib\" (only the synthetic stdlib package), and \"all\" (all module packages plus stdlib).",
+            "app_key": "golang.capture-symbols"
           }
         ]
       }
@@ -3973,6 +4273,11 @@
             "key": "NoProxy",
             "description": "NoProxy is a list of glob patterns that match go module names that should not be fetched from the go proxy. When not set, syft will use the GOPRIVATE and GONOPROXY env vars.",
             "app_key": "golang.no-proxy"
+          },
+          {
+            "key": "CaptureSymbols",
+            "description": "CaptureSymbols controls extracting function symbols from the binary symbol table (pclntab). Valid values are \"none\" (disabled), \"stdlib\" (only the synthetic stdlib package), and \"all\" (all module packages plus stdlib).",
+            "app_key": "golang.capture-symbols"
           }
         ]
       }
