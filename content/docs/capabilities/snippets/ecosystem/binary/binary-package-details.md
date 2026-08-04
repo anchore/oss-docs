@@ -34,6 +34,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:gnu:bash:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">bun-binary</td>
+      <td class="col-criteria"><code>bun</code></td>
+      <td class="col-purl"><code>pkg:generic/bun</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:oven-sh:bun:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">busybox-binary</td>
       <td class="col-criteria"><code>busybox</code></td>
       <td class="col-purl"><code>pkg:generic/busybox</code></td>
@@ -136,6 +142,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:elastic:filebeat:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">firefox-binary</td>
+      <td class="col-criteria"><code>{firefox,firefox.exe}</code></td>
+      <td class="col-purl"><code>pkg:generic/firefox</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:mozilla:firefox:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">fluent-bit-binary</td>
       <td class="col-criteria"><code>fluent-bit</code></td>
       <td class="col-purl"><code>pkg:github/fluent/fluent-bit</code></td>
@@ -208,6 +220,12 @@
       <td class="col-cpes"><code>cpe:2.3:a:elastic:heartbeat:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
+      <td class="col-class">heimdal-krb5-library</td>
+      <td class="col-criteria"><code>libkrb5.so*</code></td>
+      <td class="col-purl"><code>pkg:generic/heimdal-krb5</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:heimdal_project:heimdal:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
       <td class="col-class">helm</td>
       <td class="col-criteria"><code>helm</code></td>
       <td class="col-purl"><code>pkg:golang/helm.sh/helm</code></td>
@@ -266,6 +284,12 @@
       <td class="col-criteria"><code>julia</code></td>
       <td class="col-purl"><code>pkg:generic/julia</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:julialang:julia:*:*:*:*:*:*:*:*</code></td>
+    </tr>
+    <tr>
+      <td class="col-class">krb5-library</td>
+      <td class="col-criteria"><code>libkrb5.so*</code></td>
+      <td class="col-purl"><code>pkg:generic/krb5</code></td>
+      <td class="col-cpes"><code>cpe:2.3:a:mit:kerberos_5:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>
       <td class="col-class">lighttpd-binary</td>

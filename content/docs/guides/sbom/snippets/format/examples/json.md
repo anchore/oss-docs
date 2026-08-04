@@ -354,7 +354,7 @@
       ],
       "manifest": "eyJzY2hlbWFWZXJzaW9uIjoyLCJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQuZG9ja2VyLmRpc3RyaWJ1dGlvbi5tYW5pZmVzdC52Mitqc29uIiwiY29uZmlnIjp7Im1lZGlhVHlwZSI6ImFwcGxpY2F0aW9uL3ZuZC5kb2NrZXIuY29udGFpbmVyLmltYWdlLnYxK2pzb24iLCJzaXplIjo0NTksImRpZ2VzdCI6InNoYTI1NjpjNjM0OGZhODZiYTBmYjIxMDhjOTMzNGY1ZmU5MTNkZGM2ZDg1MzMxM2U2NTU4OTFmMTMzYTAxMjdjMzAwOTlmIn0sImxheWVycyI6W3sibWVkaWFUeXBlIjoiYXBwbGljYXRpb24vdm5kLmRvY2tlci5pbWFnZS5yb290ZnMuZGlmZi50YXIuZ3ppcCIsInNpemUiOjQ2Nzk2ODAsImRpZ2VzdCI6InNoYTI1NjowOTU4ZTBmZWYyZDZhMzFlMTMyNWI4YmZlY2Q5OWRlYWQ5MzMzNjM2ODJkNjk4NTBhNzYwNjU5OTAyMzc1MWJjIn1dfQ==",
       "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjYtMDUtMTNUMDI6MjE6NDlaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNi0wNS0xM1QwMjoyMTo0OVoiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzguMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6MDk1OGUwZmVmMmQ2YTMxZTEzMjViOGJmZWNkOTlkZWFkOTMzMzYzNjgyZDY5ODUwYTc2MDY1OTkwMjM3NTFiYyIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiCn0K",
-      "repoDigests": ["busybox@sha256:fd8d9aa63ba2f0982b5304e1ee8d3b90a210bc1ffb5314d980eb6962f1a9715d"],
+      "repoDigests": ["busybox@sha256:dc2d74b28e4cf8984fa52af1f39bc7c3d9c73760b41a74d629f5d11b1ab28616"],
       "architecture": "amd64",
       "os": "linux"
     }
@@ -369,7 +369,7 @@
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.46.0",
+    "version": "1.50.0",
     "configuration": {
       "catalogers": {
         "requested": {
@@ -378,6 +378,7 @@
         "used": [
           "alpm-db-cataloger",
           "apk-db-cataloger",
+          "apple-app-bundle-cataloger",
           "binary-classifier-cataloger",
           "bitnami-cataloger",
           "cargo-auditable-binary-cataloger",
@@ -409,6 +410,7 @@
           "r-package-cataloger",
           "rpm-db-cataloger",
           "ruby-installed-gemspec-cataloger",
+          "safetensors-cataloger",
           "snap-cataloger",
           "wordpress-plugins-cataloger"
         ]
@@ -469,6 +471,7 @@
           "swipl-binary",
           "dart-binary",
           "deno-binary",
+          "bun-binary",
           "haskell-ghc-binary",
           "haskell-cabal-binary",
           "haskell-stack-binary",
@@ -491,6 +494,7 @@
           "sqlcipher-binary",
           "jq-binary",
           "chrome-binary",
+          "firefox-binary",
           "ffmpeg-binary",
           "ffmpeg-library",
           "ffmpeg-library",
@@ -509,9 +513,14 @@
           "packetbeat-binary",
           "auditbeat-binary",
           "elastic-agent-binary",
+          "krb5-library",
+          "heimdal-krb5-library",
           "java-binary",
           "java-jdb-binary"
         ],
+        "cpp": {
+          "vcpkg-allow-git-clone": false
+        },
         "dotnet": {
           "dep-packages-must-claim-dll": true,
           "dep-packages-must-have-dll": false,
@@ -520,6 +529,7 @@
           "relax-dll-claims-when-bundling-detected": true
         },
         "golang": {
+          "capture-symbols": "none",
           "local-mod-cache-dir": "/root/go/pkg/mod",
           "local-vendor-dir": "",
           "main-module-version": {
@@ -571,8 +581,8 @@
     }
   },
   "schema": {
-    "version": "16.1.5",
-    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.5.json"
+    "version": "16.1.10",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.10.json"
   }
 }
 ```

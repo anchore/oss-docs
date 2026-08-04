@@ -229,6 +229,13 @@ fix-channel:
     # (env: GRYPE_FIX_CHANNEL_REDHAT_EUS_VERSIONS)
     versions: '>= 8.0'
 
+  ubuntu-esm:
+    # whether fixes from this channel should be considered, options are "never", "always", or "auto" (conditionally applied based on SBOM data) (env: GRYPE_FIX_CHANNEL_UBUNTU_ESM_APPLY)
+    apply: 'auto'
+
+    # (env: GRYPE_FIX_CHANNEL_UBUNTU_ESM_VERSIONS)
+    versions: ''
+
 # (env: GRYPE_TIMESTAMP)
 timestamp: true
 
