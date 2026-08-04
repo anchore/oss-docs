@@ -24,6 +24,7 @@ display_names:
   mariner: Azure Linux
   nix: Nix
   ocaml: OCaml
+  perl: Perl
   php: PHP
   portage: Portage
   prolog: Prolog
