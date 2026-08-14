@@ -250,7 +250,7 @@ javascript:
   npm-base-url: 'https://registry.npmjs.org'
 
   # include development-scoped dependencies (env: SYFT_JAVASCRIPT_INCLUDE_DEV_DEPENDENCIES)
-  include-dev-dependencies:
+  include-dev-dependencies: false
 
 linux-kernel:
   # whether to catalog linux kernel modules found within lib/modules/** directories (env: SYFT_LINUX_KERNEL_CATALOG_MODULES)
