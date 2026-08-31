@@ -1,5 +1,14 @@
 version: "3"
 
+# Local tool overrides:
+#   By default these tasks run the published Docker images (anchore/syft:latest, etc.).
+#   To run a local checkout instead (e.g. to test unreleased changes), set the matching
+#   <TOOL>_LOCAL_PATH env var to the tool's repo root and the script will `go run ./cmd/<tool>`:
+#     SYFT_LOCAL_PATH=../syft   task generate:update
+#     GRYPE_LOCAL_PATH=../grype task generate:update
+#     GRANT_LOCAL_PATH=../grant task generate:update
+#   The override is honored by every generator that executes a tool (all route through utils/syft.py).
+
 vars:
   SYFT_CLI_CMD: "uv run ./src/generate_reference_cli_docs.py anchore/syft:latest --output ./content/docs/reference/syft/cli.md --tool-name syft"
   SYFT_CONFIG_CMD: "uv run ./src/generate_reference_config_docs.py anchore/syft:latest --output ./content/docs/reference/syft/configuration.md --tool-name syft"
