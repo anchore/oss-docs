@@ -12,17 +12,19 @@ icon_image = "/images/logos/syft/favicon-48x48.png"
 
 In order to test and develop in the [Syft repo](https://github.com/anchore/syft) you will need the following dependencies installed:
 
-- Golang
+- Golang (>= 1.26.3)
 - Docker
 - Python (>= 3.9)
 - make
+- skopeo
+- xmllint
 
 ### Initial setup
 
 Run once after cloning to install development tools:
 
 ```bash
-make bootstrap
+make
 ```
 
 {{< alert color="primary" >}}
