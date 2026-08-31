@@ -355,6 +355,25 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
+      <td class="col-ecosystem" rowspan="3">Perl</td>
+      <td class="col-cataloger"><div class="cataloger-name">perl-cpan-installed-cataloger</div><div class="evidence-patterns"><code>auto/**/.packlist</code></div></td>
+      <td class="col-license indicator"></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">perl-cpan-installed-cataloger</div><div class="evidence-patterns"><code>.meta/*/install.json</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-cataloger"><div class="cataloger-name">perl-cpan-meta-cataloger</div><div class="evidence-patterns"><code>META.json</code>, <code>META.yml</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"></td>
+    </tr>
+    <tr>
       <td class="col-ecosystem" rowspan="5">PHP</td>
       <td class="col-cataloger"><div class="cataloger-name">php-composer-installed-cataloger</div><div class="evidence-patterns"><code>installed.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
