@@ -2,15 +2,15 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:4adc8e31-d605-401b-a2b3-435bf8ffe2db" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:a9fac711-8b88-4d10-9266-1825b5849706" version="1">
   <metadata>
-    <timestamp>2026-08-04T03:03:17Z</timestamp>
+    <timestamp>2026-09-07T02:12:24Z</timestamp>
     <tools>
       <components>
         <component type="application">
           <author>anchore</author>
           <name>syft</name>
-          <version>1.50.0</version>
+          <version>1.51.1</version>
         </component>
       </components>
     </tools>
@@ -20,7 +20,7 @@
     </component>
   </metadata>
   <components>
-    <component bom-ref="pkg:generic/busybox@1.38.0?package-id=5a5ba7c7211dc63a" type="application">
+    <component bom-ref="pkg:generic/busybox@1.38.0?package-id=df8a74ed44ba5a45" type="application">
       <name>busybox</name>
       <version>1.38.0</version>
       <cpe>cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*</cpe>
@@ -30,7 +30,7 @@
         <property name="syft:package:type">binary</property>
         <property name="syft:package:metadataType">binary-signature</property>
         <property name="syft:location:0:layerID">sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc</property>
-        <property name="syft:location:0:path">/bin/[</property>
+        <property name="syft:location:0:path">/bin/busybox</property>
       </properties>
     </component>
     <component bom-ref="os:busybox@1.38.0" type="operating-system">
@@ -46,8 +46,8 @@
         <property name="syft:distro:versionID">1.38.0</property>
       </properties>
     </component>
-    <component bom-ref="4707db691d76c753" type="file">
-      <name>/bin/[</name>
+    <component bom-ref="d80578b9d872e0a1" type="file">
+      <name>/bin/busybox</name>
       <hashes>
         <hash alg="SHA-1">ad043255229d0a1f0a99e1cebaf70d32914c50e1</hash>
         <hash alg="SHA-256">c849b73ca587db87c78f3fefce435c9ead2bbd0f3bb66257531eb8235a41ec45</hash>

@@ -5,17 +5,17 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.7.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.7",
-  "serialNumber": "urn:uuid:e0071e22-5f3e-4afc-b3a5-4c64dd73919f",
+  "serialNumber": "urn:uuid:cbb2a697-02b1-49ae-aff5-6739b0c44b9b",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-08-04T03:03:16Z",
+    "timestamp": "2026-09-07T02:12:24Z",
     "tools": {
       "components": [
         {
           "type": "application",
           "author": "anchore",
           "name": "syft",
-          "version": "1.50.0"
+          "version": "1.51.1"
         }
       ]
     },
@@ -28,7 +28,7 @@
   },
   "components": [
     {
-      "bom-ref": "pkg:generic/busybox@1.38.0?package-id=5a5ba7c7211dc63a",
+      "bom-ref": "pkg:generic/busybox@1.38.0?package-id=df8a74ed44ba5a45",
       "type": "application",
       "name": "busybox",
       "version": "1.38.0",
@@ -53,7 +53,7 @@
         },
         {
           "name": "syft:location:0:path",
-          "value": "/bin/["
+          "value": "/bin/busybox"
         }
       ]
     },
@@ -92,9 +92,9 @@
       ]
     },
     {
-      "bom-ref": "4707db691d76c753",
+      "bom-ref": "d80578b9d872e0a1",
       "type": "file",
-      "name": "/bin/[",
+      "name": "/bin/busybox",
       "hashes": [
         {
           "alg": "SHA-1",

@@ -5,16 +5,216 @@ SPDXVersion: SPDX-2.3
 DataLicense: CC0-1.0
 SPDXID: SPDXRef-DOCUMENT
 DocumentName: busybox
-DocumentNamespace: https://anchore.com/syft/image/busybox-a24d8d68-b170-4c76-b013-4ea2f7615490
+DocumentNamespace: https://anchore.com/syft/image/busybox-2337b4c6-55c5-4fb1-a4d4-336b681eaff2
 LicenseListVersion: 3.28
 Creator: Organization: Anchore, Inc
-Creator: Tool: syft-1.50.0
-Created: 2026-08-04T03:03:18Z
+Creator: Tool: syft-1.51.1
+Created: 2026-09-07T02:12:25Z
 
 ##### Unpackaged files
 
+FileName: bin/[[
+SPDXID: SPDXRef-File-bin----af289e7d17cb742b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
 FileName: bin/[
 SPDXID: SPDXRef-File-bin---4707db691d76c753
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/acpid
+SPDXID: SPDXRef-File-bin-acpid-772d6d5daab1ca25
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/add-shell
+SPDXID: SPDXRef-File-bin-add-shell-48a9e7c07a5ba809
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/addgroup
+SPDXID: SPDXRef-File-bin-addgroup-5eae4700cfd2cb64
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/adduser
+SPDXID: SPDXRef-File-bin-adduser-ccb599dae3ec376b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/adjtimex
+SPDXID: SPDXRef-File-bin-adjtimex-4f5a22880d8c7d99
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ar
+SPDXID: SPDXRef-File-bin-ar-346b06a51bc725e6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/arch
+SPDXID: SPDXRef-File-bin-arch-ec62dba960518217
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/arp
+SPDXID: SPDXRef-File-bin-arp-96de9c0d5de06dc3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/arping
+SPDXID: SPDXRef-File-bin-arping-99cf6c0efc412593
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ascii
+SPDXID: SPDXRef-File-bin-ascii-129882b3a976b2d0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ash
+SPDXID: SPDXRef-File-bin-ash-277d008787247b47
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/awk
+SPDXID: SPDXRef-File-bin-awk-f1d86074c337e2cf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/base32
+SPDXID: SPDXRef-File-bin-base32-1b4ea8768a3fa135
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/base64
+SPDXID: SPDXRef-File-bin-base64-567a05077ff457ef
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/basename
+SPDXID: SPDXRef-File-bin-basename-715bec4d1b3b721b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/bc
+SPDXID: SPDXRef-File-bin-bc-0eddc6958fcbb398
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/beep
+SPDXID: SPDXRef-File-bin-beep-fe0572d6ba76ce79
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/blkdiscard
+SPDXID: SPDXRef-File-bin-blkdiscard-bc4d6446d0868e6d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/blkid
+SPDXID: SPDXRef-File-bin-blkid-4c43b4f2b2573817
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/blockdev
+SPDXID: SPDXRef-File-bin-blockdev-f64f551a889b8f6d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/bootchartd
+SPDXID: SPDXRef-File-bin-bootchartd-8ad3accab1ba3858
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/brctl
+SPDXID: SPDXRef-File-bin-brctl-0645f1a02c5d4aab
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/bunzip2
+SPDXID: SPDXRef-File-bin-bunzip2-76130d5bbb42595a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/busybox
+SPDXID: SPDXRef-File-bin-busybox-d80578b9d872e0a1
 FileType: APPLICATION
 FileType: BINARY
 FileChecksum: SHA1: ad043255229d0a1f0a99e1cebaf70d32914c50e1
@@ -24,8 +224,3088 @@ LicenseInfoInFile: NOASSERTION
 FileCopyrightText: NOASSERTION
 FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
 
+FileName: bin/bzcat
+SPDXID: SPDXRef-File-bin-bzcat-993583e357fe46bd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/bzip2
+SPDXID: SPDXRef-File-bin-bzip2-5a0ef9875ceb538a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cal
+SPDXID: SPDXRef-File-bin-cal-d5f8d7bda3a0be32
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cat
+SPDXID: SPDXRef-File-bin-cat-6fef81c20b0b9b19
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chat
+SPDXID: SPDXRef-File-bin-chat-85c17bf5f6ee208a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chattr
+SPDXID: SPDXRef-File-bin-chattr-c27278e445c909aa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chgrp
+SPDXID: SPDXRef-File-bin-chgrp-140d635551ca68d5
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chmod
+SPDXID: SPDXRef-File-bin-chmod-18dd845fee0d1dcd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chown
+SPDXID: SPDXRef-File-bin-chown-9f922555605386a2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chpasswd
+SPDXID: SPDXRef-File-bin-chpasswd-5880103dd3001ccc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chpst
+SPDXID: SPDXRef-File-bin-chpst-8d4a18a81816c143
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chroot
+SPDXID: SPDXRef-File-bin-chroot-2bd116e0be8e65d3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chrt
+SPDXID: SPDXRef-File-bin-chrt-e0b164b4daacf7c3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/chvt
+SPDXID: SPDXRef-File-bin-chvt-a318055623954485
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cksum
+SPDXID: SPDXRef-File-bin-cksum-5fe0e7f2844faa19
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/clear
+SPDXID: SPDXRef-File-bin-clear-2b29d6d4478f917f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cmp
+SPDXID: SPDXRef-File-bin-cmp-19071fd13e0c514a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/comm
+SPDXID: SPDXRef-File-bin-comm-71e04f553482ded4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/conspy
+SPDXID: SPDXRef-File-bin-conspy-961a39ebcf062798
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cp
+SPDXID: SPDXRef-File-bin-cp-0dfd3d77f793b217
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cpio
+SPDXID: SPDXRef-File-bin-cpio-1ae12a47ccee62a0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/crc32
+SPDXID: SPDXRef-File-bin-crc32-8f52e03845b2a374
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/crond
+SPDXID: SPDXRef-File-bin-crond-172d53827291cba9
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/crontab
+SPDXID: SPDXRef-File-bin-crontab-828a5f7686ded11c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cryptpw
+SPDXID: SPDXRef-File-bin-cryptpw-6792d57e00cfb29c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cttyhack
+SPDXID: SPDXRef-File-bin-cttyhack-416dbbfde90af16d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/cut
+SPDXID: SPDXRef-File-bin-cut-9a222a6e1a0eca03
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/date
+SPDXID: SPDXRef-File-bin-date-3820ce936677e42c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dc
+SPDXID: SPDXRef-File-bin-dc-8bc7deef5f7265ec
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dd
+SPDXID: SPDXRef-File-bin-dd-02e41da85d14e822
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/deallocvt
+SPDXID: SPDXRef-File-bin-deallocvt-0bfc440f7dcbb85c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/delgroup
+SPDXID: SPDXRef-File-bin-delgroup-3e4684edcc4cf8c5
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/deluser
+SPDXID: SPDXRef-File-bin-deluser-055d8e7b91bfd56d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/depmod
+SPDXID: SPDXRef-File-bin-depmod-cb7f7d578ae2c130
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/devmem
+SPDXID: SPDXRef-File-bin-devmem-f2cf1d54b3e53742
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/df
+SPDXID: SPDXRef-File-bin-df-42baa789b64d7f20
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dhcprelay
+SPDXID: SPDXRef-File-bin-dhcprelay-dd4ff1ef6c0107b3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/diff
+SPDXID: SPDXRef-File-bin-diff-e2098f6111338ca9
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dirname
+SPDXID: SPDXRef-File-bin-dirname-7dd415a69cf50671
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dmesg
+SPDXID: SPDXRef-File-bin-dmesg-c4dde148066de686
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dnsd
+SPDXID: SPDXRef-File-bin-dnsd-69f6b0d391233d6c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dnsdomainname
+SPDXID: SPDXRef-File-bin-dnsdomainname-c19ce556ec500125
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dos2unix
+SPDXID: SPDXRef-File-bin-dos2unix-3c6c7b0e44d546dd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dpkg
+SPDXID: SPDXRef-File-bin-dpkg-2cfa443d7f4dbd68
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dpkg-deb
+SPDXID: SPDXRef-File-bin-dpkg-deb-779a8a594a825eed
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/du
+SPDXID: SPDXRef-File-bin-du-2dd3f4dc490b0030
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dumpkmap
+SPDXID: SPDXRef-File-bin-dumpkmap-f49f6df8fcda8a47
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/dumpleases
+SPDXID: SPDXRef-File-bin-dumpleases-1a6d7ac0ef508897
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/echo
+SPDXID: SPDXRef-File-bin-echo-aa62c92c80153037
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ed
+SPDXID: SPDXRef-File-bin-ed-52458cc5f47a5089
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/egrep
+SPDXID: SPDXRef-File-bin-egrep-01b04f55c3572756
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/eject
+SPDXID: SPDXRef-File-bin-eject-c9a95b42034469ca
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/env
+SPDXID: SPDXRef-File-bin-env-472743f90cfc327e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/envdir
+SPDXID: SPDXRef-File-bin-envdir-0f84e119dbddac61
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/envuidgid
+SPDXID: SPDXRef-File-bin-envuidgid-d3c81ff10a3f1d95
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ether-wake
+SPDXID: SPDXRef-File-bin-ether-wake-2f07119b2bc63eb1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/expand
+SPDXID: SPDXRef-File-bin-expand-7d9e11a7ea0ba09d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/expr
+SPDXID: SPDXRef-File-bin-expr-5aceafc3cdadd39a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/factor
+SPDXID: SPDXRef-File-bin-factor-51a5f4a6f61934d8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fakeidentd
+SPDXID: SPDXRef-File-bin-fakeidentd-1e805d441d0c3c17
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fallocate
+SPDXID: SPDXRef-File-bin-fallocate-299e30190e5d381b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/false
+SPDXID: SPDXRef-File-bin-false-8d84c7798996145c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fatattr
+SPDXID: SPDXRef-File-bin-fatattr-4f2a841a23848be3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fbset
+SPDXID: SPDXRef-File-bin-fbset-9cf9ddb0ba09347b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fbsplash
+SPDXID: SPDXRef-File-bin-fbsplash-788bc72fce9b0901
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fdflush
+SPDXID: SPDXRef-File-bin-fdflush-52b76734a5b49938
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fdformat
+SPDXID: SPDXRef-File-bin-fdformat-e7bbd9f97b610c5e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fdisk
+SPDXID: SPDXRef-File-bin-fdisk-c87853ecb3488afe
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fgconsole
+SPDXID: SPDXRef-File-bin-fgconsole-e3e972ff88959c7d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fgrep
+SPDXID: SPDXRef-File-bin-fgrep-6680e2d63599c596
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/find
+SPDXID: SPDXRef-File-bin-find-b8a7739b2f913f7c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/findfs
+SPDXID: SPDXRef-File-bin-findfs-5412179fece7417a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/flock
+SPDXID: SPDXRef-File-bin-flock-ea7b572091051b7d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fold
+SPDXID: SPDXRef-File-bin-fold-be28622023e31b95
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/free
+SPDXID: SPDXRef-File-bin-free-9752b776fa23569a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/freeramdisk
+SPDXID: SPDXRef-File-bin-freeramdisk-a40a0c54c75eb090
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fsck
+SPDXID: SPDXRef-File-bin-fsck-5ddfeb0dca173def
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fsck.minix
+SPDXID: SPDXRef-File-bin-fsck.minix-1c4de466cd9bb06c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fsfreeze
+SPDXID: SPDXRef-File-bin-fsfreeze-8cc83c220ce9d3ad
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fstrim
+SPDXID: SPDXRef-File-bin-fstrim-c7689e6d3291a117
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fsync
+SPDXID: SPDXRef-File-bin-fsync-d457b17dedebcee9
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ftpd
+SPDXID: SPDXRef-File-bin-ftpd-2cf46117c171f2bb
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ftpget
+SPDXID: SPDXRef-File-bin-ftpget-846a8e294e30c446
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ftpput
+SPDXID: SPDXRef-File-bin-ftpput-72b38e90bf47b3e6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/fuser
+SPDXID: SPDXRef-File-bin-fuser-c206dd7335f8c6ea
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
 FileName: bin/getconf
 SPDXID: SPDXRef-File-bin-getconf-af6602274c595b5b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/getfattr
+SPDXID: SPDXRef-File-bin-getfattr-ca8f52b8a88eaa60
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/getopt
+SPDXID: SPDXRef-File-bin-getopt-86fb95f9eeb7d2ce
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/getty
+SPDXID: SPDXRef-File-bin-getty-7fadb25a93a58ebc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/grep
+SPDXID: SPDXRef-File-bin-grep-02b5ba8cb1587f59
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/groups
+SPDXID: SPDXRef-File-bin-groups-679f02352c20749e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/gunzip
+SPDXID: SPDXRef-File-bin-gunzip-3250fb6b5556c595
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/gzip
+SPDXID: SPDXRef-File-bin-gzip-1454654b68fb83dd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/halt
+SPDXID: SPDXRef-File-bin-halt-8f6452fb77e808ec
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hd
+SPDXID: SPDXRef-File-bin-hd-b8584a406e74cc79
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hdparm
+SPDXID: SPDXRef-File-bin-hdparm-2d11f5539e0243cc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/head
+SPDXID: SPDXRef-File-bin-head-3f89008eab08d058
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hexdump
+SPDXID: SPDXRef-File-bin-hexdump-323a2d2defbc402a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hexedit
+SPDXID: SPDXRef-File-bin-hexedit-4c38182130913764
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hostid
+SPDXID: SPDXRef-File-bin-hostid-42abc20efc471475
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hostname
+SPDXID: SPDXRef-File-bin-hostname-d4fd59875a0d2289
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/httpd
+SPDXID: SPDXRef-File-bin-httpd-c72b48e7275085ac
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hush
+SPDXID: SPDXRef-File-bin-hush-885e6b8e680af937
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/hwclock
+SPDXID: SPDXRef-File-bin-hwclock-ca92c79a36e5b633
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/i2cdetect
+SPDXID: SPDXRef-File-bin-i2cdetect-9d3fbe88d9f93133
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/i2cdump
+SPDXID: SPDXRef-File-bin-i2cdump-ea342cecff4ffedd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/i2cget
+SPDXID: SPDXRef-File-bin-i2cget-cc775c29f66f6b62
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/i2cset
+SPDXID: SPDXRef-File-bin-i2cset-d5ac12926a080ee1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/i2ctransfer
+SPDXID: SPDXRef-File-bin-i2ctransfer-c1a104e2207e0761
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/id
+SPDXID: SPDXRef-File-bin-id-be723d6439537300
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ifconfig
+SPDXID: SPDXRef-File-bin-ifconfig-06db7bce7e522768
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ifdown
+SPDXID: SPDXRef-File-bin-ifdown-38aefd11afca4ad7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ifenslave
+SPDXID: SPDXRef-File-bin-ifenslave-b063a7633be1d168
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ifplugd
+SPDXID: SPDXRef-File-bin-ifplugd-b315ea18525d82ea
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ifup
+SPDXID: SPDXRef-File-bin-ifup-ecc1f6850fc1c119
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/inetd
+SPDXID: SPDXRef-File-bin-inetd-5f3299286631871a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/init
+SPDXID: SPDXRef-File-bin-init-2409a8c79f3f0bf8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/inotifyd
+SPDXID: SPDXRef-File-bin-inotifyd-3b657e093f4def3f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/insmod
+SPDXID: SPDXRef-File-bin-insmod-b4c5737287b98b72
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/install
+SPDXID: SPDXRef-File-bin-install-3c41fa86e1289c4d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ionice
+SPDXID: SPDXRef-File-bin-ionice-8e8cb3f1266296a9
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/iostat
+SPDXID: SPDXRef-File-bin-iostat-abf74714b8bc0bf8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ip
+SPDXID: SPDXRef-File-bin-ip-27c6c6b9732b803e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ipaddr
+SPDXID: SPDXRef-File-bin-ipaddr-d9dce2df581e3916
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ipcalc
+SPDXID: SPDXRef-File-bin-ipcalc-6d1360466d03a83a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ipcrm
+SPDXID: SPDXRef-File-bin-ipcrm-0bd43945394aaf90
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ipcs
+SPDXID: SPDXRef-File-bin-ipcs-857b0a563fa1df4a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/iplink
+SPDXID: SPDXRef-File-bin-iplink-81738cb4d5834261
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ipneigh
+SPDXID: SPDXRef-File-bin-ipneigh-704827a60908ea44
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/iproute
+SPDXID: SPDXRef-File-bin-iproute-5c94622a2be889f8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/iprule
+SPDXID: SPDXRef-File-bin-iprule-a64b4a721234d6d3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/iptunnel
+SPDXID: SPDXRef-File-bin-iptunnel-340357518ec103da
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/kbd_mode
+SPDXID: SPDXRef-File-bin-kbd-mode-8136656b5fbc12c0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/kill
+SPDXID: SPDXRef-File-bin-kill-a1f7ee1d5c06732c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/killall
+SPDXID: SPDXRef-File-bin-killall-4f5581aca56bc50e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/killall5
+SPDXID: SPDXRef-File-bin-killall5-6011b4e92a0e7eb6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/klogd
+SPDXID: SPDXRef-File-bin-klogd-eb58f0acc9f7f049
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/last
+SPDXID: SPDXRef-File-bin-last-91cd75d7e374bb79
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/less
+SPDXID: SPDXRef-File-bin-less-476076726b911646
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/link
+SPDXID: SPDXRef-File-bin-link-30f483585be1dce4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/linux32
+SPDXID: SPDXRef-File-bin-linux32-c0b9705981b09de8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/linux64
+SPDXID: SPDXRef-File-bin-linux64-23348844e697e60b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/linuxrc
+SPDXID: SPDXRef-File-bin-linuxrc-4c7a19fdfc77cb3a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ln
+SPDXID: SPDXRef-File-bin-ln-6a9fd5917123f645
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/loadfont
+SPDXID: SPDXRef-File-bin-loadfont-8dc109b9c3d92682
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/loadkmap
+SPDXID: SPDXRef-File-bin-loadkmap-0bb5a3cf259a6515
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/logger
+SPDXID: SPDXRef-File-bin-logger-d608b9d687ec2fae
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/login
+SPDXID: SPDXRef-File-bin-login-22c91d08bd12bdd7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/logname
+SPDXID: SPDXRef-File-bin-logname-d48a160e77293c48
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/logread
+SPDXID: SPDXRef-File-bin-logread-4c8bafd0b8a8a1ad
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/losetup
+SPDXID: SPDXRef-File-bin-losetup-4248a1caabcab4ee
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lpd
+SPDXID: SPDXRef-File-bin-lpd-238301fcb245b095
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lpq
+SPDXID: SPDXRef-File-bin-lpq-1c324ccf403747da
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lpr
+SPDXID: SPDXRef-File-bin-lpr-1e31da38323fd0bd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ls
+SPDXID: SPDXRef-File-bin-ls-47b4b439b01ae6e6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsattr
+SPDXID: SPDXRef-File-bin-lsattr-4b9394b54cfdece4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsblk
+SPDXID: SPDXRef-File-bin-lsblk-cbb46558d906df23
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsmod
+SPDXID: SPDXRef-File-bin-lsmod-781dae2cc7a0baac
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsof
+SPDXID: SPDXRef-File-bin-lsof-b4f5a7cefc47407a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lspci
+SPDXID: SPDXRef-File-bin-lspci-e39b994626accad2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsscsi
+SPDXID: SPDXRef-File-bin-lsscsi-e5a7426ff3707248
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lsusb
+SPDXID: SPDXRef-File-bin-lsusb-e57bae85d362117e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lzcat
+SPDXID: SPDXRef-File-bin-lzcat-eff001a026b54289
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lzma
+SPDXID: SPDXRef-File-bin-lzma-a1dacd6e8a5ef9bc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/lzop
+SPDXID: SPDXRef-File-bin-lzop-a1cba7c5746aa45f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/makedevs
+SPDXID: SPDXRef-File-bin-makedevs-9b0d789b5da753ea
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/makemime
+SPDXID: SPDXRef-File-bin-makemime-e889fa110640b7c5
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/man
+SPDXID: SPDXRef-File-bin-man-79f5a2bfe0568370
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/md5sum
+SPDXID: SPDXRef-File-bin-md5sum-2280ccb27977d458
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mdev
+SPDXID: SPDXRef-File-bin-mdev-60448831a549d23a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mesg
+SPDXID: SPDXRef-File-bin-mesg-45c0d7c3ca95ddb0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/microcom
+SPDXID: SPDXRef-File-bin-microcom-e304370d52aa00fc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mim
+SPDXID: SPDXRef-File-bin-mim-84119757692b74a3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkdir
+SPDXID: SPDXRef-File-bin-mkdir-be252298a1ff5a04
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkdosfs
+SPDXID: SPDXRef-File-bin-mkdosfs-984197b48128bde8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mke2fs
+SPDXID: SPDXRef-File-bin-mke2fs-c509ea7c351a8b9c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkfifo
+SPDXID: SPDXRef-File-bin-mkfifo-5db6198b521545f3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkfs.ext2
+SPDXID: SPDXRef-File-bin-mkfs.ext2-dc6df7463fab83c4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkfs.minix
+SPDXID: SPDXRef-File-bin-mkfs.minix-489c904fe4edfffb
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkfs.vfat
+SPDXID: SPDXRef-File-bin-mkfs.vfat-12952e619a9b0c9b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mknod
+SPDXID: SPDXRef-File-bin-mknod-3e19627380670c43
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkpasswd
+SPDXID: SPDXRef-File-bin-mkpasswd-836689e5c2f27094
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mkswap
+SPDXID: SPDXRef-File-bin-mkswap-b6b94a5812ddb047
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mktemp
+SPDXID: SPDXRef-File-bin-mktemp-026057a8f410f09e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/modinfo
+SPDXID: SPDXRef-File-bin-modinfo-eee60715cdfa7be2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/modprobe
+SPDXID: SPDXRef-File-bin-modprobe-b646d1e1492a5821
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/more
+SPDXID: SPDXRef-File-bin-more-0c3806020355242c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mount
+SPDXID: SPDXRef-File-bin-mount-ebfe36d3b73efe14
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mountpoint
+SPDXID: SPDXRef-File-bin-mountpoint-0e655df607811c38
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mpstat
+SPDXID: SPDXRef-File-bin-mpstat-3c1d0b70ac4f8389
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mt
+SPDXID: SPDXRef-File-bin-mt-d331268d302354bf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/mv
+SPDXID: SPDXRef-File-bin-mv-74fdcb9d48df4f1e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nameif
+SPDXID: SPDXRef-File-bin-nameif-5d2ff3601c985f20
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nanddump
+SPDXID: SPDXRef-File-bin-nanddump-c193c14d4e8cae1c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nandwrite
+SPDXID: SPDXRef-File-bin-nandwrite-1bba70103cfaa3ec
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nbd-client
+SPDXID: SPDXRef-File-bin-nbd-client-f498c3aa7539c595
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nc
+SPDXID: SPDXRef-File-bin-nc-7c30e01b0e503940
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/netstat
+SPDXID: SPDXRef-File-bin-netstat-2c881db877700145
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nice
+SPDXID: SPDXRef-File-bin-nice-f50c715023e186ba
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nl
+SPDXID: SPDXRef-File-bin-nl-4803bfe4b0b5b845
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nmeter
+SPDXID: SPDXRef-File-bin-nmeter-14fc2bff2ed87ed3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nohup
+SPDXID: SPDXRef-File-bin-nohup-1c527bcba4b42459
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nologin
+SPDXID: SPDXRef-File-bin-nologin-bee070e79e7ff746
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nproc
+SPDXID: SPDXRef-File-bin-nproc-f6f35ff360b0c31a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nsenter
+SPDXID: SPDXRef-File-bin-nsenter-1b5ace33802157cf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/nslookup
+SPDXID: SPDXRef-File-bin-nslookup-17f4d1e46689716b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ntpd
+SPDXID: SPDXRef-File-bin-ntpd-d3a606351f16add2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/od
+SPDXID: SPDXRef-File-bin-od-d54d51711bfa6b7e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/openvt
+SPDXID: SPDXRef-File-bin-openvt-1cd33598dec1bd29
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/partprobe
+SPDXID: SPDXRef-File-bin-partprobe-aa7628428d97e380
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/passwd
+SPDXID: SPDXRef-File-bin-passwd-5eb57e3935fd41e7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/paste
+SPDXID: SPDXRef-File-bin-paste-ba31fde627ae6581
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/patch
+SPDXID: SPDXRef-File-bin-patch-d438176d82a25352
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pgrep
+SPDXID: SPDXRef-File-bin-pgrep-ac182e0d93541a78
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pidof
+SPDXID: SPDXRef-File-bin-pidof-8e8c2576d9da3f58
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ping
+SPDXID: SPDXRef-File-bin-ping-65c513326bab2411
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ping6
+SPDXID: SPDXRef-File-bin-ping6-8b56442b47718096
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pipe_progress
+SPDXID: SPDXRef-File-bin-pipe-progress-bb083277a828a832
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pivot_root
+SPDXID: SPDXRef-File-bin-pivot-root-33385ea4f85f9a22
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pkill
+SPDXID: SPDXRef-File-bin-pkill-cb6d3115f123b79f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pmap
+SPDXID: SPDXRef-File-bin-pmap-e5402ed9b22cf959
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/popmaildir
+SPDXID: SPDXRef-File-bin-popmaildir-fa48f166d0917536
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/poweroff
+SPDXID: SPDXRef-File-bin-poweroff-2140b2ddc82e252b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/powertop
+SPDXID: SPDXRef-File-bin-powertop-e5cc1b88e2ef5571
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/printenv
+SPDXID: SPDXRef-File-bin-printenv-e6c168ab17017825
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/printf
+SPDXID: SPDXRef-File-bin-printf-b8195d48045fc391
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ps
+SPDXID: SPDXRef-File-bin-ps-a081a3295620ef13
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pscan
+SPDXID: SPDXRef-File-bin-pscan-4f98767a80912aa8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pstree
+SPDXID: SPDXRef-File-bin-pstree-a9c8b3be475465e7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pwd
+SPDXID: SPDXRef-File-bin-pwd-a50edf3f4b8bec97
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/pwdx
+SPDXID: SPDXRef-File-bin-pwdx-859d3a4c19b096fe
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/raidautorun
+SPDXID: SPDXRef-File-bin-raidautorun-b8f6646872cd82db
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rdate
+SPDXID: SPDXRef-File-bin-rdate-7a57880db82f9806
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rdev
+SPDXID: SPDXRef-File-bin-rdev-197bc938077a5215
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/readahead
+SPDXID: SPDXRef-File-bin-readahead-64a66dd60a0339ab
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/readlink
+SPDXID: SPDXRef-File-bin-readlink-3f759a2264d25b8e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/readprofile
+SPDXID: SPDXRef-File-bin-readprofile-1a70fbed728cef9d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/realpath
+SPDXID: SPDXRef-File-bin-realpath-f601745b6435f158
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/reboot
+SPDXID: SPDXRef-File-bin-reboot-565abd72f8c86973
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/reformime
+SPDXID: SPDXRef-File-bin-reformime-c40d856009770a37
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/remove-shell
+SPDXID: SPDXRef-File-bin-remove-shell-16be0e49a31cf4ed
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/renice
+SPDXID: SPDXRef-File-bin-renice-87aa098c789010d8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/reset
+SPDXID: SPDXRef-File-bin-reset-ab306db0d0b50f87
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/resize
+SPDXID: SPDXRef-File-bin-resize-b6733daa679049a1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/resume
+SPDXID: SPDXRef-File-bin-resume-cf2c1f282b89004f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rev
+SPDXID: SPDXRef-File-bin-rev-42a2eabaff568800
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rm
+SPDXID: SPDXRef-File-bin-rm-3d94a51dc17926b6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rmdir
+SPDXID: SPDXRef-File-bin-rmdir-4d5be20a27eb0b67
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rmmod
+SPDXID: SPDXRef-File-bin-rmmod-758173d9dbef5ebd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/route
+SPDXID: SPDXRef-File-bin-route-8d071dd63880d4bf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rpm
+SPDXID: SPDXRef-File-bin-rpm-f9c3c7542cede032
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rpm2cpio
+SPDXID: SPDXRef-File-bin-rpm2cpio-b4ae935bdcf84016
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rtcwake
+SPDXID: SPDXRef-File-bin-rtcwake-1d726fe60642c539
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/run-init
+SPDXID: SPDXRef-File-bin-run-init-905387e83d878eac
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/run-parts
+SPDXID: SPDXRef-File-bin-run-parts-a40a1ecdafef9940
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/runlevel
+SPDXID: SPDXRef-File-bin-runlevel-252e3964609617bb
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/runsv
+SPDXID: SPDXRef-File-bin-runsv-09c4566c7ab26472
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/runsvdir
+SPDXID: SPDXRef-File-bin-runsvdir-c9467a37948870ab
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/rx
+SPDXID: SPDXRef-File-bin-rx-e767090950c2f58f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/script
+SPDXID: SPDXRef-File-bin-script-36877400bb974d29
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/scriptreplay
+SPDXID: SPDXRef-File-bin-scriptreplay-ce3747900b5c27bb
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sed
+SPDXID: SPDXRef-File-bin-sed-02c02d670e09e20d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/seedrng
+SPDXID: SPDXRef-File-bin-seedrng-47cfa8f501c79a3c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sendmail
+SPDXID: SPDXRef-File-bin-sendmail-272e12701c36a5dd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/seq
+SPDXID: SPDXRef-File-bin-seq-f44dce5def2af2b1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setarch
+SPDXID: SPDXRef-File-bin-setarch-3f5afe39b0b67590
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setconsole
+SPDXID: SPDXRef-File-bin-setconsole-5d5c179fd655b012
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setfattr
+SPDXID: SPDXRef-File-bin-setfattr-d8cc73acb6aa96fc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setfont
+SPDXID: SPDXRef-File-bin-setfont-968985d53d46befa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setkeycodes
+SPDXID: SPDXRef-File-bin-setkeycodes-9c1216efa35b1275
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setlogcons
+SPDXID: SPDXRef-File-bin-setlogcons-55421cf385aff552
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setpriv
+SPDXID: SPDXRef-File-bin-setpriv-1ab560bc60ab11a7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setserial
+SPDXID: SPDXRef-File-bin-setserial-94c89344c53e9719
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setsid
+SPDXID: SPDXRef-File-bin-setsid-b2a1effdde48353d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/setuidgid
+SPDXID: SPDXRef-File-bin-setuidgid-df3e0a9b8fe53406
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sh
+SPDXID: SPDXRef-File-bin-sh-d93002f763511c22
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sha1sum
+SPDXID: SPDXRef-File-bin-sha1sum-a03942c4b2f3a4b3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sha256sum
+SPDXID: SPDXRef-File-bin-sha256sum-c86a524d29bcb987
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sha384sum
+SPDXID: SPDXRef-File-bin-sha384sum-a69b1b0d72a37464
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sha3sum
+SPDXID: SPDXRef-File-bin-sha3sum-fc32d3f9f70330a2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sha512sum
+SPDXID: SPDXRef-File-bin-sha512sum-0e75efcef2765f00
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/showkey
+SPDXID: SPDXRef-File-bin-showkey-ed44284b366878b7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/shred
+SPDXID: SPDXRef-File-bin-shred-0a31ca73824e7353
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/shuf
+SPDXID: SPDXRef-File-bin-shuf-45c4791d77ba3a49
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/slattach
+SPDXID: SPDXRef-File-bin-slattach-e718d85cab3a5186
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sleep
+SPDXID: SPDXRef-File-bin-sleep-1ad69d710516977b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/smemcap
+SPDXID: SPDXRef-File-bin-smemcap-329af58d00323cff
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/softlimit
+SPDXID: SPDXRef-File-bin-softlimit-cf9ff86b7a873a1a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sort
+SPDXID: SPDXRef-File-bin-sort-763575a1c5616016
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/split
+SPDXID: SPDXRef-File-bin-split-51598e1d05968590
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ssl_client
+SPDXID: SPDXRef-File-bin-ssl-client-0c115439a1a8cdaf
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ssl_server
+SPDXID: SPDXRef-File-bin-ssl-server-b0d6bf876d62786c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/start-stop-daemon
+SPDXID: SPDXRef-File-bin-start-stop-daemon-6da02e3be8a73c13
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/stat
+SPDXID: SPDXRef-File-bin-stat-f4fe22bf809765a7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/strings
+SPDXID: SPDXRef-File-bin-strings-7e8b0d608d1d5fae
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/stty
+SPDXID: SPDXRef-File-bin-stty-1946af3e47de1225
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/su
+SPDXID: SPDXRef-File-bin-su-1d7296e61c194080
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sulogin
+SPDXID: SPDXRef-File-bin-sulogin-6e5609b26e7f7ef1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sum
+SPDXID: SPDXRef-File-bin-sum-88e1ea311815bd2b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sv
+SPDXID: SPDXRef-File-bin-sv-a04670506649f180
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/svc
+SPDXID: SPDXRef-File-bin-svc-04f767b9c63e4574
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/svlogd
+SPDXID: SPDXRef-File-bin-svlogd-25550233c03cc2c1
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/svok
+SPDXID: SPDXRef-File-bin-svok-234dec63ba225725
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/swapoff
+SPDXID: SPDXRef-File-bin-swapoff-919a4cdd2ee2a4a7
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/swapon
+SPDXID: SPDXRef-File-bin-swapon-032c0427b86ca642
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/switch_root
+SPDXID: SPDXRef-File-bin-switch-root-6cc5e4698c5dcfa0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sync
+SPDXID: SPDXRef-File-bin-sync-7e07c71594d375fa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/sysctl
+SPDXID: SPDXRef-File-bin-sysctl-1757521da2480de9
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/syslogd
+SPDXID: SPDXRef-File-bin-syslogd-5098badf2fd4f5a3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tac
+SPDXID: SPDXRef-File-bin-tac-854befd62efdc92e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tail
+SPDXID: SPDXRef-File-bin-tail-effd959686f45955
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tar
+SPDXID: SPDXRef-File-bin-tar-6f6621eeb3e73a52
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/taskset
+SPDXID: SPDXRef-File-bin-taskset-e2c293d583fd0f69
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tc
+SPDXID: SPDXRef-File-bin-tc-c12f44040b457df4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tcpsvd
+SPDXID: SPDXRef-File-bin-tcpsvd-42703ba19ab33bfa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tee
+SPDXID: SPDXRef-File-bin-tee-eb747461986f9798
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/telnet
+SPDXID: SPDXRef-File-bin-telnet-bd10c4f0f9648efa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/telnetd
+SPDXID: SPDXRef-File-bin-telnetd-6de361d5ec46a3ff
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/test
+SPDXID: SPDXRef-File-bin-test-a844e15d11d6f002
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tftp
+SPDXID: SPDXRef-File-bin-tftp-dd66830c58320c78
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tftpd
+SPDXID: SPDXRef-File-bin-tftpd-7e1943649ad65fe8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/time
+SPDXID: SPDXRef-File-bin-time-30485c1948ce291e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/timeout
+SPDXID: SPDXRef-File-bin-timeout-e5d4c42598624283
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/top
+SPDXID: SPDXRef-File-bin-top-728fa8f2c954fd2d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/touch
+SPDXID: SPDXRef-File-bin-touch-32a54629a10bba4a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tr
+SPDXID: SPDXRef-File-bin-tr-f95c778eed4af929
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/traceroute
+SPDXID: SPDXRef-File-bin-traceroute-539ca5d7d5213c86
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/traceroute6
+SPDXID: SPDXRef-File-bin-traceroute6-45990567f2a0e638
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tree
+SPDXID: SPDXRef-File-bin-tree-2d2702551c06faef
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/true
+SPDXID: SPDXRef-File-bin-true-46cab5605c942b5b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/truncate
+SPDXID: SPDXRef-File-bin-truncate-72474a264599b0ea
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ts
+SPDXID: SPDXRef-File-bin-ts-ca2402ab0d0670f3
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tsort
+SPDXID: SPDXRef-File-bin-tsort-0f5dea106d6c6d3b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tty
+SPDXID: SPDXRef-File-bin-tty-841bdb679f595d43
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ttysize
+SPDXID: SPDXRef-File-bin-ttysize-e2824296d2500b2c
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/tunctl
+SPDXID: SPDXRef-File-bin-tunctl-2ed069b7828fe287
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubiattach
+SPDXID: SPDXRef-File-bin-ubiattach-72beebbaa402cd33
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubidetach
+SPDXID: SPDXRef-File-bin-ubidetach-001a6a63f7253132
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubimkvol
+SPDXID: SPDXRef-File-bin-ubimkvol-f08eb79dc6448855
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubirename
+SPDXID: SPDXRef-File-bin-ubirename-bfdab89a6350b57a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubirmvol
+SPDXID: SPDXRef-File-bin-ubirmvol-bcdea688e4a36b57
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubirsvol
+SPDXID: SPDXRef-File-bin-ubirsvol-cdfcd92e4bb7366d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/ubiupdatevol
+SPDXID: SPDXRef-File-bin-ubiupdatevol-010833dde1f293fe
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/udhcpc
+SPDXID: SPDXRef-File-bin-udhcpc-61372e82253816ea
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/udhcpc6
+SPDXID: SPDXRef-File-bin-udhcpc6-f8181ede3676be63
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/udhcpd
+SPDXID: SPDXRef-File-bin-udhcpd-6b3bf445ed3bb19d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/udpsvd
+SPDXID: SPDXRef-File-bin-udpsvd-f333623ba065ee7e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uevent
+SPDXID: SPDXRef-File-bin-uevent-4bab0890b23b98fd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/umount
+SPDXID: SPDXRef-File-bin-umount-df0cc8f26bbfad45
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uname
+SPDXID: SPDXRef-File-bin-uname-62bb5bd470ed96ac
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unexpand
+SPDXID: SPDXRef-File-bin-unexpand-c8bda4f5b390b3cd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uniq
+SPDXID: SPDXRef-File-bin-uniq-6cc254d2192dfe1b
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unix2dos
+SPDXID: SPDXRef-File-bin-unix2dos-46532e5989d2cbe2
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unlink
+SPDXID: SPDXRef-File-bin-unlink-633351d99505e0f6
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unlzma
+SPDXID: SPDXRef-File-bin-unlzma-c1e72d16a3aaaa2e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unshare
+SPDXID: SPDXRef-File-bin-unshare-f88179ab0f839f85
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unxz
+SPDXID: SPDXRef-File-bin-unxz-2f784e3aa0d10f51
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/unzip
+SPDXID: SPDXRef-File-bin-unzip-1879ad12b6c8f29d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uptime
+SPDXID: SPDXRef-File-bin-uptime-7d75f49631841dfc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/users
+SPDXID: SPDXRef-File-bin-users-5b52a8186d27f4e0
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/usleep
+SPDXID: SPDXRef-File-bin-usleep-0d10370d46de0368
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uudecode
+SPDXID: SPDXRef-File-bin-uudecode-6ff8cf2ec18c4f78
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uuencode
+SPDXID: SPDXRef-File-bin-uuencode-cef15a79139b9bfa
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/uuidgen
+SPDXID: SPDXRef-File-bin-uuidgen-e74b76f4ba1c4b52
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/vconfig
+SPDXID: SPDXRef-File-bin-vconfig-286f3c59313e5ccd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/vi
+SPDXID: SPDXRef-File-bin-vi-a2fdfeeb92b5d258
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/vlock
+SPDXID: SPDXRef-File-bin-vlock-5c13aa55aa0b0e8e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/vmstat
+SPDXID: SPDXRef-File-bin-vmstat-ea1ae08f1f0cf62e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/volname
+SPDXID: SPDXRef-File-bin-volname-f9f25446a833d5bd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/w
+SPDXID: SPDXRef-File-bin-w-26dc85140168597d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/wall
+SPDXID: SPDXRef-File-bin-wall-ff8f92c3f42b723f
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/watch
+SPDXID: SPDXRef-File-bin-watch-dbefa6751c7bfed8
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/watchdog
+SPDXID: SPDXRef-File-bin-watchdog-3bf54c5912c67877
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/wc
+SPDXID: SPDXRef-File-bin-wc-a6ff7e360438fc33
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/wget
+SPDXID: SPDXRef-File-bin-wget-f7e6c1b2a631576e
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/which
+SPDXID: SPDXRef-File-bin-which-8ea6912b1585f80a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/who
+SPDXID: SPDXRef-File-bin-who-1ac97972b778251d
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/whoami
+SPDXID: SPDXRef-File-bin-whoami-680759c2042c2ca4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/whois
+SPDXID: SPDXRef-File-bin-whois-0423a81c00f639fd
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/xargs
+SPDXID: SPDXRef-File-bin-xargs-b314289ea22e9d92
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/xxd
+SPDXID: SPDXRef-File-bin-xxd-e10d76ac8218ddd4
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/xz
+SPDXID: SPDXRef-File-bin-xz-f81fd8d8a5705257
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/xzcat
+SPDXID: SPDXRef-File-bin-xzcat-25ebb71a08cbfe3a
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/yes
+SPDXID: SPDXRef-File-bin-yes-c64423ed16e2bbdc
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/zcat
+SPDXID: SPDXRef-File-bin-zcat-6c9307bee1591757
+FileChecksum: SHA1: 0000000000000000000000000000000000000000
+LicenseConcluded: NOASSERTION
+LicenseInfoInFile: NOASSERTION
+FileCopyrightText: NOASSERTION
+FileComment: layerID: sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+
+FileName: bin/zcip
+SPDXID: SPDXRef-File-bin-zcip-8761a4df134ca3c7
 FileChecksum: SHA1: 0000000000000000000000000000000000000000
 LicenseConcluded: NOASSERTION
 LicenseInfoInFile: NOASSERTION
@@ -122,12 +3402,12 @@ ExternalRef: PACKAGE-MANAGER purl pkg:oci/busybox@sha256%3Ab61e4fb577abc534e8c01
 ##### Package: busybox
 
 PackageName: busybox
-SPDXID: SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a
+SPDXID: SPDXRef-Package-binary-busybox-df8a74ed44ba5a45
 PackageVersion: 1.38.0
 PackageSupplier: NOASSERTION
 PackageDownloadLocation: NOASSERTION
 FilesAnalyzed: false
-PackageSourceInfo: acquired package info from the following paths: /bin/[
+PackageSourceInfo: acquired package info from the following paths: /bin/busybox
 PackageLicenseConcluded: NOASSERTION
 PackageLicenseDeclared: NOASSERTION
 PackageCopyrightText: NOASSERTION
@@ -136,8 +3416,8 @@ ExternalRef: PACKAGE-MANAGER purl pkg:generic/busybox@1.38.0
 
 ##### Relationships
 
-Relationship: SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a OTHER SPDXRef-File-bin---4707db691d76c753
+Relationship: SPDXRef-Package-binary-busybox-df8a74ed44ba5a45 OTHER SPDXRef-File-bin-busybox-d80578b9d872e0a1
 RelationshipComment: evident-by: indicates the package's existence is evident by the given file
-Relationship: SPDXRef-DocumentRoot-Image-busybox CONTAINS SPDXRef-Package-binary-busybox-5a5ba7c7211dc63a
+Relationship: SPDXRef-DocumentRoot-Image-busybox CONTAINS SPDXRef-Package-binary-busybox-df8a74ed44ba5a45
 Relationship: SPDXRef-DOCUMENT DESCRIBES SPDXRef-DocumentRoot-Image-busybox
 ```
