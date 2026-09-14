@@ -57,6 +57,14 @@ apk add syft
 
 Thanks to [Michał Polański](https://pkgs.alpinelinux.org/packages?name=&branch=edge&repo=&arch=&maintainer=Micha%C5%82%20Pola%C5%84ski) for maintaining this package.
 
+### deb-get
+
+```bash
+deb-get install syft
+```
+
+- [deb-get Syft package](https://github.com/wimpysworld/deb-get/blob/main/01-main/packages/syft)
+
 ### Homebrew
 
 ```
