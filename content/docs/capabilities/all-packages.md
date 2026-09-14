@@ -16,6 +16,6 @@ For a detailed explanation of the columns in the table, please see the [Capabili
 
 **Legend:**
 
-- <svg class="capability-icon"><use href="#icon-check"/> <span>: Supported by default</span>
-- <svg class="capability-icon"><use href="#icon-gear"/> <span>: Conditionally supported (requires configuration)</span>
+- <svg class="capability-icon"><use href="#icon-check"/></svg> <span>: Supported by default</span>
+- <svg class="capability-icon"><use href="#icon-gear"/></svg> <span>: Conditionally supported (requires configuration)</span>
 - _(empty)_ <span>: Not supported</span>
