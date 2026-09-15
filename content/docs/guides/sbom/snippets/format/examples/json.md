@@ -4,14 +4,14 @@
 {
   "artifacts": [
     {
-      "id": "5a5ba7c7211dc63a",
+      "id": "df8a74ed44ba5a45",
       "name": "busybox",
       "version": "1.38.0",
       "type": "binary",
       "foundBy": "binary-classifier-cataloger",
       "locations": [
         {
-          "path": "/bin/[",
+          "path": "/bin/busybox",
           "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc",
           "accessPath": "/bin/busybox",
           "annotations": {
@@ -34,7 +34,7 @@
           {
             "classifier": "busybox-binary",
             "location": {
-              "path": "/bin/[",
+              "path": "/bin/busybox",
               "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc",
               "accessPath": "/bin/busybox",
               "annotations": {
@@ -48,17 +48,17 @@
   ],
   "artifactRelationships": [
     {
-      "parent": "5a5ba7c7211dc63a",
-      "child": "4707db691d76c753",
+      "parent": "b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
+      "child": "df8a74ed44ba5a45",
+      "type": "contains"
+    },
+    {
+      "parent": "df8a74ed44ba5a45",
+      "child": "d80578b9d872e0a1",
       "type": "evident-by",
       "metadata": {
         "kind": "primary"
       }
-    },
-    {
-      "parent": "b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f",
-      "child": "5a5ba7c7211dc63a",
-      "type": "contains"
     }
   ],
   "files": [
@@ -66,6 +66,581 @@
       "id": "4707db691d76c753",
       "location": {
         "path": "/bin/[",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "af289e7d17cb742b",
+      "location": {
+        "path": "/bin/[[",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "772d6d5daab1ca25",
+      "location": {
+        "path": "/bin/acpid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "48a9e7c07a5ba809",
+      "location": {
+        "path": "/bin/add-shell",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5eae4700cfd2cb64",
+      "location": {
+        "path": "/bin/addgroup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ccb599dae3ec376b",
+      "location": {
+        "path": "/bin/adduser",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4f5a22880d8c7d99",
+      "location": {
+        "path": "/bin/adjtimex",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "346b06a51bc725e6",
+      "location": {
+        "path": "/bin/ar",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ec62dba960518217",
+      "location": {
+        "path": "/bin/arch",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "96de9c0d5de06dc3",
+      "location": {
+        "path": "/bin/arp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "99cf6c0efc412593",
+      "location": {
+        "path": "/bin/arping",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "129882b3a976b2d0",
+      "location": {
+        "path": "/bin/ascii",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "277d008787247b47",
+      "location": {
+        "path": "/bin/ash",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f1d86074c337e2cf",
+      "location": {
+        "path": "/bin/awk",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1b4ea8768a3fa135",
+      "location": {
+        "path": "/bin/base32",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "567a05077ff457ef",
+      "location": {
+        "path": "/bin/base64",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "715bec4d1b3b721b",
+      "location": {
+        "path": "/bin/basename",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0eddc6958fcbb398",
+      "location": {
+        "path": "/bin/bc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "fe0572d6ba76ce79",
+      "location": {
+        "path": "/bin/beep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bc4d6446d0868e6d",
+      "location": {
+        "path": "/bin/blkdiscard",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4c43b4f2b2573817",
+      "location": {
+        "path": "/bin/blkid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f64f551a889b8f6d",
+      "location": {
+        "path": "/bin/blockdev",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8ad3accab1ba3858",
+      "location": {
+        "path": "/bin/bootchartd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0645f1a02c5d4aab",
+      "location": {
+        "path": "/bin/brctl",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "76130d5bbb42595a",
+      "location": {
+        "path": "/bin/bunzip2",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d80578b9d872e0a1",
+      "location": {
+        "path": "/bin/busybox",
         "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
       },
       "metadata": {
@@ -103,6 +678,1961 @@
       }
     },
     {
+      "id": "993583e357fe46bd",
+      "location": {
+        "path": "/bin/bzcat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5a0ef9875ceb538a",
+      "location": {
+        "path": "/bin/bzip2",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d5f8d7bda3a0be32",
+      "location": {
+        "path": "/bin/cal",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6fef81c20b0b9b19",
+      "location": {
+        "path": "/bin/cat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "85c17bf5f6ee208a",
+      "location": {
+        "path": "/bin/chat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c27278e445c909aa",
+      "location": {
+        "path": "/bin/chattr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "140d635551ca68d5",
+      "location": {
+        "path": "/bin/chgrp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "18dd845fee0d1dcd",
+      "location": {
+        "path": "/bin/chmod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9f922555605386a2",
+      "location": {
+        "path": "/bin/chown",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5880103dd3001ccc",
+      "location": {
+        "path": "/bin/chpasswd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8d4a18a81816c143",
+      "location": {
+        "path": "/bin/chpst",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2bd116e0be8e65d3",
+      "location": {
+        "path": "/bin/chroot",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e0b164b4daacf7c3",
+      "location": {
+        "path": "/bin/chrt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a318055623954485",
+      "location": {
+        "path": "/bin/chvt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5fe0e7f2844faa19",
+      "location": {
+        "path": "/bin/cksum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2b29d6d4478f917f",
+      "location": {
+        "path": "/bin/clear",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "19071fd13e0c514a",
+      "location": {
+        "path": "/bin/cmp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "71e04f553482ded4",
+      "location": {
+        "path": "/bin/comm",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "961a39ebcf062798",
+      "location": {
+        "path": "/bin/conspy",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0dfd3d77f793b217",
+      "location": {
+        "path": "/bin/cp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1ae12a47ccee62a0",
+      "location": {
+        "path": "/bin/cpio",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8f52e03845b2a374",
+      "location": {
+        "path": "/bin/crc32",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "172d53827291cba9",
+      "location": {
+        "path": "/bin/crond",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "828a5f7686ded11c",
+      "location": {
+        "path": "/bin/crontab",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6792d57e00cfb29c",
+      "location": {
+        "path": "/bin/cryptpw",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "416dbbfde90af16d",
+      "location": {
+        "path": "/bin/cttyhack",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9a222a6e1a0eca03",
+      "location": {
+        "path": "/bin/cut",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3820ce936677e42c",
+      "location": {
+        "path": "/bin/date",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8bc7deef5f7265ec",
+      "location": {
+        "path": "/bin/dc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "02e41da85d14e822",
+      "location": {
+        "path": "/bin/dd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0bfc440f7dcbb85c",
+      "location": {
+        "path": "/bin/deallocvt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3e4684edcc4cf8c5",
+      "location": {
+        "path": "/bin/delgroup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "055d8e7b91bfd56d",
+      "location": {
+        "path": "/bin/deluser",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cb7f7d578ae2c130",
+      "location": {
+        "path": "/bin/depmod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f2cf1d54b3e53742",
+      "location": {
+        "path": "/bin/devmem",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "42baa789b64d7f20",
+      "location": {
+        "path": "/bin/df",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "dd4ff1ef6c0107b3",
+      "location": {
+        "path": "/bin/dhcprelay",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e2098f6111338ca9",
+      "location": {
+        "path": "/bin/diff",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7dd415a69cf50671",
+      "location": {
+        "path": "/bin/dirname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c4dde148066de686",
+      "location": {
+        "path": "/bin/dmesg",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "69f6b0d391233d6c",
+      "location": {
+        "path": "/bin/dnsd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c19ce556ec500125",
+      "location": {
+        "path": "/bin/dnsdomainname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3c6c7b0e44d546dd",
+      "location": {
+        "path": "/bin/dos2unix",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2cfa443d7f4dbd68",
+      "location": {
+        "path": "/bin/dpkg",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "779a8a594a825eed",
+      "location": {
+        "path": "/bin/dpkg-deb",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2dd3f4dc490b0030",
+      "location": {
+        "path": "/bin/du",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f49f6df8fcda8a47",
+      "location": {
+        "path": "/bin/dumpkmap",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1a6d7ac0ef508897",
+      "location": {
+        "path": "/bin/dumpleases",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "aa62c92c80153037",
+      "location": {
+        "path": "/bin/echo",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "52458cc5f47a5089",
+      "location": {
+        "path": "/bin/ed",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "01b04f55c3572756",
+      "location": {
+        "path": "/bin/egrep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c9a95b42034469ca",
+      "location": {
+        "path": "/bin/eject",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "472743f90cfc327e",
+      "location": {
+        "path": "/bin/env",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0f84e119dbddac61",
+      "location": {
+        "path": "/bin/envdir",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d3c81ff10a3f1d95",
+      "location": {
+        "path": "/bin/envuidgid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2f07119b2bc63eb1",
+      "location": {
+        "path": "/bin/ether-wake",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7d9e11a7ea0ba09d",
+      "location": {
+        "path": "/bin/expand",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5aceafc3cdadd39a",
+      "location": {
+        "path": "/bin/expr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "51a5f4a6f61934d8",
+      "location": {
+        "path": "/bin/factor",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1e805d441d0c3c17",
+      "location": {
+        "path": "/bin/fakeidentd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "299e30190e5d381b",
+      "location": {
+        "path": "/bin/fallocate",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8d84c7798996145c",
+      "location": {
+        "path": "/bin/false",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4f2a841a23848be3",
+      "location": {
+        "path": "/bin/fatattr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9cf9ddb0ba09347b",
+      "location": {
+        "path": "/bin/fbset",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "788bc72fce9b0901",
+      "location": {
+        "path": "/bin/fbsplash",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "52b76734a5b49938",
+      "location": {
+        "path": "/bin/fdflush",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e7bbd9f97b610c5e",
+      "location": {
+        "path": "/bin/fdformat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c87853ecb3488afe",
+      "location": {
+        "path": "/bin/fdisk",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e3e972ff88959c7d",
+      "location": {
+        "path": "/bin/fgconsole",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6680e2d63599c596",
+      "location": {
+        "path": "/bin/fgrep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b8a7739b2f913f7c",
+      "location": {
+        "path": "/bin/find",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5412179fece7417a",
+      "location": {
+        "path": "/bin/findfs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ea7b572091051b7d",
+      "location": {
+        "path": "/bin/flock",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "be28622023e31b95",
+      "location": {
+        "path": "/bin/fold",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9752b776fa23569a",
+      "location": {
+        "path": "/bin/free",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a40a0c54c75eb090",
+      "location": {
+        "path": "/bin/freeramdisk",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5ddfeb0dca173def",
+      "location": {
+        "path": "/bin/fsck",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1c4de466cd9bb06c",
+      "location": {
+        "path": "/bin/fsck.minix",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8cc83c220ce9d3ad",
+      "location": {
+        "path": "/bin/fsfreeze",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c7689e6d3291a117",
+      "location": {
+        "path": "/bin/fstrim",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d457b17dedebcee9",
+      "location": {
+        "path": "/bin/fsync",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2cf46117c171f2bb",
+      "location": {
+        "path": "/bin/ftpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "846a8e294e30c446",
+      "location": {
+        "path": "/bin/ftpget",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "72b38e90bf47b3e6",
+      "location": {
+        "path": "/bin/ftpput",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c206dd7335f8c6ea",
+      "location": {
+        "path": "/bin/fuser",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
       "id": "af6602274c595b5b",
       "location": {
         "path": "/bin/getconf",
@@ -118,6 +2648,6906 @@
           "stackCanary": false,
           "nx": true,
           "relRO": "full",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ca8f52b8a88eaa60",
+      "location": {
+        "path": "/bin/getfattr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "86fb95f9eeb7d2ce",
+      "location": {
+        "path": "/bin/getopt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7fadb25a93a58ebc",
+      "location": {
+        "path": "/bin/getty",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "02b5ba8cb1587f59",
+      "location": {
+        "path": "/bin/grep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "679f02352c20749e",
+      "location": {
+        "path": "/bin/groups",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3250fb6b5556c595",
+      "location": {
+        "path": "/bin/gunzip",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1454654b68fb83dd",
+      "location": {
+        "path": "/bin/gzip",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8f6452fb77e808ec",
+      "location": {
+        "path": "/bin/halt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b8584a406e74cc79",
+      "location": {
+        "path": "/bin/hd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2d11f5539e0243cc",
+      "location": {
+        "path": "/bin/hdparm",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3f89008eab08d058",
+      "location": {
+        "path": "/bin/head",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "323a2d2defbc402a",
+      "location": {
+        "path": "/bin/hexdump",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4c38182130913764",
+      "location": {
+        "path": "/bin/hexedit",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "42abc20efc471475",
+      "location": {
+        "path": "/bin/hostid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d4fd59875a0d2289",
+      "location": {
+        "path": "/bin/hostname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c72b48e7275085ac",
+      "location": {
+        "path": "/bin/httpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "885e6b8e680af937",
+      "location": {
+        "path": "/bin/hush",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ca92c79a36e5b633",
+      "location": {
+        "path": "/bin/hwclock",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9d3fbe88d9f93133",
+      "location": {
+        "path": "/bin/i2cdetect",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ea342cecff4ffedd",
+      "location": {
+        "path": "/bin/i2cdump",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cc775c29f66f6b62",
+      "location": {
+        "path": "/bin/i2cget",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d5ac12926a080ee1",
+      "location": {
+        "path": "/bin/i2cset",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c1a104e2207e0761",
+      "location": {
+        "path": "/bin/i2ctransfer",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "be723d6439537300",
+      "location": {
+        "path": "/bin/id",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "06db7bce7e522768",
+      "location": {
+        "path": "/bin/ifconfig",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "38aefd11afca4ad7",
+      "location": {
+        "path": "/bin/ifdown",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b063a7633be1d168",
+      "location": {
+        "path": "/bin/ifenslave",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b315ea18525d82ea",
+      "location": {
+        "path": "/bin/ifplugd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ecc1f6850fc1c119",
+      "location": {
+        "path": "/bin/ifup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5f3299286631871a",
+      "location": {
+        "path": "/bin/inetd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2409a8c79f3f0bf8",
+      "location": {
+        "path": "/bin/init",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3b657e093f4def3f",
+      "location": {
+        "path": "/bin/inotifyd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b4c5737287b98b72",
+      "location": {
+        "path": "/bin/insmod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3c41fa86e1289c4d",
+      "location": {
+        "path": "/bin/install",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8e8cb3f1266296a9",
+      "location": {
+        "path": "/bin/ionice",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "abf74714b8bc0bf8",
+      "location": {
+        "path": "/bin/iostat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "27c6c6b9732b803e",
+      "location": {
+        "path": "/bin/ip",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d9dce2df581e3916",
+      "location": {
+        "path": "/bin/ipaddr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6d1360466d03a83a",
+      "location": {
+        "path": "/bin/ipcalc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0bd43945394aaf90",
+      "location": {
+        "path": "/bin/ipcrm",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "857b0a563fa1df4a",
+      "location": {
+        "path": "/bin/ipcs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "81738cb4d5834261",
+      "location": {
+        "path": "/bin/iplink",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "704827a60908ea44",
+      "location": {
+        "path": "/bin/ipneigh",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5c94622a2be889f8",
+      "location": {
+        "path": "/bin/iproute",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a64b4a721234d6d3",
+      "location": {
+        "path": "/bin/iprule",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "340357518ec103da",
+      "location": {
+        "path": "/bin/iptunnel",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8136656b5fbc12c0",
+      "location": {
+        "path": "/bin/kbd_mode",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a1f7ee1d5c06732c",
+      "location": {
+        "path": "/bin/kill",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4f5581aca56bc50e",
+      "location": {
+        "path": "/bin/killall",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6011b4e92a0e7eb6",
+      "location": {
+        "path": "/bin/killall5",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "eb58f0acc9f7f049",
+      "location": {
+        "path": "/bin/klogd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "91cd75d7e374bb79",
+      "location": {
+        "path": "/bin/last",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "476076726b911646",
+      "location": {
+        "path": "/bin/less",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "30f483585be1dce4",
+      "location": {
+        "path": "/bin/link",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c0b9705981b09de8",
+      "location": {
+        "path": "/bin/linux32",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "23348844e697e60b",
+      "location": {
+        "path": "/bin/linux64",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4c7a19fdfc77cb3a",
+      "location": {
+        "path": "/bin/linuxrc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6a9fd5917123f645",
+      "location": {
+        "path": "/bin/ln",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8dc109b9c3d92682",
+      "location": {
+        "path": "/bin/loadfont",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0bb5a3cf259a6515",
+      "location": {
+        "path": "/bin/loadkmap",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d608b9d687ec2fae",
+      "location": {
+        "path": "/bin/logger",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "22c91d08bd12bdd7",
+      "location": {
+        "path": "/bin/login",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d48a160e77293c48",
+      "location": {
+        "path": "/bin/logname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4c8bafd0b8a8a1ad",
+      "location": {
+        "path": "/bin/logread",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4248a1caabcab4ee",
+      "location": {
+        "path": "/bin/losetup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "238301fcb245b095",
+      "location": {
+        "path": "/bin/lpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1c324ccf403747da",
+      "location": {
+        "path": "/bin/lpq",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1e31da38323fd0bd",
+      "location": {
+        "path": "/bin/lpr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "47b4b439b01ae6e6",
+      "location": {
+        "path": "/bin/ls",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4b9394b54cfdece4",
+      "location": {
+        "path": "/bin/lsattr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cbb46558d906df23",
+      "location": {
+        "path": "/bin/lsblk",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "781dae2cc7a0baac",
+      "location": {
+        "path": "/bin/lsmod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b4f5a7cefc47407a",
+      "location": {
+        "path": "/bin/lsof",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e39b994626accad2",
+      "location": {
+        "path": "/bin/lspci",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e5a7426ff3707248",
+      "location": {
+        "path": "/bin/lsscsi",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e57bae85d362117e",
+      "location": {
+        "path": "/bin/lsusb",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "eff001a026b54289",
+      "location": {
+        "path": "/bin/lzcat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a1dacd6e8a5ef9bc",
+      "location": {
+        "path": "/bin/lzma",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a1cba7c5746aa45f",
+      "location": {
+        "path": "/bin/lzop",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9b0d789b5da753ea",
+      "location": {
+        "path": "/bin/makedevs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e889fa110640b7c5",
+      "location": {
+        "path": "/bin/makemime",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "79f5a2bfe0568370",
+      "location": {
+        "path": "/bin/man",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2280ccb27977d458",
+      "location": {
+        "path": "/bin/md5sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "60448831a549d23a",
+      "location": {
+        "path": "/bin/mdev",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "45c0d7c3ca95ddb0",
+      "location": {
+        "path": "/bin/mesg",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e304370d52aa00fc",
+      "location": {
+        "path": "/bin/microcom",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "84119757692b74a3",
+      "location": {
+        "path": "/bin/mim",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "be252298a1ff5a04",
+      "location": {
+        "path": "/bin/mkdir",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "984197b48128bde8",
+      "location": {
+        "path": "/bin/mkdosfs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c509ea7c351a8b9c",
+      "location": {
+        "path": "/bin/mke2fs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5db6198b521545f3",
+      "location": {
+        "path": "/bin/mkfifo",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "dc6df7463fab83c4",
+      "location": {
+        "path": "/bin/mkfs.ext2",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "489c904fe4edfffb",
+      "location": {
+        "path": "/bin/mkfs.minix",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "12952e619a9b0c9b",
+      "location": {
+        "path": "/bin/mkfs.vfat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3e19627380670c43",
+      "location": {
+        "path": "/bin/mknod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "836689e5c2f27094",
+      "location": {
+        "path": "/bin/mkpasswd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b6b94a5812ddb047",
+      "location": {
+        "path": "/bin/mkswap",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "026057a8f410f09e",
+      "location": {
+        "path": "/bin/mktemp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "eee60715cdfa7be2",
+      "location": {
+        "path": "/bin/modinfo",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b646d1e1492a5821",
+      "location": {
+        "path": "/bin/modprobe",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0c3806020355242c",
+      "location": {
+        "path": "/bin/more",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ebfe36d3b73efe14",
+      "location": {
+        "path": "/bin/mount",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0e655df607811c38",
+      "location": {
+        "path": "/bin/mountpoint",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3c1d0b70ac4f8389",
+      "location": {
+        "path": "/bin/mpstat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d331268d302354bf",
+      "location": {
+        "path": "/bin/mt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "74fdcb9d48df4f1e",
+      "location": {
+        "path": "/bin/mv",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5d2ff3601c985f20",
+      "location": {
+        "path": "/bin/nameif",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c193c14d4e8cae1c",
+      "location": {
+        "path": "/bin/nanddump",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1bba70103cfaa3ec",
+      "location": {
+        "path": "/bin/nandwrite",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f498c3aa7539c595",
+      "location": {
+        "path": "/bin/nbd-client",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7c30e01b0e503940",
+      "location": {
+        "path": "/bin/nc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2c881db877700145",
+      "location": {
+        "path": "/bin/netstat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f50c715023e186ba",
+      "location": {
+        "path": "/bin/nice",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4803bfe4b0b5b845",
+      "location": {
+        "path": "/bin/nl",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "14fc2bff2ed87ed3",
+      "location": {
+        "path": "/bin/nmeter",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1c527bcba4b42459",
+      "location": {
+        "path": "/bin/nohup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bee070e79e7ff746",
+      "location": {
+        "path": "/bin/nologin",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f6f35ff360b0c31a",
+      "location": {
+        "path": "/bin/nproc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1b5ace33802157cf",
+      "location": {
+        "path": "/bin/nsenter",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "17f4d1e46689716b",
+      "location": {
+        "path": "/bin/nslookup",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d3a606351f16add2",
+      "location": {
+        "path": "/bin/ntpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d54d51711bfa6b7e",
+      "location": {
+        "path": "/bin/od",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1cd33598dec1bd29",
+      "location": {
+        "path": "/bin/openvt",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "aa7628428d97e380",
+      "location": {
+        "path": "/bin/partprobe",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5eb57e3935fd41e7",
+      "location": {
+        "path": "/bin/passwd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ba31fde627ae6581",
+      "location": {
+        "path": "/bin/paste",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d438176d82a25352",
+      "location": {
+        "path": "/bin/patch",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ac182e0d93541a78",
+      "location": {
+        "path": "/bin/pgrep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8e8c2576d9da3f58",
+      "location": {
+        "path": "/bin/pidof",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "65c513326bab2411",
+      "location": {
+        "path": "/bin/ping",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8b56442b47718096",
+      "location": {
+        "path": "/bin/ping6",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bb083277a828a832",
+      "location": {
+        "path": "/bin/pipe_progress",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "33385ea4f85f9a22",
+      "location": {
+        "path": "/bin/pivot_root",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cb6d3115f123b79f",
+      "location": {
+        "path": "/bin/pkill",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e5402ed9b22cf959",
+      "location": {
+        "path": "/bin/pmap",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "fa48f166d0917536",
+      "location": {
+        "path": "/bin/popmaildir",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2140b2ddc82e252b",
+      "location": {
+        "path": "/bin/poweroff",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e5cc1b88e2ef5571",
+      "location": {
+        "path": "/bin/powertop",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e6c168ab17017825",
+      "location": {
+        "path": "/bin/printenv",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b8195d48045fc391",
+      "location": {
+        "path": "/bin/printf",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a081a3295620ef13",
+      "location": {
+        "path": "/bin/ps",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4f98767a80912aa8",
+      "location": {
+        "path": "/bin/pscan",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a9c8b3be475465e7",
+      "location": {
+        "path": "/bin/pstree",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a50edf3f4b8bec97",
+      "location": {
+        "path": "/bin/pwd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "859d3a4c19b096fe",
+      "location": {
+        "path": "/bin/pwdx",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b8f6646872cd82db",
+      "location": {
+        "path": "/bin/raidautorun",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7a57880db82f9806",
+      "location": {
+        "path": "/bin/rdate",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "197bc938077a5215",
+      "location": {
+        "path": "/bin/rdev",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "64a66dd60a0339ab",
+      "location": {
+        "path": "/bin/readahead",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3f759a2264d25b8e",
+      "location": {
+        "path": "/bin/readlink",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1a70fbed728cef9d",
+      "location": {
+        "path": "/bin/readprofile",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f601745b6435f158",
+      "location": {
+        "path": "/bin/realpath",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "565abd72f8c86973",
+      "location": {
+        "path": "/bin/reboot",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c40d856009770a37",
+      "location": {
+        "path": "/bin/reformime",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "16be0e49a31cf4ed",
+      "location": {
+        "path": "/bin/remove-shell",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "87aa098c789010d8",
+      "location": {
+        "path": "/bin/renice",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ab306db0d0b50f87",
+      "location": {
+        "path": "/bin/reset",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b6733daa679049a1",
+      "location": {
+        "path": "/bin/resize",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cf2c1f282b89004f",
+      "location": {
+        "path": "/bin/resume",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "42a2eabaff568800",
+      "location": {
+        "path": "/bin/rev",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3d94a51dc17926b6",
+      "location": {
+        "path": "/bin/rm",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4d5be20a27eb0b67",
+      "location": {
+        "path": "/bin/rmdir",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "758173d9dbef5ebd",
+      "location": {
+        "path": "/bin/rmmod",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8d071dd63880d4bf",
+      "location": {
+        "path": "/bin/route",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f9c3c7542cede032",
+      "location": {
+        "path": "/bin/rpm",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b4ae935bdcf84016",
+      "location": {
+        "path": "/bin/rpm2cpio",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1d726fe60642c539",
+      "location": {
+        "path": "/bin/rtcwake",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "905387e83d878eac",
+      "location": {
+        "path": "/bin/run-init",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a40a1ecdafef9940",
+      "location": {
+        "path": "/bin/run-parts",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "252e3964609617bb",
+      "location": {
+        "path": "/bin/runlevel",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "09c4566c7ab26472",
+      "location": {
+        "path": "/bin/runsv",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c9467a37948870ab",
+      "location": {
+        "path": "/bin/runsvdir",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e767090950c2f58f",
+      "location": {
+        "path": "/bin/rx",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "36877400bb974d29",
+      "location": {
+        "path": "/bin/script",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ce3747900b5c27bb",
+      "location": {
+        "path": "/bin/scriptreplay",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "02c02d670e09e20d",
+      "location": {
+        "path": "/bin/sed",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "47cfa8f501c79a3c",
+      "location": {
+        "path": "/bin/seedrng",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "272e12701c36a5dd",
+      "location": {
+        "path": "/bin/sendmail",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f44dce5def2af2b1",
+      "location": {
+        "path": "/bin/seq",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3f5afe39b0b67590",
+      "location": {
+        "path": "/bin/setarch",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5d5c179fd655b012",
+      "location": {
+        "path": "/bin/setconsole",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d8cc73acb6aa96fc",
+      "location": {
+        "path": "/bin/setfattr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "968985d53d46befa",
+      "location": {
+        "path": "/bin/setfont",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "9c1216efa35b1275",
+      "location": {
+        "path": "/bin/setkeycodes",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "55421cf385aff552",
+      "location": {
+        "path": "/bin/setlogcons",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1ab560bc60ab11a7",
+      "location": {
+        "path": "/bin/setpriv",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "94c89344c53e9719",
+      "location": {
+        "path": "/bin/setserial",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b2a1effdde48353d",
+      "location": {
+        "path": "/bin/setsid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "df3e0a9b8fe53406",
+      "location": {
+        "path": "/bin/setuidgid",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "d93002f763511c22",
+      "location": {
+        "path": "/bin/sh",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a03942c4b2f3a4b3",
+      "location": {
+        "path": "/bin/sha1sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c86a524d29bcb987",
+      "location": {
+        "path": "/bin/sha256sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a69b1b0d72a37464",
+      "location": {
+        "path": "/bin/sha384sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "fc32d3f9f70330a2",
+      "location": {
+        "path": "/bin/sha3sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0e75efcef2765f00",
+      "location": {
+        "path": "/bin/sha512sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ed44284b366878b7",
+      "location": {
+        "path": "/bin/showkey",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0a31ca73824e7353",
+      "location": {
+        "path": "/bin/shred",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "45c4791d77ba3a49",
+      "location": {
+        "path": "/bin/shuf",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e718d85cab3a5186",
+      "location": {
+        "path": "/bin/slattach",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1ad69d710516977b",
+      "location": {
+        "path": "/bin/sleep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "329af58d00323cff",
+      "location": {
+        "path": "/bin/smemcap",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cf9ff86b7a873a1a",
+      "location": {
+        "path": "/bin/softlimit",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "763575a1c5616016",
+      "location": {
+        "path": "/bin/sort",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "51598e1d05968590",
+      "location": {
+        "path": "/bin/split",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0c115439a1a8cdaf",
+      "location": {
+        "path": "/bin/ssl_client",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b0d6bf876d62786c",
+      "location": {
+        "path": "/bin/ssl_server",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6da02e3be8a73c13",
+      "location": {
+        "path": "/bin/start-stop-daemon",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f4fe22bf809765a7",
+      "location": {
+        "path": "/bin/stat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7e8b0d608d1d5fae",
+      "location": {
+        "path": "/bin/strings",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1946af3e47de1225",
+      "location": {
+        "path": "/bin/stty",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1d7296e61c194080",
+      "location": {
+        "path": "/bin/su",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6e5609b26e7f7ef1",
+      "location": {
+        "path": "/bin/sulogin",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "88e1ea311815bd2b",
+      "location": {
+        "path": "/bin/sum",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a04670506649f180",
+      "location": {
+        "path": "/bin/sv",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "04f767b9c63e4574",
+      "location": {
+        "path": "/bin/svc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "25550233c03cc2c1",
+      "location": {
+        "path": "/bin/svlogd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "234dec63ba225725",
+      "location": {
+        "path": "/bin/svok",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "919a4cdd2ee2a4a7",
+      "location": {
+        "path": "/bin/swapoff",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "032c0427b86ca642",
+      "location": {
+        "path": "/bin/swapon",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6cc5e4698c5dcfa0",
+      "location": {
+        "path": "/bin/switch_root",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7e07c71594d375fa",
+      "location": {
+        "path": "/bin/sync",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1757521da2480de9",
+      "location": {
+        "path": "/bin/sysctl",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5098badf2fd4f5a3",
+      "location": {
+        "path": "/bin/syslogd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "854befd62efdc92e",
+      "location": {
+        "path": "/bin/tac",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "effd959686f45955",
+      "location": {
+        "path": "/bin/tail",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6f6621eeb3e73a52",
+      "location": {
+        "path": "/bin/tar",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e2c293d583fd0f69",
+      "location": {
+        "path": "/bin/taskset",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c12f44040b457df4",
+      "location": {
+        "path": "/bin/tc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "42703ba19ab33bfa",
+      "location": {
+        "path": "/bin/tcpsvd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "eb747461986f9798",
+      "location": {
+        "path": "/bin/tee",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bd10c4f0f9648efa",
+      "location": {
+        "path": "/bin/telnet",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6de361d5ec46a3ff",
+      "location": {
+        "path": "/bin/telnetd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a844e15d11d6f002",
+      "location": {
+        "path": "/bin/test",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "dd66830c58320c78",
+      "location": {
+        "path": "/bin/tftp",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7e1943649ad65fe8",
+      "location": {
+        "path": "/bin/tftpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "30485c1948ce291e",
+      "location": {
+        "path": "/bin/time",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e5d4c42598624283",
+      "location": {
+        "path": "/bin/timeout",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "728fa8f2c954fd2d",
+      "location": {
+        "path": "/bin/top",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "32a54629a10bba4a",
+      "location": {
+        "path": "/bin/touch",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f95c778eed4af929",
+      "location": {
+        "path": "/bin/tr",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "539ca5d7d5213c86",
+      "location": {
+        "path": "/bin/traceroute",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "45990567f2a0e638",
+      "location": {
+        "path": "/bin/traceroute6",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2d2702551c06faef",
+      "location": {
+        "path": "/bin/tree",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "46cab5605c942b5b",
+      "location": {
+        "path": "/bin/true",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "72474a264599b0ea",
+      "location": {
+        "path": "/bin/truncate",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ca2402ab0d0670f3",
+      "location": {
+        "path": "/bin/ts",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0f5dea106d6c6d3b",
+      "location": {
+        "path": "/bin/tsort",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "841bdb679f595d43",
+      "location": {
+        "path": "/bin/tty",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e2824296d2500b2c",
+      "location": {
+        "path": "/bin/ttysize",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2ed069b7828fe287",
+      "location": {
+        "path": "/bin/tunctl",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "72beebbaa402cd33",
+      "location": {
+        "path": "/bin/ubiattach",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "001a6a63f7253132",
+      "location": {
+        "path": "/bin/ubidetach",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f08eb79dc6448855",
+      "location": {
+        "path": "/bin/ubimkvol",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bfdab89a6350b57a",
+      "location": {
+        "path": "/bin/ubirename",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "bcdea688e4a36b57",
+      "location": {
+        "path": "/bin/ubirmvol",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cdfcd92e4bb7366d",
+      "location": {
+        "path": "/bin/ubirsvol",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "010833dde1f293fe",
+      "location": {
+        "path": "/bin/ubiupdatevol",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "61372e82253816ea",
+      "location": {
+        "path": "/bin/udhcpc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f8181ede3676be63",
+      "location": {
+        "path": "/bin/udhcpc6",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6b3bf445ed3bb19d",
+      "location": {
+        "path": "/bin/udhcpd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f333623ba065ee7e",
+      "location": {
+        "path": "/bin/udpsvd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "4bab0890b23b98fd",
+      "location": {
+        "path": "/bin/uevent",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "df0cc8f26bbfad45",
+      "location": {
+        "path": "/bin/umount",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "62bb5bd470ed96ac",
+      "location": {
+        "path": "/bin/uname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c8bda4f5b390b3cd",
+      "location": {
+        "path": "/bin/unexpand",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6cc254d2192dfe1b",
+      "location": {
+        "path": "/bin/uniq",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "46532e5989d2cbe2",
+      "location": {
+        "path": "/bin/unix2dos",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "633351d99505e0f6",
+      "location": {
+        "path": "/bin/unlink",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c1e72d16a3aaaa2e",
+      "location": {
+        "path": "/bin/unlzma",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f88179ab0f839f85",
+      "location": {
+        "path": "/bin/unshare",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "2f784e3aa0d10f51",
+      "location": {
+        "path": "/bin/unxz",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1879ad12b6c8f29d",
+      "location": {
+        "path": "/bin/unzip",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "7d75f49631841dfc",
+      "location": {
+        "path": "/bin/uptime",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5b52a8186d27f4e0",
+      "location": {
+        "path": "/bin/users",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0d10370d46de0368",
+      "location": {
+        "path": "/bin/usleep",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6ff8cf2ec18c4f78",
+      "location": {
+        "path": "/bin/uudecode",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "cef15a79139b9bfa",
+      "location": {
+        "path": "/bin/uuencode",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e74b76f4ba1c4b52",
+      "location": {
+        "path": "/bin/uuidgen",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "286f3c59313e5ccd",
+      "location": {
+        "path": "/bin/vconfig",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a2fdfeeb92b5d258",
+      "location": {
+        "path": "/bin/vi",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "5c13aa55aa0b0e8e",
+      "location": {
+        "path": "/bin/vlock",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ea1ae08f1f0cf62e",
+      "location": {
+        "path": "/bin/vmstat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f9f25446a833d5bd",
+      "location": {
+        "path": "/bin/volname",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "26dc85140168597d",
+      "location": {
+        "path": "/bin/w",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "ff8f92c3f42b723f",
+      "location": {
+        "path": "/bin/wall",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "dbefa6751c7bfed8",
+      "location": {
+        "path": "/bin/watch",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "3bf54c5912c67877",
+      "location": {
+        "path": "/bin/watchdog",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "a6ff7e360438fc33",
+      "location": {
+        "path": "/bin/wc",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f7e6c1b2a631576e",
+      "location": {
+        "path": "/bin/wget",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8ea6912b1585f80a",
+      "location": {
+        "path": "/bin/which",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "1ac97972b778251d",
+      "location": {
+        "path": "/bin/who",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "680759c2042c2ca4",
+      "location": {
+        "path": "/bin/whoami",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "0423a81c00f639fd",
+      "location": {
+        "path": "/bin/whois",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "b314289ea22e9d92",
+      "location": {
+        "path": "/bin/xargs",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "e10d76ac8218ddd4",
+      "location": {
+        "path": "/bin/xxd",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "f81fd8d8a5705257",
+      "location": {
+        "path": "/bin/xz",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "25ebb71a08cbfe3a",
+      "location": {
+        "path": "/bin/xzcat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "c64423ed16e2bbdc",
+      "location": {
+        "path": "/bin/yes",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "6c9307bee1591757",
+      "location": {
+        "path": "/bin/zcat",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
+          "pie": true,
+          "dso": true,
+          "safeStack": false
+        }
+      },
+      "unknowns": ["unknowns-labeler: no package identified in executable file"]
+    },
+    {
+      "id": "8761a4df134ca3c7",
+      "location": {
+        "path": "/bin/zcip",
+        "layerID": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+      },
+      "executable": {
+        "format": "elf",
+        "hasExports": true,
+        "hasEntrypoint": true,
+        "importedLibraries": ["libm.so.6", "libresolv.so.2", "libc.so.6"],
+        "elfSecurityFeatures": {
+          "symbolTableStripped": true,
+          "stackCanary": false,
+          "nx": true,
+          "relRO": "partial",
           "pie": true,
           "dso": true,
           "safeStack": false
@@ -369,7 +9799,7 @@
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.50.0",
+    "version": "1.51.1",
     "configuration": {
       "catalogers": {
         "requested": {

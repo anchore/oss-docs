@@ -15,7 +15,11 @@
   <tbody>
     <tr>
       <td class="col-config-key"><code>golang.capture-symbols</code></td>
-      <td class="col-description">Controls extracting function symbols from the binary symbol table (pclntab). Valid values are &quot;none&quot; (disabled), &quot;stdlib&quot; (only the synthetic stdlib package), and &quot;all&quot; (all module packages plus stdlib).</td>
+      <td class="col-description">Controls extracting function symbols from the binary symbol table (pclntab). Valid values are &quot;none&quot; (disabled), &quot;stdlib&quot; (only the synthetic stdlib package), &quot;extended-stdlib&quot; (stdlib plus every module under golang.org/x/), and &quot;all&quot; (all module packages plus stdlib).</td>
+    </tr>
+    <tr>
+      <td class="col-config-key"><code>golang.capture-symbols-modules</code></td>
+      <td class="col-description">Is a list of glob patterns (doublestar syntax, where ** crosses path separators and * does not) matched against go module paths. Matching modules get symbols in addition to whatever CaptureSymbols selects, so this can only widen the selection and never narrow it. It has no effect under the &quot;none&quot; scope. A trailing major version suffix is not part of a module's identity, so a pattern matches with or without it: both &quot;github.com/foo/bar&quot; and &quot;github.com/foo/*&quot; select &quot;github.com/foo/bar/v2&quot;. A pattern that spells out a suffix selects only that major version.</td>
     </tr>
     <tr>
       <td class="col-config-key"><code>golang.local-mod-cache-dir</code></td>
