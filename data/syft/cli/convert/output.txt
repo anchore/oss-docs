@@ -7,6 +7,7 @@ Examples:
   syft convert img.syft.json -o spdx-json                      convert a syft SBOM to spdx-json, output goes to stdout
   syft convert img.syft.json -o cyclonedx-json=img.cdx.json    convert a syft SBOM to CycloneDX, output is written to the file "img.cdx.json"
   syft convert - -o spdx-json                                  convert an SBOM from STDIN to spdx-json
+  SYFT_CONVERT_PASSTHROUGH_EXACT_FORMAT=true syft convert img.syft.json -o syft-json=out.syft.json    copy the input to "out.syft.json" unchanged if it is already syft-json at the current schema version
 
 
 Flags:
