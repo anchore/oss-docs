@@ -5694,6 +5694,185 @@
       ]
     },
     {
+      "ecosystem": "perl",
+      "name": "perl-cpan-installed-cataloger",
+      "type": "generic",
+      "selectors": [
+        "cpan",
+        "directory",
+        "image",
+        "installed",
+        "language",
+        "package",
+        "perl"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/auto/**/.packlist"
+          ],
+          "package_types": [
+            "cpan"
+          ],
+          "purl_types": [
+            "cpan"
+          ],
+          "json_schema_types": [
+            "CpanDistribution"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": false,
+              "comment": "a packlist carries no metadata beyond the file list"
+            },
+            {
+              "name": "dependency.depth",
+              "default": []
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": true,
+              "comment": "the packlist is a file list, and it is surfaced through OwnedFiles so ownership relationships are emitted"
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        },
+        {
+          "method": "glob",
+          "criteria": [
+            "**/.meta/*/install.json"
+          ],
+          "package_types": [
+            "cpan"
+          ],
+          "purl_types": [
+            "cpan"
+          ],
+          "json_schema_types": [
+            "CpanDistribution"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true,
+              "comment": "the x_spdx_expression or license field of the MYMETA.json written beside install.json"
+            },
+            {
+              "name": "dependency.depth",
+              "default": [
+                "direct",
+                "indirect"
+              ],
+              "comment": "prereqs are resolved across every cataloged distribution, so the graph is the full installed closure"
+            },
+            {
+              "name": "dependency.edges",
+              "default": "complete"
+            },
+            {
+              "name": "dependency.kinds",
+              "default": [
+                "runtime",
+                "build"
+              ],
+              "comment": "develop and test prereqs describe how the distribution was authored, not what a deployed copy needs"
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "ecosystem": "perl",
+      "name": "perl-cpan-meta-cataloger",
+      "type": "generic",
+      "selectors": [
+        "cpan",
+        "directory",
+        "language",
+        "package",
+        "perl"
+      ],
+      "patterns": [
+        {
+          "method": "glob",
+          "criteria": [
+            "**/META.json",
+            "**/META.yml"
+          ],
+          "package_types": [
+            "cpan"
+          ],
+          "purl_types": [
+            "cpan"
+          ],
+          "json_schema_types": [
+            "CpanUnpackedRelease"
+          ],
+          "capabilities": [
+            {
+              "name": "license",
+              "default": true,
+              "comment": "the x_spdx_expression or license field of an unpacked release's own META.json or META.yml"
+            },
+            {
+              "name": "dependency.depth",
+              "default": [],
+              "comment": "release meta prereqs are not resolved; only installed evidence produces edges"
+            },
+            {
+              "name": "dependency.edges",
+              "default": ""
+            },
+            {
+              "name": "dependency.kinds",
+              "default": []
+            },
+            {
+              "name": "package_manager.files.listing",
+              "default": false
+            },
+            {
+              "name": "package_manager.files.digests",
+              "default": false
+            },
+            {
+              "name": "package_manager.package_integrity_hash",
+              "default": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "ecosystem": "php",
       "name": "php-composer-installed-cataloger",
       "type": "generic",
