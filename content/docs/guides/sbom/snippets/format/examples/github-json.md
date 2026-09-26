@@ -7,7 +7,7 @@
   "detector": {
     "name": "syft",
     "url": "https://github.com/anchore/syft",
-    "version": "1.50.0"
+    "version": "1.52.0"
   },
   "metadata": {
     "syft:distro": "pkg:generic/busybox@1.38.0?like=busybox"
@@ -30,6 +30,6 @@
       }
     }
   },
-  "scanned": "2026-08-04T03:03:18Z"
+  "scanned": "2026-09-18T02:11:13Z"
 }
 ```
