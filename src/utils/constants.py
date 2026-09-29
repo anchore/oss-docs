@@ -80,6 +80,7 @@ class CSSClasses(StrEnum):
     # content classes
     CATALOGER_NAME = "cataloger-name"
     EVIDENCE_PATTERNS = "evidence-patterns"
+    ECOSYSTEM_PURL_TYPES = "ecosystem-purl-types"
     CONFIG_TABLE_HEADER = "config-table-header"
     DEPRECATED_PILL = "deprecated-pill"
     CATALOGER_CONDITION_WRAPPER = "cataloger-condition-wrapper"

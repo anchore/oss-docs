@@ -8,9 +8,9 @@ are supported across different ecosystems and catalogers.
 
 Outputs:
 1. Overview table: content/docs/capabilities/snippets/overview/package.md
-   - Single-row header with 6 columns: Ecosystem, Cataloger, Package URL Type, License, Dependency, Files
+   - Single-row header with 5 columns: Ecosystem, Cataloger, License, Dependency, Files
+   - Ecosystem column lists the purl type(s) emitted by the ecosystem below its name
    - Cataloger column combines cataloger name with evidence patterns
-   - Package URL Type lists the purl type(s) emitted by the cataloger
    - Dependency aggregates depth/edges/kinds into single indicator
    - All capabilities shown as ✅/-/⚙️ indicators
 
@@ -1008,9 +1008,6 @@ def generate_overview_table(
         f'      <th class="{CSSClasses.COL_CATALOGER}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["cataloger"]}">Cataloger + Evidence</abbr></th>'
     )
     html_lines.append(
-        f'      <th class="{CSSClasses.COL_PURL_TYPE}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["purl_type"]}">Package URL Type</abbr></th>'
-    )
-    html_lines.append(
         f'      <th class="{CSSClasses.COL_LICENSE}"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["licenses"]}">Licenses</abbr></th>'
     )
     html_lines.append(
@@ -1035,6 +1032,15 @@ def generate_overview_table(
                 else ""
             )
             ecosystem_display = get_ecosystem_display_name(row.ecosystem, display_names)
+            # purl types for the whole ecosystem go under the name, rather than in their own column
+            ecosystem_purls = [
+                t
+                for r in sorted_rows[i : i + rowspans["ecosystem"][i]]
+                for t in r.purl_types
+            ]
+            purl_content = format_purl_types(ecosystem_purls)
+            if purl_content:
+                ecosystem_display += f'<div class="{CSSClasses.ECOSYSTEM_PURL_TYPES}">{purl_content}</div>'
             html_lines.append(
                 f'      <td class="{CSSClasses.COL_ECOSYSTEM}"{rowspan_attr}>{ecosystem_display}</td>'
             )
@@ -1051,11 +1057,6 @@ def generate_overview_table(
         )
         html_lines.append(
             f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>'
-        )
-
-        # purl type column
-        html_lines.append(
-            f'      <td class="{CSSClasses.COL_PURL_TYPE}">{format_purl_types(row.purl_types)}</td>'
         )
 
         # license column (SVG indicator)
