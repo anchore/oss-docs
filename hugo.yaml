@@ -17,6 +17,12 @@ enableGitInfo: true # adds last modified dates from git history to pages
 # which rejects the HTML landing page (content/_index.html). Whitelist exactly the two content
 # media types this site uses instead of the default deny rule.
 security:
+  # Hugo >= v0.166 fails Node.js tools (PostCSS) if any allowed read path contains a symlink
+  # resolving outside it. The default ('.') includes uv's .venv/bin/python, which always points
+  # outside the repo. Node.js only needs node_modules here.
+  node:
+    permissions:
+      allowRead: ['node_modules']
   allowContent:
     - '^text/markdown$'
     - '^text/html$'
