@@ -45,6 +45,7 @@ class Paths:
     ecosystem_aliases_file: Path = capabilities_data_dir / "ecosystem.yaml"
     os_data_file: Path = capabilities_data_dir / "grype-operating-systems.json"
     vulnerability_data_file: Path = capabilities_data_dir / "vulnerability-data.yaml"
+    go_versions_json: Path = data_dir / "golang.json"
 
     # content directories (output)
     content_dir: Path = project_root / "content"

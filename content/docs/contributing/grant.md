@@ -13,7 +13,7 @@ icon_image = "/images/logos/grant/favicon-48x48.png"
 
 In order to test and develop in the [Grant repo](https://github.com/anchore/grant) you will need the following dependencies installed:
 
-- Golang
+- Golang (>= {{< go-min-version "grant" >}})
 - Docker
 - make
 
