@@ -212,8 +212,16 @@ golang:
   use-packages-lib:
 
   # capture function symbols from the binary symbol table (pclntab). valid values are:
-  # "none" (disabled), "stdlib" (only the synthetic stdlib package), and "all" (all module packages plus stdlib) (env: SYFT_GOLANG_CAPTURE_SYMBOLS)
+  # "none" (disabled), "stdlib" (only the synthetic stdlib package), "extended-stdlib" (stdlib plus every
+  # module under golang.org/x/), and "all" (all module packages plus stdlib) (env: SYFT_GOLANG_CAPTURE_SYMBOLS)
   capture-symbols: 'none'
+
+  # glob patterns matched against go module paths (e.g. github.com/klauspost/**) that should have symbols
+  # captured in addition to whatever capture-symbols selects. ** crosses path separators, * does not.
+  # a trailing major version suffix is ignored when matching, so github.com/foo/* covers github.com/foo/bar/v2;
+  # spelling a suffix out in the pattern selects only that major version.
+  # this can only widen the selection, never narrow it, and is inert when capture-symbols is none (env: SYFT_GOLANG_CAPTURE_SYMBOLS_MODULES)
+  capture-symbols-modules: []
 
 java:
   # enables Syft to use the network to fetch version and license information for packages when
@@ -357,3 +365,10 @@ attest:
   # password to decrypt to given private key
   # additionally responds to COSIGN_PASSWORD env var (env: SYFT_ATTEST_PASSWORD)
   password: ''
+
+convert:
+  # when a syft-json input SBOM already exactly matches the requested output format and schema version, copy it to that output unchanged instead of decoding and re-encoding it.
+  # Note: this only applies to syft-json input, and only when the document's schema version is identical to the schema version this version of syft produces. Any other input is always converted.
+  # Note: output written this way is a byte-for-byte copy of the input, so format options (such as 'format.pretty' or 'format.json.legacy') are not applied to it.
+  # Note: to keep memory use minimal on large documents, give the input as a file path (or a shell redirect) and write the output with '-o <format>=<path>'. Piped input, or output to STDOUT, requires the whole document to be held in memory. (env: SYFT_CONVERT_PASSTHROUGH_EXACT_FORMAT)
+  passthrough-exact-format: false
