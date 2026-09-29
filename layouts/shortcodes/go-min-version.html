@@ -1,0 +1,10 @@
+{{- /*
+  go-min-version shortcode - prints the minimum Go version for a tool (from data/golang.json)
+  Usage: {{< go-min-version "syft" >}}
+*/ -}}
+{{- $tool := .Get 0 -}}
+{{- with index site.Data.golang $tool -}}
+  {{- . -}}
+{{- else -}}
+  {{- errorf "go-min-version: no Go version for %q in data/golang.json (%s)" $tool .Position -}}
+{{- end -}}

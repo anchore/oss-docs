@@ -16,6 +16,7 @@ vars:
   VULNERABILITY_CAPABILITIES_CMD: "uv run ./src/generate_capability_vulnerability_tables.py"
   DATA_SOURCES_CMD: "uv run ./src/generate_data_source_tables.py"
   SUPPORTED_OS_CMD: "uv run ./src/generate_supported_os_table.py"
+  GO_VERSIONS_CMD: "uv run ./src/generate_go_versions.py"
 
 tasks:
   pull-images:
@@ -44,6 +45,7 @@ tasks:
       - "{{.VULNERABILITY_CAPABILITIES_CMD}}"
       - "{{.DATA_SOURCES_CMD}}"
       - "{{.SUPPORTED_OS_CMD}}"
+      - "{{.GO_VERSIONS_CMD}}"
       - "make lint-fix || true"
       - "uv run pre-commit run end-of-file-fixer --all-files --hook-stage push || true"
       - "uv run pre-commit run trailing-whitespace --all-files --hook-stage push || true"
@@ -68,6 +70,7 @@ tasks:
       - "{{.VULNERABILITY_CAPABILITIES_CMD}} --update"
       - "{{.DATA_SOURCES_CMD}} --update"
       - "{{.SUPPORTED_OS_CMD}}"
+      - "{{.GO_VERSIONS_CMD}} --update"
       - "make lint-fix || true"
       - "uv run pre-commit run end-of-file-fixer --all-files --hook-stage push || true"
       - "uv run pre-commit run trailing-whitespace --all-files --hook-stage push || true"

@@ -12,7 +12,7 @@ icon_image = "/images/logos/grype/favicon-48x48.png"
 
 In order to test and develop in the [Grype repo](https://github.com/anchore/grype) you will need the following dependencies installed:
 
-- Golang
+- Golang (>= {{< go-min-version "grype" >}})
 - Docker
 - Python (>= 3.9)
 - make
