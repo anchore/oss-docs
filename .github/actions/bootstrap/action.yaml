@@ -61,7 +61,8 @@ runs:
     - name: Place uv venv outside the workspace
       if: inputs.python-version != ''
       shell: bash
-      run: echo "UV_PROJECT_ENVIRONMENT=${RUNNER_TEMP}/venv" >> "$GITHUB_ENV"
+      # static value (no untrusted input), and later `uv run` steps need it too, so a step-level env won't do
+      run: echo "UV_PROJECT_ENVIRONMENT=${RUNNER_TEMP}/venv" >> "$GITHUB_ENV" # zizmor: ignore[github-env]
 
     # resolve cache locations so the restore/save steps below stay tool-agnostic
     - name: Resolve npm cache directory
