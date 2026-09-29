@@ -133,9 +133,12 @@ def load_ecosystem_aliases() -> dict[str, str]:
         return {}
 
 
-def load_ecosystem_display_names() -> dict[str, str]:
+def load_ecosystem_display_names(key: str = "display_names") -> dict[str, str]:
     """
     load ecosystem display names from YAML file.
+
+    Args:
+        key: top-level YAML key holding the name mapping
 
     Returns:
         dict mapping ecosystem names to their display names
@@ -156,7 +159,7 @@ def load_ecosystem_display_names() -> dict[str, str]:
     try:
         with open(aliases_file) as f:
             data = yaml.safe_load(f)
-            return data.get("display_names", {})
+            return data.get(key, {})
     except Exception as e:
         logger.warning(f"Failed to load ecosystem display names: {e}")
         return {}

@@ -111,7 +111,11 @@ def main(update: bool, verbose: int) -> None:
 
     # load ecosystem display names
     logger.debug("Loading ecosystem display names...")
-    ecosystem_display_names = data.load_ecosystem_display_names()
+    # package tables show the purl type under the name, so friendlier OS names can override the defaults
+    ecosystem_display_names = {
+        **data.load_ecosystem_display_names(),
+        **data.load_ecosystem_display_names("package_display_names"),
+    }
     if ecosystem_display_names:
         logger.debug(f"Loaded {len(ecosystem_display_names)} ecosystem display names")
 

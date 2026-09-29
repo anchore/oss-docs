@@ -27,14 +27,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">ALPM<div class="ecosystem-purl-types"><code>pkg:alpm</code></div></td>
-      <td class="col-cataloger"><div class="cataloger-name">alpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/pacman/local/**/desc</code></div></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="AlpmDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">APK<div class="ecosystem-purl-types"><code>pkg:apk</code></div></td>
+      <td class="col-ecosystem">Alpine Linux<div class="ecosystem-purl-types"><code>pkg:apk</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">apk-db-cataloger</div><div class="evidence-patterns"><code>lib/apk/db/installed</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -46,6 +39,13 @@
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">Arch Linux<div class="ecosystem-purl-types"><code>pkg:alpm</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">alpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/pacman/local/**/desc</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="AlpmDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
       <td class="col-ecosystem" rowspan="3">Binary<div class="ecosystem-purl-types"><code>pkg:apk</code><br><code>pkg:rpm</code></div></td>
@@ -125,7 +125,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">DPKG<div class="ecosystem-purl-types"><code>pkg:deb</code></div></td>
+      <td class="col-ecosystem" rowspan="2">Debian<div class="ecosystem-purl-types"><code>pkg:deb</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
@@ -156,6 +156,13 @@
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem">Gentoo<div class="ecosystem-purl-types"><code>pkg:portage</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="PortageEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
       <td class="col-ecosystem" rowspan="3">GitHub Actions<div class="ecosystem-purl-types"><code>pkg:github</code></div></td>
@@ -386,13 +393,6 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Portage<div class="ecosystem-purl-types"><code>pkg:portage</code></div></td>
-      <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"></td>
-      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="PortageEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
-    </tr>
-    <tr>
       <td class="col-ecosystem">Prolog<div class="ecosystem-purl-types"><code>pkg:swiplpack</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">swipl-pack-cataloger</div><div class="evidence-patterns"><code>pack.pl</code></div></td>
       <td class="col-license indicator"></td>
@@ -450,7 +450,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">RPM<div class="ecosystem-purl-types"><code>pkg:rpm</code></div></td>
+      <td class="col-ecosystem" rowspan="3">RPM-based Linux<div class="ecosystem-purl-types"><code>pkg:rpm</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">rpm-archive-cataloger</div><div class="evidence-patterns"><code>*.rpm</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
