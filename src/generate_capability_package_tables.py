@@ -9,13 +9,14 @@ are supported across different ecosystems and catalogers.
 Outputs:
 1. Overview table: content/docs/capabilities/snippets/overview/package.md
    - Single-row header with 5 columns: Ecosystem, Cataloger, License, Dependency, Files
+   - Ecosystem column lists the purl type(s) emitted by the ecosystem below its name
    - Cataloger column combines cataloger name with evidence patterns
    - Dependency aggregates depth/edges/kinds into single indicator
    - All capabilities shown as ✅/-/⚙️ indicators
 
 2. Individual ecosystem tables: content/docs/capabilities/snippets/{ecosystem}/package.md
-   - Two-row grouped header with 8 columns:
-     Row 1: Cataloger, License, Dependency (colspan=3), Package Manager (colspan=3)
+   - Two-row grouped header with 9 columns:
+     Row 1: Cataloger, Package URL Type, License, Dependency (colspan=3), Package Manager (colspan=3)
      Row 2: (under Dependency) Depth, Edges, Kinds; (under Package Manager) Files, Digests, Integrity Hash
    - Cataloger column combines cataloger name with evidence patterns
    - Depth/Edges/Kinds show actual values, others show ✅/-/⚙️ indicators
@@ -64,6 +65,8 @@ class CatalogerRow:
     globs: list[str]  # glob patterns
     paths: list[str]  # path patterns
     mimetypes: list[str]  # mimetype patterns
+    # purl types emitted by this pattern/row (e.g. ["pypi"], ["apk", "rpm"])
+    purl_types: list[str]
     # capabilities for this specific pattern/row
     capabilities: dict[str, CapabilitySupport]
     # for special aggregated catalogers: class-to-pattern mappings
@@ -108,7 +111,11 @@ def main(update: bool, verbose: int) -> None:
 
     # load ecosystem display names
     logger.debug("Loading ecosystem display names...")
-    ecosystem_display_names = data.load_ecosystem_display_names()
+    # package tables show the purl type under the name, so friendlier OS names can override the defaults
+    ecosystem_display_names = {
+        **data.load_ecosystem_display_names(),
+        **data.load_ecosystem_display_names("package_display_names"),
+    }
     if ecosystem_display_names:
         logger.debug(f"Loaded {len(ecosystem_display_names)} ecosystem display names")
 
@@ -226,6 +233,8 @@ def parse_catalogers(
         patterns = cataloger.get("patterns", [])
         # cataloger-level capabilities (fallback if pattern doesn't define them)
         cataloger_level_caps = cataloger.get("capabilities", [])
+        # cataloger-level purl types (fallback if pattern doesn't define them)
+        cataloger_level_purls = cataloger.get("purl_types", [])
 
         if not patterns:
             # no patterns, use cataloger-level capabilities with empty evidence
@@ -237,6 +246,7 @@ def parse_catalogers(
                     globs=[],
                     paths=[],
                     mimetypes=[],
+                    purl_types=cataloger_level_purls,
                     capabilities=capabilities,
                     deprecated=deprecated,
                 )
@@ -244,11 +254,15 @@ def parse_catalogers(
         elif cataloger_name in SPECIAL_AGGREGATED_CATALOGERS:
             # special catalogers: aggregate all patterns into a single row with class-pattern pills
             class_patterns = defaultdict(set)  # class -> set of patterns
+            # aggregate purl types across all patterns for the single combined row
+            aggregated_purls = set(cataloger_level_purls)
 
             # collect all class-pattern mappings
             for pattern in patterns:
                 method = pattern.get("method", "")
                 criteria = pattern.get("criteria", [])
+
+                aggregated_purls.update(pattern.get("purl_types", []))
 
                 # extract patterns (assume glob for binary-classifier-cataloger)
                 pattern_strings = criteria if method == "glob" else []
@@ -277,6 +291,7 @@ def parse_catalogers(
                     globs=[],  # empty - will use class_pattern_pairs instead
                     paths=[],
                     mimetypes=[],
+                    purl_types=sorted(aggregated_purls),
                     capabilities=capabilities,
                     class_pattern_pairs=class_pattern_pairs,
                     deprecated=deprecated,
@@ -303,6 +318,9 @@ def parse_catalogers(
                 # extract pattern-level conditions
                 pattern_conditions = pattern.get("conditions")
 
+                # prefer pattern-level purl types, fall back to cataloger-level
+                pattern_purls = pattern.get("purl_types", cataloger_level_purls)
+
                 # prefer pattern-level capabilities, fall back to cataloger-level
                 pattern_caps = pattern.get("capabilities", cataloger_level_caps)
                 capabilities = _parse_capabilities(pattern_caps)
@@ -314,6 +332,7 @@ def parse_catalogers(
                         globs=globs,
                         paths=paths,
                         mimetypes=mimetypes,
+                        purl_types=pattern_purls,
                         capabilities=capabilities,
                         deprecated=deprecated,
                         conditions=pattern_conditions,
@@ -463,6 +482,25 @@ def format_evidence(globs: list[str], paths: list[str], mimetypes: list[str]) ->
         content += ", ".join(f"<code>{m}</code>" for m in mimetypes) + " (mimetype)"
 
     return content
+
+
+def format_purl_types(purl_types: list[str]) -> str:
+    """
+    format purl types as a list of <code>pkg:<type></code> tokens for a table cell.
+
+    Args:
+        purl_types: list of purl type strings (e.g. ["pypi"], ["apk", "rpm"])
+
+    Returns:
+        formatted HTML string, or empty string when there are no purl types
+    """
+    if not purl_types:
+        # some package types have no assigned purl type (e.g. AI models); leave the cell blank
+        return ""
+
+    # deduplicate and sort for stable output, rendering each as a full purl scheme token
+    unique_types = sorted(set(purl_types))
+    return "<br>".join(f"<code>pkg:{t}</code>" for t in unique_types)
 
 
 def format_class_pattern_pills(class_pattern_pairs: list[tuple[str, list[str]]]) -> str:
@@ -998,6 +1036,15 @@ def generate_overview_table(
                 else ""
             )
             ecosystem_display = get_ecosystem_display_name(row.ecosystem, display_names)
+            # purl types for the whole ecosystem go under the name, rather than in their own column
+            ecosystem_purls = [
+                t
+                for r in sorted_rows[i : i + rowspans["ecosystem"][i]]
+                for t in r.purl_types
+            ]
+            purl_content = format_purl_types(ecosystem_purls)
+            if purl_content:
+                ecosystem_display += f'<div class="{CSSClasses.ECOSYSTEM_PURL_TYPES}">{purl_content}</div>'
             html_lines.append(
                 f'      <td class="{CSSClasses.COL_ECOSYSTEM}"{rowspan_attr}>{ecosystem_display}</td>'
             )
@@ -1099,6 +1146,9 @@ def generate_ecosystem_table(
         f'      <th class="{CSSClasses.COL_CATALOGER}" rowspan="2"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["cataloger"]}">Cataloger + Evidence</abbr></th>'
     )
     html_lines.append(
+        f'      <th class="{CSSClasses.COL_PURL_TYPE}" rowspan="2"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["purl_type"]}">Package URL Type</abbr></th>'
+    )
+    html_lines.append(
         f'      <th class="{CSSClasses.COL_LICENSE}" rowspan="2"><abbr class="{CSSClasses.HEADER_HELP}" title="{HEADER_DEFINITIONS["license"]}">License</abbr></th>'
     )
     html_lines.append(
@@ -1156,6 +1206,11 @@ def generate_ecosystem_table(
             )
         html_lines.append(
             f'      <td class="{CSSClasses.COL_CATALOGER}">{cataloger_content}</td>'
+        )
+
+        # purl type column
+        html_lines.append(
+            f'      <td class="{CSSClasses.COL_PURL_TYPE}">{format_purl_types(row.purl_types)}</td>'
         )
 
         # license column (SVG indicator)

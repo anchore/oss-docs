@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th class="col-cataloger" rowspan="2"><abbr class="header-help" title="The Syft cataloger name and file patterns it analyzes to discover packages">Cataloger + Evidence</abbr></th>
+      <th class="col-purl-type" rowspan="2"><abbr class="header-help" title="The Package URL (purl) type(s) Syft assigns to packages from this source (e.g. pkg:pypi, pkg:golang), which Grype uses to match against vulnerability data">Package URL Type</abbr></th>
       <th class="col-license" rowspan="2"><abbr class="header-help" title="Whether Syft can detect and catalog license information from package metadata">License</abbr></th>
       <th colspan="3"><abbr class="header-help" title="Whether dependency information can be captured (depth, edges, kinds)">Dependencies</abbr></th>
       <th colspan="3"><abbr class="header-help" title="Metadata and integrity information explicitly tracked by the package manager about packages and their files">Package Manager Claims</abbr></th>
@@ -22,6 +23,7 @@
   <tbody>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">conan-cataloger</div><div class="evidence-patterns"><code>conan.lock</code></div></td>
+      <td class="col-purl-type"><code>pkg:conan</code></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Transitive</td>
       <td class="col-edges value"></td>
@@ -32,6 +34,7 @@
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">conan-cataloger</div><div class="evidence-patterns"><code>conanfile.txt</code></div></td>
+      <td class="col-purl-type"><code>pkg:conan</code></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Direct</td>
       <td class="col-edges value"></td>
@@ -42,6 +45,7 @@
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">conan-info-cataloger</div><div class="evidence-patterns"><code>conaninfo.txt</code></div></td>
+      <td class="col-purl-type"><code>pkg:conan</code></td>
       <td class="col-license indicator"></td>
       <td class="col-depth value">Direct</td>
       <td class="col-edges value">Flat</td>
@@ -52,6 +56,7 @@
     </tr>
     <tr>
       <td class="col-cataloger"><div class="cataloger-name">vcpkg-manifest-cataloger</div><div class="evidence-patterns"><code>vcpkg.json</code></div></td>
+      <td class="col-purl-type"><code>pkg:vcpkg</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value">Transitive</td>
       <td class="col-edges value">Complete</td>

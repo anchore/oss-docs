@@ -38,6 +38,15 @@ display_names:
   terraform: Terraform
   wordpress: WordPress
 
+# overrides of display_names for the package capability tables only, where the purl type
+# is shown under the name (data source tables keep the package manager names above)
+package_display_names:
+  alpm: Arch Linux
+  apk: Alpine Linux
+  dpkg: Debian
+  portage: Gentoo
+  rpm: RPM-based Linux
+
 # Language ecosystems with package manager names for documentation
 languages:
   - name: C/C++

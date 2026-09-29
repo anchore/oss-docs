@@ -26,6 +26,7 @@ class CSSClasses(StrEnum):
     # column classes - ecosystem/cataloger
     COL_ECOSYSTEM = "col-ecosystem"
     COL_CATALOGER = "col-cataloger"
+    COL_PURL_TYPE = "col-purl-type"
 
     # column classes - capabilities
     COL_LICENSE = "col-license"
@@ -79,6 +80,7 @@ class CSSClasses(StrEnum):
     # content classes
     CATALOGER_NAME = "cataloger-name"
     EVIDENCE_PATTERNS = "evidence-patterns"
+    ECOSYSTEM_PURL_TYPES = "ecosystem-purl-types"
     CONFIG_TABLE_HEADER = "config-table-header"
     DEPRECATED_PILL = "deprecated-pill"
     CATALOGER_CONDITION_WRAPPER = "cataloger-condition-wrapper"
@@ -138,6 +140,7 @@ HEADER_DEFINITIONS: dict[str, str] = {
     # ecosystem/package headers
     "ecosystem": "The package manager or programming language ecosystem",
     "cataloger": "The Syft cataloger name and file patterns it analyzes to discover packages",
+    "purl_type": "The Package URL (purl) type(s) Syft assigns to packages from this source (e.g. pkg:pypi, pkg:golang), which Grype uses to match against vulnerability data",
     "license": "Whether Syft can detect and catalog license information from package metadata",
     "licenses": "Whether Syft can detect and catalog license information from package metadata",
     "dependencies": "Whether dependency information can be captured (depth, edges, kinds)",

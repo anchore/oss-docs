@@ -27,14 +27,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">ALPM</td>
-      <td class="col-cataloger"><div class="cataloger-name">alpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/pacman/local/**/desc</code></div></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="AlpmDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">APK</td>
+      <td class="col-ecosystem">Alpine Linux<div class="ecosystem-purl-types"><code>pkg:apk</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">apk-db-cataloger</div><div class="evidence-patterns"><code>lib/apk/db/installed</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -48,7 +41,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">Binary</td>
+      <td class="col-ecosystem">Arch Linux<div class="ecosystem-purl-types"><code>pkg:alpm</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">alpm-db-cataloger</div><div class="evidence-patterns"><code>var/lib/pacman/local/**/desc</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="AlpmDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="3">Binary<div class="ecosystem-purl-types"><code>pkg:apk</code><br><code>pkg:rpm</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">binary-classifier-cataloger</div><div class="evidence-patterns"><div class="class-pattern-pills"><span class="class-pattern-pill"><span class="pill-class">arangodb-binary</span><span class="pill-pattern"><code>arangosh</code></span></span> <span class="class-pattern-pill"><span class="pill-class">auditbeat-binary</span><span class="pill-pattern"><code>auditbeat</code></span></span> <span class="class-pattern-pill"><span class="pill-class">bash-binary</span><span class="pill-pattern"><code>bash</code></span></span> <span class="class-pattern-pill"><span class="pill-class">bun-binary</span><span class="pill-pattern"><code>bun</code></span></span> <span class="class-pattern-pill"><span class="pill-class">busybox-binary</span><span class="pill-pattern"><code>busybox</code></span></span> <span class="class-pattern-pill"><span class="pill-class">chrome-binary</span><span class="pill-pattern"><code>chrome</code></span></span> <span class="class-pattern-pill"><span class="pill-class">consul-binary</span><span class="pill-pattern"><code>consul</code></span></span> <span class="class-pattern-pill"><span class="pill-class">curl-binary</span><span class="pill-pattern"><code>curl</code></span></span> <span class="class-pattern-pill"><span class="pill-class">dart-binary</span><span class="pill-pattern"><code>dart</code></span></span> <span class="class-pattern-pill"><span class="pill-class">deno-binary</span><span class="pill-pattern"><code>deno</code></span></span> <span class="class-pattern-pill"><span class="pill-class">elastic-agent-binary</span><span class="pill-pattern"><code>elastic-agent</code></span></span> <span class="class-pattern-pill"><span class="pill-class">elixir-binary</span><span class="pill-pattern"><code>elixir</code></span></span> <span class="class-pattern-pill"><span class="pill-class">elixir-library</span><span class="pill-pattern"><code>elixir/ebin/elixir.app</code></span></span> <span class="class-pattern-pill"><span class="pill-class">envoy-binary</span><span class="pill-pattern"><code>envoy</code></span></span> <span class="class-pattern-pill"><span class="pill-class">erlang-alpine-binary</span><span class="pill-pattern"><code>beam.smp</code></span></span> <span class="class-pattern-pill"><span class="pill-class">erlang-binary</span><span class="pill-pattern"><code>erlexec</code></span></span> <span class="class-pattern-pill"><span class="pill-class">erlang-library</span><span class="pill-pattern"><code>liberts_internal.a</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ffmpeg-binary</span><span class="pill-pattern"><code>ffmpeg</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ffmpeg-library</span><span class="pill-pattern"><code>libav*</code>, <code>libswresample*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">filebeat-binary</span><span class="pill-pattern"><code>filebeat</code></span></span> <span class="class-pattern-pill"><span class="pill-class">firefox-binary</span><span class="pill-pattern"><code>{firefox,firefox.exe}</code></span></span> <span class="class-pattern-pill"><span class="pill-class">fluent-bit-binary</span><span class="pill-pattern"><code>fluent-bit</code></span></span> <span class="class-pattern-pill"><span class="pill-class">gcc-binary</span><span class="pill-pattern"><code>gcc</code></span></span> <span class="class-pattern-pill"><span class="pill-class">go-binary</span><span class="pill-pattern"><code>{go,go.exe}</code></span></span> <span class="class-pattern-pill"><span class="pill-class">grafana-binary</span><span class="pill-pattern"><code>grafana</code>, <code>grafana-server</code></span></span> <span class="class-pattern-pill"><span class="pill-class">gzip-binary</span><span class="pill-pattern"><code>gzip</code></span></span> <span class="class-pattern-pill"><span class="pill-class">haproxy-binary</span><span class="pill-pattern"><code>haproxy</code></span></span> <span class="class-pattern-pill"><span class="pill-class">hashicorp-vault-binary</span><span class="pill-pattern"><code>vault</code></span></span> <span class="class-pattern-pill"><span class="pill-class">haskell-cabal-binary</span><span class="pill-pattern"><code>cabal</code></span></span> <span class="class-pattern-pill"><span class="pill-class">haskell-ghc-binary</span><span class="pill-pattern"><code>ghc*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">haskell-stack-binary</span><span class="pill-pattern"><code>stack</code></span></span> <span class="class-pattern-pill"><span class="pill-class">heartbeat-binary</span><span class="pill-pattern"><code>heartbeat</code></span></span> <span class="class-pattern-pill"><span class="pill-class">heimdal-krb5-library</span><span class="pill-pattern"><code>libkrb5.so*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">helm</span><span class="pill-pattern"><code>helm</code></span></span> <span class="class-pattern-pill"><span class="pill-class">httpd-binary</span><span class="pill-pattern"><code>httpd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ingress-nginx-binary</span><span class="pill-pattern"><code>nginx-ingress-controller</code></span></span> <span class="class-pattern-pill"><span class="pill-class">istio-binary</span><span class="pill-pattern"><code>pilot-agent</code>, <code>pilot-discovery</code></span></span> <span class="class-pattern-pill"><span class="pill-class">java-binary</span><span class="pill-pattern"><code>java</code></span></span> <span class="class-pattern-pill"><span class="pill-class">java-jdb-binary</span><span class="pill-pattern"><code>jdb</code></span></span> <span class="class-pattern-pill"><span class="pill-class">jq-binary</span><span class="pill-pattern"><code>jq</code></span></span> <span class="class-pattern-pill"><span class="pill-class">julia-binary</span><span class="pill-pattern"><code>julia</code>, <code>libjulia-internal.so</code></span></span> <span class="class-pattern-pill"><span class="pill-class">krb5-library</span><span class="pill-pattern"><code>libkrb5.so*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">lighttpd-binary</span><span class="pill-pattern"><code>lighttpd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">mariadb-binary</span><span class="pill-pattern"><code>{mariadb,mysql}</code></span></span> <span class="class-pattern-pill"><span class="pill-class">memcached-binary</span><span class="pill-pattern"><code>memcached</code></span></span> <span class="class-pattern-pill"><span class="pill-class">metricbeat-binary</span><span class="pill-pattern"><code>metricbeat</code></span></span> <span class="class-pattern-pill"><span class="pill-class">mongodb-binary</span><span class="pill-pattern"><code>mongod</code></span></span> <span class="class-pattern-pill"><span class="pill-class">mysql-binary</span><span class="pill-pattern"><code>mysql</code></span></span> <span class="class-pattern-pill"><span class="pill-class">mysqld-binary</span><span class="pill-pattern"><code>mysqld</code></span></span> <span class="class-pattern-pill"><span class="pill-class">mysqld-mysql-cluster-legacy-binary</span><span class="pill-pattern"><code>mysqld</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ndb_mgmd-binary</span><span class="pill-pattern"><code>ndb_mgmd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ndbd-binary</span><span class="pill-pattern"><code>ndbd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ndbmtd-binary</span><span class="pill-pattern"><code>ndbmtd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">nginx-binary</span><span class="pill-pattern"><code>nginx</code></span></span> <span class="class-pattern-pill"><span class="pill-class">nodejs-binary</span><span class="pill-pattern"><code>node</code></span></span> <span class="class-pattern-pill"><span class="pill-class">openldap-search-binary</span><span class="pill-pattern"><code>ldapsearch</code></span></span> <span class="class-pattern-pill"><span class="pill-class">openssl-binary</span><span class="pill-pattern"><code>openssl</code></span></span> <span class="class-pattern-pill"><span class="pill-class">packetbeat-binary</span><span class="pill-pattern"><code>packetbeat</code></span></span> <span class="class-pattern-pill"><span class="pill-class">perl-binary</span><span class="pill-pattern"><code>perl</code></span></span> <span class="class-pattern-pill"><span class="pill-class">php-composer-binary</span><span class="pill-pattern"><code>composer*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">postgresql-binary</span><span class="pill-pattern"><code>postgres</code></span></span> <span class="class-pattern-pill"><span class="pill-class">proftpd-binary</span><span class="pill-pattern"><code>proftpd</code></span></span> <span class="class-pattern-pill"><span class="pill-class">pypy-binary-lib</span><span class="pill-pattern"><code>libpypy*.so*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">python-binary</span><span class="pill-pattern"><code>python*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">python-binary-lib</span><span class="pill-pattern"><code>libpython*.so*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">qt-qtbase-lib</span><span class="pill-pattern"><code>libQt*Core.so*</code></span></span> <span class="class-pattern-pill"><span class="pill-class">redis-binary</span><span class="pill-pattern"><code>redis-server</code></span></span> <span class="class-pattern-pill"><span class="pill-class">ruby-binary</span><span class="pill-pattern"><code>ruby</code></span></span> <span class="class-pattern-pill"><span class="pill-class">rust-standard-library-linux</span><span class="pill-pattern"><code>libstd-*.so</code></span></span> <span class="class-pattern-pill"><span class="pill-class">rust-standard-library-macos</span><span class="pill-pattern"><code>libstd-*.dylib</code></span></span> <span class="class-pattern-pill"><span class="pill-class">sqlcipher-binary</span><span class="pill-pattern"><code>sqlcipher</code></span></span> <span class="class-pattern-pill"><span class="pill-class">swipl-binary</span><span class="pill-pattern"><code>swipl</code></span></span> <span class="class-pattern-pill"><span class="pill-class">traefik-binary</span><span class="pill-pattern"><code>traefik</code></span></span> <span class="class-pattern-pill"><span class="pill-class">util-linux-binary</span><span class="pill-pattern"><code>getopt</code></span></span> <span class="class-pattern-pill"><span class="pill-class">valkey-binary</span><span class="pill-pattern"><code>valkey-server</code></span></span> <span class="class-pattern-pill"><span class="pill-class">wordpress-cli-binary</span><span class="pill-pattern"><code>wp</code></span></span> <span class="class-pattern-pill"><span class="pill-class">xtrabackup-binary</span><span class="pill-pattern"><code>xtrabackup</code></span></span> <span class="class-pattern-pill"><span class="pill-class">xz-binary</span><span class="pill-pattern"><code>xz</code></span></span> <span class="class-pattern-pill"><span class="pill-class">zstd-binary</span><span class="pill-pattern"><code>zstd</code></span></span></div></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
@@ -67,7 +67,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Bitnami</td>
+      <td class="col-ecosystem" rowspan="2">Bitnami<div class="ecosystem-purl-types"><code>pkg:bitnami</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">bitnami-cataloger</div><div class="evidence-patterns"><code>/opt/bitnami/.bitnami_components.json</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
@@ -80,7 +80,7 @@
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="BitnamiSBOMEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="4">C/C++</td>
+      <td class="col-ecosystem" rowspan="4">C/C++<div class="ecosystem-purl-types"><code>pkg:conan</code><br><code>pkg:vcpkg</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">conan-cataloger</div><div class="evidence-patterns"><code>conan.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -105,14 +105,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Conda</td>
+      <td class="col-ecosystem">Conda<div class="ecosystem-purl-types"><code>pkg:generic</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">conda-meta-cataloger</div><div class="evidence-patterns"><code>conda-meta/*.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="• CondaMetaPackage.Files&#10;• CondaMetaPackage.PathsData.Paths"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Dart</td>
+      <td class="col-ecosystem" rowspan="2">Dart<div class="ecosystem-purl-types"><code>pkg:pub</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">dart-pubspec-cataloger</div><div class="evidence-patterns"><code>pubspec.yml</code>, <code>pubspec.yaml</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -125,7 +125,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">DPKG</td>
+      <td class="col-ecosystem" rowspan="2">Debian<div class="ecosystem-purl-types"><code>pkg:deb</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
@@ -138,14 +138,14 @@
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="DpkgDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Elixir</td>
+      <td class="col-ecosystem">Elixir<div class="ecosystem-purl-types"><code>pkg:hex</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">elixir-mix-lock-cataloger</div><div class="evidence-patterns"><code>mix.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Erlang</td>
+      <td class="col-ecosystem" rowspan="2">Erlang<div class="ecosystem-purl-types"><code>pkg:hex</code><br><code>pkg:otp</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">erlang-otp-application-cataloger</div><div class="evidence-patterns"><code>*.app</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -158,7 +158,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">GitHub Actions</td>
+      <td class="col-ecosystem">Gentoo<div class="ecosystem-purl-types"><code>pkg:portage</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
+      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
+      <td class="col-dependency indicator"></td>
+      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="PortageEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
+    </tr>
+    <tr>
+      <td class="col-ecosystem" rowspan="3">GitHub Actions<div class="ecosystem-purl-types"><code>pkg:github</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">github-action-workflow-usage-cataloger</div><div class="evidence-patterns"><code>.github/workflows/*.yaml</code>, <code>.github/workflows/*.yml</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
@@ -177,7 +184,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Go</td>
+      <td class="col-ecosystem" rowspan="2">Go<div class="ecosystem-purl-types"><code>pkg:golang</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">go-module-binary-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"><span class="capability-icon-wrapper" data-tooltip="When:&#10;• SearchLocalModCacheLicenses = true&#10;• SearchRemoteLicenses = true"><svg class="capability-icon"><use href="#icon-gear"/></svg></span></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -190,7 +197,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">Haskell</td>
+      <td class="col-ecosystem" rowspan="3">Haskell<div class="ecosystem-purl-types"><code>pkg:hackage</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">haskell-cataloger</div><div class="evidence-patterns"><code>cabal.project.freeze</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -209,14 +216,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Homebrew</td>
+      <td class="col-ecosystem">Homebrew<div class="ecosystem-purl-types"><code>pkg:homebrew</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">homebrew-cataloger</div><div class="evidence-patterns"><code>Cellar/*/*/.brew/*.rb</code>, <code>Library/Taps/*/*/Formula/*.rb</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="7">Java</td>
+      <td class="col-ecosystem" rowspan="7">Java<div class="ecosystem-purl-types"><code>pkg:maven</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">graalvm-native-image-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -259,7 +266,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="6">JavaScript</td>
+      <td class="col-ecosystem" rowspan="6">JavaScript<div class="ecosystem-purl-types"><code>pkg:npm</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">javascript-lock-cataloger</div><div class="evidence-patterns"><code>deno.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -296,21 +303,21 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Linux</td>
+      <td class="col-ecosystem">Linux<div class="ecosystem-purl-types"><code>pkg:generic</code><br><code>pkg:generic/linux-kernel</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">linux-kernel-cataloger</div><div class="evidence-patterns"><code>kernel</code>, <code>kernel-*</code>, <code>vmlinux</code>, <code>vmlinux-*</code>, <code>vmlinuz</code>, <code>vmlinuz-*</code>, <code>bzImage</code>, <code>bzImage-*</code>, <code>zImage</code>, <code>zImage-*</code>, <code>lib/modules/**/*.ko</code>, <code>lib/modules/**/*.ko.gz</code>, <code>lib/modules/**/*.ko.xz</code>, <code>lib/modules/**/*.ko.zst</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Lua</td>
+      <td class="col-ecosystem">Lua<div class="ecosystem-purl-types"><code>pkg:luarocks</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">lua-rock-cataloger</div><div class="evidence-patterns"><code>*.rockspec</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="4">.NET</td>
+      <td class="col-ecosystem" rowspan="4">.NET<div class="ecosystem-purl-types"><code>pkg:npm</code><br><code>pkg:nuget</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">dotnet-deps-binary-cataloger</div><div class="evidence-patterns"><code>*.deps.json</code>, <code>*.dll</code>, <code>*.exe</code>, <code>*.bpl</code>, <code>*.DLL</code>, <code>*.EXE</code>, <code>*.BPL</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -335,7 +342,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Nix</td>
+      <td class="col-ecosystem" rowspan="2">Nix<div class="ecosystem-purl-types"><code>pkg:nix</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">nix-cataloger</div><div class="evidence-patterns"><code>nix/var/nix/db/db.sqlite</code>, <code>nix/store/*</code>, <code>nix/store/*.drv</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -348,14 +355,14 @@
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="When: CaptureOwnedFiles = true&#10;&#10;Evidence: NixStoreEntry.Files"><svg class="capability-icon"><use href="#icon-gear"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">OCaml</td>
+      <td class="col-ecosystem">OCaml<div class="ecosystem-purl-types"><code>pkg:opam</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">opam-cataloger</div><div class="evidence-patterns"><code>*opam</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="5">PHP</td>
+      <td class="col-ecosystem" rowspan="5">PHP<div class="ecosystem-purl-types"><code>pkg:composer</code><br><code>pkg:pear</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">php-composer-installed-cataloger</div><div class="evidence-patterns"><code>installed.json</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -386,21 +393,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Portage</td>
-      <td class="col-cataloger"><div class="cataloger-name">portage-cataloger</div><div class="evidence-patterns"><code>var/db/pkg/*/*/CONTENTS</code></div></td>
-      <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
-      <td class="col-dependency indicator"></td>
-      <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="PortageEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
-    </tr>
-    <tr>
-      <td class="col-ecosystem">Prolog</td>
+      <td class="col-ecosystem">Prolog<div class="ecosystem-purl-types"><code>pkg:swiplpack</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">swipl-pack-cataloger</div><div class="evidence-patterns"><code>pack.pl</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="7">Python</td>
+      <td class="col-ecosystem" rowspan="7">Python<div class="ecosystem-purl-types"><code>pkg:pypi</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">python-installed-package-cataloger</div><div class="evidence-patterns"><code>*.egg-info</code>, <code>*dist-info/METADATA</code>, <code>*egg-info/PKG-INFO</code>, <code>*DIST-INFO/METADATA</code>, <code>*EGG-INFO/PKG-INFO</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -443,14 +443,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">R</td>
+      <td class="col-ecosystem">R<div class="ecosystem-purl-types"><code>pkg:cran</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">r-package-cataloger</div><div class="evidence-patterns"><code>DESCRIPTION</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">RPM</td>
+      <td class="col-ecosystem" rowspan="3">RPM-based Linux<div class="ecosystem-purl-types"><code>pkg:rpm</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">rpm-archive-cataloger</div><div class="evidence-patterns"><code>*.rpm</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
@@ -469,7 +469,7 @@
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="RpmDBEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="3">Ruby</td>
+      <td class="col-ecosystem" rowspan="3">Ruby<div class="ecosystem-purl-types"><code>pkg:gem</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">ruby-gemfile-cataloger</div><div class="evidence-patterns"><code>Gemfile.lock</code>, <code>Gemfile.next.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -488,7 +488,7 @@
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="RubyGemspec.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Rust</td>
+      <td class="col-ecosystem" rowspan="2">Rust<div class="ecosystem-purl-types"><code>pkg:cargo</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">cargo-auditable-binary-cataloger</div><div class="evidence-patterns"><code>application/x-executable</code>, <code>application/x-mach-binary</code>, <code>application/x-elf</code>, <code>application/x-sharedlib</code>, <code>application/vnd.microsoft.portable-executable</code>, <code>application/x-executable</code> (mimetype)</div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -501,14 +501,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">SBOM</td>
+      <td class="col-ecosystem">SBOM<div class="ecosystem-purl-types"><code>pkg:apk</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">sbom-cataloger</div><div class="evidence-patterns"><code>*.syft.json</code>, <code>*.bom.*</code>, <code>*.bom</code>, <code>bom</code>, <code>*.sbom.*</code>, <code>*.sbom</code>, <code>sbom</code>, <code>*.cdx.*</code>, <code>*.cdx</code>, <code>*.spdx.*</code>, <code>*.spdx</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="4">Snap</td>
+      <td class="col-ecosystem" rowspan="4">Snap<div class="ecosystem-purl-types"><code>pkg:deb</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">snap-cataloger</div><div class="evidence-patterns"><code>snap/snapcraft.yaml</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"></td>
@@ -533,7 +533,7 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem" rowspan="2">Swift</td>
+      <td class="col-ecosystem" rowspan="2">Swift<div class="ecosystem-purl-types"><code>pkg:cocoapods</code><br><code>pkg:swift</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">cocoapods-cataloger</div><div class="evidence-patterns"><code>Podfile.lock</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
@@ -546,14 +546,14 @@
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">Terraform</td>
+      <td class="col-ecosystem">Terraform<div class="ecosystem-purl-types"><code>pkg:terraform</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">terraform-lock-cataloger</div><div class="evidence-patterns"><code>.terraform.lock.hcl</code></div></td>
       <td class="col-license indicator"></td>
       <td class="col-dependency indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-files indicator"></td>
     </tr>
     <tr>
-      <td class="col-ecosystem">WordPress</td>
+      <td class="col-ecosystem">WordPress<div class="ecosystem-purl-types"><code>pkg:wordpress-plugin</code></div></td>
       <td class="col-cataloger"><div class="cataloger-name">wordpress-plugins-cataloger</div><div class="evidence-patterns"><code>wp-content/plugins/*/*.php</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>

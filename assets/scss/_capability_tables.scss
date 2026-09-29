@@ -174,6 +174,15 @@
   font-weight: 400;
 }
 
+/* purl types listed under the ecosystem name in the overview table */
+.capability-table .ecosystem-purl-types {
+  line-height: 1.6;
+}
+
+.capability-table .ecosystem-purl-types code {
+  font-size: 0.75rem;
+}
+
 .capability-table-overview .col-license,
 .capability-table-overview .col-dependency,
 .capability-table-overview .col-files {
@@ -227,6 +236,17 @@
 .capability-table .col-cataloger {
   white-space: normal;
   line-height: 1.6;
+}
+
+/* Package URL type column - lists one or more pkg:<type> tokens */
+.capability-table .col-purl-type {
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.capability-table-ecosystem .col-purl-type {
+  width: 12%;
+  min-width: 110px;
 }
 
 /* Cataloger name - prominent, not code */
