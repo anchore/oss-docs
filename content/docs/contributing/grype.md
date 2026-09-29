@@ -18,14 +18,6 @@ In order to test and develop in the [Grype repo](https://github.com/anchore/gryp
 - make
 - SQLite3 (optional -- for database inspection)
 
-### Initial setup
-
-Run once after cloning to install development tools:
-
-```bash
-make bootstrap
-```
-
 {{< alert color="primary" >}}
 Make sure you've updated your docker settings so the default docker socket path is available.
 
