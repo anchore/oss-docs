@@ -3,7 +3,7 @@
 ```
 [Image]
  Layer:   0
- Digest:  sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc
+ Digest:  sha256:6cd030ace585499136a675899c23aeddcf4ae8065a8d35f016a132bfdc3b4aed
  Size:   4445814
  MediaType:  application/vnd.docker.image.rootfs.diff.tar.gzip
 

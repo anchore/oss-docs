@@ -2,9 +2,9 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:c7736c97-ff91-45e5-93ff-e5beb0efcb26" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:45d6db38-871b-416b-8850-587f3478bd02" version="1">
   <metadata>
-    <timestamp>2026-09-18T02:11:10Z</timestamp>
+    <timestamp>2026-09-29T15:01:22Z</timestamp>
     <tools>
       <components>
         <component type="application">
@@ -14,13 +14,13 @@
         </component>
       </components>
     </tools>
-    <component bom-ref="4382801843ecbee7" type="container">
+    <component bom-ref="faf1a1fdc47058b6" type="container">
       <name>busybox</name>
-      <version>sha256:b61e4fb577abc534e8c017e596db6919ce93ebce6590df836dbf8c9caa631f6f</version>
+      <version>sha256:8770c41a081d6f877b47de296ece92874bdc560a554faed767e6fa1f63e6d976</version>
     </component>
   </metadata>
   <components>
-    <component bom-ref="pkg:generic/busybox@1.38.0?package-id=df8a74ed44ba5a45" type="application">
+    <component bom-ref="pkg:generic/busybox@1.38.0?package-id=b42fb417fc668909" type="application">
       <name>busybox</name>
       <version>1.38.0</version>
       <cpe>cpe:2.3:a:busybox:busybox:1.38.0:*:*:*:*:*:*:*</cpe>
@@ -29,7 +29,7 @@
         <property name="syft:package:foundBy">binary-classifier-cataloger</property>
         <property name="syft:package:type">binary</property>
         <property name="syft:package:metadataType">binary-signature</property>
-        <property name="syft:location:0:layerID">sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc</property>
+        <property name="syft:location:0:layerID">sha256:6cd030ace585499136a675899c23aeddcf4ae8065a8d35f016a132bfdc3b4aed</property>
         <property name="syft:location:0:path">/bin/busybox</property>
       </properties>
     </component>
@@ -46,7 +46,7 @@
         <property name="syft:distro:versionID">1.38.0</property>
       </properties>
     </component>
-    <component bom-ref="d80578b9d872e0a1" type="file">
+    <component bom-ref="637ef94705caf530" type="file">
       <name>/bin/busybox</name>
       <hashes>
         <hash alg="SHA-1">ad043255229d0a1f0a99e1cebaf70d32914c50e1</hash>

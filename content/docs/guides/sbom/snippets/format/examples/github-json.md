@@ -19,7 +19,7 @@
         "source_location": "busybox:latest:/bin/busybox"
       },
       "metadata": {
-        "syft:filesystem": "sha256:0958e0fef2d6a31e1325b8bfecd99dead933363682d69850a7606599023751bc"
+        "syft:filesystem": "sha256:6cd030ace585499136a675899c23aeddcf4ae8065a8d35f016a132bfdc3b4aed"
       },
       "resolved": {
         "pkg:generic/busybox@1.38.0": {
@@ -30,6 +30,6 @@
       }
     }
   },
-  "scanned": "2026-09-18T02:11:13Z"
+  "scanned": "2026-09-29T15:01:24Z"
 }
 ```
