@@ -56,6 +56,13 @@ runs:
       with:
         python-version: ${{ inputs.python-version }}
 
+    # keep the venv out of the workspace: Hugo >= v0.166 refuses to run Node.js tools (PostCSS)
+    # when any symlink under the project resolves outside it, and .venv/bin/python always does
+    - name: Place uv venv outside the workspace
+      if: inputs.python-version != ''
+      shell: bash
+      run: echo "UV_PROJECT_ENVIRONMENT=${RUNNER_TEMP}/venv" >> "$GITHUB_ENV"
+
     # resolve cache locations so the restore/save steps below stay tool-agnostic
     - name: Resolve npm cache directory
       if: inputs.node-version != ''
