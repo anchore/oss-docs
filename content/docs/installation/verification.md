@@ -42,14 +42,26 @@ Download your tool binary and the verification files from the appropriate GitHub
 
 You'll need:
 
-- The binary file (e.g., `syft_1.23.1_darwin_arm64.tar.gz`)
+- The binary file (e.g., `syft_1.54.0_darwin_arm64.tar.gz`)
 - `checksums.txt`
-- `checksums.txt.pem`
-- `checksums.txt.sig`
+- the signature material for `checksums.txt`, which depends on the release:
+  - Syft v1.54.0 and later: `checksums.txt.sigstore.json` (a single sigstore bundle holding the signature, certificate, and transparency log proof)
+  - older Syft releases, Grype, and Grant: `checksums.txt.pem` and `checksums.txt.sig`
 
 ### Step 2: Verify the signature
 
-Use cosign to verify the checksum file's signature:
+Use cosign to verify the checksum file's signature.
+
+For releases with a `checksums.txt.sigstore.json` bundle (cosign v2.5.0 or newer is required):
+
+```bash
+cosign verify-blob <path to checksums.txt> \
+  --bundle <path to checksums.txt.sigstore.json> \
+  --certificate-identity-regexp 'https://github\.com/anchore/<tool-name>/\.github/workflows/.+' \
+  --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
+```
+
+For releases with a separate `checksums.txt.pem` and `checksums.txt.sig`:
 
 ```bash
 cosign verify-blob <path to checksums.txt> \
@@ -83,26 +95,24 @@ sha256sum --ignore-missing -c checksums.txt
 
 ### Complete example
 
-Here's a complete example verifying Syft v1.23.1 for macOS ARM64:
+Here's a complete example verifying Syft v1.54.0 for macOS ARM64:
 
 **Download the files:**
 
 ```bash
 # Download the binary
-wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_darwin_arm64.tar.gz
+wget https://github.com/anchore/syft/releases/download/v1.54.0/syft_1.54.0_darwin_arm64.tar.gz
 
 # Download verification files
-wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt
-wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt.pem
-wget https://github.com/anchore/syft/releases/download/v1.23.1/syft_1.23.1_checksums.txt.sig
+wget https://github.com/anchore/syft/releases/download/v1.54.0/syft_1.54.0_checksums.txt
+wget https://github.com/anchore/syft/releases/download/v1.54.0/syft_1.54.0_checksums.txt.sigstore.json
 ```
 
 **Verify the signature:**
 
 ```bash
-cosign verify-blob ./syft_1.23.1_checksums.txt \
-  --certificate ./syft_1.23.1_checksums.txt.pem \
-  --signature ./syft_1.23.1_checksums.txt.sig \
+cosign verify-blob ./syft_1.54.0_checksums.txt \
+  --bundle ./syft_1.54.0_checksums.txt.sigstore.json \
   --certificate-identity-regexp 'https://github\.com/anchore/syft/\.github/workflows/.+' \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com"
 ```
@@ -116,13 +126,13 @@ Verified OK
 **Verify the checksum:**
 
 ```bash
-sha256sum --ignore-missing -c syft_1.23.1_checksums.txt
+sha256sum --ignore-missing -c syft_1.54.0_checksums.txt
 ```
 
 **Output:**
 
 ```
-syft_1.23.1_darwin_arm64.tar.gz: OK
+syft_1.54.0_darwin_arm64.tar.gz: OK
 ```
 
 ## Checksum verification
@@ -162,7 +172,8 @@ syft_1.23.1_darwin_arm64.tar.gz: OK
 If cosign verification fails, check these common issues:
 
 - **Mismatched certificate identity**: Ensure you're using the correct tool name (`syft`, `grype`, or `grant`) in the certificate identity pattern
-- **Outdated cosign**: Update to the latest version of cosign
+- **Outdated cosign**: Update to the latest version of cosign. Verifying a `checksums.txt.sigstore.json` bundle requires cosign v2.5.0 or newer
+- **Wrong signature material for the release**: Syft v1.54.0 and later only publish `checksums.txt.sigstore.json`; use `--bundle` instead of `--certificate` / `--signature`
 - **Network connectivity**: Cosign requires internet access to verify against transparency logs
 - **Corrupted download**: Try downloading the verification files again
 
