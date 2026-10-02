@@ -2,15 +2,15 @@
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:45d6db38-871b-416b-8850-587f3478bd02" version="1">
+<bom xmlns="http://cyclonedx.org/schema/bom/1.7" serialNumber="urn:uuid:0d66d303-9089-4aa6-8284-e13a4f76643e" version="1">
   <metadata>
-    <timestamp>2026-09-29T15:01:22Z</timestamp>
+    <timestamp>2026-10-02T02:15:52Z</timestamp>
     <tools>
       <components>
         <component type="application">
           <author>anchore</author>
           <name>syft</name>
-          <version>1.52.0</version>
+          <version>1.54.0</version>
         </component>
       </components>
     </tools>
