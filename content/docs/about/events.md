@@ -3,7 +3,7 @@ title = "Events"
 description = "Anchore OSS Community Events and Meetings"
 weight = 15
 type = "docs"
-#icon = "fa-solid fa-calendar"
+# icon = "fa-solid fa-calendar"
 categories = ["community"]
 +++
 

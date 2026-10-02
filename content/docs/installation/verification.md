@@ -1,5 +1,5 @@
 +++
-tags = ['syft', 'grype', 'grant']
+tags = ["syft", "grype", "grant"]
 title = "Verifying Downloads"
 description = "Verifying release assets after downloading"
 weight = 50

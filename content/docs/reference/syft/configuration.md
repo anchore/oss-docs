@@ -2,8 +2,8 @@
 title = "Syft Configuration Reference"
 linkTitle = "Configuration"
 weight = 11
-tags = ['syft']
-categories = ['reference']
+tags = ["syft"]
+categories = ["reference"]
 url = "docs/reference/syft/configuration"
 menu_group = "syft"
 +++

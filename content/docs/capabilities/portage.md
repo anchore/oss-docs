@@ -4,6 +4,7 @@ description = "Portage package format used by Gentoo-based Linux distributions"
 weight = 230
 type = "docs"
 menu_group = "os"
+
 [params]
 sidebar_badge = "gentoo"
 +++

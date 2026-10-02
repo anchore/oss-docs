@@ -2,8 +2,8 @@
 title = "Grant Command Line Reference"
 linkTitle = "Command Line"
 weight = 30
-tags = ['grant']
-categories = ['reference']
+tags = ["grant"]
+categories = ["reference"]
 url = "docs/reference/grant/cli"
 menu_group = "grant"
 +++

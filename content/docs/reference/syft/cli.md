@@ -2,8 +2,8 @@
 title = "Syft Command Line Reference"
 linkTitle = "Command Line"
 weight = 10
-tags = ['syft']
-categories = ['reference']
+tags = ["syft"]
+categories = ["reference"]
 url = "docs/reference/syft/cli"
 menu_group = "syft"
 +++
