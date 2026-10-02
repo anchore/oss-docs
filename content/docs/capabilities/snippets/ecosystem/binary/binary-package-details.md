@@ -402,7 +402,7 @@
     <tr>
       <td class="col-class">perl-binary</td>
       <td class="col-criteria"><code>perl</code></td>
-      <td class="col-purl"><code>pkg:generic/perl</code></td>
+      <td class="col-purl"><code>pkg:cpan/perl</code></td>
       <td class="col-cpes"><code>cpe:2.3:a:perl:perl:*:*:*:*:*:*:*:*</code></td>
     </tr>
     <tr>

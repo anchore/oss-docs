@@ -54,6 +54,8 @@ Selection expressions: 0
 │ nix-store-cataloger                    │ deprecated, package                                                                   │
 │ opam-cataloger                         │ declared, directory, language, ocaml, opam, package                                   │
 │ pe-binary-package-cataloger            │ binary, bpl, declared, directory, dll, exe, image, installed, package, pe, pe-package │
+│ perl-cpan-installed-cataloger          │ cpan, directory, image, installed, language, package, perl                            │
+│ perl-cpan-meta-cataloger               │ cpan, declared, directory, language, package, perl                                    │
 │ php-composer-installed-cataloger       │ composer, image, installed, language, package, php                                    │
 │ php-composer-lock-cataloger            │ composer, declared, directory, language, package, php                                 │
 │ php-interpreter-cataloger              │ binary, declared, directory, image, installed, package, php                           │

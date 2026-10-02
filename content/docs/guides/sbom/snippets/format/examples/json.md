@@ -9799,7 +9799,7 @@
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.52.0",
+    "version": "1.54.0",
     "configuration": {
       "catalogers": {
         "requested": {
@@ -9832,6 +9832,7 @@
           "lua-rock-cataloger",
           "nix-cataloger",
           "pe-binary-package-cataloger",
+          "perl-cpan-installed-cataloger",
           "php-composer-installed-cataloger",
           "php-interpreter-cataloger",
           "php-pear-serialized-cataloger",
@@ -10011,8 +10012,8 @@
     }
   },
   "schema": {
-    "version": "16.1.10",
-    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.10.json"
+    "version": "16.1.11",
+    "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-16.1.11.json"
   }
 }
 ```
