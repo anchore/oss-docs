@@ -10,7 +10,7 @@
     "markdownlint-cli2": "^0.23.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.9.9",
-    "prettier-plugin-toml": "^2.0.6"
+    "prettier-plugin-toml": "^3.0.2"
   },
   "scripts": {
     "build": ".tool/hugo --gc --minify -e production && npx -y pagefind --site public",
