@@ -4,6 +4,7 @@ description = "Debian package format used by Debian-based Linux distributions"
 weight = 80
 type = "docs"
 menu_group = "os"
+
 [params]
 sidebar_badge = "debian+"
 +++

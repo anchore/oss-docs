@@ -2,8 +2,8 @@
 title = "Grant Configuration Reference"
 linkTitle = "Configuration"
 weight = 31
-tags = ['grant']
-categories = ['reference']
+tags = ["grant"]
+categories = ["reference"]
 url = "docs/reference/grant/configuration"
 menu_group = "grant"
 +++

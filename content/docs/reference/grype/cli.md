@@ -2,8 +2,8 @@
 title = "Grype Command Line Reference"
 linkTitle = "Command Line"
 weight = 20
-tags = ['grype']
-categories = ['reference']
+tags = ["grype"]
+categories = ["reference"]
 url = "docs/reference/grype/cli"
 menu_group = "grype"
 +++

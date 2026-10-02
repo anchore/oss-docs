@@ -1,5 +1,5 @@
 +++
-tags = ['grant']
+tags = ["grant"]
 title = "Installing Grant"
 linkTitle = "Grant"
 weight = 30

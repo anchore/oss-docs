@@ -2,8 +2,8 @@
 title = "Grype Configuration Reference"
 linkTitle = "Configuration"
 weight = 21
-tags = ['grype']
-categories = ['reference']
+tags = ["grype"]
+categories = ["reference"]
 url = "docs/reference/grype/configuration"
 menu_group = "grype"
 +++

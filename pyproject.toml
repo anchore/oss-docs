@@ -7,7 +7,7 @@ requires-python = ">=3.12"
 dependencies = ["click>=8.3.0", "requests>=2.32.5", "rich>=13.0.0", "pyyaml>=6.0", "mistune>=3.1.4"]
 
 [tool.setuptools]
-packages = [] # no Python packages to install - this is a Hugo site with helper scripts
+packages = []  # no Python packages to install - this is a Hugo site with helper scripts
 
 [tool.uv]
 exclude-newer = "1 week"
@@ -15,23 +15,11 @@ exclude-newer = "1 week"
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 addopts = [
-  "-ra",                       # show summary of all test results
-  "--strict-markers",          # error on undefined markers
-  "--cov=src",                 # measure coverage for utils modules
-  "--cov-report=term-missing", # show lines missing coverage
-  "--cov-report=html",         # generate HTML coverage report
-]
-
-[dependency-groups]
-dev = [
-  "pre-commit>=4.3.0",
-  "pyrefly>=0.29.0",
-  "pytest>=8.4.1",
-  "pytest-cov>=6.0.0",
-  "pytest-snapshot>=0.9.0",
-  "pytest-sugar>=1.0.0",
-  "ruff>=0.12.7",
-  "ty>=0.0.1a18",
+  "-ra",  # show summary of all test results
+  "--strict-markers",  # error on undefined markers
+  "--cov=src",  # measure coverage for utils modules
+  "--cov-report=term-missing",  # show lines missing coverage
+  "--cov-report=html",  # generate HTML coverage report
 ]
 
 [tool.ruff]
@@ -46,14 +34,14 @@ select = [
   "F",  # pyflakes
   "I",  # isort
   "B",  # flake8-bugbear
-  "C4", # flake8-comprehensions
-  "UP", # pyupgrade
+  "C4",  # flake8-comprehensions
+  "UP",  # pyupgrade
 ]
 ignore = [
-  "E402", # module level import not at top of file
-  "E501", # line too long, handled by black
-  "B008", # do not perform function calls in argument defaults
-  "C901", # too complex
+  "E402",  # module level import not at top of file
+  "E501",  # line too long, handled by black
+  "B008",  # do not perform function calls in argument defaults
+  "C901",  # too complex
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -83,3 +71,15 @@ root = ["src"]
 # see: https://pyrefly.org/en/docs/configuration/
 disable-project-excludes-heuristics = true
 project-excludes = ["**/node_modules", "**/__pycache__", "**/venv/**/*"]
+
+[dependency-groups]
+dev = [
+  "pre-commit>=4.3.0",
+  "pyrefly>=0.29.0",
+  "pytest>=8.4.1",
+  "pytest-cov>=6.0.0",
+  "pytest-snapshot>=0.9.0",
+  "pytest-sugar>=1.0.0",
+  "ruff>=0.12.7",
+  "ty>=0.0.1a18",
+]

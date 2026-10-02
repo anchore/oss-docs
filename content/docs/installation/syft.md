@@ -1,5 +1,5 @@
 +++
-tags = ['syft']
+tags = ["syft"]
 title = "Installing Syft"
 linkTitle = "Syft"
 weight = 10
