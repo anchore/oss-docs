@@ -157,7 +157,7 @@ match:
     using-cpes: true
 
   dpkg:
-    # (env: GRYPE_MATCH_DPKG_USING_CPES)
+    # use CPE matching to find vulnerabilities (env: GRYPE_MATCH_DPKG_USING_CPES)
     using-cpes: false
 
     # strategy for handling missing epochs in dpkg package versions during matching (options: zero, auto) (env: GRYPE_MATCH_DPKG_MISSING_EPOCH_STRATEGY)
@@ -167,7 +167,7 @@ match:
     use-cpes-for-eol: false
 
   rpm:
-    # (env: GRYPE_MATCH_RPM_USING_CPES)
+    # use CPE matching to find vulnerabilities (env: GRYPE_MATCH_RPM_USING_CPES)
     using-cpes: false
 
     # strategy for handling missing epochs in RPM package versions during matching (options: zero, auto) (env: GRYPE_MATCH_RPM_MISSING_EPOCH_STRATEGY)
