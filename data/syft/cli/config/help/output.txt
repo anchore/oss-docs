@@ -329,7 +329,7 @@ source:
 
   image:
     # allows users to specify which image source should be used to generate the sbom
-    # valid values are: registry, docker, podman (env: SYFT_SOURCE_IMAGE_DEFAULT_PULL_SOURCE)
+    # valid values are: registry, docker, podman, containers-storage (env: SYFT_SOURCE_IMAGE_DEFAULT_PULL_SOURCE)
     default-pull-source: ''
 
     # (env: SYFT_SOURCE_IMAGE_MAX_LAYER_SIZE)
