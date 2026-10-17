@@ -1,8 +1,8 @@
 Application:   syft
-Version:       1.54.0
-BuildDate:     2026-10-01T20:48:12Z
-GitCommit:     cc326e45a6213360266dda4b30cc68095946d676
-GitDescription: v1.54.0
+Version:       1.54.1
+BuildDate:     2026-10-06T15:32:19Z
+GitCommit:     b254e6d92f28c3868a755f62fb3ca8f26e9fee76
+GitDescription: v1.54.1
 Platform:      linux/amd64
 GoVersion:     go1.26.8
 Compiler:      gc
