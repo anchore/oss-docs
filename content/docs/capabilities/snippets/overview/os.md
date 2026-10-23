@@ -39,7 +39,7 @@
       <td class="col-os-name">Azure Linux</td>
       <td class="col-versions"><code>3.0</code></td>
       <td class="col-provider"><code>mariner</code></td>
-      <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/cbl-mariner-2.0-oval.xml">Microsoft CBL-Mariner OVAL</a></td>
+      <td class="col-data-source"><a href="https://github.com/microsoft/AzureLinuxVulnerabilityData/blob/main/azurelinux-3.0-oval.xml">Microsoft AzureLinux OVAL</a></td>
     </tr>
     <tr>
       <td class="col-os-name">CentOS</td>
