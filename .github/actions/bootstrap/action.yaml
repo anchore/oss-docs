@@ -30,7 +30,7 @@ inputs:
   uv-version:
     description: "UV version to install"
     required: true
-    default: "0.5.16"
+    default: "0.13.4" # bump past https://github.com/astral-sh/uv/security/advisories/GHSA-hq85-5cpj-mr62 fix
 
 runs:
   using: "composite"
@@ -49,6 +49,7 @@ runs:
       if: inputs.python-version != ''
       with:
         # uv cache is managed below so untrusted runs cannot write back
+        version: ${{ inputs.uv-version }}
         enable-cache: false
 
     - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
