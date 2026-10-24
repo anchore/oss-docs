@@ -9799,7 +9799,7 @@
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.54.0",
+    "version": "1.55.0",
     "configuration": {
       "catalogers": {
         "requested": {
