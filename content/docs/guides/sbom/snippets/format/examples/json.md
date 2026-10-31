@@ -9784,7 +9784,7 @@
       ],
       "manifest": "eyJzY2hlbWFWZXJzaW9uIjoyLCJtZWRpYVR5cGUiOiJhcHBsaWNhdGlvbi92bmQuZG9ja2VyLmRpc3RyaWJ1dGlvbi5tYW5pZmVzdC52Mitqc29uIiwiY29uZmlnIjp7Im1lZGlhVHlwZSI6ImFwcGxpY2F0aW9uL3ZuZC5kb2NrZXIuY29udGFpbmVyLmltYWdlLnYxK2pzb24iLCJzaXplIjo0NTksImRpZ2VzdCI6InNoYTI1NjphYWVmOTBlMDY1MjM1ZWIwYjJkOTkzOGJlODVkMWI4MWFkZDI5MDJjZjg5YWZmZTJjZGZhMTliZTMzNDc2YWMwIn0sImxheWVycyI6W3sibWVkaWFUeXBlIjoiYXBwbGljYXRpb24vdm5kLmRvY2tlci5pbWFnZS5yb290ZnMuZGlmZi50YXIuZ3ppcCIsInNpemUiOjQ2Nzk2ODAsImRpZ2VzdCI6InNoYTI1Njo2Y2QwMzBhY2U1ODU0OTkxMzZhNjc1ODk5YzIzYWVkZGNmNGFlODA2NWE4ZDM1ZjAxNmExMzJiZmRjM2I0YWVkIn1dfQ==",
       "config": "ewoJImNvbmZpZyI6IHsKCQkiQ21kIjogWwoJCQkic2giCgkJXSwKCQkiRW52IjogWwoJCQkiUEFUSD0vdXNyL2xvY2FsL3NiaW46L3Vzci9sb2NhbC9iaW46L3Vzci9zYmluOi91c3IvYmluOi9zYmluOi9iaW4iCgkJXQoJfSwKCSJjcmVhdGVkIjogIjIwMjYtMDUtMTNUMDI6MjE6NDlaIiwKCSJoaXN0b3J5IjogWwoJCXsKCQkJImNyZWF0ZWQiOiAiMjAyNi0wNS0xM1QwMjoyMTo0OVoiLAoJCQkiY3JlYXRlZF9ieSI6ICJCdXN5Qm94IDEuMzguMCAoZ2xpYmMpLCBEZWJpYW4gMTMiCgkJfQoJXSwKCSJyb290ZnMiOiB7CgkJInR5cGUiOiAibGF5ZXJzIiwKCQkiZGlmZl9pZHMiOiBbCgkJCSJzaGEyNTY6NmNkMDMwYWNlNTg1NDk5MTM2YTY3NTg5OWMyM2FlZGRjZjRhZTgwNjVhOGQzNWYwMTZhMTMyYmZkYzNiNGFlZCIKCQldCgl9LAoJImFyY2hpdGVjdHVyZSI6ICJhbWQ2NCIsCgkib3MiOiAibGludXgiCn0K",
-      "repoDigests": ["busybox@sha256:fd7dc98638c8e305f4dc34e979f1c0fdfdcaeb0fbf8fcff77ae834b6da3d7e6e"],
+      "repoDigests": ["busybox@sha256:a46257e06c82ad85242d0d38077d0a52d9896389ca60a1a59d3463db586e5fa4"],
       "architecture": "amd64",
       "os": "linux"
     }
@@ -9799,7 +9799,7 @@
   },
   "descriptor": {
     "name": "syft",
-    "version": "1.54.0",
+    "version": "1.55.0",
     "configuration": {
       "catalogers": {
         "requested": {
