@@ -135,7 +135,16 @@ def generate_overview_os_table(
         if os_entries:
             # OS has vulnerability data
             # get data source info (should be same for all entries of same OS)
-            source_key = os_entries[0].provider
+            # A provider can serve multiple OS-specific feeds (Azure Linux/Mariner).
+            provider = os_entries[0].provider
+            source_key = next(
+                (
+                    key
+                    for key in os_def.get("sources", [])
+                    if sources.get(key, {}).get("vunnel_provider") == provider
+                ),
+                provider,
+            )
             source_info = sources.get(source_key, {})
             source_name = source_info.get("name", source_key)
             source_url = source_info.get("url", "")
