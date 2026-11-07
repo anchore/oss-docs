@@ -6,11 +6,11 @@
   "dataLicense": "CC0-1.0",
   "SPDXID": "SPDXRef-DOCUMENT",
   "name": "busybox",
-  "documentNamespace": "https://anchore.com/syft/image/busybox-462a7c20-78dd-4212-97ec-412955b7d412",
+  "documentNamespace": "https://anchore.com/syft/image/busybox-f751c536-de3e-4e2c-a07b-4b8334635e13",
   "creationInfo": {
     "licenseListVersion": "3.29",
-    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.54.0"],
-    "created": "2026-10-02T02:15:52Z"
+    "creators": ["Organization: Anchore, Inc", "Tool: syft-1.57.0"],
+    "created": "2026-11-07T02:06:22Z"
   },
   "packages": [
     {
@@ -43,7 +43,10 @@
       "versionInfo": "sha256:8770c41a081d6f877b47de296ece92874bdc560a554faed767e6fa1f63e6d976",
       "supplier": "NOASSERTION",
       "downloadLocation": "NOASSERTION",
-      "filesAnalyzed": false,
+      "filesAnalyzed": true,
+      "packageVerificationCode": {
+        "packageVerificationCodeValue": "5da045c9e12237336e00ed5eb1872623d4779db5"
+      },
       "checksums": [
         {
           "algorithm": "SHA256",
@@ -5974,6 +5977,2111 @@
     {
       "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
       "relatedSpdxElement": "SPDXRef-Package-binary-busybox-b42fb417fc668909",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin---3d0fe85163571426",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin----3aa04cfd7a230c3a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-acpid-91be6851c69f66ac",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-add-shell-d759c205b9b8b1cc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-addgroup-df9fc04f72fda839",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-adduser-254b919f2cdb2b3e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-adjtimex-584cede59ba8cbc4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ar-5a08844b97e1f7d7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-arch-de28e9c4f436eb56",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-arp-b10da1d6f45f76f6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-arping-db0a11f28254b132",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ascii-f62264befb2746b1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ash-025298e95462a7d2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-awk-dbb372c618bff4aa",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-base32-b442659ef33087c4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-base64-b1fce11935a8aea6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-basename-389985495eb2e1d2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-bc-f5b83db42d036545",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-beep-6dd6c7f697b0225c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-blkdiscard-3fc5a80a44b59318",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-blkid-1bc6535e9cbb77ea",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-blockdev-f0408212bfabfab4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-bootchartd-e57bc33074f2da21",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-brctl-205b587fbb940436",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-bunzip2-881b8598d2d647d7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-busybox-637ef94705caf530",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-bzcat-debb5ff8f906db74",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-bzip2-03a3fc2d201fabe7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cal-d96b5c66183af217",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cat-3999ca51a44fd3a4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chat-7c805559e8e47527",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chattr-48145c06aef0119f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chgrp-bd5fa525c3b8e6ec",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chmod-860f77175d584e94",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chown-f13ee247b6b716ef",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chpasswd-41424d507ba8cb99",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chpst-bf6d0e064552a266",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chroot-408124d4a273c216",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chrt-7940385640b6079e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-chvt-1d2be76285149338",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cksum-4a2486006e15e54c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-clear-6e1a4770610ec15e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cmp-d84566228e00e187",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-comm-3d86aea4d783119d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-conspy-d89e752129bbe301",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cp-789733c06828d83e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cpio-0e2967d850a7d97d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-crc32-1b52197203589519",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-crond-ae9857921e2bb4e8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-crontab-53f9524c400ef431",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cryptpw-5cc9c0d7f6748655",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cttyhack-1bc85789e483ce70",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-cut-e06b8551d1c1962e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-date-b18606b5d277a7ed",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dc-324bd83b105405c1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dd-e54f5a4d589ab30f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-deallocvt-20da2aad31c4602d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-delgroup-f2448c5227ffd298",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-deluser-fe0c3cf03766c008",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-depmod-ed98383121c8e281",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-devmem-96cddbe74dc755bf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-df-029812fde648600d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dhcprelay-bb25f1cdfaa9d3fe",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-diff-d7aecedf9a67e3d0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dirname-ce1f5a21c0bb02e0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dmesg-120b4aea6889f88b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dnsd-bdc59b76dfbf64b9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dnsdomainname-ba3cf2e53be5ec58",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dos2unix-71fa5b0785d556f4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dpkg-f22bd74da92320e1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dpkg-deb-d06fbc51631c3cb8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-du-49ab90aa68d41dbd",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dumpkmap-8a31e7fc78b066c2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-dumpleases-81b05a43f5c3ca9a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-echo-e2430465b4e31056",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ed-7c189f34a6dab7bc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-egrep-de910e21d3c65d7f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-eject-193ca00a316e0043",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-env-0499e0629cd7aa1f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-envdir-613b00a71fc63930",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-envuidgid-52c628310e10d040",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ether-wake-fe915097a7f89c44",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-expand-b900be3c9e235f80",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-expr-bbfcee96df649e27",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-factor-3e923c46766158f5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fakeidentd-2419ce0aa751f47e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fallocate-98c92da302d77d7a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-false-584e51caff13f935",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fatattr-402c4bd9cb09adf2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fbset-251eb35032428806",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fbsplash-75e115dd79fcfe94",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fdflush-831dff4e29ba2f19",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fdformat-c03780931742ce83",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fdisk-80e56badb9f38593",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fgconsole-89ce5dc8e0555c24",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fgrep-c9919efcca49acfb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-find-b844847c769f2ce5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-findfs-762070cfd45cde77",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-flock-a30a8f11f08c3f30",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fold-1ac619645baaed08",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-free-8fc223441608a1d7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-freeramdisk-378cbe4d33c29361",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fsck-de9337f387e481fe",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fsck.minix-b664d320ab50ca71",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fsfreeze-7bcacd1263206f9c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fstrim-60b8b773cd17f2be",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fsync-e923554caa27ab14",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ftpd-fdcc4414491b6486",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ftpget-0bb6ef8ca281577b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ftpput-f081d71b5b813897",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-fuser-1e50a61dfd72a3c3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-getconf-f1f51c7204617746",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-getfattr-befaeae5d17c778d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-getopt-f0025aeaf32b3da3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-getty-87bc433ff3bd287d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-grep-5a9ce783d96f552c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-groups-845635abc3addfef",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-gunzip-2a0c1cf0f442d8e4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-gzip-c6bf8076b8b89db0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-halt-4401fcccfc934295",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hd-b536f3ccdd6b4894",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hdparm-14eebfef771a95b9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-head-5ef986d591e43895",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hexdump-7600fc6b695cac33",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hexedit-ccaaf54ef71f810d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hostid-e59f061a81f08af8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hostname-30ab0da61210d688",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-httpd-b6ddd6c54f292261",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hush-6d968bdce382d1d2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-hwclock-062b02f123b821f6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-i2cdetect-2dcbcc9818130302",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-i2cdump-6d76a2c3c67d1050",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-i2cget-8155be978d161f7b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-i2cset-5136b113f1ae1ce0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-i2ctransfer-8093b5582196a170",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-id-a0f31233fce88601",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ifconfig-a7569e4cca588c85",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ifdown-b0c388a1694e60de",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ifenslave-967e03003a3dcf59",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ifplugd-3a2fe14a63e90abf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ifup-ef5fa45ae63ed694",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-inetd-de13c2f43a0f3573",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-init-65e6b1378cf01f39",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-inotifyd-67c13b1ccd1365da",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-insmod-44c3bc3960fbd2ff",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-install-71b83f808fe16d7c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ionice-76b1df2be239a6a8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-iostat-ab6a0e9d4e42b269",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ip-17433b2433190193",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ipaddr-c70e4030caf1dacb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ipcalc-ebd3cb97530c69fb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ipcrm-9909c99941bfdd99",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ipcs-19a912c3573d4243",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-iplink-3a0b050b0ad09f44",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ipneigh-c8e33998d2314a15",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-iproute-18cb1d6aeef016a1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-iprule-5e4dc75fc2deee36",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-iptunnel-ae1c4b50dc87d60b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-kbd-mode-7bf0b20ab0736925",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-kill-6b54d23b0a773009",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-killall-65518b5d1a77765b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-killall5-8abd7d059096a933",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-klogd-30b19e0a50b35298",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-last-58628a8f5d0fb154",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-less-e57bfccff6e375d7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-link-d257f25f62aed2d1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-linux32-046c711f767ffb81",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-linux64-bd3868a90aa80b46",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-linuxrc-249f662b9b7b30bb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ln-350a14f1feb018c0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-loadfont-49bf9ed9090c812f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-loadkmap-5776b90805863690",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-logger-5e56129ecee67f9b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-login-23840b4c2d52f542",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-logname-558ad65288737fe9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-logread-5b453353dc0cb5e4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-losetup-645151f25b3bedc7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lpd-c4c1cdbec5238528",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lpq-0846d135e2830b7f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lpr-b874ecc2cf1307bc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ls-d21ed27cdf4d0f5b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsattr-14c67ec6a1f51841",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsblk-b6cbfd364befba9e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsmod-345940d2a8b8823d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsof-30da93d0f684b343",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lspci-7ccda817e61594df",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsscsi-385f9b56dd84752d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lsusb-eae47271ec71eecb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lzcat-774cf62237bd0968",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lzma-1cb241929297a70d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-lzop-ff9271ed14bdb64a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-makedevs-fff5f81c36d10de3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-makemime-cc29ece149ca5118",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-man-a90364706a7de5c9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-md5sum-f0b0fd7521459395",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mdev-8c95e753a611f583",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mesg-6a386175872a7799",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-microcom-2dc5d14c10902cd9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mim-9a8206faed162b72",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkdir-092107a66621a6dd",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkdosfs-6ab0c5e53e7e7dd1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mke2fs-37fff707f3b8c275",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkfifo-91b1b2896bcdb5da",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkfs.ext2-209972e6d82b62d5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkfs.minix-b975c6f82814108e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkfs.vfat-cc942d73a6ed480a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mknod-e4d32a972ba0adfe",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkpasswd-6794fba4c1d5c931",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mkswap-e8d1e0b946457366",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mktemp-d0660502b60d268b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-modinfo-9695db05e8e76def",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-modprobe-28862b7af9dcd014",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-more-2a3bdcbf3b407a89",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mount-633945acfc74e455",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mountpoint-8c1fa31b7ec3197d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mpstat-1e9ee4b531583430",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mt-62c2e5b8756ec9d6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-mv-4b542b09c6436f33",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nameif-31fbe469cbd73bc9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nanddump-84d95ff80a388485",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nandwrite-1907477538f07a5d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nbd-client-21ea4bb6c1523a4c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nc-89685ca4e34fa355",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-netstat-2a6a808a43f921cc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nice-147a48fbce918cbf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nl-6baaf4e3201a9c00",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nmeter-e04c343a7e1ab10e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nohup-73047a8c6a2b2bcc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nologin-d07a71bbb90ee3d3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nproc-806c1a61a44055fb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nsenter-239d9bc22981f506",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-nslookup-a736c726616a3d62",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ntpd-d5d865a5058499a7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-od-2d786e1f45b1556b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-openvt-f000d622b9b52c60",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-partprobe-bd080ff5eaa40cb1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-passwd-943d3ea5769e6b46",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-paste-ae3ed32eeb1fbd24",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-patch-f5694e00bd33c573",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pgrep-8878b9a92e01b4b9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pidof-5c2bfbbfb18f2ef1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ping-4fff12f3c667121c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ping6-a97dfe028de502c7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pipe-progress-74553e22b20f2233",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pivot-root-0b346e014a0902db",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pkill-f1242ea13f73e592",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pmap-bacb4ef5ab6a7df4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-popmaildir-de6572fbdcc7e7fb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-poweroff-90ea8077147403d6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-powertop-cd98d8b234738d9c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-printenv-7f945ec4c5e42e18",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-printf-28bff72f05d93ad8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ps-a7116cba77714f5e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pscan-1b84e4a4edd50c21",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pstree-bd85eecfa515a6a6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pwd-48e3fc6ad59b14de",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-pwdx-d28e1d89f0c75197",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-raidautorun-b9717db4a7a323e6",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rdate-0487628263c9e7df",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rdev-032a2932ba0804cc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-readahead-4b3b5d4184ea085e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-readlink-d58786fe6a96080f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-readprofile-6dd3e0327079b3e8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-realpath-8a8c632998f39a5d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-reboot-6e7309b98de365be",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-reformime-c5d91fcdafa1c962",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-remove-shell-1d686e203effa794",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-renice-c623b9cb7de36c19",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-reset-cdc451e32a35a92e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-resize-339b8d0fbeadeb70",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-resume-6df838457918479a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rev-6019d2b319e218c9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rm-6657afe039159deb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rmdir-7c015d49e718f376",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rmmod-c6a4c7dd58bfcab0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-route-d1a46b20f63a0186",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rpm-bdfeb2332eaac81b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rpm2cpio-a0ceb6abc71e3b37",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rtcwake-ddebdb437a77ef88",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-run-init-68c89ce56f5ee025",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-run-parts-8a96ea954d4d0609",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-runlevel-31b5a540f2cc2622",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-runsv-25391ca0235d40df",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-runsvdir-bcea27b1a87ace9e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-rx-a76abc30be9ed5b2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-script-c2c666796265176c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-scriptreplay-1ce3de01c4ade92a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sed-7579a5db28f856f8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-seedrng-70b78c0dd24546a5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sendmail-20eb3c033b6d3cb8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-seq-e63f6812f94aea24",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setarch-74a5a0ad35c48731",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setconsole-337b6747ed4f8e53",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setfattr-0b2be47a9f4c3aa9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setfont-17c14e21557ddf43",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setkeycodes-8e22849ac65ca530",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setlogcons-e9ab785304a76b27",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setpriv-d8d7701573af474e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setserial-1563c45a343f86f0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setsid-6e966444290b7384",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-setuidgid-d84ac2440b0d06a7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sh-ba7449b7da42ff0f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sha1sum-d54e86a043d56696",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sha256sum-f1f1b8125abc49c2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sha384sum-d2e2d324889b32c9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sha3sum-7ccfc1a8e1b85827",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sha512sum-43e559c8ef831ca5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-showkey-9df131edd84d4b52",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-shred-2c2411bb7735198a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-shuf-2e4f8fe2fa25e5d8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-slattach-a8ce5df2e4a7c95b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sleep-9fd8a331478a7256",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-smemcap-e67bf29e153ef852",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-softlimit-8c6f2b09f0a44897",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sort-c925ef303bf11ad3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-split-5042c6ac657067a9",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ssl-client-08088389748837f2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ssl-server-3ef70e5c76555ad5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-start-stop-daemon-bb707c598fe3bd5a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-stat-f6d1b0a5f9f5ed16",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-strings-b4420f624069e02b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-stty-600b48e2e90ec6bc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-su-71e19026ac8d319d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sulogin-d5c26a8b1c56c2c8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sum-cc54f32c143b653a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sv-ac826978f6995a31",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-svc-0ef2e96ba8cf84ad",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-svlogd-863ee0ec24e98eb4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-svok-cd717b1a2d74f3d8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-swapoff-23ffbc7df9a50e02",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-swapon-51c5266e932fa6cb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-switch-root-bd1019e1dfb017ed",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sync-8dab709c7050f177",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-sysctl-7da9d68fab337314",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-syslogd-ace19b2c0163dcce",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tac-8872201b37431de3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tail-d1b4eedd181c0d08",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tar-995c9997d359ee5b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-taskset-fa9ee4fa2fbcf61c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tc-0d467ae917d80c8d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tcpsvd-6d80b8ef998c5497",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tee-095e39df937e7a11",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-telnet-5e9901fa010db423",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-telnetd-456967cab2e3e612",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-test-8f09d7c53d9e000b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tftp-ccf8997b542595d1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tftpd-5474ee6620d733bd",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-time-47bce9e6d8d8105f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-timeout-521f7463419bfc1a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-top-6c86c4ca36a84104",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-touch-e6590098db1081fb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tr-086125c636d60b40",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-traceroute-f8b5c5c4fc654fa3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-traceroute6-b746455e1ced1d81",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tree-ff32115dfe8f143e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-true-01fbffc6cf66a83e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-truncate-c5c0051ea543f1e7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ts-c8e563d4578356ee",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tsort-35ec820854ac1986",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tty-2bed791f12251116",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ttysize-a473d109c948ff89",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-tunctl-e24b9e96a1596fba",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubiattach-6d129a02eda9085a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubidetach-ddede2930af785a7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubimkvol-79ad54351f59c570",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubirename-5501a8a9c164f78f",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubirmvol-b86172d38791f986",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubirsvol-86915d281db90710",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-ubiupdatevol-9851b45232305beb",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-udhcpc-72c95eb8cfd2d5a7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-udhcpc6-e1bd1a3364770706",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-udhcpd-1f754dac42c0d7e0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-udpsvd-5f6d10c3d7b3ad87",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uevent-2e03ed396ff155fc",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-umount-272fb87eef27b7a0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uname-d1510d4075c8e1e5",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unexpand-4e5eb356a614104c",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uniq-708086442b0c973a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unix2dos-238bd76d308a2aa3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unlink-858f1fb0b4c8be23",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unlzma-bc00f199747b9d63",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unshare-650c329692a51e20",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unxz-a459054a7dd4bc18",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-unzip-baab318d2af554d8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uptime-985025c5afd50019",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-users-4d3cb9300b595231",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-usleep-fe0af6b0484ba795",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uudecode-f14bda7e882e464d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uuencode-f5705a4f6778d1ef",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-uuidgen-cd622cf622913cdf",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-vconfig-c4cde3bbfd7e87d8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-vi-443a0b3038cbdeed",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-vlock-65f022e8020252e3",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-vmstat-4490f2cd95c5a6af",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-volname-ff2fad4dffbde0d0",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-w-f3a29b73e2ff3ed4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-wall-d5746de0f945bb52",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-watch-c051db121110f405",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-watchdog-4b32dc87dae3c312",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-wc-8cf6369024a050e2",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-wget-6d2b889cd047f81b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-which-ba414c49a4cf0243",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-who-4b044616264d55b4",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-whoami-176c2393b77c4455",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-whois-7d294517bda4c960",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-xargs-a051c44cb99ad1f7",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-xxd-77d0f471b4d804a1",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-xz-2a7f0d3771d1c87e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-xzcat-969a674bb52ff55b",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-yes-1f8d5789c601924d",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-zcat-a2e3fc00942b1a9e",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-bin-zcip-a171a979777326be",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-ld-linux-x86-64.so.2-6401940b3ba37775",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libc.so.6-6243d7fbbbe74455",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libm.so.6-7dc85f4c48ba2367",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libnss-compat.so.2-0c7201d705137ee8",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libnss-dns.so.2-d82051fcd3641435",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libnss-files.so.2-c1f35fbdad4711ab",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libnss-hesiod.so.2-658eba943093af1a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libpthread.so.0-2765dbaab7c5776a",
+      "relationshipType": "CONTAINS"
+    },
+    {
+      "spdxElementId": "SPDXRef-DocumentRoot-Image-busybox",
+      "relatedSpdxElement": "SPDXRef-File-lib-libresolv.so.2-4533d91ccb7999b4",
       "relationshipType": "CONTAINS"
     },
     {
