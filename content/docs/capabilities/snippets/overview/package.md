@@ -126,7 +126,7 @@
     </tr>
     <tr>
       <td class="col-ecosystem" rowspan="2">Debian<div class="ecosystem-purl-types"><code>pkg:deb</code></div></td>
-      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code>, <code>*.ipk</code></div></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-dependency indicator"></td>
       <td class="col-files indicator"><span class="capability-icon-wrapper" data-tooltip="DpkgArchiveEntry.Files"><svg class="capability-icon"><use href="#icon-check"/></svg></span></td>

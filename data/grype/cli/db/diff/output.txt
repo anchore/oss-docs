@@ -1,13 +1,15 @@
-Diff two databases, showing packages with added, removed, and modified vulnerability matches
+Diff two databases, showing packages with changed vulnerability matches and changed vulnerability records.
+Changes are reported from the first database to the second, in the order provided (regardless of build time).
+When the second database is omitted, the installed database is used as the second.
 
 Usage:
-  grype db diff [flags] old_db_url_or_path [new_db_url_or_path]
+  grype db diff [flags] first_db_url_or_path [second_db_url_or_path]
 
 Flags:
   -h, --help            help for diff
   -o, --output string   format to display results (available=[text, json]) (default "text")
-      --packages        only include packages
-      --vulns           only include vulnerabilities
+      --packages        only include the package diff (--packages=false excludes it)
+      --vulns           only include the vulnerability diff (--vulns=false excludes it)
 
 Global Flags:
   -c, --config stringArray    grype configuration file(s) to use

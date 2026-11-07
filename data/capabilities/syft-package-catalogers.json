@@ -3523,7 +3523,8 @@
         {
           "method": "glob",
           "criteria": [
-            "**/*.deb"
+            "**/*.deb",
+            "**/*.ipk"
           ],
           "package_types": [
             "deb"
