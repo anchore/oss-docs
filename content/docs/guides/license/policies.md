@@ -43,12 +43,13 @@ If no configuration is found, Grant uses a deny-all default.
 
 ## Policy options
 
-| Option                  | Type       | Default | Description                   |
-| ----------------------- | ---------- | ------- | ----------------------------- |
-| `allow`                 | `string[]` | `[]`    | License patterns to permit    |
-| `ignore-packages`       | `string[]` | `[]`    | Package patterns to skip      |
-| `require-license`       | `bool`     | `true`  | Deny packages with no license |
-| `require-known-license` | `bool`     | `false` | Deny non-SPDX licenses        |
+| Option                      | Type       | Default | Description                   |
+| --------------------------- | ---------- | ------- | ----------------------------- |
+| `allow`                     | `string[]` | `[]`    | License patterns to permit    |
+| `ignore-packages`           | `string[]` | `[]`    | Package patterns to skip      |
+| `require-license`           | `bool`     | `true`  | Deny packages with no license |
+| `require-known-license`     | `bool`     | `false` | Deny non-SPDX licenses        |
+| `ignore-concluded-licenses` | `bool`     | `false` | Ignore concluded licenses     |
 
 ### `allow`
 
@@ -95,6 +96,23 @@ require-known-license: true
 ```
 
 This catches packages with unusual license declarations like "See LICENSE file" or custom proprietary licenses that need review.
+
+### `ignore-concluded-licenses`
+
+An SBOM can record two kinds of license for a package:
+
+- A **declared** license is what the package states about itself, for example in its package metadata.
+- A **concluded** license is what a scanner worked out, for example by matching the text of a license file against known licenses.
+
+By default, Grant evaluates both kinds the same way. A concluded license is a best match, so it can be wrong. When `true`, Grant ignores concluded licenses and only lists and evaluates declared licenses.
+
+```yaml
+ignore-concluded-licenses: true
+```
+
+A package that only has concluded licenses is then treated as a package with no license, so `require-license` decides whether it passes.
+
+This option applies to `grant check` and `grant list`. It works when Grant scans a container image or directory itself, and with SPDX and Syft JSON SBOMs. CycloneDX SBOMs do not tell Grant which licenses are concluded, so the option has no effect on them.
 
 ## Example policies
 
