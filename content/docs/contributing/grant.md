@@ -139,6 +139,7 @@ Contributions to CLI features, command behavior, or user interface improvements 
 
 **Understanding the Codebase**
 
+- [Architecture]({{< relref "/docs/architecture/grant" >}}) - Learn about target resolution, license expression handling, and policy evaluation
 - [Grant API Reference](https://pkg.go.dev/github.com/anchore/grant) - Explore the public Go API, type definitions, and function signatures
 
 **Contributing Your Work**
