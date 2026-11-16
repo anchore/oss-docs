@@ -117,7 +117,7 @@ This option applies to `grant check` and `grant list`. What it ignores depends o
 
 - **Container images and directories that Grant scans itself**: every license that Grant reads from a license file is concluded. That is the only license source for Go modules, and a common one for Debian packages and Java archives, so those packages can lose all of their licenses.
 
-Grant logs a warning with the number of licenses it ignored and the number of packages left with no license.
+With `--verbose`, Grant logs the number of licenses it ignored and the number of packages left with no license.
 
 ## Example policies
 
