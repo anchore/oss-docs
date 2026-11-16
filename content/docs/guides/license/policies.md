@@ -99,20 +99,28 @@ This catches packages with unusual license declarations like "See LICENSE file" 
 
 ### `ignore-concluded-licenses`
 
-An SBOM can record two kinds of license for a package:
+A software bill of materials (SBOM) can record two kinds of license for a package:
 
 - A **declared** license is what the package states about itself, for example in its package metadata.
-- A **concluded** license is what a scanner worked out, for example by matching the text of a license file against known licenses.
+- A **concluded** license is what a scanner or the author of the SBOM determined, for example by matching the text of a license file against known licenses.
 
-By default, Grant evaluates both kinds the same way. A concluded license is a best match, so it can be wrong. When `true`, Grant ignores concluded licenses and only lists and evaluates declared licenses.
+By default, Grant evaluates both kinds the same way. A concluded license that comes from matching license text is a best match, so it can be wrong. When `true`, Grant ignores concluded licenses and only lists and evaluates declared licenses.
 
 ```yaml
 ignore-concluded-licenses: true
+require-license: true
 ```
 
-A package that only has concluded licenses is then treated as a package with no license, so `require-license` decides whether it passes.
+Grant treats a package that only has concluded licenses as a package with no license, so `require-license` decides whether it passes. Set `require-license: true` next to this option. A config file that leaves `require-license` out allows packages with no license, so a package that Grant denied for a concluded license can pass.
 
-This option applies to `grant check` and `grant list`. It works when Grant scans a container image or directory itself, and with SPDX and Syft JSON SBOMs. CycloneDX SBOMs do not tell Grant which licenses are concluded, so the option has no effect on them.
+This option applies to `grant check` and `grant list`. What it ignores depends on where the licenses come from:
+
+- **Container images and directories that Grant scans itself**: every license that Grant reads from a license file is concluded. That is the only license source for Go modules, and a common one for Debian packages and Java archives, so those packages can lose all of their licenses.
+- **SPDX SBOMs**: Grant ignores every `licenseConcluded` value, including one that a person set to correct the declared license.
+- **Syft JSON SBOMs**: Grant ignores every license with the type `concluded`.
+- **CycloneDX SBOMs**: Grant reads every license as declared, so the option has no effect on them.
+
+Grant logs a warning with the number of licenses it ignored and the number of packages left with no license.
 
 ## Example policies
 
