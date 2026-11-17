@@ -62,7 +62,7 @@ allow:
   - CC0-* # Matches CC0-1.0
 ```
 
-A package passes if **any** of its licenses matches the allow list. With an empty allow list, all licenses are denied.
+A package passes only if every one of its licenses is allowed. For a license written as an SPDX expression, `OR` passes when either side is allowed, and `AND` needs both sides. With an empty allow list, all licenses are denied.
 
 ### `ignore-packages`
 
