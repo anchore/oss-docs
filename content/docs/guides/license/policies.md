@@ -43,12 +43,13 @@ If no configuration is found, Grant uses a deny-all default.
 
 ## Policy options
 
-| Option                  | Type       | Default | Description                   |
-| ----------------------- | ---------- | ------- | ----------------------------- |
-| `allow`                 | `string[]` | `[]`    | License patterns to permit    |
-| `ignore-packages`       | `string[]` | `[]`    | Package patterns to skip      |
-| `require-license`       | `bool`     | `true`  | Deny packages with no license |
-| `require-known-license` | `bool`     | `false` | Deny non-SPDX licenses        |
+| Option                      | Type       | Default | Description                   |
+| --------------------------- | ---------- | ------- | ----------------------------- |
+| `allow`                     | `string[]` | `[]`    | License patterns to permit    |
+| `ignore-packages`           | `string[]` | `[]`    | Package patterns to skip      |
+| `require-license`           | `bool`     | `true`  | Deny packages with no license |
+| `require-known-license`     | `bool`     | `false` | Deny non-SPDX licenses        |
+| `ignore-concluded-licenses` | `bool`     | `false` | Ignore concluded licenses     |
 
 ### `allow`
 
@@ -95,6 +96,28 @@ require-known-license: true
 ```
 
 This catches packages with unusual license declarations like "See LICENSE file" or custom proprietary licenses that need review.
+
+### `ignore-concluded-licenses`
+
+A software bill of materials (SBOM) can record two kinds of license for a package:
+
+- A **declared** license is what the package states about itself, for example in its package metadata.
+- A **concluded** license is when a scanner or the author of the SBOM matches the text of a license file against known licenses.
+
+When `true`, Grant ignores concluded licenses and only lists and evaluates declared licenses.
+
+```yaml
+ignore-concluded-licenses: true
+require-license: true
+```
+
+Set `require-license: true` next to this option. A config file that leaves `require-license` out allows packages with no license.
+
+This option applies to `grant check` and `grant list`. What it ignores depends on where the licenses come from:
+
+- **Container images and directories that Grant scans itself**: every license that Grant reads from a license file is concluded. That is the only license source for Go modules, and a common one for Debian packages and Java archives, so those packages can lose all of their licenses.
+
+With `--verbose`, Grant logs the number of licenses it ignored and the number of packages left with no license.
 
 ## Example policies
 
