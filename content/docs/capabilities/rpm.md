@@ -19,6 +19,10 @@ sidebar_badge = "redhat+"
 
 ### Operating systems
 
+CBL-Mariner was renamed Azure Linux with the 3.0 release. Both use the
+`mariner` Vunnel provider, but Azure Linux 3.0 and CBL-Mariner 1.0/2.0 use
+different OVAL feeds, as reflected in the data source links below.
+
 {{< readfile file="/content/docs/capabilities/snippets/ecosystem/rpm/os.md" >}}
 
 ## Next steps
