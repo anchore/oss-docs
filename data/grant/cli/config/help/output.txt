@@ -21,6 +21,7 @@ ignore-packages: []
 # Policy enforcement options
 require-license: true # When true, deny packages with no detected licenses
 require-known-license: false # When true, deny non-SPDX / unparsable licenses
+ignore-concluded-licenses: false # When true, ignore concluded licenses and only consider declared licenses
 
 # ============================================================================
 # COMMAND-SPECIFIC OPTIONS

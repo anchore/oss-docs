@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <tr>
-      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code></div></td>
+      <td class="col-cataloger"><div class="cataloger-name">deb-archive-cataloger</div><div class="evidence-patterns"><code>*.deb</code>, <code>*.ipk</code></div></td>
       <td class="col-purl-type"><code>pkg:deb</code></td>
       <td class="col-license indicator"><svg class="capability-icon"><use href="#icon-check"/></svg></td>
       <td class="col-depth value"></td>
